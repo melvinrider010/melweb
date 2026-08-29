@@ -1,0 +1,352 @@
+[
+  {
+    "id": "fac_src_01",
+    "name": "Mrs. E Gloriya Priyadarshini",
+    "designation": "Head of the Department",
+    "department": "Computer Applications (BCA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bca/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bca/."
+  },
+  {
+    "id": "fac_src_02",
+    "name": "Mrs. Syeda Masarath",
+    "designation": "Assistant Professor",
+    "department": "Computer Applications (BCA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bca/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bca/."
+  },
+  {
+    "id": "fac_src_03",
+    "name": "Ms. Archana A",
+    "designation": "Assistant Professor",
+    "department": "Computer Applications (BCA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bca/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bca/."
+  },
+  {
+    "id": "fac_src_04",
+    "name": "Ms. J. Sandra Agnes",
+    "designation": "Assistant Professor",
+    "department": "Computer Applications (BCA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bca/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bca/."
+  },
+  {
+    "id": "fac_src_05",
+    "name": "Ms. LYDIA ANJALI.A",
+    "designation": "Assistant Professor",
+    "department": "Computer Applications (BCA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bca/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bca/."
+  },
+  {
+    "id": "fac_src_06",
+    "name": "Ms. HARSHITHA M",
+    "designation": "Assistant Professor",
+    "department": "Computer Applications (BCA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bca/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bca/."
+  },
+  {
+    "id": "fac_src_07",
+    "name": "Mr. Ajay Anthony G",
+    "designation": "Assistant Professor",
+    "department": "Computer Applications (BCA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bca/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bca/."
+  },
+  {
+    "id": "fac_src_08",
+    "name": "Ms. Priyanka MK",
+    "designation": "Assistant Professor",
+    "department": "Computer Applications (BCA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bca/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bca/."
+  },
+  {
+    "id": "fac_src_09",
+    "name": "Mr. Lenard p",
+    "designation": "Asst. Professor",
+    "department": "Computer Applications (BCA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bca/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bca/."
+  },
+  {
+    "id": "fac_src_10",
+    "name": "Ms. Judith",
+    "designation": "Asst. Professor",
+    "department": "Computer Applications (BCA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bca/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bca/."
+  },
+  {
+    "id": "fac_src_11",
+    "name": "Ms. Ayesha Siddiqa",
+    "designation": "Asst. Professor",
+    "department": "Computer Applications (BCA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bca/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bca/."
+  },
+  {
+    "id": "fac_src_12",
+    "name": "Ms. Prakruthi V",
+    "designation": "Asst. Professor",
+    "department": "Computer Applications (BCA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bca/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bca/."
+  },
+  {
+    "id": "fac_src_13",
+    "name": "Ms. Kusuma MV",
+    "designation": "Asst. Professor",
+    "department": "Computer Applications (BCA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bca/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bca/."
+  },
+  {
+    "id": "fac_src_14",
+    "name": "Mr. Anarghya Theoder",
+    "designation": "Asst. Professor",
+    "department": "Computer Applications (BCA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bca/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bca/."
+  },
+  {
+    "id": "fac_src_15",
+    "name": "Mr. Chandan Nandihal S BBA",
+    "designation": "HOD",
+    "department": "Business Administration (BBA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bba/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bba/."
+  },
+  {
+    "id": "fac_src_16",
+    "name": "Dr. Deepa V",
+    "designation": "Asst. Professor",
+    "department": "Business Administration (BBA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bba/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bba/."
+  },
+  {
+    "id": "fac_src_17",
+    "name": "Ms. Arshiya Khanum",
+    "designation": "Asst. Professor",
+    "department": "Business Administration (BBA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bba/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bba/."
+  },
+  {
+    "id": "fac_src_18",
+    "name": "Ms. Priyanka Olivera",
+    "designation": "Assistant Professor",
+    "department": "Business Administration (BBA)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bba/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bba/."
+  },
+  {
+    "id": "fac_src_19",
+    "name": "Mr. Matthew C MSW",
+    "designation": "Asst. Professor",
+    "department": "Social Work (BSW)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bsw/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bsw/."
+  },
+  {
+    "id": "fac_src_20",
+    "name": "Dr. NOOR MUBASHEER C A",
+    "designation": "Coordinator",
+    "department": "Social Work (BSW)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bsw/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bsw/."
+  },
+  {
+    "id": "fac_src_21",
+    "name": "Ms. P NANDANA",
+    "designation": "Assistant Professor",
+    "department": "Social Work (BSW)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bsw/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bsw/."
+  },
+  {
+    "id": "fac_src_22",
+    "name": "Dr. ROBIN K J",
+    "designation": "Assistant Professor",
+    "department": "Social Work (BSW)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bsw/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bsw/."
+  },
+  {
+    "id": "fac_src_23",
+    "name": "Mrs. SHIRLEY CYNTHIA ANTHONY",
+    "designation": "Assistant Professor",
+    "department": "Social Work (BSW)",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/bsw/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/bsw/."
+  },
+  {
+    "id": "fac_src_24",
+    "name": "Mr. Hanock A",
+    "designation": "Assistant Professor",
+    "department": "Computer Science",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/department-of-computer-science/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/department-of-computer-science/."
+  },
+  {
+    "id": "fac_src_25",
+    "name": "Ms. Hencieta Fernandes",
+    "designation": "Assistant Professor",
+    "department": "Computer Science",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/department-of-computer-science/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/department-of-computer-science/."
+  },
+  {
+    "id": "fac_src_26",
+    "name": "Ms. Amrutha Nair",
+    "designation": "Assistant Professor",
+    "department": "Computer Science",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/department-of-computer-science/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/department-of-computer-science/."
+  },
+  {
+    "id": "fac_src_27",
+    "name": "Ms. SUHAN POOVAIAH",
+    "designation": "HOD",
+    "department": "English",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/m-a-english/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/m-a-english/."
+  },
+  {
+    "id": "fac_src_28",
+    "name": "Ms. Sohan Pooviah",
+    "designation": "HOD",
+    "department": "English",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/m-a-english/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/m-a-english/."
+  },
+  {
+    "id": "fac_src_29",
+    "name": "Mr. William Joseph.J",
+    "designation": "Asst. Professor",
+    "department": "English",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/m-a-english/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/m-a-english/."
+  },
+  {
+    "id": "fac_src_30",
+    "name": "Mr. Arvind Kispotta",
+    "designation": "Asst. Professor",
+    "department": "English",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/m-a-english/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/m-a-english/."
+  },
+  {
+    "id": "fac_src_31",
+    "name": "Ms. Jenifer Priya M",
+    "designation": "Asst. Professor",
+    "department": "English",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/m-a-english/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/m-a-english/."
+  },
+  {
+    "id": "fac_src_32",
+    "name": "Mr. Johnson Arulraj",
+    "designation": "Asst. Professor",
+    "department": "English",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/m-a-english/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/m-a-english/."
+  },
+  {
+    "id": "fac_src_33",
+    "name": "Ms. Roopa Selveria J",
+    "designation": "Asst. Professor",
+    "department": "English",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/m-a-english/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/m-a-english/."
+  },
+  {
+    "id": "fac_src_34",
+    "name": "Mr. Mahesh Nayak M",
+    "designation": "Asst. Professor",
+    "department": "English",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/m-a-english/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/m-a-english/."
+  },
+  {
+    "id": "fac_src_35",
+    "name": "Ms. Danila Jessic O",
+    "designation": "Asst. Professor",
+    "department": "English",
+    "qualification": "Publicly Listed Faculty",
+    "sourceUrl": "https://stphilos.ac.in/m-a-english/",
+    "sourceVerified": true,
+    "profile": "Publicly listed faculty member on official source page https://stphilos.ac.in/m-a-english/."
+  }
+]

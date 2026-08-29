@@ -1,0 +1,18 @@
+[
+  {
+    "id": "log_01",
+    "user": "admin@stphilos.ac.in",
+    "action": "CREATE_SLIDER",
+    "module": "Sliders",
+    "details": "Created new hero slider 'Legacy of Academic Excellence'",
+    "timestamp": "2026-08-25 16:30:00"
+  },
+  {
+    "id": "log_02",
+    "user": "iqac@stphilos.ac.in",
+    "action": "UPLOAD_DOCUMENT",
+    "module": "IQAC",
+    "details": "Uploaded AQAR Report 2025-26 PDF",
+    "timestamp": "2026-08-25 16:32:15"
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "name": "St. Philomena's College (Autonomous)",
+  "tagline": "Knowledge Through Love",
+  "location": "Bannimantap, Mysuru - 570015, Karnataka, India",
+  "established": 1946,
+  "establishmentDate": "October 9, 1946",
+  "affiliation": "Affiliated to the University of Mysore",
+  "accreditation": "NAAC Cycle III — B++ Grade (2.84 CGPA, 2020)",
+  "historicalAccreditation": [
+    {
+      "cycle": "Cycle I",
+      "grade": "A+",
+      "year": 2004
+    },
+    {
+      "cycle": "Cycle II",
+      "grade": "A",
+      "year": 2014
+    },
+    {
+      "cycle": "Cycle III",
+      "grade": "B++",
+      "cgpa": 2.84,
+      "year": 2020
+    }
+  ],
+  "phone": "+91 821 2490728 / 4268800",
+  "email": "stphilos1951@gmail.com",
+  "website": "/",
+  "stats": {
+    "established": "1946",
+    "naacGrade": "Cycle III — B++ (2020)",
+    "affiliation": "University of Mysore",
+    "status": "Autonomous Institution"
+  },
+  "motto": "Caritas in Scientia (Love in Knowledge)",
+  "leadership": {
+    "rector": "Rev. Dr. Lourdu Prasad Joseph",
+    "rectorTitle": "Rector and Manager",
+    "principal": "Dr. Ravi J.D. Saldanha",
+    "principalTitle": "Principal",
+    "financeOfficer": "Rev. Fr. Roshan",
+    "financeTitle": "Financial Officer"
+  }
+}

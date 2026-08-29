@@ -1,0 +1,227 @@
+[
+  {
+    "code": "MSW",
+    "title": "Master of Social Work (MSW)",
+    "degree": "Postgraduate",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "Bachelor degree in any discipline with a minimum of 45% aggregate marks (40% for SC/ST/Cat-I candidates).",
+    "overview": "Specializations in Community Development, Medical & Psychiatric Social Work, and Human Resource Management (HRM). Includes intensive concurrent field work practice and block placement.",
+    "departments": [
+      "Social Work"
+    ],
+    "pdfLink": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+    "outcomes": "Prepares professional social workers for NGOs, healthcare institutions, corporate CSR, mental health centers, and community outreach organizations.",
+    "sourceUrl": "https://stphilos.ac.in/pg/",
+    "sourceVerified": true
+  },
+  {
+    "code": "MSC-CHEM",
+    "title": "M.Sc. Chemistry (Organic & General)",
+    "degree": "Postgraduate",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "B.Sc degree with Chemistry as a major/optional subject securing minimum 45% aggregate in Chemistry (40% for SC/ST).",
+    "overview": "Advanced curriculum in Organic Synthesis, Reaction Mechanisms, Spectroscopic Methods, Spectroscopy, Physical Chemistry, and Pharmaceutical Chemistry with state-of-the-art instrumentation lab.",
+    "departments": [
+      "Chemistry"
+    ],
+    "pdfLink": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+    "outcomes": "Equips graduates for careers in R&D laboratories, pharmaceutical companies, chemical industries, CSIR-NET research, and academia.",
+    "sourceUrl": "https://stphilos.ac.in/msc-chemistry/",
+    "sourceVerified": true
+  },
+  {
+    "code": "MSC-PHY",
+    "title": "M.Sc. Physics",
+    "degree": "Postgraduate",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "B.Sc degree with Physics and Mathematics as optional subjects securing minimum 45% aggregate in Physics.",
+    "overview": "Covers Quantum Mechanics, Classical Electrodynamics, Solid State Physics, Nuclear & Particle Physics, Statistical Mechanics, and Astrophysics with hands-on computational physics projects.",
+    "departments": [
+      "Physics"
+    ],
+    "pdfLink": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+    "outcomes": "Prepares students for GATE/NET competitive exams, ISRO/DRDO research assistantships, industrial optics, and doctoral programs.",
+    "sourceUrl": "https://stphilos.ac.in/pg/",
+    "sourceVerified": true
+  },
+  {
+    "code": "MSC-MATH",
+    "title": "M.Sc. Mathematics",
+    "degree": "Postgraduate",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "B.Sc degree with Mathematics as optional/major subject securing minimum 45% aggregate marks.",
+    "overview": "Rigorous training in Real & Complex Analysis, Abstract Algebra, Differential Equations, Topology, Numerical Analysis, and Functional Analysis.",
+    "departments": [
+      "Mathematics"
+    ],
+    "pdfLink": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+    "outcomes": "Develops analytical skills for data science, financial modeling, cryptography, actuarial sciences, and higher mathematics research.",
+    "sourceUrl": "https://stphilos.ac.in/pg/",
+    "sourceVerified": true
+  },
+  {
+    "code": "MSC-CS",
+    "title": "M.Sc. Computer Science",
+    "degree": "Postgraduate",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "B.Sc in Computer Science / BCA / B.Sc with Mathematics as one of the subjects with minimum 45% aggregate.",
+    "overview": "Focused on Artificial Intelligence, Machine Learning, Cloud Computing, Advanced Algorithms, Data Structures, Cyber Security, and Full-Stack Software Engineering.",
+    "departments": [
+      "Computer Science"
+    ],
+    "pdfLink": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+    "outcomes": "Prepares graduates for roles as AI Engineers, Software Architects, Cloud Solutions Specialists, and Systems Analysts.",
+    "sourceUrl": "https://stphilos.ac.in/msc-computer-science/",
+    "sourceVerified": true
+  },
+  {
+    "code": "MSC-BIOCHEM",
+    "title": "M.Sc. Biochemistry",
+    "degree": "Postgraduate",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "B.Sc with Biochemistry / Chemistry / Biotechnology / Microbiology / Life Sciences with minimum 45% aggregate.",
+    "overview": "Explores Enzymology, Clinical Biochemistry, Molecular Biology, Immunology, Biochemical Techniques, Structural Biology, and Bioinformatics.",
+    "departments": [
+      "Biotechnology & Biochemistry"
+    ],
+    "pdfLink": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+    "outcomes": "Prepares professionals for clinical diagnostic labs, biotech firms, clinical trials, and biological science research institutes.",
+    "sourceUrl": "https://stphilos.ac.in/msc-chemistry/",
+    "sourceVerified": true
+  },
+  {
+    "code": "MCOM",
+    "title": "Master of Commerce (M.Com)",
+    "degree": "Postgraduate",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "B.Com / BBA degree with minimum 45% aggregate marks from a recognized university.",
+    "overview": "Specialization in Advanced Corporate Accounting, Business Taxation, Financial Markets, Security Analysis, International Finance, and Corporate Governance.",
+    "departments": [
+      "Commerce"
+    ],
+    "pdfLink": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+    "outcomes": "Graduates excel in CA/CS professional paths, banking, investment management, corporate taxation, and financial auditing.",
+    "sourceUrl": "https://stphilos.ac.in/pg/",
+    "sourceVerified": true
+  },
+  {
+    "code": "MA-ENG",
+    "title": "M.A. English Literature",
+    "degree": "Postgraduate",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "BA degree with English as optional/major subject securing minimum 45% aggregate in English.",
+    "overview": "Covers British Literature, Postcolonial Studies, American Literature, Indian Writing in English, Literary Criticism & Theory, and Cultural Studies.",
+    "departments": [
+      "English"
+    ],
+    "pdfLink": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+    "outcomes": "Enables careers in publishing, journalism, content strategy, academic teaching, civil services, and literary research.",
+    "sourceUrl": "https://stphilos.ac.in/m-a-english/",
+    "sourceVerified": true
+  },
+  {
+    "code": "MA-ECON",
+    "title": "M.A. Economics",
+    "degree": "Postgraduate",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "BA / B.Sc degree with Economics as optional/major subject with minimum 45% aggregate.",
+    "overview": "Advanced Micro & Macroeconomics, Econometrics, Public Economics, Development Economics, International Trade, and Applied Economic Analysis.",
+    "departments": [
+      "Economics"
+    ],
+    "pdfLink": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+    "outcomes": "Prepares economists for policy research institutes, banking, economic advisory, data analytics, and government statistical services.",
+    "sourceUrl": "https://stphilos.ac.in/pg/",
+    "sourceVerified": true
+  },
+  {
+    "code": "MSC-CRIM",
+    "title": "M.Sc. Criminology and Forensic Science",
+    "degree": "Postgraduate",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "Bachelor degree in Science / Criminology / Law / Forensic Science / Medicine with minimum 45% aggregate.",
+    "overview": "Comprehensive training in Forensic Chemistry, Ballistics, Questioned Documents, Cyber Forensics, Criminal Law, Victimology, and Crime Scene Investigation.",
+    "departments": [
+      "Criminology & Forensic Science"
+    ],
+    "pdfLink": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+    "outcomes": "Qualifies students for positions in forensic science laboratories, law enforcement agencies, private investigation, and cyber crime units.",
+    "sourceUrl": "https://stphilos.ac.in/pg/",
+    "sourceVerified": true
+  },
+  {
+    "code": "MA-JMC",
+    "title": "M.A. Journalism & Mass Communication",
+    "degree": "Postgraduate",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "Bachelor degree in any discipline with minimum 45% aggregate marks.",
+    "overview": "Print Journalism, Broadcast Media, Digital Media Production, Advertising, Public Relations, Media Ethics, Development Communication, and Film Studies.",
+    "departments": [
+      "Journalism & Mass Communication"
+    ],
+    "pdfLink": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+    "outcomes": "Prepares reporters, editors, news anchors, digital media strategists, PR officers, and documentary filmmakers.",
+    "sourceUrl": "https://stphilos.ac.in/pg/",
+    "sourceVerified": true
+  },
+  {
+    "code": "MSC-PSY",
+    "title": "M.Sc. Psychology",
+    "degree": "Postgraduate",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "BA / B.Sc in Psychology or Bachelor degree in any discipline with Psychology as optional with minimum 45% aggregate.",
+    "overview": "Advanced Cognitive Psychology, Clinical Assessment, Psychotherapy, Organizational Psychology, Neuropsychology, and Counseling Interventions.",
+    "departments": [
+      "Psychology"
+    ],
+    "pdfLink": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+    "outcomes": "Prepares clinical counselors, HR behavioral specialists, school psychologists, and mental health consultants.",
+    "sourceUrl": "https://stphilos.ac.in/pg/",
+    "sourceVerified": true
+  },
+  {
+    "code": "MSC-FSN",
+    "title": "M.Sc. Food Science and Nutrition",
+    "degree": "Postgraduate",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "B.Sc in Food Science / Home Science / Nutrition / Biochemistry / Biotechnology with minimum 45% aggregate.",
+    "overview": "Food Chemistry, Clinical Nutrition, Food Processing & Preservation, Quality Control, Clinical Dietetics, and Food Safety Regulations.",
+    "departments": [
+      "Food Science & Nutrition"
+    ],
+    "pdfLink": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+    "outcomes": "Careers in food processing companies, hospital clinical nutrition, FSSAI auditing, and public health nutrition initiatives.",
+    "sourceUrl": "https://stphilos.ac.in/pg/",
+    "sourceVerified": true
+  },
+  {
+    "code": "MCA",
+    "title": "Master of Computer Applications (MCA)",
+    "degree": "Postgraduate (AICTE Approved)",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "BCA / B.Sc (CS/IT) or Graduate with Mathematics at 10+2 level with minimum 50% aggregate (45% for reserved categories).",
+    "overview": "AICTE & UGC approved program covering Enterprise Software Engineering, Database Systems, Web Technologies, Mobile App Development, DevOps, and Cloud Infrastructure.",
+    "departments": [
+      "Computer Science & Applications"
+    ],
+    "pdfLink": "/assets/documents/mandatory-disclosure/aicte-mandatory-disclosure-mca-mba.pdf",
+    "outcomes": "Produces senior software developers, full-stack engineers, cloud architects, and IT project managers.",
+    "sourceUrl": "https://stphilos.ac.in/msc-computer-science/",
+    "sourceVerified": true
+  },
+  {
+    "code": "MBA",
+    "title": "Master of Business Administration (MBA)",
+    "degree": "Postgraduate (AICTE Approved)",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "Bachelor degree in any discipline with minimum 50% aggregate marks (45% for reserved categories) and valid entrance test rank.",
+    "overview": "AICTE approved program with dual specializations in Finance, Marketing, Human Resource Management, and Business Analytics with corporate internships.",
+    "departments": [
+      "Management Studies (BBA/MBA)"
+    ],
+    "pdfLink": "/assets/documents/mandatory-disclosure/aicte-mandatory-disclosure-mca-mba.pdf",
+    "outcomes": "Prepares corporate executives, business managers, financial analysts, marketing directors, and entrepreneurs.",
+    "sourceUrl": "https://stphilos.ac.in/pg/",
+    "sourceVerified": true
+  }
+]

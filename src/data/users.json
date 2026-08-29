@@ -1,0 +1,23 @@
+[
+  {
+    "id": "usr_01",
+    "name": "Administrator",
+    "email": "admin@stphilos.ac.in",
+    "role": "SUPER_ADMIN",
+    "status": "Active"
+  },
+  {
+    "id": "usr_02",
+    "name": "IQAC Coordinator",
+    "email": "iqac@stphilos.ac.in",
+    "role": "IQAC_MANAGER",
+    "status": "Active"
+  },
+  {
+    "id": "usr_03",
+    "name": "Academic Editor",
+    "email": "academics@stphilos.ac.in",
+    "role": "ACADEMIC_MANAGER",
+    "status": "Active"
+  }
+]

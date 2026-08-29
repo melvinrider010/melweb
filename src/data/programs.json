@@ -1,0 +1,52 @@
+[
+  {
+    "code": "BCA",
+    "name": "Bachelor of Computer Applications",
+    "level": "Undergraduate",
+    "duration": "3 Years (6 Semesters) / 4 Years NEP Honors",
+    "department": "Computer Science & Applications",
+    "eligibility": "10+2 / PUC with Mathematics / Computer Science / Accountancy with minimum 45% marks.",
+    "outcomes": "Prepares graduates for careers in software development, cloud engineering, cybersecurity, and system design.",
+    "syllabiDoc": "/documents/syllabus/bca_nep_syllabus.pdf"
+  },
+  {
+    "code": "BCOM",
+    "name": "Bachelor of Commerce",
+    "level": "Undergraduate",
+    "duration": "3 Years (6 Semesters) / 4 Years NEP Honors",
+    "department": "Commerce & Management",
+    "eligibility": "10+2 / PUC Commerce or Science with minimum 45% marks.",
+    "outcomes": "Provides comprehensive mastery of financial accounting, GST laws, auditing, and corporate management.",
+    "syllabiDoc": "/documents/syllabus/bcom_nep_syllabus.pdf"
+  },
+  {
+    "code": "BSC-CS",
+    "name": "B.Sc Computer Science & Physics / Math",
+    "level": "Undergraduate",
+    "duration": "3 Years / 4 Years NEP",
+    "department": "Physical Sciences",
+    "eligibility": "10+2 / PUC Science with Physics & Mathematics.",
+    "outcomes": "Dual discipline expertise in computing algorithms, electronics, and mathematical modeling.",
+    "syllabiDoc": "/documents/syllabus/bsc_cs_syllabus.pdf"
+  },
+  {
+    "code": "MSC-CS",
+    "name": "Master of Science in Computer Science",
+    "level": "Postgraduate",
+    "duration": "2 Years (4 Semesters)",
+    "department": "Computer Science & Applications",
+    "eligibility": "BCA or B.Sc in Computer Science / IT with 50% aggregate marks.",
+    "outcomes": "Advanced research and practical specialization in Machine Learning, Distributed Systems, and Data Science.",
+    "syllabiDoc": "/documents/syllabus/msc_cs_syllabus.pdf"
+  },
+  {
+    "code": "MCOM",
+    "name": "Master of Commerce",
+    "level": "Postgraduate",
+    "duration": "2 Years (4 Semesters)",
+    "department": "Commerce & Management",
+    "eligibility": "B.Com / BBA degree with minimum 50% marks in aggregate.",
+    "outcomes": "Specialized education in International Finance, Advanced Corporate Accounting, and Business Research Methods.",
+    "syllabiDoc": "/documents/syllabus/mcom_syllabus.pdf"
+  }
+]

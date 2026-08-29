@@ -1,0 +1,65 @@
+[
+  {
+    "claim": "Establishment Year",
+    "value": 1946,
+    "source": "Official Institutional History (October 9, 1946)",
+    "sourceDate": "1946",
+    "status": "verified"
+  },
+  {
+    "claim": "Current NAAC Accreditation",
+    "value": "Cycle III \u2014 B++ Grade (2.94 CGPA, 2020)",
+    "source": "Official NAAC Certificate & College Publication 2025",
+    "sourceDate": "2020",
+    "status": "verified"
+  },
+  {
+    "claim": "Historical NAAC Cycle I Accreditation",
+    "value": "A+ Grade (2004)",
+    "source": "NAAC Cycle I Certificate",
+    "sourceDate": "2004",
+    "status": "verified"
+  },
+  {
+    "claim": "Affiliation",
+    "value": "Affiliated to the University of Mysore",
+    "source": "Official St. Philomena's College Portal",
+    "sourceDate": "2026",
+    "status": "verified"
+  },
+  {
+    "claim": "Autonomous Status",
+    "value": "Autonomous Institution",
+    "source": "UGC Autonomous Extension Approval",
+    "sourceDate": "2026",
+    "status": "verified"
+  },
+  {
+    "claim": "Current Leadership - Rector",
+    "value": "Rev. Dr. Lourdu Prasad",
+    "source": "Official St. Philomena's College Administration Page",
+    "sourceDate": "2026",
+    "status": "verified"
+  },
+  {
+    "claim": "Current Leadership - Principal",
+    "value": "Dr. Ravi J.D. Saldanha",
+    "source": "Official St. Philomena's College Administration Page",
+    "sourceDate": "2026",
+    "status": "verified"
+  },
+  {
+    "claim": "Unverified 3,000+ Active Students Statistic",
+    "value": "Removed from primary claims",
+    "source": "Audit Verification",
+    "sourceDate": "2026",
+    "status": "removed"
+  },
+  {
+    "claim": "Unverified Current A+ Rating Claim",
+    "value": "Replaced with Cycle III B++ (2020) verified record",
+    "source": "Audit Verification",
+    "sourceDate": "2026",
+    "status": "corrected"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "cat_01",
+    "name": "Campus & Quadrangle",
+    "slug": "campus"
+  },
+  {
+    "id": "cat_02",
+    "name": "Academic Events & Seminars",
+    "slug": "events"
+  },
+  {
+    "id": "cat_03",
+    "name": "Sports & Athletics",
+    "slug": "sports"
+  },
+  {
+    "id": "cat_04",
+    "name": "NCC & NSS Activities",
+    "slug": "ncc-nss"
+  }
+]

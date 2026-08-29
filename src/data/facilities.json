@@ -1,0 +1,101 @@
+[
+  {
+    "id": "fac_lib",
+    "name": "Central Digital Library & Resource Center",
+    "category": "Academic Support",
+    "tagline": "50,000+ Printed Volumes · INFLIBNET N-LIST · E-Journals",
+    "description": "Fully automated central library offering expansive reading rooms, online public access catalog (OPAC), digital manuscripts, research cubicles, and subscription to international journals.",
+    "image": "/assets/images/facilities/campus_library_wing.jpg",
+    "details": ["Computerized Circulation System", "Digital Reference Section", "INFLIBNET / N-LIST Remote Access", "Photocopying & Scanner Station"]
+  },
+  {
+    "id": "fac_sci",
+    "name": "Advanced Science & Biotechnology Complex",
+    "category": "Research & Labs",
+    "tagline": "UGC Recognized Research Laboratories",
+    "description": "State-of-the-art laboratory complex supporting undergraduate, postgraduate, and doctoral research in Biotechnology, Biochemistry, Microbiology, Physics, and Organic Chemistry.",
+    "image": "/assets/images/facilities/academics_science_lab.jpg",
+    "details": ["Instrumentation Facility", "Spectrophotometers & Centrifuges", "Tissue Culture Room", "Chemical Safety Equipment"]
+  },
+  {
+    "id": "fac_comp",
+    "name": "Central Computer Labs & IT Infrastructure",
+    "category": "Computing & Tech",
+    "tagline": "High-Speed Fiber Connectivity · 300+ Workstations",
+    "description": "Dedicated computer centers equipped with modern desktop workstations, licensed software development suites, cloud programming tools, and high-speed campus fiber Wi-Fi.",
+    "image": "/assets/images/facilities/academic_lab.jpg",
+    "details": ["High-Speed Dedicated Leased Line", "Linux & Windows Systems", "DBMS & AI Simulation Tools", "Campus-Wide Wi-Fi"]
+  },
+  {
+    "id": "fac_biz",
+    "name": "Commerce & Management Business Lab",
+    "category": "Professional Labs",
+    "tagline": "Stock Market Simulation · Corporate Case Study Desk",
+    "description": "Interactive business laboratory designed for Commerce and Management scholars to gain practical insights into stock exchange trading, GST filling, financial software, and corporate filing.",
+    "image": "/assets/images/banners/hero_campus_main.jpg",
+    "details": ["Stock Exchange Live Feeds Desk", "Tally & ERP Software Training", "Case Study Discussion Rooms", "Taxation Simulation Tools"]
+  },
+  {
+    "id": "fac_audi",
+    "name": "Postgraduate Conference Hall & Auditorium",
+    "category": "Events & Culture",
+    "tagline": "Acoustic Seating · Sound & Projection Systems",
+    "description": "Spacious auditorium and air-conditioned seminar halls hosting national conferences, guest lectures, cultural festivals, inter-collegiate fests, and convocation ceremonies.",
+    "image": "/assets/images/facilities/campus_auditorium.jpg",
+    "details": ["1000+ Seating Capacity", "Surround Audio System", "Digital LED Video Wall", "Stage & Green Rooms"]
+  },
+  {
+    "id": "fac_chap",
+    "name": "Campus Chapel",
+    "category": "Spiritual & Ethics",
+    "tagline": "Established 1946 · Quiet Prayer & Spiritual Solace",
+    "description": "Historic, serene chapel situated at the center of the campus quadrangle, providing a tranquil sanctuary for prayer, quiet reflection, and spiritual nourishment.",
+    "image": "/assets/images/campus/intro_heritage_building.jpg",
+    "details": ["Daily Morning Prayer Services", "Inter-faith Meditation Sessions", "Peaceful Architectural Ambience"]
+  },
+  {
+    "id": "fac_sports",
+    "name": "Indoor Stadium & Sports Infrastructure",
+    "category": "Sports & Fitness",
+    "tagline": "Badminton Courts · Gym · Multi-Sport Grounds",
+    "description": "Comprehensive sports infrastructure including a spacious indoor stadium with wooden badminton courts, table tennis, gymnasium, and expansive outdoor grounds for cricket, football, and athletics.",
+    "image": "/assets/images/facilities/student_life_campus.jpg",
+    "details": ["Wooden Floor Indoor Badminton Courts", "Fitness & Weight Training Gym", "Full-Size Athletics Track", "Inter-Collegiate Sports Support"]
+  },
+  {
+    "id": "fac_hostel_g",
+    "name": "St. Philomena's Girls Hostel",
+    "category": "Accommodation",
+    "tagline": "Secure Campus Living · Resident Warden Supervision",
+    "description": "On-campus residential facility offering comfortable rooms, hygienic mess dining, 24/7 security surveillance, study halls, and recreational lounges for female scholars.",
+    "image": "/assets/images/campus/about_building.jpg",
+    "details": ["24/7 Security & CCTV Coverage", "Hygienic Mess & Solar Water Heaters", "Wi-Fi Enabled Rooms", "Resident Warden Care"]
+  },
+  {
+    "id": "fac_hostel_b",
+    "name": "St. Philomena's Boys Hostel",
+    "category": "Accommodation",
+    "tagline": "Spacious Rooms · Sports & Mess Facilities",
+    "description": "Residential hall providing safe and structured living for outstation male students with nutritious dining, study areas, and direct access to campus sports grounds.",
+    "image": "/assets/images/campus/campus_quadrangle.jpg",
+    "details": ["Spacious Quad-Sharing Rooms", "Nutritious Vegetarian & Non-Veg Mess", "Sports Equipment Access", "Study Rooms"]
+  },
+  {
+    "id": "fac_bank",
+    "name": "Bank Branch & 24/7 ATM Facility",
+    "category": "Campus Amenities",
+    "tagline": "Nationalized Bank Desk · On-Campus Banking",
+    "description": "On-campus full-fledged bank branch and 24/7 ATM machine providing hassle-free fee payments, scholarship withdrawals, and everyday banking services for students and staff.",
+    "image": "/assets/images/banners/hero_campus.jpg",
+    "details": ["Direct Fee Payment Counter", "24-Hour ATM Machine", "Student Savings Account Support"]
+  },
+  {
+    "id": "fac_ncc",
+    "name": "NCC (Army & Naval Wings) & NSS Units",
+    "category": "Outreach & Service",
+    "tagline": "Character Building · Discipline · Community Service",
+    "description": "Active National Cadet Corps (Army & Naval units) and National Service Scheme (NSS) divisions conducting Republic Day parades, social camps, blood donation drives, and disaster relief training.",
+    "image": "/assets/images/events/event_national_seminar.jpg",
+    "details": ["Annual Training Camps (ATC)", "Naval Firing & Sailing Practice", "Village Adoption Programs", "Blood Donation Camps"]
+  }
+]

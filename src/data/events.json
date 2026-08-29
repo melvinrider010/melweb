@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ne-001",
+    "type": "Notice",
+    "title": "Autonomous End-Semester Examination Time Table 2026",
+    "date": "2026-08-20",
+    "category": "Examinations",
+    "summary": "The official timetable for UG & PG End-Semester Examinations has been published.",
+    "link": "/documents"
+  },
+  {
+    "id": "ne-002",
+    "type": "Event",
+    "title": "National Conference on Higher Education & Innovation",
+    "date": "2026-09-15",
+    "category": "Seminars & Conferences",
+    "summary": "Organized by the Department of Computer Science & Applications in association with IQAC.",
+    "link": "/news-events"
+  },
+  {
+    "id": "ne-003",
+    "type": "Announcement",
+    "title": "Admissions Open for UG & PG Programs 2026-27",
+    "date": "2026-08-01",
+    "category": "Admissions",
+    "summary": "Applications are invited for BA, B.Sc, B.Com, BCA, BBA, M.Sc, M.Com, and MA courses.",
+    "link": "/admissions"
+  },
+  {
+    "id": "ne-004",
+    "type": "News",
+    "title": "St. Philomena's College NAAC Cycle III Audit Reports",
+    "date": "2026-07-25",
+    "category": "Accreditation",
+    "summary": "Annual Quality Assurance Reports (AQAR) and accreditation records are published for public compliance.",
+    "link": "/compliance"
+  }
+]

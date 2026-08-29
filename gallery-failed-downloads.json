@@ -1,0 +1,72 @@
+[
+  {
+    "album": "CAKE MAKING",
+    "album_slug": "cake-making",
+    "sourceUrl": "http://stphilos.ac.in/wp-content/uploads/2021/02/IMG_20210209_120149-1024x461.jpg",
+    "error": "HTTP 404",
+    "retryCount": 3
+  },
+  {
+    "album": "CONVOCATION DAY 2022",
+    "album_slug": "convocation-2022",
+    "sourceUrl": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9533.jpg",
+    "error": "HTTP 404",
+    "retryCount": 3
+  },
+  {
+    "album": "CONVOCATION DAY 2022",
+    "album_slug": "convocation-2022",
+    "sourceUrl": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9530.jpg",
+    "error": "HTTP 404",
+    "retryCount": 3
+  },
+  {
+    "album": "CONVOCATION DAY 2022",
+    "album_slug": "convocation-2022",
+    "sourceUrl": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9529.jpg",
+    "error": "HTTP 404",
+    "retryCount": 3
+  },
+  {
+    "album": "CONVOCATION DAY 2022",
+    "album_slug": "convocation-2022",
+    "sourceUrl": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9528.jpg",
+    "error": "HTTP 404",
+    "retryCount": 3
+  },
+  {
+    "album": "CONVOCATION DAY 2022",
+    "album_slug": "convocation-2022",
+    "sourceUrl": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9539.jpg",
+    "error": "HTTP 404",
+    "retryCount": 3
+  },
+  {
+    "album": "CONVOCATION DAY 2022",
+    "album_slug": "convocation-2022",
+    "sourceUrl": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9525.jpg",
+    "error": "HTTP 404",
+    "retryCount": 3
+  },
+  {
+    "album": "CONVOCATION DAY 2022",
+    "album_slug": "convocation-2022",
+    "sourceUrl": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9510.jpg",
+    "error": "HTTP 404",
+    "retryCount": 3
+  },
+  {
+    "album": "CONVOCATION DAY 2022",
+    "album_slug": "convocation-2022",
+    "sourceUrl": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9503.jpg",
+    "error": "HTTP 404",
+    "retryCount": 3
+  },
+  {
+    "album": "CONVOCATION DAY 2022",
+    "album_slug": "convocation-2022",
+    "sourceUrl": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9501.jpg",
+    "error": "HTTP 404",
+    "retryCount": 3
+  }
+]

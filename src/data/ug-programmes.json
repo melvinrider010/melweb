@@ -1,0 +1,128 @@
+[
+  {
+    "code": "BCOM",
+    "title": "Bachelor of Commerce (B.Com)",
+    "duration": "3 Years / 4 Years (NEP 2020 Honours)",
+    "eligibility": "Pass in 10+2 / Pre-University Examination in Commerce or Science stream.",
+    "overview": "Comprehensive program covering Accounting, Corporate Finance, Taxation, Auditing, and Business Law.",
+    "departments": [
+      "Commerce & Accountancy",
+      "Corporate Finance"
+    ],
+    "sourceUrl": "https://stphilos.ac.in/b-com/",
+    "sourceVerified": true
+  },
+  {
+    "code": "BSC",
+    "title": "Bachelor of Science (B.Sc)",
+    "duration": "3 Years / 4 Years (NEP 2020 Honours)",
+    "eligibility": "Pass in 10+2 / PU Examination with Physics, Chemistry, Mathematics / Biology subjects.",
+    "overview": "Discipline-specific combinations in Physical, Chemical, Life, and Mathematical Sciences.",
+    "departments": [
+      "Physics",
+      "Chemistry",
+      "Mathematics",
+      "Computer Science",
+      "Biochemistry",
+      "Biotechnology",
+      "Microbiology",
+      "Botany",
+      "Zoology"
+    ],
+    "sourceUrl": "https://stphilos.ac.in/b-sc/",
+    "sourceVerified": true
+  },
+  {
+    "code": "BCA",
+    "title": "Bachelor of Computer Applications (BCA)",
+    "duration": "3 Years / 4 Years (NEP 2020 Honours)",
+    "eligibility": "Pass in 10+2 / PU Examination with Mathematics / Computer Science / Accountancy.",
+    "overview": "Industry-aligned IT education covering Software Development, Database Systems, Cloud Computing, and Web Technologies.",
+    "departments": [
+      "Computer Science & Applications"
+    ],
+    "sourceUrl": "https://stphilos.ac.in/bca/",
+    "sourceVerified": true
+  },
+  {
+    "code": "BA",
+    "title": "Bachelor of Arts (BA)",
+    "duration": "3 Years / 4 Years (NEP 2020 Honours)",
+    "eligibility": "Pass in 10+2 / Pre-University Examination in any stream.",
+    "overview": "Multidisciplinary humanities education in Literature, Economics, History, Political Science, Sociology, and Journalism.",
+    "departments": [
+      "History",
+      "Economics",
+      "Political Science",
+      "Sociology",
+      "English",
+      "Kannada",
+      "Journalism"
+    ],
+    "sourceUrl": "https://stphilos.ac.in/b-a/",
+    "sourceVerified": true
+  },
+  {
+    "code": "BSW",
+    "title": "Bachelor of Social Work (BSW)",
+    "duration": "3 Years / 4 Years (NEP 2020 Honours)",
+    "eligibility": "Pass in 10+2 / Pre-University Examination in any discipline.",
+    "overview": "Professional social work training emphasizing community organization, field work, human rights, and social development.",
+    "departments": [
+      "Social Work"
+    ],
+    "sourceUrl": "https://stphilos.ac.in/bsw/",
+    "sourceVerified": true
+  },
+  {
+    "code": "BBA",
+    "title": "Bachelor of Business Administration (BBA)",
+    "duration": "3 Years / 4 Years (NEP 2020 Honours)",
+    "eligibility": "Pass in 10+2 / PU Examination with minimum 45% aggregate marks.",
+    "overview": "Focuses on Management Principles, Marketing, Human Resources, Financial Analysis, and Entrepreneurship.",
+    "departments": [
+      "Management Studies"
+    ],
+    "sourceUrl": "https://stphilos.ac.in/b-a/",
+    "sourceVerified": true
+  },
+  {
+    "code": "BTHM",
+    "title": "BBA Tourism & Hospitality Management",
+    "duration": "3 Years / 4 Years (NEP 2020 Honours)",
+    "eligibility": "Pass in 10+2 / PU Examination in any discipline.",
+    "overview": "Specialized degree in Travel Operations, Hotel Management, Event Operations, and International Tourism.",
+    "departments": [
+      "Tourism & Hospitality"
+    ],
+    "sourceUrl": "https://stphilos.ac.in/ug/",
+    "sourceVerified": true
+  },
+  {
+    "code": "BVOC",
+    "title": "Bachelor of Vocation (B.Voc)",
+    "duration": "3 Years",
+    "eligibility": "Pass in 10+2 / PU Examination or NSQF Level 4 certification.",
+    "overview": "Skill-intensive vocational degrees in Information Technology and Digital Media Production.",
+    "departments": [
+      "Vocational Studies"
+    ],
+    "sourceUrl": "https://stphilos.ac.in/ug/",
+    "sourceVerified": true
+  },
+  {
+    "code": "LANG",
+    "title": "Department of Languages & Literature",
+    "duration": "Course-aligned",
+    "eligibility": "Enrolled UG/PG Students.",
+    "overview": "Language foundation and elective literature courses in English, Kannada, Hindi, French, Malayalam, and Urdu.",
+    "departments": [
+      "English",
+      "Kannada",
+      "Hindi",
+      "French"
+    ],
+    "sourceUrl": "https://stphilos.ac.in/ug/",
+    "sourceVerified": true
+  }
+]

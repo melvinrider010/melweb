@@ -1,0 +1,293 @@
+[
+  {
+    "id": "bca",
+    "type": "ug",
+    "code": "BCA",
+    "title": "Bachelor of Computer Applications",
+    "displayLines": ["Bachelor of", "Computer Applications"],
+    "duration": "3 Years / 4 Years (NEP 2020)",
+    "description": "A technology-focused undergraduate programme designed to develop strong foundations in programming, software engineering, databases, and web applications.",
+    "link": "/academics"
+  },
+  {
+    "id": "bcom",
+    "type": "ug",
+    "code": "B.Com",
+    "title": "Bachelor of Commerce",
+    "displayLines": ["Bachelor of", "Commerce"],
+    "duration": "3 Years / 4 Years (NEP 2020)",
+    "description": "Comprehensive commercial degree covering corporate accounting, financial management, taxation laws, auditing, and modern banking operations.",
+    "link": "/academics"
+  },
+  {
+    "id": "bba",
+    "type": "ug",
+    "code": "BBA",
+    "title": "Bachelor of Business Administration",
+    "displayLines": ["Bachelor of", "Business Administration"],
+    "duration": "3 Years / 4 Years (NEP 2020)",
+    "description": "Prepares future managers and entrepreneurs through core training in organizational strategy, marketing, human resources, and business analytics.",
+    "link": "/academics"
+  },
+  {
+    "id": "bba-th",
+    "type": "ug",
+    "code": "BBA-TH",
+    "title": "BBA Tourism & Hospitality",
+    "displayLines": ["Tourism &", "Hospitality Mgmt"],
+    "duration": "3 Years / 4 Years (NEP 2020)",
+    "description": "Specialized managerial programme focusing on global travel operations, hotel management, eco-tourism, and hospitality services.",
+    "link": "/academics"
+  },
+  {
+    "id": "bsw",
+    "type": "ug",
+    "code": "BSW",
+    "title": "Bachelor of Social Work",
+    "displayLines": ["Bachelor of", "Social Work"],
+    "duration": "3 Years / 4 Years (NEP 2020)",
+    "description": "Professional community service degree integrating field education, social policy, human rights, NGO management, and social welfare.",
+    "link": "/academics"
+  },
+  {
+    "id": "bvoc",
+    "type": "ug",
+    "code": "B.Voc",
+    "title": "Bachelor of Vocation",
+    "displayLines": ["Bachelor of", "Vocation (IT / Media)"],
+    "duration": "3 Years",
+    "description": "Skill-intensive vocational degree in Digital Media Production, Information Technology, and Healthcare Services aligned with NSQF standards.",
+    "link": "/academics"
+  },
+  {
+    "id": "pcm",
+    "type": "ug",
+    "code": "PCM",
+    "title": "Physics • Chemistry • Mathematics",
+    "displayLines": ["Physics • Chemistry", "Mathematics"],
+    "duration": "3 Years / 4 Years (B.Sc)",
+    "description": "Core physical science B.Sc combination developing analytical problem-solving, theoretical physics, chemical principles, and advanced calculus.",
+    "link": "/academics"
+  },
+  {
+    "id": "cbz",
+    "type": "ug",
+    "code": "CBZ",
+    "title": "Chemistry • Botany • Zoology",
+    "displayLines": ["Chemistry • Botany", "Zoology"],
+    "duration": "3 Years / 4 Years (B.Sc)",
+    "description": "Classic life science B.Sc combination exploring organic chemistry, plant biotechnology, animal physiology, genetics, and ecology.",
+    "link": "/academics"
+  },
+  {
+    "id": "pmc",
+    "type": "ug",
+    "code": "PMC",
+    "title": "Physics • Mathematics • Computer Science",
+    "displayLines": ["Physics • Math", "Computer Science"],
+    "duration": "3 Years / 4 Years (B.Sc)",
+    "description": "Interdisciplinary physical & computational science degree preparing students for scientific computing, data analysis, and software systems.",
+    "link": "/academics"
+  },
+  {
+    "id": "bch",
+    "type": "ug",
+    "code": "BCH",
+    "title": "Biochemistry • Chemistry • Human Nutrition",
+    "displayLines": ["Biochemistry • Chem", "Human Nutrition"],
+    "duration": "3 Years / 4 Years (B.Sc)",
+    "description": "Applied biological science combination studying molecular biology, metabolic pathways, clinical biochemistry, and dietetics.",
+    "link": "/academics"
+  },
+  {
+    "id": "esp",
+    "type": "ug",
+    "code": "ESP",
+    "title": "Economics • Sociology • Political Science",
+    "displayLines": ["Economics • Sociology", "Political Science"],
+    "duration": "3 Years / 4 Years (B.A)",
+    "description": "Popular B.A humanities combination covering macroeconomic theory, social structures, public governance, and international relations.",
+    "link": "/academics"
+  },
+  {
+    "id": "ehp",
+    "type": "ug",
+    "code": "EHP",
+    "title": "Economics • History • Political Science",
+    "displayLines": ["Economics • History", "Political Science"],
+    "duration": "3 Years / 4 Years (B.A)",
+    "description": "Foundational humanities combination ideal for civil services preparation, constitutional studies, historical analysis, and economic policy.",
+    "link": "/academics"
+  },
+  {
+    "id": "ensp",
+    "type": "ug",
+    "code": "EnSP",
+    "title": "English • Sociology • Political Science",
+    "displayLines": ["English • Sociology", "Political Science"],
+    "duration": "3 Years / 4 Years (B.A)",
+    "description": "Liberal arts B.A combination blending English literature & critical writing with social research methods and political philosophy.",
+    "link": "/academics"
+  },
+  {
+    "id": "jps",
+    "type": "ug",
+    "code": "JPS",
+    "title": "Journalism • Psychology • Sociology",
+    "displayLines": ["Journalism • Psych", "Sociology"],
+    "duration": "3 Years / 4 Years (B.A)",
+    "description": "Modern behavioral & media studies B.A combination focusing on news reporting, human psychology, media ethics, and social dynamics.",
+    "link": "/academics"
+  },
+
+  {
+    "id": "mca",
+    "type": "pg",
+    "code": "MCA",
+    "title": "Master of Computer Applications",
+    "displayLines": ["Master of", "Computer", "Applications"],
+    "duration": "2 Years",
+    "description": "Advanced postgraduate IT degree specializing in full-stack software development, cloud architecture, artificial intelligence, and enterprise systems.",
+    "link": "/academics"
+  },
+  {
+    "id": "mba",
+    "type": "pg",
+    "code": "MBA",
+    "title": "Master of Business Administration",
+    "displayLines": ["Master of", "Business", "Administration"],
+    "duration": "2 Years",
+    "description": "AICTE-aligned executive management degree offering specializations in Finance, Marketing, HR, Business Analytics, and International Trade.",
+    "link": "/academics"
+  },
+  {
+    "id": "mcom",
+    "type": "pg",
+    "code": "M.Com",
+    "title": "Master of Commerce",
+    "displayLines": ["Master of", "Commerce"],
+    "duration": "2 Years",
+    "description": "Advanced commercial research degree in corporate financial reporting, security analysis, international finance, and quantitative techniques.",
+    "link": "/academics"
+  },
+  {
+    "id": "msc-cs",
+    "type": "pg",
+    "code": "M.Sc CS",
+    "title": "Master of Science in Computer Science",
+    "displayLines": ["M.Sc Computer", "Science"],
+    "duration": "2 Years",
+    "description": "Postgraduate computer science programme focusing on machine learning algorithms, cyber security, data science, and advanced computing theory.",
+    "link": "/academics"
+  },
+  {
+    "id": "msc-math",
+    "type": "pg",
+    "code": "M.Sc Math",
+    "title": "Master of Science in Mathematics",
+    "displayLines": ["M.Sc", "Mathematics"],
+    "duration": "2 Years",
+    "description": "Pure and applied postgraduate mathematics covering abstract algebra, real analysis, differential equations, and mathematical modeling.",
+    "link": "/academics"
+  },
+  {
+    "id": "msc-phy",
+    "type": "pg",
+    "code": "M.Sc Phys",
+    "title": "Master of Science in Physics",
+    "displayLines": ["M.Sc", "Physics"],
+    "duration": "2 Years",
+    "description": "Advanced postgraduate physics exploring quantum mechanics, condensed matter physics, nuclear physics, and experimental laboratory research.",
+    "link": "/academics"
+  },
+  {
+    "id": "msc-chem",
+    "type": "pg",
+    "code": "M.Sc Chem",
+    "title": "Master of Science in Chemistry",
+    "displayLines": ["M.Sc", "Chemistry"],
+    "duration": "2 Years",
+    "description": "Specialized postgraduate chemistry degree covering organic synthesis, inorganic spectroscopy, physical chemistry, and analytical instrumentation.",
+    "link": "/academics"
+  },
+  {
+    "id": "msc-biochem",
+    "type": "pg",
+    "code": "M.Sc Biochem",
+    "title": "Master of Science in Biochemistry",
+    "displayLines": ["M.Sc", "Biochemistry"],
+    "duration": "2 Years",
+    "description": "Molecular life science degree investigating enzymology, clinical biochemistry, genetic engineering, and pharmaceutical research.",
+    "link": "/academics"
+  },
+  {
+    "id": "msc-psych",
+    "type": "pg",
+    "code": "M.Sc Psych",
+    "title": "Master of Science in Psychology",
+    "displayLines": ["M.Sc", "Psychology"],
+    "duration": "2 Years",
+    "description": "Applied psychological science degree focusing on clinical psychology, counseling methodologies, psychometrics, and organizational behavior.",
+    "link": "/academics"
+  },
+  {
+    "id": "msc-food",
+    "type": "pg",
+    "code": "M.Sc Food",
+    "title": "M.Sc Food Science & Nutrition",
+    "displayLines": ["M.Sc Food Science", "& Nutrition"],
+    "duration": "2 Years",
+    "description": "Postgraduate programme in food processing, clinical nutrition, food safety quality control, and therapeutic dietetics.",
+    "link": "/academics"
+  },
+  {
+    "id": "msc-crim",
+    "type": "pg",
+    "code": "M.Sc Crim",
+    "title": "M.Sc Criminology & Forensic Science",
+    "displayLines": ["M.Sc Criminology", "& Forensic Science"],
+    "duration": "2 Years",
+    "description": "Pioneering postgraduate degree in crime scene investigation, forensic toxicology, cyber forensics, and criminal justice systems.",
+    "link": "/academics"
+  },
+  {
+    "id": "ma-eng",
+    "type": "pg",
+    "code": "M.A Eng",
+    "title": "Master of Arts in English",
+    "displayLines": ["M.A", "English"],
+    "duration": "2 Years",
+    "description": "Postgraduate literary degree in British, American, Indian English, and Postcolonial literatures, critical theory, and linguistics.",
+    "link": "/academics"
+  },
+  {
+    "id": "ma-econ",
+    "type": "pg",
+    "code": "M.A Econ",
+    "title": "Master of Arts in Economics",
+    "displayLines": ["M.A", "Economics"],
+    "duration": "2 Years",
+    "description": "Advanced postgraduate economics degree specializing in econometrics, public finance, development economics, and monetary policy.",
+    "link": "/academics"
+  },
+  {
+    "id": "ma-jmc",
+    "type": "pg",
+    "code": "M.A JMC",
+    "title": "M.A Journalism & Mass Comm",
+    "displayLines": ["M.A Journalism &", "Mass Comm"],
+    "duration": "2 Years",
+    "description": "Professional master's programme in print & broadcast journalism, digital media production, corporate communication, and media research.",
+    "link": "/academics"
+  },
+  {
+    "id": "msw",
+    "type": "pg",
+    "code": "MSW",
+    "title": "Master of Social Work",
+    "displayLines": ["Master of", "Social Work"],
+    "duration": "2 Years",
+    "description": "Postgraduate professional degree with specializations in Medical & Psychiatric Social Work, Community Development, and HR Management.",
+    "link": "/academics"
+  }
+]

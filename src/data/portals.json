@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Examination Results Portal",
+    "url": "/assets/documents/examinations/end-semester-examination-timetable-2026.pdf",
+    "category": "Examinations",
+    "icon": "GraduationCap"
+  },
+  {
+    "title": "Online Admissions System",
+    "url": "/assets/documents/examinations/end-semester-examination-timetable-2026.pdf",
+    "category": "Admissions",
+    "icon": "UserCheck"
+  },
+  {
+    "title": "Student Fee Payment Gateway",
+    "url": "/assets/documents/examinations/end-semester-examination-timetable-2026.pdf",
+    "category": "Finance",
+    "icon": "CreditCard"
+  },
+  {
+    "title": "Digital E-Content & LMS",
+    "url": "/assets/documents/examinations/end-semester-examination-timetable-2026.pdf",
+    "category": "Academics",
+    "icon": "BookOpen"
+  },
+  {
+    "title": "University of Mysore Portal",
+    "url": "https://uni-mysore.ac.in/",
+    "category": "University",
+    "icon": "ExternalLink"
+  },
+  {
+    "title": "UGC Official Portal",
+    "url": "https://www.ugc.gov.in/",
+    "category": "Government",
+    "icon": "Building2"
+  },
+  {
+    "title": "NAAC Portal",
+    "url": "https://www.naac.gov.in/",
+    "category": "Accreditation",
+    "icon": "Award"
+  },
+  {
+    "title": "National Scholarship Portal (NSP)",
+    "url": "https://scholarships.gov.in/",
+    "category": "Scholarships",
+    "icon": "Landmark"
+  }
+]

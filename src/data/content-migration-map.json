@@ -1,0 +1,74 @@
+[
+  {
+    "legacyUrl": "https://stphilos.ac.in/",
+    "newPath": "/"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/history/",
+    "newPath": "/about"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/vision-mission/",
+    "newPath": "/about"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/statutory-bodies/",
+    "newPath": "/about"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/ug/",
+    "newPath": "/academics"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/pg/",
+    "newPath": "/academics"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/syllabus-ug/",
+    "newPath": "/academics"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/syllabus-pg/",
+    "newPath": "/academics"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/nep-regulations/",
+    "newPath": "/academics"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/prospectus/",
+    "newPath": "/admissions"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/latest-time-table/",
+    "newPath": "/examinations"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/examination/results/",
+    "newPath": "/examinations"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/research-centre/",
+    "newPath": "/research"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/patent-and-publications/",
+    "newPath": "/research"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/facilities/",
+    "newPath": "/student-life"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/placement-cell/",
+    "newPath": "/student-life"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/mandatory-disclosure/",
+    "newPath": "/compliance"
+  },
+  {
+    "legacyUrl": "https://stphilos.ac.in/e-journal/",
+    "newPath": "/news-events"
+  }
+]

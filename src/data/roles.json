@@ -1,0 +1,18 @@
+[
+  {
+    "role": "SUPER_ADMIN",
+    "description": "Full System Access & Configuration"
+  },
+  {
+    "role": "IQAC_MANAGER",
+    "description": "NAAC, AQAR & Compliance Management"
+  },
+  {
+    "role": "ACADEMIC_MANAGER",
+    "description": "Programmes, Syllabus & Faculty Management"
+  },
+  {
+    "role": "EDITOR",
+    "description": "Notices, News & Events Management"
+  }
+]

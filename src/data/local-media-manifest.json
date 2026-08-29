@@ -1,0 +1,154 @@
+{
+  "hero": [
+    {
+      "name": "Campus Hero Video",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2025/03/Philos_website.mp4",
+      "local": "/media/hero/campus-hero.mp4"
+    },
+    {
+      "name": "Campus Hero Poster",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2023/08/IMG_20230721_151151-scaled.jpg",
+      "local": "/media/hero/campus-hero-poster.jpg"
+    }
+  ],
+  "management": [
+    {
+      "name": "Rev. Dr. Lourdu Prasad Joseph",
+      "role": "Rector & Manager",
+      "original": "https://stphilos.ac.in/about-us/",
+      "local": "/media/management/rector_lourdu_prasad.jpg"
+    },
+    {
+      "name": "Dr. Ravi J.D. Saldanha",
+      "role": "Principal",
+      "original": "https://stphilos.ac.in/about-us/",
+      "local": "/media/management/principal_ravi_saldanha.jpg"
+    },
+    {
+      "name": "Rev. Fr. Roshan S",
+      "role": "Finance Officer / Campus Bursar",
+      "original": "https://stphilos.ac.in/administration/",
+      "local": "/media/management/finance_officer_roshan.jpg"
+    },
+    {
+      "name": "Rev. Fr. Edward William Saldanha",
+      "role": "Secretary, MDES",
+      "original": "https://stphilos.ac.in/administration/",
+      "local": "/media/management/secretary_edward_saldanha.jpg"
+    },
+    {
+      "name": "Rev. Fr. Anand C",
+      "role": "Campus Administrator",
+      "original": "https://stphilos.ac.in/administration/",
+      "local": "/media/management/anand_c.jpg"
+    }
+  ],
+  "campus": [
+    {
+      "name": "Chapel",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2025/03/IMG_3448-2048x1365.jpg",
+      "local": "/media/gallery/campus/campus_chapel.jpg"
+    },
+    {
+      "name": "Admin Block",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2023/11/St-Philomenas-College-Mysore3.jpg",
+      "local": "/media/gallery/campus/campus_admin_block.jpg"
+    },
+    {
+      "name": "Science Block",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-08-at-17.27.11-1024x576.jpeg",
+      "local": "/media/gallery/campus/campus_science_block.jpg"
+    },
+    {
+      "name": "Library Block",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-08-at-17.27.10-1024x576.jpeg",
+      "local": "/media/gallery/campus/campus_library_block.jpg"
+    },
+    {
+      "name": "PG & Research Block",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2023/02/PG-Block.jpg",
+      "local": "/media/gallery/campus/campus_pg_research_block.jpg"
+    },
+    {
+      "name": "Indoor Stadium",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2023/11/WhatsApp-Image-2025-04-11-at-23.38.15-585x295.jpeg",
+      "local": "/media/gallery/campus/campus_indoor_stadium.jpg"
+    },
+    {
+      "name": "Campus Quadrangle",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2023/08/IMG_20230721_151151-scaled.jpg",
+      "local": "/media/gallery/campus/campus_quadrangle_main.jpg"
+    }
+  ],
+  "preciousMemories": [
+    {
+      "name": "Precious Memories 01 (Convocation & Graduation Day)",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2025/03/IMG_20250326_104733-585x295.jpg",
+      "local": "/media/gallery/precious-memories/precious-memories-01.jpg"
+    },
+    {
+      "name": "Precious Memories 02 (Academic Honor Ceremony)",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2023/11/IMG_6948-2048x1365.jpg",
+      "local": "/media/gallery/precious-memories/precious-memories-02.jpg"
+    },
+    {
+      "name": "Precious Memories 03 (Heritage Campus Celebration)",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2023/11/WhatsApp-Image-2025-04-11-at-23.38.15-1-585x295.jpeg",
+      "local": "/media/gallery/precious-memories/precious-memories-03.jpg"
+    },
+    {
+      "name": "Precious Memories 04 (Campus Life & Student Gathering)",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2025/02/image-20-585x295.png",
+      "local": "/media/gallery/precious-memories/precious-memories-04.png"
+    },
+    {
+      "name": "Precious Memories 05 (Cultural & Performing Arts)",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2023/11/1648641837_shutterstock_679438588-1.jpg",
+      "local": "/media/gallery/precious-memories/precious-memories-05.jpg"
+    },
+    {
+      "name": "Precious Memories 06 (Institutional Heritage Main Block)",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2023/02/IMG_20210225_114018.jpg",
+      "local": "/media/gallery/precious-memories/precious-memories-06.jpg"
+    },
+    {
+      "name": "Precious Memories 07 (College Entrance & Flagpole)",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2023/02/IMG_20210209_122559-scaled-1.jpg",
+      "local": "/media/gallery/precious-memories/precious-memories-07.jpg"
+    },
+    {
+      "name": "Precious Memories 08 (Campus Banner Aerial Perspective)",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2025/04/Philosbanner.jpg",
+      "local": "/media/gallery/precious-memories/precious-memories-08.jpg"
+    }
+  ],
+  "pictureGallery": [
+    {
+      "name": "80th Annual Athletic Day",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2025/03/IMG_20250326_104733.jpg",
+      "local": "/media/gallery/picture-gallery/athletic_day_2026.jpg"
+    },
+    {
+      "name": "Anti Dowry Initiative",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2023/11/IMG_6948.jpg",
+      "local": "/media/gallery/picture-gallery/anti_dowry_initiative.jpg"
+    },
+    {
+      "name": "Cooking Competition",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2025/02/image-20.png",
+      "local": "/media/gallery/picture-gallery/cooking_competition.jpg"
+    }
+  ],
+  "events": [
+    {
+      "name": "National Academic Seminar",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2025/03/IMG_3448.jpg",
+      "local": "/media/events/national_seminar.jpg"
+    },
+    {
+      "name": "Graduation Ceremony 2026",
+      "original": "https://stphilos.ac.in/wp-content/uploads/2025/04/Philosbanner-1024x183.jpg",
+      "local": "/media/events/graduation_day_2026.jpg"
+    }
+  ]
+}

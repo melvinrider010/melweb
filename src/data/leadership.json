@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Secretary, MDES",
+    "name": "Rev. Fr. Edward William Saldanha",
+    "designation": "Secretary, Mysore Diocesan Educational Society (MDES)",
+    "image": "/assets/images/leadership/edward-william-saldanha.jpg",
+    "objectPosition": "50% 12%",
+    "path": "/about?tab=mdes",
+    "source": "https://stphilos.ac.in/administration/"
+  },
+  {
+    "title": "Rector & Manager",
+    "name": "Rev. Dr. Lourdu Prasad Joseph",
+    "designation": "Rector and Manager, St. Philomena's Educational Institutions",
+    "image": "/assets/images/leadership/lourdu-prasad-joseph.jpg",
+    "objectPosition": "50% 18%",
+    "path": "/about?tab=leadership",
+    "source": "https://stphilos.ac.in/administration/"
+  },
+  {
+    "title": "Principal",
+    "name": "Dr. Ravi J.D. Saldanha",
+    "designation": "Principal, St. Philomena's College (Autonomous)",
+    "image": "/assets/images/leadership/ravi-jd-saldanha.jpg",
+    "objectPosition": "50% 15%",
+    "path": "/about?tab=leadership",
+    "source": "https://stphilos.ac.in/administration/"
+  },
+  {
+    "title": "Financial Officer",
+    "name": "Rev. Fr. Roshan",
+    "designation": "Financial Officer",
+    "image": "/assets/images/leadership/fr-roshan.jpg",
+    "objectPosition": "50% 20%",
+    "path": "/about?tab=leadership",
+    "source": "https://stphilos.ac.in/administration/"
+  },
+  {
+    "title": "Dean, Academic Affairs",
+    "name": "Prof. Anand C",
+    "designation": "Dean, Academic Affairs",
+    "image": "/assets/images/leadership/anand-c.jpg",
+    "objectPosition": "50% 20%",
+    "path": "/about?tab=leadership",
+    "source": "https://stphilos.ac.in/administration/"
+  },
+  {
+    "title": "Vice Principal",
+    "name": "Mr. Ronald Prakash Cutinha",
+    "designation": "Vice Principal (Administrator)",
+    "image": "/assets/images/leadership/ronald-prakash-cutinha.jpg",
+    "objectPosition": "50% 15%",
+    "path": "/about?tab=leadership",
+    "source": "https://stphilos.ac.in/administration/"
+  },
+  {
+    "title": "IQAC Coordinator",
+    "name": "Mr. A Thomas Gunaseelan",
+    "designation": "IQAC Coordinator",
+    "image": "/assets/images/leadership/thomas-gunaseelan.jpg",
+    "objectPosition": "50% 20%",
+    "path": "/about?tab=leadership",
+    "source": "https://stphilos.ac.in/administration/"
+  }
+]

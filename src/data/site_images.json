@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "src": "/assets/images/banners/hero_campus_main.jpg",
+    "alt": "St. Philomena's College Autonomous Campus & Main Heritage Quadrangle",
+    "width": 6240,
+    "height": 4160
+  },
+  "intro": {
+    "src": "/assets/images/campus/intro_heritage_building.jpg",
+    "alt": "St. Philomena's College Main Heritage Academic Block",
+    "width": 5202,
+    "height": 3465
+  },
+  "campusGrid": [
+    {
+      "src": "/assets/images/campus/campus_quadrangle.jpg",
+      "alt": "St. Philomena's Main Academic Quadrangle",
+      "title": "Main Academic Quadrangle"
+    },
+    {
+      "src": "/assets/images/facilities/campus_library_wing.jpg",
+      "alt": "Central Library & Information Science Wing",
+      "title": "Central Library & Information Resource Center"
+    },
+    {
+      "src": "/assets/images/facilities/campus_auditorium.jpg",
+      "alt": "PG Research Block & Conference Center",
+      "title": "Postgraduate & Research Block"
+    }
+  ],
+  "academics": {
+    "src": "/assets/images/facilities/academics_science_lab.jpg",
+    "alt": "St. Philomena's Advanced Science & Biotechnology Laboratories",
+    "width": 4608,
+    "height": 2076
+  },
+  "research": {
+    "src": "/assets/images/facilities/research_conference_hall.jpg",
+    "alt": "Research & Development Cell International Conference",
+    "width": 4608,
+    "height": 2076
+  },
+  "studentLife": {
+    "src": "/assets/images/facilities/student_life_campus.jpg",
+    "alt": "Student Activities, Sports Grounds & Cultural Clubs",
+    "width": 4608,
+    "height": 2076
+  },
+  "featuredEvent": {
+    "src": "/assets/images/events/event_national_seminar.jpg",
+    "alt": "St. Philomena's Annual Academic & Cultural Summit",
+    "title": "Annual Academic & Cultural Summit 2026"
+  },
+  "gallery": [
+    { "src": "/assets/images/gallery/gallery_real_1.jpg", "alt": "St. Philomena's Campus Event 1", "category": "events" },
+    { "src": "/assets/images/gallery/gallery_real_2.jpg", "alt": "St. Philomena's Campus Event 2", "category": "events" },
+    { "src": "/assets/images/gallery/gallery_real_3.jpg", "alt": "St. Philomena's Campus Event 3", "category": "events" },
+    { "src": "/assets/images/gallery/gallery_real_4.jpg", "alt": "St. Philomena's Campus Event 4", "category": "events" },
+    { "src": "/assets/images/gallery/gallery_real_5.jpg", "alt": "St. Philomena's Campus Event 5", "category": "events" },
+    { "src": "/assets/images/gallery/gallery_real_6.jpg", "alt": "St. Philomena's Campus Event 6", "category": "events" },
+    { "src": "/assets/images/gallery/gallery_real_7.jpg", "alt": "St. Philomena's Campus Event 7", "category": "other" },
+    { "src": "/assets/images/gallery/gallery_real_8.jpg", "alt": "St. Philomena's Campus Event 8", "category": "other" },
+    { "src": "/assets/images/gallery/gallery_real_9.jpg", "alt": "St. Philomena's Campus Event 9", "category": "other" }
+  ]
+}

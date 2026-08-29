@@ -1,0 +1,487 @@
+{
+  "_source": "https://stphilos.ac.in/",
+  "_auditDate": "2026-08-27",
+  "vision": "The holistic development of the youth to carve out a better world by imparting value-based quality education for global competencies.",
+  "mission": [
+    "To promote quality education, human values, research attitude, and ethical standard.",
+    "To create a healthy environment for academic excellence and overall personality development.",
+    "To foster global competencies, innovation, social responsibility, and scientific temper among youth.",
+    "To empower underprivileged and marginalized sections of society through inclusive education."
+  ],
+  "coreValues": [
+    {
+      "title": "Faith & Universal Brotherhood",
+      "desc": "Instilling moral integrity, spiritual values, and universal brotherhood."
+    },
+    {
+      "title": "Academic Excellence",
+      "desc": "Promoting rigorous scientific inquiry, critical thinking, and intellectual exploration."
+    },
+    {
+      "title": "Social Responsibility",
+      "desc": "Empowering students to serve the underprivileged and contribute actively to nation-building."
+    },
+    {
+      "title": "Environmental Stewardship",
+      "desc": "Fostering respect for the environment, sustainability, and green initiatives."
+    },
+    {
+      "title": "Global Competence",
+      "desc": "Equipping students with modern skills, research acumen, and ethical leadership."
+    }
+  ],
+  "coatOfArms": {
+    "motto": "Caritas in Scientia",
+    "mottoMeaning": "Love in Knowledge \u2014 derived from the Holy Father's maxim 'Caritas vestra magis ac magis abundet in scientia'.",
+    "history": "Before its foundation on October 9, 1946, the college received its motto from His Holiness the Pope: 'Caritas in Scientia' (Love in Knowledge). The seal features Saint Philomena, a Greek princess and virgin martyr discovered in May 1802 at the Catacombs of Priscilla.",
+    "image": "/assets/images/about/crest-stphilos.png",
+    "hdImage": "/assets/images/about/crest-hd.png",
+    "symbols": [
+      {
+        "symbol": "Anchor",
+        "meaning": "Symbol of HOPE and steadfast faith \u2014 similar to the Holy Cross symbolizing Faith in Christ."
+      },
+      {
+        "symbol": "Arrows",
+        "meaning": "Symbolizes the fortitude and endurance of Saint Philomena through trials."
+      },
+      {
+        "symbol": "Lilies",
+        "meaning": "Symbolizes pristine purity, moral integrity, and virtue."
+      },
+      {
+        "symbol": "Palm Branch",
+        "meaning": "Symbol of glorious victory, academic triumph, and spiritual martyrdom."
+      },
+      {
+        "symbol": "Whip",
+        "meaning": "Symbol of the scourge endured by Saint Philomena, standing for unwavering courage."
+      }
+    ]
+  },
+  "bishops": [
+    {
+      "name": "Most Rev. Dr. Rene Feuga",
+      "tenure": "1946\u20131964",
+      "role": "Founder Patron",
+      "description": "His Excellency, Rt. Rev. Dr. Rene Feuga, MEP, the first Bishop of Mysore, vacated his own episcopal mansion to make room for the first classrooms of St. Philomena's College on October 9, 1946. Together with Sri Jayachamarajendra Wodeyar, the Maharaja of Mysore, his vision laid the foundations of the premier higher education institution in Mysore region.",
+      "image": "/assets/images/bishops/rene-feuga.jpg",
+      "source": "https://stphilos.ac.in/former-bishops/"
+    },
+    {
+      "name": "Most Rev. Dr. Mathias Fernandes",
+      "tenure": "1964\u20131985",
+      "role": "Patron",
+      "description": "Bishop Mathias Fernandes spearheaded monumental infrastructure expansion, constructing the college auditorium in 1966 and the ground floor of the library block in 1981. It was during his tenure as Patron that the College celebrated its historic Silver Jubilee.",
+      "image": "/assets/images/bishops/mathias-fernandes.jpg",
+      "source": "https://stphilos.ac.in/former-bishops/"
+    },
+    {
+      "name": "Most Rev. Dr. Francis Michaelappa",
+      "tenure": "1987\u20131995",
+      "role": "Patron",
+      "description": "Most Rev. Dr. Francis Michaelappa guided the college through pivotal academic consolidations, fostering community outreach, moral education, and science laboratory modernizations.",
+      "image": "/assets/images/bishops/francis-michaelappa.jpg",
+      "source": "https://stphilos.ac.in/former-bishops/"
+    },
+    {
+      "name": "Most Rev. Dr. Joseph Roy",
+      "tenure": "1995\u20132003",
+      "role": "Patron & Chairman",
+      "description": "Rt. Rev. Dr. Joseph Roy, the first local Bishop of Mysore, oversaw the grand Golden Jubilee celebrations, the construction of the iconic Octagonal Chapel in memory of Bishop Feuga, the campus perimeter wall, three floors of the library block, and the installation of Computer Science, Microbiology, and Biotechnology labs.",
+      "image": "/assets/images/bishops/joseph-roy.jpg",
+      "source": "https://stphilos.ac.in/former-bishops/"
+    },
+    {
+      "name": "Most Rev. Dr. Thomas Anthony Vazhapilly",
+      "tenure": "2003\u20132017",
+      "role": "Patron & Chairman",
+      "description": "Under Bishop Thomas Anthony Vazhapilly, the college achieved Autonomous status in 2011, NAAC 'A+' accreditation with 3.58 CGPA, College with Potential for Excellence (2010), College of Excellence (2015), the Diamond Jubilee with President Dr. A.P.J. Abdul Kalam, and the monumental 1500-seat multi-purpose Indoor Stadium.",
+      "image": "/assets/images/bishops/thomas-anthony-vazhapilly.jpg",
+      "source": "https://stphilos.ac.in/former-bishops/"
+    }
+  ],
+  "principals": [
+    {
+      "num": "01",
+      "name": "Rev. Fr. C.A. Browne",
+      "qualification": "Principal",
+      "tenure": "1946\u20131948",
+      "description": "First Principal of St. Philomena's College, handpicked by Bishop Rene Feuga to establish the institution's academic foundation and rigorous traditions.",
+      "image": "/assets/images/principals/rev-fr-ca-browne.jpg",
+      "source": "https://stphilos.ac.in/about-us-2/principles/"
+    },
+    {
+      "num": "02",
+      "name": "Chevalier C.J. Varkey",
+      "qualification": "Principal",
+      "tenure": "1948\u20131951",
+      "description": "Renowned educationist, former Minister of Education in Madras Presidency, and Chevalier who established degree-level science courses.",
+      "image": "/assets/images/principals/chevalier-cj-varkey.jpg",
+      "source": "https://stphilos.ac.in/about-us-2/principles/"
+    },
+    {
+      "num": "03",
+      "name": "Rev. Dr. J.B. Freeman",
+      "qualification": "Principal",
+      "tenure": "1951\u20131952",
+      "description": "Distinguished academician who consolidated laboratory infrastructure and inter-collegiate university affiliations.",
+      "image": "/assets/images/principals/rev-dr-jb-freeman.jpg",
+      "source": "https://stphilos.ac.in/about-us-2/principles/"
+    },
+    {
+      "num": "04",
+      "name": "Rev. Fr. Audiau",
+      "qualification": "Principal",
+      "tenure": "1952\u20131960",
+      "description": "Dedicated French MEP missionary who led the college for eight transformative years, expanding humanities and science wings.",
+      "image": "/assets/images/principals/rev-fr-audiau.jpg",
+      "source": "https://stphilos.ac.in/about-us-2/principles/"
+    },
+    {
+      "num": "05",
+      "name": "Rev. Fr. N.T. Thomas",
+      "qualification": "Principal",
+      "tenure": "1960\u20131966",
+      "description": "Visionary administrator who planned the campus auditorium, sports fields, and introduced diverse subject combinations.",
+      "image": "/assets/images/principals/rev-fr-nt-thomas.jpg",
+      "source": "https://stphilos.ac.in/about-us-2/principles/"
+    },
+    {
+      "num": "06",
+      "name": "Rev. Fr. A. Fleury",
+      "qualification": "Principal",
+      "tenure": "1966\u20131971",
+      "description": "Inaugurated the College Auditorium in 1966 and celebrated the College Silver Jubilee, mentoring a generation of scholars.",
+      "image": "/assets/images/principals/rev-fr-a-fleury.png",
+      "source": "https://stphilos.ac.in/about-us-2/principles/"
+    },
+    {
+      "num": "07",
+      "name": "Rev. Fr. Frank D'Souza",
+      "qualification": "Principal",
+      "tenure": "1971\u20131977",
+      "description": "Spearheaded student discipline, cultural societies, NSS community wings, and modern pedagogical reforms.",
+      "image": "/assets/images/principals/rev-fr-frank-dsouza.png",
+      "source": "https://stphilos.ac.in/about-us-2/principles/"
+    },
+    {
+      "num": "08",
+      "name": "Rev. Fr. Thomas Vazhapilly",
+      "qualification": "Principal",
+      "tenure": "1977\u20131979",
+      "description": "Eminent botanist and professor who strengthened biological science laboratories and research herbariums.",
+      "image": "/assets/images/principals/rev-fr-thomas-vazhapilly.png",
+      "source": "https://stphilos.ac.in/about-us-2/principles/"
+    },
+    {
+      "num": "09",
+      "name": "Rev. Fr. Thomas Ezhanikat",
+      "qualification": "Principal",
+      "tenure": "1979\u20131980",
+      "description": "Scholar and educationist who guided the institution's transition towards modern multidisciplinary curricula.",
+      "image": "/assets/images/principals/rev-fr-thomas-ezhanikat.png",
+      "source": "https://stphilos.ac.in/about-us-2/principles/"
+    },
+    {
+      "num": "10",
+      "name": "Rev. Fr. Valerian D'Souza",
+      "qualification": "Principal",
+      "tenure": "1980\u20131992",
+      "description": "Dynamic leader for 12 years who constructed the central library building (1981) and expanded commerce and science departments.",
+      "image": "/assets/images/principals/rev-fr-valerian-dsouza.png",
+      "source": "https://stphilos.ac.in/about-us-2/principles/"
+    },
+    {
+      "num": "11",
+      "name": "Rev. Fr. Leslie Moras",
+      "qualification": "Principal",
+      "tenure": "1992\u20132015",
+      "description": "Longest serving Principal (23 years) who elevated St. Philomena's to Autonomy (2011), NAAC A+, CPE/CE status, international student diversity from 33 nations, Diamond Jubilee with President Dr. Kalam, and the Indoor Stadium.",
+      "image": "/assets/images/principals/rev-fr-leslie-moras.png",
+      "source": "https://stphilos.ac.in/about-us-2/principles/"
+    },
+    {
+      "num": "12",
+      "name": "Mr. M. Krishnegowda",
+      "qualification": "Principal",
+      "tenure": "2015\u20132017",
+      "description": "Accomplished academician, orator, and professor of Kannada who fostered cultural arts and postgraduate program development.",
+      "image": "/assets/images/principals/krishne-gowda.jpg",
+      "source": "https://stphilos.ac.in/about-us-2/principles/"
+    },
+    {
+      "num": "13",
+      "name": "Dr. Ruth Shantha Kumari T",
+      "qualification": "Principal",
+      "tenure": "2017\u20132021",
+      "description": "Distinguished scholar and administrator who championed UN Sustainable Development Goals conferences, research journals, and digital learning transformations.",
+      "image": "/assets/images/principals/dr-ruth-shantha-kumari.png",
+      "source": "https://stphilos.ac.in/about-us-2/principles/"
+    },
+    {
+      "num": "14",
+      "name": "Dr. Alphonsus D'souza",
+      "qualification": "Principal",
+      "tenure": "2021\u20132022",
+      "description": "Senior professor and academician who steered the institution during the NEP-2020 transition and post-pandemic academic resurgence.",
+      "image": "/assets/images/principals/dr-alphonsus-dsouza.png",
+      "source": "https://stphilos.ac.in/about-us-2/principles/"
+    }
+  ],
+  "mdes": {
+    "title": "Mysore Diocesan Educational Society (MDES)",
+    "regNo": "Registered Society registered under Karnataka Societies Registration Act",
+    "description": "Mysore Diocesan Educational Society (MDES) is a Registered Society constituted to administer, manage, and coordinate the effective, efficient, and smooth functioning of 130 institutions from Nursery to Postgraduate levels across the Catholic Diocese of Mysore (covering Mysore, Mandya, Chamarajanagar, and Kodagu districts).",
+    "president": "Most Rev. Dr. Francis Serrao SJ (Bishop of Mysore & President)",
+    "vicePresident": "Msgr. Alfred John Mendonca (Vicar General & Vice President)",
+    "secretary": "Rev. Fr. Edward William Saldanha (Secretary)",
+    "treasurer": "Rev. Fr. Naveen Kumar (Treasurer)",
+    "totalInstitutions": 130,
+    "objectives": [
+      "To promote quality education from kindergarten to postgraduate and research levels.",
+      "To foster moral character, civic discipline, and social consciousness in youth.",
+      "To establish institutions catering especially to rural, underprivileged, and minority communities.",
+      "To ensure ethical, transparent, and proactive institutional management across Karnataka."
+    ],
+    "source": "https://stphilos.ac.in/about-us-2/mdes/"
+  },
+  "governingBody": [
+    {
+      "role": "Chairperson",
+      "name": "Most Rev. Dr. Francis Serrao SJ",
+      "designation": "Bishop of Mysore and President, MDES"
+    },
+    {
+      "role": "Member",
+      "name": "Msgr. Alfred John Mendonca",
+      "designation": "Vicar General & Vice President of MDES"
+    },
+    {
+      "role": "Member",
+      "name": "Rev. Fr. Edward William Saldanha",
+      "designation": "Secretary, MDES"
+    },
+    {
+      "role": "Member",
+      "name": "Rev. Fr. Naveen Kumar",
+      "designation": "Treasurer, MDES"
+    },
+    {
+      "role": "Member",
+      "name": "Rev. Fr. Dr. Lourdu Prasad Joseph",
+      "designation": "Rector/Manager, St. Philomena's Educational Institutions, Mysuru"
+    },
+    {
+      "role": "Management Nominee (Educationist)",
+      "name": "Prof. N.S Rame Gowda",
+      "designation": "Former Vice Chancellor of KSOU"
+    },
+    {
+      "role": "Management Nominee",
+      "name": "Dr. Kennedy Andrew Thomas",
+      "designation": "Director, CEDBEC, Christ University, Bengaluru"
+    },
+    {
+      "role": "Government Nominee",
+      "name": "Ms. Prathima D S",
+      "designation": "Regional Joint Director for Collegiate Education, Mysuru"
+    },
+    {
+      "role": "University Nominee",
+      "name": "Prof. Anand D",
+      "designation": "BIMS, University of Mysore"
+    },
+    {
+      "role": "Teacher of the College",
+      "name": "Dr. Ruth Shantha Kumari T",
+      "designation": "Former Principal, St. Philomena's College"
+    },
+    {
+      "role": "Teacher of the College",
+      "name": "Mr. Ronald Prakash Cutinha",
+      "designation": "Vice Principal, St. Philomena's College"
+    },
+    {
+      "role": "Member Secretary",
+      "name": "Dr. Ravi J D Saldanha",
+      "designation": "Principal, St. Philomena's College"
+    }
+  ],
+  "leadershipMessages": {
+    "rector": {
+      "name": "Rev. Dr. Lourdu Prasad Joseph",
+      "title": "Rector and Manager",
+      "salutation": "Message from the Rector & Manager",
+      "image": "/assets/images/leadership/lourdu-prasad-joseph.jpg",
+      "quote": "St. Philomena's College established on October 9th, 1946 speaks volumes of its rich legacy, history and tradition. Now, 79 years young, traditional programmes coexist with contemporary courses, proliferating student strength and global competencies.",
+      "text": [
+        "St. Philomena's College established on October 9th, 1946 with the benediction of His Excellency Rene Feuga MEP, the Bishop of Mysore and inaugurated with the munificence and generosity of His Highness Sri Jayachamarajendra Wodeyar, the Maharaja of the then princely state of Mysore, the first private science college in Mysore region speaks for itself volumes of its rich legacy, history and tradition.",
+        "Now, 79 years young, traditional programmes coexist with contemporary courses, proliferating the student strength and infrastructure. The college boasts of 27 UG depts. and 13 post graduate departments, offering academic excellence to students from all walks of life.",
+        "May God bless all our faculty, staff, and students as they strive for excellence and love in knowledge."
+      ],
+      "source": "https://stphilos.ac.in/rectors-message-2/"
+    },
+    "principal": {
+      "name": "Dr. Ravi J.D. Saldanha",
+      "title": "Principal",
+      "salutation": "Message from the Principal",
+      "image": "/assets/images/leadership/ravi-jd-saldanha.jpg",
+      "quote": "It is my immense pleasure to welcome you to our website and it is my special joy to take over as the Principal of a seventy-nine-year-old institution. It is both a humbling experience and a matter of pride.",
+      "text": [
+        "It is my immense pleasure to welcome you to our website and it is my special joy to take over as the Principal of a seventy-nine-year-old institution. It is both a humbling experience and a matter of pride. This college is a living legacy of the magnificent foresight of our visionary predecessors.",
+        "They have played an important role in the all-round growth of the institution. Further, we have a multitude of gifts for which we are grateful: awesome heritage buildings, inspiring ex-teachers, dedicated faculty, committed non-teaching staff, illustrious students and of course our alumni who make St. Philomena's a citadel of learning.",
+        "I invite every student to explore their boundless potential and build a purposeful future at St. Philomena's College."
+      ],
+      "source": "https://stphilos.ac.in/principals-message/"
+    }
+  },
+  "administration": [
+    {
+      "id": "sec-mdes",
+      "name": "Rev. Fr. Edward William Saldanha",
+      "designation": "Secretary of MDES",
+      "role": "Management",
+      "imageUrl": "/media/gallery/picture-gallery/athletic_day_2026.jpg",
+      "localPath": "public/assets/images/leadership/edward-william-saldanha.jpg",
+      "assetPath": "/assets/images/leadership/edward-william-saldanha.jpg",
+      "source": "https://stphilos.ac.in/administration/",
+      "biography": "Secretary of the Mysore Diocesan Educational Society (MDES), providing executive leadership across diocesan institutions."
+    },
+    {
+      "id": "rector",
+      "name": "Rev. Dr. Lourdu Prasad Joseph",
+      "designation": "Rector and Manager",
+      "role": "Rector & Manager",
+      "imageUrl": "/media/gallery/picture-gallery/athletic_day_2026.jpg",
+      "localPath": "public/assets/images/leadership/lourdu-prasad-joseph.jpg",
+      "assetPath": "/assets/images/leadership/lourdu-prasad-joseph.jpg",
+      "source": "https://stphilos.ac.in/administration/",
+      "biography": "Rector and Manager of St. Philomena's Educational Institutions, guiding the academic, spiritual, and infrastructural growth of the college."
+    },
+    {
+      "id": "principal",
+      "name": "Dr. Ravi J.D. Saldanha",
+      "designation": "Principal",
+      "role": "Principal",
+      "imageUrl": "/media/gallery/picture-gallery/athletic_day_2026.jpg",
+      "localPath": "public/assets/images/leadership/ravi-jd-saldanha.jpg",
+      "assetPath": "/assets/images/leadership/ravi-jd-saldanha.jpg",
+      "source": "https://stphilos.ac.in/administration/",
+      "biography": "Principal of St. Philomena's College (Autonomous), leading academic governance, research advancements, and student excellence."
+    },
+    {
+      "id": "finance-officer",
+      "name": "Rev. Fr. Roshan",
+      "designation": "Financial Officer",
+      "role": "Administration",
+      "imageUrl": "/media/gallery/picture-gallery/athletic_day_2026.jpg",
+      "localPath": "public/assets/images/leadership/fr-roshan.jpg",
+      "assetPath": "/assets/images/leadership/fr-roshan.jpg",
+      "source": "https://stphilos.ac.in/administration/",
+      "biography": "Financial Officer overseeing institutional financial planning, budgeting, audits, and asset management."
+    },
+    {
+      "id": "dean-academic",
+      "name": "Prof. Anand C",
+      "designation": "Dean, Academic Affairs",
+      "role": "Academics",
+      "imageUrl": "/media/gallery/picture-gallery/athletic_day_2026.jpg",
+      "localPath": "public/assets/images/leadership/anand-c.jpg",
+      "assetPath": "/assets/images/leadership/anand-c.jpg",
+      "source": "https://stphilos.ac.in/administration/",
+      "biography": "Dean of Academic Affairs overseeing curriculum development, NEP implementation, and academic regulations."
+    },
+    {
+      "id": "vice-principal",
+      "name": "Mr. Ronald Prakash Cutinha",
+      "designation": "Vice Principal (Administrator)",
+      "role": "Administration",
+      "imageUrl": "/media/gallery/picture-gallery/athletic_day_2026.jpg",
+      "localPath": "public/assets/images/leadership/ronald-prakash-cutinha.jpg",
+      "assetPath": "/assets/images/leadership/ronald-prakash-cutinha.jpg",
+      "source": "https://stphilos.ac.in/administration/",
+      "biography": "Vice Principal (Administrator) managing campus discipline, student welfare, examinations, and operational administration."
+    },
+    {
+      "id": "iqac-coord",
+      "name": "Mr. A Thomas Gunaseelan",
+      "designation": "IQAC Coordinator",
+      "role": "Quality Assurance",
+      "imageUrl": "/media/gallery/picture-gallery/athletic_day_2026.jpg",
+      "localPath": "public/assets/images/leadership/thomas-gunaseelan.jpg",
+      "assetPath": "/assets/images/leadership/thomas-gunaseelan.jpg",
+      "source": "https://stphilos.ac.in/administration/",
+      "biography": "Internal Quality Assurance Cell (IQAC) Coordinator leading institutional accreditation, NAAC benchmarks, NIRF, and academic quality audits."
+    }
+  ],
+  "history": {
+    "foundingDate": "October 9, 1946",
+    "founder": "Most Rev. Dr. Rene Feuga (First Bishop of Mysore)",
+    "inauguratedBy": "His Highness Sri Jayachamarajendra Wodeyar (Maharaja of Mysore)",
+    "patronSaint": "Saint Philomena",
+    "source": "https://stphilos.ac.in/history/",
+    "milestones": [
+      {
+        "year": "1946",
+        "title": "Inception & Foundation",
+        "description": "Bishop Rene Feuga vacated his episcopal residence to start the first private science college in Mysore region. Inaugurated by Maharaja Sri Jayachamarajendra Wodeyar."
+      },
+      {
+        "year": "1966",
+        "title": "Campus Auditorium",
+        "description": "Construction of the grand College Auditorium during the tenure of Bishop Mathias Fernandes and Principal Rev. Fr. A. Fleury."
+      },
+      {
+        "year": "1971",
+        "title": "Silver Jubilee",
+        "description": "Celebration of 25 years of academic excellence in higher education."
+      },
+      {
+        "year": "1981",
+        "title": "Central Library Block",
+        "description": "Construction of the dedicated Central Library under Principal Rev. Fr. Valerian D'Souza."
+      },
+      {
+        "year": "1996",
+        "title": "Golden Jubilee & Octagonal Chapel",
+        "description": "Celebration of 50 years; construction of the historic Octagonal Chapel in honour of Founder Bishop Rene Feuga under Bishop Joseph Roy."
+      },
+      {
+        "year": "2004",
+        "title": "NAAC A+ Accreditation",
+        "description": "Accredited with A+ grade by NAAC, establishing state-wide academic leadership."
+      },
+      {
+        "year": "2007",
+        "title": "Diamond Jubilee with Dr. A.P.J. Abdul Kalam",
+        "description": "President of India Dr. A.P.J. Abdul Kalam inaugurated the Diamond Jubilee celebrations and National Seminar."
+      },
+      {
+        "year": "2010",
+        "title": "College with Potential for Excellence (CPE)",
+        "description": "Conferred CPE status by the University Grants Commission (UGC)."
+      },
+      {
+        "year": "2011",
+        "title": "Conferment of Autonomous Status",
+        "description": "University of Mysore and UGC granted full Academic Autonomy to design curricula and conduct independent examinations."
+      },
+      {
+        "year": "2014",
+        "title": "NAAC Re-accreditation (CGPA 3.58)",
+        "description": "Re-accredited with 'A' Grade (CGPA 3.58 on a 4-point scale)."
+      },
+      {
+        "year": "2015",
+        "title": "College of Excellence (CE)",
+        "description": "Elevated to College of Excellence status by the UGC and construction of the 1500-capacity Indoor Stadium."
+      },
+      {
+        "year": "2021",
+        "title": "Platinum Jubilee (75 Years)",
+        "description": "Celebration of 75 years of service, academic rigor, and value-based education."
+      }
+    ]
+  }
+}

@@ -1,0 +1,658 @@
+[
+  {
+    "id": "about",
+    "label": "About Us",
+    "path": "/about",
+    "badge": "Heritage",
+    "description": "78+ Years of Academic Excellence & Catholic Educational Ministry (Est. 1946)",
+    "columns": [
+      {
+        "title": "Institutional Heritage",
+        "items": [
+          {
+            "label": "History & Founding Story",
+            "path": "/about?tab=history",
+            "desc": "1946 Inauguration by Maharaja of Mysore & Bishop Rene Feuga",
+            "type": "internal"
+          },
+          {
+            "label": "Vision, Mission & Core Values",
+            "path": "/about?tab=vision",
+            "desc": "Caritas et Scientia - Love and Knowledge",
+            "type": "internal"
+          },
+          {
+            "label": "College Coat of Arms & Crest",
+            "path": "/about?tab=coat-of-arms",
+            "desc": "Heraldic symbols, motto, and patronal heritage",
+            "type": "internal"
+          },
+          {
+            "label": "College Anthem & Institutional Prayer",
+            "path": "/anthems",
+            "desc": "Official college hymn notation, audio, and prayer",
+            "type": "internal"
+          }
+        ]
+      },
+      {
+        "title": "Administration & Governance",
+        "items": [
+          {
+            "label": "MDES Society Management",
+            "path": "/about?tab=mdes",
+            "desc": "Mysore Diocesan Educational Society governance",
+            "type": "internal"
+          },
+          {
+            "label": "Governing Body & Statutory Council",
+            "path": "/about?tab=governing-body",
+            "desc": "Apex statutory body constituted under UGC guidelines",
+            "type": "internal"
+          },
+          {
+            "label": "Administrative Organogram",
+            "path": "/about?tab=organogram",
+            "desc": "Organizational hierarchy & leadership chart",
+            "type": "internal"
+          },
+          {
+            "label": "Current Administration & Heads",
+            "path": "/about?tab=leadership",
+            "desc": "Rector, Principal, Financial Officer & Deans",
+            "type": "internal"
+          }
+        ]
+      },
+      {
+        "title": "Leadership & Legacy",
+        "items": [
+          {
+            "label": "Former Bishops of Mysore",
+            "path": "/about?tab=bishops",
+            "desc": "Patrons and Episcopal Presidents since 1946",
+            "type": "internal"
+          },
+          {
+            "label": "Former Principals Roster",
+            "path": "/about?tab=principals",
+            "desc": "Distinguished academic leaders of the college",
+            "type": "internal"
+          },
+          {
+            "label": "Rector's Official Message",
+            "path": "/about?tab=leadership",
+            "desc": "Rev. Dr. Lourdu Prasad Joseph",
+            "type": "internal"
+          },
+          {
+            "label": "Principal's Official Message",
+            "path": "/about?tab=leadership",
+            "desc": "Dr. Ravi J.D. Saldanha",
+            "type": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "academics",
+    "label": "Academics",
+    "path": "/academics",
+    "badge": "NEP 2020",
+    "description": "Multi-Disciplinary Autonomous Curriculum under NEP 2020 & Choice Based Credit System",
+    "columns": [
+      {
+        "title": "Programmes of Study",
+        "items": [
+          {
+            "label": "Undergraduate Programmes (UG)",
+            "path": "/academics?level=Undergraduate",
+            "desc": "BCA, B.Sc, B.Com, BBA, BA, BSW (3 & 4 Year Honours)",
+            "type": "internal"
+          },
+          {
+            "label": "Postgraduate Programmes (PG)",
+            "path": "/academics?level=Postgraduate",
+            "desc": "M.Sc, M.Com, MA, MSW, MCA, MBA Programs",
+            "type": "internal"
+          },
+          {
+            "label": "Doctoral Research Degrees (Ph.D)",
+            "path": "/research",
+            "desc": "Recognized research centers under University of Mysore",
+            "type": "internal"
+          }
+        ]
+      },
+      {
+        "title": "Curriculum & Syllabi",
+        "items": [
+          {
+            "label": "NEP 2020 Academic Regulations",
+            "path": "/assets/documents/academics/nep-2020-academic-regulations.pdf",
+            "desc": "Credit framework, evaluation & multiple entry/exit",
+            "type": "download"
+          },
+          {
+            "label": "Undergraduate NEP Syllabus",
+            "path": "/assets/documents/syllabus/ug-nep-syllabus-2026.pdf",
+            "desc": "Official course syllabi for all UG departments",
+            "type": "download"
+          },
+          {
+            "label": "Postgraduate CBCS Syllabus",
+            "path": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+            "desc": "Master's degree syllabus and scheme of examination",
+            "type": "download"
+          },
+          {
+            "label": "Course / Program Outcomes (OBE)",
+            "path": "/assets/documents/academics/obe-outcomes-manual.pdf",
+            "desc": "Outcome-based education matrix & Bloom's taxonomy",
+            "type": "download"
+          }
+        ]
+      },
+      {
+        "title": "Academic Resources",
+        "items": [
+          {
+            "label": "Central Library & Digital Hub",
+            "path": "/resources",
+            "desc": "60,000+ volumes, INFLIBNET N-LIST & e-journals",
+            "type": "internal"
+          },
+          {
+            "label": "PG E-Content & Digital Notes",
+            "path": "/resources",
+            "desc": "Faculty lectures, slides & learning modules",
+            "type": "internal"
+          },
+          {
+            "label": "SWAYAM NPTEL Online Courses",
+            "path": "https://swayam.gov.in/",
+            "desc": "National MOOCs portal for credit transfer",
+            "type": "external"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "admissions",
+    "label": "Admissions",
+    "path": "/admissions",
+    "badge": "2026-27 Open",
+    "description": "Admissions to Merit & Autonomous Degree Courses for Academic Session 2026-27",
+    "columns": [
+      {
+        "title": "Admissions Guidelines",
+        "items": [
+          {
+            "label": "Official Prospectus 2026-27",
+            "path": "/assets/documents/admissions/st-philomena-prospectus-2026-27.pdf",
+            "desc": "Comprehensive institutional profile & course directory",
+            "type": "download"
+          },
+          {
+            "label": "Fee Structure Breakdown",
+            "path": "/assets/documents/admissions/admissions-fee-structure-2026-27.pdf",
+            "desc": "Official course-wise fee schedule & payment tiers",
+            "type": "download"
+          },
+          {
+            "label": "Undergraduate Application Form",
+            "path": "/assets/documents/admissions/ug-application-form-2026.pdf",
+            "desc": "Printable admission form for UG applicants",
+            "type": "download"
+          },
+          {
+            "label": "Online Admission Application",
+            "path": "/admissions",
+            "desc": "Direct online enrollment & merit application",
+            "type": "internal"
+          }
+        ]
+      },
+      {
+        "title": "Schedules & Policies",
+        "items": [
+          {
+            "label": "Academic Calendar 2026-27",
+            "path": "/assets/documents/examinations/academic-calendar-2026.pdf",
+            "desc": "Term dates, holidays & semester timetable",
+            "type": "download"
+          },
+          {
+            "label": "UGC Fee Refund Guidelines",
+            "path": "/assets/documents/mandatory-disclosure/ugc-fee-refund-policy.pdf",
+            "desc": "Statutory refund timelines & policy",
+            "type": "download"
+          },
+          {
+            "label": "Scholarship Assistance (SSP/NSP)",
+            "path": "https://ssp.postmatric.karnataka.gov.in/",
+            "desc": "Govt of Karnataka Post-Matric scholarship portal",
+            "type": "external"
+          }
+        ]
+      },
+      {
+        "title": "Helpdesk & Contacts",
+        "items": [
+          {
+            "label": "Admissions Office Helpdesk",
+            "path": "/contact",
+            "desc": "Phone: 0821-4240900 | info@stphilos.ac.in",
+            "type": "internal"
+          },
+          {
+            "label": "Hostel Accommodations",
+            "path": "/student-support",
+            "desc": "Campus hostels for boys and girls",
+            "type": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "examinations",
+    "label": "Examinations",
+    "path": "/examinations",
+    "badge": "Autonomous COE",
+    "description": "Office of the Controller of Examinations (COE) \u2014 CIA Assessments, ESE Exams & Results",
+    "columns": [
+      {
+        "title": "Time Tables & Schedules",
+        "items": [
+          {
+            "label": "End Semester Examination Timetable",
+            "path": "/assets/documents/examinations/end-semester-examination-timetable-2026.pdf",
+            "desc": "Official UG & PG theory/practical exam schedule",
+            "type": "download"
+          },
+          {
+            "label": "Latest COE Examination Notifications",
+            "path": "/examinations",
+            "desc": "Circulars, exam fee notices & hall ticket updates",
+            "type": "internal"
+          },
+          {
+            "label": "Institutional Academic Calendar",
+            "path": "/assets/documents/examinations/academic-calendar-2026.pdf",
+            "desc": "Approved academic term dates & examination slots",
+            "type": "download"
+          }
+        ]
+      },
+      {
+        "title": "Results & Evaluation",
+        "items": [
+          {
+            "label": "Autonomous Semester Results Portal",
+            "path": "/examinations",
+            "desc": "Provisional marks cards & SGPA/CGPA transcripts",
+            "type": "internal"
+          },
+          {
+            "label": "Revaluation & Photocopy Form",
+            "path": "/assets/documents/examinations/revaluation-application-form-2026.pdf",
+            "desc": "Application form for answer script revaluation",
+            "type": "download"
+          },
+          {
+            "label": "Online Degree Certificate Verification",
+            "path": "https://stphilos.directverify.in/student/",
+            "desc": "Official DirectVerify portal for alumni verification",
+            "type": "external"
+          }
+        ]
+      },
+      {
+        "title": "Examination Ordinances",
+        "items": [
+          {
+            "label": "Autonomous Grading Regulations",
+            "path": "/assets/documents/academics/nep-2020-academic-regulations.pdf",
+            "desc": "10-point letter grading system & passing standards",
+            "type": "download"
+          },
+          {
+            "label": "COE Grievance Redressal",
+            "path": "/student-support",
+            "desc": "Examination grievance & evaluation inquiries",
+            "type": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "research",
+    "label": "Research & Resources",
+    "path": "/research",
+    "badge": "R&D Cell",
+    "description": "Research Innovation, Funded Projects, E-Journals, MoUs & Intellectual Property",
+    "columns": [
+      {
+        "title": "R&D Cell & Innovation",
+        "items": [
+          {
+            "label": "Research & Development Cell (RDC)",
+            "path": "/research",
+            "desc": "Coordinating funded faculty and student research",
+            "type": "internal"
+          },
+          {
+            "label": "Major & Minor Research Projects",
+            "path": "/research",
+            "desc": "Grants funded by UGC, DST, VGST & MDES",
+            "type": "internal"
+          },
+          {
+            "label": "Patents, IPR & Publications",
+            "path": "/research",
+            "desc": "Faculty Scopus/UGC CARE indexed publications",
+            "type": "internal"
+          },
+          {
+            "label": "Research Promotion & Ethics Policy",
+            "path": "/assets/documents/research/research-development-cell-policy.pdf",
+            "desc": "Seed money grants & anti-plagiarism guidelines",
+            "type": "download"
+          }
+        ]
+      },
+      {
+        "title": "Collaborations & E-Journal",
+        "items": [
+          {
+            "label": "MOUs & Industry Partnerships",
+            "path": "/research",
+            "desc": "Academic & industrial exchange agreements",
+            "type": "internal"
+          },
+          {
+            "label": "Philos Bulletin & E-Journal",
+            "path": "/research",
+            "desc": "Interdisciplinary peer-reviewed college journal",
+            "type": "internal"
+          },
+          {
+            "label": "Institution's Innovation Council (IIC)",
+            "path": "/iic",
+            "desc": "MoE Innovation Cell (MIC) certified startup council",
+            "type": "internal"
+          }
+        ]
+      },
+      {
+        "title": "Innovation Frameworks",
+        "items": [
+          {
+            "label": "National Innovation & Startup Policy",
+            "path": "/assets/documents/iic/national-innovation-startup-policy.pdf",
+            "desc": "NISP adoption & pre-incubation guidelines",
+            "type": "download"
+          },
+          {
+            "label": "IIC Star Rating Certificate",
+            "path": "/assets/documents/iic/iic-star-rating-certificate-2025.pdf",
+            "desc": "Official MoE Innovation rating certificate",
+            "type": "download"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "student-support",
+    "label": "Student Support & Amenities",
+    "path": "/student-support",
+    "badge": "Campus Life",
+    "description": "Comprehensive Student Welfare, Career Placement, Cells, Hostels & Sports Amenities",
+    "columns": [
+      {
+        "title": "Student Welfare & Cells",
+        "items": [
+          {
+            "label": "Career Guidance & Placement Cell",
+            "path": "/student-support",
+            "desc": "Campus recruitment, soft skills & internships",
+            "type": "internal"
+          },
+          {
+            "label": "Student Grievance Redressal Committee",
+            "path": "/student-support",
+            "desc": "Formal mechanism for student welfare & redressal",
+            "type": "internal"
+          },
+          {
+            "label": "Anti-Ragging Committee & Helpline",
+            "path": "/assets/documents/mandatory-disclosure/anti-ragging-regulations-2026.pdf",
+            "desc": "Zero tolerance statutory compliance (24x7 Helpline)",
+            "type": "download"
+          },
+          {
+            "label": "Internal Complaints Committee (ICC / POSH)",
+            "path": "/assets/documents/mandatory-disclosure/icc-policy-document.pdf",
+            "desc": "Prevention of sexual harassment & women welfare",
+            "type": "download"
+          },
+          {
+            "label": "Student Welfare & Counselling Centre",
+            "path": "/student-support",
+            "desc": "Full-time psychological & academic counselling",
+            "type": "internal"
+          }
+        ]
+      },
+      {
+        "title": "Co-Curricular & Outreaches",
+        "items": [
+          {
+            "label": "National Cadet Corps (NCC Army & Navy)",
+            "path": "/student-support",
+            "desc": "Leadership, discipline & Republic Day contingents",
+            "type": "internal"
+          },
+          {
+            "label": "National Service Scheme (NSS)",
+            "path": "/student-support",
+            "desc": "Community service, village camps & social outreach",
+            "type": "internal"
+          },
+          {
+            "label": "Youth Red Cross (YRC)",
+            "path": "/student-support",
+            "desc": "Health awareness, first aid & blood donation",
+            "type": "internal"
+          },
+          {
+            "label": "Rangers & Rovers Contingent",
+            "path": "/student-support",
+            "desc": "Scouts & Guides youth leadership program",
+            "type": "internal"
+          }
+        ]
+      },
+      {
+        "title": "Campus Amenities & Hostels",
+        "items": [
+          {
+            "label": "International Indoor Stadium",
+            "path": "/student-support",
+            "desc": "Multi-court badminton, basketball & sports arena",
+            "type": "internal"
+          },
+          {
+            "label": "Boys & Girls Campus Hostels",
+            "path": "/student-support",
+            "desc": "Secure on-campus residential facilities & mess",
+            "type": "internal"
+          },
+          {
+            "label": "St. Philomena's Historic Chapel",
+            "path": "/about?tab=history",
+            "desc": "Campus spiritual sanctuary (Est. 1946)",
+            "type": "internal"
+          },
+          {
+            "label": "South Indian Bank & 24/7 ATM",
+            "path": "/student-support",
+            "desc": "Full-service on-campus banking branch",
+            "type": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "compliance",
+    "label": "Mandatory Disclosure",
+    "path": "/mandatory-disclosure",
+    "badge": "UGC & AICTE",
+    "description": "Statutory Public Disclosures, UGC Compliance, AICTE Approvals, NAAC, NIRF & IQAC",
+    "columns": [
+      {
+        "title": "Statutory Approvals",
+        "items": [
+          {
+            "label": "UGC 2(f) & 12(B) Recognition",
+            "path": "/assets/documents/mandatory-disclosure/ugc-2f-12b-recognition-certificate.pdf",
+            "desc": "Permanent statutory recognition under UGC Act 1956",
+            "type": "download"
+          },
+          {
+            "label": "UGC Autonomous Undertaking",
+            "path": "/assets/documents/compliance/ugc-undertaking-certificate.pdf",
+            "desc": "Autonomous college undertaking certificate",
+            "type": "download"
+          },
+          {
+            "label": "AICTE Extension of Approval (EOA)",
+            "path": "/assets/documents/mandatory-disclosure/aicte-extension-of-approval-2026.pdf",
+            "desc": "Approval for MCA & MBA postgraduate programs",
+            "type": "download"
+          },
+          {
+            "label": "Institutional Code of Conduct",
+            "path": "/assets/documents/mandatory-disclosure/code-of-conduct-ethics-manual.pdf",
+            "desc": "Professional ethics manual for staff and students",
+            "type": "download"
+          },
+          {
+            "label": "RTI Public Information Officers",
+            "path": "/assets/documents/mandatory-disclosure/rti-public-information-officers.pdf",
+            "desc": "Right to Information Act 2005 statutory officers",
+            "type": "download"
+          }
+        ]
+      },
+      {
+        "title": "Institutional Accreditations",
+        "items": [
+          {
+            "label": "NAAC Cycle III Accreditation (B++)",
+            "path": "/naac",
+            "desc": "Re-accreditation certificate & 167-page SSR",
+            "type": "internal"
+          },
+          {
+            "label": "NIRF 2026 Data Submission",
+            "path": "/nirf",
+            "desc": "National Institutional Ranking Framework reports",
+            "type": "internal"
+          },
+          {
+            "label": "IQAC & Annual Quality Reports (AQAR)",
+            "path": "/iqac",
+            "desc": "AQAR quality assurance & stakeholder feedback",
+            "type": "internal"
+          },
+          {
+            "label": "Institution's Innovation Council (IIC)",
+            "path": "/iic",
+            "desc": "MoE Innovation Cell performance reports",
+            "type": "internal"
+          }
+        ]
+      },
+      {
+        "title": "Important Govt Portals",
+        "items": [
+          {
+            "label": "UUCMS Karnataka Portal",
+            "path": "https://uucms.karnataka.gov.in/Login/Index",
+            "desc": "Unified University College Management System",
+            "type": "external"
+          },
+          {
+            "label": "University of Mysore (UoM)",
+            "path": "https://uni-mysore.ac.in/",
+            "desc": "Affiliating university official portal",
+            "type": "external"
+          },
+          {
+            "label": "Ministry of Education (MHRD)",
+            "path": "https://www.education.gov.in/",
+            "desc": "Government of India Higher Education",
+            "type": "external"
+          },
+          {
+            "label": "UTSAH (UGC Portal)",
+            "path": "https://utsah.ugc.ac.in/",
+            "desc": "Undertaking Transformative Strategies & Actions",
+            "type": "external"
+          },
+          {
+            "label": "AISHE Higher Education Survey",
+            "path": "https://aishe.gov.in/",
+            "desc": "Ministry of Education institutional survey",
+            "type": "external"
+          },
+          {
+            "label": "KSHEC Higher Education Council",
+            "path": "https://kshec.karnataka.gov.in/",
+            "desc": "Karnataka State Higher Education Council",
+            "type": "external"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gallery",
+    "label": "Gallery",
+    "path": "/gallery",
+    "badge": "Media",
+    "description": "Campus Life, Convocation 2026, Sports Meets, Seminars & Video Archives",
+    "columns": [
+      {
+        "title": "Visual Archives",
+        "items": [
+          {
+            "label": "Picture Gallery Albums",
+            "path": "/gallery",
+            "desc": "High-resolution campus life & event albums",
+            "type": "internal"
+          },
+          {
+            "label": "Precious Memories at Philos",
+            "path": "/gallery",
+            "desc": "Historic photographic moments & heritage campus",
+            "type": "internal"
+          },
+          {
+            "label": "Campus Video Gallery",
+            "path": "/gallery",
+            "desc": "Campus aerial perspectives, convocations & fests",
+            "type": "internal"
+          }
+        ]
+      }
+    ]
+  }
+]

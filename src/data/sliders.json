@@ -1,0 +1,26 @@
+[
+  {
+    "id": "sld_01",
+    "category": "ESTABLISHED 1946 · AUTONOMOUS MYSURU",
+    "title": "Legacy of Academic Excellence",
+    "subtitle": "Affiliated to the University of Mysore",
+    "description": "Providing transformative undergraduate, postgraduate, and doctoral programs grounded in ethics and scientific inquiry.",
+    "image": "/assets/images/banners/hero_campus_main.jpg",
+    "ctaText": "Explore Academics",
+    "ctaLink": "/academics",
+    "status": "published",
+    "priority": 1
+  },
+  {
+    "id": "sld_02",
+    "category": "HERITAGE CAMPUS & INFRASTRUCTURE",
+    "title": "Discover Our Mysuru Campus",
+    "subtitle": "State-of-the-Art Science & Computing Labs",
+    "description": "Historic quadrangle, central digital library, research centers, and specialized laboratories supporting hands-on innovation.",
+    "image": "/assets/images/campus/campus_quadrangle.jpg",
+    "ctaText": "Campus Infrastructure",
+    "ctaLink": "/about",
+    "status": "published",
+    "priority": 2
+  }
+]

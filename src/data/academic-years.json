@@ -1,0 +1,17 @@
+[
+  {
+    "year": "2026-27",
+    "active": true,
+    "status": "Current Academic Year"
+  },
+  {
+    "year": "2025-26",
+    "active": false,
+    "status": "Previous Academic Year"
+  },
+  {
+    "year": "2024-25",
+    "active": false,
+    "status": "Archived Academic Year"
+  }
+]

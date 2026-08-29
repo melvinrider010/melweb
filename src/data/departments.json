@@ -1,0 +1,173 @@
+[
+  {
+    "id": "dept_physics",
+    "name": "Department of Physics",
+    "category": "Science",
+    "head": "Prof. Thomas V.A.",
+    "description": "Advanced undergraduate and postgraduate physics education with research labs in solid state electronics, nuclear physics, and optics.",
+    "programmes": [
+      "B.Sc (Physics, Chemistry, Maths)",
+      "B.Sc (Physics, Maths, CS)",
+      "M.Sc. Physics"
+    ]
+  },
+  {
+    "id": "dept_chemistry",
+    "name": "Department of Chemistry",
+    "category": "Science",
+    "head": "Dr. Alphonse P.",
+    "description": "Comprehensive chemical science department equipped with modern organic synthesis, spectroscopy, analytical instrumentation, and industrial chemistry labs.",
+    "programmes": [
+      "B.Sc (Chemistry, Biotech, Biochem)",
+      "B.Sc (Physics, Chemistry, Maths)",
+      "M.Sc. Chemistry"
+    ]
+  },
+  {
+    "id": "dept_cs",
+    "name": "Department of Computer Science",
+    "category": "Science & Technology",
+    "head": "Prof. Sunil D'Souza",
+    "description": "Pioneering computer science education offering BCA, B.Sc Computer Science, M.Sc Computer Science, and AICTE-approved MCA.",
+    "programmes": [
+      "BCA (Computer Applications)",
+      "B.Sc (Physics, Maths, CS)",
+      "M.Sc. Computer Science",
+      "MCA (Master of Computer Applications)"
+    ]
+  },
+  {
+    "id": "dept_commerce",
+    "name": "Department of Commerce",
+    "category": "Commerce & Management",
+    "head": "Prof. Ronald Prakash Cutinha",
+    "description": "Premier commerce faculty delivering B.Com (General & NEP Honours) and M.Com with specializations in Corporate Accounting, Auditing, and Taxation.",
+    "programmes": [
+      "B.Com (Bachelor of Commerce)",
+      "M.Com (Master of Commerce)"
+    ]
+  },
+  {
+    "id": "dept_bba",
+    "name": "Department of Business Administration (BBA)",
+    "category": "Commerce & Management",
+    "head": "Prof. Sanjay D'Souza",
+    "description": "Dynamic management hub offering BBA, BTHM (Tourism & Hospitality), and AICTE-approved MBA with corporate internships and incubation support.",
+    "programmes": [
+      "BBA (Business Administration)",
+      "BTHM (Tourism & Hospitality)",
+      "MBA (Master of Business Administration)"
+    ]
+  },
+  {
+    "id": "dept_socialwork",
+    "name": "Department of Social Work",
+    "category": "Humanities & Social Sciences",
+    "head": "Prof. Mary Joseph",
+    "description": "Dedicated to human empowerment, social justice, community development, and mental health counseling through BSW and MSW degrees.",
+    "programmes": [
+      "BSW (Bachelor of Social Work)",
+      "MSW (Master of Social Work)"
+    ]
+  },
+  {
+    "id": "dept_maths",
+    "name": "Department of Mathematics",
+    "category": "Science",
+    "head": "Dr. Suresh Kumar N.",
+    "description": "Foundational and higher mathematical science department offering rigorous training in real analysis, algebra, fluid dynamics, and data analytics.",
+    "programmes": [
+      "B.Sc (Physics, Chemistry, Maths)",
+      "B.Sc (Physics, Maths, CS)",
+      "M.Sc. Mathematics"
+    ]
+  },
+  {
+    "id": "dept_biotech",
+    "name": "Department of Biotechnology & Biochemistry",
+    "category": "Science",
+    "head": "Prof. Poornima M.",
+    "description": "Cutting-edge biological sciences department with plant tissue culture, molecular biology, enzymology, and genetic engineering laboratories.",
+    "programmes": [
+      "B.Sc (Biotechnology, Chemistry, Zoology)",
+      "M.Sc. Biochemistry"
+    ]
+  },
+  {
+    "id": "dept_english",
+    "name": "Department of English & Foreign Languages",
+    "category": "Languages & Arts",
+    "head": "Dr. Ravi J.D. Saldanha",
+    "description": "Rich literary studies department delivering B.A. English Literature, M.A. English, and specialized certificate courses in foreign languages.",
+    "programmes": [
+      "B.A. (English, Journalism, Psychology)",
+      "M.A. English Literature"
+    ]
+  },
+  {
+    "id": "dept_economics",
+    "name": "Department of Economics",
+    "category": "Humanities & Social Sciences",
+    "head": "Dr. Francis Xavier",
+    "description": "Analytical economic studies providing B.A. Economics and M.A. Economics with focus on econometrics, public policy, and quantitative analysis.",
+    "programmes": [
+      "B.A. (Economics, History, Political Science)",
+      "M.A. Economics"
+    ]
+  },
+  {
+    "id": "dept_criminology",
+    "name": "Department of Criminology & Forensic Science",
+    "category": "Science & Social Sciences",
+    "head": "Prof. Benedict Fernandez",
+    "description": "Specialized crime investigation and forensic science department providing B.Sc Criminology and M.Sc Criminology & Forensic Science.",
+    "programmes": [
+      "B.Sc (Criminology, Forensic Science)",
+      "M.Sc. Criminology and Forensic Science"
+    ]
+  },
+  {
+    "id": "dept_journalism",
+    "name": "Department of Journalism & Mass Communication",
+    "category": "Humanities & Media",
+    "head": "Dr. Kavitha S. Nair",
+    "description": "Media and communication center featuring digital TV production studio, audio suite, print publishing lab, and M.A. JMC degree.",
+    "programmes": [
+      "B.A. (Journalism, English, Psychology)",
+      "M.A. Journalism & Mass Communication"
+    ]
+  },
+  {
+    "id": "dept_psychology",
+    "name": "Department of Psychology",
+    "category": "Social & Behavioral Sciences",
+    "head": "Dr. Ramesh Chandra",
+    "description": "Behavioral science center offering B.A. Psychology, B.Sc Psychology, M.Sc Psychology, and psychological counseling services.",
+    "programmes": [
+      "B.A. / B.Sc Psychology",
+      "M.Sc. Psychology"
+    ]
+  },
+  {
+    "id": "dept_foodscience",
+    "name": "Department of Food Science & Nutrition",
+    "category": "Science & Healthcare",
+    "head": "Dr. Shalini Menon",
+    "description": "Nutritional science hub delivering clinical dietetics, food processing, food safety quality control, and M.Sc Food Science & Nutrition.",
+    "programmes": [
+      "B.Sc (Food Science, Chemistry, Microbiology)",
+      "M.Sc. Food Science and Nutrition"
+    ]
+  },
+  {
+    "id": "dept_kannada",
+    "name": "Department of Kannada & Indian Languages",
+    "category": "Languages & Culture",
+    "head": "Prof. Rajeshwari K.",
+    "description": "Preserving and promoting Kannada heritage, classical literature, folklore, Hindi, French, and Malayalam language studies.",
+    "programmes": [
+      "Language Courses (Kannada, Hindi, French, Malayalam)",
+      "B.A. Kannada Major"
+    ]
+  }
+]

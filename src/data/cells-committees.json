@@ -1,0 +1,20 @@
+[
+  {
+    "id": "cell_01",
+    "name": "Internal Quality Assurance Cell (IQAC)",
+    "coordinator": "Dr. Alphonse P.",
+    "path": "/iqac"
+  },
+  {
+    "id": "cell_02",
+    "name": "Institutional Innovation Council (IIC)",
+    "coordinator": "Prof. Sunil D'Souza",
+    "path": "/iic"
+  },
+  {
+    "id": "cell_03",
+    "name": "National Cadet Corps (NCC Army & Naval)",
+    "coordinator": "Capt. Ronald Cutinha",
+    "path": "/student-support"
+  }
+]
