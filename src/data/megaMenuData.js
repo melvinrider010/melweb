@@ -92,23 +92,23 @@ export const MEGA_MENU_DATA = {
       {
         heading: 'Undergraduate (NEP 2020)',
         items: [
-          { label: 'BCA (Computer Applications)', path: '/academics?level=Undergraduate' },
-          { label: 'B.Com (Bachelor of Commerce)', path: '/academics?level=Undergraduate' },
-          { label: 'B.Sc (Physical & Biological Sciences)', path: '/academics?level=Undergraduate' },
-          { label: 'BBA & BTHM (Tourism & Hospitality)', path: '/academics?level=Undergraduate' },
-          { label: 'BA (Humanities & Social Sciences)', path: '/academics?level=Undergraduate' },
-          { label: 'BSW (Bachelor of Social Work)', path: '/academics?level=Undergraduate' }
+          { label: 'BCA (Computer Applications)', path: '/academics/bca' },
+          { label: 'B.Com (Bachelor of Commerce)', path: '/academics/bcom' },
+          { label: 'B.Sc (Physical & Biological Sciences)', path: '/academics/pcm' },
+          { label: 'BBA & BTHM (Tourism & Hospitality)', path: '/academics/bba' },
+          { label: 'BA (Humanities & Social Sciences)', path: '/academics/esp' },
+          { label: 'BSW (Bachelor of Social Work)', path: '/academics/bsw' }
         ]
       },
       {
         heading: 'Postgraduate (CBCS)',
         items: [
-          { label: 'M.Sc Chemistry & Biochemistry', path: '/academics?level=Postgraduate' },
-          { label: 'M.Sc Physics & Mathematics', path: '/academics?level=Postgraduate' },
-          { label: 'M.Sc Computer Science', path: '/academics?level=Postgraduate' },
-          { label: 'M.Com (Master of Commerce)', path: '/academics?level=Postgraduate' },
-          { label: 'MSW (Master of Social Work)', path: '/academics?level=Postgraduate' },
-          { label: 'MA English & Economics', path: '/academics?level=Postgraduate' }
+          { label: 'M.Sc Chemistry & Biochemistry', path: '/academics/msc-chem' },
+          { label: 'M.Sc Physics & Mathematics', path: '/academics/msc-phy' },
+          { label: 'M.Sc Computer Science', path: '/academics/msc-cs' },
+          { label: 'M.Com (Master of Commerce)', path: '/academics/mcom' },
+          { label: 'MSW (Master of Social Work)', path: '/academics/msw' },
+          { label: 'MA English & Economics', path: '/academics/ma-eng' }
         ]
       },
       {
@@ -141,27 +141,27 @@ export const MEGA_MENU_DATA = {
       {
         heading: 'Science & Technology',
         items: [
-          { label: 'Department of Computer Science', path: '/departments/dept_cs' },
-          { label: 'Department of Physics', path: '/departments/dept_physics' },
-          { label: 'Department of Chemistry', path: '/departments/dept_chemistry' },
-          { label: 'Department of Mathematics', path: '/departments/dept_maths' },
-          { label: 'Biotechnology & Biochemistry', path: '/departments/dept_biotech' }
+          { label: 'Department of Computer Science', path: '/departments/computer-science' },
+          { label: 'Department of Physics', path: '/departments/physics' },
+          { label: 'Department of Chemistry', path: '/departments/chemistry' },
+          { label: 'Department of Mathematics', path: '/departments/mathematics' },
+          { label: 'Biotechnology & Biochemistry', path: '/departments/biotech' }
         ]
       },
       {
         heading: 'Commerce & Management',
         items: [
-          { label: 'Commerce & Accountancy', path: '/departments/dept_commerce' },
-          { label: 'Management Studies (BBA)', path: '/departments/dept_commerce' },
-          { label: 'Tourism & Hospitality', path: '/departments/dept_commerce' }
+          { label: 'Commerce & Accountancy', path: '/departments/commerce' },
+          { label: 'Business Administration (BBA)', path: '/departments/business-administration' },
+          { label: 'Tourism & Hospitality', path: '/departments/business-administration' }
         ]
       },
       {
-        heading: 'Humanities & Social Work',
+        heading: 'Humanities & Social Sciences',
         items: [
-          { label: 'Social Work (BSW/MSW)', path: '/departments/dept_socialwork' },
-          { label: 'Department of Economics', path: '/departments/dept_economics' },
-          { label: 'Department of English', path: '/departments/dept_english' }
+          { label: 'Department of Economics', path: '/departments/economics' },
+          { label: 'Department of Social Work', path: '/departments/social-work' },
+          { label: 'Department of English', path: '/departments/english' }
         ]
       }
     ],

@@ -311,7 +311,7 @@ export default function CourseHoneycombSection() {
                           {/* Working Exploration Action */}
                           <div className="pt-3 mt-3 border-t border-slate-800 flex items-center justify-between">
                             <Link
-                              to={course.link || '/academics'}
+                              to={course.link || `/academics/${course.id}`}
                               className="text-sm font-bold text-[#FFD84A] hover:text-[#FFC928] inline-flex items-center transition-colors group/link cursor-pointer"
                             >
                               <span>Explore Programme</span>
@@ -360,7 +360,7 @@ export default function CourseHoneycombSection() {
 
             <div className="pt-2">
               <Link
-                to={activeCourse.link || '/academics'}
+                to={activeCourse.link || `/academics/${activeCourse.id}`}
                 className="btn-gold px-4 py-2.5 rounded-lg text-sm font-bold inline-flex items-center w-full justify-center"
               >
                 <span>Explore Programme</span>

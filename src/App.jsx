@@ -7,9 +7,12 @@ import Layout from './components/common/Layout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import AcademicsPage from './pages/AcademicsPage';
+import ProgrammeDetailPage from './pages/ProgrammeDetailPage';
+import SyllabusDetailPage from './pages/SyllabusDetailPage';
 import DepartmentsPage from './pages/DepartmentsPage';
 import DepartmentDetailPage from './pages/DepartmentDetailPage';
 import FacultyPage from './pages/FacultyPage';
+import FacultyDetailPage from './pages/FacultyDetailPage';
 import AdmissionsPage from './pages/AdmissionsPage';
 import ExaminationsPage from './pages/ExaminationsPage';
 import ResearchPage from './pages/ResearchPage';
@@ -66,9 +69,13 @@ export default function App() {
           <Route path="rectors-message" element={<AboutPage />} />
           <Route path="principals-message" element={<AboutPage />} />
           <Route path="academics" element={<AcademicsPage />} />
+          <Route path="academics/:programmeCode" element={<ProgrammeDetailPage />} />
+          <Route path="academics/:programmeCode/syllabus" element={<SyllabusDetailPage />} />
           <Route path="departments" element={<DepartmentsPage />} />
           <Route path="departments/:deptId" element={<DepartmentDetailPage />} />
+          <Route path="departments/:deptId/faculty/:facultyId" element={<FacultyDetailPage />} />
           <Route path="faculty" element={<FacultyPage />} />
+          <Route path="faculty/:facultyId" element={<FacultyDetailPage />} />
           <Route path="admissions" element={<AdmissionsPage />} />
           <Route path="apply" element={<AdmissionsPage />} />
           <Route path="applications" element={<AdmissionsPage />} />

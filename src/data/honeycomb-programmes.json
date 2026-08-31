@@ -7,7 +7,7 @@
     "displayLines": ["Bachelor of", "Computer Applications"],
     "duration": "3 Years / 4 Years (NEP 2020)",
     "description": "A technology-focused undergraduate programme designed to develop strong foundations in programming, software engineering, databases, and web applications.",
-    "link": "/academics"
+    "link": "/academics/bca"
   },
   {
     "id": "bcom",
@@ -17,7 +17,7 @@
     "displayLines": ["Bachelor of", "Commerce"],
     "duration": "3 Years / 4 Years (NEP 2020)",
     "description": "Comprehensive commercial degree covering corporate accounting, financial management, taxation laws, auditing, and modern banking operations.",
-    "link": "/academics"
+    "link": "/academics/bcom"
   },
   {
     "id": "bba",
@@ -27,7 +27,7 @@
     "displayLines": ["Bachelor of", "Business Administration"],
     "duration": "3 Years / 4 Years (NEP 2020)",
     "description": "Prepares future managers and entrepreneurs through core training in organizational strategy, marketing, human resources, and business analytics.",
-    "link": "/academics"
+    "link": "/academics/bba"
   },
   {
     "id": "bba-th",
@@ -37,7 +37,7 @@
     "displayLines": ["Tourism &", "Hospitality Mgmt"],
     "duration": "3 Years / 4 Years (NEP 2020)",
     "description": "Specialized managerial programme focusing on global travel operations, hotel management, eco-tourism, and hospitality services.",
-    "link": "/academics"
+    "link": "/academics/bba-th"
   },
   {
     "id": "bsw",
@@ -47,7 +47,7 @@
     "displayLines": ["Bachelor of", "Social Work"],
     "duration": "3 Years / 4 Years (NEP 2020)",
     "description": "Professional community service degree integrating field education, social policy, human rights, NGO management, and social welfare.",
-    "link": "/academics"
+    "link": "/academics/bsw"
   },
   {
     "id": "bvoc",
@@ -57,7 +57,7 @@
     "displayLines": ["Bachelor of", "Vocation (IT / Media)"],
     "duration": "3 Years",
     "description": "Skill-intensive vocational degree in Digital Media Production, Information Technology, and Healthcare Services aligned with NSQF standards.",
-    "link": "/academics"
+    "link": "/academics/bvoc"
   },
   {
     "id": "pcm",
@@ -67,7 +67,7 @@
     "displayLines": ["Physics • Chemistry", "Mathematics"],
     "duration": "3 Years / 4 Years (B.Sc)",
     "description": "Core physical science B.Sc combination developing analytical problem-solving, theoretical physics, chemical principles, and advanced calculus.",
-    "link": "/academics"
+    "link": "/academics/pcm"
   },
   {
     "id": "cbz",
@@ -77,7 +77,7 @@
     "displayLines": ["Chemistry • Botany", "Zoology"],
     "duration": "3 Years / 4 Years (B.Sc)",
     "description": "Classic life science B.Sc combination exploring organic chemistry, plant biotechnology, animal physiology, genetics, and ecology.",
-    "link": "/academics"
+    "link": "/academics/cbz"
   },
   {
     "id": "pmc",
@@ -87,7 +87,7 @@
     "displayLines": ["Physics • Math", "Computer Science"],
     "duration": "3 Years / 4 Years (B.Sc)",
     "description": "Interdisciplinary physical & computational science degree preparing students for scientific computing, data analysis, and software systems.",
-    "link": "/academics"
+    "link": "/academics/pmc"
   },
   {
     "id": "bch",
@@ -97,7 +97,7 @@
     "displayLines": ["Biochemistry • Chem", "Human Nutrition"],
     "duration": "3 Years / 4 Years (B.Sc)",
     "description": "Applied biological science combination studying molecular biology, metabolic pathways, clinical biochemistry, and dietetics.",
-    "link": "/academics"
+    "link": "/academics/bch"
   },
   {
     "id": "esp",
@@ -107,7 +107,7 @@
     "displayLines": ["Economics • Sociology", "Political Science"],
     "duration": "3 Years / 4 Years (B.A)",
     "description": "Popular B.A humanities combination covering macroeconomic theory, social structures, public governance, and international relations.",
-    "link": "/academics"
+    "link": "/academics/esp"
   },
   {
     "id": "ehp",
@@ -117,7 +117,7 @@
     "displayLines": ["Economics • History", "Political Science"],
     "duration": "3 Years / 4 Years (B.A)",
     "description": "Foundational humanities combination ideal for civil services preparation, constitutional studies, historical analysis, and economic policy.",
-    "link": "/academics"
+    "link": "/academics/ehp"
   },
   {
     "id": "ensp",
@@ -127,7 +127,7 @@
     "displayLines": ["English • Sociology", "Political Science"],
     "duration": "3 Years / 4 Years (B.A)",
     "description": "Liberal arts B.A combination blending English literature & critical writing with social research methods and political philosophy.",
-    "link": "/academics"
+    "link": "/academics/ensp"
   },
   {
     "id": "jps",
@@ -137,7 +137,7 @@
     "displayLines": ["Journalism • Psych", "Sociology"],
     "duration": "3 Years / 4 Years (B.A)",
     "description": "Modern behavioral & media studies B.A combination focusing on news reporting, human psychology, media ethics, and social dynamics.",
-    "link": "/academics"
+    "link": "/academics/jps"
   },
 
   {
@@ -148,7 +148,7 @@
     "displayLines": ["Master of", "Computer", "Applications"],
     "duration": "2 Years",
     "description": "Advanced postgraduate IT degree specializing in full-stack software development, cloud architecture, artificial intelligence, and enterprise systems.",
-    "link": "/academics"
+    "link": "/academics/mca"
   },
   {
     "id": "mba",
@@ -158,7 +158,7 @@
     "displayLines": ["Master of", "Business", "Administration"],
     "duration": "2 Years",
     "description": "AICTE-aligned executive management degree offering specializations in Finance, Marketing, HR, Business Analytics, and International Trade.",
-    "link": "/academics"
+    "link": "/academics/mba"
   },
   {
     "id": "mcom",
@@ -168,7 +168,7 @@
     "displayLines": ["Master of", "Commerce"],
     "duration": "2 Years",
     "description": "Advanced commercial research degree in corporate financial reporting, security analysis, international finance, and quantitative techniques.",
-    "link": "/academics"
+    "link": "/academics/mcom"
   },
   {
     "id": "msc-cs",
@@ -178,7 +178,7 @@
     "displayLines": ["M.Sc Computer", "Science"],
     "duration": "2 Years",
     "description": "Postgraduate computer science programme focusing on machine learning algorithms, cyber security, data science, and advanced computing theory.",
-    "link": "/academics"
+    "link": "/academics/msc-cs"
   },
   {
     "id": "msc-math",
@@ -188,7 +188,7 @@
     "displayLines": ["M.Sc", "Mathematics"],
     "duration": "2 Years",
     "description": "Pure and applied postgraduate mathematics covering abstract algebra, real analysis, differential equations, and mathematical modeling.",
-    "link": "/academics"
+    "link": "/academics/msc-math"
   },
   {
     "id": "msc-phy",
@@ -198,7 +198,7 @@
     "displayLines": ["M.Sc", "Physics"],
     "duration": "2 Years",
     "description": "Advanced postgraduate physics exploring quantum mechanics, condensed matter physics, nuclear physics, and experimental laboratory research.",
-    "link": "/academics"
+    "link": "/academics/msc-phy"
   },
   {
     "id": "msc-chem",
@@ -208,7 +208,7 @@
     "displayLines": ["M.Sc", "Chemistry"],
     "duration": "2 Years",
     "description": "Specialized postgraduate chemistry degree covering organic synthesis, inorganic spectroscopy, physical chemistry, and analytical instrumentation.",
-    "link": "/academics"
+    "link": "/academics/msc-chem"
   },
   {
     "id": "msc-biochem",
@@ -218,7 +218,7 @@
     "displayLines": ["M.Sc", "Biochemistry"],
     "duration": "2 Years",
     "description": "Molecular life science degree investigating enzymology, clinical biochemistry, genetic engineering, and pharmaceutical research.",
-    "link": "/academics"
+    "link": "/academics/msc-biochem"
   },
   {
     "id": "msc-psych",
@@ -228,7 +228,7 @@
     "displayLines": ["M.Sc", "Psychology"],
     "duration": "2 Years",
     "description": "Applied psychological science degree focusing on clinical psychology, counseling methodologies, psychometrics, and organizational behavior.",
-    "link": "/academics"
+    "link": "/academics/msc-psych"
   },
   {
     "id": "msc-food",
@@ -238,7 +238,7 @@
     "displayLines": ["M.Sc Food Science", "& Nutrition"],
     "duration": "2 Years",
     "description": "Postgraduate programme in food processing, clinical nutrition, food safety quality control, and therapeutic dietetics.",
-    "link": "/academics"
+    "link": "/academics/msc-food"
   },
   {
     "id": "msc-crim",
@@ -248,7 +248,7 @@
     "displayLines": ["M.Sc Criminology", "& Forensic Science"],
     "duration": "2 Years",
     "description": "Pioneering postgraduate degree in crime scene investigation, forensic toxicology, cyber forensics, and criminal justice systems.",
-    "link": "/academics"
+    "link": "/academics/msc-crim"
   },
   {
     "id": "ma-eng",
@@ -258,7 +258,7 @@
     "displayLines": ["M.A", "English"],
     "duration": "2 Years",
     "description": "Postgraduate literary degree in British, American, Indian English, and Postcolonial literatures, critical theory, and linguistics.",
-    "link": "/academics"
+    "link": "/academics/ma-eng"
   },
   {
     "id": "ma-econ",
@@ -268,7 +268,7 @@
     "displayLines": ["M.A", "Economics"],
     "duration": "2 Years",
     "description": "Advanced postgraduate economics degree specializing in econometrics, public finance, development economics, and monetary policy.",
-    "link": "/academics"
+    "link": "/academics/ma-econ"
   },
   {
     "id": "ma-jmc",
@@ -278,7 +278,7 @@
     "displayLines": ["M.A Journalism &", "Mass Comm"],
     "duration": "2 Years",
     "description": "Professional master's programme in print & broadcast journalism, digital media production, corporate communication, and media research.",
-    "link": "/academics"
+    "link": "/academics/ma-jmc"
   },
   {
     "id": "msw",
@@ -288,6 +288,6 @@
     "displayLines": ["Master of", "Social Work"],
     "duration": "2 Years",
     "description": "Postgraduate professional degree with specializations in Medical & Psychiatric Social Work, Community Development, and HR Management.",
-    "link": "/academics"
+    "link": "/academics/msw"
   }
 ]

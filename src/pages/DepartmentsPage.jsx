@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Building2, ArrowRight, BookOpen, Users, Mail } from 'lucide-react';
-import departments from '../data/departments.json';
+import { DEPARTMENTS } from '../data/departmentsData';
 
 export default function DepartmentsPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -9,8 +9,8 @@ export default function DepartmentsPage() {
   const categories = ['All', 'Science', 'Commerce & Management', 'Humanities & Social Sciences', 'Languages & Arts', 'Science & Technology'];
 
   const filtered = selectedCategory === 'All'
-    ? departments
-    : departments.filter(d => d.category === selectedCategory);
+    ? DEPARTMENTS
+    : DEPARTMENTS.filter(d => d.category === selectedCategory || (selectedCategory === 'Languages & Arts' && d.category.includes('Languages')));
 
   return (
     <div className="space-y-10 py-10 px-4 sm:px-8 max-w-[1400px] mx-auto text-[#071A33]">
@@ -55,7 +55,7 @@ export default function DepartmentsPage() {
               
               <div className="pt-2 text-xs space-y-1 text-slate-700">
                 <p className="font-semibold"><span className="text-slate-400">Head of Dept:</span> {dept.head}</p>
-                <p className="font-semibold"><span className="text-slate-400">Contact Email:</span> {dept.email}</p>
+                <p className="font-semibold"><span className="text-slate-400">Contact Email:</span> {dept.headEmail}</p>
               </div>
 
               {dept.programmes && (
@@ -63,9 +63,13 @@ export default function DepartmentsPage() {
                   <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">Offered Degrees</span>
                   <div className="flex flex-wrap gap-1.5">
                     {dept.programmes.map((prog, idx) => (
-                      <span key={idx} className="bg-slate-100 text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded">
-                        {prog}
-                      </span>
+                      <Link
+                        key={idx}
+                        to={`/academics/${prog.code || 'esp'}`}
+                        className="bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-[#1C5496] text-[10px] font-bold px-2 py-0.5 rounded border border-slate-200 transition-colors"
+                      >
+                        {prog.code?.toUpperCase() || prog.name}
+                      </Link>
                     ))}
                   </div>
                 </div>
