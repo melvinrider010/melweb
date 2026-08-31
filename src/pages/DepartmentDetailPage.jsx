@@ -83,12 +83,13 @@ export default function DepartmentDetailPage() {
               <span className="text-[11px] text-slate-500 block">{dept.headDesignation}</span>
             </div>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <span className="text-[10px] uppercase font-bold text-slate-400 block">Contact Email</span>
+              <span className="text-[10px] uppercase font-bold text-slate-400 block">Official Department Email</span>
               <span className="font-mono text-xs text-[#1C5496] block truncate">{dept.headEmail}</span>
             </div>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <span className="text-[10px] uppercase font-bold text-slate-400 block">Campus Phone / Extension</span>
-              <span className="text-xs text-slate-800 block">{dept.phone}</span>
+              <span className="text-[10px] uppercase font-bold text-slate-400 block">Academic Regulations</span>
+              <span className="text-xs text-slate-800 font-serif font-bold block">Autonomous NEP 2020 / CBCS</span>
+              <span className="text-[11px] text-slate-500 block">Affiliated to Univ. of Mysore</span>
             </div>
           </div>
         </div>
