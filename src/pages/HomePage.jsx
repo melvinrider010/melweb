@@ -19,7 +19,7 @@ import CourseHoneycombSection from '../components/home/CourseHoneycombSection';
 
 export default function HomePage() {
   return (
-    <div className="space-y-12 bg-[#F8FAFC] text-[#071A33] overflow-hidden">
+    <div className="bg-[#F8FAFC] text-[#071A33] overflow-hidden">
       
       {/* 1. CINEMATIC ACADEMIC HERO SLIDER */}
       <HeroSlider />
@@ -27,10 +27,13 @@ export default function HomePage() {
       {/* 2. LIVE UPDATES TICKER */}
       <AnnouncementTicker />
 
-      {/* 3. QUICK ACCESS STRIP */}
-      <QuickAccessStrip />
+      {/* 3. MAIN HOMEPAGE CONTENT */}
+      <div className="space-y-12 py-8">
+        
+        {/* QUICK ACCESS STRIP */}
+        <QuickAccessStrip />
 
-      {/* 4. INSTITUTIONAL INTRODUCTION */}
+        {/* 4. INSTITUTIONAL INTRODUCTION */}
       <section className="max-w-[1400px] mx-auto px-4 sm:px-8 py-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-white p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-xs">
           
@@ -217,6 +220,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      </div>
 
     </div>
   );
