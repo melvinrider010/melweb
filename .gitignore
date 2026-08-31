@@ -34,3 +34,8 @@ dist-ssr/
 # Audit / Scratch
 website-audit/
 scratch/
+
+# Private / Server-side Confidential Data
+server/data/private/
+*.private.*
+
