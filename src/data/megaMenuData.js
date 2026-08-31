@@ -387,50 +387,51 @@ export const MEGA_MENU_DATA = {
 
   // 8. MANDATORY DISCLOSURE & IMPORTANT LINKS (Statutory & Government Portals)
   compliance: {
-    title: 'Mandatory Disclosures & Important Links',
+    title: 'Mandatory Disclosures & Statutory Compliance',
     path: '/mandatory-disclosure',
     type: 'columns',
     columns: [
       {
-        heading: 'Statutory Disclosures',
+        heading: 'Mandatory Disclosures',
         items: [
-          { label: 'UGC 2(f) & 12(B) Recognition', path: '/assets/documents/mandatory-disclosure/ugc-2f-12b-recognition-certificate.pdf', isDownload: true },
-          { label: 'UGC Autonomous Undertaking', path: '/assets/documents/compliance/ugc-undertaking-certificate.pdf', isDownload: true },
-          { label: 'AICTE Extension of Approval (EOA)', path: '/assets/documents/mandatory-disclosure/aicte-extension-of-approval-2026.pdf', isDownload: true },
-          { label: 'Institutional Code of Conduct', path: '/assets/documents/mandatory-disclosure/code-of-conduct-ethics-manual.pdf', isDownload: true },
-          { label: 'RTI Public Information Officers', path: '/assets/documents/mandatory-disclosure/rti-public-information-officers.pdf', isDownload: true },
-          { label: 'UGC Fee Refund Guidelines', path: '/assets/documents/mandatory-disclosure/ugc-fee-refund-policy.pdf', isDownload: true }
+          { label: 'AICTE MCA/MBA Mandatory Disclosure', path: '/compliance/aicte-mca-mba-disclosure' },
+          { label: 'MCA/MBA Infrastructure', path: '/compliance/mca-mba-infrastructure' },
+          { label: 'Code Of Conduct & Ethics', path: '/compliance/code-of-conduct' },
+          { label: 'UGC 2(f) & 12(B) Recognition', path: '/compliance/ugc-2f' },
+          { label: 'COPE & COE Guidelines', path: '/compliance/cope' },
+          { label: 'UGC Autonomous Recognition', path: '/compliance/ugc-recognition' }
         ]
       },
       {
-        heading: 'Accreditation & Quality',
+        heading: 'UGC Mandatory Disclosure',
         items: [
-          { label: 'NAAC Cycle III (B++) Certificate', path: '/assets/documents/naac/naac-cycle-iii-accreditation-certificate.pdf', isDownload: true },
-          { label: 'NAAC Self Study Report (SSR)', path: '/assets/documents/naac/naac-self-study-report-ssr.pdf', isDownload: true },
-          { label: 'NIRF 2026 Data Submission Report', path: '/assets/documents/nirf/nirf-data-submission-report-2026.pdf', isDownload: true },
-          { label: 'IQAC Annual Quality Report (AQAR)', path: '/assets/documents/iqac/aqar-quality-assurance-report-2025.pdf', isDownload: true },
-          { label: 'Stakeholder Feedback & ATR', path: '/assets/documents/iqac/stakeholder-feedback-report-2025.pdf', isDownload: true }
+          { label: 'College Committees & Cells', path: '/compliance/college-committees' },
+          { label: 'Statutory Governance Bodies', path: '/compliance/statutory-bodies' },
+          { label: 'UGC Fee Refund Policy', path: '/compliance/ugc-refund-policy' },
+          { label: 'Internal Complaints Committee (ICC)', path: '/compliance/internal-complaints-committee' },
+          { label: 'Student Grievances Committee (SGRC)', path: '/compliance/student-grievance-committee' },
+          { label: 'Fee Structure 2026–27', path: '/compliance/fee-structure' }
         ]
       },
       {
-        heading: 'Important Govt Portals',
+        heading: 'Approvals & Govt Portals',
         items: [
+          { label: 'Autonomy Approval (UGC)', path: '/compliance/autonomy-approval' },
+          { label: 'Institution\'s Innovation Council (IIC)', path: '/compliance/institution-innovation-council' },
+          { label: 'AICTE EOA Reports (2024–27)', path: '/compliance/eoa-2026-27' },
           { label: 'UUCMS Karnataka Portal', path: 'https://uucms.karnataka.gov.in/Login/Index', isExternal: true },
-          { label: 'University of Mysore (UoM)', path: 'https://uni-mysore.ac.in/', isExternal: true },
           { label: 'Ministry of Education (MHRD)', path: 'https://www.education.gov.in/', isExternal: true },
-          { label: 'UTSAH (UGC Quality Portal)', path: 'https://utsah.ugc.ac.in/', isExternal: true },
-          { label: 'AISHE Higher Education Survey', path: 'https://aishe.gov.in/', isExternal: true },
-          { label: 'KSHEC Higher Education Council', path: 'https://kshec.karnataka.gov.in/', isExternal: true },
-          { label: 'SWAYAM NPTEL Online MOOCs', path: 'https://swayam.gov.in/', isExternal: true }
+          { label: 'University of Mysore (UoM)', path: 'https://uni-mysore.ac.in/', isExternal: true },
+          { label: 'UTSAH / AISHE / KSHEC Portals', path: 'https://utsah.ugc.ac.in/', isExternal: true }
         ]
       }
     ],
     featured: {
-      title: 'Statutory Compliance',
-      subtitle: 'Public Accountability',
-      description: 'Accreditation certificates, UGC recognitions, AICTE approvals, and RTI disclosures.',
+      title: 'Statutory Compliance Hub',
+      subtitle: '100% Verified Disclosures',
+      description: 'Accreditation certificates, UGC recognitions, AICTE approvals, and institutional policies.',
       image: '/media/gallery/campus/campus_chapel.jpg',
-      ctaText: 'View All Disclosures →',
+      ctaText: 'Explore Full Section →',
       ctaPath: '/mandatory-disclosure'
     }
   }

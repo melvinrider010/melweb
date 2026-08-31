@@ -23,6 +23,7 @@ import NaacPage from './pages/NaacPage';
 import NirfPage from './pages/NirfPage';
 import IicPage from './pages/IicPage';
 import MandatoryDisclosurePage from './pages/MandatoryDisclosurePage';
+import ComplianceDocumentPage from './pages/ComplianceDocumentPage';
 import AlumniPage from './pages/AlumniPage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
@@ -89,7 +90,9 @@ export default function App() {
           <Route path="nirf" element={<NirfPage />} />
           <Route path="iic" element={<IicPage />} />
           <Route path="mandatory-disclosure" element={<MandatoryDisclosurePage />} />
+          <Route path="mandatory-disclosure/:docSlug" element={<ComplianceDocumentPage />} />
           <Route path="compliance" element={<MandatoryDisclosurePage />} />
+          <Route path="compliance/:docSlug" element={<ComplianceDocumentPage />} />
           <Route path="alumni" element={<AlumniPage />} />
           <Route path="gallery" element={<GalleryPage />} />
           <Route path="gallery/:albumSlug" element={<GalleryPage />} />
