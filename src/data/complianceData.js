@@ -3,6 +3,7 @@
 // 100% Content Parity with Official Source - All Documents Localized
 
 export const COMPLIANCE_SECTIONS = [
+  // ==================== 1. MANDATORY DISCLOSURE ====================
   {
     category: 'MANDATORY DISCLOSURE',
     badge: 'AICTE / UGC Regulatory',
@@ -11,6 +12,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'aicte-mca-mba-disclosure',
         slug: 'aicte-mca-mba-disclosure',
+        aliases: ['aicte-mca-mba-disclosure', 'aicte-approval', 'aicte-disclosure', 'aicte-mca-mba'],
         title: 'AICTE MCA/MBA Mandatory Disclosure',
         subtitle: 'Comprehensive Technical Education Disclosure Form',
         dept: 'AICTE Compliance',
@@ -21,6 +23,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'mca-mba-infrastructure',
         slug: 'mca-mba-infrastructure',
+        aliases: ['mca-mba-infrastructure', 'mca-infrastructure', 'mba-infrastructure'],
         title: 'MCA/MBA Infrastructure',
         subtitle: 'Postgraduate Technical Computing & Management Infrastructure',
         dept: 'Infrastructure & Labs',
@@ -31,6 +34,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'code-of-conduct',
         slug: 'code-of-conduct',
+        aliases: ['code-of-conduct', 'ethics', 'code-of-ethics', 'professional-ethics'],
         title: 'Code Of Conduct & Ethics',
         subtitle: 'Institutional Code of Conduct & Professional Ethics Manual',
         dept: 'Governing Body',
@@ -41,6 +45,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'ugc-2f',
         slug: 'ugc-2f',
+        aliases: ['ugc-2f', '2f', '2-f', 'ugc-2-f'],
         title: '2 (F)',
         subtitle: 'UGC Act 1956 Section 2(f) Recognition Certificate',
         dept: 'UGC Statutory',
@@ -51,6 +56,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'ugc-12b',
         slug: 'ugc-12b',
+        aliases: ['ugc-12b', '12b', '12-b', 'ugc-12-b'],
         title: '12(B)',
         subtitle: 'UGC Act 1956 Section 12(B) Central Assistance Eligibility',
         dept: 'UGC Statutory',
@@ -61,6 +67,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'cope',
         slug: 'cope',
+        aliases: ['cope', 'cope-policy', 'cope-guidelines'],
         title: 'COPE',
         subtitle: 'Centre for Ongoing Professional Education (COPE)',
         dept: 'Continuing Education',
@@ -71,6 +78,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'coe',
         slug: 'coe',
+        aliases: ['coe', 'coe-policy', 'controller-of-examinations', 'exam-manual'],
         title: 'COE',
         subtitle: 'Office of the Controller of Examinations (COE) Policy',
         dept: 'Examination Council',
@@ -81,6 +89,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'ugc-recognition',
         slug: 'ugc-recognition',
+        aliases: ['ugc-recognition', 'ugc-2f-12b', 'ugc-certificate'],
         title: 'UGC Recognition',
         subtitle: 'Autonomous Degree Status & Recognition Orders',
         dept: 'UGC New Delhi',
@@ -90,6 +99,8 @@ export const COMPLIANCE_SECTIONS = [
       }
     ]
   },
+
+  // ==================== 2. UGC MANDATORY DISCLOSURE ====================
   {
     category: 'UGC MANDATORY DISCLOSURE',
     badge: 'University Grants Commission',
@@ -98,6 +109,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'college-committees',
         slug: 'college-committees',
+        aliases: ['college-committees', 'committees', 'cells', 'college-cells'],
         title: 'College Committees/Cells',
         subtitle: 'Internal Quality, Academic, and Administrative Committees',
         dept: 'College Governance',
@@ -108,6 +120,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'statutory-bodies',
         slug: 'statutory-bodies',
+        aliases: ['statutory-bodies', 'governing-body', 'academic-council', 'board-of-studies'],
         title: 'Statutory Bodies',
         subtitle: 'Governing Body, Academic Council, Board of Studies, & Finance Committee',
         dept: 'Autonomous Governance',
@@ -118,6 +131,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'ugc-refund-policy',
         slug: 'ugc-refund-policy',
+        aliases: ['ugc-refund-policy', 'fee-refund-guidelines', 'refund-policy', 'fee-refund'],
         title: 'UGC Refund Policy',
         subtitle: 'Fee Refund Guidelines on Cancellation of Admission',
         dept: 'Finance Directorate',
@@ -128,6 +142,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'internal-complaints-committee',
         slug: 'internal-complaints-committee',
+        aliases: ['internal-complaints-committee', 'icc', 'posh', 'posh-policy', 'icc-policy'],
         title: 'Internal Complaints Committee',
         subtitle: 'ICC & POSH Regulations (Prevention of Sexual Harassment)',
         dept: 'Women & Gender Cell',
@@ -138,6 +153,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'student-grievance-committee',
         slug: 'student-grievance-committee',
+        aliases: ['student-grievance-committee', 'sgrc', 'grievance-committee', 'student-grievance'],
         title: 'Student Grievances Committee',
         subtitle: 'Student Grievance Redressal Committee (SGRC) & Ombudsperson',
         dept: 'Student Welfare',
@@ -148,6 +164,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'affiliations',
         slug: 'affiliations',
+        aliases: ['affiliations', 'affiliations-uom', 'uom-affiliation', 'university-affiliation'],
         title: 'Affiliations',
         subtitle: 'Permanent Affiliation to the University of Mysore',
         dept: 'University of Mysore',
@@ -158,6 +175,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'undertaking-certificate',
         slug: 'undertaking-certificate',
+        aliases: ['undertaking-certificate', 'autonomous-undertaking', 'undertaking', 'ugc-undertaking'],
         title: 'Undertaking Certificate',
         subtitle: 'Institutional Autonomous Undertaking to UGC & NAAC',
         dept: 'Principal Office',
@@ -168,6 +186,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'fee-structure',
         slug: 'fee-structure',
+        aliases: ['fee-structure', 'fees-structure', 'tuition-fees', 'admissions-fees'],
         title: 'Fee Structure',
         subtitle: 'Approved Academic Tuition, Laboratory & Exam Fees 2026–27',
         dept: 'Finance Committee',
@@ -177,6 +196,94 @@ export const COMPLIANCE_SECTIONS = [
       }
     ]
   },
+
+  // ==================== 3. ACCREDITATION & QUALITY (NAAC / NIRF / IQAC / RTI) ====================
+  {
+    category: 'ACCREDITATION & QUALITY DISCLOSURES',
+    badge: 'NAAC / NIRF / IQAC',
+    description: 'National accreditation self-study reports, cycle certificates, NIRF rankings, and annual quality assurance reports.',
+    items: [
+      {
+        id: 'naac-certificate',
+        slug: 'naac-certificate',
+        aliases: ['naac-certificate', 'naac-cycle-3', 'naac-accreditation'],
+        title: 'NAAC Cycle III (B++) Certificate',
+        subtitle: 'National Assessment and Accreditation Council Accreditation',
+        dept: 'NAAC Bangalore',
+        pdfUrl: '/assets/documents/naac/naac-cycle-iii-accreditation-certificate.pdf',
+        date: 'Cycle III Certified',
+        details: 'Official certificate of institutional accreditation with B++ Grade awarded by NAAC after comprehensive peer-team assessment.'
+      },
+      {
+        id: 'naac-ssr',
+        slug: 'naac-ssr',
+        aliases: ['naac-ssr', 'ssr', 'self-study-report'],
+        title: 'NAAC Self Study Report (SSR)',
+        subtitle: 'Institutional Assessment & Quality Metrics SSR Document',
+        dept: 'IQAC Cell',
+        pdfUrl: '/assets/documents/naac/naac-self-study-report-ssr.pdf',
+        date: 'Complete SSR',
+        details: 'Comprehensive 7-criteria Self Study Report covering curricular aspects, teaching-learning evaluations, research innovations, and infrastructure.'
+      },
+      {
+        id: 'nirf',
+        slug: 'nirf',
+        aliases: ['nirf', 'nirf-submission', 'nirf-2026', 'nirf-report'],
+        title: 'NIRF 2026 Data Submission Report',
+        subtitle: 'National Institutional Ranking Framework Report',
+        dept: 'Ministry of Education',
+        pdfUrl: '/assets/documents/nirf/nirf-data-submission-report-2026.pdf',
+        date: 'NIRF 2026',
+        details: 'Verified institutional data submission under NIRF parameters: Teaching, Learning & Resources (TLR), Research and Professional Practice (RPC), and Graduation Outcomes (GO).'
+      },
+      {
+        id: 'iqac-aqar',
+        slug: 'iqac-aqar',
+        aliases: ['iqac-aqar', 'aqar', 'annual-quality-report'],
+        title: 'IQAC Annual Quality Report (AQAR)',
+        subtitle: 'Annual Quality Assurance Report 2025–26',
+        dept: 'IQAC Directorate',
+        pdfUrl: '/assets/documents/iqac/aqar-quality-assurance-report-2025.pdf',
+        date: 'AY 2025-26',
+        details: 'Detailed annual report of institutional quality benchmarks, academic achievements, research output, student progression, and community extensions.'
+      },
+      {
+        id: 'stakeholder-feedback',
+        slug: 'stakeholder-feedback',
+        aliases: ['stakeholder-feedback', 'feedback-report', 'atr-report'],
+        title: 'Stakeholder Feedback & Action Taken Report (ATR)',
+        subtitle: 'Curricular Feedback from Students, Teachers, Employers & Alumni',
+        dept: 'IQAC Cell',
+        pdfUrl: '/assets/documents/iqac/stakeholder-feedback-report-2025.pdf',
+        date: 'Feedback ATR',
+        details: 'Comprehensive stakeholder feedback analysis on curriculum design and institutional action taken report.'
+      },
+      {
+        id: 'rti-officers',
+        slug: 'rti-officers',
+        aliases: ['rti-officers', 'rti-information', 'rti', 'right-to-information'],
+        title: 'RTI Public Information Officers',
+        subtitle: 'Right to Information Act 2005 Statutory Directory',
+        dept: 'Public Authority',
+        pdfUrl: '/assets/documents/mandatory-disclosure/rti-public-information-officers.pdf',
+        date: 'RTI Act 2005',
+        details: 'Designated Public Information Officer (PIO), Assistant PIO, and First Appellate Authority names, contact details, and appeal procedures under the RTI Act.'
+      },
+      {
+        id: 'anti-ragging-policy',
+        slug: 'anti-ragging-policy',
+        aliases: ['anti-ragging-policy', 'anti-ragging', 'anti-ragging-helpline'],
+        title: 'Anti-Ragging Committee & Helplines',
+        subtitle: 'UGC Regulations on Curbing the Menace of Ragging',
+        dept: 'Anti-Ragging Squad',
+        pdfUrl: '/assets/documents/compliance/anti-ragging-policy.pdf',
+        date: 'Zero Tolerance',
+        details: 'Campus anti-ragging squad composition, 24/7 national helpline coordinates, CCTV monitoring zones, and punitive penal actions against ragging.'
+      }
+    ]
+  },
+
+  // ==================== 4. IMPORTANT LINKS & APPROVALS ====================
   {
     category: 'IMPORTANT LINKS & APPROVALS',
     badge: 'College Approvals & Policies',
@@ -185,6 +292,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'autonomy-approval',
         slug: 'autonomy-approval',
+        aliases: ['autonomy-approval', 'autonomy', 'ugc-autonomy'],
         title: 'Autonomy Approval',
         subtitle: 'UGC Autonomy Extension Notification',
         dept: 'UGC New Delhi',
@@ -195,6 +303,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'institution-innovation-council',
         slug: 'institution-innovation-council',
+        aliases: ['institution-innovation-council', 'iic', 'iic-certificate', 'innovation-council'],
         title: 'Institution\'s Innovation Council',
         subtitle: 'Ministry of Education (MoE) IIC Establishment Certificate',
         dept: 'MoE Innovation Cell',
@@ -205,6 +314,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'institutional-development-plan',
         slug: 'institutional-development-plan',
+        aliases: ['institutional-development-plan', 'idp', 'idp-policy'],
         title: 'Institutional Development Plan',
         subtitle: 'Strategic IDP Vision 2025–2030',
         dept: 'Planning & Governance',
@@ -215,6 +325,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'divyangjan-policy',
         slug: 'divyangjan-policy',
+        aliases: ['divyangjan-policy', 'divyangjan', 'accessibility-policy', 'inclusion-policy'],
         title: 'Divyangjan Policy',
         subtitle: 'Divyangjan Inclusion & Accessibility Policy Statement',
         dept: 'Equal Opportunity Cell',
@@ -225,6 +336,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'loa-2024',
         slug: 'loa-2024',
+        aliases: ['loa-2024', 'loa', 'aicte-loa'],
         title: 'LOA 2024',
         subtitle: 'AICTE Letter of Approval (LOA) for Technical Programs',
         dept: 'AICTE New Delhi',
@@ -235,6 +347,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'eoa-2024-25',
         slug: 'eoa-2024-25',
+        aliases: ['eoa-2024-25', 'eoa-24-25'],
         title: 'EOA 2024-25',
         subtitle: 'AICTE Extension of Approval Report 2024–25',
         dept: 'AICTE New Delhi',
@@ -245,6 +358,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'eoa-2025-26',
         slug: 'eoa-2025-26',
+        aliases: ['eoa-2025-26', 'eoa-25-26'],
         title: 'EOA 2025-26',
         subtitle: 'AICTE Extension of Approval Report 2025–26',
         dept: 'AICTE New Delhi',
@@ -255,6 +369,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'eoa-2026-27',
         slug: 'eoa-2026-27',
+        aliases: ['eoa-2026-27', 'eoa-26-27', 'aicte-eoa'],
         title: 'EOA 2026-27',
         subtitle: 'AICTE Extension of Approval Report 2026–27',
         dept: 'AICTE New Delhi',
@@ -265,6 +380,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'redressal-atrocities-women',
         slug: 'redressal-atrocities-women',
+        aliases: ['redressal-atrocities-women', 'women-cell', 'redressal-women'],
         title: 'Redressal Of Atrocities Against Women',
         subtitle: 'Internal Complaints Cell for Safety & Grievances of Women',
         dept: 'Women Redressal Cell',
@@ -275,6 +391,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'aicte-feedback',
         slug: 'aicte-feedback',
+        aliases: ['aicte-feedback', 'faculty-student-feedback'],
         title: 'AICTE Feedback For Faculty And Student',
         subtitle: 'Official AICTE Online Stakeholder Feedback Portal',
         dept: 'AICTE Central Portal',
@@ -286,6 +403,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'online-certificate-verification',
         slug: 'online-certificate-verification',
+        aliases: ['online-certificate-verification', 'direct-verify', 'certificate-verification'],
         title: 'Online Certificate Verification',
         subtitle: 'DirectVerify 24/7 Digital Credential Authentication System',
         dept: 'Examination Directorate',
@@ -297,6 +415,7 @@ export const COMPLIANCE_SECTIONS = [
       {
         id: 'ugc-compliance-report',
         slug: 'ugc-compliance-report',
+        aliases: ['ugc-compliance-report', 'compliance-report', 'ugc-annual-compliance'],
         title: 'UGC Compliance Report',
         subtitle: 'Annual Autonomous Compliance & Audit Report to UGC',
         dept: 'IQAC & Principal Office',
@@ -306,6 +425,8 @@ export const COMPLIANCE_SECTIONS = [
       }
     ]
   },
+
+  // ==================== 5. GOVERNMENT & APEX REGULATORY PORTALS ====================
   {
     category: 'GOVERNMENT & APEX REGULATORY PORTALS',
     badge: 'National & State Portals',
@@ -396,5 +517,25 @@ export const ALL_COMPLIANCE_DOCS = COMPLIANCE_SECTIONS
 export function getComplianceDocBySlug(slug) {
   if (!slug) return null;
   const clean = String(slug).toLowerCase().replace(/[^a-z0-9-]/g, '').trim();
-  return ALL_COMPLIANCE_DOCS.find(d => d.slug === clean || d.id === clean) || null;
+  
+  // 1. Direct ID / Slug check
+  const direct = ALL_COMPLIANCE_DOCS.find(d => d.slug === clean || d.id === clean);
+  if (direct) return direct;
+
+  // 2. Alias match check
+  for (const doc of ALL_COMPLIANCE_DOCS) {
+    if (doc.aliases && doc.aliases.some(a => a.replace(/[^a-z0-9-]/g, '') === clean)) {
+      return doc;
+    }
+  }
+
+  // 3. Fuzzy match check
+  const simplified = clean.replace(/-/g, '');
+  for (const doc of ALL_COMPLIANCE_DOCS) {
+    if (doc.slug.replace(/-/g, '') === simplified || doc.id.replace(/-/g, '') === simplified) {
+      return doc;
+    }
+  }
+
+  return null;
 }

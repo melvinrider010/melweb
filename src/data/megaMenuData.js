@@ -1,124 +1,146 @@
-// Complete Official Interactive Mega Menu Dataset for St. Philomena's College (Autonomous), Mysuru
-// 100% Synced with official source https://stphilos.ac.in/
-import { ASSETS } from './assets';
+// Canonical Master MegaMenu Navigation Data for St. Philomena's College (Autonomous), Mysuru
+// 100% Content Parity with Official Source (stphilos.ac.in)
+// All Links Route Internally to Local React Pages - Zero Direct File Downloads
 
 export const MEGA_MENU_DATA = {
-
-  // 1. ABOUT US (Official Administration & Heritage)
+  // 1. ABOUT US (History, Leadership, Governance, Infrastructure, Policies)
   about: {
     title: 'About St. Philomena\'s College',
     path: '/about',
     type: 'tabbed',
-    description: '78+ Years of Academic Excellence & Catholic Educational Ministry (Est. 1946)',
+    description: 'Explore eight decades of Catholic educational excellence, heritage, and autonomous academic governance.',
     tabs: [
       {
         id: 'history',
         num: '01',
-        label: 'History & Founding Story',
-        heading: 'A Bishop\'s Vision & A Maharaja\'s Munificence',
-        description: 'Established on October 9, 1946 by Bishop Rene Feuga and declared open by His Highness Sri Jayachamarajendra Wodeyar, Maharaja of Mysore.',
-        ctaText: 'Explore Our History →',
+        label: 'Our Heritage & History',
+        heading: 'Heritage & Legacy (Est. 1946)',
+        description: 'Founded by His Excellency Rt. Rev. Dr. Rene Feuga, Bishop of Mysore, with the blessing of His Highness Maharaja Jayachamarajendra Wadiyar.',
+        ctaText: 'Read Full History →',
         ctaPath: '/about?tab=history',
         links: [
-          { label: 'Foundation & Founding Story (1946)', path: '/about?tab=history' },
-          { label: 'Vision, Mission & Core Values', path: '/about?tab=vision' },
-          { label: 'College Coat of Arms & Crest', path: '/about?tab=coat-of-arms' },
-          { label: 'College Anthem & Daily Prayer', path: '/anthems' }
+          { label: 'Founding Vision & Patron Saint', path: '/about?tab=history' },
+          { label: 'Historical Timeline & Milestones', path: '/about?tab=history' },
+          { label: 'The Iconic Gothic Cathedral Campus', path: '/about?tab=history' }
         ],
         featured: {
-          title: 'Founding Heritage 1946',
-          subtitle: 'Caritas et Scientia',
-          description: 'First private science degree college in erstwhile Mysore region.',
-          image: '/media/gallery/campus/campus_quadrangle_main.jpg',
-          ctaText: 'Read Founding Story →',
+          title: 'A Legacy of 79 Years',
+          subtitle: 'Founded in 1946',
+          description: 'Pioneering higher education in Mysuru with NAAC B++ Accreditation.',
+          image: '/media/gallery/campus/campus_chapel.jpg',
+          ctaText: 'Explore Campus Heritage →',
           ctaPath: '/about?tab=history'
         }
       },
       {
-        id: 'admin',
+        id: 'leadership',
         num: '02',
-        label: 'Administration & Governance',
-        heading: 'MDES Society & Institutional Governance',
-        description: 'Governed by the Mysore Diocesan Educational Society (MDES) with eminent educationalists, administrators, and UGC statutory nominees.',
-        ctaText: 'View Administration →',
-        ctaPath: '/about?tab=mdes',
+        label: 'Leadership & Management',
+        heading: 'Visionary Leadership',
+        description: 'Guided by the Catholic Diocese of Mysore and the Mysore Diocesan Educational Society (MDES).',
+        ctaText: 'Meet Leadership →',
+        ctaPath: '/about?tab=leadership',
         links: [
-          { label: 'MDES Educational Society', path: '/about?tab=mdes' },
-          { label: 'Statutory Governing Body Council', path: '/about?tab=governing-body' },
-          { label: 'Institutional Organogram', path: '/about?tab=organogram' },
-          { label: 'Current Administration & Heads', path: '/about?tab=leadership' }
+          { label: 'Bishop & Patron\'s Message', path: '/about?tab=leadership' },
+          { label: 'Rector & Secretary\'s Office', path: '/about?tab=leadership' },
+          { label: 'Principal & Vice Principals', path: '/about?tab=leadership' }
         ],
         featured: {
           title: 'MDES Governance',
-          subtitle: 'Diocesan Educational Board',
-          description: 'Autonomous governance upholding quality Catholic higher education.',
-          image: '/media/management/secretary_edward_saldanha.jpg',
-          ctaText: 'View MDES Society →',
-          ctaPath: '/about?tab=mdes'
+          subtitle: 'Diocese of Mysore',
+          description: 'Dedicated administration shaping global citizens through ethical values.',
+          image: '/media/gallery/campus/campus_admin_block.jpg',
+          ctaText: 'View Administration →',
+          ctaPath: '/about?tab=leadership'
         }
       },
       {
-        id: 'leadership',
+        id: 'governance',
         num: '03',
-        label: 'Leadership Messages',
-        heading: 'Executive Leadership & Historical Rosters',
-        description: 'Messages from Rector & Manager Rev. Dr. Lourdu Prasad Joseph and Principal Dr. Ravi J.D. Saldanha, alongside historical Bishop and Principal rosters.',
-        ctaText: 'Read Leadership Messages →',
-        ctaPath: '/about?tab=leadership',
+        label: 'Statutory Governance',
+        heading: 'Autonomous Academic Governance',
+        description: 'Constitutional bodies ensuring pedagogical quality, curricular innovation, and financial integrity.',
+        ctaText: 'View Governance Bodies →',
+        ctaPath: '/compliance/statutory-bodies',
         links: [
-          { label: 'Rector\'s Official Message', path: '/about?tab=leadership' },
-          { label: 'Principal\'s Official Message', path: '/about?tab=leadership' },
-          { label: 'Former Bishops of Mysore (1946–Present)', path: '/about?tab=bishops' },
-          { label: 'Former Principals Roster', path: '/about?tab=principals' }
+          { label: 'Governing Body Council', path: '/compliance/statutory-bodies' },
+          { label: 'Academic Council (NEP / CBCS)', path: '/compliance/statutory-bodies' },
+          { label: 'Board of Studies (BOS) Panels', path: '/compliance/statutory-bodies' }
         ],
         featured: {
-          title: 'Leadership Vision',
-          subtitle: 'Office of the Principal',
-          description: 'Guiding academic rigor, student distinction, and research advancements.',
-          image: '/media/management/principal_ravi_saldanha.jpg',
-          ctaText: 'Read Messages →',
-          ctaPath: '/about?tab=leadership'
+          title: 'UGC Autonomy',
+          subtitle: 'Conferred Status',
+          description: 'Empowered to design autonomous curricula and modern examination schemes.',
+          image: '/media/gallery/campus/campus_quadrangle.jpg',
+          ctaText: 'Explore Statutory Bodies →',
+          ctaPath: '/compliance/statutory-bodies'
+        }
+      },
+      {
+        id: 'infrastructure',
+        num: '04',
+        label: 'Campus Infrastructure',
+        heading: 'World-Class 28-Acre Campus',
+        description: 'Modern science laboratories, digital library, indoor sports stadium, audio-visual auditoriums, and hostel complexes.',
+        ctaText: 'Tour Facilities →',
+        ctaPath: '/about?tab=infrastructure',
+        links: [
+          { label: 'Advanced Science & Research Labs', path: '/about?tab=infrastructure' },
+          { label: 'Central Library & Digital Commons', path: '/resources' },
+          { label: 'Indoor Stadium & Athletics Complex', path: '/student-support' }
+        ],
+        featured: {
+          title: 'State-of-the-Art Labs',
+          subtitle: 'DBT Star & DST-FIST',
+          description: 'Cutting-edge instrumentation for physical, life, and computational sciences.',
+          image: '/assets/images/facilities/academic_lab.jpg',
+          ctaText: 'View Campus Gallery →',
+          ctaPath: '/gallery'
         }
       }
     ]
   },
 
-  // 2. ACADEMICS (Curriculum, NEP Regulations, Syllabi)
+  // 2. ACADEMICS (Degree Programmes & Curriculum)
   academics: {
-    title: 'Academic Programmes & Curriculum',
+    title: 'Academic Structure & Programmes',
     path: '/academics',
-    type: 'explorer',
+    type: 'columns',
     columns: [
       {
-        heading: 'Undergraduate (NEP 2020)',
+        heading: 'Undergraduate Degrees (NEP)',
         items: [
-          { label: 'BCA (Computer Applications)', path: '/academics/bca' },
-          { label: 'B.Com (Bachelor of Commerce)', path: '/academics/bcom' },
-          { label: 'B.Sc (Physical & Biological Sciences)', path: '/academics/pcm' },
-          { label: 'BBA & BTHM (Tourism & Hospitality)', path: '/academics/bba' },
-          { label: 'BA (Humanities & Social Sciences)', path: '/academics/esp' },
-          { label: 'BSW (Bachelor of Social Work)', path: '/academics/bsw' }
+          { label: 'B.Com [Bachelor of Commerce]', path: '/academics/bcom' },
+          { label: 'B.Sc [Bachelor of Science]', path: '/academics/bsc' },
+          { label: 'BCA [Bachelor of Computer Applications]', path: '/academics/bca' },
+          { label: 'BA [Bachelor of Arts]', path: '/academics/ba' },
+          { label: 'B.S.W [Bachelor of Social Work]', path: '/academics/bsw' },
+          { label: 'B.Voc [Vocational Disciplines]', path: '/academics/bvoc' },
+          { label: 'B.B.A.T.H [Tourism & Hospitality]', path: '/academics/bba-th' },
+          { label: 'B.B.A [Business Administration]', path: '/academics/bba' }
         ]
       },
       {
-        heading: 'Postgraduate (CBCS)',
+        heading: 'Postgraduate Degrees (CBCS)',
         items: [
-          { label: 'M.Sc Chemistry & Biochemistry', path: '/academics/msc-chem' },
-          { label: 'M.Sc Physics & Mathematics', path: '/academics/msc-phy' },
-          { label: 'M.Sc Computer Science', path: '/academics/msc-cs' },
-          { label: 'M.Com (Master of Commerce)', path: '/academics/mcom' },
+          { label: 'M.Sc (Chemistry, Physics, Maths)', path: '/academics/msc-chem' },
+          { label: 'M.Sc Computer Science & Data', path: '/academics/msc-cs' },
+          { label: 'M.Com & Corporate Finance', path: '/academics/mcom' },
+          { label: 'MBA (AICTE Approved)', path: '/academics/mba' },
+          { label: 'MCA (AICTE Approved)', path: '/academics/mca' },
           { label: 'MSW (Master of Social Work)', path: '/academics/msw' },
           { label: 'MA English & Economics', path: '/academics/ma-eng' }
         ]
       },
       {
-        heading: 'Academic Resources & Syllabi',
+        heading: 'Languages & Academic Resources',
         items: [
-          { label: 'NEP 2020 Regulations Manual', path: '/assets/documents/academics/nep-2020-academic-regulations.pdf', isDownload: true },
-          { label: 'Undergraduate NEP Syllabus', path: '/assets/documents/syllabus/ug-nep-syllabus-2026.pdf', isDownload: true },
-          { label: 'Postgraduate CBCS Syllabus', path: '/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf', isDownload: true },
-          { label: 'Course / Program Outcomes (OBE)', path: '/assets/documents/academics/obe-outcomes-manual.pdf', isDownload: true },
-          { label: 'PG E-Content & Digital Notes', path: '/resources' }
+          { label: 'Kannada Language & Literature', path: '/academics/kannada' },
+          { label: 'English Language & Literature', path: '/academics/english' },
+          { label: 'Hindi / Malayalam / Tamil / Urdu', path: '/academics/hindi' },
+          { label: 'French & Foreign Languages', path: '/academics/french' },
+          { label: 'Autonomous Regulations Manual', path: '/compliance/autonomy-approval' },
+          { label: 'Course Outcomes & OBE Framework', path: '/compliance/ugc-compliance-report' }
         ]
       }
     ],
@@ -182,20 +204,20 @@ export const MEGA_MENU_DATA = {
     type: 'admissions',
     columns: [
       {
-        heading: 'Admissions & Forms',
+        heading: 'Admissions & Guidelines',
         items: [
-          { label: 'Official Prospectus 2026–27', path: '/assets/documents/admissions/st-philomena-prospectus-2026-27.pdf', isDownload: true },
-          { label: 'Fee Structure Breakdown 2026–27', path: '/assets/documents/admissions/admissions-fee-structure-2026-27.pdf', isDownload: true },
-          { label: 'UG Admission Application Form', path: '/assets/documents/admissions/ug-application-form-2026.pdf', isDownload: true },
+          { label: 'Official Prospectus 2026–27', path: '/admissions' },
+          { label: 'Fee Structure Breakdown 2026–27', path: '/compliance/fee-structure' },
+          { label: 'UG Admission Guidelines', path: '/admissions' },
           { label: 'Online Admission Application', path: '/admissions' }
         ]
       },
       {
         heading: 'Schedules & Compliance',
         items: [
-          { label: 'Institutional Academic Calendar', path: '/assets/documents/examinations/academic-calendar-2026.pdf', isDownload: true },
-          { label: 'UGC Fee Refund Policy', path: '/assets/documents/mandatory-disclosure/ugc-fee-refund-policy.pdf', isDownload: true },
-          { label: 'State Scholarship Portal (SSP)', path: 'https://ssp.postmatric.karnataka.gov.in/', isExternal: true },
+          { label: 'Institutional Academic Calendar', path: '/examinations' },
+          { label: 'UGC Fee Refund Policy', path: '/compliance/ugc-refund-policy' },
+          { label: 'State Scholarship Portal (SSP)', path: 'https://ssp.postmatric.karnataka.gov.in/homepage.aspx', isExternal: true },
           { label: 'Stakeholders Feedback Process', path: '/iqac' }
         ]
       },
@@ -227,9 +249,9 @@ export const MEGA_MENU_DATA = {
       {
         heading: 'Timetables & Notifications',
         items: [
-          { label: 'End-Semester Examination Timetable', path: '/assets/documents/examinations/end-semester-examination-timetable-2026.pdf', isDownload: true },
+          { label: 'End-Semester Examination Timetable', path: '/examinations' },
           { label: 'Latest COE Examination Notifications', path: '/examinations' },
-          { label: 'Institutional Academic Calendar', path: '/assets/documents/examinations/academic-calendar-2026.pdf', isDownload: true },
+          { label: 'Institutional Academic Calendar', path: '/examinations' },
           { label: 'Hall Ticket & Seating Arrangements', path: '/examinations' }
         ]
       },
@@ -237,15 +259,15 @@ export const MEGA_MENU_DATA = {
         heading: 'Results & Evaluation',
         items: [
           { label: 'Autonomous Semester Results Portal', path: '/examinations' },
-          { label: 'Revaluation & Photocopy Form', path: '/assets/documents/examinations/revaluation-application-form-2026.pdf', isDownload: true },
-          { label: 'Online Certificate DirectVerify', path: 'https://stphilos.directverify.in/student/', isExternal: true },
-          { label: 'Autonomous Grading Ordinances', path: '/assets/documents/academics/nep-2020-academic-regulations.pdf', isDownload: true }
+          { label: 'Revaluation & Photocopy Guidelines', path: '/examinations' },
+          { label: 'DirectVerify Credential Authentication', path: '/compliance/online-certificate-verification' },
+          { label: 'Autonomous COE Evaluation Policy', path: '/compliance/coe' }
         ]
       },
       {
         heading: 'COE Grievance Redressal',
         items: [
-          { label: 'Examination Grievance Committee', path: '/student-support' },
+          { label: 'Examination Grievance Committee', path: '/compliance/student-grievance-committee' },
           { label: 'Controller of Examinations Office', path: '/contact' }
         ]
       }
@@ -276,7 +298,7 @@ export const MEGA_MENU_DATA = {
         ctaText: 'Explore R&D Cell →',
         ctaPath: '/research',
         links: [
-          { label: 'Research & Development Cell Policy', path: '/assets/documents/research/research-development-cell-policy.pdf', isDownload: true },
+          { label: 'Research & Development Cell Policy', path: '/research' },
           { label: 'Major & Minor Research Grants (UGC/DST)', path: '/research' },
           { label: 'Faculty Research Publications', path: '/faculty' }
         ],
@@ -321,8 +343,8 @@ export const MEGA_MENU_DATA = {
         ctaPath: '/iic',
         links: [
           { label: 'Institution\'s Innovation Council (IIC)', path: '/iic' },
-          { label: 'IIC Star Rating Certificate', path: '/assets/documents/iic/iic-star-rating-certificate-2025.pdf', isDownload: true },
-          { label: 'National Innovation & Startup Policy (NISP)', path: '/assets/documents/iic/national-innovation-startup-policy.pdf', isDownload: true }
+          { label: 'IIC Star Rating Certificate', path: '/compliance/institution-innovation-council' },
+          { label: 'Institutional Development Plan (IDP)', path: '/compliance/institutional-development-plan' }
         ],
         featured: {
           title: 'Innovation Ecosystem',
@@ -346,11 +368,11 @@ export const MEGA_MENU_DATA = {
         heading: 'Welfare & Support Cells',
         items: [
           { label: 'Career Guidance & Placement Cell', path: '/student-support' },
-          { label: 'Student Grievance Redressal Cell', path: '/student-support' },
-          { label: 'Anti-Ragging Committee & Helpline', path: '/assets/documents/mandatory-disclosure/anti-ragging-regulations-2026.pdf', isDownload: true },
-          { label: 'Internal Complaints Committee (ICC/POSH)', path: '/assets/documents/mandatory-disclosure/icc-policy-document.pdf', isDownload: true },
+          { label: 'Student Grievance Redressal (SGRC)', path: '/compliance/student-grievance-committee' },
+          { label: 'Anti-Ragging Committee & Helpline', path: '/compliance/anti-ragging-policy' },
+          { label: 'Internal Complaints Committee (ICC/POSH)', path: '/compliance/internal-complaints-committee' },
           { label: 'Student Welfare & Counselling Centre', path: '/student-support' },
-          { label: 'Human Values & Professional Ethics', path: '/assets/documents/mandatory-disclosure/code-of-conduct-ethics-manual.pdf', isDownload: true }
+          { label: 'Human Values & Professional Ethics', path: '/compliance/code-of-conduct' }
         ]
       },
       {
@@ -397,32 +419,36 @@ export const MEGA_MENU_DATA = {
           { label: 'AICTE MCA/MBA Mandatory Disclosure', path: '/compliance/aicte-mca-mba-disclosure' },
           { label: 'MCA/MBA Infrastructure', path: '/compliance/mca-mba-infrastructure' },
           { label: 'Code Of Conduct & Ethics', path: '/compliance/code-of-conduct' },
-          { label: 'UGC 2(f) & 12(B) Recognition', path: '/compliance/ugc-2f' },
-          { label: 'COPE & COE Guidelines', path: '/compliance/cope' },
-          { label: 'UGC Autonomous Recognition', path: '/compliance/ugc-recognition' }
+          { label: 'UGC 2(f) & 12(B) Recognition', path: '/compliance/ugc-recognition' },
+          { label: 'COPE Continuing Education', path: '/compliance/cope' },
+          { label: 'COE Examination Manual', path: '/compliance/coe' }
         ]
       },
       {
-        heading: 'UGC Mandatory Disclosure',
+        heading: 'UGC Disclosures & Governance',
         items: [
           { label: 'College Committees & Cells', path: '/compliance/college-committees' },
           { label: 'Statutory Governance Bodies', path: '/compliance/statutory-bodies' },
           { label: 'UGC Fee Refund Policy', path: '/compliance/ugc-refund-policy' },
           { label: 'Internal Complaints Committee (ICC)', path: '/compliance/internal-complaints-committee' },
           { label: 'Student Grievances Committee (SGRC)', path: '/compliance/student-grievance-committee' },
-          { label: 'Fee Structure 2026–27', path: '/compliance/fee-structure' }
+          { label: 'Approved Fee Structure 2026–27', path: '/compliance/fee-structure' },
+          { label: 'Autonomous Undertaking Certificate', path: '/compliance/undertaking-certificate' }
         ]
       },
       {
-        heading: 'Approvals & Govt Portals',
+        heading: 'Approvals & Quality Reports',
         items: [
           { label: 'Autonomy Approval (UGC)', path: '/compliance/autonomy-approval' },
+          { label: 'NAAC Cycle III (B++) Certificate', path: '/compliance/naac-certificate' },
+          { label: 'NAAC Self Study Report (SSR)', path: '/compliance/naac-ssr' },
+          { label: 'NIRF 2026 Data Submission Report', path: '/compliance/nirf' },
+          { label: 'IQAC Annual Quality Report (AQAR)', path: '/compliance/iqac-aqar' },
           { label: 'Institution\'s Innovation Council (IIC)', path: '/compliance/institution-innovation-council' },
           { label: 'AICTE EOA Reports (2024–27)', path: '/compliance/eoa-2026-27' },
           { label: 'UUCMS Karnataka Portal', path: 'https://uucms.karnataka.gov.in/Login/Index', isExternal: true },
           { label: 'Ministry of Education (MHRD)', path: 'https://www.education.gov.in/', isExternal: true },
-          { label: 'University of Mysore (UoM)', path: 'https://uni-mysore.ac.in/', isExternal: true },
-          { label: 'UTSAH / AISHE / KSHEC Portals', path: 'https://utsah.ugc.ac.in/', isExternal: true }
+          { label: 'University of Mysore (UoM)', path: 'https://uni-mysore.ac.in/', isExternal: true }
         ]
       }
     ],

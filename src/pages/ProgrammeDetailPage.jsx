@@ -334,7 +334,7 @@ export default function ProgrammeDetailPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 <Link
-                  to={`/academics/${prog.code.toLowerCase()}/syllabus`}
+                  to={`/academics/${(prog.slug || prog.id || prog.code).toLowerCase()}/syllabus`}
                   className="p-4 rounded-xl bg-blue-50/70 hover:bg-blue-100/80 border border-blue-200 transition-colors flex items-center justify-between group"
                 >
                   <div className="space-y-1">
@@ -346,19 +346,18 @@ export default function ProgrammeDetailPage() {
                   <ArrowRight className="w-4 h-4 text-[#1C5496] group-hover:translate-x-1 transition-transform shrink-0 ml-2" />
                 </Link>
 
-                <a
-                  href={prog.syllabusDoc || '/assets/documents/academic-regulations.pdf'}
-                  download
+                <Link
+                  to={`/academics/${(prog.slug || prog.id || prog.code).toLowerCase()}/syllabus`}
                   className="p-4 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-colors flex items-center justify-between group"
                 >
                   <div className="space-y-1">
                     <span className="font-serif font-bold text-sm text-slate-900 block group-hover:text-[#1C5496]">
-                      Download Official Syllabus PDF
+                      Read Official Syllabus Document
                     </span>
-                    <span className="text-[11px] text-slate-500 font-mono block">NEP 2020 Manual</span>
+                    <span className="text-[11px] text-slate-500 font-mono block">In-Page PDF Viewer</span>
                   </div>
-                  <Download className="w-4 h-4 text-[#1C5496] group-hover:scale-110 transition-transform shrink-0 ml-2" />
-                </a>
+                  <FileText className="w-4 h-4 text-[#1C5496] group-hover:scale-110 transition-transform shrink-0 ml-2" />
+                </Link>
               </div>
             </div>
 
