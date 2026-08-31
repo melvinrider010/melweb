@@ -24,10 +24,7 @@ export default function HomePage() {
       {/* 1. CINEMATIC ACADEMIC HERO SLIDER */}
       <HeroSlider />
 
-      {/* 2. LIVE UPDATES TICKER */}
-      <AnnouncementTicker />
-
-      {/* 3. MAIN HOMEPAGE CONTENT */}
+      {/* 2. MAIN HOMEPAGE CONTENT */}
       <div className="space-y-12 py-8">
         
         {/* QUICK ACCESS STRIP */}
