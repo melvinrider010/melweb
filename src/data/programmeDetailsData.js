@@ -2243,7 +2243,118 @@ export const PROGRAMME_DETAILS = {
         "bsw",
         "english"
     ]
-}
+},
+  'telugu': {
+    "id": "telugu",
+    "aliases": ["telugu", "ug-telugu"],
+    "code": "TELUGU",
+    "title": "Telugu Language & Classical Literature (UG)",
+    "shortTitle": "Telugu Studies",
+    "degree": "Language Elective (UG)",
+    "level": "Undergraduate (NEP 2020)",
+    "type": "ug",
+    "stream": "Languages",
+    "duration": "2 to 3 Years",
+    "eligibility": "Pass in 10+2 / PUC with Telugu as a subject or studied at secondary school level.",
+    "department": "Department of Languages & Kannada",
+    "deptSlug": "kannada",
+    "deptId": "kannada",
+    "image": "/assets/programmes/ug/kannada.jpg",
+    "overview": "Rigorous curriculum covering classical and modern Telugu poetry, prose, drama, grammar, and literary criticism under NEP 2020 framework.",
+    "objectives": [
+      "Mastery of classical and modern Telugu literary texts and grammar.",
+      "Develop translation and creative writing skills in Telugu."
+    ],
+    "disciplines": [
+      { "name": "Classical Poetry & Prabandha Literature", "desc": "Nannaya, Tikkana, Errana and medieval Prabandha masterpieces." },
+      { "name": "Modern Telugu Literature & Translation", "desc": "Gurajada Apparao, Sri Sri, modern prose, short stories, and translation." }
+    ],
+    "curriculumHighlights": [
+      "Telugu Bhasha Dinotsavam and Sahiti Goshti literary workshops."
+    ],
+    "careerOpportunities": [
+      "Content Writing, Regional Media & Journalism",
+      "Civil Services Indian Language Paper",
+      "Teaching and Regional Language Translation"
+    ],
+    "syllabusDoc": "/assets/documents/syllabus/ug-nep-syllabus-2026.pdf",
+    "regulationsDoc": "/assets/documents/academics/nep-2020-academic-regulations.pdf",
+    "relatedIds": ["kannada", "tamil", "english"]
+  },
+  'sanskrit': {
+    "id": "sanskrit",
+    "aliases": ["sanskrit", "ug-sanskrit"],
+    "code": "SANSKRIT",
+    "title": "Sanskrit Classical Literature & Vedic Studies (UG)",
+    "shortTitle": "Sanskrit Studies",
+    "degree": "Language Elective (UG)",
+    "level": "Undergraduate (NEP 2020)",
+    "type": "ug",
+    "stream": "Languages",
+    "duration": "2 to 3 Years",
+    "eligibility": "Pass in 10+2 / PUC with Sanskrit / basic knowledge of Devanagari script.",
+    "department": "Department of Languages & Kannada",
+    "deptSlug": "kannada",
+    "deptId": "kannada",
+    "image": "/assets/programmes/ug/kannada.jpg",
+    "overview": "Comprehensive instruction in classical Sanskrit literature, Paninian grammar, Subhashitas, Nataka, and philosophical treatises.",
+    "objectives": [
+      "Deep linguistic comprehension of classical Sanskrit drama and Subhashitas.",
+      "Understanding Vedic ethos, Paninian Vyakarana, and Epics."
+    ],
+    "disciplines": [
+      { "name": "Classical Drama & Kavya", "desc": "Kalidasa's Shakuntalam, Raghuvamsha, and Bhasa's plays." },
+      { "name": "Grammar & Philosophical Texts", "desc": "Paninian sandhi, samasa, karaka, and Bhagavad Gita selections." }
+    ],
+    "curriculumHighlights": [
+      "Sanskrit Day celebrations and Shloka recitation competitions."
+    ],
+    "careerOpportunities": [
+      "Indology & Epigraphical Research",
+      "Ayurvedic and Manuscriptology Translation",
+      "Academic Teaching & Civil Services Elective"
+    ],
+    "syllabusDoc": "/assets/documents/syllabus/ug-nep-syllabus-2026.pdf",
+    "regulationsDoc": "/assets/documents/academics/nep-2020-academic-regulations.pdf",
+    "relatedIds": ["hindi", "kannada", "english"]
+  },
+  'constitution-of-india': {
+    "id": "constitution-of-india",
+    "aliases": ["constitution-of-india", "constitution", "indian-constitution"],
+    "code": "CONSTITUTION",
+    "title": "Constitution of India & Democratic Governance (Mandatory Foundation)",
+    "shortTitle": "Constitution of India",
+    "degree": "Mandatory Ability Enhancement Compulsory Course (AECC)",
+    "level": "Undergraduate (NEP 2020)",
+    "type": "ug",
+    "stream": "Foundation",
+    "duration": "1 Semester",
+    "eligibility": "Mandatory for all 1st / 2nd Semester UG Degree Students.",
+    "department": "Department of Humanities & Social Sciences",
+    "deptSlug": "humanities",
+    "deptId": "humanities",
+    "image": "/assets/programmes/ug/environmental-studies.jpg",
+    "overview": "Foundational course imparting deep constitutional literacy, fundamental rights, directive principles, parliamentary democracy, and civic duties.",
+    "objectives": [
+      "Instill profound knowledge of the Preamble, Fundamental Rights, and Duties.",
+      "Understand the structure and powers of the Union and State Executive and Judiciary."
+    ],
+    "disciplines": [
+      { "name": "Constitutional Philosophy & Fundamental Rights", "desc": "Historical making, Preamble, Articles 12-35, and Judicial Review." },
+      { "name": "Union & State Governance Machinery", "desc": "President, Prime Minister, Parliament, Supreme Court, and Federalism." }
+    ],
+    "curriculumHighlights": [
+      "Constitution Day (Samvidhan Divas) and Mock Youth Parliament."
+    ],
+    "careerOpportunities": [
+      "UPSC / KPSC Public Service Examinations",
+      "Legal Studies & Public Policy",
+      "Civic Governance & Administrative Careers"
+    ],
+    "syllabusDoc": "/assets/documents/syllabus/ug-nep-syllabus-2026.pdf",
+    "regulationsDoc": "/assets/documents/academics/nep-2020-academic-regulations.pdf",
+    "relatedIds": ["ba", "esp", "environmental-studies"]
+  }
 };
 
 // Normalized lookup function that resolves codes, IDs, and aliases
