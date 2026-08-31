@@ -121,13 +121,9 @@ export default function FacultyDetailPage() {
                   <Briefcase className="w-4 h-4 mr-2 text-slate-400 shrink-0" />
                   <span><strong>Experience:</strong> {faculty.experience}</span>
                 </p>
-                <p className="flex items-center">
+                <p className="flex items-center sm:col-span-2">
                   <Mail className="w-4 h-4 mr-2 text-[#1C5496] shrink-0" />
-                  <span><strong>Email:</strong> <span className="font-mono text-slate-800">{faculty.email}</span></span>
-                </p>
-                <p className="flex items-center">
-                  <Phone className="w-4 h-4 mr-2 text-slate-400 shrink-0" />
-                  <span><strong>Phone:</strong> {faculty.phone}</span>
+                  <span><strong>Official Email:</strong> <span className="font-mono text-slate-800">{faculty.email || `${faculty.id}@stphilos.ac.in`}</span></span>
                 </p>
               </div>
             </div>

@@ -13,7 +13,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/economics/praveen-saldanha.png",
     "qualification": "M.Sc., Ph.D.",
     "email": "praveen.saldanha@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of Economics Pedagogy & Research",
     "subjectsTaught": [
@@ -37,7 +36,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/economics/sowmyashree-m.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "sowmyashree.m@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Economics Pedagogy & Research",
     "subjectsTaught": [
@@ -61,7 +59,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/economics/nandeesha-h-k.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "nandeesha.h.k@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of Economics Pedagogy & Research",
     "subjectsTaught": [
@@ -85,7 +82,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/economics/ashwini-k-j.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "ashwini.k.j@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Economics Pedagogy & Research",
     "subjectsTaught": [
@@ -109,7 +105,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/economics/namitha-jois-k-s.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "namitha.jois.k.s@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Economics Pedagogy & Research",
     "subjectsTaught": [
@@ -133,7 +128,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/e-gloriya-priyadarshini.png",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "e.gloriya.priyadarshini@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -157,7 +151,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/syeda-masarath.png",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "syeda.masarath@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -181,7 +174,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/archana-a.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "archana.a@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -205,7 +197,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/j-sandra-agnes.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "j.sandra.agnes@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -229,7 +220,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/ms-manasa-e.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "ms.manasa.e@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -253,7 +243,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/lydia-anjali-a.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "lydia.anjali.a@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -277,7 +266,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/harshitha-m.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "harshitha.m@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -301,7 +289,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/ajay-anthony-g.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "ajay.anthony.g@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -325,7 +312,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/priyanka-mk.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "priyanka.mk@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -349,7 +335,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/lenard-p.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "lenard.p@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -373,7 +358,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/judith.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "judith@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -397,7 +381,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/ayesha-siddiqa.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "ayesha.siddiqa@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -421,7 +404,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/mohammed-maaz.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "mohammed.maaz@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -445,7 +427,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/vidyashree.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "vidyashree@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -469,7 +450,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/prakruthi-v.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "prakruthi.v@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -493,7 +473,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/kusuma-mv.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "kusuma.mv@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -517,7 +496,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/anarghya-theoder.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "anarghya.theoder@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -541,7 +519,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/anusha-gv.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "anusha.gv@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -565,7 +542,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/hanock-a.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "hanock.a@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -589,7 +565,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/hencieta-fernandes.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "hencieta.fernandes@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -613,7 +588,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/computer-science/amrutha-nair.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "amrutha.nair@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Computer Science & Applications Pedagogy & Research",
     "subjectsTaught": [
@@ -637,7 +611,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/business-administration/chandan-nandihal-s.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "chandan.nandihal.s@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of Business Administration (BBA) Pedagogy & Research",
     "subjectsTaught": [
@@ -661,7 +634,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/business-administration/deepa-v.png",
     "qualification": "M.Sc., Ph.D.",
     "email": "deepa.v@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Business Administration (BBA) Pedagogy & Research",
     "subjectsTaught": [
@@ -685,7 +657,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/business-administration/arshiya-khanum.png",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "arshiya.khanum@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Business Administration (BBA) Pedagogy & Research",
     "subjectsTaught": [
@@ -709,7 +680,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/business-administration/priyanka-olivera.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "priyanka.olivera@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Business Administration (BBA) Pedagogy & Research",
     "subjectsTaught": [
@@ -733,7 +703,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/commerce/dr-viveka-marie-g.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "dr.viveka.marie.g@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Commerce & Management Pedagogy & Research",
     "subjectsTaught": [
@@ -757,7 +726,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/commerce/amrin-taj.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "amrin.taj@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Commerce & Management Pedagogy & Research",
     "subjectsTaught": [
@@ -781,7 +749,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/commerce/jancy-j.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "jancy.j@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Commerce & Management Pedagogy & Research",
     "subjectsTaught": [
@@ -805,7 +772,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/commerce/harshitha-bai-m.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "harshitha.bai.m@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Commerce & Management Pedagogy & Research",
     "subjectsTaught": [
@@ -829,7 +795,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/commerce/dr-reena-francis.png",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "dr.reena.francis@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of Commerce & Management Pedagogy & Research",
     "subjectsTaught": [
@@ -853,7 +818,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/commerce/sandesh-d-039-souza.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "sandesh.d.039.souza@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Commerce & Management Pedagogy & Research",
     "subjectsTaught": [
@@ -877,7 +841,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/commerce/sunil-d-039-souza.png",
     "qualification": "M.Sc., Ph.D.",
     "email": "sunil.d.039.souza@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Commerce & Management Pedagogy & Research",
     "subjectsTaught": [
@@ -901,7 +864,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/commerce/juhie-singh-p.png",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "juhie.singh.p@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Commerce & Management Pedagogy & Research",
     "subjectsTaught": [
@@ -925,7 +887,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/commerce/amreen-kousar.png",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "amreen.kousar@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Commerce & Management Pedagogy & Research",
     "subjectsTaught": [
@@ -949,7 +910,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/commerce/supritha-r.png",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "supritha.r@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Commerce & Management Pedagogy & Research",
     "subjectsTaught": [
@@ -973,7 +933,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/commerce/florita-bernadetie-alexander.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "florita.bernadetie.alexander@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Commerce & Management Pedagogy & Research",
     "subjectsTaught": [
@@ -997,7 +956,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/commerce/kavitha-r.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "kavitha.r@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Commerce & Management Pedagogy & Research",
     "subjectsTaught": [
@@ -1021,7 +979,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/social-work/deepthy-m-j.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "deepthy.m.j@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Social Work Pedagogy & Research",
     "subjectsTaught": [
@@ -1045,7 +1002,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/social-work/matthew-c.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "matthew.c@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Social Work Pedagogy & Research",
     "subjectsTaught": [
@@ -1069,7 +1025,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/social-work/noor-mubasheer-c-a.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "noor.mubasheer.c.a@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of Social Work Pedagogy & Research",
     "subjectsTaught": [
@@ -1093,7 +1048,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/social-work/p-nandana.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "p.nandana@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Social Work Pedagogy & Research",
     "subjectsTaught": [
@@ -1117,7 +1071,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/social-work/robin-k-j.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "robin.k.j@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Social Work Pedagogy & Research",
     "subjectsTaught": [
@@ -1141,7 +1094,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/social-work/shirley-cynthia-anthony.png",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "shirley.cynthia.anthony@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Social Work Pedagogy & Research",
     "subjectsTaught": [
@@ -1165,7 +1117,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/english/suhan-poovaiah.png",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "suhan.poovaiah@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of English & Languages Pedagogy & Research",
     "subjectsTaught": [
@@ -1189,7 +1140,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/english/mahesh-nayak.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "mahesh.nayak@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of English & Languages Pedagogy & Research",
     "subjectsTaught": [
@@ -1213,7 +1163,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/english/sohan-pooviah.png",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "sohan.pooviah@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of English & Languages Pedagogy & Research",
     "subjectsTaught": [
@@ -1237,7 +1186,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/english/william-joseph-j.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "william.joseph.j@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of English & Languages Pedagogy & Research",
     "subjectsTaught": [
@@ -1261,7 +1209,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/english/arvind-kispotta.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "arvind.kispotta@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of English & Languages Pedagogy & Research",
     "subjectsTaught": [
@@ -1285,7 +1232,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/english/jenifer-priya-m.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "jenifer.priya.m@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of English & Languages Pedagogy & Research",
     "subjectsTaught": [
@@ -1309,7 +1255,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/english/johnson-arulraj.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "johnson.arulraj@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of English & Languages Pedagogy & Research",
     "subjectsTaught": [
@@ -1333,7 +1278,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/english/roopa-selveria-j.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "roopa.selveria.j@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of English & Languages Pedagogy & Research",
     "subjectsTaught": [
@@ -1357,7 +1301,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/english/greemaldin-d-039-silva.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "greemaldin.d.039.silva@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of English & Languages Pedagogy & Research",
     "subjectsTaught": [
@@ -1381,7 +1324,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/english/mahesh-nayak-m.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "mahesh.nayak.m@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of English & Languages Pedagogy & Research",
     "subjectsTaught": [
@@ -1405,7 +1347,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/english/danila-jessic-o.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "danila.jessic.o@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of English & Languages Pedagogy & Research",
     "subjectsTaught": [
@@ -1429,7 +1370,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/physics/sachin-c-n.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "sachin.c.n@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Physics Pedagogy & Research",
     "subjectsTaught": [
@@ -1453,7 +1393,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/physics/chandana-s.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "chandana.s@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Physics Pedagogy & Research",
     "subjectsTaught": [
@@ -1477,7 +1416,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/physics/r-manimozhi.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "r.manimozhi@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Physics Pedagogy & Research",
     "subjectsTaught": [
@@ -1501,7 +1439,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/physics/thomas-gunaseelan.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "thomas.gunaseelan@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of Physics Pedagogy & Research",
     "subjectsTaught": [
@@ -1525,7 +1462,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/physics/eliezer-vishwas.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "eliezer.vishwas@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Physics Pedagogy & Research",
     "subjectsTaught": [
@@ -1549,7 +1485,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/physics/chandana.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "chandana@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Physics Pedagogy & Research",
     "subjectsTaught": [
@@ -1573,7 +1508,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/physics/impana-n.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "impana.n@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Physics Pedagogy & Research",
     "subjectsTaught": [
@@ -1597,7 +1531,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/chemistry/r-britto-dominic-rayan.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "r.britto.dominic.rayan@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of Chemistry Pedagogy & Research",
     "subjectsTaught": [
@@ -1621,7 +1554,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/chemistry/ravi-saldanha.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "ravi.saldanha@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Chemistry Pedagogy & Research",
     "subjectsTaught": [
@@ -1645,7 +1577,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/chemistry/monica.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "monica@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Chemistry Pedagogy & Research",
     "subjectsTaught": [
@@ -1669,7 +1600,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/chemistry/arathy-er.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "arathy.er@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Chemistry Pedagogy & Research",
     "subjectsTaught": [
@@ -1693,7 +1623,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/chemistry/asha-m-s.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "asha.m.s@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of Chemistry Pedagogy & Research",
     "subjectsTaught": [
@@ -1717,7 +1646,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/chemistry/b-shyla.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "b.shyla@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Chemistry Pedagogy & Research",
     "subjectsTaught": [
@@ -1741,7 +1669,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/chemistry/a-shiva-kumar.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "a.shiva.kumar@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Chemistry Pedagogy & Research",
     "subjectsTaught": [
@@ -1765,7 +1692,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/chemistry/k-nandini.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "k.nandini@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Chemistry Pedagogy & Research",
     "subjectsTaught": [
@@ -1789,7 +1715,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/chemistry/zabiulla.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "zabiulla@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Chemistry Pedagogy & Research",
     "subjectsTaught": [
@@ -1813,7 +1738,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/chemistry/princy-a-r.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "princy.a.r@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Chemistry Pedagogy & Research",
     "subjectsTaught": [
@@ -1837,7 +1761,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/mathematics/bharatha-kalegowda.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "bharatha.kalegowda@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of Mathematics Pedagogy & Research",
     "subjectsTaught": [
@@ -1861,7 +1784,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/mathematics/ameena-firdose.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "ameena.firdose@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Mathematics Pedagogy & Research",
     "subjectsTaught": [
@@ -1885,7 +1807,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/mathematics/vibha-m-m.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "vibha.m.m@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Mathematics Pedagogy & Research",
     "subjectsTaught": [
@@ -1909,7 +1830,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/mathematics/harshitha-m.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "harshitha.m@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Mathematics Pedagogy & Research",
     "subjectsTaught": [
@@ -1933,7 +1853,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/mathematics/shruthi-menezes.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "shruthi.menezes@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of Mathematics Pedagogy & Research",
     "subjectsTaught": [
@@ -1957,7 +1876,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/mathematics/neethu.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "neethu@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Mathematics Pedagogy & Research",
     "subjectsTaught": [
@@ -1981,7 +1899,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/mathematics/alvin-george.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "alvin.george@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Mathematics Pedagogy & Research",
     "subjectsTaught": [
@@ -2005,7 +1922,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/biotech/lydia-vandana.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "lydia.vandana@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Biotechnology & Biochemistry Pedagogy & Research",
     "subjectsTaught": [
@@ -2029,7 +1945,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/biotech/shruthi-g.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "shruthi.g@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of Biotechnology & Biochemistry Pedagogy & Research",
     "subjectsTaught": [
@@ -2053,7 +1968,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/biotech/niveditha-s.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "niveditha.s@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Biotechnology & Biochemistry Pedagogy & Research",
     "subjectsTaught": [
@@ -2077,7 +1991,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/biotech/dhanuja-b.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "dhanuja.b@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Biotechnology & Biochemistry Pedagogy & Research",
     "subjectsTaught": [
@@ -2101,7 +2014,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/biotech/yashaswini-v.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "yashaswini.v@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Biotechnology & Biochemistry Pedagogy & Research",
     "subjectsTaught": [
@@ -2125,7 +2037,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/journalism/yamuna.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "yamuna@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of Journalism & Mass Communication Pedagogy & Research",
     "subjectsTaught": [
@@ -2149,7 +2060,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/journalism/sr-archana-mary.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "sr.archana.mary@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Journalism & Mass Communication Pedagogy & Research",
     "subjectsTaught": [
@@ -2173,7 +2083,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/journalism/venugopal-gowda-m-k.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "venugopal.gowda.m.k@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of Journalism & Mass Communication Pedagogy & Research",
     "subjectsTaught": [
@@ -2197,7 +2106,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/journalism/vagdevi-h-s.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "vagdevi.h.s@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Journalism & Mass Communication Pedagogy & Research",
     "subjectsTaught": [
@@ -2221,7 +2129,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/journalism/ravithej-s-p.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "ravithej.s.p@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Journalism & Mass Communication Pedagogy & Research",
     "subjectsTaught": [
@@ -2245,7 +2152,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/journalism/sanju-t-s.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "sanju.t.s@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Journalism & Mass Communication Pedagogy & Research",
     "subjectsTaught": [
@@ -2269,7 +2175,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/psychology/ginson-george.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "ginson.george@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Psychology Pedagogy & Research",
     "subjectsTaught": [
@@ -2293,7 +2198,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/psychology/vaishnavi.jpg",
     "qualification": "M.Sc., Ph.D.",
     "email": "vaishnavi@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Psychology Pedagogy & Research",
     "subjectsTaught": [
@@ -2317,7 +2221,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/psychology/rukmini-m.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "rukmini.m@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Psychology Pedagogy & Research",
     "subjectsTaught": [
@@ -2341,7 +2244,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/psychology/sheeya-cs.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "sheeya.cs@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Psychology Pedagogy & Research",
     "subjectsTaught": [
@@ -2365,7 +2267,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/criminology/vinayakumar-v-hanjagi.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "vinayakumar.v.hanjagi@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Criminology & Forensic Science Pedagogy & Research",
     "subjectsTaught": [
@@ -2389,7 +2290,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/criminology/nayana-b-r.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "nayana.b.r@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Criminology & Forensic Science Pedagogy & Research",
     "subjectsTaught": [
@@ -2413,7 +2313,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/criminology/anitha-samuel.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "anitha.samuel@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Criminology & Forensic Science Pedagogy & Research",
     "subjectsTaught": [
@@ -2437,7 +2336,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/criminology/megha-pradeep.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "megha.pradeep@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Criminology & Forensic Science Pedagogy & Research",
     "subjectsTaught": [
@@ -2461,7 +2359,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/criminology/abhirami-mohandas.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "abhirami.mohandas@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Criminology & Forensic Science Pedagogy & Research",
     "subjectsTaught": [
@@ -2485,7 +2382,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/criminology/lt-francis-devasahayam-b.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "lt.francis.devasahayam.b@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "15+ Years Experience",
     "specialization": "Department of Criminology & Forensic Science Pedagogy & Research",
     "subjectsTaught": [
@@ -2509,7 +2405,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/criminology/vidya-g.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "vidya.g@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Criminology & Forensic Science Pedagogy & Research",
     "subjectsTaught": [
@@ -2533,7 +2428,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/criminology/joseph-ashwini-jeyakanthan.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "joseph.ashwini.jeyakanthan@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Criminology & Forensic Science Pedagogy & Research",
     "subjectsTaught": [
@@ -2557,7 +2451,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/criminology/abraham-d.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "abraham.d@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Criminology & Forensic Science Pedagogy & Research",
     "subjectsTaught": [
@@ -2581,7 +2474,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/criminology/rithu-k.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "rithu.k@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Criminology & Forensic Science Pedagogy & Research",
     "subjectsTaught": [
@@ -2605,7 +2497,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/criminology/hema-shree-hs.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "hema.shree.hs@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Criminology & Forensic Science Pedagogy & Research",
     "subjectsTaught": [
@@ -2629,7 +2520,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/criminology/bavitha-j.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "bavitha.j@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Criminology & Forensic Science Pedagogy & Research",
     "subjectsTaught": [
@@ -2653,7 +2543,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/humanities/anand-c.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "anand.c@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Humanities & Social Sciences Pedagogy & Research",
     "subjectsTaught": [
@@ -2677,7 +2566,6 @@ export const ALL_FACULTY = [
     "image": "/assets/faculty/humanities/kudureyallappa.jpg",
     "qualification": "M.Sc., M.Phil., NET / KSET",
     "email": "kudureyallappa@stphilos.ac.in",
-    "phone": "+91 821 4001900",
     "experience": "8+ Years Experience",
     "specialization": "Department of Humanities & Social Sciences Pedagogy & Research",
     "subjectsTaught": [
