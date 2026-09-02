@@ -388,12 +388,14 @@ export default function ProgrammeDetailPage() {
               </div>
 
               <div className="space-y-2.5 pt-2">
-                <Link
-                  to="/admissions"
+                <a
+                  href="https://student.stphiloserp.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-gold w-full text-center py-3 block rounded-xl font-bold text-xs sm:text-sm tracking-wide shadow-md hover:shadow-lg transition-all"
                 >
-                  Apply Online (Admissions Portal)
-                </Link>
+                  Apply Online (ERP Portal)
+                </a>
                 <Link
                   to="/contact"
                   className="w-full text-center py-2.5 block rounded-xl border border-slate-600 bg-slate-800/80 hover:bg-slate-800 text-xs font-semibold text-slate-200 transition-colors"

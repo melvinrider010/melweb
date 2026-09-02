@@ -6,18 +6,8 @@
     "title": "Bachelor of Computer Applications",
     "displayLines": ["Bachelor of", "Computer Applications"],
     "duration": "3 Years / 4 Years (NEP 2020)",
-    "description": "A technology-focused undergraduate programme designed to develop strong foundations in programming, software engineering, databases, and web applications.",
+    "description": "Comprehensive technology degree in software engineering, full-stack web development, Python, Java, database administration, and AI applications.",
     "link": "/academics/bca"
-  },
-  {
-    "id": "bcom",
-    "type": "ug",
-    "code": "B.Com",
-    "title": "Bachelor of Commerce",
-    "displayLines": ["Bachelor of", "Commerce"],
-    "duration": "3 Years / 4 Years (NEP 2020)",
-    "description": "Comprehensive commercial degree covering corporate accounting, financial management, taxation laws, auditing, and modern banking operations.",
-    "link": "/academics/bcom"
   },
   {
     "id": "bba",
@@ -26,17 +16,37 @@
     "title": "Bachelor of Business Administration",
     "displayLines": ["Bachelor of", "Business Administration"],
     "duration": "3 Years / 4 Years (NEP 2020)",
-    "description": "Prepares future managers and entrepreneurs through core training in organizational strategy, marketing, human resources, and business analytics.",
+    "description": "Professional managerial training in marketing, financial management, human resources, organizational leadership, and entrepreneurship.",
     "link": "/academics/bba"
+  },
+  {
+    "id": "ba",
+    "type": "ug",
+    "code": "BA",
+    "title": "Bachelor of Arts (Humanities & Media)",
+    "displayLines": ["Bachelor of", "Arts (Humanities)"],
+    "duration": "3 Years / 4 Years (NEP 2020)",
+    "description": "Multidisciplinary humanities streams including Journalism & Mass Comm (JPS), Economics & Political Science (ESP), History (EHP), and English Literature (EnSP).",
+    "link": "/academics/ba"
+  },
+  {
+    "id": "bcom",
+    "type": "ug",
+    "code": "B.Com",
+    "title": "Bachelor of Commerce",
+    "displayLines": ["Bachelor of", "Commerce"],
+    "duration": "3 Years / 4 Years (NEP 2020)",
+    "description": "Comprehensive commercial degree covering corporate accounting, GST taxation, financial markets, banking operations, and auditing.",
+    "link": "/academics/bcom"
   },
   {
     "id": "bba-th",
     "type": "ug",
     "code": "BBA-TH",
-    "title": "BBA Tourism & Hospitality",
+    "title": "BBA Tourism & Hospitality Management",
     "displayLines": ["Tourism &", "Hospitality Mgmt"],
     "duration": "3 Years / 4 Years (NEP 2020)",
-    "description": "Specialized managerial programme focusing on global travel operations, hotel management, eco-tourism, and hospitality services.",
+    "description": "Specialized degree in global aviation, hotel management, eco-tourism, travel agency operations, and event management.",
     "link": "/academics/bba-th"
   },
   {
@@ -46,98 +56,28 @@
     "title": "Bachelor of Social Work",
     "displayLines": ["Bachelor of", "Social Work"],
     "duration": "3 Years / 4 Years (NEP 2020)",
-    "description": "Professional community service degree integrating field education, social policy, human rights, NGO management, and social welfare.",
+    "description": "Professional community service degree integrating fieldwork, NGO administration, social policy, counseling, and human rights advocacy.",
     "link": "/academics/bsw"
+  },
+  {
+    "id": "bsc",
+    "type": "ug",
+    "code": "B.Sc",
+    "title": "Bachelor of Science (Physical & Life Sciences)",
+    "displayLines": ["Bachelor of", "Science (B.Sc)"],
+    "duration": "3 Years / 4 Years (NEP 2020)",
+    "description": "Diverse science specializations including Physics, Chemistry, Math (PCM), Chemistry, Botany, Zoology (CBZ), Physics, Math, Computer Science (PMC), Biochemistry (BCH), and Biotechnology.",
+    "link": "/academics/bsc"
   },
   {
     "id": "bvoc",
     "type": "ug",
     "code": "B.Voc",
-    "title": "Bachelor of Vocation",
-    "displayLines": ["Bachelor of", "Vocation (IT / Media)"],
-    "duration": "3 Years",
-    "description": "Skill-intensive vocational degree in Digital Media Production, Information Technology, and Healthcare Services aligned with NSQF standards.",
+    "title": "Bachelor of Vocation (Skill-Based)",
+    "displayLines": ["Bachelor of", "Vocation (Skill Streams)"],
+    "duration": "3 Years (NSQF Level 7)",
+    "description": "Hands-on vocational degrees in Digital Media & Animation, Healthcare Technology, and Software Development aligned with UGC NSQF standards.",
     "link": "/academics/bvoc"
-  },
-  {
-    "id": "pcm",
-    "type": "ug",
-    "code": "PCM",
-    "title": "Physics • Chemistry • Mathematics",
-    "displayLines": ["Physics • Chemistry", "Mathematics"],
-    "duration": "3 Years / 4 Years (B.Sc)",
-    "description": "Core physical science B.Sc combination developing analytical problem-solving, theoretical physics, chemical principles, and advanced calculus.",
-    "link": "/academics/pcm"
-  },
-  {
-    "id": "cbz",
-    "type": "ug",
-    "code": "CBZ",
-    "title": "Chemistry • Botany • Zoology",
-    "displayLines": ["Chemistry • Botany", "Zoology"],
-    "duration": "3 Years / 4 Years (B.Sc)",
-    "description": "Classic life science B.Sc combination exploring organic chemistry, plant biotechnology, animal physiology, genetics, and ecology.",
-    "link": "/academics/cbz"
-  },
-  {
-    "id": "pmc",
-    "type": "ug",
-    "code": "PMC",
-    "title": "Physics • Mathematics • Computer Science",
-    "displayLines": ["Physics • Math", "Computer Science"],
-    "duration": "3 Years / 4 Years (B.Sc)",
-    "description": "Interdisciplinary physical & computational science degree preparing students for scientific computing, data analysis, and software systems.",
-    "link": "/academics/pmc"
-  },
-  {
-    "id": "bch",
-    "type": "ug",
-    "code": "BCH",
-    "title": "Biochemistry • Chemistry • Human Nutrition",
-    "displayLines": ["Biochemistry • Chem", "Human Nutrition"],
-    "duration": "3 Years / 4 Years (B.Sc)",
-    "description": "Applied biological science combination studying molecular biology, metabolic pathways, clinical biochemistry, and dietetics.",
-    "link": "/academics/bch"
-  },
-  {
-    "id": "esp",
-    "type": "ug",
-    "code": "ESP",
-    "title": "Economics • Sociology • Political Science",
-    "displayLines": ["Economics • Sociology", "Political Science"],
-    "duration": "3 Years / 4 Years (B.A)",
-    "description": "Popular B.A humanities combination covering macroeconomic theory, social structures, public governance, and international relations.",
-    "link": "/academics/esp"
-  },
-  {
-    "id": "ehp",
-    "type": "ug",
-    "code": "EHP",
-    "title": "Economics • History • Political Science",
-    "displayLines": ["Economics • History", "Political Science"],
-    "duration": "3 Years / 4 Years (B.A)",
-    "description": "Foundational humanities combination ideal for civil services preparation, constitutional studies, historical analysis, and economic policy.",
-    "link": "/academics/ehp"
-  },
-  {
-    "id": "ensp",
-    "type": "ug",
-    "code": "EnSP",
-    "title": "English • Sociology • Political Science",
-    "displayLines": ["English • Sociology", "Political Science"],
-    "duration": "3 Years / 4 Years (B.A)",
-    "description": "Liberal arts B.A combination blending English literature & critical writing with social research methods and political philosophy.",
-    "link": "/academics/ensp"
-  },
-  {
-    "id": "jps",
-    "type": "ug",
-    "code": "JPS",
-    "title": "Journalism • Psychology • Sociology",
-    "displayLines": ["Journalism • Psych", "Sociology"],
-    "duration": "3 Years / 4 Years (B.A)",
-    "description": "Modern behavioral & media studies B.A combination focusing on news reporting, human psychology, media ethics, and social dynamics.",
-    "link": "/academics/jps"
   },
 
   {

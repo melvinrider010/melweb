@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { ChevronDown, Menu, X, Search, ExternalLink } from 'lucide-react';
+import { ChevronDown, Menu, X, Search, Phone, ExternalLink, Award, Sparkles } from 'lucide-react';
 import collegeInfo from '../../data/college_info.json';
 import { MEGA_MENU_DATA } from '../../data/megaMenuData';
 import MegaMenuOverlay from './MegaMenuOverlay';
@@ -20,7 +20,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 30);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -63,7 +63,7 @@ export default function Header() {
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
     hoverTimeoutRef.current = setTimeout(() => {
       setActiveMegaKey(null);
-    }, 140);
+    }, 150);
   };
 
   const handleNavClick = (item) => {
@@ -75,19 +75,18 @@ export default function Header() {
     }
   };
 
-  // Complete desktop navigation items (All 11 items visible with smart responsive labels)
+  // Exactly matching navigation structure with IQAC
   const desktopNavItems = [
-    { label: 'Home', shortLabel: 'Home', path: '/' },
-    { label: 'About Us', shortLabel: 'About Us', path: '/about', megaKey: 'about' },
-    { label: 'Academics', shortLabel: 'Academics', path: '/academics', megaKey: 'academics' },
-    { label: 'Departments', shortLabel: 'Departments', path: '/departments', megaKey: 'departments' },
-    { label: 'Admissions', shortLabel: 'Admissions', path: '/admissions', megaKey: 'admissions' },
-    { label: 'Examinations', shortLabel: 'Exams', path: '/examinations', megaKey: 'examinations' },
-    { label: 'Research', shortLabel: 'Research', path: '/research', megaKey: 'research' },
-    { label: 'Student Support & Amenities', shortLabel: 'Student Support', path: '/student-support', megaKey: 'studentSupport' },
-    { label: 'Mandatory Disclosure', shortLabel: 'Compliance', path: '/mandatory-disclosure', megaKey: 'compliance' },
-    { label: 'Gallery', shortLabel: 'Gallery', path: '/gallery' },
-    { label: 'Contact', shortLabel: 'Contact', path: '/contact' }
+    { label: 'HOME', path: '/' },
+    { label: 'ABOUT US', path: '/about', megaKey: 'about' },
+    { label: 'ACADEMICS', path: '/academics', megaKey: 'academics' },
+    { label: 'EXAMINATION', path: '/examinations', megaKey: 'examinations' },
+    { label: 'RESOURCE', path: '/resources', megaKey: 'research' },
+    { label: 'STUDENT SUPPORT', path: '/student-support', megaKey: 'studentSupport' },
+    { label: 'MANDATORY DISCLOSURE', path: '/mandatory-disclosure', megaKey: 'compliance' },
+    { label: 'IQAC', path: '/iqac', megaKey: 'iqac' },
+    { label: 'ALUMNI', path: '/alumni' },
+    { label: 'CONTACT US', path: '/contact' }
   ];
 
   return (
@@ -95,76 +94,117 @@ export default function Header() {
       <header
         ref={headerRef}
         onMouseLeave={handleMouseLeave}
-        className={`sticky top-0 z-40 transition-all duration-300 w-full max-w-full ${
-          scrolled ? 'shadow-md bg-[#0F3B70] border-b border-[#FFC928]/30' : 'bg-[#1C5496] border-b border-blue-400/20'
-        }`}
+        className="sticky top-0 z-40 w-full max-w-full shadow-md transition-all duration-300"
       >
         
-        {/* LEVEL 1: COMPACT INSTITUTIONAL TOP UTILITY BAR */}
-        <div className="bg-[#071A33] text-slate-200 text-xs py-1.5 px-3 sm:px-6 border-b border-slate-800 font-medium">
+        {/* =========================================================================
+            TIER 1: TOP INSTITUTIONAL UTILITY BAR (Midnight Navy #060f26)
+            ========================================================================= */}
+        <div className="bg-[#060f26] text-slate-200 text-[11px] sm:text-xs py-1.5 px-3 sm:px-8 border-b border-white/10 font-medium">
           <div className="max-w-[1720px] mx-auto flex justify-between items-center gap-2">
             
-            {/* Top Quick Links - Scrollable on very small screens, always accessible */}
-            <div className="flex items-center space-x-2 sm:space-x-3.5 overflow-x-auto no-scrollbar whitespace-nowrap text-[11px] sm:text-xs">
-              <Link to="/iqac" className="hover:text-[#FFD84A] transition-colors font-bold text-slate-200 shrink-0">IQAC</Link>
-              <span className="text-slate-700 shrink-0">|</span>
-              <Link to="/iic" className="hover:text-[#FFD84A] transition-colors font-bold text-slate-200 shrink-0">IIC</Link>
-              <span className="text-slate-700 shrink-0">|</span>
-              <Link to="/nirf" className="hover:text-[#FFD84A] transition-colors font-bold text-slate-200 shrink-0">NIRF</Link>
-              <span className="text-slate-700 shrink-0">|</span>
-              <Link to="/naac" className="hover:text-[#FFD84A] transition-colors font-bold text-slate-200 shrink-0">NAAC B++</Link>
-              <span className="text-slate-700 hidden lg:inline shrink-0">|</span>
-              <Link to="/anthems" className="hover:text-[#FFD84A] transition-colors hidden lg:inline font-medium shrink-0">ANTHEMS</Link>
-              <span className="text-slate-700 hidden lg:inline shrink-0">|</span>
-              <a href="https://swayam.gov.in/" target="_blank" rel="noopener noreferrer" className="hover:text-[#FFD84A] transition-colors hidden lg:inline font-medium shrink-0">SWAYAM ↗</a>
-              <span className="text-slate-700 hidden sm:inline shrink-0">|</span>
-              <Link to="/alumni" className="hover:text-[#FFD84A] transition-colors hidden sm:inline font-medium shrink-0">Alumni</Link>
-              <span className="text-slate-700 hidden sm:inline shrink-0">|</span>
-              <Link to="/contact" className="hover:text-[#FFD84A] transition-colors hidden sm:inline font-medium shrink-0">Contact</Link>
+            {/* Accreditation & Institutional Identity */}
+            <div className="flex items-center space-x-2 sm:space-x-3 overflow-x-auto no-scrollbar whitespace-nowrap text-slate-300">
+              <span className="font-semibold text-[#F0D98C] flex items-center">
+                <Award className="w-3.5 h-3.5 mr-1 text-[#C9A84C]" />
+                UGC Autonomous · NAAC Cycle III B++
+              </span>
+              <span className="text-slate-600 hidden md:inline">|</span>
+              <span className="hidden md:inline">Affiliated to University of Mysore</span>
+              <span className="text-slate-600 hidden lg:inline">|</span>
+              <span className="hidden lg:inline text-slate-300">Govt. Aid No. 1951</span>
+              <span className="text-slate-600 hidden sm:inline">|</span>
+              <Link to="/alumni" className="hover:text-[#F0D98C] transition-colors hidden sm:inline">Alumni Network</Link>
             </div>
 
-            {/* Global Search Trigger */}
-            <div className="flex items-center space-x-2 shrink-0">
+            {/* Quick Contact & Search */}
+            <div className="flex items-center space-x-3 shrink-0">
+              <div className="hidden sm:flex items-center space-x-1 text-slate-300">
+                <Phone className="w-3 h-3 text-[#C9A84C]" />
+                <span>+91 821 2490728</span>
+              </div>
+              <span className="text-slate-600 hidden sm:inline">|</span>
+              <Link to="/contact" className="hover:text-[#F0D98C] transition-colors text-slate-300">
+                Contact Desk
+              </Link>
               <button
                 onClick={() => setSearchModalOpen(true)}
-                className="flex items-center space-x-1.5 px-2.5 py-0.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-md text-xs text-slate-200 transition-colors font-medium cursor-pointer shrink-0"
+                className="flex items-center space-x-1.5 px-2.5 py-0.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-md text-xs text-slate-200 transition-colors font-medium cursor-pointer"
                 title="Search Portal (Ctrl + K)"
               >
-                <Search className="w-3.5 h-3.5 text-[#FFD84A]" />
+                <Search className="w-3 h-3 text-[#F0D98C]" />
                 <span className="hidden sm:inline">Search</span>
-                <kbd className="hidden md:inline-block px-1.5 py-0.2 bg-slate-900 border border-slate-700 rounded text-[10px] font-mono text-slate-400">Ctrl+K</kbd>
+                <kbd className="hidden md:inline-block px-1 bg-black/40 border border-white/20 rounded text-[9px] font-mono text-slate-300">Ctrl+K</kbd>
               </button>
             </div>
 
           </div>
         </div>
 
-        {/* LEVEL 2: MAIN BRAND & FLEXIBLE PRIMARY NAVIGATION BAR (NO OVERLAPPING) */}
-        <div className="px-3 sm:px-6 py-2.5 w-full relative">
-          <div className="max-w-[1720px] mx-auto flex justify-between items-center gap-3 w-full min-w-0">
+        {/* =========================================================================
+            TIER 2: BRAND IDENTITY & ACTION BAR (Crisp White #FFFFFF)
+            ========================================================================= */}
+        <div className="bg-white px-3 sm:px-8 py-2 sm:py-2.5 border-b border-slate-200/80">
+          <div className="max-w-[1720px] mx-auto flex justify-between items-center gap-4">
             
-            {/* Controlled Width Brand Logo & Title (Fixed Shrink-0, Never Overlapped) */}
-            <Link to="/" onClick={() => setActiveMegaKey(null)} className="flex items-center space-x-2.5 group shrink-0 z-10 min-w-0">
+            {/* Official College Header Logo Banner */}
+            <Link 
+              to="/" 
+              onClick={() => setActiveMegaKey(null)} 
+              className="flex items-center group shrink min-w-0 py-0.5"
+            >
               <img
-                src="/assets/logo.png"
-                alt="St. Philomena's Crest"
-                className="h-10 sm:h-11 w-auto object-contain group-hover:scale-105 transition-transform shrink-0"
-                onError={(e) => { e.target.style.display = 'none'; }}
+                src="/assets/college-header-logo.png"
+                alt="St. Philomena's College (Autonomous), Mysuru"
+                className="h-12 sm:h-16 md:h-20 lg:h-22 w-auto max-w-[65vw] sm:max-w-none object-contain group-hover:opacity-95 transition-opacity"
               />
-              <div className="shrink-0 min-w-0">
-                <h1 className="font-serif font-bold text-sm sm:text-base xl:text-lg leading-tight tracking-wide text-white group-hover:text-[#FFD84A] transition-colors whitespace-nowrap">
-                  St. Philomena's College
-                </h1>
-                <p className="text-[10px] sm:text-[11px] text-[#FFD84A] font-bold tracking-wider uppercase whitespace-nowrap">
-                  (Autonomous), Mysuru · Est. 1946
-                </p>
-              </div>
             </Link>
 
-            {/* Desktop Navigation Bar - Active only on wide screens (>=1360px) to guarantee zero overlap */}
-            <nav className="hidden min-[1360px]:flex items-center justify-end flex-1 min-w-0 gap-1 2xl:gap-1.5" aria-label="Main Navigation">
+            {/* Right Action Tools (Admissions CTA + Mobile Trigger) */}
+            <div className="flex items-center space-x-3 sm:space-x-4 shrink-0">
               
-              {/* All 11 Desktop Nav Items */}
+              {/* Admissions Helpline (Desktop) */}
+              <div className="hidden xl:flex flex-col items-end pr-2 text-right">
+                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Admissions Office</span>
+                <span className="text-sm font-extrabold font-serif text-[#0B1F4E]">+91 821 4268800</span>
+              </div>
+
+              {/* Gold Admissions CTA Button */}
+              <a
+                href="https://student.stphiloserp.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setActiveMegaKey(null)}
+                className="btn-gold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold shadow-md whitespace-nowrap"
+              >
+                <span>Apply Online 2026–27</span>
+              </a>
+
+              {/* Mobile Drawer Trigger (Visible on screens < 1200px) */}
+              <button
+                onClick={() => setMobileDrawerOpen(true)}
+                className="min-[1200px]:hidden p-2 sm:p-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-[#0B1F4E] border border-slate-300 cursor-pointer flex items-center space-x-1.5"
+                aria-label="Open Navigation Menu"
+              >
+                <Menu className="w-5 h-5 text-[#0B1F4E]" />
+                <span className="text-xs font-bold uppercase tracking-wider hidden sm:inline text-[#0B1F4E]">Menu</span>
+              </button>
+
+            </div>
+
+          </div>
+        </div>
+
+        {/* =========================================================================
+            TIER 3: DEDICATED FULL-WIDTH PRIMARY NAVIGATION BAR (#0B1F4E Institutional Navy)
+            ========================================================================= */}
+        <nav 
+          className="hidden min-[1100px]:block bg-[#0B1F4E] border-b-2 border-[#C9A84C] text-white overflow-x-auto no-scrollbar" 
+          aria-label="Main Navigation"
+        >
+          <div className="max-w-[1720px] mx-auto px-2 sm:px-4 lg:px-6 xl:px-8 flex items-center justify-between min-w-max gap-2">
+            
+            <div className="flex items-center space-x-0.5 xl:space-x-1 2xl:space-x-1.5">
               {desktopNavItems.map((item) => {
                 const isMegaOpen = activeMegaKey === item.megaKey;
                 const isRouteActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
@@ -179,66 +219,37 @@ export default function Header() {
                       onClick={() => handleNavClick(item)}
                       aria-expanded={isMegaOpen}
                       aria-haspopup={item.megaKey ? 'menu' : 'false'}
-                      className={`px-2 2xl:px-2.5 py-1.5 rounded-md text-[13px] 2xl:text-[14px] font-medium transition-all flex items-center whitespace-nowrap shrink-0 cursor-pointer ${
+                      className={`px-2 xl:px-2.5 2xl:px-3 py-2.5 xl:py-3 text-[11.5px] xl:text-[12px] 2xl:text-[13px] font-bold tracking-wide transition-all flex items-center whitespace-nowrap cursor-pointer relative ${
                         isMegaOpen
-                          ? 'bg-[#071A33] text-[#FFD84A] shadow-xs'
+                          ? 'text-[#F0D98C] bg-white/10'
                           : isRouteActive
-                          ? 'bg-[#FFC928] text-[#071A33] shadow-xs font-bold'
-                          : 'text-white hover:bg-white/10 hover:text-[#FFD84A]'
+                          ? 'text-[#F0D98C]'
+                          : 'text-slate-100 hover:text-[#F0D98C] hover:bg-white/5'
                       }`}
                     >
                       <span>{item.label}</span>
                       {item.megaKey && (
                         <ChevronDown
-                          className={`w-3.5 h-3.5 ml-1 transition-transform duration-200 shrink-0 ${
-                            isMegaOpen ? 'rotate-180 text-[#FFD84A]' : 'opacity-70'
+                          className={`w-3.5 h-3.5 ml-0.5 xl:ml-1 transition-transform duration-200 shrink-0 ${
+                            isMegaOpen ? 'rotate-180 text-[#F0D98C]' : 'opacity-70 text-slate-300'
                           }`}
                         />
+                      )}
+                      {(isRouteActive || isMegaOpen) && (
+                        <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#C9A84C]" />
                       )}
                     </button>
                   </div>
                 );
               })}
-
-            </nav>
-
-            {/* Admissions 2026-27 CTA (Shown on extra-large screens >=1500px) */}
-            <div className="hidden min-[1500px]:block shrink-0 ml-2">
-              <Link
-                to="/admissions"
-                onClick={() => setActiveMegaKey(null)}
-                className="btn-gold px-3.5 py-1.5 rounded-md text-xs font-bold shadow-xs inline-block whitespace-nowrap hover:scale-102 transition-transform"
-              >
-                Admissions 2026–27
-              </Link>
-            </div>
-
-            {/* Tablet & Mobile Header Action Strip (<1360px) */}
-            <div className="min-[1360px]:hidden flex items-center space-x-2 shrink-0">
-              
-              {/* Compact Admissions CTA for Tablet */}
-              <Link
-                to="/admissions"
-                className="hidden sm:inline-flex btn-gold text-xs font-bold px-3 py-1.5 rounded-md shadow-xs whitespace-nowrap"
-              >
-                Admissions 2026–27
-              </Link>
-
-              {/* Mobile Drawer Trigger */}
-              <button
-                onClick={() => setMobileDrawerOpen(true)}
-                className="p-2 rounded-md text-white hover:bg-white/10 focus:outline-none shrink-0 cursor-pointer flex items-center space-x-1 border border-white/20"
-                aria-label="Open Navigation Menu"
-              >
-                <Menu className="w-5 h-5" />
-                <span className="text-xs font-bold uppercase tracking-wider hidden sm:inline">Menu</span>
-              </button>
             </div>
 
           </div>
-        </div>
+        </nav>
 
-        {/* ANIMATED MEGA MENU OVERLAY CONTAINER */}
+        {/* =========================================================================
+            ANIMATED MEGA MENU OVERLAY CONTAINER
+            ========================================================================= */}
         {activeMegaKey && MEGA_MENU_DATA[activeMegaKey] && (
           <div onMouseEnter={() => handleMouseEnter(activeMegaKey)}>
             <MegaMenuOverlay

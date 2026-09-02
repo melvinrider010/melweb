@@ -30,7 +30,9 @@ import ContactPage from './pages/ContactPage';
 import LoginPage from './pages/LoginPage';
 import DocumentsPage from './pages/DocumentsPage';
 import NewsEventsPage from './pages/NewsEventsPage';
+import NoticeDetailPage from './pages/NoticeDetailPage';
 import AnthemsPage from './pages/AnthemsPage';
+import ProspectusPage from './pages/ProspectusPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 // Admin CMS Modules
@@ -39,6 +41,7 @@ import AdminDashboardPage from './admin/pages/AdminDashboardPage';
 import AdminSliderManagerPage from './admin/pages/AdminSliderManagerPage';
 import AdminMediaManagerPage from './admin/pages/AdminMediaManagerPage';
 import AdminDocumentManagerPage from './admin/pages/AdminDocumentManagerPage';
+import AdminEventsManagerPage from './admin/pages/AdminEventsManagerPage';
 import AdminUserManagerPage from './admin/pages/AdminUserManagerPage';
 import AdminArchiveStatusPage from './admin/pages/AdminArchiveStatusPage';
 import AdminVerificationPage from './admin/pages/AdminVerificationPage';
@@ -77,6 +80,8 @@ export default function App() {
           <Route path="departments/:deptId/faculty/:facultyId" element={<FacultyDetailPage />} />
           <Route path="faculty" element={<FacultyPage />} />
           <Route path="faculty/:facultyId" element={<FacultyDetailPage />} />
+          <Route path="prospectus" element={<ProspectusPage />} />
+          <Route path="admission/prospectus" element={<ProspectusPage />} />
           <Route path="admissions" element={<AdmissionsPage />} />
           <Route path="apply" element={<AdmissionsPage />} />
           <Route path="applications" element={<AdmissionsPage />} />
@@ -86,6 +91,11 @@ export default function App() {
           <Route path="student-life" element={<StudentLifePage />} />
           <Route path="resources" element={<ResourcesPage />} />
           <Route path="iqac" element={<IqacPage />} />
+          <Route path="iqac/naac" element={<NaacPage />} />
+          <Route path="iqac/nirf" element={<NirfPage />} />
+          <Route path="iqac/iic" element={<IicPage />} />
+          <Route path="iqac/anthems" element={<AnthemsPage />} />
+          <Route path="iqac/alumni" element={<AlumniPage />} />
           <Route path="naac" element={<NaacPage />} />
           <Route path="nirf" element={<NirfPage />} />
           <Route path="iic" element={<IicPage />} />
@@ -102,6 +112,14 @@ export default function App() {
           <Route path="contact" element={<ContactPage />} />
           <Route path="documents" element={<DocumentsPage />} />
           <Route path="news-events" element={<NewsEventsPage />} />
+          <Route path="news-events/:id" element={<NoticeDetailPage />} />
+          <Route path="notices" element={<NewsEventsPage />} />
+          <Route path="notices/:id" element={<NoticeDetailPage />} />
+          <Route path="events" element={<NewsEventsPage />} />
+          <Route path="events/:id" element={<NoticeDetailPage />} />
+          <Route path="congratulations-25" element={<NoticeDetailPage />} />
+          <Route path="blog/events" element={<NewsEventsPage />} />
+          <Route path="blog/:slug" element={<NoticeDetailPage />} />
           <Route path="anthems" element={<AnthemsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
@@ -122,7 +140,7 @@ export default function App() {
           <Route index element={<AdminDashboardPage />} />
           <Route path="sliders" element={<AdminSliderManagerPage />} />
           <Route path="notices" element={<AdminDashboardPage />} />
-          <Route path="events" element={<AdminDashboardPage />} />
+          <Route path="events" element={<AdminEventsManagerPage />} />
           <Route path="gallery" element={<AdminMediaManagerPage />} />
           <Route path="programmes" element={<AdminDashboardPage />} />
           <Route path="departments" element={<AdminDashboardPage />} />

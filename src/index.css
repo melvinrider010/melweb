@@ -3,36 +3,32 @@
 @tailwind utilities;
 
 /* ==========================================================================
-   GLOBAL INSTITUTIONAL TYPOGRAPHY SYSTEM
+   GLOBAL UNIFIED INSTITUTIONAL TYPOGRAPHY SYSTEM
    St. Philomena's College (Autonomous), Mysuru
    ========================================================================== */
 
 :root {
   /* 1. Global Font Families */
-  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-heading: 'Playfair Display', Georgia, Cambria, serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* 2. Fluid Typography Scale Tokens (Mobile -> Desktop) */
-  --text-2xs: clamp(0.75rem, 0.72rem + 0.1vw, 0.8125rem);      /* 12px - 13px: Smallest indices / badges */
-  --text-xs:  clamp(0.8125rem, 0.79rem + 0.12vw, 0.875rem);    /* 13px - 14px: Metadata, tags, chips */
-  --text-sm:  clamp(0.9375rem, 0.91rem + 0.15vw, 1rem);        /* 15px - 16px: Navigation, buttons, secondary */
-  --text-base: clamp(1.03125rem, 1.0rem + 0.2vw, 1.09375rem); /* 16.5px - 17.5px (~17px): Desktop body */
-  --text-lg:  clamp(1.125rem, 1.08rem + 0.3vw, 1.25rem);       /* 18px - 20px: Subheadings, lead body */
-  --text-xl:  clamp(1.25rem, 1.18rem + 0.45vw, 1.45rem);       /* 20px - 23.2px: Card titles, H4 */
-  --text-2xl: clamp(1.45rem, 1.35rem + 0.6vw, 1.75rem);        /* 23.2px - 28px: H3 section titles */
-  --text-3xl: clamp(1.75rem, 1.6rem + 0.9vw, 2.25rem);         /* 28px - 36px: H2 section headers */
-  --text-4xl: clamp(2.15rem, 1.95rem + 1.4vw, 2.75rem);        /* 34.4px - 44px: Major H2 / hero subheadings */
-  --text-5xl: clamp(2.625rem, 2.25rem + 2vw, 3.5rem);          /* 42px - 56px: H1 Hero page titles */
-  --text-6xl: clamp(3.125rem, 2.6rem + 2.5vw, 4.5rem);          /* 50px - 72px: Display banner titles */
+  /* 2. Standard Harmonized Font Sizes */
+  --font-size-2xs: 0.75rem;    /* 12px - Badges, tiny tags */
+  --font-size-xs: 0.8125rem;   /* 13px - Meta text, dates, secondary labels */
+  --font-size-sm: 0.875rem;    /* 14px - Navigation links, buttons, dense tables */
+  --font-size-base: 0.9375rem; /* 15px - Standard body text */
+  --font-size-lg: 1.125rem;    /* 18px - Lead paragraphs, H4 card titles */
+  --font-size-xl: 1.375rem;    /* 22px - H3 sub-section headers */
+  --font-size-2xl: 1.75rem;    /* 28px - H2 section headers */
+  --font-size-3xl: 2.25rem;    /* 36px - H1 page titles */
+  --font-size-4xl: 3rem;       /* 48px - Major hero titles */
 
-  /* 3. Global Line Height Tokens */
-  --leading-none: 1.0;
-  --leading-tight: 1.15;
-  --leading-snug: 1.35;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.65;
-  --leading-loose: 1.8;
+  /* 3. Global Line Heights */
+  --lh-tight: 1.2;
+  --lh-snug: 1.375;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.65;
 }
 
 @layer base {
@@ -40,7 +36,6 @@
     scroll-behavior: smooth;
     font-family: var(--font-body);
     font-size: 16px;
-    line-height: var(--leading-relaxed);
     max-width: 100%;
     overflow-x: hidden;
   }
@@ -49,52 +44,228 @@
     background-color: #F8FAFC;
     color: #071A33;
     font-family: var(--font-body);
-    font-weight: 500;
-    font-size: var(--text-base);
-    line-height: var(--leading-relaxed);
+    font-size: var(--font-size-base);
+    line-height: var(--lh-relaxed);
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     max-width: 100%;
     overflow-x: hidden;
   }
 
-  /* Headings: Editorial Playfair Display Serif */
-  h1, h2, h3, h4, h5, h6, .font-serif, .font-heading {
+  /* Global High-Contrast Text Selection */
+  ::selection {
+    background-color: #0B1F4E;
+    color: #FFFFFF !important;
+  }
+
+  ::-moz-selection {
+    background-color: #0B1F4E;
+    color: #FFFFFF !important;
+  }
+
+  /* Universal Headings Hierarchy - Strictly Harmonized */
+  h1, .h1, .head-universal, .page-title, .section-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(1.75rem, 1.45rem + 1vw, 2.25rem);
+    line-height: var(--lh-tight);
+    color: #0B1F4E;
+    letter-spacing: -0.015em;
+  }
+
+  h2, .h2 {
     font-family: var(--font-heading);
     font-weight: 700;
-    letter-spacing: -0.015em;
-    line-height: var(--leading-tight);
+    font-size: clamp(1.45rem, 1.25rem + 0.75vw, 1.85rem);
+    line-height: var(--lh-tight);
+    color: #0B1F4E;
+    letter-spacing: -0.01em;
   }
 
-  h1 {
-    font-size: var(--text-5xl);
-    line-height: 1.1;
+  h3, .h3, .subhead-universal, .section-subtitle, .card-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.35rem);
+    line-height: var(--lh-snug);
+    color: #1C5496;
   }
 
-  h2 {
-    font-size: var(--text-4xl);
-    line-height: 1.15;
+  h4, .h4, .card-heading {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: var(--lh-snug);
+    color: #0F172A;
   }
 
-  h3 {
-    font-size: var(--text-2xl);
-    line-height: 1.25;
+  h5, h6 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: var(--lh-snug);
+    color: #0B1F4E;
   }
 
-  h4 {
-    font-size: var(--text-xl);
-    line-height: 1.35;
-  }
-
-  p {
+  /* Universal Body Text - 15px with relaxed readability line height */
+  p, .body-universal, .body-text, article p {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: #334155;
     font-weight: 400;
-    line-height: var(--leading-relaxed);
+  }
+
+  /* Universal Badges & Meta Tags */
+  .badge-universal, .meta-badge {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Universal Small Captions */
+  small, .caption-universal {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: #64748B;
   }
 
   a, button, input, select, textarea, label {
     font-family: var(--font-body);
-    font-weight: 500;
   }
+}
+
+/* ==========================================================================
+   INSTITUTIONAL HEADINGS & SUB-LABELS
+   ========================================================================== */
+
+.section-heading {
+  margin-bottom: 1.75rem;
+}
+
+.section-heading .sub-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #a88530;
+  margin-bottom: 0.35rem;
+}
+
+.section-heading h2 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: #0B1F4E;
+  font-size: clamp(1.65rem, 1.4rem + 1vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.heading-line {
+  width: 56px;
+  height: 3px;
+  background-color: #C9A84C;
+  border-radius: 2px;
+  margin: 8px auto 0;
+  position: relative;
+}
+
+.heading-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 3px;
+  background-color: #F0D98C;
+  border-radius: 2px;
+}
+
+.section-heading.text-start .heading-line {
+  margin: 8px 0 0;
+}
+
+/* Button System */
+.btn-gold {
+  background: linear-gradient(135deg, #C9A84C 0%, #a88530 100%);
+  color: #060f26;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #F0D98C 0%, #C9A84C 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3);
+}
+
+.btn-navy {
+  background: #0B1F4E;
+  color: #ffffff;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #0B1F4E;
+  transition: all 0.2s ease;
+}
+
+.btn-navy:hover {
+  background: #060f26;
+  border-color: #C9A84C;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(11, 31, 78, 0.25);
+}
+
+/* Badge System */
+.badge-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge-important {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.badge-notice {
+  background-color: #e0e7ff;
+  color: #0B1F4E;
+  border: 1px solid #c7d2fe;
+}
+
+.badge-circular {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ef4444;
+  display: inline-block;
+  animation: pulseDot 1.5s infinite;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
 }
 
 @keyframes marquee {
@@ -344,7 +515,72 @@ html, body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
 
+/* CUSTOM SLEEK SCROLLBAR */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.6);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(201, 168, 76, 0.4);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 168, 76, 0.8);
+}
+.custom-scrollbar {
+  scrollbar-width: thin;
+}
+
+/* 3D DEARFLIP REALISTIC SMOOTH PAGE FLIP ANIMATIONS */
+@keyframes flipNext {
+  0% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: rotateY(-90deg) scale(0.98);
+    opacity: 0.85;
+  }
+  100% {
+    transform: rotateY(-180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flipPrev {
+  0% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: rotateY(90deg) scale(0.98);
+    opacity: 0.85;
+  }
+  100% {
+    transform: rotateY(180deg);
+    opacity: 0;
+  }
+}
+
+.animate-flip-next {
+  animation: flipNext 0.55s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-flip-prev {
+  animation: flipPrev 0.55s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.custom-scrollbar {
+  scrollbar-color: rgba(201, 168, 76, 0.4) rgba(241, 245, 249, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
   .mega-menu-panel,
   .mega-menu-content-transition,
   .mega-menu-image-transition,

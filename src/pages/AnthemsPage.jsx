@@ -307,7 +307,7 @@ export default function AnthemsPage() {
                     Philo's College Anthem
                   </h2>
                   <p className="text-xs font-semibold text-[#1C5496] mt-0.5">
-                    "As Philomenites We Sing" · Official Alma Mater Song
+                    "As Philominites We Sing" · Official Alma Mater Song
                   </p>
                 </div>
 
@@ -461,34 +461,36 @@ export default function AnthemsPage() {
                   </button>
 
                   {showLyricsPhilo && (
-                    <div className="p-5 bg-slate-50/50 space-y-4 text-xs sm:text-sm text-slate-700 font-sans leading-relaxed border-t border-slate-200">
-                      <div className="p-4 bg-white rounded-lg border border-slate-200 shadow-2xs space-y-3">
-                        <p className="font-semibold text-slate-900">
-                          As Philomenites we sing, Philomenites we are! <span className="text-slate-400 font-normal">(2)</span><br />
-                          Hailing from within and countries afar,<br />
-                          As Philomenites we stand, our hearts are high with pride!
+                    <div className="p-5 bg-slate-50/50 space-y-4 text-sm text-slate-800 font-sans leading-relaxed border-t border-slate-200">
+                      <div className="p-5 bg-white rounded-lg border border-slate-200 shadow-2xs space-y-4 text-[14.5px] leading-relaxed text-slate-800 font-normal">
+                        <p>
+                          As Philominites we sing. Philominites we are.<br />
+                          As Philominites we sing. Philominites we are.<br />
+                          Hailing from within and countries afar<br />
+                          As Philominites we stand. Our hearts are high with pride.<br />
+                          As Philominites we sing. As Philominites we sing.
                         </p>
                         
-                        <p className="italic text-[#1C5496] font-medium border-l-2 border-[#FFD84A] pl-3 py-1">
-                          Abundantly, blessed by the almighty God above,<br />
-                          "Caritas-in-scientia" — spreading knowledge with love!
+                        <p>
+                          Abundant, free, blessed by the Almighty God above.<br />
+                          Caritas in Scientia, spreading knowledge with love.<br />
+                          The ocean of wisdom, let it ripple free.<br />
+                          Round the world, round the world.<br />
+                          Be prudent with ethics, our motto is unfurled.<br />
+                          Be prudent with ethics, our motto is unfurled.
                         </p>
 
-                        <p className="font-semibold text-slate-900">
-                          The ocean of wisdom, letting tributaries round the world <span className="text-slate-400 font-normal">(2)</span><br />
-                          Deep rooted with ethics our motto is unfurled! <span className="text-slate-400 font-normal">(2)</span>
-                        </p>
-
-                        <p className="text-slate-800">
-                          Just to mere, classroom walls, we're not confined<br />
-                          But to leave a mark and to benefit all mankind.<br />
-                          We do learn for joy, we learn for life, all that comes on our way<br />
-                          To bring a smile on someone's face, each and every day!
+                        <p>
+                          Just to mere classroom walls we're not confined.<br />
+                          But to live our motto and to benefit all mankind.<br />
+                          We do learn for joy, we learn for life.<br />
+                          All that comes on our way to bring a smile on someone's face each and every day.<br />
+                          As Philominites we sing. As Philominites we sing.
                         </p>
                       </div>
 
                       <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
-                        <span>Source: Official MDES Heritage & Anthems Archive</span>
+                        <span>Source: Official St. Philomena's College Anthem</span>
                         <span className="font-mono text-slate-400">AUD-20240111-WA0003.mp3</span>
                       </div>
                     </div>
@@ -693,7 +695,11 @@ export default function AnthemsPage() {
                   >
                     <span className="flex items-center space-x-2">
                       <BookOpen className="w-4 h-4 text-amber-700" />
-                      <span>{activeNationalTrack === 'state' ? 'Naada Geethe Lyrics (Kannada & English)' : 'National Anthem Lyrics'}</span>
+                      <span>
+                        {activeNationalTrack === 'state' 
+                          ? 'ನಾಡಗೀತೆ - ಜಯ ಭಾರತ ಜನನಿಯ ತನುಜಾತೆ (State Anthem Lyrics)' 
+                          : 'ರಾಷ್ಟ್ರಗೀತೆ - ಜನ ಗಣ ಮನ (National Anthem Lyrics)'}
+                      </span>
                     </span>
                     <span className="text-[11px] text-[#1C5496]">
                       {showLyricsNational ? 'Hide Lyrics ▲' : 'Show Lyrics ▼'}
@@ -701,44 +707,90 @@ export default function AnthemsPage() {
                   </button>
 
                   {showLyricsNational && (
-                    <div className="p-5 bg-slate-50/50 space-y-4 text-xs sm:text-sm text-slate-700 font-sans leading-relaxed border-t border-slate-200">
+                    <div className="p-5 bg-slate-50/50 space-y-4 text-sm text-slate-800 font-sans leading-relaxed border-t border-slate-200">
                       {activeNationalTrack === 'state' ? (
-                        <div className="space-y-3">
-                          <div className="p-4 bg-white rounded-lg border border-slate-200 shadow-2xs space-y-2">
-                            <h5 className="font-serif font-bold text-sm text-slate-900">ಜಯ ಭಾರತ ಜನನಿಯ ತನುಜಾತೆ (ಕನ್ನಡ)</h5>
-                            <p className="text-slate-800 leading-relaxed font-serif text-sm">
-                              ಜಯ ಭಾರತ ಜನನಿಯ ತನುಜಾತೆ, ಜಯ ಹೇ ಕರ್ನಾಟಕ ಮಾತೆ!<br />
-                              ಜಯ ಸುಂದರ ನದಿ ವನಗಳ ನಾಡೇ, ಜಯ ಹೇ ರಸಋಷಿಗಳ ಬೀಡೇ!<br />
-                              ಭೂದೇವಿಯ ಮಕುಟದ ನವಮಣಿಯೆ, ಗಂಧದ ಚಂದದ ಹೊನ್ನಿನ ಗಣಿಯೆ;<br />
-                              ರಾಘವ ಮಧುಸೂಧನರವತರಿಸಿದ ಪಾವನ ಭಾರತ ಜನನಿಯ ತನುಜಾತೆ,<br />
-                              ಜಯ ಹೇ ಕರ್ನಾಟಕ ಮಾತೆ!
-                            </p>
-                          </div>
+                        <div className="p-5 bg-white rounded-lg border border-slate-200 shadow-2xs space-y-4 text-[14.5px] leading-relaxed text-slate-800 font-normal">
+                          <p className="font-semibold text-slate-900">
+                            ಜಯ ಭಾರತ ಜನನಿಯ ತನುಜಾತೆ,<br />
+                            ಜಯ ಹೇ ಕರ್ನಾಟಕ ಮಾತೆ!<br />
+                            ಜಯ ಸುಂದರ ನದಿ ವನಗಳ ನಾಡೇ,<br />
+                            ಜಯ ಹೇ ರಸಋಷಿಗಳ ಬೀಡೆ!
+                          </p>
 
-                          <div className="p-4 bg-white rounded-lg border border-slate-200 shadow-2xs space-y-2">
-                            <h5 className="font-serif font-bold text-sm text-slate-900">Transliteration & Meaning</h5>
-                            <p className="text-slate-700 leading-relaxed text-xs">
-                              <em>"Victory to you O Mother Karnataka, the daughter of Mother India! Victory to the land of beautiful rivers and forests, the abode of enlightened sages!"</em>
-                            </p>
-                          </div>
+                          <p>
+                            ಭೂದೇವಿಯ ಮಕುಟದ ನವಮಣಿಯೆ,<br />
+                            ಗಂಧದ ಚಂದದ ಹೊನ್ನಿನ ಗಣಿಯೆ;<br />
+                            ರಾಘವ ಮಧುಸೂಧನರವತರಿಸಿದ<br />
+                            ಭಾರತ ಜನನಿಯ ತನುಜಾತೆ!<br />
+                            ಜಯ ಹೇ ಕರ್ನಾಟಕ ಮಾತೆ!
+                          </p>
+
+                          <p>
+                            ಜನನಿಯ ಜೋಗುಳ ವೇದದ ಘೋಷ,<br />
+                            ಜನನಿಗೆ ಜೀವವು ನಿನ್ನಾವೇಶ!<br />
+                            ಹಸುರಿನ ಗಿರಿಗಳ ಸಾಲೇ,<br />
+                            ನಿನ್ನಯ ಕೊರಳಿನ ಮಾಲೆ!<br />
+                            ಕಪಿಲ ಪತಂಜಲ ಗೌತಮ ಜಿನನುತ,<br />
+                            ಭಾರತ ಜನನಿಯ ತನುಜಾತೆ!<br />
+                            ಜಯ ಹೇ ಕರ್ನಾಟಕ ಮಾತೆ!
+                          </p>
+
+                          <p>
+                            ಶಂಕರ ರಾಮಾನುಜ ವಿದ್ಯಾರಣ್ಯ,<br />
+                            ಬಸವೇಶ್ವರ ಮಧ್ವರ ದಿವ್ಯಾರಣ್ಯ.<br />
+                            ರನ್ನ ಷಡಕ್ಷರಿ ಪೊನ್ನ,<br />
+                            ಪಂಪ ಲಕುಮಿಪತಿ ಜನ್ನ.<br />
+                            ಕುಮಾರವ್ಯಾಸರ ಮಂಗಳಧಾಮ,<br />
+                            ಕವಿಕೋಗಿಲೆಗಳ ಪುಣ್ಯಾರಾಮ.<br />
+                            ನಾನಕ ರಮಾನಂದ ಕಬೀರರ<br />
+                            ಭಾರತ ಜನನಿಯ ತನುಜಾತೆ,<br />
+                            ಜಯ ಹೇ ಕರ್ನಾಟಕ ಮಾತೆ.
+                          </p>
+
+                          <p>
+                            ತೈಲಪ ಹೊಯ್ಸಳರಾಳಿದ ನಾಡೇ,<br />
+                            ಡಂಕಣ ಜಕಣರ ನೆಚ್ಚಿನ ಬೀಡೆ.<br />
+                            ಕೃಷ್ಣ ಶರಾವತಿ ತುಂಗಾ,<br />
+                            ಕಾವೇರಿಯ ವರ ರಂಗ.<br />
+                            ಚೈತನ್ಯ ಪರಮಹಂಸ ವಿವೇಕರ<br />
+                            ಭಾರತ ಜನನಿಯ ತನುಜಾತೆ,<br />
+                            ಜಯ ಹೇ ಕರ್ನಾಟಕ ಮಾತೆ.
+                          </p>
+
+                          <p>
+                            ಸರ್ವಜನಾಂಗದ ಶಾಂತಿಯ ತೋಟ,<br />
+                            ರಸಿಕರ ಕಂಗಳ ಸೆಳೆಯುವ ನೋಟ!<br />
+                            ಹಿಂದೂ ಕ್ರೈಸ್ತ ಮುಸಲ್ಮಾನ,<br />
+                            ಪಾರಸಿಕ ಜೈನರುದ್ಯಾನ.<br />
+                            ಜನಕನ ಹೋಲುವ ದೊರೆಗಳ ಧಾಮ,<br />
+                            ಗಾಯಕ ವೈಣಿಕರಾರಾಮ.
+                          </p>
+
+                          <p className="font-semibold text-slate-900">
+                            ಕನ್ನಡ ನುಡಿ ಕುಣಿದಾಡುವ ಗೇಹ!<br />
+                            ಕನ್ನಡ ತಾಯಿಯ ಮಕ್ಕಳ ದೇಹ!<br />
+                            ಭಾರತ ಜನನಿಯ ತನುಜಾತೆ,<br />
+                            ಜಯ ಹೇ ಕರ್ನಾಟಕ ಮಾತೆ!<br />
+                            ಜಯ ಸುಂದರ ನದಿ ವನಗಳ ನಾಡೇ,<br />
+                            ಜಯ ಹೇ ರಸಋಷಿಗಳ ಬೀಡೆ!
+                          </p>
                         </div>
                       ) : (
-                        <div className="p-4 bg-white rounded-lg border border-slate-200 shadow-2xs space-y-3">
-                          <h5 className="font-serif font-bold text-sm text-slate-900">Jana Gana Mana (National Anthem of India)</h5>
-                          <p className="text-slate-800 leading-relaxed font-serif text-sm">
-                            Jana-gana-mana-adhināyaka jaya hē<br />
-                            Bhārata-bhāgya-vidhātā.<br />
-                            Panjāba-Sindhu-Gujarāta-Marāthā<br />
-                            Drāvida-Utkala-Banga<br />
-                            Vindhya-Himāchala-Yamunā-Gangā<br />
-                            Uchchhala-jaladhi-taranga.<br />
-                            Tava śubha nāmē jāgē,<br />
-                            Tava śubha āśiṣa māgē,<br />
-                            Gāhē tava jaya-gāthā.<br />
-                            Jana-gana-mangala-dāyaka jaya hē<br />
-                            Bhārata-bhāgya-vidhātā.<br />
-                            Jaya hē, jaya hē, jaya hē,<br />
-                            Jaya jaya jaya, jaya hē!
+                        <div className="p-5 bg-white rounded-lg border border-slate-200 shadow-2xs space-y-4 text-[14.5px] leading-relaxed text-slate-800 font-normal">
+                          <p className="font-semibold text-slate-900 leading-loose">
+                            ಜನ ಗಣ ಮನ ಅಧಿನಾಯಕ ಜಯ ಹೇ<br />
+                            ಭಾರತ ಭಾಗ್ಯ ವಿಧಾತಾ.<br />
+                            ಪಂಜಾಬ ಸಿಂಧು ಗುಜರಾತ ಮರಾಠಾ,<br />
+                            ದ್ರಾವಿಡ ಉತ್ಕಲ ಬಂಗಾ,<br />
+                            ವಿಂಧ್ಯ ಹಿಮಾಚಲ ಯಮುನಾ ಗಂಗಾ,<br />
+                            ಉಚ್ಚಲ ಜಲಧಿ ತರಂಗ.<br />
+                            ತವ ಶುಭ ನಾಮೇ ಜಾಗೇ,<br />
+                            ತವ ಶುಭ ಆಶಿಷ ಮಾಂಗೇ,<br />
+                            ಗಾಹೇ ತವ ಜಯಗಾಥಾ.<br />
+                            ಜನ ಗಣ ಮಂಗಳದಾಯಕ ಜಯ ಹೇ,<br />
+                            ಭಾರತ ಭಾಗ್ಯ ವಿಧಾತಾ.<br />
+                            ಜಯ ಹೇ, ಜಯ ಹೇ, ಜಯ ಹೇ,<br />
+                            ಜಯ ಜಯ ಜಯ, ಜಯ ಹೇ!
                           </p>
                         </div>
                       )}

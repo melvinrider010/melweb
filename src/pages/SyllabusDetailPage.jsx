@@ -226,51 +226,6 @@ export default function SyllabusDetailPage() {
                 </div>
               </div>
             )}
-
-            {/* 4. IN-PAGE EMBEDDED SYLLABUS PDF DOCUMENT VIEWER */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col space-y-0">
-              <div className="bg-slate-900 text-white px-5 py-3.5 flex flex-wrap items-center justify-between gap-3 text-xs">
-                <div className="flex items-center space-x-2">
-                  <FileText className="w-4 h-4 text-[#FFD84A]" />
-                  <span className="font-mono font-bold">{programmeCode.toUpperCase()}_OFFICIAL_SYLLABUS.pdf</span>
-                  <span className="text-slate-400">|</span>
-                  <span className="text-slate-300">Autonomous NEP Document</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <a
-                    href={pdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-slate-300 hover:text-white inline-flex items-center text-xs font-semibold"
-                  >
-                    <Maximize2 className="w-3.5 h-3.5 mr-1" />
-                    <span>Open in Full Tab</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* PDF Viewer Container */}
-              <div className="w-full h-[650px] sm:h-[800px] bg-slate-100 relative">
-                <iframe
-                  src={`${pdfUrl}#toolbar=1&navpanes=0`}
-                  title={`${syllabus.code} Syllabus PDF`}
-                  className="w-full h-full border-0"
-                />
-              </div>
-
-              <div className="bg-slate-50 border-t border-slate-200 px-5 py-3 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600">
-                <span>Certified Official Syllabus • St. Philomena's College (Autonomous), Mysuru</span>
-                <a
-                  href={pdfUrl}
-                  download={`${programmeCode.toLowerCase()}-syllabus.pdf`}
-                  className="font-bold text-[#1C5496] hover:underline inline-flex items-center"
-                >
-                  <Download className="w-3.5 h-3.5 mr-1" />
-                  <span>Download Local PDF Copy</span>
-                </a>
-              </div>
-            </div>
-
           </div>
 
           {/* Sidebar 4 Columns */}

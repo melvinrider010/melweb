@@ -248,64 +248,102 @@
   },
   "governingBody": [
     {
+      "slNo": 1,
       "role": "Chairperson",
-      "name": "Most Rev. Dr. Francis Serrao SJ",
+      "category": "Apex Governance",
+      "name": "Most. Rev. Dr. Francis Serrao SJ",
       "designation": "Bishop of Mysore and President, MDES"
     },
     {
+      "slNo": 2,
       "role": "Member",
+      "category": "Executive Management",
       "name": "Msgr. Alfred John Mendonca",
       "designation": "Vicar General & Vice President of MDES"
     },
     {
+      "slNo": 3,
       "role": "Member",
+      "category": "Executive Management",
       "name": "Rev. Fr. Edward William Saldanha",
       "designation": "Secretary, MDES"
     },
     {
+      "slNo": 4,
       "role": "Member",
+      "category": "Executive Management",
       "name": "Rev. Fr. Naveen Kumar",
       "designation": "Treasurer, MDES"
     },
     {
+      "slNo": 5,
       "role": "Member",
+      "category": "Campus Leadership",
       "name": "Rev. Fr. Dr. Lourdu Prasad Joseph",
       "designation": "Rector/Manager, St. Philomena's Educational Institutions, Mysuru"
     },
     {
-      "role": "Management Nominee (Educationist)",
+      "slNo": 6,
+      "role": "Management Nominee",
+      "category": "Renowned Educationist",
       "name": "Prof. N.S Rame Gowda",
       "designation": "Former Vice Chancellor of KSOU"
     },
     {
+      "slNo": 7,
       "role": "Management Nominee",
+      "category": "External Academic Expert",
       "name": "Dr. Kennedy Andrew Thomas",
-      "designation": "Director, CEDBEC, Christ University, Bengaluru"
+      "designation": "Director, Centre for Education Beyond Curriculum (CEDBEC), Christ (Deemed to be University) Bengaluru and Professor, School of Education, Christ University, Bengaluru"
     },
     {
+      "slNo": 8,
       "role": "Government Nominee",
+      "category": "Government Statutory Authority",
       "name": "Ms. Prathima D S",
       "designation": "Regional Joint Director for Collegiate Education, Mysuru"
     },
     {
+      "slNo": 9,
       "role": "University Nominee",
+      "category": "Affiliating University Nominee",
       "name": "Prof. Anand D",
       "designation": "BIMS, University of Mysore"
     },
     {
-      "role": "Teacher of the College",
-      "name": "Dr. Ruth Shantha Kumari T",
-      "designation": "Former Principal, St. Philomena's College"
-    },
-    {
-      "role": "Teacher of the College",
-      "name": "Mr. Ronald Prakash Cutinha",
-      "designation": "Vice Principal, St. Philomena's College"
-    },
-    {
+      "slNo": 10,
       "role": "Member Secretary",
+      "category": "Executive Head",
       "name": "Dr. Ravi J D Saldanha",
-      "designation": "Principal, St. Philomena's College"
+      "designation": "Principal, St. Philomena's College (Autonomous), Mysuru"
+    },
+    {
+      "slNo": 11,
+      "role": "Member",
+      "category": "Internal Faculty & Deans",
+      "name": "Prof. Anand C",
+      "designation": "Dean of Academic Affairs"
+    },
+    {
+      "slNo": 12,
+      "role": "Member",
+      "category": "Internal Administration",
+      "name": "Mr. Ronald Prakash Cutinha",
+      "designation": "Librarian & Vice Principal (Administration)"
+    },
+    {
+      "slNo": 13,
+      "role": "Member",
+      "category": "Quality Assurance",
+      "name": "Mr. A Thomas Gunaseelan",
+      "designation": "Associate Professor and IQAC Co-ordinator"
+    },
+    {
+      "slNo": 14,
+      "role": "Member",
+      "category": "Postgraduate Studies & Research",
+      "name": "Dr. Noor Mubasheer C A",
+      "designation": "Co-ordinator, Post Graduate Studies and Research Center"
     }
   ],
   "leadershipMessages": {

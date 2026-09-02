@@ -20,6 +20,8 @@ import {
 } from 'lucide-react';
 import aboutData from '../data/aboutData.json';
 import { animatePageIn } from '../animations/pageTransitions';
+import OrganogramView from '../components/about/OrganogramView';
+import GoverningBodyView from '../components/about/GoverningBodyView';
 
 export default function AboutPage() {
   const containerRef = useRef(null);
@@ -347,12 +349,7 @@ export default function AboutPage() {
           <div className="space-y-6 animate-fadeIn">
             
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
-              <div className="flex items-center justify-between flex-wrap gap-2">
-                <h2 className="font-serif font-extrabold text-2xl text-slate-900">Patron Bishops of Mysore</h2>
-                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-mono">
-                  Official Source: stphilos.ac.in/former-bishops
-                </span>
-              </div>
+              <h2 className="font-serif font-extrabold text-2xl text-slate-900">Patron Bishops of Mysore</h2>
               <p className="text-xs sm:text-sm text-slate-600">
                 The episcopal leadership and Patron Bishops of Mysore who founded and nurtured St. Philomena's College across generations.
               </p>
@@ -393,12 +390,7 @@ export default function AboutPage() {
           <div className="space-y-6 animate-fadeIn">
             
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
-              <div className="flex items-center justify-between flex-wrap gap-2">
-                <h2 className="font-serif font-extrabold text-2xl text-slate-900">Former Principals Roster</h2>
-                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-mono">
-                  Official Source: stphilos.ac.in/about-us-2/principles
-                </span>
-              </div>
+              <h2 className="font-serif font-extrabold text-2xl text-slate-900">Former Principals Roster</h2>
               <p className="text-xs sm:text-sm text-slate-600">
                 A historical roll of honour of the distinguished educators and administrators who served as Principal of St. Philomena's College from 1946 to present.
               </p>
@@ -474,9 +466,6 @@ export default function AboutPage() {
                 <span className="bg-blue-50 text-[#1C5496] font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
                   Governing Society
                 </span>
-                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-mono">
-                  Official Source: stphilos.ac.in/about-us-2/mdes
-                </span>
               </div>
               <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
                 {aboutData.mdes.title}
@@ -528,117 +517,12 @@ export default function AboutPage() {
 
         {/* 7. ORGANOGRAM TAB */}
         {activeTab === 'organogram' && (
-          <div className="space-y-8 animate-fadeIn">
-            
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
-              <h2 className="font-serif font-extrabold text-2xl text-slate-900">Institutional Governance Organogram</h2>
-              <p className="text-xs sm:text-sm text-slate-600">
-                Hierarchical administrative flowchart and governance structure of St. Philomena's College (Autonomous).
-              </p>
-            </div>
-
-            {/* Hierarchical Organogram Visual Structure */}
-            <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs space-y-6 text-center">
-              
-              {/* Level 1: President & MDES */}
-              <div className="max-w-md mx-auto p-4 bg-[#071A33] text-white rounded-xl shadow-md space-y-1">
-                <span className="text-[10px] text-[#FFD84A] font-bold uppercase tracking-wider">Apex Governance</span>
-                <h4 className="font-serif font-bold text-sm sm:text-base">Bishop of Mysore & President, MDES</h4>
-                <p className="text-[11px] text-slate-300 font-medium">Most Rev. Dr. Francis Serrao SJ</p>
-              </div>
-
-              <div className="w-0.5 h-6 bg-[#1C5496] mx-auto" />
-
-              {/* Level 2: Rector, Secretary & Governing Body */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-                <div className="p-4 bg-blue-900 text-white rounded-xl shadow-xs space-y-0.5">
-                  <span className="text-[10px] text-blue-200 font-bold uppercase">Executive Management</span>
-                  <h4 className="font-serif font-bold text-sm">Secretary, MDES</h4>
-                  <p className="text-[11px] text-blue-100">Rev. Fr. Edward William Saldanha</p>
-                </div>
-                <div className="p-4 bg-blue-900 text-white rounded-xl shadow-xs space-y-0.5">
-                  <span className="text-[10px] text-blue-200 font-bold uppercase">Campus Leadership</span>
-                  <h4 className="font-serif font-bold text-sm">Rector & Manager</h4>
-                  <p className="text-[11px] text-blue-100">Rev. Dr. Lourdu Prasad Joseph</p>
-                </div>
-                <div className="p-4 bg-blue-900 text-white rounded-xl shadow-xs space-y-0.5">
-                  <span className="text-[10px] text-blue-200 font-bold uppercase">Statutory Council</span>
-                  <h4 className="font-serif font-bold text-sm">Governing Body</h4>
-                  <p className="text-[11px] text-blue-100">UGC, Govt & UoM Nominees</p>
-                </div>
-              </div>
-
-              <div className="w-0.5 h-6 bg-[#1C5496] mx-auto" />
-
-              {/* Level 3: Principal & Executive Head */}
-              <div className="max-w-md mx-auto p-4 bg-[#1C5496] text-white rounded-xl shadow-md space-y-1">
-                <span className="text-[10px] text-[#FFD84A] font-bold uppercase tracking-wider">Executive Academic Head</span>
-                <h4 className="font-serif font-bold text-sm sm:text-base">Principal</h4>
-                <p className="text-[11px] text-blue-100">Dr. Ravi J.D. Saldanha</p>
-              </div>
-
-              <div className="w-0.5 h-6 bg-[#1C5496] mx-auto" />
-
-              {/* Level 4: Academic & Administrative Sub-Wings */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-left">
-                <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
-                  <h5 className="font-serif font-bold text-xs text-[#1C5496] uppercase">Financial Officer</h5>
-                  <p className="text-[11px] font-bold text-slate-800">Rev. Fr. Roshan</p>
-                  <p className="text-[10px] text-slate-500">Financial administration, budgets & institutional audits.</p>
-                </div>
-                <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
-                  <h5 className="font-serif font-bold text-xs text-[#1C5496] uppercase">Dean, Academic Affairs</h5>
-                  <p className="text-[11px] font-bold text-slate-800">Prof. Anand C</p>
-                  <p className="text-[10px] text-slate-500">Academic council, curricula design, NEP regulations & HODs.</p>
-                </div>
-                <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
-                  <h5 className="font-serif font-bold text-xs text-[#1C5496] uppercase">Vice Principal</h5>
-                  <p className="text-[11px] font-bold text-slate-800">Mr. Ronald Prakash Cutinha</p>
-                  <p className="text-[10px] text-slate-500">Campus administration, student affairs, examinations & operations.</p>
-                </div>
-                <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
-                  <h5 className="font-serif font-bold text-xs text-[#1C5496] uppercase">IQAC Coordinator</h5>
-                  <p className="text-[11px] font-bold text-slate-800">Mr. A Thomas Gunaseelan</p>
-                  <p className="text-[10px] text-slate-500">Quality benchmarks, NAAC accreditation, NIRF ranking & audits.</p>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
+          <OrganogramView />
         )}
 
         {/* 8. GOVERNING BODY TAB */}
         {activeTab === 'governing-body' && (
-          <div className="space-y-6 animate-fadeIn">
-            
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
-              <div className="flex items-center justify-between flex-wrap gap-2">
-                <h2 className="font-serif font-extrabold text-2xl text-slate-900">Governing Body & Statutory Council</h2>
-                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-mono">
-                  Official Source: stphilos.ac.in/statutory-bodies
-                </span>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-600">
-                The apex decision-making statutory board constituted under UGC Autonomous guidelines to oversee academic, infrastructural, and financial policies.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {aboutData.governingBody.map((member, idx) => (
-                <div key={idx} className="p-5 bg-white rounded-xl border border-slate-200 shadow-xs flex justify-between items-start gap-4">
-                  <div className="space-y-1">
-                    <span className="bg-blue-50 text-[#1C5496] font-bold text-[10px] px-2.5 py-0.5 rounded uppercase tracking-wider">
-                      {member.role}
-                    </span>
-                    <h3 className="font-serif font-bold text-sm sm:text-base text-slate-900">{member.name}</h3>
-                    <p className="text-xs text-slate-600">{member.designation}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-          </div>
+          <GoverningBodyView />
         )}
 
         {/* 9. LEADERSHIP & ADMINISTRATION TAB */}
@@ -647,12 +531,7 @@ export default function AboutPage() {
             
             {/* Header */}
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
-              <div className="flex items-center justify-between flex-wrap gap-2">
-                <h2 className="font-serif font-extrabold text-2xl text-slate-900">Current Administration & Academic Heads</h2>
-                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-mono">
-                  Official Source: stphilos.ac.in/administration
-                </span>
-              </div>
+              <h2 className="font-serif font-extrabold text-2xl text-slate-900">Current Administration & Academic Heads</h2>
               <p className="text-xs sm:text-sm text-slate-600">
                 The executive leadership team guiding the day-to-day administration, academic governance, and institutional excellence at St. Philomena's College.
               </p>
@@ -719,7 +598,6 @@ export default function AboutPage() {
                   <span className="bg-blue-50 text-[#1C5496] font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
                     Office of the Rector & Manager
                   </span>
-                  <span className="text-[10px] font-bold text-slate-400 font-mono">stphilos.ac.in/rectors-message-2</span>
                 </div>
                 <h2 className="font-serif font-extrabold text-2xl text-slate-900">
                   {aboutData.leadershipMessages.rector.salutation}
@@ -751,7 +629,6 @@ export default function AboutPage() {
                   <span className="bg-amber-50 text-amber-800 font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
                     Office of the Principal
                   </span>
-                  <span className="text-[10px] font-bold text-slate-400 font-mono">stphilos.ac.in/principals-message</span>
                 </div>
                 <h2 className="font-serif font-extrabold text-2xl text-slate-900">
                   {aboutData.leadershipMessages.principal.salutation}

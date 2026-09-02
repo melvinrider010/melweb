@@ -93,6 +93,10 @@ export const cmsStore = {
     addActivityLog('admin@stphilos.ac.in', 'CREATE_NOTICE', 'Notices', `Published notice "${notice.title}"`);
     return updated;
   },
+  updateNoticesList: (list) => {
+    setItem(STORAGE_KEYS.NOTICES, list);
+    return list;
+  },
   deleteNotice: (id) => {
     const list = getItem(STORAGE_KEYS.NOTICES, noticesData);
     const updated = list.filter(n => n.id !== id);
@@ -108,6 +112,17 @@ export const cmsStore = {
     const updated = [event, ...list];
     setItem(STORAGE_KEYS.EVENTS, updated);
     addActivityLog('admin@stphilos.ac.in', 'CREATE_EVENT', 'Events', `Created event "${event.title}"`);
+    return updated;
+  },
+  updateEventsList: (list) => {
+    setItem(STORAGE_KEYS.EVENTS, list);
+    return list;
+  },
+  deleteEvent: (id) => {
+    const list = getItem(STORAGE_KEYS.EVENTS, eventsData);
+    const updated = list.filter(e => e.id !== id);
+    setItem(STORAGE_KEYS.EVENTS, updated);
+    addActivityLog('admin@stphilos.ac.in', 'DELETE_EVENT', 'Events', `Deleted event ID ${id}`);
     return updated;
   },
 

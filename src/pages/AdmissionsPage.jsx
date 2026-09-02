@@ -18,7 +18,8 @@ import {
   Award, 
   Printer, 
   Check, 
-  AlertCircle 
+  AlertCircle,
+  ExternalLink 
 } from 'lucide-react';
 import collegeInfo from '../data/college_info.json';
 import { ASSETS } from '../data/assets';
@@ -179,7 +180,7 @@ export default function AdmissionsPage() {
     <div ref={containerRef} className="max-w-[1400px] mx-auto px-4 sm:px-8 py-10 space-y-8 text-[#071A33]">
       
       {/* HERO BANNER */}
-      <div className="bg-[#071A33] text-white rounded-2xl p-6 sm:p-10 border-l-8 border-[#FFC928] shadow-xl relative overflow-hidden">
+      <div className="bg-[#071A33] text-white rounded-2xl p-6 sm:p-10 border-l-8 border-[#FFC928] shadow-xl relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="max-w-3xl space-y-3 relative z-10">
           <div className="flex items-center space-x-2">
             <span className="w-2 h-2 rounded-full bg-[#FFD84A]" />
@@ -193,6 +194,18 @@ export default function AdmissionsPage() {
           <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
             Applications are invited from eligible candidates across India and overseas for Undergraduate (B.Sc, BCA, B.Com, BBA, BA, BSW, B.Voc) and Postgraduate (M.Sc, M.Com, MA, MSW) degree programs at St. Philomena's College (Autonomous), Mysuru.
           </p>
+        </div>
+
+        <div className="shrink-0 relative z-10">
+          <a
+            href="https://student.stphiloserp.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-gold px-6 py-3.5 rounded-xl font-bold text-xs sm:text-sm shadow-xl inline-flex items-center space-x-2 whitespace-nowrap"
+          >
+            <span>Launch Official ERP Portal</span>
+            <ExternalLink className="w-4 h-4 ml-1" />
+          </a>
         </div>
       </div>
 

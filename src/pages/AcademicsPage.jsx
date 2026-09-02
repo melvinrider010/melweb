@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams, Link } from 'react-router-dom';
 import { BookOpen, CheckCircle2, FileText, ArrowRight, GraduationCap, Building2, ChevronRight, Sparkles, Layers, Globe, Compass } from 'lucide-react';
 import { UG_PROGRAMMES_CATALOGUE } from '../data/ugProgrammesCatalogue';
 import pgProgrammes from '../data/pg-programmes.json';
 import CourseHoneycombSection from '../components/home/CourseHoneycombSection';
+import NepRegulationsView from '../components/academics/NepRegulationsView';
+import EContentView from '../components/academics/EContentView';
+import SyllabusUGView from '../components/academics/SyllabusUGView';
+import SyllabusPGView from '../components/academics/SyllabusPGView';
+import OutcomesView from '../components/academics/OutcomesView';
 
 // Map code from PG dataset to canonical detail route slug
 function getPGProgrammeSlug(code) {
@@ -29,7 +34,19 @@ function getPGProgrammeSlug(code) {
 }
 
 export default function AcademicsPage() {
-  const [tab, setTab] = useState('ug');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialTab = searchParams.get('tab') || 'ug';
+  const [tab, setTab] = useState(initialTab);
+
+  useEffect(() => {
+    const currentTab = searchParams.get('tab') || 'ug';
+    setTab(currentTab);
+  }, [searchParams]);
+
+  const handleTabChange = (newTab) => {
+    setTab(newTab);
+    setSearchParams({ tab: newTab });
+  };
 
   // Partition UG catalogue into official sections matching stphilos.ac.in/ug/
   const ugDegrees = UG_PROGRAMMES_CATALOGUE.filter(p => p.category === 'UG Programs');
@@ -52,28 +69,29 @@ export default function AcademicsPage() {
             St. Philomena's College (Autonomous), Mysuru offers diverse undergraduate, postgraduate, vocational, and language degree programs aligned with the National Education Policy (NEP 2020) and Outcome Based Education (OBE).
           </p>
 
-          {/* Stream Toggle Tabs */}
-          <div className="pt-2 flex flex-wrap gap-3">
-            <button
-              onClick={() => setTab('ug')}
-              className={`px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                tab === 'ug'
-                  ? 'bg-[#1C5496] text-white shadow-md'
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-              }`}
-            >
-              Undergraduate Programmes (UG & Languages)
-            </button>
-            <button
-              onClick={() => setTab('pg')}
-              className={`px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                tab === 'pg'
-                  ? 'bg-[#1C5496] text-white shadow-md'
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-              }`}
-            >
-              Postgraduate Programmes (M.Sc / M.Com / MA / MSW / MCA / MBA)
-            </button>
+          {/* Academic Portal Navigation Tabs */}
+          <div className="pt-2 flex flex-wrap gap-2 sm:gap-2.5">
+            {[
+              { id: 'ug', label: 'Undergraduate (UG)' },
+              { id: 'pg', label: 'Postgraduate (PG)' },
+              { id: 'nep', label: 'NEP Regulations' },
+              { id: 'econtent', label: 'E-Content Portal' },
+              { id: 'syllabus-ug', label: 'Syllabus UG' },
+              { id: 'syllabus-pg', label: 'Syllabus PG' },
+              { id: 'outcomes', label: 'Course Outcomes (OBE)' }
+            ].map((t) => (
+              <button
+                key={t.id}
+                onClick={() => handleTabChange(t.id)}
+                className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-[13px] font-bold transition-all cursor-pointer ${
+                  tab === t.id
+                    ? 'bg-[#1C5496] text-white shadow-md'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                }`}
+              >
+                {t.label}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -129,12 +147,14 @@ export default function AcademicsPage() {
 
                     {/* Card Actions (Apply Now + EXPLORE->) */}
                     <div className="p-5 pt-0 flex items-center justify-between gap-2 border-t border-slate-100 pt-3 bg-slate-50/50">
-                      <Link
-                        to={prog.applyPath}
+                      <a
+                        href="https://student.stphiloserp.in/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="btn-gold px-3 py-1.5 rounded-lg text-xs font-bold text-center"
                       >
                         + Apply Now
-                      </Link>
+                      </a>
                       <Link
                         to={prog.explorePath}
                         className="text-xs font-bold text-[#1C5496] group-hover:underline inline-flex items-center"
@@ -195,12 +215,14 @@ export default function AcademicsPage() {
 
                     {/* Card Actions (Apply Now + EXPLORE->) */}
                     <div className="p-5 pt-0 flex items-center justify-between gap-2 border-t border-slate-100 pt-3 bg-slate-50/50">
-                      <Link
-                        to={prog.applyPath}
+                      <a
+                        href="https://student.stphiloserp.in/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="btn-gold px-3 py-1.5 rounded-lg text-xs font-bold text-center"
                       >
                         + Apply Now
-                      </Link>
+                      </a>
                       <Link
                         to={prog.explorePath}
                         className="text-xs font-bold text-[#1C5496] group-hover:underline inline-flex items-center"
@@ -261,12 +283,14 @@ export default function AcademicsPage() {
 
                     {/* Card Actions (Apply Now + EXPLORE->) */}
                     <div className="p-5 pt-0 flex items-center justify-between gap-2 border-t border-slate-100 pt-3 bg-slate-50/50">
-                      <Link
-                        to={prog.applyPath}
+                      <a
+                        href="https://student.stphiloserp.in/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="btn-gold px-3 py-1.5 rounded-lg text-xs font-bold text-center"
                       >
                         + Apply Now
-                      </Link>
+                      </a>
                       <Link
                         to={prog.explorePath}
                         className="text-xs font-bold text-[#1C5496] group-hover:underline inline-flex items-center"
@@ -302,9 +326,14 @@ export default function AcademicsPage() {
                   </div>
 
                   <div className="pt-5 border-t border-slate-100 flex items-center justify-between gap-2">
-                    <Link to="/admissions" className="btn-gold px-4 py-2 rounded-lg text-xs font-bold">
+                    <a
+                      href="https://student.stphiloserp.in/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-gold px-4 py-2 rounded-lg text-xs font-bold"
+                    >
                       + Apply Now
-                    </Link>
+                    </a>
                     <Link to={`/academics/${slug}`} className="text-xs text-[#1C5496] font-bold hover:underline inline-flex items-center">
                       <span>EXPLORE →</span>
                     </Link>
@@ -314,6 +343,21 @@ export default function AcademicsPage() {
             })}
           </div>
         )}
+
+        {/* 5. NEP REGULATIONS VIEW */}
+        {tab === 'nep' && <NepRegulationsView />}
+
+        {/* 6. E-CONTENT PORTAL VIEW */}
+        {tab === 'econtent' && <EContentView />}
+
+        {/* 7. SYLLABUS UG VIEW */}
+        {tab === 'syllabus-ug' && <SyllabusUGView />}
+
+        {/* 8. SYLLABUS PG VIEW */}
+        {tab === 'syllabus-pg' && <SyllabusPGView />}
+
+        {/* 9. OUTCOMES (OBE) VIEW */}
+        {tab === 'outcomes' && <OutcomesView />}
 
       </div>
     </div>

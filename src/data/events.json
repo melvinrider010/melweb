@@ -1,38 +1,279 @@
 [
   {
-    "id": "ne-001",
-    "type": "Notice",
-    "title": "Autonomous End-Semester Examination Time Table 2026",
-    "date": "2026-08-20",
-    "category": "Examinations",
-    "summary": "The official timetable for UG & PG End-Semester Examinations has been published.",
-    "link": "/documents"
-  },
-  {
     "id": "ne-002",
-    "type": "Event",
-    "title": "National Conference on Higher Education & Innovation",
-    "date": "2026-09-15",
-    "category": "Seminars & Conferences",
-    "summary": "Organized by the Department of Computer Science & Applications in association with IQAC.",
-    "link": "/news-events"
+    "slug": "national-conference-ai-quantum-computing-2026",
+    "title": "National Conference on Emerging Trends in AI, Quantum Computing & Cyber Forensics",
+    "description": "Two-day national academic symposium organized by the Post Graduate Department of Computer Science in association with IQAC.",
+    "summary": "Two-day national academic symposium organized by the Post Graduate Department of Computer Science in association with IQAC.",
+    "event_date": "2026-09-22",
+    "end_date": "2026-09-23",
+    "date": "2026-09-22",
+    "displayDate": "September 22–23, 2026",
+    "time_range": "09:30 AM – 04:30 PM",
+    "time": "09:30 AM – 04:30 PM",
+    "location": "College Auditorium & AV Hall",
+    "venue": "College Auditorium & AV Hall",
+    "category": "Conferences & Seminars",
+    "level": "pg",
+    "refNo": "SPC/CS/CONF/2026/112",
+    "documentImage": "/media/events/Brochure-for-Conference-Final-Environment-and-Society-Corr-1-2_page-0001-300x200.jpg",
+    "documentPdf": null,
+    "attachments": [
+      {
+        "title": "Conference Schedule & Brochure PDF",
+        "url": "/media/events/Brochure-for-Conference-Final-Environment-and-Society-Corr-1-2_page-0001-300x200.jpg",
+        "type": "image/jpeg"
+      }
+    ],
+    "content": [
+      "The Post Graduate Department of Computer Science, in collaboration with Internal Quality Assurance Cell (IQAC), cordially invites academicians, research scholars, and industry professionals to the two-day National Conference.",
+      "Keynote addresses will be delivered by distinguished scientists from IISc Bangalore, DRDO, and premier IT corporations.",
+      "Selected peer-reviewed papers will be published in UGC-CARE and Scopus-indexed research journals."
+    ],
+    "subEvents": [
+      {
+        "id": "sub-001",
+        "parent_event_id": "ne-002",
+        "title": "Inaugural & Keynote Session: AI & Quantum Computing Paradigms",
+        "description": "Opening addresses by guest scientists from IISc & keynote lectures on quantum neural networks.",
+        "event_date": "2026-09-22",
+        "time_range": "09:30 AM – 01:00 PM",
+        "location": "College Main Auditorium",
+        "attachments": [],
+        "created_at": "2026-08-01T10:00:00.000Z",
+        "updated_at": "2026-08-01T10:00:00.000Z"
+      },
+      {
+        "id": "sub-002",
+        "parent_event_id": "ne-002",
+        "title": "Track Presentations & Cyber Forensics Workshop",
+        "description": "Parallel research paper presentations and hands-on demonstrations of quantum cryptography.",
+        "event_date": "2026-09-23",
+        "time_range": "02:00 PM – 04:30 PM",
+        "location": "AV Hall & Computing Lab 3",
+        "attachments": [],
+        "created_at": "2026-08-01T10:00:00.000Z",
+        "updated_at": "2026-08-01T10:00:00.000Z"
+      }
+    ],
+    "signatory": "Head, PG Dept. of Computer Science & IQAC Coordinator",
+    "department": "Postgraduate Department of Computer Science",
+    "created_at": "2026-08-01T10:00:00.000Z",
+    "updated_at": "2026-08-01T10:00:00.000Z"
   },
   {
-    "id": "ne-003",
-    "type": "Announcement",
-    "title": "Admissions Open for UG & PG Programs 2026-27",
-    "date": "2026-08-01",
-    "category": "Admissions",
-    "summary": "Applications are invited for BA, B.Sc, B.Com, BCA, BBA, M.Sc, M.Com, and MA courses.",
-    "link": "/admissions"
+    "id": "ne-007",
+    "slug": "campus-placement-drive-jk-tyres-it-firms",
+    "title": "Campus Placement Drive 2026 — JK Tyre & IT Corporate Recruiters",
+    "description": "Campus recruitment drive by JK Tyre & Industries, Infosys, and Banking Corporations for graduating final year students.",
+    "summary": "Campus recruitment drive by JK Tyre & Industries, Infosys, and Banking Corporations for graduating final year students.",
+    "event_date": "2026-09-28",
+    "end_date": null,
+    "date": "2026-09-28",
+    "displayDate": "September 28, 2026",
+    "time_range": "09:00 AM – 05:00 PM",
+    "time": "09:00 AM – 05:00 PM",
+    "location": "Central Placement & Career Guidance Cell",
+    "venue": "Central Placement & Career Guidance Cell",
+    "category": "Placements",
+    "level": "all",
+    "refNo": "T&P/2026/DRV-08",
+    "documentImage": "/media/events/Recruitment-JK-Tyres-2025-26.jpg",
+    "documentPdf": null,
+    "attachments": [
+      {
+        "title": "Placement Drive Instructions & Eligibility Notice",
+        "url": "/media/events/Recruitment-JK-Tyres-2025-26.jpg",
+        "type": "image/jpeg"
+      }
+    ],
+    "content": [
+      "The Training and Placement Cell announces the Mega Campus Placement Drive for final year students across B.Sc., B.Com., B.B.A., B.C.A., M.Sc., and M.Com. disciplines.",
+      "Selection process consists of Online Aptitude Assessment, Technical Evaluation, Group Discussion, and HR Interview rounds.",
+      "Registered candidates must report in formal attire with 3 copies of updated resume, passport photographs, and college ID card."
+    ],
+    "subEvents": [
+      {
+        "id": "sub-005",
+        "parent_event_id": "ne-007",
+        "title": "Online Aptitude & Technical Screening Rounds",
+        "description": "Standardized computer-based aptitude tests and domain technical evaluation.",
+        "event_date": "2026-09-28",
+        "time_range": "09:30 AM – 12:30 PM",
+        "location": "Computer Labs 1 & 2",
+        "attachments": [],
+        "created_at": "2026-08-05T10:00:00.000Z",
+        "updated_at": "2026-08-05T10:00:00.000Z"
+      },
+      {
+        "id": "sub-006",
+        "parent_event_id": "ne-007",
+        "title": "HR Interviews & Offer Letter Distribution",
+        "description": "One-on-one personal HR rounds followed by distribution of letters of intent.",
+        "event_date": "2026-09-28",
+        "time_range": "02:00 PM – 05:00 PM",
+        "location": "Placement Conference Hall",
+        "attachments": [],
+        "created_at": "2026-08-05T10:00:00.000Z",
+        "updated_at": "2026-08-05T10:00:00.000Z"
+      }
+    ],
+    "signatory": "Placement Officer & Training Coordinator",
+    "department": "Career Guidance & Placement Cell",
+    "created_at": "2026-08-05T10:00:00.000Z",
+    "updated_at": "2026-08-05T10:00:00.000Z"
   },
   {
     "id": "ne-004",
-    "type": "News",
-    "title": "St. Philomena's College NAAC Cycle III Audit Reports",
-    "date": "2026-07-25",
-    "category": "Accreditation",
-    "summary": "Annual Quality Assurance Reports (AQAR) and accreditation records are published for public compliance.",
-    "link": "/compliance"
+    "slug": "philofest-2026-annual-cultural-fest",
+    "title": "PHILOFEST 2026 — Annual Inter-Collegiate Cultural & Literary Fest",
+    "description": "Over 35 premier institutions competing across 25 dynamic literary, performing arts, debating, and music competitions.",
+    "summary": "Over 35 premier institutions competing across 25 dynamic literary, performing arts, debating, and music competitions.",
+    "event_date": "2026-10-04",
+    "end_date": "2026-10-05",
+    "date": "2026-10-04",
+    "displayDate": "October 4–5, 2026",
+    "time_range": "10:00 AM – 06:00 PM",
+    "time": "10:00 AM – 06:00 PM",
+    "location": "Main Quadrangle & Indoor Stadium",
+    "venue": "Main Quadrangle & Indoor Stadium",
+    "category": "Cultural & Sports",
+    "level": "all",
+    "refNo": "SPC/CULT/2026/04",
+    "documentImage": "/media/events/sports-invitation-final-1.jpg",
+    "documentPdf": null,
+    "attachments": [
+      {
+        "title": "PHILOFEST Event Rulebook & Schedule",
+        "url": "/media/events/sports-invitation-final-1.jpg",
+        "type": "image/jpeg"
+      }
+    ],
+    "content": [
+      "The Student Welfare Council and Cultural Committee proudly present 'PHILOFEST 2026', a vibrant confluence of student talent, creativity, and inter-collegiate camaraderie.",
+      "Events include Western & Classical Music, Street Play, Debate, Fine Arts, Fashion Pageant, Dance Battles, and Quiz Competitions.",
+      "Cash prizes, trophies, and certificates of merit will be awarded to all winning contingents."
+    ],
+    "subEvents": [
+      {
+        "id": "sub-003",
+        "parent_event_id": "ne-004",
+        "title": "Inaugural Ceremony & Battle of the Bands",
+        "description": "Grand opening ceremony followed by inter-collegiate musical ensemble competition.",
+        "event_date": "2026-10-04",
+        "time_range": "10:00 AM – 01:30 PM",
+        "location": "Main Quadrangle Stage",
+        "attachments": [],
+        "created_at": "2026-08-10T10:00:00.000Z",
+        "updated_at": "2026-08-10T10:00:00.000Z"
+      },
+      {
+        "id": "sub-004",
+        "parent_event_id": "ne-004",
+        "title": "Choreography, Street Play & Valedictory Gala",
+        "description": "Thematic dance competitions, street drama finals, and grand award distribution.",
+        "event_date": "2026-10-05",
+        "time_range": "02:00 PM – 06:00 PM",
+        "location": "Indoor Sports Arena",
+        "attachments": [],
+        "created_at": "2026-08-10T10:00:00.000Z",
+        "updated_at": "2026-08-10T10:00:00.000Z"
+      }
+    ],
+    "signatory": "Cultural Committee & Student Welfare Officer",
+    "department": "Student Welfare Council",
+    "created_at": "2026-08-10T10:00:00.000Z",
+    "updated_at": "2026-08-10T10:00:00.000Z"
+  },
+  {
+    "id": "ne-008",
+    "slug": "annual-athletic-meet-sports-day-2026",
+    "title": "Annual Athletic Meet & Inter-Departmental Sports Championship 2026",
+    "description": "Annual Track & Field Athletic Meet and Sports Championship with march-past, track events, and championship trophies.",
+    "summary": "Annual Track & Field Athletic Meet and Sports Championship with march-past, track events, and championship trophies.",
+    "event_date": "2026-10-09",
+    "end_date": null,
+    "date": "2026-10-09",
+    "displayDate": "October 9, 2026",
+    "time_range": "08:30 AM – 05:00 PM",
+    "time": "08:30 AM – 05:00 PM",
+    "location": "College Athletic Grounds & Indoor Stadium",
+    "venue": "College Athletic Grounds & Indoor Stadium",
+    "category": "Cultural & Sports",
+    "level": "all",
+    "refNo": "PED/SPORTS/2026/02",
+    "documentImage": "/media/events/Sports-Day-2026-Invitation-2_page-0001.jpg",
+    "documentPdf": null,
+    "attachments": [
+      {
+        "title": "Athletic Meet Invitation & Schedule",
+        "url": "/media/events/Sports-Day-2026-Invitation-2_page-0001.jpg",
+        "type": "image/jpeg"
+      }
+    ],
+    "content": [
+      "The Department of Physical Education invites all staff and students to the Annual Athletic Meet & Sports Championship 2026.",
+      "Events include 100m, 200m, 400m, 1500m Sprint, 4x100m Relay, Shot Put, Long Jump, High Jump, and Javelin Throw.",
+      "March past contingents from all 24 departments will be evaluated for the Best Contingent Rolling Shield."
+    ],
+    "subEvents": [
+      {
+        "id": "sub-007",
+        "parent_event_id": "ne-008",
+        "title": "Departmental March Past & Sprint Heats",
+        "description": "Ceremonial parade by 24 departments followed by track qualifying heats.",
+        "event_date": "2026-10-09",
+        "time_range": "08:30 AM – 01:00 PM",
+        "location": "College Running Track",
+        "attachments": [],
+        "created_at": "2026-08-12T10:00:00.000Z",
+        "updated_at": "2026-08-12T10:00:00.000Z"
+      },
+      {
+        "id": "sub-008",
+        "parent_event_id": "ne-008",
+        "title": "Field Finals, Relay & Trophy Presentation",
+        "description": "Final rounds for jump and throw events, 4x100m relay, and championship rolling shield award ceremony.",
+        "event_date": "2026-10-09",
+        "time_range": "02:30 PM – 05:00 PM",
+        "location": "College Athletic Grounds",
+        "attachments": [],
+        "created_at": "2026-08-12T10:00:00.000Z",
+        "updated_at": "2026-08-12T10:00:00.000Z"
+      }
+    ],
+    "signatory": "Director of Physical Education & Sports Committee",
+    "department": "Department of Physical Education",
+    "created_at": "2026-08-12T10:00:00.000Z",
+    "updated_at": "2026-08-12T10:00:00.000Z"
+  },
+  {
+    "id": "evt-past-01",
+    "slug": "national-workshop-nep-2020-framework",
+    "title": "National Faculty Workshop on NEP 2020 Curriculum Framework & Pedagogy",
+    "description": "State-level faculty enablement workshop on outcome-based education and credit frameworks.",
+    "summary": "State-level faculty enablement workshop on outcome-based education and credit frameworks.",
+    "event_date": "2026-06-15",
+    "end_date": "2026-06-16",
+    "date": "2026-06-15",
+    "displayDate": "June 15–16, 2026",
+    "time_range": "09:30 AM – 04:30 PM",
+    "time": "09:30 AM – 04:30 PM",
+    "location": "AV Hall",
+    "venue": "AV Hall",
+    "category": "Academics",
+    "level": "all",
+    "refNo": "ACAD/NEP/WS/2026/01",
+    "documentImage": "/media/notices/0001-4-scaled.jpg",
+    "documentPdf": null,
+    "attachments": [],
+    "content": [
+      "Special orientation workshop for college faculty on multidisciplinary course designing under NEP 2020."
+    ],
+    "subEvents": [],
+    "signatory": "Dean of Academic Affairs",
+    "department": "Office of Academic Dean",
+    "created_at": "2026-05-10T10:00:00.000Z",
+    "updated_at": "2026-05-10T10:00:00.000Z"
   }
 ]

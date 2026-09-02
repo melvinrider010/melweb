@@ -9,17 +9,16 @@ export default function MobileNavDrawer({ isOpen, onClose, onOpenSearch }) {
   if (!isOpen) return null;
 
   const mainItems = [
-    { label: 'Home', path: '/' },
-    { label: 'About Us', key: 'about' },
-    { label: 'Academics', key: 'academics' },
-    { label: 'Departments', key: 'departments' },
-    { label: 'Admissions', key: 'admissions' },
-    { label: 'Examinations', key: 'examinations' },
-    { label: 'Research & Resources', key: 'research' },
-    { label: 'Student Support & Amenities', key: 'studentSupport' },
-    { label: 'Mandatory Disclosure', key: 'compliance' },
-    { label: 'Gallery', path: '/gallery' },
-    { label: 'Contact', path: '/contact' }
+    { label: 'HOME', path: '/' },
+    { label: 'ABOUT US', key: 'about' },
+    { label: 'ACADEMICS', key: 'academics' },
+    { label: 'EXAMINATION', key: 'examinations' },
+    { label: 'RESOURCE', key: 'research' },
+    { label: 'STUDENT SUPPORT', key: 'studentSupport' },
+    { label: 'MANDATORY DISCLOSURE', key: 'compliance' },
+    { label: 'IQAC', key: 'iqac' },
+    { label: 'ALUMNI', path: '/alumni' },
+    { label: 'CONTACT US', path: '/contact' }
   ];
 
   const handleItemClick = (item) => {
@@ -31,21 +30,21 @@ export default function MobileNavDrawer({ isOpen, onClose, onOpenSearch }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-end bg-slate-950/80 backdrop-blur-sm animate-fadeIn xl:hidden">
-      <div className="bg-[#071A33] text-white w-full max-w-sm h-full flex flex-col justify-between shadow-2xl border-l border-slate-800 overflow-hidden">
+    <div className="fixed inset-0 z-50 flex justify-end bg-slate-950/80 backdrop-blur-sm animate-fadeIn min-[1200px]:hidden">
+      <div className="bg-[#060f26] text-white w-full max-w-sm h-full flex flex-col justify-between shadow-2xl border-l border-white/10 overflow-hidden">
         
         {/* Header Bar */}
-        <div className="p-4 bg-[#0F3B70] border-b border-slate-800 flex justify-between items-center">
+        <div className="p-4 bg-[#0B1F4E] border-b border-white/10 flex justify-between items-center">
           {activeCategory ? (
             <button
               onClick={() => setActiveCategory(null)}
-              className="flex items-center text-xs font-bold text-[#FFD84A] hover:text-white"
+              className="flex items-center text-xs font-bold text-[#F0D98C] hover:text-white"
             >
               <ChevronLeft className="w-4 h-4 mr-1" />
               <span>Back to Main Menu</span>
             </button>
           ) : (
-            <span className="font-serif font-bold text-sm text-[#FFD84A]">St. Philomena's Menu</span>
+            <span className="font-serif font-bold text-sm text-[#F0D98C]">St. Philomena's Menu</span>
           )}
 
           <button
@@ -231,13 +230,15 @@ export default function MobileNavDrawer({ isOpen, onClose, onOpenSearch }) {
 
         {/* Footer CTA */}
         <div className="p-4 bg-[#0F3B70] border-t border-slate-800">
-          <Link
-            to="/admissions"
+          <a
+            href="https://student.stphiloserp.in/"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={onClose}
             className="btn-gold w-full text-center py-2.5 block rounded-md font-bold text-xs uppercase"
           >
             Apply Admissions 2026–27
-          </Link>
+          </a>
         </div>
 
       </div>

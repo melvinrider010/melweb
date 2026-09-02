@@ -253,12 +253,14 @@ export default function DepartmentDetailPage() {
               <p className="text-xs text-slate-300 leading-relaxed">
                 Admissions for all UG and PG degree combinations offered by {dept.name} are currently open for 2026–27.
               </p>
-              <Link
-                to="/admissions"
+              <a
+                href="https://student.stphiloserp.in/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-gold w-full py-2.5 rounded-xl text-xs font-bold text-center block"
               >
-                Apply for Admissions Now
-              </Link>
+                Apply for Admissions Now (ERP Portal)
+              </a>
             </div>
 
             {/* Back to Academics */}
