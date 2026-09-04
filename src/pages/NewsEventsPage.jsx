@@ -100,12 +100,12 @@ export default function NewsEventsPage() {
     <div ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-8 py-10 space-y-10 text-[#0B1F4E]">
       
       {/* HERO BANNER */}
-      <div className="bg-[#164E8C] text-white rounded-3xl p-8 sm:p-14 border-b-4 border-[#C9A84C] shadow-2xl relative overflow-hidden">
+      <div className="bg-[#0B1F4E] text-white rounded-3xl p-8 sm:p-14 border-b-4 border-[#C9A84C] shadow-2xl relative overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20 filter blur-[1px]"
           style={{ backgroundImage: `url('/media/gallery/campus/campus_quadrangle_main.jpg')` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#164E8C] via-[#164E8C]/90 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F4E] via-[#0B1F4E]/90 to-transparent" />
 
         <div className="relative z-10 space-y-4 max-w-3xl">
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-xs font-mono font-bold text-[#F0D98C] uppercase tracking-wider">
@@ -197,7 +197,7 @@ export default function NewsEventsPage() {
               onClick={() => setTypeFilter(tab.id)}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all cursor-pointer border ${
                 typeFilter === tab.id
-                  ? 'bg-[#C9A84C] text-[#164E8C] border-[#C9A84C] shadow-xs'
+                  ? 'bg-[#C9A84C] text-[#0B1F4E] border-[#C9A84C] shadow-xs'
                   : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
               }`}
             >

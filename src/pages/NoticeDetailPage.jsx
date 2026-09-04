@@ -77,14 +77,14 @@ export default function NoticeDetailPage() {
     <div ref={containerRef} className="bg-[#f8f9fc] min-h-screen text-[#0B1F4E] pb-20">
       
       {/* 1. CINEMATIC TOP BANNER (MATCHING AUTHENTIC INSTITUTIONAL DESIGN) */}
-      <div className="relative bg-[#164E8C] text-white py-14 sm:py-20 px-4 sm:px-8 border-b-4 border-[#C9A84C] overflow-hidden">
+      <div className="relative bg-[#0B1F4E] text-white py-14 sm:py-20 px-4 sm:px-8 border-b-4 border-[#C9A84C] overflow-hidden">
         
         {/* Campus Quadrangle Background with Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-25 filter blur-[1px]"
           style={{ backgroundImage: `url('/media/gallery/campus/campus_quadrangle_main.jpg')` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#164E8C] via-[#164E8C]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F4E] via-[#0B1F4E]/80 to-transparent" />
 
         <div className="max-w-[1200px] mx-auto relative z-10 space-y-4">
           
@@ -300,7 +300,7 @@ export default function NoticeDetailPage() {
           {hasAttachments && (
             <div className="bg-blue-50/70 border border-blue-200 rounded-xl p-5 space-y-3 max-w-3xl mx-auto">
               <div className="flex items-center space-x-2 font-serif font-bold text-sm text-[#0B1F4E]">
-                <Paperclip className="w-4 h-4 text-[#1C5496]" />
+                <Paperclip className="w-4 h-4 text-[#0B1F4E]" />
                 <span>Official Attachments & Circular Documents</span>
               </div>
               <div className="space-y-2">

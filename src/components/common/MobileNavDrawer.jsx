@@ -31,7 +31,7 @@ export default function MobileNavDrawer({ isOpen, onClose, onOpenSearch }) {
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end bg-slate-950/80 backdrop-blur-sm animate-fadeIn min-[1200px]:hidden">
-      <div className="bg-[#164E8C] text-white w-full max-w-sm h-full flex flex-col justify-between shadow-2xl border-l border-white/10 overflow-hidden">
+      <div className="bg-[#0B1F4E] text-white w-full max-w-sm h-full flex flex-col justify-between shadow-2xl border-l border-white/10 overflow-hidden">
         
         {/* Header Bar */}
         <div className="p-4 bg-[#0B1F4E] border-b border-white/10 flex justify-between items-center">
@@ -215,7 +215,7 @@ export default function MobileNavDrawer({ isOpen, onClose, onOpenSearch }) {
                               <Link
                                 to={sub.path}
                                 onClick={onClose}
-                                className="block w-full py-2 px-3 rounded-lg bg-[#0F3B70] hover:bg-[#1C5496] text-[#FFD84A] font-bold text-xs text-center border border-[#C9A84C]/40 transition-colors shadow-xs"
+                                className="block w-full py-2 px-3 rounded-lg bg-[#0F3B70] hover:bg-[#0B1F4E] text-[#FFD84A] font-bold text-xs text-center border border-[#C9A84C]/40 transition-colors shadow-xs"
                               >
                                 {sub.label}
                               </Link>

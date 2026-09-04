@@ -134,11 +134,11 @@ export default function StudentLifePage() {
           {/* 1. BREADCRUMBS & ACTIONS */}
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
             <div className="flex items-center space-x-2 text-xs sm:text-sm font-semibold text-slate-600">
-              <Link to="/" className="hover:text-[#1C5496] transition-colors">Home</Link>
+              <Link to="/" className="hover:text-[#0B1F4E] transition-colors">Home</Link>
               <span>/</span>
-              <Link to="/student-support" className="hover:text-[#1C5496] transition-colors">Student Support</Link>
+              <Link to="/student-support" className="hover:text-[#0B1F4E] transition-colors">Student Support</Link>
               <span>/</span>
-              <span className="text-[#1C5496] font-bold">{currentItem.name}</span>
+              <span className="text-[#0B1F4E] font-bold">{currentItem.name}</span>
             </div>
 
             <div className="flex items-center space-x-2">
@@ -147,12 +147,12 @@ export default function StudentLifePage() {
                 className="px-3.5 py-1.5 bg-white hover:bg-slate-50 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 inline-flex items-center transition-colors shadow-2xs cursor-pointer"
                 title="Share link"
               >
-                <Share2 className="w-3.5 h-3.5 mr-1.5 text-[#1C5496]" />
+                <Share2 className="w-3.5 h-3.5 mr-1.5 text-[#0B1F4E]" />
                 <span>{copied ? 'Link Copied!' : 'Share'}</span>
               </button>
               <Link
                 to="/student-support"
-                className="px-3.5 py-1.5 bg-[#0B1F4E] hover:bg-[#1C5496] text-white rounded-lg text-xs font-bold inline-flex items-center transition-colors shadow-xs"
+                className="px-3.5 py-1.5 bg-[#0B1F4E] hover:bg-[#0B1F4E] text-white rounded-lg text-xs font-bold inline-flex items-center transition-colors shadow-xs"
               >
                 <ArrowLeft className="w-3.5 h-3.5 mr-1.5" />
                 <span>All Facilities</span>
@@ -166,7 +166,7 @@ export default function StudentLifePage() {
             {/* LEFT SIDEBAR: FAST CATEGORY NAVIGATION */}
             <aside className="lg:col-span-3 space-y-6 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs sticky top-24">
               <div className="space-y-1 border-b border-slate-100 pb-3">
-                <span className="text-[11px] font-bold text-[#1C5496] uppercase tracking-wider block">Institutional Directory</span>
+                <span className="text-[11px] font-bold text-[#0B1F4E] uppercase tracking-wider block">Institutional Directory</span>
                 <h3 className="font-serif font-bold text-base text-slate-900">Student Services & Amenities</h3>
               </div>
 
@@ -188,7 +188,7 @@ export default function StudentLifePage() {
                             className={`block py-2 px-2.5 rounded-lg font-medium transition-all ${
                               isCurrent 
                                 ? 'bg-[#0B1F4E] text-[#F0D98C] font-bold shadow-xs' 
-                                : 'text-slate-700 hover:bg-slate-50 hover:text-[#1C5496]'
+                                : 'text-slate-700 hover:bg-slate-50 hover:text-[#0B1F4E]'
                             }`}
                           >
                             <span className="line-clamp-1">{itemData.name}</span>
@@ -214,7 +214,7 @@ export default function StudentLifePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex flex-col justify-end p-6 sm:p-8">
                     <div className="space-y-2 max-w-3xl">
-                      <span className="bg-[#C9A84C] text-[#164E8C] font-mono font-bold text-[10px] sm:text-xs px-2.5 py-0.5 rounded uppercase tracking-wider inline-block">
+                      <span className="bg-[#C9A84C] text-[#0B1F4E] font-mono font-bold text-[10px] sm:text-xs px-2.5 py-0.5 rounded uppercase tracking-wider inline-block">
                         {currentItem.category}
                       </span>
                       <h1 className="font-serif font-extrabold text-2xl sm:text-4xl text-white tracking-tight">
@@ -234,7 +234,7 @@ export default function StudentLifePage() {
                   <div className="space-y-1">
                     {currentItem.coordinator && (
                       <div className="flex items-center space-x-2 text-xs text-slate-800">
-                        <Users className="w-4 h-4 text-[#1C5496] shrink-0" />
+                        <Users className="w-4 h-4 text-[#0B1F4E] shrink-0" />
                         <span className="font-bold">Officer / In-Charge:</span>
                         <span>{currentItem.coordinator}</span>
                       </div>
@@ -253,7 +253,7 @@ export default function StudentLifePage() {
                         href={currentItem.portalUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="px-4 py-2 bg-[#1C5496] hover:bg-[#0B1F4E] text-white text-xs font-bold rounded-xl inline-flex items-center shadow-xs transition-colors"
+                        className="px-4 py-2 bg-[#0B1F4E] hover:bg-[#0B1F4E] text-white text-xs font-bold rounded-xl inline-flex items-center shadow-xs transition-colors"
                       >
                         <ExternalLink className="w-3.5 h-3.5 mr-1.5" />
                         <span>Online Redressal Form</span>
@@ -262,7 +262,7 @@ export default function StudentLifePage() {
                     {currentItem.pdfs && currentItem.pdfs.length > 0 && (
                       <button
                         onClick={() => setActivePdf(currentItem.pdfs[0])}
-                        className="px-4 py-2 bg-[#C9A84C] hover:bg-[#b09038] text-[#164E8C] text-xs font-bold rounded-xl inline-flex items-center shadow-xs transition-colors cursor-pointer"
+                        className="px-4 py-2 bg-[#C9A84C] hover:bg-[#b09038] text-[#0B1F4E] text-xs font-bold rounded-xl inline-flex items-center shadow-xs transition-colors cursor-pointer"
                       >
                         <FileText className="w-3.5 h-3.5 mr-1.5" />
                         <span>View Document ({currentItem.pdfs.length})</span>
@@ -282,7 +282,7 @@ export default function StudentLifePage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {(currentItem.highlights || currentItem.objectives).map((point, pIdx) => (
                       <div key={pIdx} className="bg-slate-50 p-3.5 rounded-xl border border-slate-100 flex items-start space-x-3">
-                        <CheckCircle2 className="w-4 h-4 text-[#1C5496] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-[#0B1F4E] shrink-0 mt-0.5" />
                         <span className="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-medium">{point}</span>
                       </div>
                     ))}
@@ -316,7 +316,7 @@ export default function StudentLifePage() {
                                 <ul key={cIdx} className="space-y-2 my-2 pl-2">
                                   {cItem.items.map((li, lIdx) => (
                                     <li key={lIdx} className="flex items-start space-x-2">
-                                      <span className="w-1.5 h-1.5 rounded-full bg-[#1C5496] mt-2 shrink-0"></span>
+                                      <span className="w-1.5 h-1.5 rounded-full bg-[#0B1F4E] mt-2 shrink-0"></span>
                                       <span>{li}</span>
                                     </li>
                                   ))}
@@ -343,7 +343,7 @@ export default function StudentLifePage() {
               {currentItem.tables && currentItem.tables.length > 0 && (
                 <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-4">
                   <h3 className="font-serif font-bold text-lg text-slate-900 border-b border-slate-100 pb-3 flex items-center space-x-2">
-                    <ShieldCheck className="w-5 h-5 text-[#1C5496]" />
+                    <ShieldCheck className="w-5 h-5 text-[#0B1F4E]" />
                     <span>Committee Members & Designated Roles</span>
                   </h3>
                   <div className="overflow-x-auto rounded-xl border border-slate-200">
@@ -365,7 +365,7 @@ export default function StudentLifePage() {
                             {row.map((cell, cIdx) => (
                               <td key={cIdx} className="py-2.5 px-4 text-slate-800 font-medium">
                                 {cIdx === 3 && cell === 'Coordinator' ? (
-                                  <span className="bg-blue-100 text-[#1C5496] font-bold px-2 py-0.5 rounded text-[11px]">
+                                  <span className="bg-blue-100 text-[#0B1F4E] font-bold px-2 py-0.5 rounded text-[11px]">
                                     {cell}
                                   </span>
                                 ) : (
@@ -385,7 +385,7 @@ export default function StudentLifePage() {
               {currentItem.images && currentItem.images.length > 0 && (
                 <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-4">
                   <h3 className="font-serif font-bold text-lg text-slate-900 border-b border-slate-100 pb-3 flex items-center space-x-2">
-                    <Building2 className="w-5 h-5 text-[#1C5496]" />
+                    <Building2 className="w-5 h-5 text-[#0B1F4E]" />
                     <span>Campus Infrastructure & Activity Gallery</span>
                   </h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
@@ -413,12 +413,12 @@ export default function StudentLifePage() {
               {currentItem.pdfs && currentItem.pdfs.length > 0 && (
                 <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-4">
                   <h3 className="font-serif font-bold text-lg text-slate-900 border-b border-slate-100 pb-3 flex items-center space-x-2">
-                    <FileText className="w-5 h-5 text-[#1C5496]" />
+                    <FileText className="w-5 h-5 text-[#0B1F4E]" />
                     <span>Official Reports, Forms & Document Downloads</span>
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {currentItem.pdfs.map((pdf, pIdx) => (
-                      <div key={pIdx} className="p-4 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between gap-3 hover:border-[#1C5496] transition-colors">
+                      <div key={pIdx} className="p-4 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between gap-3 hover:border-[#0B1F4E] transition-colors">
                         <div className="flex items-center space-x-3 min-w-0">
                           <div className="w-9 h-9 rounded-lg bg-red-100 text-red-700 flex items-center justify-center shrink-0">
                             <FileText className="w-5 h-5" />
@@ -431,7 +431,7 @@ export default function StudentLifePage() {
                         <div className="flex items-center space-x-1.5 shrink-0">
                           <button
                             onClick={() => setActivePdf(pdf)}
-                            className="px-2.5 py-1.5 bg-[#0B1F4E] hover:bg-[#1C5496] text-[#F0D98C] rounded-lg text-xs font-bold transition-colors cursor-pointer"
+                            className="px-2.5 py-1.5 bg-[#0B1F4E] hover:bg-[#0B1F4E] text-[#F0D98C] rounded-lg text-xs font-bold transition-colors cursor-pointer"
                             title="Preview Document"
                           >
                             View
@@ -456,7 +456,7 @@ export default function StudentLifePage() {
                 {prevItem ? (
                   <Link
                     to={`/student-support/${prevItem.slug}`}
-                    className="flex items-center space-x-2 text-xs font-bold text-slate-700 hover:text-[#1C5496] transition-colors group"
+                    className="flex items-center space-x-2 text-xs font-bold text-slate-700 hover:text-[#0B1F4E] transition-colors group"
                   >
                     <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                     <div className="text-left">
@@ -469,7 +469,7 @@ export default function StudentLifePage() {
                 {nextItem ? (
                   <Link
                     to={`/student-support/${nextItem.slug}`}
-                    className="flex items-center space-x-2 text-xs font-bold text-slate-700 hover:text-[#1C5496] transition-colors group text-right"
+                    className="flex items-center space-x-2 text-xs font-bold text-slate-700 hover:text-[#0B1F4E] transition-colors group text-right"
                   >
                     <div className="text-right">
                       <span className="text-[10px] text-slate-400 block font-normal uppercase">Next Service</span>
@@ -516,9 +516,9 @@ export default function StudentLifePage() {
       <div className="max-w-[1440px] mx-auto space-y-10">
 
         {/* HEADER HERO BANNER */}
-        <div className="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-xs space-y-4 border-l-8 border-[#1C5496] relative overflow-hidden">
+        <div className="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-xs space-y-4 border-l-8 border-[#0B1F4E] relative overflow-hidden">
           <div className="relative z-10 max-w-4xl space-y-3">
-            <span className="text-[#1C5496] font-bold text-xs uppercase tracking-widest block font-mono">
+            <span className="text-[#0B1F4E] font-bold text-xs uppercase tracking-widest block font-mono">
               Campus Facilities & Institutional Support
             </span>
             <h1 className="font-serif font-extrabold text-3xl sm:text-5xl text-slate-900 tracking-tight">
@@ -557,7 +557,7 @@ export default function StudentLifePage() {
               placeholder="Search facilities or cells..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-[#1C5496] focus:bg-white transition-colors"
+              className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-[#0B1F4E] focus:bg-white transition-colors"
             />
           </div>
         </div>
@@ -587,11 +587,11 @@ export default function StudentLifePage() {
                   </div>
 
                   <div className="p-5 space-y-2.5">
-                    <h3 className="font-serif font-bold text-lg text-slate-900 group-hover:text-[#1C5496] transition-colors line-clamp-1">
+                    <h3 className="font-serif font-bold text-lg text-slate-900 group-hover:text-[#0B1F4E] transition-colors line-clamp-1">
                       {fac.name}
                     </h3>
                     {fac.tagline && (
-                      <p className="text-[11.5px] text-[#1C5496] font-semibold line-clamp-1">
+                      <p className="text-[11.5px] text-[#0B1F4E] font-semibold line-clamp-1">
                         {fac.tagline}
                       </p>
                     )}
@@ -607,7 +607,7 @@ export default function StudentLifePage() {
                 <div className="p-5 pt-0">
                   <Link
                     to={`/student-support/${fac.slug}`}
-                    className="w-full py-2.5 px-4 rounded-xl bg-slate-50 hover:bg-[#0B1F4E] text-[#1C5496] hover:text-[#F0D98C] border border-slate-200 hover:border-[#0B1F4E] font-bold text-xs text-center transition-all flex items-center justify-center space-x-1.5 group/btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-slate-50 hover:bg-[#0B1F4E] text-[#0B1F4E] hover:text-[#F0D98C] border border-slate-200 hover:border-[#0B1F4E] font-bold text-xs text-center transition-all flex items-center justify-center space-x-1.5 group/btn"
                   >
                     <span>Explore Details & Documents</span>
                     <ChevronRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />

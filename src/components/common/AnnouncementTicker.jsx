@@ -18,11 +18,11 @@ export default function AnnouncementTicker() {
   const tickerItems = [...recentNotices, ...recentNotices];
 
   return (
-    <div className="bg-[#164E8C] text-white text-xs py-2 px-3 sm:px-6 border-b border-white/10 shadow-xs max-w-full overflow-hidden">
+    <div className="bg-gradient-to-r from-[#071536] via-[#0B1F4E] to-[#071536] text-white text-xs py-2 px-3 sm:px-6 border-b border-white/10 shadow-xs max-w-full overflow-hidden">
       <div className="max-w-[1720px] mx-auto grid grid-cols-[auto_1fr] items-center gap-3 w-full overflow-hidden">
         
         {/* Live Notification Indicator */}
-        <div className="flex items-center font-bold tracking-wider uppercase shrink-0 z-10 bg-[#C9A84C] text-[#164E8C] text-[10px] sm:text-[11px] px-2 sm:px-3 py-1 rounded-md shadow-xs space-x-1 sm:space-x-1.5 whitespace-nowrap">
+        <div className="flex items-center font-bold tracking-wider uppercase shrink-0 z-10 bg-[#C9A84C] text-[#0B1F4E] text-[10px] sm:text-[11px] px-2 sm:px-3 py-1 rounded-md shadow-xs space-x-1 sm:space-x-1.5 whitespace-nowrap">
           <span className="live-dot"></span>
           <span className="hidden sm:inline">LATEST UPDATES</span>
           <span className="sm:hidden">UPDATES</span>

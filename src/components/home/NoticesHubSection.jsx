@@ -121,7 +121,7 @@ export default function NoticesHubSection() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-4 gap-3">
           
           <div className="flex items-center space-x-2 text-xs font-bold text-slate-700">
-            <span className="w-2 h-2 rounded-full bg-[#1C5496]"></span>
+            <span className="w-2 h-2 rounded-full bg-[#0B1F4E]"></span>
             <span>Official Announcements, Circulars & Event Feeds</span>
           </div>
 
@@ -249,7 +249,7 @@ export default function NoticesHubSection() {
                       <div key={event.id} className="divide-y divide-slate-50">
                         <div className="p-4 sm:p-4.5 flex items-start space-x-3.5 hover:bg-slate-50/80 transition-colors group">
                           {/* Left Date Square Badge */}
-                          <div className="shrink-0 w-12 h-13 rounded-lg bg-[#164E8C] border border-[#C9A84C]/40 text-center flex flex-col items-center justify-center text-white shadow-2xs group-hover:border-[#C9A84C]">
+                          <div className="shrink-0 w-12 h-13 rounded-lg bg-[#0B1F4E] border border-[#C9A84C]/40 text-center flex flex-col items-center justify-center text-white shadow-2xs group-hover:border-[#C9A84C]">
                             <span className="text-[9.5px] font-bold text-[#F0D98C] font-mono tracking-wider leading-tight">
                               {monthStr}
                             </span>
@@ -424,7 +424,7 @@ export default function NoticesHubSection() {
                       onClick={() => setActiveNoticeTab(tab.id)}
                       className={`px-2 sm:px-3 py-1 text-[10.5px] sm:text-[11px] font-bold tracking-wider rounded transition-all cursor-pointer ${
                         activeNoticeTab === tab.id
-                          ? 'bg-[#164E8C] text-[#F0D98C] border-b-2 border-[#C9A84C] shadow-xs'
+                          ? 'bg-[#0B1F4E] text-[#F0D98C] border-b-2 border-[#C9A84C] shadow-xs'
                           : 'text-slate-300 hover:text-white hover:bg-white/10'
                       }`}
                     >
@@ -471,7 +471,7 @@ export default function NoticesHubSection() {
                         className="p-3.5 sm:p-4 flex items-start space-x-3 hover:bg-slate-50/80 transition-colors group"
                       >
                         {/* Left Date Square Badge */}
-                        <div className="shrink-0 w-11 h-12 rounded-lg bg-[#164E8C] border border-[#C9A84C]/40 text-center flex flex-col items-center justify-center text-white shadow-2xs group-hover:border-[#C9A84C]">
+                        <div className="shrink-0 w-11 h-12 rounded-lg bg-[#0B1F4E] border border-[#C9A84C]/40 text-center flex flex-col items-center justify-center text-white shadow-2xs group-hover:border-[#C9A84C]">
                           <span className="text-sm font-serif font-extrabold text-white leading-none">
                             {dayStr}
                           </span>
@@ -484,7 +484,7 @@ export default function NoticesHubSection() {
                         <div className="space-y-1 flex-1 min-w-0">
                           <div className="flex items-center space-x-1.5 flex-wrap gap-1">
                             {isRecent && (
-                              <span className="bg-[#C9A84C] text-[#164E8C] text-[9px] font-mono font-extrabold px-1.5 py-0.2 rounded uppercase tracking-wider">
+                              <span className="bg-[#C9A84C] text-[#0B1F4E] text-[9px] font-mono font-extrabold px-1.5 py-0.2 rounded uppercase tracking-wider">
                                 NEW
                               </span>
                             )}

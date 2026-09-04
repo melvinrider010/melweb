@@ -141,7 +141,7 @@ export default function CampusBlocksSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
           <div className="space-y-2">
-            <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">
+            <span className="text-[#0B1F4E] font-mono font-bold text-xs uppercase tracking-widest block">
               Campus & Infrastructure
             </span>
             <h2 className="font-serif font-extrabold text-2xl sm:text-4xl text-[#071A33] tracking-tight">
@@ -190,7 +190,7 @@ export default function CampusBlocksSection() {
             {/* Image Stage Container (Clickable to open page) */}
             <Link
               to={activeSpace.link}
-              className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 aspect-[16/10] bg-[#164E8C] group cursor-pointer block"
+              className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 aspect-[16/10] bg-[#0B1F4E] group cursor-pointer block"
               title={`Click to open ${activeSpace.title} page`}
             >
               
@@ -207,11 +207,11 @@ export default function CampusBlocksSection() {
               />
 
               {/* Gradient Scrim */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#164E8C] via-[#164E8C]/30 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F4E] via-[#0B1F4E]/30 to-transparent pointer-events-none" />
 
               {/* Top Meta Badges */}
               <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
-                <span className="bg-[#164E8C]/90 backdrop-blur-md border border-[#C9A84C]/50 text-[#F0D98C] font-mono text-[11px] font-bold px-2.5 py-1 rounded-md shadow-xs">
+                <span className="bg-[#0B1F4E]/90 backdrop-blur-md border border-[#C9A84C]/50 text-[#F0D98C] font-mono text-[11px] font-bold px-2.5 py-1 rounded-md shadow-xs">
                   {activeSpace.number} · {activeSpace.tag}
                 </span>
 
@@ -298,7 +298,7 @@ export default function CampusBlocksSection() {
                         e.target.src = '/assets/banner-college.jpg';
                       }}
                     />
-                    <span className="absolute bottom-0.5 right-0.5 bg-[#164E8C]/90 text-[#F0D98C] font-mono text-[9px] font-bold px-1 rounded">
+                    <span className="absolute bottom-0.5 right-0.5 bg-[#0B1F4E]/90 text-[#F0D98C] font-mono text-[9px] font-bold px-1 rounded">
                       {space.number}
                     </span>
                   </div>
@@ -326,7 +326,7 @@ export default function CampusBlocksSection() {
                     onClick={(e) => e.stopPropagation()}
                     className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
                       isActive
-                        ? 'bg-[#0B1F4E] text-[#F0D98C] hover:bg-[#1C5496]'
+                        ? 'bg-[#0B1F4E] text-[#F0D98C] hover:bg-[#0B1F4E]'
                         : 'bg-slate-100 text-slate-400 group-hover:bg-[#0B1F4E] group-hover:text-[#F0D98C]'
                     }`}
                     title={`Open ${space.title} page`}

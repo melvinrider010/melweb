@@ -115,8 +115,8 @@ export default function AboutPage() {
                 onClick={() => handleTabChange(tab.id)}
                 className={`px-3 py-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center space-x-2 text-center cursor-pointer ${
                   isActive
-                    ? 'bg-[#1C5496] text-white shadow-sm ring-1 ring-[#1C5496]/20'
-                    : 'bg-slate-50/90 text-slate-700 hover:bg-slate-100 hover:text-[#1C5496] border border-slate-200/70'
+                    ? 'bg-[#0B1F4E] text-white shadow-sm ring-1 ring-[#0B1F4E]/20'
+                    : 'bg-slate-50/90 text-slate-700 hover:bg-slate-100 hover:text-[#0B1F4E] border border-slate-200/70'
                 }`}
               >
                 <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-[#FFD84A]' : 'text-slate-500'}`} />
@@ -137,8 +137,8 @@ export default function AboutPage() {
                 onClick={() => handleTabChange(tab.id)}
                 className={`px-3 py-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center space-x-2 text-center cursor-pointer ${
                   isActive
-                    ? 'bg-[#1C5496] text-white shadow-sm ring-1 ring-[#1C5496]/20'
-                    : 'bg-slate-50/90 text-slate-700 hover:bg-slate-100 hover:text-[#1C5496] border border-slate-200/70'
+                    ? 'bg-[#0B1F4E] text-white shadow-sm ring-1 ring-[#0B1F4E]/20'
+                    : 'bg-slate-50/90 text-slate-700 hover:bg-slate-100 hover:text-[#0B1F4E] border border-slate-200/70'
                 }`}
               >
                 <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-[#FFD84A]' : 'text-slate-500'}`} />
@@ -159,7 +159,7 @@ export default function AboutPage() {
             {/* Story Banner */}
             <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-4">
-                <span className="bg-blue-50 text-[#1C5496] font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
+                <span className="bg-blue-50 text-[#0B1F4E] font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
                   Our Founding Story
                 </span>
                 <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900 leading-snug">
@@ -174,7 +174,7 @@ export default function AboutPage() {
               </div>
 
               <div className="lg:col-span-5 space-y-3">
-                <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200 aspect-[4/3] sm:h-[340px] relative group bg-[#164E8C]">
+                <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200 aspect-[4/3] sm:h-[340px] relative group bg-[#0B1F4E]">
                   <img
                     src="/assets/images/campus/intro_heritage_building.jpg"
                     alt="St. Philomena's College Historic Heritage Quadrangle Building (Est. 1946)"
@@ -201,7 +201,7 @@ export default function AboutPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                  <span className="font-serif font-extrabold text-2xl text-[#1C5496] block">1946</span>
+                  <span className="font-serif font-extrabold text-2xl text-[#0B1F4E] block">1946</span>
                   <h4 className="font-serif font-bold text-sm text-slate-900">Foundation & Inauguration</h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     Inaugurated by Maharaja Sri Jayachamarajendra Wodeyar and Bishop Rene Feuga as the first private degree science college in Mysore.
@@ -209,7 +209,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                  <span className="font-serif font-extrabold text-2xl text-[#1C5496] block">2004</span>
+                  <span className="font-serif font-extrabold text-2xl text-[#0B1F4E] block">2004</span>
                   <h4 className="font-serif font-bold text-sm text-slate-900">NAAC A+ Accreditation</h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     Recognized with A+ Grade in Cycle I Accreditation by the National Assessment and Accreditation Council (NAAC).
@@ -217,7 +217,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                  <span className="font-serif font-extrabold text-2xl text-[#1C5496] block">2011</span>
+                  <span className="font-serif font-extrabold text-2xl text-[#0B1F4E] block">2011</span>
                   <h4 className="font-serif font-bold text-sm text-slate-900">UGC Autonomous Status</h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     Conferred Autonomous Status by the University Grants Commission, empowering curricular innovation and choice-based credit degrees.
@@ -225,7 +225,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                  <span className="font-serif font-extrabold text-2xl text-[#1C5496] block">2026+</span>
+                  <span className="font-serif font-extrabold text-2xl text-[#0B1F4E] block">2026+</span>
                   <h4 className="font-serif font-bold text-sm text-slate-900">NEP & Research Innovation</h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     Over 25 UG and 14 PG programmes, interdisciplinary science laboratories, and MoE Star-Rated Innovation Council.
@@ -275,8 +275,8 @@ export default function AboutPage() {
               
               <div className="border-b border-slate-100 pb-4 space-y-1.5">
                 <div className="flex items-center space-x-2">
-                  <Award className="w-5 h-5 text-[#1C5496]" />
-                  <span className="text-xs font-bold text-[#1C5496] uppercase tracking-widest">Core Purpose</span>
+                  <Award className="w-5 h-5 text-[#0B1F4E]" />
+                  <span className="text-xs font-bold text-[#0B1F4E] uppercase tracking-widest">Core Purpose</span>
                 </div>
                 <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
                   Mission
@@ -290,7 +290,7 @@ export default function AboutPage() {
               {/* Mission 4 Core Pillars Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
                 <div className="p-4 rounded-xl bg-blue-50/60 border border-blue-100 space-y-2">
-                  <CheckCircle2 className="w-5 h-5 text-[#1C5496]" />
+                  <CheckCircle2 className="w-5 h-5 text-[#0B1F4E]" />
                   <h4 className="font-serif font-bold text-sm text-slate-900">Holistic Transformation</h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     Nurturing intellectually curious, emotionally resilient, and socially conscious graduates.
@@ -327,7 +327,7 @@ export default function AboutPage() {
             {/* 3. MOTTO SECTION */}
             <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-2xs">
               <div className="space-y-1">
-                <span className="text-xs font-bold text-[#1C5496] uppercase tracking-wider block">
+                <span className="text-xs font-bold text-[#0B1F4E] uppercase tracking-wider block">
                   Institutional Motto
                 </span>
                 <h3 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
@@ -350,8 +350,8 @@ export default function AboutPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {aboutData.coreValues.map((val, idx) => (
-                  <div key={idx} className="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2 hover:border-[#1C5496] transition-colors">
-                    <span className="font-serif font-bold text-sm text-[#1C5496] block">{val.title}</span>
+                  <div key={idx} className="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-2 hover:border-[#0B1F4E] transition-colors">
+                    <span className="font-serif font-bold text-sm text-[#0B1F4E] block">{val.title}</span>
                     <p className="text-xs text-slate-600 leading-relaxed">{val.desc}</p>
                   </div>
                 ))}
@@ -378,7 +378,7 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h3 className="font-serif font-bold text-lg text-slate-900">The College Crest</h3>
-                  <p className="text-xs text-[#1C5496] font-mono font-bold tracking-widest uppercase">Caritas in Scientia</p>
+                  <p className="text-xs text-[#0B1F4E] font-mono font-bold tracking-widest uppercase">Caritas in Scientia</p>
                 </div>
               </div>
 
@@ -409,7 +409,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {aboutData.coatOfArms.symbols.map((sym, idx) => (
                   <div key={idx} className="p-5 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5 flex items-start space-x-3">
-                    <span className="w-8 h-8 rounded-lg bg-[#1C5496] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                    <span className="w-8 h-8 rounded-lg bg-[#0B1F4E] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
                       0{idx + 1}
                     </span>
                     <div>
@@ -431,8 +431,8 @@ export default function AboutPage() {
             {/* Official Page Banner & Introduction */}
             <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-3">
               <div className="flex items-center space-x-2">
-                <Award className="w-5 h-5 text-[#1C5496]" />
-                <span className="text-xs font-bold text-[#1C5496] uppercase tracking-widest">Official Institutional Records</span>
+                <Award className="w-5 h-5 text-[#0B1F4E]" />
+                <span className="text-xs font-bold text-[#0B1F4E] uppercase tracking-widest">Official Institutional Records</span>
               </div>
               <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">Former Bishops of Mysore</h2>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
@@ -449,11 +449,11 @@ export default function AboutPage() {
                       <img
                         src={bishop.image}
                         alt={bishop.name}
-                        className="w-20 h-20 rounded-full object-cover border-2 border-[#1C5496] shadow-sm shrink-0 bg-slate-100"
+                        className="w-20 h-20 rounded-full object-cover border-2 border-[#0B1F4E] shadow-sm shrink-0 bg-slate-100"
                         onError={(e) => { e.target.src = "/assets/images/campus/intro_heritage_building.jpg"; }}
                       />
                       <div>
-                        <span className="bg-blue-50 text-[#1C5496] text-[11px] font-bold px-2.5 py-0.5 rounded font-mono">
+                        <span className="bg-blue-50 text-[#0B1F4E] text-[11px] font-bold px-2.5 py-0.5 rounded font-mono">
                           {bishop.tenure}
                         </span>
                         <h3 className="font-serif font-bold text-base sm:text-lg text-slate-900 mt-1">{bishop.name}</h3>
@@ -489,8 +489,8 @@ export default function AboutPage() {
             {/* Section Header */}
             <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-2">
               <div className="flex items-center space-x-2">
-                <GraduationCap className="w-5 h-5 text-[#1C5496]" />
-                <span className="text-xs font-bold text-[#1C5496] uppercase tracking-widest">Academic Leadership Roll</span>
+                <GraduationCap className="w-5 h-5 text-[#0B1F4E]" />
+                <span className="text-xs font-bold text-[#0B1F4E] uppercase tracking-widest">Academic Leadership Roll</span>
               </div>
               <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">Principal in Office & Former Principals</h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -542,7 +542,7 @@ export default function AboutPage() {
                   <div className="pt-2">
                     <button
                       onClick={() => handleTabChange('leadership')}
-                      className="inline-flex items-center space-x-2 px-4 py-2 bg-[#1C5496] hover:bg-[#2563eb] text-white text-xs font-bold rounded-lg transition-all shadow-sm cursor-pointer"
+                      className="inline-flex items-center space-x-2 px-4 py-2 bg-[#0B1F4E] hover:bg-[#2563eb] text-white text-xs font-bold rounded-lg transition-all shadow-sm cursor-pointer"
                     >
                       <MessageSquare className="w-3.5 h-3.5" />
                       <span>Read Principal's Official Message</span>
@@ -576,7 +576,7 @@ export default function AboutPage() {
                   <div className="p-4 space-y-1.5 flex-1 flex flex-col justify-between">
                     <div>
                       <h4 className="font-serif font-bold text-base text-slate-900 leading-snug">{p.name}</h4>
-                      <p className="text-xs text-[#1C5496] font-semibold pt-0.5">Principal · {p.tenure}</p>
+                      <p className="text-xs text-[#0B1F4E] font-semibold pt-0.5">Principal · {p.tenure}</p>
                     </div>
                     <p className="text-[11px] text-slate-600 leading-relaxed pt-2 border-t border-slate-100 line-clamp-3">
                       {p.description}
@@ -606,7 +606,7 @@ export default function AboutPage() {
                       ...([...aboutData.principals.filter(p => !p.isCurrent)].reverse())
                     ].map((p, idx) => (
                       <tr key={idx} className={`hover:bg-slate-50 transition-colors ${idx === 0 ? 'bg-amber-50/50 font-bold' : ''}`}>
-                        <td className="p-3.5 font-mono text-[#1C5496]">
+                        <td className="p-3.5 font-mono text-[#0B1F4E]">
                           {idx === 0 ? '★ Present' : String(aboutData.principals.length - idx).padStart(2, '0')}
                         </td>
                         <td className="p-3.5 text-slate-900">
@@ -636,7 +636,7 @@ export default function AboutPage() {
                 />
               </div>
               <div className="space-y-2 flex-1 min-w-0">
-                <span className="bg-blue-50 text-[#1C5496] font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider inline-block">
+                <span className="bg-blue-50 text-[#0B1F4E] font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider inline-block">
                   Governing Society
                 </span>
                 <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
@@ -652,19 +652,19 @@ export default function AboutPage() {
             {/* MDES Key Office Bearers */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="p-5 bg-white rounded-xl border border-slate-200 space-y-1 shadow-xs">
-                <span className="text-[10px] font-bold text-[#1C5496] uppercase tracking-wider">President</span>
+                <span className="text-[10px] font-bold text-[#0B1F4E] uppercase tracking-wider">President</span>
                 <h4 className="font-serif font-bold text-sm text-slate-900">{aboutData.mdes.president}</h4>
               </div>
               <div className="p-5 bg-white rounded-xl border border-slate-200 space-y-1 shadow-xs">
-                <span className="text-[10px] font-bold text-[#1C5496] uppercase tracking-wider">Vice President</span>
+                <span className="text-[10px] font-bold text-[#0B1F4E] uppercase tracking-wider">Vice President</span>
                 <h4 className="font-serif font-bold text-sm text-slate-900">{aboutData.mdes.vicePresident}</h4>
               </div>
               <div className="p-5 bg-white rounded-xl border border-slate-200 space-y-1 shadow-xs">
-                <span className="text-[10px] font-bold text-[#1C5496] uppercase tracking-wider">Secretary</span>
+                <span className="text-[10px] font-bold text-[#0B1F4E] uppercase tracking-wider">Secretary</span>
                 <h4 className="font-serif font-bold text-sm text-slate-900">{aboutData.mdes.secretary}</h4>
               </div>
               <div className="p-5 bg-white rounded-xl border border-slate-200 space-y-1 shadow-xs">
-                <span className="text-[10px] font-bold text-[#1C5496] uppercase tracking-wider">Treasurer</span>
+                <span className="text-[10px] font-bold text-[#0B1F4E] uppercase tracking-wider">Treasurer</span>
                 <h4 className="font-serif font-bold text-sm text-slate-900">{aboutData.mdes.treasurer}</h4>
               </div>
             </div>
@@ -678,7 +678,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {aboutData.mdes.objectives.map((obj, idx) => (
                   <div key={idx} className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex items-start space-x-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#1C5496] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-[#0B1F4E] shrink-0 mt-0.5" />
                     <span className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">{obj}</span>
                   </div>
                 ))}
@@ -741,7 +741,7 @@ export default function AboutPage() {
                     <div className="p-5 space-y-1.5 flex-1 flex flex-col justify-between">
                       <div>
                         <h4 className="font-serif font-bold text-base text-slate-900 leading-snug">{person.name}</h4>
-                        <p className="text-xs text-[#1C5496] font-bold pt-0.5">{person.designation}</p>
+                        <p className="text-xs text-[#0B1F4E] font-bold pt-0.5">{person.designation}</p>
                       </div>
                       <p className="text-[11px] text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
                         {person.biography}
@@ -758,17 +758,17 @@ export default function AboutPage() {
                 <img
                   src={aboutData.leadershipMessages.rector.image}
                   alt={aboutData.leadershipMessages.rector.name}
-                  className="w-32 h-32 rounded-full object-cover border-4 border-[#1C5496] shadow-sm"
+                  className="w-32 h-32 rounded-full object-cover border-4 border-[#0B1F4E] shadow-sm"
                 />
                 <div>
                   <h3 className="font-serif font-bold text-base text-slate-900">{aboutData.leadershipMessages.rector.name}</h3>
-                  <p className="text-xs text-[#1C5496] font-bold">{aboutData.leadershipMessages.rector.title}</p>
+                  <p className="text-xs text-[#0B1F4E] font-bold">{aboutData.leadershipMessages.rector.title}</p>
                 </div>
               </div>
 
               <div className="lg:col-span-8 space-y-3">
                 <div className="flex items-center justify-between flex-wrap gap-2">
-                  <span className="bg-blue-50 text-[#1C5496] font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
+                  <span className="bg-blue-50 text-[#0B1F4E] font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
                     Office of the Rector & Manager
                   </span>
                 </div>

@@ -179,7 +179,7 @@ export default function GallerySection() {
       {/* Background Subtle Pattern */}
       <div 
         aria-hidden="true" 
-        className="absolute inset-0 bg-[radial-gradient(#1C5496_1px,transparent_1px)] [background-size:2rem_2rem] opacity-15 pointer-events-none" 
+        className="absolute inset-0 bg-[radial-gradient(#0B1F4E_1px,transparent_1px)] [background-size:2rem_2rem] opacity-15 pointer-events-none" 
       />
 
       <div className="max-w-[1440px] mx-auto space-y-8 relative z-10">
@@ -325,7 +325,7 @@ export default function GallerySection() {
           >
             <div className="space-y-1 max-w-xl">
               <div className="flex items-center space-x-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider bg-[#C9A84C] text-[#164E8C] px-2 py-0.5 rounded">
+                <span className="text-[10px] font-bold uppercase tracking-wider bg-[#C9A84C] text-[#0B1F4E] px-2 py-0.5 rounded">
                   {activeAlbum.categoryLabel}
                 </span>
                 <span className="text-xs text-slate-400 font-mono">
@@ -356,7 +356,7 @@ export default function GallerySection() {
             {/* Previous Arrow */}
             <button
               onClick={prevPhoto}
-              className="absolute left-4 sm:left-8 z-30 w-12 h-12 rounded-2xl bg-black/70 hover:bg-[#C9A84C] text-white hover:text-[#164E8C] border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-2xl"
+              className="absolute left-4 sm:left-8 z-30 w-12 h-12 rounded-2xl bg-black/70 hover:bg-[#C9A84C] text-white hover:text-[#0B1F4E] border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-2xl"
               aria-label="Previous Photo"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -375,7 +375,7 @@ export default function GallerySection() {
             {/* Next Arrow */}
             <button
               onClick={nextPhoto}
-              className="absolute right-4 sm:right-8 z-30 w-12 h-12 rounded-2xl bg-black/70 hover:bg-[#C9A84C] text-white hover:text-[#164E8C] border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-2xl"
+              className="absolute right-4 sm:right-8 z-30 w-12 h-12 rounded-2xl bg-black/70 hover:bg-[#C9A84C] text-white hover:text-[#0B1F4E] border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-2xl"
               aria-label="Next Photo"
             >
               <ChevronRight className="w-6 h-6" />

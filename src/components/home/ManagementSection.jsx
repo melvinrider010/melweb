@@ -73,7 +73,7 @@ export default function ManagementSection() {
                 />
                 
                 {/* Bottom subtle gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#164E8C]/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F4E]/60 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Full Name & Designation Block (Zero Truncation) */}

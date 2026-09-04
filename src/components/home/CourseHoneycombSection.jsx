@@ -260,7 +260,7 @@ export default function CourseHoneycombSection() {
                         <div
                           className={`absolute inset-[2px] transition-all duration-200 flex flex-col items-center justify-center px-1.5 py-2 sm:px-2 sm:py-3 text-center ${
                             isActive
-                              ? 'bg-[#164E8C] text-white shadow-inner'
+                              ? 'bg-[#0B1F4E] text-white shadow-inner'
                               : 'bg-white group-hover:bg-[#f8f9fc] text-[#0B1F4E]'
                           }`}
                           style={{
@@ -320,7 +320,7 @@ export default function CourseHoneycombSection() {
                                 {course.type === 'ug' ? 'UNDERGRADUATE' : 'POSTGRADUATE'}
                               </span>
                             </div>
-                            <span className="bg-[#164E8C] text-[#F0D98C] text-xs px-2.5 py-0.5 rounded font-mono font-bold border border-[#C9A84C]/40">
+                            <span className="bg-[#0B1F4E] text-[#F0D98C] text-xs px-2.5 py-0.5 rounded font-mono font-bold border border-[#C9A84C]/40">
                               {course.code}
                             </span>
                           </div>
@@ -390,7 +390,7 @@ export default function CourseHoneycombSection() {
             </div>
 
             <div className="flex items-center space-x-3">
-              <span className="w-10 h-10 rounded-lg bg-[#164E8C] text-[#F0D98C] font-serif font-extrabold text-base flex items-center justify-center border border-[#C9A84C]/40 shrink-0">
+              <span className="w-10 h-10 rounded-lg bg-[#0B1F4E] text-[#F0D98C] font-serif font-extrabold text-base flex items-center justify-center border border-[#C9A84C]/40 shrink-0">
                 {selectedCourse.code}
               </span>
               <h3 className="font-serif font-bold text-lg text-[#0B1F4E]">

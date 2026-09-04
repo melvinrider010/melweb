@@ -41,7 +41,7 @@ export default function HeroSlider() {
 
   return (
     <section 
-      className="relative min-h-[580px] sm:min-h-[640px] lg:h-[88vh] bg-[#164E8C] text-white overflow-hidden border-b-4 border-[#C9A84C]"
+      className="relative min-h-[580px] sm:min-h-[640px] lg:h-[88vh] bg-[#0B1F4E] text-white overflow-hidden border-b-4 border-[#C9A84C]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -66,8 +66,8 @@ export default function HeroSlider() {
         </video>
         
         {/* Subtle Scrim Overlays - Light & Clear */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#164E8C]/50 via-transparent to-black/20 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#164E8C]/40 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F4E]/50 via-transparent to-black/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F4E]/40 via-transparent to-transparent pointer-events-none" />
       </div>
 
       {/* 12-COLUMN EDITORIAL SPLIT SHOWCASE */}
@@ -155,7 +155,7 @@ export default function HeroSlider() {
       {/* PREV / NEXT CHEVRON BUTTONS (POSITIONED SAFELY TO PREVENT TEXT OVERLAP) */}
       <button
         onClick={prevSlide}
-        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-2.5 rounded-full bg-black/60 hover:bg-[#C9A84C] text-white hover:text-[#164E8C] border border-white/20 transition-all backdrop-blur-sm hidden sm:flex items-center justify-center cursor-pointer shadow-xl"
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-2.5 rounded-full bg-black/60 hover:bg-[#C9A84C] text-white hover:text-[#0B1F4E] border border-white/20 transition-all backdrop-blur-sm hidden sm:flex items-center justify-center cursor-pointer shadow-xl"
         aria-label="Previous Slide"
       >
         <ChevronLeft className="w-4 h-4" />
@@ -163,7 +163,7 @@ export default function HeroSlider() {
 
       <button
         onClick={nextSlide}
-        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-2.5 rounded-full bg-black/60 hover:bg-[#C9A84C] text-white hover:text-[#164E8C] border border-white/20 transition-all backdrop-blur-sm hidden sm:flex items-center justify-center cursor-pointer shadow-xl"
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-2.5 rounded-full bg-black/60 hover:bg-[#C9A84C] text-white hover:text-[#0B1F4E] border border-white/20 transition-all backdrop-blur-sm hidden sm:flex items-center justify-center cursor-pointer shadow-xl"
         aria-label="Next Slide"
       >
         <ChevronRight className="w-4 h-4" />
