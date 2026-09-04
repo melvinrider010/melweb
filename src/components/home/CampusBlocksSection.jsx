@@ -125,7 +125,7 @@ export default function CampusBlocksSection() {
   };
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="max-w-[1440px] mx-auto px-4 sm:px-8 py-4 sm:py-6 relative overflow-hidden">
       
       {/* Background Micro Grid */}
       <div 
