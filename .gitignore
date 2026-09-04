@@ -37,6 +37,7 @@ scratch/
 scripts/stphilos_raw/
 scripts/historical_migration/raw_inventory/
 scripts/historical_migration/raw_scrapes/
+scripts/*.html
 
 # Backend & Secrets
 backend/.env
