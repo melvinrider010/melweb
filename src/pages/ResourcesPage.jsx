@@ -1,5 +1,6 @@
 import React from 'react';
-import { BookOpen, FileText, Download, Calendar, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { BookOpen, FileText, Download, Calendar, ExternalLink, Sparkles, ArrowRight } from 'lucide-react';
 import { ASSETS } from '../data/assets';
 
 export default function ResourcesPage() {
@@ -19,8 +20,33 @@ export default function ResourcesPage() {
         <span className="text-[#1C5496] font-bold text-xs uppercase tracking-widest block">Digital Repository</span>
         <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-slate-900">Academic Resources & Documents Hub</h1>
         <p className="text-xs sm:text-sm text-slate-600 max-w-3xl leading-relaxed">
-          Access the central library catalog, syllabus repository, e-content modules, academic calendar, OBE outcomes manual, and downloadable college forms.
+          Access the central research repository, Philos Bulletin e-journals, syllabus repository, e-content modules, academic calendar, and downloadable college documents.
         </p>
+      </div>
+
+      {/* E-Journal & Philos Bulletin Banner */}
+      <div className="bg-gradient-to-r from-[#071A33] via-[#0B254E] to-[#1C5496] text-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="space-y-2 max-w-2xl">
+          <div className="flex items-center space-x-2">
+            <span className="bg-[#C9A84C] text-[#071A33] text-[10px] font-bold px-2.5 py-0.5 rounded uppercase font-mono">
+              NEW • DEARFLIP 3D VIEWER
+            </span>
+            <span className="text-xs text-amber-300 font-mono">ISSN: 2249-9830</span>
+          </div>
+          <h2 className="font-serif font-bold text-2xl sm:text-3xl text-white">
+            Philos Bulletin & E-Journals Repository
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+            Read peer-reviewed multidisciplinary scholarly volumes with interactive 3D page-turning book animations or download local offline PDF files.
+          </p>
+        </div>
+        <Link
+          to="/e-journal"
+          className="btn-gold px-6 py-3 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap shadow-md hover:shadow-lg transition-all inline-flex items-center space-x-2"
+        >
+          <BookOpen className="w-4 h-4" />
+          <span>Explore 3D E-Journals →</span>
+        </Link>
       </div>
 
       {/* Document Grid */}

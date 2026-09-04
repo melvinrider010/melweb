@@ -20,6 +20,7 @@ export default function NoticesHubSection() {
   const [levelFilter, setLevelFilter] = useState('all'); // 'all', 'ug', 'pg'
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeNoticeTab, setActiveNoticeTab] = useState('notices'); // 'notices', 'examination', 'events'
   const [isPaused, setIsPaused] = useState(false);
   const [expandedEventIds, setExpandedEventIds] = useState({});
   const [storeTick, setStoreTick] = useState(0);
@@ -41,14 +42,34 @@ export default function NoticesHubSection() {
     });
   }, [levelFilter, categoryFilter, searchQuery, storeTick]);
 
-  // Filter items for Notice Board (Right Column)
+  // Filter items for Notice Board (Right Column) with Tab filtering
   const filteredNotices = useMemo(() => {
-    return getSyncedNotices({
+    const allNotices = getSyncedNotices({
       level: levelFilter,
       category: categoryFilter,
       search: searchQuery
     });
-  }, [levelFilter, categoryFilter, searchQuery, storeTick]);
+
+    if (activeNoticeTab === 'examination') {
+      return allNotices.filter((n) =>
+        /exam|timetable|time table|revaluation|makeup|supplementary|c1|c2|c3|convocation/i.test(
+          `${n.title} ${n.category || ''}`
+        )
+      );
+    } else if (activeNoticeTab === 'events') {
+      return allNotices.filter(
+        (n) =>
+          n.type === 'Event' ||
+          !!n.linked_event_id ||
+          /event|seminar|conference|sports|cultural|workshop|meeting|job fair|council|celebration/i.test(
+            `${n.title} ${n.category || ''}`
+          )
+      );
+    } else {
+      // Default 'notices': general circulars, notifications, and all updates
+      return allNotices;
+    }
+  }, [levelFilter, categoryFilter, searchQuery, activeNoticeTab, storeTick]);
 
   // Extract unique categories across all events and notices for dropdown
   const categories = useMemo(() => {
@@ -96,34 +117,12 @@ export default function NoticesHubSection() {
     <section className="max-w-[1440px] mx-auto px-4 sm:px-8 py-4">
       <div className="bg-white p-5 sm:p-8 rounded-2xl border border-slate-200/90 shadow-sm space-y-6">
         
-        {/* TOP CONTROLS BAR: LEVEL SWITCHER + LIVE SEARCH + CATEGORY FILTER */}
+        {/* TOP CONTROLS BAR: LIVE SEARCH + CATEGORY FILTER */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-4 gap-3">
           
-          {/* LEVEL SWITCHER PILLS (UG / PG / ALL) */}
-          <div className="flex items-center space-x-1 p-1 bg-slate-100/90 rounded-lg border border-slate-200/80 shrink-0">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500 px-2 hidden sm:inline">
-              Level:
-            </span>
-            {[
-              { id: 'all', label: 'All Programmes' },
-              { id: 'ug', label: 'UG' },
-              { id: 'pg', label: 'PG' }
-            ].map((lvl) => {
-              const isActive = levelFilter === lvl.id;
-              return (
-                <button
-                  key={lvl.id}
-                  onClick={() => setLevelFilter(lvl.id)}
-                  className={`px-3 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${
-                    isActive
-                      ? 'bg-[#0B1F4E] text-[#F0D98C] shadow-xs'
-                      : 'text-slate-600 hover:text-[#0B1F4E] hover:bg-white/60'
-                  }`}
-                >
-                  {lvl.label}
-                </button>
-              );
-            })}
+          <div className="flex items-center space-x-2 text-xs font-bold text-slate-700">
+            <span className="w-2 h-2 rounded-full bg-[#1C5496]"></span>
+            <span>Official Announcements, Circulars & Event Feeds</span>
           </div>
 
           {/* SEARCH INPUT & CATEGORY DROPDOWN */}
@@ -250,7 +249,7 @@ export default function NoticesHubSection() {
                       <div key={event.id} className="divide-y divide-slate-50">
                         <div className="p-4 sm:p-4.5 flex items-start space-x-3.5 hover:bg-slate-50/80 transition-colors group">
                           {/* Left Date Square Badge */}
-                          <div className="shrink-0 w-12 h-13 rounded-lg bg-[#060f26] border border-[#C9A84C]/40 text-center flex flex-col items-center justify-center text-white shadow-2xs group-hover:border-[#C9A84C]">
+                          <div className="shrink-0 w-12 h-13 rounded-lg bg-[#164E8C] border border-[#C9A84C]/40 text-center flex flex-col items-center justify-center text-white shadow-2xs group-hover:border-[#C9A84C]">
                             <span className="text-[9.5px] font-bold text-[#F0D98C] font-mono tracking-wider leading-tight">
                               {monthStr}
                             </span>
@@ -403,42 +402,49 @@ export default function NoticesHubSection() {
               <div className="w-12 h-0.5 bg-[#C9A84C]" />
             </div>
 
-            {/* Structured Card Frame (Notice Board with Auto-Scroll) */}
+            {/* Structured Card Frame (Notice Board with 3 Tabs Matching stphilos.ac.in) */}
             <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-xs bg-white border-r-4 border-r-[#C9A84C] flex flex-col flex-1">
               
-              {/* Header Bar */}
-              <div className="bg-[#0B1F4E] text-white px-5 py-3 flex items-center justify-between shrink-0">
+              {/* Header Bar with Live 3-Tabs */}
+              <div className="bg-[#0B1F4E] text-white px-3 sm:px-5 py-2.5 flex flex-wrap items-center justify-between gap-2 shrink-0 border-b border-white/10">
                 <div className="flex items-center space-x-2 font-serif font-bold text-xs sm:text-sm tracking-wide">
-                  <Bell className="w-4 h-4 text-[#F0D98C] animate-pulse" />
-                  <span>Notice Board</span>
+                  <span className="w-1.5 h-4.5 bg-[#C9A84C] rounded-full inline-block"></span>
+                  <span>NOTICE BOARD</span>
                 </div>
 
-                <div className="flex items-center space-x-3">
+                {/* 3 Nav Tabs: NOTICES | EXAMINATION | EVENTS */}
+                <div className="flex items-center space-x-1">
+                  {[
+                    { id: 'notices', label: 'NOTICES' },
+                    { id: 'examination', label: 'EXAMINATION' },
+                    { id: 'events', label: 'EVENTS' }
+                  ].map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveNoticeTab(tab.id)}
+                      className={`px-2 sm:px-3 py-1 text-[10.5px] sm:text-[11px] font-bold tracking-wider rounded transition-all cursor-pointer ${
+                        activeNoticeTab === tab.id
+                          ? 'bg-[#164E8C] text-[#F0D98C] border-b-2 border-[#C9A84C] shadow-xs'
+                          : 'text-slate-300 hover:text-white hover:bg-white/10'
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="flex items-center space-x-2">
                   <button
                     onClick={() => setIsPaused(!isPaused)}
                     title={isPaused ? "Resume Auto-Scroll" : "Pause Auto-Scroll"}
                     className="text-slate-300 hover:text-[#F0D98C] transition-colors p-1 cursor-pointer flex items-center space-x-1 text-[11px]"
                   >
                     {isPaused ? (
-                      <>
-                        <Play className="w-3 h-3 text-[#F0D98C]" />
-                        <span className="hidden sm:inline text-[10px]">Play</span>
-                      </>
+                      <Play className="w-3 h-3 text-[#F0D98C]" />
                     ) : (
-                      <>
-                        <Pause className="w-3 h-3" />
-                        <span className="hidden sm:inline text-[10px]">Pause</span>
-                      </>
+                      <Pause className="w-3 h-3" />
                     )}
                   </button>
-
-                  <Link
-                    to="/news-events"
-                    className="text-xs font-sans font-bold text-slate-200 hover:text-[#F0D98C] inline-flex items-center space-x-1 transition-colors"
-                  >
-                    <span>View All</span>
-                    <ArrowRight className="w-3.5 h-3.5 ml-0.5" />
-                  </Link>
                 </div>
               </div>
 
@@ -450,57 +456,59 @@ export default function NoticesHubSection() {
                 className="h-[350px] overflow-y-auto divide-y divide-slate-100 p-0 scroll-smooth custom-scrollbar"
               >
                 {filteredNotices.length > 0 ? (
-                  filteredNotices.map((notice) => {
+                  filteredNotices.map((notice, nIdx) => {
                     const isImportant = notice.tags?.includes('IMPORTANT') || notice.category === 'Examinations' || notice.category === 'Admissions' || notice.refNo?.includes('Appreciation');
                     const isEventLinked = !!notice.linked_event_id;
+                    const dateObj = new Date(notice.date || '2026-09-01');
+                    const dayStr = isNaN(dateObj.getDate()) ? '01' : String(dateObj.getDate()).padStart(2, '0');
+                    const monStr = isNaN(dateObj.getDate()) ? 'SEP' : dateObj.toLocaleString('en-US', { month: 'short' }).toUpperCase();
+                    const isRecent = nIdx < 6 || (notice.date && notice.date >= '2026-08-01');
 
                     return (
                       <Link
                         key={notice.id}
                         to={notice.link || `/news-events/${notice.linked_event_id || notice.id}`}
-                        className="p-4 sm:p-4.5 block hover:bg-slate-50/80 transition-colors group space-y-1.5"
+                        className="p-3.5 sm:p-4 flex items-start space-x-3 hover:bg-slate-50/80 transition-colors group"
                       >
-                        {/* Date */}
-                        <div className="flex items-center space-x-1.5 text-[10.5px] font-mono text-slate-500">
-                          <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                          <span>{notice.displayDate || notice.date}</span>
-                        </div>
-
-                        {/* Title */}
-                        <h4 className="font-sans font-bold text-xs sm:text-[13.5px] text-slate-900 group-hover:text-[#0B1F4E] transition-colors leading-snug">
-                          {notice.title}
-                        </h4>
-
-                        {/* Badges Strip */}
-                        <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
-                          {isImportant && (
-                            <span className="bg-red-100 text-red-700 text-[9px] font-mono font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                              IMPORTANT
-                            </span>
-                          )}
-
-                          <span className="bg-amber-100 text-amber-800 text-[9px] font-mono font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                            {notice.type === 'Notice' ? 'CIRCULAR' : (notice.type || 'CIRCULAR').toUpperCase()}
+                        {/* Left Date Square Badge */}
+                        <div className="shrink-0 w-11 h-12 rounded-lg bg-[#164E8C] border border-[#C9A84C]/40 text-center flex flex-col items-center justify-center text-white shadow-2xs group-hover:border-[#C9A84C]">
+                          <span className="text-sm font-serif font-extrabold text-white leading-none">
+                            {dayStr}
                           </span>
-
-                          {notice.category && (
-                            <span className="bg-blue-50 text-blue-800 text-[9px] font-mono font-semibold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                              {notice.category}
-                            </span>
-                          )}
-
-                          {notice.level && notice.level !== 'all' && (
-                            <span className="bg-slate-100 text-slate-700 text-[9px] font-mono font-bold px-2 py-0.5 rounded-full uppercase">
-                              {notice.level}
-                            </span>
-                          )}
-
-                          {isEventLinked && (
-                            <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 text-[8.5px] font-mono font-semibold px-1.5 py-0.5 rounded-full uppercase">
-                              EVENT SYNC
-                            </span>
-                          )}
+                          <span className="text-[9px] font-bold text-[#F0D98C] font-mono tracking-wider leading-tight mt-0.5">
+                            {monStr}
+                          </span>
                         </div>
+
+                        {/* Middle Content */}
+                        <div className="space-y-1 flex-1 min-w-0">
+                          <div className="flex items-center space-x-1.5 flex-wrap gap-1">
+                            {isRecent && (
+                              <span className="bg-[#C9A84C] text-[#164E8C] text-[9px] font-mono font-extrabold px-1.5 py-0.2 rounded uppercase tracking-wider">
+                                NEW
+                              </span>
+                            )}
+                            {isImportant && (
+                              <span className="bg-red-100 text-red-700 text-[9px] font-mono font-bold px-1.5 py-0.2 rounded uppercase">
+                                IMPORTANT
+                              </span>
+                            )}
+                            <span className="bg-slate-100 text-slate-700 text-[9px] font-mono font-bold px-1.5 py-0.2 rounded uppercase">
+                              {notice.category || notice.type || 'NOTICE'}
+                            </span>
+                            {isEventLinked && (
+                              <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 text-[8.5px] font-mono font-semibold px-1 py-0.2 rounded uppercase">
+                                EVENT
+                              </span>
+                            )}
+                          </div>
+
+                          <h4 className="font-sans font-bold text-xs sm:text-[13px] text-slate-900 group-hover:text-[#0B1F4E] transition-colors leading-snug line-clamp-2">
+                            {notice.title}
+                          </h4>
+                        </div>
+
+                        <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#0B1F4E] group-hover:translate-x-0.5 transition-transform self-center shrink-0" />
                       </Link>
                     );
                   })
@@ -510,7 +518,6 @@ export default function NoticesHubSection() {
                   </div>
                 )}
               </div>
-
             </div>
 
           </div>

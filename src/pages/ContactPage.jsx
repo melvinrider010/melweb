@@ -72,8 +72,26 @@ export default function ContactPage() {
             <h3 className="font-serif font-bold text-lg text-[#FFD84A]">Official Address & Desk</h3>
             <div className="space-y-3 text-xs text-slate-200">
               <p className="flex items-start"><MapPin className="w-4 h-4 mr-2 text-[#FFD84A] shrink-0 mt-0.5" /> PB No. 2, Bannimantap, Mysuru – 570015, Karnataka, India</p>
-              <p className="flex items-center"><Phone className="w-4 h-4 mr-2 text-[#FFD84A] shrink-0" /> {collegeInfo.phone}</p>
-              <p className="flex items-center"><Mail className="w-4 h-4 mr-2 text-[#FFD84A] shrink-0" /> {collegeInfo.email}</p>
+              <p className="flex items-center">
+                <Phone className="w-4 h-4 mr-2 text-[#FFD84A] shrink-0" />
+                <span>Mobile / Helpdesk: </span>
+                <a href="tel:+919008580707" className="font-mono font-bold text-[#FFD84A] hover:underline ml-1">
+                  +91 9008580707
+                </a>
+              </p>
+              <p className="flex items-center text-slate-300">
+                <Phone className="w-4 h-4 mr-2 text-slate-400 shrink-0" />
+                <span>Office Landline: </span>
+                <a href="tel:+918212490728" className="font-mono hover:underline ml-1">
+                  +91 821 2490728
+                </a>
+              </p>
+              <p className="flex items-center">
+                <Mail className="w-4 h-4 mr-2 text-[#FFD84A] shrink-0" />
+                <a href={`mailto:${collegeInfo.email}`} className="hover:underline">
+                  {collegeInfo.email}
+                </a>
+              </p>
             </div>
             <div className="pt-2 border-t border-slate-800 text-[11px] text-slate-300">
               <p><span className="font-bold text-white">Office Hours:</span> Mon – Sat: 9:00 AM – 5:00 PM</p>

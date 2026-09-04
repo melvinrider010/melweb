@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ChevronLeft, 
@@ -15,7 +15,12 @@ export default function GallerySection() {
   const [activeAlbum, setActiveAlbum] = useState(null);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(1);
+  const [thumbWidthPercent, setThumbWidthPercent] = useState(25);
+  const [thumbLeftPercent, setThumbLeftPercent] = useState(0);
   const carouselRef = useRef(null);
+  const trackRef = useRef(null);
 
   // Flattened high-impact event showcase items mapped to their parent album
   const carouselItems = React.useMemo(() => {
@@ -35,22 +40,89 @@ export default function GallerySection() {
     return items;
   }, []);
 
+  // Update scroll metrics dynamically
+  const updateScrollMetrics = () => {
+    if (carouselRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+      const maxScroll = scrollWidth - clientWidth;
+      
+      // Compute dynamic proportional thumb width
+      const widthPct = Math.max(14, Math.min(45, (clientWidth / scrollWidth) * 100));
+      setThumbWidthPercent(widthPct);
+
+      if (maxScroll > 0) {
+        const ratio = Math.max(0, Math.min(1, scrollLeft / maxScroll));
+        const leftPct = ratio * (100 - widthPct);
+        setThumbLeftPercent(leftPct);
+
+        // Approximate active slide index
+        const itemWidth = 360;
+        const currentIdx = Math.min(carouselItems.length, Math.max(1, Math.round(scrollLeft / itemWidth) + 1));
+        setActiveSlideIndex(currentIdx);
+      } else {
+        setThumbLeftPercent(0);
+        setActiveSlideIndex(1);
+      }
+    }
+  };
+
+  useEffect(() => {
+    updateScrollMetrics();
+    window.addEventListener('resize', updateScrollMetrics);
+    return () => window.removeEventListener('resize', updateScrollMetrics);
+  }, [carouselItems.length]);
+
+  // Handle direct scrubbing & drag along the dynamic track
+  const handleScrub = (clientX) => {
+    if (trackRef.current && carouselRef.current) {
+      const rect = trackRef.current.getBoundingClientRect();
+      const clickX = Math.max(0, Math.min(rect.width, clientX - rect.left));
+      const ratio = clickX / rect.width;
+      const { scrollWidth, clientWidth } = carouselRef.current;
+      const targetScroll = ratio * (scrollWidth - clientWidth);
+      carouselRef.current.scrollTo({ left: targetScroll, behavior: isDragging ? 'auto' : 'smooth' });
+    }
+  };
+
+  const handlePointerDown = (e) => {
+    setIsDragging(true);
+    setIsPaused(true);
+    e.currentTarget.setPointerCapture(e.pointerId);
+    handleScrub(e.clientX);
+  };
+
+  const handlePointerMove = (e) => {
+    if (isDragging) {
+      handleScrub(e.clientX);
+    }
+  };
+
+  const handlePointerUp = (e) => {
+    if (isDragging) {
+      setIsDragging(false);
+      setIsPaused(false);
+      try {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      } catch (err) {}
+    }
+  };
+
   // Auto-slide carousel smoothly
   useEffect(() => {
-    if (isPaused || activeAlbum) return;
+    if (isPaused || activeAlbum || isDragging) return;
     const interval = setInterval(() => {
       if (carouselRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
         if (scrollLeft + clientWidth >= scrollWidth - 10) {
           carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
         } else {
-          carouselRef.current.scrollBy({ left: 340, behavior: 'smooth' });
+          carouselRef.current.scrollBy({ left: 360, behavior: 'smooth' });
         }
       }
-    }, 3500);
+    }, 3800);
 
     return () => clearInterval(interval);
-  }, [isPaused, activeAlbum]);
+  }, [isPaused, activeAlbum, isDragging]);
 
   const scrollLeft = () => {
     if (carouselRef.current) {
@@ -145,6 +217,7 @@ export default function GallerySection() {
         {/* ================= PURE IMAGE CAROUSEL (NO TEXT / NO NUMBERS) ================= */}
         <div 
           ref={carouselRef}
+          onScroll={updateScrollMetrics}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           className="flex space-x-4 sm:space-x-6 overflow-x-auto no-scrollbar scroll-smooth py-2 px-1 cursor-grab active:cursor-grabbing"
@@ -179,6 +252,64 @@ export default function GallerySection() {
           ))}
         </div>
 
+        {/* ================= DYNAMIC MINIMAL PROFESSIONAL SCROLL CONTROLLER ================= */}
+        <div className="pt-3 flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
+          
+          {/* Left: Minimal Monospace Slide Counter with Live Indicator */}
+          <div className="flex items-center space-x-2.5 text-xs font-mono">
+            <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[#FFD84A] font-bold tracking-wider">
+              {String(activeSlideIndex).padStart(2, '0')} <span className="text-slate-500 mx-1">/</span> {String(carouselItems.length).padStart(2, '0')}
+            </span>
+            <span className="text-[11px] text-slate-400 hidden md:inline tracking-wider uppercase font-sans">
+              Moments Captured
+            </span>
+          </div>
+
+          {/* Center: Dynamic Interactive Glass Scrub Rail & Gliding Pill */}
+          <div 
+            ref={trackRef}
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerUp}
+            onPointerCancel={handlePointerUp}
+            className="w-full sm:w-80 md:w-[420px] h-3.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-full relative cursor-grab active:cursor-grabbing backdrop-blur-md transition-all duration-200 p-0.5 group shadow-inner"
+            title="Drag or click anywhere to scrub moments"
+          >
+            {/* Subtle Segment Guide Lines */}
+            <div className="absolute inset-0 flex justify-between px-3 items-center pointer-events-none opacity-20">
+              {[...Array(7)].map((_, i) => (
+                <span key={i} className="w-0.5 h-1 bg-white rounded-full" />
+              ))}
+            </div>
+
+            {/* Dynamic Sliding Pill Thumb with Glow */}
+            <div 
+              className={`h-full bg-gradient-to-r from-[#C9A84C] via-[#FFD84A] to-[#C9A84C] rounded-full transition-all shadow-[0_0_14px_rgba(201,168,76,0.6)] group-hover:brightness-110 relative flex items-center justify-center ${
+                isDragging ? 'duration-0 scale-y-110' : 'duration-150'
+              }`}
+              style={{ 
+                width: `${thumbWidthPercent}%`,
+                left: `${thumbLeftPercent}%`
+              }}
+            >
+              {/* Center Grip Micro-Dots */}
+              <div className="flex space-x-1 items-center opacity-70 pointer-events-none">
+                <span className="w-1 h-1 rounded-full bg-[#071A33]" />
+                <span className="w-1 h-1 rounded-full bg-[#071A33]" />
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Quick Action Hint & Keyboard Assist */}
+          <div className="flex items-center space-x-2 text-[11px] font-mono text-slate-400">
+            <span className="hidden lg:inline text-slate-500">Controls:</span>
+            <kbd className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300 text-[10px] font-mono shadow-xs">←</kbd>
+            <kbd className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300 text-[10px] font-mono shadow-xs">→</kbd>
+            <span className="hidden sm:inline text-slate-400">or Drag Slider</span>
+          </div>
+
+        </div>
+
       </div>
 
       {/* ================= INTERACTIVE FULL-SCREEN EVENT ALBUM MODAL / LIGHTBOX ================= */}
@@ -194,7 +325,7 @@ export default function GallerySection() {
           >
             <div className="space-y-1 max-w-xl">
               <div className="flex items-center space-x-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider bg-[#C9A84C] text-[#060f26] px-2 py-0.5 rounded">
+                <span className="text-[10px] font-bold uppercase tracking-wider bg-[#C9A84C] text-[#164E8C] px-2 py-0.5 rounded">
                   {activeAlbum.categoryLabel}
                 </span>
                 <span className="text-xs text-slate-400 font-mono">
@@ -225,7 +356,7 @@ export default function GallerySection() {
             {/* Previous Arrow */}
             <button
               onClick={prevPhoto}
-              className="absolute left-4 sm:left-8 z-30 w-12 h-12 rounded-2xl bg-black/70 hover:bg-[#C9A84C] text-white hover:text-[#060f26] border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-2xl"
+              className="absolute left-4 sm:left-8 z-30 w-12 h-12 rounded-2xl bg-black/70 hover:bg-[#C9A84C] text-white hover:text-[#164E8C] border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-2xl"
               aria-label="Previous Photo"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -244,7 +375,7 @@ export default function GallerySection() {
             {/* Next Arrow */}
             <button
               onClick={nextPhoto}
-              className="absolute right-4 sm:right-8 z-30 w-12 h-12 rounded-2xl bg-black/70 hover:bg-[#C9A84C] text-white hover:text-[#060f26] border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-2xl"
+              className="absolute right-4 sm:right-8 z-30 w-12 h-12 rounded-2xl bg-black/70 hover:bg-[#C9A84C] text-white hover:text-[#164E8C] border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-2xl"
               aria-label="Next Photo"
             >
               <ChevronRight className="w-6 h-6" />

@@ -111,114 +111,24 @@
     "link": "/academics/mcom"
   },
   {
-    "id": "msc-cs",
+    "id": "msc",
     "type": "pg",
-    "code": "M.Sc CS",
-    "title": "Master of Science in Computer Science",
-    "displayLines": ["M.Sc Computer", "Science"],
+    "code": "M.Sc",
+    "title": "Master of Science (Science & Computing Streams)",
+    "displayLines": ["Master of", "Science (M.Sc)"],
     "duration": "2 Years",
-    "description": "Postgraduate computer science programme focusing on machine learning algorithms, cyber security, data science, and advanced computing theory.",
-    "link": "/academics/msc-cs"
+    "description": "Postgraduate science specializations including Computer Science, Mathematics, Physics, Chemistry, Biochemistry, Psychology, Food Science & Nutrition, and Criminology & Forensic Science.",
+    "link": "/academics/msc"
   },
   {
-    "id": "msc-math",
+    "id": "ma",
     "type": "pg",
-    "code": "M.Sc Math",
-    "title": "Master of Science in Mathematics",
-    "displayLines": ["M.Sc", "Mathematics"],
+    "code": "M.A",
+    "title": "Master of Arts (Humanities & Media)",
+    "displayLines": ["Master of", "Arts (M.A)"],
     "duration": "2 Years",
-    "description": "Pure and applied postgraduate mathematics covering abstract algebra, real analysis, differential equations, and mathematical modeling.",
-    "link": "/academics/msc-math"
-  },
-  {
-    "id": "msc-phy",
-    "type": "pg",
-    "code": "M.Sc Phys",
-    "title": "Master of Science in Physics",
-    "displayLines": ["M.Sc", "Physics"],
-    "duration": "2 Years",
-    "description": "Advanced postgraduate physics exploring quantum mechanics, condensed matter physics, nuclear physics, and experimental laboratory research.",
-    "link": "/academics/msc-phy"
-  },
-  {
-    "id": "msc-chem",
-    "type": "pg",
-    "code": "M.Sc Chem",
-    "title": "Master of Science in Chemistry",
-    "displayLines": ["M.Sc", "Chemistry"],
-    "duration": "2 Years",
-    "description": "Specialized postgraduate chemistry degree covering organic synthesis, inorganic spectroscopy, physical chemistry, and analytical instrumentation.",
-    "link": "/academics/msc-chem"
-  },
-  {
-    "id": "msc-biochem",
-    "type": "pg",
-    "code": "M.Sc Biochem",
-    "title": "Master of Science in Biochemistry",
-    "displayLines": ["M.Sc", "Biochemistry"],
-    "duration": "2 Years",
-    "description": "Molecular life science degree investigating enzymology, clinical biochemistry, genetic engineering, and pharmaceutical research.",
-    "link": "/academics/msc-biochem"
-  },
-  {
-    "id": "msc-psych",
-    "type": "pg",
-    "code": "M.Sc Psych",
-    "title": "Master of Science in Psychology",
-    "displayLines": ["M.Sc", "Psychology"],
-    "duration": "2 Years",
-    "description": "Applied psychological science degree focusing on clinical psychology, counseling methodologies, psychometrics, and organizational behavior.",
-    "link": "/academics/msc-psych"
-  },
-  {
-    "id": "msc-food",
-    "type": "pg",
-    "code": "M.Sc Food",
-    "title": "M.Sc Food Science & Nutrition",
-    "displayLines": ["M.Sc Food Science", "& Nutrition"],
-    "duration": "2 Years",
-    "description": "Postgraduate programme in food processing, clinical nutrition, food safety quality control, and therapeutic dietetics.",
-    "link": "/academics/msc-food"
-  },
-  {
-    "id": "msc-crim",
-    "type": "pg",
-    "code": "M.Sc Crim",
-    "title": "M.Sc Criminology & Forensic Science",
-    "displayLines": ["M.Sc Criminology", "& Forensic Science"],
-    "duration": "2 Years",
-    "description": "Pioneering postgraduate degree in crime scene investigation, forensic toxicology, cyber forensics, and criminal justice systems.",
-    "link": "/academics/msc-crim"
-  },
-  {
-    "id": "ma-eng",
-    "type": "pg",
-    "code": "M.A Eng",
-    "title": "Master of Arts in English",
-    "displayLines": ["M.A", "English"],
-    "duration": "2 Years",
-    "description": "Postgraduate literary degree in British, American, Indian English, and Postcolonial literatures, critical theory, and linguistics.",
-    "link": "/academics/ma-eng"
-  },
-  {
-    "id": "ma-econ",
-    "type": "pg",
-    "code": "M.A Econ",
-    "title": "Master of Arts in Economics",
-    "displayLines": ["M.A", "Economics"],
-    "duration": "2 Years",
-    "description": "Advanced postgraduate economics degree specializing in econometrics, public finance, development economics, and monetary policy.",
-    "link": "/academics/ma-econ"
-  },
-  {
-    "id": "ma-jmc",
-    "type": "pg",
-    "code": "M.A JMC",
-    "title": "M.A Journalism & Mass Comm",
-    "displayLines": ["M.A Journalism &", "Mass Comm"],
-    "duration": "2 Years",
-    "description": "Professional master's programme in print & broadcast journalism, digital media production, corporate communication, and media research.",
-    "link": "/academics/ma-jmc"
+    "description": "Postgraduate master's degree streams in English Literature, Economics, and Journalism & Mass Communication (JMC).",
+    "link": "/academics/ma"
   },
   {
     "id": "msw",

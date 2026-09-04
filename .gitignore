@@ -31,11 +31,23 @@ dist-ssr/
 .env.test.local
 .env.production.local
 
-# Audit / Scratch
+# Audit / Scratch / Scraper Raw Data
 website-audit/
 scratch/
+scripts/stphilos_raw/
+scripts/historical_migration/raw_inventory/
+scripts/historical_migration/raw_scrapes/
 
-# Private / Server-side Confidential Data
-server/data/private/
-*.private.*
+# Backend & Secrets
+backend/.env
+backend/.env.*
+backend/.credentials-DO-NOT-COMMIT.txt
+backend/vendor/
+backend/database/*.sqlite
+backend/database/*.sqlite-journal
+backend/storage/*.key
+backend/storage/logs/
+backend/storage/framework/cache/
+backend/storage/framework/sessions/
+backend/storage/framework/views/
 

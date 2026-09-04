@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Mr. A. Thomas Gunaseelan",
+    "role": "IQAC Coordinator",
+    "designation": "Associate Professor & Dean of Sciences",
+    "department": "Department of Physics",
+    "qualification": "M.Sc., M.Phil., PGDCA, (Ph.D)",
+    "experience": "31+ Years of Teaching & Research Experience",
+    "specialization": "Solid State Physics, Electronics & Quality Assurance",
+    "email": "thomasgunaseelan@stphilos.ac.in",
+    "phone": "+91 94480 54144",
+    "photoUrl": "/assets/faculty/iqac/thomas_gunaseelan.jpg",
+    "profilePath": "/faculty/fac_mr_a_thomas_gunaseelan",
+    "bio": "Associate Professor in Physics and Dean of Sciences with over 3 decades of academic excellence. Leading the Internal Quality Assurance Cell (IQAC) at St. Philomena's College in benchmarking outcome-based curriculum, NAAC accreditation parameters, NEP 2020 integration, and faculty development initiatives."
+  },
+  {
+    "name": "Dr. Deepa V",
+    "role": "IQAC Co-Coordinator",
+    "designation": "Assistant Professor",
+    "department": "Department of Commerce & Management",
+    "qualification": "M.Com., MBA, Ph.D., NET, KSET",
+    "experience": "14+ Years of Teaching & Research",
+    "specialization": "Finance, Human Resource Management & Institutional Quality",
+    "email": "deepav@stphilos.ac.in",
+    "phone": "+91 98864 12398",
+    "photoUrl": "/assets/faculty/iqac/deepa_v.jpg",
+    "profilePath": "/faculty/fac_dr_deepa_v",
+    "bio": "Assistant Professor in Commerce & Management and IQAC Co-Coordinator. Specializes in quality audits, stakeholder feedback mechanisms, academic performance indicator (API) evaluations, and NAAC Criteria governance."
+  },
+  {
+    "name": "Ms. Mirium Precilla J",
+    "role": "IQAC Secretary",
+    "designation": "IQAC Technical & Secretarial Officer",
+    "department": "Internal Quality Assurance Cell",
+    "qualification": "B.Com., PGDCA, Office Management",
+    "experience": "8+ Years of Administrative Support",
+    "specialization": "IQAC Documentation, Minutes of Meeting & Data Coordination",
+    "email": "iqac@stphilos.ac.in",
+    "phone": "+91 9008580707",
+    "photoUrl": "/assets/faculty/iqac/mirium_precilla.jpg",
+    "bio": "Technical secretary and office manager for IQAC, managing meeting documentations, Action Taken Reports (ATR), AQAR data compiling, feedback documentation, and institutional archive communication."
+  }
+]

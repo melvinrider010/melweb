@@ -102,24 +102,47 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* HORIZONTAL INTERACTIVE NAVIGATION TABS */}
-      <div className="sticky top-20 z-30 bg-white/95 backdrop-blur-md border border-slate-200 rounded-xl p-1.5 shadow-md">
-        <div className="flex overflow-x-auto gap-1.5 no-scrollbar py-0.5">
-          {navTabs.map((tab) => {
+      {/* 2-LINE BALANCED INTERACTIVE NAVIGATION TABS */}
+      <div className="sticky top-20 z-30 bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl p-2 sm:p-2.5 shadow-md space-y-2">
+        {/* Line 1: 5 Core Identity & Leadership Tabs */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-1.5 sm:gap-2">
+          {navTabs.slice(0, 5).map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id)}
-                className={`px-3.5 py-2 rounded-lg text-xs font-bold whitespace-nowrap flex items-center space-x-2 transition-all shrink-0 ${
+                className={`px-3 py-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center space-x-2 text-center cursor-pointer ${
                   isActive
-                    ? 'bg-[#1C5496] text-white shadow-sm'
-                    : 'text-slate-700 hover:bg-slate-100 hover:text-[#1C5496]'
+                    ? 'bg-[#1C5496] text-white shadow-sm ring-1 ring-[#1C5496]/20'
+                    : 'bg-slate-50/90 text-slate-700 hover:bg-slate-100 hover:text-[#1C5496] border border-slate-200/70'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#FFD84A]' : 'text-slate-400'}`} />
-                <span>{tab.label}</span>
+                <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-[#FFD84A]' : 'text-slate-500'}`} />
+                <span className="truncate">{tab.label}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Line 2: 4 Administration & Governance Tabs */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-1.5 sm:gap-2">
+          {navTabs.slice(5).map((tab) => {
+            const Icon = tab.icon;
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => handleTabChange(tab.id)}
+                className={`px-3 py-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center space-x-2 text-center cursor-pointer ${
+                  isActive
+                    ? 'bg-[#1C5496] text-white shadow-sm ring-1 ring-[#1C5496]/20'
+                    : 'bg-slate-50/90 text-slate-700 hover:bg-slate-100 hover:text-[#1C5496] border border-slate-200/70'
+                }`}
+              >
+                <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-[#FFD84A]' : 'text-slate-500'}`} />
+                <span className="truncate">{tab.label}</span>
               </button>
             );
           })}
@@ -151,14 +174,19 @@ export default function AboutPage() {
               </div>
 
               <div className="lg:col-span-5 space-y-3">
-                <div className="rounded-xl overflow-hidden shadow-md border border-slate-200 aspect-[4/3] relative">
+                <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200 aspect-[4/3] sm:h-[340px] relative group bg-[#164E8C]">
                   <img
                     src="/assets/images/campus/intro_heritage_building.jpg"
-                    alt="Heritage Building St. Philomena's"
-                    className="w-full h-full object-cover"
+                    alt="St. Philomena's College Historic Heritage Quadrangle Building (Est. 1946)"
+                    className="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-4">
-                    <p className="text-xs font-bold text-[#FFD84A]">Historic Quadrangle Academic Block · Established 1946</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent flex flex-col justify-end p-4">
+                    <p className="text-white font-serif font-bold text-sm">
+                      St. Philomena's College
+                    </p>
+                    <p className="text-[#FFD84A] text-[10px] font-mono uppercase tracking-wider font-bold">
+                      Historic Heritage Academic Block · Est. 1946
+                    </p>
                   </div>
                 </div>
               </div>
@@ -167,7 +195,7 @@ export default function AboutPage() {
             {/* Historical Milestones Timeline */}
             <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs space-y-6">
               <div className="border-b border-slate-100 pb-3">
-                <h3 className="font-serif font-bold text-xl text-slate-900">78+ Years of Academic Milestones</h3>
+                <h3 className="font-serif font-bold text-xl text-slate-900">{new Date().getFullYear() - 1946}+ Years of Academic Milestones</h3>
                 <p className="text-xs text-slate-500">Key historical epochs shaping the evolution of St. Philomena's College.</p>
               </div>
 
@@ -222,49 +250,98 @@ export default function AboutPage() {
         {activeTab === 'vision' && (
           <div className="space-y-8 animate-fadeIn">
             
-            {/* Vision & Mission Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* 1. VISION SECTION (Institutional Navy Hero Banner) */}
+            <div className="bg-[#0B1F4E] text-white rounded-2xl p-6 sm:p-10 shadow-lg border border-slate-800 relative overflow-hidden space-y-4">
+              <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-blue-600/20 to-transparent pointer-events-none" />
               
-              {/* Vision Card */}
-              <div className="bg-white rounded-2xl border-t-4 border-t-[#FFC928] border border-slate-200 p-8 shadow-xs space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
-                  <Heart className="w-6 h-6" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold text-amber-600 uppercase tracking-widest block">Guiding Light</span>
-                  <h3 className="font-serif font-extrabold text-2xl text-slate-900 mt-1">Our Institutional Vision</h3>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-100 italic">
-                  "{aboutData.vision}"
-                </p>
-                <div className="pt-2">
-                  <span className="text-xs font-bold text-[#1C5496] uppercase tracking-wider block mb-1">Motto</span>
-                  <p className="font-serif font-bold text-base text-slate-900">Caritas et Scientia (Love in Knowledge)</p>
-                </div>
+              <div className="flex items-center space-x-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#FFD84A]" />
+                <span className="text-[#FFD84A] font-mono font-bold text-xs uppercase tracking-widest">
+                  Guiding Institutional Light
+                </span>
               </div>
 
-              {/* Mission Card */}
-              <div className="bg-white rounded-2xl border-t-4 border-t-[#1C5496] border border-slate-200 p-8 shadow-xs space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#1C5496] flex items-center justify-center">
-                  <Award className="w-6 h-6" />
+              <h2 className="font-serif font-extrabold text-2xl sm:text-4xl text-[#F0D98C] tracking-tight">
+                Vision
+              </h2>
+
+              <p className="text-sm sm:text-base lg:text-lg text-slate-100 font-sans font-medium leading-relaxed max-w-4xl pt-1">
+                "The college is guided by the visionary zeal of providing value-based education to everyone irrespective of religion, caste, creed or sex by which the character is formed."
+              </p>
+            </div>
+
+            {/* 2. MISSION SECTION (Clean White Institutional Block) */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-6">
+              
+              <div className="border-b border-slate-100 pb-4 space-y-1.5">
+                <div className="flex items-center space-x-2">
+                  <Award className="w-5 h-5 text-[#1C5496]" />
+                  <span className="text-xs font-bold text-[#1C5496] uppercase tracking-widest">Core Purpose</span>
                 </div>
-                <div>
-                  <span className="text-xs font-bold text-[#1C5496] uppercase tracking-widest block">Core Purpose</span>
-                  <h3 className="font-serif font-extrabold text-2xl text-slate-900 mt-1">Our Mission Statement</h3>
+                <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+                  Mission
+                </h2>
+              </div>
+
+              <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-sans bg-slate-50 p-5 sm:p-6 rounded-xl border border-slate-200/80">
+                At St. Philomena’s College, our mission is to holistically transform young men and women into intellectually curious, emotionally resilient, and socially responsible individuals. By fostering a dynamic learning environment where students live, learn, work, and play together, we nurture essential life skills, a spirit of unity, and a strong ethical foundation. Through disciplined inquiry, compassionate service, and unwavering integrity, we empower our students to emerge as leaders and changemakers—citizens committed to building a just, inclusive, and progressive society.
+              </p>
+
+              {/* Mission 4 Core Pillars Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+                <div className="p-4 rounded-xl bg-blue-50/60 border border-blue-100 space-y-2">
+                  <CheckCircle2 className="w-5 h-5 text-[#1C5496]" />
+                  <h4 className="font-serif font-bold text-sm text-slate-900">Holistic Transformation</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Nurturing intellectually curious, emotionally resilient, and socially conscious graduates.
+                  </p>
                 </div>
-                <ul className="space-y-2.5">
-                  {aboutData.mission.map((item, idx) => (
-                    <li key={idx} className="flex items-start space-x-2 text-xs sm:text-sm text-slate-700">
-                      <CheckCircle2 className="w-4 h-4 text-[#1C5496] shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+
+                <div className="p-4 rounded-xl bg-amber-50/60 border border-amber-100 space-y-2">
+                  <Users className="w-5 h-5 text-amber-700" />
+                  <h4 className="font-serif font-bold text-sm text-slate-900">Collaborative Ecology</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    A vibrant campus where students live, learn, work, and play together in unity.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-100 space-y-2">
+                  <Shield className="w-5 h-5 text-emerald-700" />
+                  <h4 className="font-serif font-bold text-sm text-slate-900">Ethical Foundation</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Disciplined inquiry, compassionate community service, and unwavering integrity.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-purple-50/60 border border-purple-100 space-y-2">
+                  <GraduationCap className="w-5 h-5 text-purple-700" />
+                  <h4 className="font-serif font-bold text-sm text-slate-900">Global Leadership</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Empowering changemakers committed to building an inclusive and progressive society.
+                  </p>
+                </div>
               </div>
 
             </div>
 
-            {/* Core Values Grid */}
+            {/* 3. MOTTO SECTION */}
+            <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-2xs">
+              <div className="space-y-1">
+                <span className="text-xs font-bold text-[#1C5496] uppercase tracking-wider block">
+                  Institutional Motto
+                </span>
+                <h3 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+                  Motto
+                </h3>
+              </div>
+              <div className="bg-[#0B1F4E] px-6 py-3.5 rounded-xl border border-[#C9A84C]/50 shadow-sm text-center">
+                <span className="font-serif font-bold text-lg sm:text-xl text-[#F0D98C] tracking-wide">
+                  "Caritas in Scientia"
+                </span>
+              </div>
+            </div>
+
+            {/* 4. CORE VALUES GRID */}
             <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs space-y-6">
               <div className="border-b border-slate-100 pb-3">
                 <h3 className="font-serif font-bold text-xl text-slate-900">Our Core Institutional Values</h3>
@@ -290,19 +367,22 @@ export default function AboutPage() {
             
             <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
-              <div className="lg:col-span-4 flex flex-col items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-200 text-center space-y-4">
-                <img
-                  src={aboutData.coatOfArms.image}
-                  alt="St. Philomena's Official Crest"
-                  className="h-44 w-auto object-contain drop-shadow-md"
-                />
+              <div className="lg:col-span-5 flex flex-col items-center justify-center p-6 sm:p-8 bg-slate-50/80 rounded-2xl border border-slate-200 text-center space-y-4">
+                <div className="p-4 bg-white rounded-2xl border border-slate-200/80 shadow-xs flex items-center justify-center max-w-[320px]">
+                  <img
+                    src="/assets/images/about/coat_of_arms_hd.jpg"
+                    alt="Official Coat of Arms of St. Philomena's College, Mysore"
+                    className="w-full h-auto max-h-[320px] object-contain drop-shadow-sm hover:scale-103 transition-transform duration-300"
+                    onError={(e) => { e.target.src = "/assets/images/about/coat_of_arms_hd.png"; }}
+                  />
+                </div>
                 <div>
                   <h3 className="font-serif font-bold text-lg text-slate-900">The College Crest</h3>
-                  <p className="text-xs text-[#1C5496] font-bold tracking-widest uppercase">Caritas in Scientia</p>
+                  <p className="text-xs text-[#1C5496] font-mono font-bold tracking-widest uppercase">Caritas in Scientia</p>
                 </div>
               </div>
 
-              <div className="lg:col-span-8 space-y-4">
+              <div className="lg:col-span-7 space-y-4">
                 <span className="bg-amber-100 text-amber-900 font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
                   Heraldic Seal & Maxim
                 </span>
@@ -348,13 +428,19 @@ export default function AboutPage() {
         {activeTab === 'bishops' && (
           <div className="space-y-6 animate-fadeIn">
             
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
-              <h2 className="font-serif font-extrabold text-2xl text-slate-900">Patron Bishops of Mysore</h2>
-              <p className="text-xs sm:text-sm text-slate-600">
-                The episcopal leadership and Patron Bishops of Mysore who founded and nurtured St. Philomena's College across generations.
+            {/* Official Page Banner & Introduction */}
+            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+              <div className="flex items-center space-x-2">
+                <Award className="w-5 h-5 text-[#1C5496]" />
+                <span className="text-xs font-bold text-[#1C5496] uppercase tracking-widest">Official Institutional Records</span>
+              </div>
+              <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">Former Bishops of Mysore</h2>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                St. Philomena’s College, founded under the patronage of the Diocese of Mysore, stands at a defining epoch in its distinguished history. The legacy of the institution has been shaped and strengthened by the unwavering dedication of its Patron Bishops who have guided the College from its inception in 1946 through seven and a half decades of academic excellence.
               </p>
             </div>
 
+            {/* Grid of Exact 5 Former Bishops from https://stphilos.ac.in/former-bishops/ */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {aboutData.bishops.map((bishop, idx) => (
                 <div key={idx} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
@@ -374,9 +460,20 @@ export default function AboutPage() {
                         <p className="text-xs text-[#D4AF37] font-bold">{bishop.role}</p>
                       </div>
                     </div>
+                    
                     <p className="text-xs text-slate-600 leading-relaxed pt-3 border-t border-slate-100">
                       {bishop.description}
                     </p>
+
+                    {bishop.fullBiography && (
+                      <div className="pt-2 space-y-2">
+                        {bishop.fullBiography.slice(1).map((para, pIdx) => (
+                          <p key={pIdx} className="text-[11.5px] text-slate-500 leading-relaxed border-l-2 border-slate-200 pl-2.5">
+                            {para}
+                          </p>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -385,20 +482,86 @@ export default function AboutPage() {
           </div>
         )}
 
-        {/* 5. FORMER PRINCIPALS TAB */}
+        {/* 5. PRINCIPALS ROSTER TAB (PRESENT PRINCIPAL FIRST, FOLLOWED BY FORMER PRINCIPALS) */}
         {activeTab === 'principals' && (
-          <div className="space-y-6 animate-fadeIn">
+          <div className="space-y-8 animate-fadeIn">
             
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
-              <h2 className="font-serif font-extrabold text-2xl text-slate-900">Former Principals Roster</h2>
-              <p className="text-xs sm:text-sm text-slate-600">
-                A historical roll of honour of the distinguished educators and administrators who served as Principal of St. Philomena's College from 1946 to present.
+            {/* Section Header */}
+            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-2">
+              <div className="flex items-center space-x-2">
+                <GraduationCap className="w-5 h-5 text-[#1C5496]" />
+                <span className="text-xs font-bold text-[#1C5496] uppercase tracking-widest">Academic Leadership Roll</span>
+              </div>
+              <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">Principal in Office & Former Principals</h2>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                The distinguished academicians and visionary leaders who have steered St. Philomena's College from its inaugural year in 1946 to the present day.
               </p>
             </div>
 
-            {/* Grid of Former Principals with Official Historical Portraits */}
+            {/* 1. FEATURED SPOTLIGHT: PRESENT PRINCIPAL IN OFFICE */}
+            <div className="bg-gradient-to-br from-[#071A33] to-[#0B2545] text-white rounded-2xl p-6 sm:p-8 border-2 border-[#FFC928]/60 shadow-lg relative overflow-hidden">
+              <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-blue-600/15 to-transparent pointer-events-none" />
+              
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center relative z-10">
+                <div className="md:col-span-4 lg:col-span-3 flex justify-center">
+                  <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border-3 border-[#FFD84A] shadow-md bg-slate-900">
+                    <img
+                      src="/assets/images/principals/ravi-jd-saldanha.jpg"
+                      alt="Dr. Ravi J.D. Saldanha - Principal in Office"
+                      className="w-full h-full object-cover"
+                      onError={(e) => { e.target.src = "/assets/images/leadership/ravi-jd-saldanha.jpg"; }}
+                    />
+                    <div className="absolute bottom-0 inset-x-0 bg-slate-950/85 py-1 text-center">
+                      <span className="text-[10px] font-mono font-bold text-[#FFD84A] uppercase tracking-wider">
+                        In Office · 2022–Present
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="md:col-span-8 lg:col-span-9 space-y-3">
+                  <div className="inline-flex items-center space-x-2 bg-[#FFD84A]/20 border border-[#FFD84A]/40 px-3 py-1 rounded-full">
+                    <span className="w-2 h-2 rounded-full bg-[#FFD84A] animate-pulse" />
+                    <span className="text-[#FFD84A] text-xs font-mono font-bold uppercase tracking-wider">
+                      Principal in Office
+                    </span>
+                  </div>
+
+                  <h3 className="font-serif font-extrabold text-2xl sm:text-3xl text-white">
+                    Dr. Ravi J.D. Saldanha
+                  </h3>
+                  
+                  <p className="text-xs sm:text-sm text-[#F0D98C] font-semibold">
+                    Principal, St. Philomena's College (Autonomous), Mysuru
+                  </p>
+
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
+                    Leading the institution in its 80th milestone era, Dr. Ravi J.D. Saldanha directs academic governance, research advancements, NEP curriculum implementations, institutional autonomy compliance, and student excellence across all undergraduate and postgraduate faculties.
+                  </p>
+
+                  <div className="pt-2">
+                    <button
+                      onClick={() => handleTabChange('leadership')}
+                      className="inline-flex items-center space-x-2 px-4 py-2 bg-[#1C5496] hover:bg-[#2563eb] text-white text-xs font-bold rounded-lg transition-all shadow-sm cursor-pointer"
+                    >
+                      <MessageSquare className="w-3.5 h-3.5" />
+                      <span>Read Principal's Official Message</span>
+                      <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. FORMER PRINCIPALS HEADER */}
+            <div className="border-b border-slate-200 pb-2 pt-4">
+              <h3 className="font-serif font-bold text-xl text-slate-900">Former Principals (1946–2022)</h3>
+              <p className="text-xs text-slate-500">Distinguished former Principals in reverse-chronological succession (latest first).</p>
+            </div>
+
+            {/* Grid of Former Principals (Latest First at Top) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-              {aboutData.principals.map((p, idx) => (
+              {[...aboutData.principals.filter(p => !p.isCurrent)].reverse().map((p, idx) => (
                 <div key={idx} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-all group flex flex-col">
                   <div className="aspect-[4/3] bg-slate-900 relative overflow-hidden">
                     <img
@@ -423,10 +586,10 @@ export default function AboutPage() {
               ))}
             </div>
 
-            {/* Complete Chronological Table */}
+            {/* Complete Chronological Succession Table */}
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs mt-6">
               <div className="p-4 bg-slate-50 border-b border-slate-200">
-                <h3 className="font-serif font-bold text-base text-slate-900">Chronological Succession List</h3>
+                <h3 className="font-serif font-bold text-base text-slate-900">Succession Roll of Honour</h3>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs border-collapse">
@@ -438,15 +601,18 @@ export default function AboutPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100">
-                    {aboutData.principals.map((p, idx) => (
-                      <tr key={idx} className="hover:bg-slate-50 transition-colors">
-                        <td className="p-3.5 font-mono font-bold text-[#1C5496]">{p.num}</td>
-                        <td className="p-3.5 font-serif font-bold text-slate-900 text-sm">{p.name}</td>
-                        <td className="p-3.5 font-semibold text-slate-800">
-                          <span className="bg-blue-50 text-[#1C5496] px-2.5 py-1 rounded-md text-[11px] font-bold font-mono">
-                            {p.tenure}
-                          </span>
+                    {[
+                      aboutData.presentPrincipal,
+                      ...([...aboutData.principals.filter(p => !p.isCurrent)].reverse())
+                    ].map((p, idx) => (
+                      <tr key={idx} className={`hover:bg-slate-50 transition-colors ${idx === 0 ? 'bg-amber-50/50 font-bold' : ''}`}>
+                        <td className="p-3.5 font-mono text-[#1C5496]">
+                          {idx === 0 ? '★ Present' : String(aboutData.principals.length - idx).padStart(2, '0')}
                         </td>
+                        <td className="p-3.5 text-slate-900">
+                          {p.name} {idx === 0 && <span className="ml-2 text-[10px] bg-[#071A33] text-[#FFD84A] px-2 py-0.5 rounded font-mono">In Office</span>}
+                        </td>
+                        <td className="p-3.5 font-mono text-slate-600">{p.tenure}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -461,19 +627,26 @@ export default function AboutPage() {
         {activeTab === 'mdes' && (
           <div className="space-y-8 animate-fadeIn">
             
-            <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs space-y-4">
-              <div className="flex items-center justify-between flex-wrap gap-2">
-                <span className="bg-blue-50 text-[#1C5496] font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs flex flex-col md:flex-row items-center gap-8">
+              <div className="w-36 h-36 shrink-0 p-3 bg-slate-50 rounded-2xl border border-slate-200 flex items-center justify-center">
+                <img
+                  src="/assets/images/logo/mdes_official_crest.png"
+                  alt="Mysore Diocesan Educational Society (MDES) Official Crest"
+                  className="max-h-full max-w-full object-contain drop-shadow-xs"
+                />
+              </div>
+              <div className="space-y-2 flex-1 min-w-0">
+                <span className="bg-blue-50 text-[#1C5496] font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider inline-block">
                   Governing Society
                 </span>
+                <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+                  {aboutData.mdes.title}
+                </h2>
+                <p className="text-xs font-mono text-slate-500 font-semibold">{aboutData.mdes.regNo}</p>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                  {aboutData.mdes.description}
+                </p>
               </div>
-              <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
-                {aboutData.mdes.title}
-              </h2>
-              <p className="text-xs font-mono text-slate-500 font-semibold">{aboutData.mdes.regNo}</p>
-              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                {aboutData.mdes.description}
-              </p>
             </div>
 
             {/* MDES Key Office Bearers */}

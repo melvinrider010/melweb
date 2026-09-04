@@ -1,0 +1,448 @@
+{
+  "placement-cell": {
+    "slug": "placement-cell",
+    "name": "Career and Placement Cell",
+    "count": 12,
+    "images": [
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0001.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0001-300x240.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0007.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0007-300x240.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0002.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0002-300x240.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0010.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0010-300x240.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0011.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0011-300x240.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0006.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0006-300x240.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0004.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0004-300x240.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0003.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0003-300x240.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0005.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0005-300x240.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0008.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0008-300x240.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0009.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0009-300x240.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2026/08/WhatsApp-Image-2026-08-11-at-2.02.38-PM.jpeg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2026/08/WhatsApp-Image-2026-08-11-at-2.02.38-PM-300x200.jpeg",
+        "alt": ""
+      }
+    ]
+  },
+  "student-grievance-redressal-committee": {
+    "slug": "student-grievance-redressal-committee",
+    "name": "Grievance Redressal",
+    "count": 2,
+    "images": [
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-29-at-10.30.51-AM.jpeg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-29-at-10.30.51-AM-639x1024.jpeg",
+        "alt": "WhatsApp Image 2026-01-29 at 10.30.51 AM"
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-29-at-10.37.40-AM.jpeg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-29-at-10.37.40-AM-639x1024.jpeg",
+        "alt": "WhatsApp Image 2026-01-29 at 10.37.40 AM"
+      }
+    ]
+  },
+  "anti-ragging": {
+    "slug": "anti-ragging",
+    "name": "Anti-Ragging",
+    "count": 0,
+    "images": []
+  },
+  "womens-cell": {
+    "slug": "womens-cell",
+    "name": "Women's Cell",
+    "count": 0,
+    "images": []
+  },
+  "student-welfare-cell": {
+    "slug": "student-welfare-cell",
+    "name": "Student Welfare Cell",
+    "count": 0,
+    "images": []
+  },
+  "counselling-centre": {
+    "slug": "counselling-centre",
+    "name": "Counselling Centre",
+    "count": 0,
+    "images": []
+  },
+  "human-values-professional-ethics": {
+    "slug": "human-values-professional-ethics",
+    "name": "Human Values And Professional Ethics",
+    "count": 0,
+    "images": []
+  },
+  "youth-red-cross-yrc": {
+    "slug": "youth-red-cross-yrc",
+    "name": "Youth Redcross",
+    "count": 8,
+    "images": [
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/image-110.png",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/image-110-585x295.png",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/image-111.png",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/image-111-585x295.png",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/image-113.png",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/image-113-585x295.png",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/image-112.png",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/image-112-585x295.png",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/IMG_6185.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/IMG_6185-150x150.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/IMG_6105.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/IMG_6105-150x150.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/02/william.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/02/william-150x146.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2023/06/IMG_6157.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2023/06/IMG_6157-150x150.jpg",
+        "alt": ""
+      }
+    ]
+  },
+  "library": {
+    "slug": "library",
+    "name": "Library",
+    "count": 5,
+    "images": [
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/l8.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/l8-396x360.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/l4.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/l4-396x360.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/l2.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/l2-396x360.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/l3.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/l3-1024x768.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/l1.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/l1-1024x768.jpg",
+        "alt": ""
+      }
+    ]
+  },
+  "facilities": {
+    "slug": "facilities",
+    "name": "Physical Infrastructure",
+    "count": 1,
+    "images": [
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2023/02/20210224_113112-scaled-1.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2023/02/20210224_113112-scaled-1.jpg",
+        "alt": ""
+      }
+    ]
+  },
+  "business-lab": {
+    "slug": "business-lab",
+    "name": "Business Lab",
+    "count": 0,
+    "images": []
+  },
+  "computer-science-lab": {
+    "slug": "computer-science-lab",
+    "name": "Computer Lab",
+    "count": 4,
+    "images": [
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img1-2.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img1-2.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img2-2.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img2-2.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img3-2.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img3-2.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img4-1.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img4-1.jpg",
+        "alt": ""
+      }
+    ]
+  },
+  "girls-hostel": {
+    "slug": "girls-hostel",
+    "name": "Girls Hostel",
+    "count": 3,
+    "images": [
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img1-Picsart-AiImageEnhancer.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img1-Picsart-AiImageEnhancer-1024x576.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img2-Picsart-AiImageEnhancer.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img2-Picsart-AiImageEnhancer-1024x576.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img3-Picsart-AiImageEnhancer.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img3-Picsart-AiImageEnhancer-1024x576.jpg",
+        "alt": ""
+      }
+    ]
+  },
+  "boys-hostel": {
+    "slug": "boys-hostel",
+    "name": "Boys Hostel",
+    "count": 3,
+    "images": [
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/IMG_20240102_124341-1536x692-Picsart-AiImageEnhancer-3.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/IMG_20240102_124341-1536x692-Picsart-AiImageEnhancer-3-1024x461.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/IMG_0166-1536x1024-Picsart-AiImageEnhancer-1.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/IMG_0166-1536x1024-Picsart-AiImageEnhancer-1-1170x536.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/DSC_5036-1536x1021-Picsart-AiImageEnhancer-1.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/DSC_5036-1536x1021-Picsart-AiImageEnhancer-1-1170x536.jpg",
+        "alt": ""
+      }
+    ]
+  },
+  "auditorium": {
+    "slug": "auditorium",
+    "name": "Auditorium",
+    "count": 3,
+    "images": [
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/12/WhatsApp-Image-2025-11-29-at-13.26.52.jpeg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/12/WhatsApp-Image-2025-11-29-at-13.26.52-768x576.jpeg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/12/WhatsApp-Image-2025-11-29-at-13.27.15.jpeg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/12/WhatsApp-Image-2025-11-29-at-13.27.15.jpeg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/10/IMG_20251030_124353-1.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/10/IMG_20251030_124353-1.jpg",
+        "alt": ""
+      }
+    ]
+  },
+  "e-journal": {
+    "slug": "e-journal",
+    "name": "Philos Bulletin",
+    "count": 0,
+    "images": []
+  },
+  "bank-atm": {
+    "slug": "bank-atm",
+    "name": "Bank & ATM",
+    "count": 2,
+    "images": [
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/ChatGPT-Image-Apr-14-2025-11_22_29-AM.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/ChatGPT-Image-Apr-14-2025-11_22_29-AM.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/canara.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/canara.jpg",
+        "alt": ""
+      }
+    ]
+  },
+  "chapel-hall-3": {
+    "slug": "chapel-hall-3",
+    "name": "Chapel",
+    "count": 3,
+    "images": [
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/chaple.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/chaple-396x360.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-21-at-13.20.40.jpeg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-21-at-13.20.40-396x360.jpeg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-21-at-13.22.17.jpeg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-21-at-13.22.17-768x1024.jpeg",
+        "alt": ""
+      }
+    ]
+  },
+  "ranger-and-rovers": {
+    "slug": "ranger-and-rovers",
+    "name": "Ranger and Rovers",
+    "count": 0,
+    "images": []
+  },
+  "ncc": {
+    "slug": "ncc",
+    "name": "NCC",
+    "count": 8,
+    "images": [
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/NCC-1.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/NCC-1-300x169.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/NCC-2.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/NCC-2-300x169.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/NCC-3.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/NCC-3-300x169.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/NCC.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/NCC-300x169.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-15-at-17.32.41.jpeg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-15-at-17.32.41-1024x580.jpeg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-15-at-17.33.10.jpeg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-15-at-17.33.10-1024x580.jpeg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-15-at-17.33.28.jpeg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-15-at-17.33.28-1024x580.jpeg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-15-at-17.33.42.jpeg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-15-at-17.33.42-1024x580.jpeg",
+        "alt": ""
+      }
+    ]
+  },
+  "nss": {
+    "slug": "nss",
+    "name": "NSS",
+    "count": 3,
+    "images": [
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/nss1.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/nss1-1024x576.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/nss3.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/nss3-1024x576.jpg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/nss2-1.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/nss2-1-1024x576.jpg",
+        "alt": ""
+      }
+    ]
+  },
+  "indoor-stadium": {
+    "slug": "indoor-stadium",
+    "name": "Indoor Stadium",
+    "count": 3,
+    "images": [
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-16-at-19.47.14-1-e1744829831621.jpeg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-16-at-19.47.14-1-e1744829831621.jpeg",
+        "alt": ""
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/IMG_1737.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/IMG_1737-1500x1500.jpg",
+        "alt": "IMG_1737"
+      },
+      {
+        "masterUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/IMG_1775.jpg",
+        "sampleUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/IMG_1775.jpg",
+        "alt": ""
+      }
+    ]
+  }
+}

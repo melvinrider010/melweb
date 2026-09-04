@@ -1,0 +1,3347 @@
+{
+  "createdAt": "2026-09-02T10:53:49.582Z",
+  "departments": [
+    {
+      "id": "bca",
+      "deptId": "dept-bca",
+      "slug": "bca",
+      "name": "Department of Computer Applications (BCA / MCA)",
+      "category": "Faculty of Science",
+      "officialDepartmentUrl": "https://stphilos.ac.in/bca/",
+      "officialPhotoUrl": null,
+      "head": "Mrs. Reena Mol V U",
+      "headDesignation": "Assistant Professor",
+      "headEmail": "hod.bca@stphilos.ac.in",
+      "tagline": "Excellence in Pedagogy, Research, and Value-Based Education",
+      "bannerImage": "/assets/images/campus_quad.jpg",
+      "description": "Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru has a distinguished legacy of academic excellence, comprehensive laboratory infrastructure, and research accomplishments.",
+      "history": "Established with the visionary mission of imparting holistic education, the Department of Computer Applications (BCA / MCA) continues to lead innovative pedagogies and research inquiries.",
+      "achievements": [
+        "Consistent university distinctions and top semester academic performances.",
+        "Active student participation in research workshops, internships, and symposiums.",
+        "Strong career placements and direct admissions into prestigious postgraduate institutions."
+      ],
+      "futurePlans": [
+        "To introduce advanced interdisciplinary research modules and skill-enhancement certificates.",
+        "To strengthen industry-academia MoUs and specialized corporate internships.",
+        "To host regional and national academic conferences in emerging disciplines."
+      ],
+      "ugProgrammes": [
+        "bca"
+      ],
+      "pgProgrammes": [
+        "mca"
+      ],
+      "facultyCount": 14,
+      "facultyMembers": [
+        {
+          "id": "fac_reena_mol_v_u",
+          "name": "Mrs. Reena Mol V U",
+          "designation": "Assistant Professor",
+          "qualification": "MCA, M.Phil",
+          "departmentId": "dept-bca",
+          "programmeType": "pg",
+          "programmeCode": "MCA",
+          "photoUrl": "/assets/faculty/computer-applications/mca-reena-mol.jpg",
+          "photoVerified": true
+        },
+        {
+          "id": "fac_bindushree_k",
+          "name": "Ms. Bindushree K",
+          "designation": "Assistant Professor",
+          "qualification": "MCA",
+          "departmentId": "dept-bca",
+          "programmeType": "pg",
+          "programmeCode": "MCA",
+          "photoUrl": "/assets/faculty/computer-applications/mca-bindushree.jpg",
+          "photoVerified": true
+        },
+        {
+          "id": "fac_shiva_kumar_c",
+          "name": "Mr. SHIVA KUMAR C",
+          "designation": "Assistant Professor",
+          "qualification": "MCA, NET",
+          "departmentId": "dept-bca",
+          "programmeType": "pg",
+          "programmeCode": "MCA",
+          "photoUrl": "/assets/faculty/computer-applications/mca-shiva-kumar.jpg",
+          "photoVerified": true
+        },
+        {
+          "id": "fac_roshan_roy_dsouza",
+          "name": "Mr. Roshan Roy DSouza",
+          "designation": "Assistant Professor",
+          "qualification": "MCA",
+          "departmentId": "dept-bca",
+          "programmeType": "pg",
+          "programmeCode": "MCA",
+          "photoUrl": "/assets/faculty/computer-applications/mca-roshan-roy.jpg",
+          "photoVerified": true
+        },
+        {
+          "id": "fac_harini_s",
+          "name": "Ms. Harini S",
+          "designation": "Assistant Professor",
+          "qualification": "MCA",
+          "departmentId": "dept-bca",
+          "programmeType": "pg",
+          "programmeCode": "MCA",
+          "photoUrl": "/assets/faculty/computer-applications/mca-harini.jpg",
+          "photoVerified": true
+        },
+        {
+          "id": "fac_e_gloriya_priyadarshini",
+          "name": "Mrs. E Gloriya Priyadarshini",
+          "designation": "Head of the Department & Assistant Professor",
+          "qualification": "M.Sc., M.Phil.",
+          "departmentId": "dept-bca",
+          "programmeType": "ug",
+          "programmeCode": "BCA",
+          "photoUrl": "/assets/faculty/computer-applications/bca-gloriya.jpg",
+          "photoVerified": true
+        },
+        {
+          "id": "fac_syeda_masarath",
+          "name": "Mrs. Syeda Masarath",
+          "designation": "Assistant Professor",
+          "qualification": "M.Sc. (CS), M.Phil.",
+          "departmentId": "dept-bca",
+          "programmeType": "ug",
+          "programmeCode": "BCA",
+          "photoUrl": "/assets/faculty/computer-applications/bca-syeda-masarath.jpg",
+          "photoVerified": true
+        },
+        {
+          "id": "fac_archana_a",
+          "name": "Ms. Archana A",
+          "designation": "Assistant Professor",
+          "qualification": "MCA",
+          "departmentId": "dept-bca",
+          "programmeType": "ug",
+          "programmeCode": "BCA",
+          "photoUrl": "/assets/faculty/computer-applications/bca-archana.jpg",
+          "photoVerified": true
+        },
+        {
+          "id": "fac_j_sandra_agnes",
+          "name": "Ms. J. Sandra Agnes",
+          "designation": "Assistant Professor",
+          "qualification": "MCA, M.Phil.",
+          "departmentId": "dept-bca",
+          "programmeType": "ug",
+          "programmeCode": "BCA",
+          "photoUrl": "/assets/faculty/computer-applications/bca-sandra-agnes.jpg",
+          "photoVerified": true
+        },
+        {
+          "id": "fac_manasa_e",
+          "name": "Ms. Manasa E",
+          "designation": "Assistant Professor",
+          "qualification": "MCA",
+          "departmentId": "dept-bca",
+          "programmeType": "ug",
+          "programmeCode": "BCA",
+          "photoUrl": "/assets/faculty/computer-applications/bca-manasa.jpg",
+          "photoVerified": true
+        },
+        {
+          "id": "fac_lydia_anjalla",
+          "name": "Ms. LYDIA ANJALLA",
+          "designation": "Assistant Professor",
+          "qualification": "MCA",
+          "departmentId": "dept-bca",
+          "programmeType": "ug",
+          "programmeCode": "BCA",
+          "photoUrl": "/assets/faculty/computer-applications/bca-lydia-anjalla.jpg",
+          "photoVerified": true
+        },
+        {
+          "id": "fac_harshitha_m",
+          "name": "Ms. HARSHITHA M",
+          "designation": "Assistant Professor",
+          "qualification": "MCA",
+          "departmentId": "dept-bca",
+          "programmeType": "ug",
+          "programmeCode": "BCA",
+          "photoUrl": "/assets/faculty/computer-applications/bca-harshitha.jpg",
+          "photoVerified": true
+        },
+        {
+          "id": "fac_ajay_anthony_g",
+          "name": "Mr. Ajay Anthony G",
+          "designation": "Assistant Professor",
+          "qualification": "MCA",
+          "departmentId": "dept-bca",
+          "programmeType": "ug",
+          "programmeCode": "BCA",
+          "photoUrl": "/assets/faculty/computer-applications/bca-ajay-anthony.jpg",
+          "photoVerified": true
+        },
+        {
+          "id": "fac_priyanka_mk",
+          "name": "Ms. Priyanka MK",
+          "designation": "Assistant Professor",
+          "qualification": "MCA",
+          "departmentId": "dept-bca",
+          "programmeType": "ug",
+          "programmeCode": "BCA",
+          "photoUrl": "/assets/faculty/computer-applications/bca-priyanka.jpg",
+          "photoVerified": true
+        }
+      ],
+      "facilities": [
+        "Departmental specialized reference archives and digital learning resources.",
+        "Advanced state-of-the-art laboratory instrumentation suites.",
+        "Audio-Visual smart seminar facilities for academic workshops."
+      ]
+    }
+  ],
+  "programmes": [
+    {
+      "id": "bca",
+      "code": "BCA",
+      "title": "Bachelor of Computer Applications (BCA)",
+      "degree": "Bachelor of Computer Applications",
+      "level": "Undergraduate",
+      "type": "ug",
+      "stream": "Computer Science & IT",
+      "duration": "3 Years (6 Semesters) / 4 Years Honours (NEP 2020)",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA)",
+      "deptSlug": "bca",
+      "officialUrl": "https://stphilos.ac.in/bca/",
+      "sourcePageUrl": "https://stphilos.ac.in/bca/",
+      "eligibility": "Candidates who have passed Two Year Pre-University Course (10+2) examination in Science, Commerce or Arts with Mathematics / Computer Science / Statistics / Accountancy / Electronics from recognized boards are eligible.",
+      "overview": "The Bachelor of Computer Applications (BCA) at St. Philomena's College provides comprehensive education in software engineering, database design, web full-stack ecosystems, cloud platforms, and algorithmic computing. The program is designed to bridge the gap between academic theory and high-demand IT industry competencies.",
+      "history": "The Department of Computer Science was established in the year 1999 to offer undergraduate education in computing. To meet the expanding requirements of the IT industry, the Bachelor of Computer Applications (BCA) program was launched to equip students with practical programming and software development skills.",
+      "vision": "To be a premier center of technical excellence producing innovative software professionals, ethical technocrats, and visionary entrepreneurs capable of addressing complex global digital challenges.",
+      "mission": "To impart comprehensive foundation in core algorithms, full-stack architectures, and AI systems; to foster industry-aligned experiential coding and research; to nurture ethical values and leadership in computing.",
+      "achievements": [
+        "Consistent university rank holders and top academic performance in semester examinations.",
+        "Annual technical inter-collegiate symposium 'PhiloTech' organized by BCA student association.",
+        "High placement conversion rate in top IT companies (Infosys, TCS, Wipro, Cognizant, L&T Infotech)."
+      ],
+      "facilities": [
+        "State-of-the-art Computer Science & Application Laboratories with high-speed internet.",
+        "Dedicated Linux and Windows dual-boot development systems with modern IDEs.",
+        "Departmental digital reference library and audio-visual seminar hall."
+      ],
+      "curriculumHighlights": [
+        "Core Programming Languages: C, C++, Core & Advanced Java, Python, JavaScript",
+        "Web Full-Stack: HTML5, CSS3, React.js, Node.js, Express, REST APIs",
+        "Database Systems: MySQL, PostgreSQL, MongoDB, NoSQL Architectures",
+        "Cloud & Security: Cloud Computing Fundamentals, Cybersecurity Principles, Software Engineering"
+      ],
+      "careerOpportunities": [
+        "Full-Stack Web Developer",
+        "Software Engineer / Application Programmer",
+        "Database Administrator & Systems Analyst",
+        "Cloud Operations Associate",
+        "Higher Studies: Master of Computer Applications (MCA), M.Sc Computer Science"
+      ],
+      "facultyIds": [
+        "fac_e_gloriya_priyadarshini",
+        "fac_syeda_masarath",
+        "fac_archana_a",
+        "fac_j_sandra_agnes",
+        "fac_manasa_e",
+        "fac_lydia_anjalla",
+        "fac_harshitha_m",
+        "fac_ajay_anthony_g",
+        "fac_priyanka_mk"
+      ],
+      "relatedUgProgrammeIds": [
+        "bvoc"
+      ],
+      "relatedPgProgrammeIds": [
+        "mca"
+      ],
+      "progressionPathway": [
+        {
+          "targetDegree": "Master of Computer Applications (MCA)",
+          "targetId": "mca",
+          "institution": "St. Philomena's College (Autonomous)",
+          "eligibilityNote": "Direct progression to AICTE-approved MCA program for BCA graduates.",
+          "careerAdvantage": "Enterprise Software Architect, Senior Full-Stack Engineer, Cloud Systems Engineer, AI Specialist."
+        }
+      ],
+      "primaryFacultyIds": [
+        "fac_e_gloriya_priyadarshini",
+        "fac_syeda_masarath",
+        "fac_archana_a",
+        "fac_j_sandra_agnes",
+        "fac_manasa_e",
+        "fac_lydia_anjalla",
+        "fac_harshitha_m",
+        "fac_ajay_anthony_g",
+        "fac_priyanka_mk",
+        "fac_lenard_p",
+        "fac_judith",
+        "fac_ayesha_siddiqa",
+        "fac_mohammed_maaz",
+        "fac_vidyashree",
+        "fac_prakruthi_v",
+        "fac_kusuma_mv",
+        "fac_anarghya_theodor"
+      ],
+      "associatedFacultyIds": [
+        "fac_reena_mol_v_u",
+        "fac_bindushree_k",
+        "fac_shiva_kumar_c",
+        "fac_roshan_roy_dsouza",
+        "fac_harini_s"
+      ],
+      "associatedTitle": "Associated MCA Department Faculty"
+    },
+    {
+      "id": "mca",
+      "code": "MCA",
+      "title": "Master of Computer Applications (MCA)",
+      "degree": "Master of Computer Applications",
+      "level": "Postgraduate (AICTE Approved)",
+      "type": "pg",
+      "stream": "Computer Applications & Cloud Engineering",
+      "duration": "2 Years (4 Semesters)",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "deptSlug": "bca",
+      "officialUrl": "https://stphilos.ac.in/mca/",
+      "sourcePageUrl": "https://stphilos.ac.in/mca/",
+      "eligibility": "Passed BCA/Bachelor Degree in Computer Science Engineering or equivalent Degree, OR Passed B.Sc./B.Com./B.A. with Mathematics at 10+2 Level or at Graduation Level with minimum 50% marks (45% for reserved categories). PGCET CODE: C477.",
+      "overview": "The Master of Computer Applications (MCA) program is designed to provide postgraduate students with an in-depth education in modern computer technology. This two-year program is dedicated to offering advanced training in programming, algorithmic design, database administration, software engineering, web architectures, networking, cloud systems, and cybersecurity.",
+      "history": "The MCA postgraduate programme was established with AICTE approval and University of Mysore affiliation to produce high-caliber software architects, system analysts, and AI developers.",
+      "vision": "To be a premier center of technical excellence producing innovative software professionals, ethical technocrats, and visionary entrepreneurs capable of addressing complex global digital challenges.",
+      "mission": "To impart comprehensive foundation in core algorithms, full-stack architectures, and AI systems; to foster industry-aligned experiential coding and research; to nurture ethical values and leadership in computing.",
+      "achievements": [
+        "100% full-semester industrial capstone project placements.",
+        "State-of-the-art research lab equipped with high-performance computing systems."
+      ],
+      "facilities": [
+        "Dedicated MCA Advanced Computing Laboratory with high-speed fiber connectivity.",
+        "Cloud Simulation and AI Sandbox environments."
+      ],
+      "curriculumHighlights": [
+        "Semester I: Data Structures & Algorithms, Java Technologies, DBMS, Computer Networks, Operating Systems",
+        "Semester II: Python Programming, Software Engineering, Web Technologies, Machine Learning Foundations",
+        "Semester III: Cloud Computing, DevOps, Mobile App Development, Information & Cyber Security",
+        "Semester IV: Major Industry Capstone Project & Internship, Research Seminar"
+      ],
+      "careerOpportunities": [
+        "Enterprise Software Architect",
+        "Senior Full-Stack Developer",
+        "Cloud Solutions & DevOps Engineer",
+        "Data Scientist & AI Specialist",
+        "Cybersecurity Consultant"
+      ],
+      "facultyIds": [
+        "fac_reena_mol_v_u",
+        "fac_bindushree_k",
+        "fac_shiva_kumar_c",
+        "fac_roshan_roy_dsouza",
+        "fac_harini_s"
+      ],
+      "relatedUgProgrammeIds": [
+        "bca",
+        "bsc",
+        "bvoc"
+      ],
+      "relatedPgProgrammeIds": [],
+      "progressionPathway": [],
+      "primaryFacultyIds": [
+        "fac_reena_mol_v_u",
+        "fac_bindushree_k",
+        "fac_shiva_kumar_c",
+        "fac_roshan_roy_dsouza",
+        "fac_harini_s"
+      ],
+      "associatedFacultyIds": [
+        "fac_e_gloriya_priyadarshini",
+        "fac_syeda_masarath",
+        "fac_archana_a",
+        "fac_j_sandra_agnes",
+        "fac_manasa_e",
+        "fac_lydia_anjalla",
+        "fac_harshitha_m",
+        "fac_ajay_anthony_g",
+        "fac_priyanka_mk",
+        "fac_lenard_p",
+        "fac_judith",
+        "fac_ayesha_siddiqa",
+        "fac_mohammed_maaz",
+        "fac_vidyashree",
+        "fac_prakruthi_v",
+        "fac_kusuma_mv",
+        "fac_anarghya_theodor"
+      ],
+      "associatedTitle": "Associated BCA Department Faculty"
+    }
+  ],
+  "faculty": [
+    {
+      "id": "fac_reena_mol_v_u",
+      "name": "Mrs. Reena Mol V U",
+      "designation": "Assistant Professor",
+      "qualification": "MCA, M.Phil",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "MCA",
+      "programmeType": "pg",
+      "officialProfileUrl": "https://stphilos.ac.in/reena-moldetail/",
+      "officialPhotoUrl": "https://stphilos.ac.in/mca/",
+      "photoUrl": "/assets/faculty/computer-applications/mca-reena-mol.jpg",
+      "photoVerified": true,
+      "email": "reena_mol_v_u@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Academic Teaching & Research Experience",
+      "specialization": "MCA, M.Phil",
+      "bio": "Mrs. Reena Mol V U is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_reena_mol_v_u",
+      "officialCvSourceUrl": "https://stphilos.ac.in/reena-moldetail/",
+      "sourceVerified": true,
+      "cvData": {
+        "qualifications": [
+          "Specialization: Bioinformatics"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          },
+          {
+            "title": "A Study of Preventive Measures on Phishing Attacks",
+            "conferenceName": "Conference Proceedings of the Multi-Disciplinary International Conference on “Digital Transformation and Well- Being-A new Perspective”",
+            "dates": "ISBN:978-93-5780-750-0 February 09-11 2023"
+          },
+          {
+            "title": "Web 3.0",
+            "conferenceName": "Journal of Emerging Technologies and Innovative Research",
+            "dates": "Vol.9,Issue:2,Month and year: Feb 2022"
+          },
+          {
+            "title": "Novel Scheduling Policy for Delay Analysis of Multi-Hop Wireless Networks",
+            "conferenceName": "Global Research &Development Journal for Engineers(GRDJE)",
+            "dates": "Vol. 1,Issue: 11,Pages:14- 20,Month and year:0ct 2016"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          },
+          {
+            "title": "Workshop on “proposal writing to research funding agencies”",
+            "institution": "St. Philomena’s College (Autonomous), Mysuru",
+            "duration": "05/05/2023"
+          },
+          {
+            "title": "Capacity building programme –A 6 day FDP on revisiting the NAAC accreditation and assessment process in Autonomous colleges in the light of NEP",
+            "institution": "St. Philomena’s College (Autonomous), Mysuru",
+            "duration": "28/03/2023 To1/04/2023 (05 days)"
+          },
+          {
+            "title": "International Conference on “Digital transformation Sustainability and Well being –A New Perspective”",
+            "institution": "St. Philomena’s College (Autonomous), Mysuru",
+            "duration": "9/02/2023 To 11/02/2023 (03 days)"
+          },
+          {
+            "title": "Workshop on “Scholarly Publications: Tools and Techniques",
+            "institution": "” Library and Information Center, Sri Jayachamarajendra College,Mysuru",
+            "duration": "06/01/2023 To 08/01/2023 (03 days)"
+          },
+          {
+            "title": "International Seminar on “Higher Education: Emerging Trends, Challenges and Innovations”",
+            "institution": "St.Joseph’s College of Education,Mysuru in Collaboration with IGINP/INDIA/CANADA",
+            "duration": "28/07/2022 To 29/07/2022 (02 days)"
+          },
+          {
+            "title": "FDP on “Promoting Research Among Academicians” Research Committee in collaboration with IQAC",
+            "institution": "St. Philomena’s College (Autonomous), Mysuru",
+            "duration": "22/06/2022 To28/06/2022 (05 days)"
+          },
+          {
+            "title": "National Level FDP on “Cognizance of Indian National Education Policy 2020-A Progressive Step forward” IQAC",
+            "institution": "St.Anne’s First Grade College for Women, Bengaluru",
+            "duration": "06/06/2022 To 13/06/2022 (06 days)"
+          },
+          {
+            "title": "Online motivational talk on “Successful Professional and Personal Life”",
+            "institution": "Department of Information Science and Engineering, National Institute of Engineering, Mysuru",
+            "duration": "20/11//2021 (01 day)"
+          },
+          {
+            "title": "AICTE Training and Learning(ATAL) Academy Online FDP on “Data Science”",
+            "institution": "National Power Training Institute(Southern Region) collaboration with ATAL Academy",
+            "duration": "09/08/2021 To 13/08/2021 (05 days)"
+          },
+          {
+            "title": "AICTE Training and Learning(ATAL) Academy Online FDP on “Machine Learning Frontiers in Healthcare”",
+            "institution": "National Institute of Technology, Delhi collaboration with ATAL Academy",
+            "duration": "26/07/2021 To 30/07/2021 (05 days)"
+          },
+          {
+            "title": "AICTE Training and Learning(ATAL) Academy Online FDP on “Mathematics for Data Science”",
+            "institution": "Kumaraguru College of Technology collaboration with ATAL Academy",
+            "duration": "26/07/2021 To 30/07/2021 (05 days)"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          },
+          {
+            "institution": "01",
+            "topic": "Department of Statistics and Department of Computer Science, Mar Ivanios College ,Thiruvananthapuram,Kerala",
+            "date": "Lecture Sessions on “Machine Learning and Statistics using Python Programming”"
+          },
+          {
+            "institution": "02",
+            "topic": "Department of Computer Science and Cyber Security,Rajadhani Institute of Engineering and Technology, Nagaroor, Thiruvananthapuram,Kerala",
+            "date": "College Level Workshop on “Machine Learning and Deep Learning”"
+          },
+          {
+            "institution": "03",
+            "topic": "MOOC Committee Under the aegis of the IQAC, St.Anne’s First Grade College for Women, Bangalore",
+            "date": "National Level Webinar on Swayam -Digitized Education"
+          },
+          {
+            "institution": "04",
+            "topic": "PG and Research Department of Computer Science and Applications, Auxilium College, Vellore, Tamilnadu",
+            "date": "National Level One Week Online FDP on “Machine Learning"
+          },
+          {
+            "institution": "05",
+            "topic": "PG and Research Department of Computer Science and Applications, Auxilium College, Vellore, Tamilnadu",
+            "date": "National Level FDP on ”Machine Learning”"
+          },
+          {
+            "institution": "06",
+            "topic": "Department of Computer Science, SRNM College, Madurai, Tamilnadu",
+            "date": "National Level Seminar on “Future Tech: Storming Trends in Computing”"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          },
+          {
+            "award": "Recent Passport Size Photo:",
+            "organization": "",
+            "date": ""
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "reenamolvu@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_bindushree_k",
+      "name": "Ms. Bindushree K",
+      "designation": "Assistant Professor",
+      "qualification": "MCA",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "MCA",
+      "programmeType": "pg",
+      "officialProfileUrl": "https://stphilos.ac.in/ms-bindushree-k/",
+      "officialPhotoUrl": "https://stphilos.ac.in/mca/",
+      "photoUrl": "/assets/faculty/computer-applications/mca-bindushree.jpg",
+      "photoVerified": true,
+      "email": "shreerbindu@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Work Experience 13 years ( Teaching)",
+      "specialization": "Specialization: Software Engineering",
+      "bio": "Ms. Bindushree K is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_bindushree_k",
+      "officialCvSourceUrl": "https://stphilos.ac.in/ms-bindushree-k/",
+      "sourceVerified": true,
+      "cvData": {
+        "qualifications": [
+          "Specialization: Software Engineering"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience 13 years ( Teaching)"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "shreerbindu@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_shiva_kumar_c",
+      "name": "Mr. SHIVA KUMAR C",
+      "designation": "Assistant Professor",
+      "qualification": "MCA, NET",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "MCA",
+      "programmeType": "pg",
+      "officialProfileUrl": "https://stphilos.ac.in/mr-shiva-kumar-c/",
+      "officialPhotoUrl": "https://stphilos.ac.in/mca/",
+      "photoUrl": "/assets/faculty/computer-applications/mca-shiva-kumar.jpg",
+      "photoVerified": true,
+      "email": "shivakumar@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Work Experience –",
+      "specialization": "Specialization: Biomedical Signal Processing & Instrumentation",
+      "bio": "Mr. SHIVA KUMAR C is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_shiva_kumar_c",
+      "officialCvSourceUrl": "https://stphilos.ac.in/mr-shiva-kumar-c/",
+      "sourceVerified": true,
+      "cvData": {
+        "qualifications": [
+          "Specialization: Biomedical Signal Processing & Instrumentation"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience –"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          },
+          {
+            "institution": "02",
+            "topic": "JSS Women’s Polytechnic, Mysuru",
+            "date": "Web Designing & E-commerce"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "shivakumar@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_roshan_roy_dsouza",
+      "name": "Mr. Roshan Roy DSouza",
+      "designation": "Assistant Professor",
+      "qualification": "MCA",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "MCA",
+      "programmeType": "pg",
+      "officialProfileUrl": "https://stphilos.ac.in/mr-roshan-roy-dsouza/",
+      "officialPhotoUrl": "https://stphilos.ac.in/mca/",
+      "photoUrl": "/assets/faculty/computer-applications/mca-roshan-roy.jpg",
+      "photoVerified": true,
+      "email": "roshanroydsouza@stphilos.ac.in",
+      "phone": "9738318314",
+      "experience": "Work Experience: 5 (Freelance Developer)",
+      "specialization": "Specialization: Data Structure, Mobile Application, DBMS, Software Engineering,Flutter Development,PHP , Python",
+      "bio": "Mr. Roshan Roy DSouza is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_roshan_roy_dsouza",
+      "officialCvSourceUrl": "https://stphilos.ac.in/mr-roshan-roy-dsouza/",
+      "sourceVerified": true,
+      "cvData": {
+        "qualifications": [
+          "Specialization: Data Structure, Mobile Application, DBMS, Software Engineering,Flutter Development,PHP , Python"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience: 5 (Freelance Developer)"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops/FDP",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "roshanroydsouza@stphilos.ac.in",
+          "phone": "9738318314",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_harini_s",
+      "name": "Ms. Harini S",
+      "designation": "Assistant Professor",
+      "qualification": "MCA",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "MCA",
+      "programmeType": "pg",
+      "officialProfileUrl": "https://stphilos.ac.in/harini-s/",
+      "officialPhotoUrl": "https://stphilos.ac.in/mca/",
+      "photoUrl": "/assets/faculty/computer-applications/mca-harini.jpg",
+      "photoVerified": true,
+      "email": "harinipreethi686@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Work Experience: Worked as Full Stack Developer Intern. Techcentrix Company,Mysore.",
+      "specialization": "Specialization: Cyber Security, Data Structure,DBMS, Software Engineering,Digital Image Processing,Python.",
+      "bio": "Ms. Harini S is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_harini_s",
+      "officialCvSourceUrl": "https://stphilos.ac.in/harini-s/",
+      "sourceVerified": true,
+      "cvData": {
+        "qualifications": [
+          "Specialization: Cyber Security, Data Structure,DBMS, Software Engineering,Digital Image Processing,Python."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience: Worked as Full Stack Developer Intern. Techcentrix Company,Mysore."
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "Title of Article",
+            "topic": "Journal",
+            "date": "Volume (issue) page Nos"
+          },
+          {
+            "institution": "“A Study on Impact of Remote , Twin Based Labs on Student Performance and Engagement”",
+            "topic": "IJFMR Publications",
+            "date": "10"
+          },
+          {
+            "institution": "“Measuring How Blockchain AI-Powered Communication Technologies Affect The Productivity of Distant Workers Economically”",
+            "topic": "ISBN Publications",
+            "date": "10"
+          },
+          {
+            "institution": "“Electromyography and Meta Neural Wristbands: Combining Neural Interfaces for Better Human-Computer Interaction”",
+            "topic": "IJFMR Publications",
+            "date": "10"
+          },
+          {
+            "institution": "“Power System Resources Relying on Blockchain technology”",
+            "topic": "IJCS Publications",
+            "date": "10"
+          },
+          {
+            "institution": "“A study on Intelligent Document Processing using AWS”.",
+            "topic": "IJFMR Publications",
+            "date": "10"
+          }
+        ],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "harinipreethi686@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_e_gloriya_priyadarshini",
+      "name": "Mrs. E Gloriya Priyadarshini",
+      "designation": "Head of the Department & Assistant Professor",
+      "qualification": "M.Sc., M.Phil.",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": "https://stphilos.ac.in/e-gloriya/",
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-gloriya.jpg",
+      "photoVerified": true,
+      "email": "gloriya@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Academic Teaching & Research Experience",
+      "specialization": "M.Sc., M.Phil.",
+      "bio": "Mrs. E Gloriya Priyadarshini is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_e_gloriya_priyadarshini",
+      "officialCvSourceUrl": "https://stphilos.ac.in/e-gloriya/",
+      "sourceVerified": true,
+      "cvData": {
+        "qualifications": [
+          "M.Sc., M.Phil."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          },
+          {
+            "title": "10.",
+            "institution": "FDP On “Advanced Networking Technologies”",
+            "duration": "Shadan College Of Engineering and Technology , Hydrabad"
+          },
+          {
+            "title": "11.",
+            "institution": "FDP on “Machine Learning and Data Science for Engineering Applications”",
+            "duration": "Shadan College Of Engineering and Technology , Hydrabad"
+          },
+          {
+            "title": "12.",
+            "institution": "National Level Webinar on “DevOps”",
+            "duration": "Hindustan First Grade College,Mysore"
+          },
+          {
+            "title": "13.",
+            "institution": "7 Day International FDP on ICT tools for Effective online Teaching & Learning",
+            "duration": "GOVT.First Grade College, Rannebannur, Karnatak University"
+          },
+          {
+            "title": "14.",
+            "institution": "Developing a Machine Learning Models from Start to finish",
+            "duration": "Anurag University Dept of Computer Science & Engineering, Hydrabad"
+          },
+          {
+            "title": "15.",
+            "institution": "National Level FDP on “Information Security and Data Privacy Awareness”,",
+            "duration": "St.Anne’s Degree College, Virajpet in Collaboration of St.Aloysius College, Mangalore."
+          },
+          {
+            "title": "16.",
+            "institution": "5 day FDP on “Recent Trends on Computer Science”",
+            "duration": "MIT college of Engineering , Mandya"
+          },
+          {
+            "title": "17.",
+            "institution": "National Webinar on “CyberSecurity:Technical Perspective:COVID -19",
+            "duration": "Karnataka science and Technology Academy& Seshadripuram College, Bangalore"
+          },
+          {
+            "title": "18.",
+            "institution": "Three Day National Webinar on Machine Learning",
+            "duration": "St. Joseph’sFirst Grade College,Mysore"
+          },
+          {
+            "title": "19.",
+            "institution": "National Level FDP on “IOT and Raspberry PI”",
+            "duration": "Sri Jagadguru Renukacharya Science and Arts College , Bangalore"
+          },
+          {
+            "title": "20.",
+            "institution": "National Webenar on “Intelectual Property Rights”",
+            "duration": "Govt. College for women Mandya"
+          },
+          {
+            "title": "21.",
+            "institution": "National Webenar on “Artificial Neural Networks and its Application”",
+            "duration": "JSS College for Arts, Sommerce and Science"
+          },
+          {
+            "title": "22.",
+            "institution": "Five ays Trainning on AWS",
+            "duration": "WebTech Labs Pvt .Ltd"
+          },
+          {
+            "title": "23.",
+            "institution": "National Level FDP on “Fundamentals of RPA”",
+            "duration": "ICT Academy"
+          },
+          {
+            "title": "24.",
+            "institution": "National Level FDP on “Introduction to Phython Programing”",
+            "duration": "ICT Academy"
+          },
+          {
+            "title": "25.",
+            "institution": "Certificate course in “Ethical Hacking and Cyber Security”",
+            "duration": "WebTech Labs Pvt .Ltd"
+          },
+          {
+            "title": "26.",
+            "institution": "Five days Workshop on “Technical Report Writing Using LaTaX",
+            "duration": "SENSE, VIT-AP University, Amaravathi AP"
+          },
+          {
+            "title": "27.",
+            "institution": "Workshop on human values development Progr7",
+            "duration": "St.Philomena’s College, Mysore"
+          },
+          {
+            "title": "28.",
+            "institution": "One day National Seminar on Cyber Security: Issues &Challenges",
+            "duration": "Basudev Somani College,Mysore"
+          },
+          {
+            "title": "29.",
+            "institution": "Five day FDP on Cyber Warfare Techniques, Tactics and Tools for Network Security",
+            "duration": "Dept. Of Information Science&Engineering GSSS Institute of Engineering and Technology, Mysore"
+          },
+          {
+            "title": "30.",
+            "institution": "One Day State Seminar on”Green Chemistry for Sustainable Future “",
+            "duration": "St.Philomena’s College, Mysore"
+          },
+          {
+            "title": "31.",
+            "institution": "One Day Literary Fest 2020",
+            "duration": "St.Philomena’s College, Mysore"
+          },
+          {
+            "title": "32.",
+            "institution": "International Conference on Knowledge Partnerships to advance the UN SDGs “Towards SUSTAINABLE LIFESTYLES AND INCLUSIVE SOCIETIES “",
+            "duration": "St.Philomena’s College, Mysore"
+          },
+          {
+            "title": "33.",
+            "institution": "One Day National Workshop on NIRF Rankingfocus on Data Capturing system for Higher education Institutions",
+            "duration": "NMKRV College for Women Bangalore"
+          },
+          {
+            "title": "34.",
+            "institution": "Two day Faculty Development Programme on Teaching and Learning",
+            "duration": "SDMIMD,Mysore"
+          },
+          {
+            "title": "35.",
+            "institution": "Six days FDP on Technology Supported Teaching and Evaluation",
+            "duration": "St.Philomena’s College, Mysore IQAC"
+          },
+          {
+            "title": "36.",
+            "institution": "Organized Two days National Conference on Emerging Trends in Computer Science and Technology",
+            "duration": "St.Philomena’s College, Mysore"
+          },
+          {
+            "title": "37.",
+            "institution": "Trainer’s Training Programme on Employability Entrepreneurship of LifeSkillsfor NSDC",
+            "duration": ""
+          },
+          {
+            "title": "38.",
+            "institution": "One week online Certificate Course on DIGITAL LEARNING TECHNIQUES",
+            "duration": "ICT Academy"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "gloriya@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_syeda_masarath",
+      "name": "Mrs. Syeda Masarath",
+      "designation": "Assistant Professor",
+      "qualification": "M.Sc. (CS), M.Phil.",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": null,
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-syeda-masarath.jpg",
+      "photoVerified": true,
+      "email": "syeda_masarath@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Academic Teaching & Research Experience",
+      "specialization": "M.Sc. (CS), M.Phil.",
+      "bio": "Mrs. Syeda Masarath is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_syeda_masarath",
+      "officialCvSourceUrl": null,
+      "sourceVerified": false,
+      "cvData": {
+        "qualifications": [
+          "M.Sc. (CS), M.Phil."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "syeda_masarath@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_archana_a",
+      "name": "Ms. Archana A",
+      "designation": "Assistant Professor",
+      "qualification": "MCA",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": "https://stphilos.ac.in/archana/",
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-archana.jpg",
+      "photoVerified": true,
+      "email": "archana_a@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Academic Teaching & Research Experience",
+      "specialization": "MCA",
+      "bio": "Ms. Archana A is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_archana_a",
+      "officialCvSourceUrl": "https://stphilos.ac.in/archana/",
+      "sourceVerified": true,
+      "cvData": {
+        "qualifications": [
+          "MCA"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "archana_a@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_j_sandra_agnes",
+      "name": "Ms. J. Sandra Agnes",
+      "designation": "Assistant Professor",
+      "qualification": "MCA, M.Phil.",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": "https://stphilos.ac.in/ms-sandra-agnes/",
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-sandra-agnes.jpg",
+      "photoVerified": true,
+      "email": "sandraagnes@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Academic Teaching & Research Experience",
+      "specialization": "MCA, M.Phil.",
+      "bio": "Ms. J. Sandra Agnes is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_j_sandra_agnes",
+      "officialCvSourceUrl": "https://stphilos.ac.in/ms-sandra-agnes/",
+      "sourceVerified": true,
+      "cvData": {
+        "qualifications": [
+          "MCA, M.Phil."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "SL. No.",
+            "conferenceName": "Title of the paper",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "SL. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          }
+        ],
+        "awards": [
+          {
+            "award": "Sl. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          },
+          {
+            "award": "Title of the Book",
+            "organization": "Publisher",
+            "date": "Dates"
+          },
+          {
+            "award": "JAVA & ADVANCED JAVA LAB MANUAL ISBN: 978-93-93342-76-8",
+            "organization": "Jagaran Sahitya Prakashan",
+            "date": "11-03-2024"
+          },
+          {
+            "award": "Title of the Book",
+            "organization": "Publisher",
+            "date": "Dates"
+          },
+          {
+            "award": "The Feminine Quest ISBN : 978-93-93837-57-8 Chapter: Role of Women and Education",
+            "organization": "Jagaran Sahitya Prakashan",
+            "date": "October , 2023"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "sandraagnes@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_manasa_e",
+      "name": "Ms. Manasa E",
+      "designation": "Assistant Professor",
+      "qualification": "MCA",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": "https://stphilos.ac.in/manasa-e/",
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-manasa.jpg",
+      "photoVerified": true,
+      "email": "manasa@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Work Experience 5 years 6 months",
+      "specialization": "Specialization: Computer Engineering",
+      "bio": "Ms. Manasa E is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_manasa_e",
+      "officialCvSourceUrl": "https://stphilos.ac.in/manasa-e/",
+      "sourceVerified": true,
+      "cvData": {
+        "qualifications": [
+          "Specialization: Computer Engineering"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience 5 years 6 months"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "manasa@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_lydia_anjalla",
+      "name": "Ms. LYDIA ANJALI.A",
+      "designation": "Assistant Professor",
+      "qualification": "MCA",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": "https://stphilos.ac.in/25869-2/",
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-lydia-anjalla.jpg",
+      "photoVerified": true,
+      "email": "lydiaanjalia@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Work Experience –",
+      "specialization": "Specialization:",
+      "bio": "Ms. LYDIA ANJALI.A is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_lydia_anjalla",
+      "officialCvSourceUrl": "https://stphilos.ac.in/25869-2/",
+      "sourceVerified": true,
+      "cvData": {
+        "qualifications": [
+          "Specialization:"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience –"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "lydiaanjalia@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_harshitha_m",
+      "name": "Ms. HARSHITHA M",
+      "designation": "Assistant Professor",
+      "qualification": "MCA",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": "https://stphilos.ac.in/ms-harshitha-m/",
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-harshitha.jpg",
+      "photoVerified": true,
+      "email": "harshithamahesh@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Work Experience None",
+      "specialization": "Specialization: Computer Application",
+      "bio": "Ms. HARSHITHA M is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_harshitha_m",
+      "officialCvSourceUrl": "https://stphilos.ac.in/ms-harshitha-m/",
+      "sourceVerified": true,
+      "cvData": {
+        "qualifications": [
+          "Specialization: Computer Application"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience None"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "harshithamahesh@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_ajay_anthony_g",
+      "name": "Mr. Ajay Anthony G",
+      "designation": "Assistant Professor",
+      "qualification": "M.Sc. (CS)",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": "https://stphilos.ac.in/mr-ajay-anthony-g/",
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-ajay-anthony.jpg",
+      "photoVerified": true,
+      "email": "ajayanthonyg42@gmail.com",
+      "phone": "9019280930",
+      "experience": "Work Experience NIL",
+      "specialization": "Specialization: MSC – Computer Science",
+      "bio": "Mr. Ajay Anthony G is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_ajay_anthony_g",
+      "officialCvSourceUrl": "https://stphilos.ac.in/mr-ajay-anthony-g/",
+      "sourceVerified": true,
+      "cvData": {
+        "qualifications": [
+          "Specialization: MSC – Computer Science"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience NIL"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "ajayanthonyg42@gmail.com",
+          "phone": "9019280930",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_priyanka_mk",
+      "name": "Ms. Priyanka MK",
+      "designation": "Assistant Professor",
+      "qualification": "M.Sc. (CS)",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": "https://stphilos.ac.in/ms-priyanka-mk/",
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-priyanka.jpg",
+      "photoVerified": true,
+      "email": "gowdapriyanka293@gmail.com",
+      "phone": "+91 821 4001500",
+      "experience": "Work Experience NIL",
+      "specialization": "Specialization: MSC – Computer Science",
+      "bio": "Ms. Priyanka MK is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_priyanka_mk",
+      "officialCvSourceUrl": "https://stphilos.ac.in/ms-priyanka-mk/",
+      "sourceVerified": true,
+      "cvData": {
+        "qualifications": [
+          "Specialization: MSC – Computer Science"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience NIL"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "gowdapriyanka293@gmail.com",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_lenard_p",
+      "name": "Mr. Lenard P",
+      "designation": "Asst. Professor",
+      "qualification": "MCA / M.Sc.",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": null,
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-lenard-p.jpg",
+      "photoVerified": true,
+      "email": "lenard_p@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Academic Teaching & Research Experience",
+      "specialization": "MCA / M.Sc.",
+      "bio": "Mr. Lenard P is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_lenard_p",
+      "officialCvSourceUrl": null,
+      "sourceVerified": false,
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "lenard_p@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_judith",
+      "name": "Ms. Judith",
+      "designation": "Asst. Professor",
+      "qualification": "MCA / M.Sc.",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": null,
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-judith.jpg",
+      "photoVerified": true,
+      "email": "judith@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Academic Teaching & Research Experience",
+      "specialization": "MCA / M.Sc.",
+      "bio": "Ms. Judith is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_judith",
+      "officialCvSourceUrl": null,
+      "sourceVerified": false,
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "judith@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_ayesha_siddiqa",
+      "name": "Ms. Ayesha Siddiqa",
+      "designation": "Asst. Professor",
+      "qualification": "MCA / M.Sc.",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": null,
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-ayesha-siddiqa.jpg",
+      "photoVerified": true,
+      "email": "ayesha_siddiqa@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Academic Teaching & Research Experience",
+      "specialization": "MCA / M.Sc.",
+      "bio": "Ms. Ayesha Siddiqa is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_ayesha_siddiqa",
+      "officialCvSourceUrl": null,
+      "sourceVerified": false,
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "ayesha_siddiqa@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_mohammed_maaz",
+      "name": "Mr. Mohammed Maaz",
+      "designation": "Asst. Prof.",
+      "qualification": "MCA / M.Sc.",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": null,
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-mohammed-maaz.jpg",
+      "photoVerified": true,
+      "email": "mohammed_maaz@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Academic Teaching & Research Experience",
+      "specialization": "MCA / M.Sc.",
+      "bio": "Mr. Mohammed Maaz is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_mohammed_maaz",
+      "officialCvSourceUrl": null,
+      "sourceVerified": false,
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "mohammed_maaz@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_vidyashree",
+      "name": "Ms. Vidyashree",
+      "designation": "Asst. Prof.",
+      "qualification": "MCA / M.Sc.",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": null,
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-vidyashree.jpg",
+      "photoVerified": true,
+      "email": "vidyashree@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Academic Teaching & Research Experience",
+      "specialization": "MCA / M.Sc.",
+      "bio": "Ms. Vidyashree is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_vidyashree",
+      "officialCvSourceUrl": null,
+      "sourceVerified": false,
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "vidyashree@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_prakruthi_v",
+      "name": "Ms. Prakruthi V",
+      "designation": "Asst. Professor",
+      "qualification": "MCA / M.Sc.",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": null,
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-prakruthi-v.jpg",
+      "photoVerified": true,
+      "email": "prakruthi_v@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Academic Teaching & Research Experience",
+      "specialization": "MCA / M.Sc.",
+      "bio": "Ms. Prakruthi V is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_prakruthi_v",
+      "officialCvSourceUrl": null,
+      "sourceVerified": false,
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "prakruthi_v@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_kusuma_mv",
+      "name": "Ms. Kusuma MV",
+      "designation": "Asst. Professor",
+      "qualification": "MCA / M.Sc.",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": null,
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-kusuma-mv.jpg",
+      "photoVerified": true,
+      "email": "kusuma_mv@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Academic Teaching & Research Experience",
+      "specialization": "MCA / M.Sc.",
+      "bio": "Ms. Kusuma MV is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_kusuma_mv",
+      "officialCvSourceUrl": null,
+      "sourceVerified": false,
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "kusuma_mv@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_anarghya_theodor",
+      "name": "Mr. Anarghya Theodor",
+      "designation": "Asst. Professor",
+      "qualification": "MCA / M.Sc.",
+      "departmentId": "dept-bca",
+      "department": "Department of Computer Applications (BCA / MCA)",
+      "programmeCode": "BCA",
+      "programmeType": "ug",
+      "officialProfileUrl": null,
+      "officialPhotoUrl": "https://stphilos.ac.in/bca/",
+      "photoUrl": "/assets/faculty/computer-applications/bca-anarghya-theodor.jpg",
+      "photoVerified": true,
+      "email": "anarghya_theodor@stphilos.ac.in",
+      "phone": "+91 821 4001500",
+      "experience": "Academic Teaching & Research Experience",
+      "specialization": "MCA / M.Sc.",
+      "bio": "Mr. Anarghya Theodor is an esteemed member of the Department of Computer Applications (BCA / MCA) at St. Philomena's College (Autonomous), Mysuru.",
+      "localCvStored": true,
+      "localProfileUrl": "/faculty/fac_anarghya_theodor",
+      "officialCvSourceUrl": null,
+      "sourceVerified": false,
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "anarghya_theodor@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    }
+  ],
+  "departmentIds": [
+    "bca"
+  ],
+  "programmeIds": [
+    "bca",
+    "mca"
+  ],
+  "facultyIds": [
+    "fac_reena_mol_v_u",
+    "fac_bindushree_k",
+    "fac_shiva_kumar_c",
+    "fac_roshan_roy_dsouza",
+    "fac_harini_s",
+    "fac_e_gloriya_priyadarshini",
+    "fac_syeda_masarath",
+    "fac_archana_a",
+    "fac_j_sandra_agnes",
+    "fac_manasa_e",
+    "fac_lydia_anjalla",
+    "fac_harshitha_m",
+    "fac_ajay_anthony_g",
+    "fac_priyanka_mk",
+    "fac_lenard_p",
+    "fac_judith",
+    "fac_ayesha_siddiqa",
+    "fac_mohammed_maaz",
+    "fac_vidyashree",
+    "fac_prakruthi_v",
+    "fac_kusuma_mv",
+    "fac_anarghya_theodor"
+  ],
+  "photoMappings": [
+    {
+      "id": "fac_reena_mol_v_u",
+      "name": "Mrs. Reena Mol V U",
+      "photoUrl": "/assets/faculty/computer-applications/mca-reena-mol.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_bindushree_k",
+      "name": "Ms. Bindushree K",
+      "photoUrl": "/assets/faculty/computer-applications/mca-bindushree.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_shiva_kumar_c",
+      "name": "Mr. SHIVA KUMAR C",
+      "photoUrl": "/assets/faculty/computer-applications/mca-shiva-kumar.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_roshan_roy_dsouza",
+      "name": "Mr. Roshan Roy DSouza",
+      "photoUrl": "/assets/faculty/computer-applications/mca-roshan-roy.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_harini_s",
+      "name": "Ms. Harini S",
+      "photoUrl": "/assets/faculty/computer-applications/mca-harini.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_e_gloriya_priyadarshini",
+      "name": "Mrs. E Gloriya Priyadarshini",
+      "photoUrl": "/assets/faculty/computer-applications/bca-gloriya.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_syeda_masarath",
+      "name": "Mrs. Syeda Masarath",
+      "photoUrl": "/assets/faculty/computer-applications/bca-syeda-masarath.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_archana_a",
+      "name": "Ms. Archana A",
+      "photoUrl": "/assets/faculty/computer-applications/bca-archana.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_j_sandra_agnes",
+      "name": "Ms. J. Sandra Agnes",
+      "photoUrl": "/assets/faculty/computer-applications/bca-sandra-agnes.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_manasa_e",
+      "name": "Ms. Manasa E",
+      "photoUrl": "/assets/faculty/computer-applications/bca-manasa.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_lydia_anjalla",
+      "name": "Ms. LYDIA ANJALI.A",
+      "photoUrl": "/assets/faculty/computer-applications/bca-lydia-anjalla.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_harshitha_m",
+      "name": "Ms. HARSHITHA M",
+      "photoUrl": "/assets/faculty/computer-applications/bca-harshitha.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_ajay_anthony_g",
+      "name": "Mr. Ajay Anthony G",
+      "photoUrl": "/assets/faculty/computer-applications/bca-ajay-anthony.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_priyanka_mk",
+      "name": "Ms. Priyanka MK",
+      "photoUrl": "/assets/faculty/computer-applications/bca-priyanka.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_lenard_p",
+      "name": "Mr. Lenard P",
+      "photoUrl": "/assets/faculty/computer-applications/bca-lenard-p.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_judith",
+      "name": "Ms. Judith",
+      "photoUrl": "/assets/faculty/computer-applications/bca-judith.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_ayesha_siddiqa",
+      "name": "Ms. Ayesha Siddiqa",
+      "photoUrl": "/assets/faculty/computer-applications/bca-ayesha-siddiqa.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_mohammed_maaz",
+      "name": "Mr. Mohammed Maaz",
+      "photoUrl": "/assets/faculty/computer-applications/bca-mohammed-maaz.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_vidyashree",
+      "name": "Ms. Vidyashree",
+      "photoUrl": "/assets/faculty/computer-applications/bca-vidyashree.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_prakruthi_v",
+      "name": "Ms. Prakruthi V",
+      "photoUrl": "/assets/faculty/computer-applications/bca-prakruthi-v.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_kusuma_mv",
+      "name": "Ms. Kusuma MV",
+      "photoUrl": "/assets/faculty/computer-applications/bca-kusuma-mv.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "fac_anarghya_theodor",
+      "name": "Mr. Anarghya Theodor",
+      "photoUrl": "/assets/faculty/computer-applications/bca-anarghya-theodor.jpg",
+      "photoVerified": true
+    }
+  ],
+  "cvMappings": [
+    {
+      "id": "fac_reena_mol_v_u",
+      "name": "Mrs. Reena Mol V U",
+      "cvData": {
+        "qualifications": [
+          "Specialization: Bioinformatics"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          },
+          {
+            "title": "A Study of Preventive Measures on Phishing Attacks",
+            "conferenceName": "Conference Proceedings of the Multi-Disciplinary International Conference on “Digital Transformation and Well- Being-A new Perspective”",
+            "dates": "ISBN:978-93-5780-750-0 February 09-11 2023"
+          },
+          {
+            "title": "Web 3.0",
+            "conferenceName": "Journal of Emerging Technologies and Innovative Research",
+            "dates": "Vol.9,Issue:2,Month and year: Feb 2022"
+          },
+          {
+            "title": "Novel Scheduling Policy for Delay Analysis of Multi-Hop Wireless Networks",
+            "conferenceName": "Global Research &Development Journal for Engineers(GRDJE)",
+            "dates": "Vol. 1,Issue: 11,Pages:14- 20,Month and year:0ct 2016"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          },
+          {
+            "title": "Workshop on “proposal writing to research funding agencies”",
+            "institution": "St. Philomena’s College (Autonomous), Mysuru",
+            "duration": "05/05/2023"
+          },
+          {
+            "title": "Capacity building programme –A 6 day FDP on revisiting the NAAC accreditation and assessment process in Autonomous colleges in the light of NEP",
+            "institution": "St. Philomena’s College (Autonomous), Mysuru",
+            "duration": "28/03/2023 To1/04/2023 (05 days)"
+          },
+          {
+            "title": "International Conference on “Digital transformation Sustainability and Well being –A New Perspective”",
+            "institution": "St. Philomena’s College (Autonomous), Mysuru",
+            "duration": "9/02/2023 To 11/02/2023 (03 days)"
+          },
+          {
+            "title": "Workshop on “Scholarly Publications: Tools and Techniques",
+            "institution": "” Library and Information Center, Sri Jayachamarajendra College,Mysuru",
+            "duration": "06/01/2023 To 08/01/2023 (03 days)"
+          },
+          {
+            "title": "International Seminar on “Higher Education: Emerging Trends, Challenges and Innovations”",
+            "institution": "St.Joseph’s College of Education,Mysuru in Collaboration with IGINP/INDIA/CANADA",
+            "duration": "28/07/2022 To 29/07/2022 (02 days)"
+          },
+          {
+            "title": "FDP on “Promoting Research Among Academicians” Research Committee in collaboration with IQAC",
+            "institution": "St. Philomena’s College (Autonomous), Mysuru",
+            "duration": "22/06/2022 To28/06/2022 (05 days)"
+          },
+          {
+            "title": "National Level FDP on “Cognizance of Indian National Education Policy 2020-A Progressive Step forward” IQAC",
+            "institution": "St.Anne’s First Grade College for Women, Bengaluru",
+            "duration": "06/06/2022 To 13/06/2022 (06 days)"
+          },
+          {
+            "title": "Online motivational talk on “Successful Professional and Personal Life”",
+            "institution": "Department of Information Science and Engineering, National Institute of Engineering, Mysuru",
+            "duration": "20/11//2021 (01 day)"
+          },
+          {
+            "title": "AICTE Training and Learning(ATAL) Academy Online FDP on “Data Science”",
+            "institution": "National Power Training Institute(Southern Region) collaboration with ATAL Academy",
+            "duration": "09/08/2021 To 13/08/2021 (05 days)"
+          },
+          {
+            "title": "AICTE Training and Learning(ATAL) Academy Online FDP on “Machine Learning Frontiers in Healthcare”",
+            "institution": "National Institute of Technology, Delhi collaboration with ATAL Academy",
+            "duration": "26/07/2021 To 30/07/2021 (05 days)"
+          },
+          {
+            "title": "AICTE Training and Learning(ATAL) Academy Online FDP on “Mathematics for Data Science”",
+            "institution": "Kumaraguru College of Technology collaboration with ATAL Academy",
+            "duration": "26/07/2021 To 30/07/2021 (05 days)"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          },
+          {
+            "institution": "01",
+            "topic": "Department of Statistics and Department of Computer Science, Mar Ivanios College ,Thiruvananthapuram,Kerala",
+            "date": "Lecture Sessions on “Machine Learning and Statistics using Python Programming”"
+          },
+          {
+            "institution": "02",
+            "topic": "Department of Computer Science and Cyber Security,Rajadhani Institute of Engineering and Technology, Nagaroor, Thiruvananthapuram,Kerala",
+            "date": "College Level Workshop on “Machine Learning and Deep Learning”"
+          },
+          {
+            "institution": "03",
+            "topic": "MOOC Committee Under the aegis of the IQAC, St.Anne’s First Grade College for Women, Bangalore",
+            "date": "National Level Webinar on Swayam -Digitized Education"
+          },
+          {
+            "institution": "04",
+            "topic": "PG and Research Department of Computer Science and Applications, Auxilium College, Vellore, Tamilnadu",
+            "date": "National Level One Week Online FDP on “Machine Learning"
+          },
+          {
+            "institution": "05",
+            "topic": "PG and Research Department of Computer Science and Applications, Auxilium College, Vellore, Tamilnadu",
+            "date": "National Level FDP on ”Machine Learning”"
+          },
+          {
+            "institution": "06",
+            "topic": "Department of Computer Science, SRNM College, Madurai, Tamilnadu",
+            "date": "National Level Seminar on “Future Tech: Storming Trends in Computing”"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          },
+          {
+            "award": "Recent Passport Size Photo:",
+            "organization": "",
+            "date": ""
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "reenamolvu@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_bindushree_k",
+      "name": "Ms. Bindushree K",
+      "cvData": {
+        "qualifications": [
+          "Specialization: Software Engineering"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience 13 years ( Teaching)"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "shreerbindu@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_shiva_kumar_c",
+      "name": "Mr. SHIVA KUMAR C",
+      "cvData": {
+        "qualifications": [
+          "Specialization: Biomedical Signal Processing & Instrumentation"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience –"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          },
+          {
+            "institution": "02",
+            "topic": "JSS Women’s Polytechnic, Mysuru",
+            "date": "Web Designing & E-commerce"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "shivakumar@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_roshan_roy_dsouza",
+      "name": "Mr. Roshan Roy DSouza",
+      "cvData": {
+        "qualifications": [
+          "Specialization: Data Structure, Mobile Application, DBMS, Software Engineering,Flutter Development,PHP , Python"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience: 5 (Freelance Developer)"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops/FDP",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "roshanroydsouza@stphilos.ac.in",
+          "phone": "9738318314",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_harini_s",
+      "name": "Ms. Harini S",
+      "cvData": {
+        "qualifications": [
+          "Specialization: Cyber Security, Data Structure,DBMS, Software Engineering,Digital Image Processing,Python."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience: Worked as Full Stack Developer Intern. Techcentrix Company,Mysore."
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "Title of Article",
+            "topic": "Journal",
+            "date": "Volume (issue) page Nos"
+          },
+          {
+            "institution": "“A Study on Impact of Remote , Twin Based Labs on Student Performance and Engagement”",
+            "topic": "IJFMR Publications",
+            "date": "10"
+          },
+          {
+            "institution": "“Measuring How Blockchain AI-Powered Communication Technologies Affect The Productivity of Distant Workers Economically”",
+            "topic": "ISBN Publications",
+            "date": "10"
+          },
+          {
+            "institution": "“Electromyography and Meta Neural Wristbands: Combining Neural Interfaces for Better Human-Computer Interaction”",
+            "topic": "IJFMR Publications",
+            "date": "10"
+          },
+          {
+            "institution": "“Power System Resources Relying on Blockchain technology”",
+            "topic": "IJCS Publications",
+            "date": "10"
+          },
+          {
+            "institution": "“A study on Intelligent Document Processing using AWS”.",
+            "topic": "IJFMR Publications",
+            "date": "10"
+          }
+        ],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "harinipreethi686@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_e_gloriya_priyadarshini",
+      "name": "Mrs. E Gloriya Priyadarshini",
+      "cvData": {
+        "qualifications": [
+          "M.Sc., M.Phil."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          },
+          {
+            "title": "10.",
+            "institution": "FDP On “Advanced Networking Technologies”",
+            "duration": "Shadan College Of Engineering and Technology , Hydrabad"
+          },
+          {
+            "title": "11.",
+            "institution": "FDP on “Machine Learning and Data Science for Engineering Applications”",
+            "duration": "Shadan College Of Engineering and Technology , Hydrabad"
+          },
+          {
+            "title": "12.",
+            "institution": "National Level Webinar on “DevOps”",
+            "duration": "Hindustan First Grade College,Mysore"
+          },
+          {
+            "title": "13.",
+            "institution": "7 Day International FDP on ICT tools for Effective online Teaching & Learning",
+            "duration": "GOVT.First Grade College, Rannebannur, Karnatak University"
+          },
+          {
+            "title": "14.",
+            "institution": "Developing a Machine Learning Models from Start to finish",
+            "duration": "Anurag University Dept of Computer Science & Engineering, Hydrabad"
+          },
+          {
+            "title": "15.",
+            "institution": "National Level FDP on “Information Security and Data Privacy Awareness”,",
+            "duration": "St.Anne’s Degree College, Virajpet in Collaboration of St.Aloysius College, Mangalore."
+          },
+          {
+            "title": "16.",
+            "institution": "5 day FDP on “Recent Trends on Computer Science”",
+            "duration": "MIT college of Engineering , Mandya"
+          },
+          {
+            "title": "17.",
+            "institution": "National Webinar on “CyberSecurity:Technical Perspective:COVID -19",
+            "duration": "Karnataka science and Technology Academy& Seshadripuram College, Bangalore"
+          },
+          {
+            "title": "18.",
+            "institution": "Three Day National Webinar on Machine Learning",
+            "duration": "St. Joseph’sFirst Grade College,Mysore"
+          },
+          {
+            "title": "19.",
+            "institution": "National Level FDP on “IOT and Raspberry PI”",
+            "duration": "Sri Jagadguru Renukacharya Science and Arts College , Bangalore"
+          },
+          {
+            "title": "20.",
+            "institution": "National Webenar on “Intelectual Property Rights”",
+            "duration": "Govt. College for women Mandya"
+          },
+          {
+            "title": "21.",
+            "institution": "National Webenar on “Artificial Neural Networks and its Application”",
+            "duration": "JSS College for Arts, Sommerce and Science"
+          },
+          {
+            "title": "22.",
+            "institution": "Five ays Trainning on AWS",
+            "duration": "WebTech Labs Pvt .Ltd"
+          },
+          {
+            "title": "23.",
+            "institution": "National Level FDP on “Fundamentals of RPA”",
+            "duration": "ICT Academy"
+          },
+          {
+            "title": "24.",
+            "institution": "National Level FDP on “Introduction to Phython Programing”",
+            "duration": "ICT Academy"
+          },
+          {
+            "title": "25.",
+            "institution": "Certificate course in “Ethical Hacking and Cyber Security”",
+            "duration": "WebTech Labs Pvt .Ltd"
+          },
+          {
+            "title": "26.",
+            "institution": "Five days Workshop on “Technical Report Writing Using LaTaX",
+            "duration": "SENSE, VIT-AP University, Amaravathi AP"
+          },
+          {
+            "title": "27.",
+            "institution": "Workshop on human values development Progr7",
+            "duration": "St.Philomena’s College, Mysore"
+          },
+          {
+            "title": "28.",
+            "institution": "One day National Seminar on Cyber Security: Issues &Challenges",
+            "duration": "Basudev Somani College,Mysore"
+          },
+          {
+            "title": "29.",
+            "institution": "Five day FDP on Cyber Warfare Techniques, Tactics and Tools for Network Security",
+            "duration": "Dept. Of Information Science&Engineering GSSS Institute of Engineering and Technology, Mysore"
+          },
+          {
+            "title": "30.",
+            "institution": "One Day State Seminar on”Green Chemistry for Sustainable Future “",
+            "duration": "St.Philomena’s College, Mysore"
+          },
+          {
+            "title": "31.",
+            "institution": "One Day Literary Fest 2020",
+            "duration": "St.Philomena’s College, Mysore"
+          },
+          {
+            "title": "32.",
+            "institution": "International Conference on Knowledge Partnerships to advance the UN SDGs “Towards SUSTAINABLE LIFESTYLES AND INCLUSIVE SOCIETIES “",
+            "duration": "St.Philomena’s College, Mysore"
+          },
+          {
+            "title": "33.",
+            "institution": "One Day National Workshop on NIRF Rankingfocus on Data Capturing system for Higher education Institutions",
+            "duration": "NMKRV College for Women Bangalore"
+          },
+          {
+            "title": "34.",
+            "institution": "Two day Faculty Development Programme on Teaching and Learning",
+            "duration": "SDMIMD,Mysore"
+          },
+          {
+            "title": "35.",
+            "institution": "Six days FDP on Technology Supported Teaching and Evaluation",
+            "duration": "St.Philomena’s College, Mysore IQAC"
+          },
+          {
+            "title": "36.",
+            "institution": "Organized Two days National Conference on Emerging Trends in Computer Science and Technology",
+            "duration": "St.Philomena’s College, Mysore"
+          },
+          {
+            "title": "37.",
+            "institution": "Trainer’s Training Programme on Employability Entrepreneurship of LifeSkillsfor NSDC",
+            "duration": ""
+          },
+          {
+            "title": "38.",
+            "institution": "One week online Certificate Course on DIGITAL LEARNING TECHNIQUES",
+            "duration": "ICT Academy"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "gloriya@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_syeda_masarath",
+      "name": "Mrs. Syeda Masarath",
+      "cvData": {
+        "qualifications": [
+          "M.Sc. (CS), M.Phil."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "syeda_masarath@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_archana_a",
+      "name": "Ms. Archana A",
+      "cvData": {
+        "qualifications": [
+          "MCA"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "archana_a@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_j_sandra_agnes",
+      "name": "Ms. J. Sandra Agnes",
+      "cvData": {
+        "qualifications": [
+          "MCA, M.Phil."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "SL. No.",
+            "conferenceName": "Title of the paper",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "SL. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          }
+        ],
+        "awards": [
+          {
+            "award": "Sl. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          },
+          {
+            "award": "Title of the Book",
+            "organization": "Publisher",
+            "date": "Dates"
+          },
+          {
+            "award": "JAVA & ADVANCED JAVA LAB MANUAL ISBN: 978-93-93342-76-8",
+            "organization": "Jagaran Sahitya Prakashan",
+            "date": "11-03-2024"
+          },
+          {
+            "award": "Title of the Book",
+            "organization": "Publisher",
+            "date": "Dates"
+          },
+          {
+            "award": "The Feminine Quest ISBN : 978-93-93837-57-8 Chapter: Role of Women and Education",
+            "organization": "Jagaran Sahitya Prakashan",
+            "date": "October , 2023"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "sandraagnes@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_manasa_e",
+      "name": "Ms. Manasa E",
+      "cvData": {
+        "qualifications": [
+          "Specialization: Computer Engineering"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience 5 years 6 months"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "manasa@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_lydia_anjalla",
+      "name": "Ms. LYDIA ANJALI.A",
+      "cvData": {
+        "qualifications": [
+          "Specialization:"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience –"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "lydiaanjalia@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_harshitha_m",
+      "name": "Ms. HARSHITHA M",
+      "cvData": {
+        "qualifications": [
+          "Specialization: Computer Application"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience None"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "harshithamahesh@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_ajay_anthony_g",
+      "name": "Mr. Ajay Anthony G",
+      "cvData": {
+        "qualifications": [
+          "Specialization: MSC – Computer Science"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience NIL"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "ajayanthonyg42@gmail.com",
+          "phone": "9019280930",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_priyanka_mk",
+      "name": "Ms. Priyanka MK",
+      "cvData": {
+        "qualifications": [
+          "Specialization: MSC – Computer Science"
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Work Experience NIL"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [
+          {
+            "title": "S. No.",
+            "conferenceName": "Title of the paper (PUBLISHED)",
+            "dates": "Conference/Seminar & Place"
+          }
+        ],
+        "seminarsAttended": [
+          {
+            "title": "Sl. No.",
+            "institution": "Conferences/Seminars /Workshops",
+            "duration": "Name of the Institute/University"
+          }
+        ],
+        "workshops": [],
+        "resourcePerson": [
+          {
+            "institution": "S. No.",
+            "topic": "College/ University",
+            "date": "Topics"
+          }
+        ],
+        "awards": [
+          {
+            "award": "S. No.",
+            "organization": "Awards / Recognition",
+            "date": "University or Any Organization"
+          }
+        ],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "gowdapriyanka293@gmail.com",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_lenard_p",
+      "name": "Mr. Lenard P",
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "lenard_p@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_judith",
+      "name": "Ms. Judith",
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "judith@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_ayesha_siddiqa",
+      "name": "Ms. Ayesha Siddiqa",
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "ayesha_siddiqa@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_mohammed_maaz",
+      "name": "Mr. Mohammed Maaz",
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "mohammed_maaz@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_vidyashree",
+      "name": "Ms. Vidyashree",
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "vidyashree@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_prakruthi_v",
+      "name": "Ms. Prakruthi V",
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "prakruthi_v@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_kusuma_mv",
+      "name": "Ms. Kusuma MV",
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "kusuma_mv@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    },
+    {
+      "id": "fac_anarghya_theodor",
+      "name": "Mr. Anarghya Theodor",
+      "cvData": {
+        "qualifications": [
+          "MCA / M.Sc."
+        ],
+        "specialization": [],
+        "teachingExperience": [
+          "Academic Teaching & Research Experience"
+        ],
+        "researchExperience": [],
+        "industryExperience": [],
+        "researchInterests": [],
+        "publications": [],
+        "conferencePresentations": [],
+        "seminarsAttended": [],
+        "workshops": [],
+        "resourcePerson": [],
+        "awards": [],
+        "projects": [],
+        "books": [],
+        "contact": {
+          "email": "anarghya_theodor@stphilos.ac.in",
+          "phone": "+91 821 4001500",
+          "intercom": null
+        }
+      }
+    }
+  ],
+  "checksum": "84f838b162323b2b4cd00784c7d816d49d5bd44135b36add0e31066402f07194"
+}

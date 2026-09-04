@@ -1,173 +1,608 @@
 [
   {
-    "id": "dept_physics",
+    "id": "dept-bca",
+    "name": "Department of Computer Applications (BCA)",
+    "shortName": "Computer Applications (BCA)",
+    "facultyId": "faculty-science",
+    "slug": "bca",
+    "description": "The Department of Computer Applications (BCA) delivers comprehensive, industry-aligned technical education in full-stack web software, cloud systems, and application frameworks, offering direct progression to the AICTE-approved MCA degree.",
+    "officialUrl": "https://stphilos.ac.in/bca/",
+    "photoUrl": "/media/departments/dept-computer-science.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "bca"
+    ],
+    "pgProgrammes": [
+      "mca"
+    ],
+    "pathways": [
+      {
+        "id": "path-bca-mca",
+        "from": "bca",
+        "to": "mca",
+        "title": "BCA → MCA (Master of Computer Applications)",
+        "description": "Seamless academic progression from undergraduate application development to postgraduate enterprise systems, cloud architectures, and AI engineering."
+      }
+    ]
+  },
+  {
+    "id": "dept-computer-science",
+    "name": "Department of Computer Science (B.Sc / M.Sc)",
+    "shortName": "Computer Science (B.Sc)",
+    "facultyId": "faculty-science",
+    "slug": "computer-science",
+    "description": "The Department of Computer Science offers foundational and research-oriented computing education through B.Sc Computer Science and M.Sc Computer Science degrees.",
+    "officialUrl": "https://stphilos.ac.in/department-of-computer-science/",
+    "photoUrl": "/media/departments/dept-computer-science.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "bsc-cs"
+    ],
+    "pgProgrammes": [
+      "msc-cs"
+    ],
+    "pathways": [
+      {
+        "id": "path-bsc-msc-cs",
+        "from": "bsc-cs",
+        "to": "msc-cs",
+        "title": "B.Sc Computer Science → M.Sc Computer Science",
+        "description": "Theoretical computing and algorithmic research pathway leading to core systems programming, scientific computing, and data science."
+      }
+    ]
+  },
+  {
+    "id": "dept-physics",
     "name": "Department of Physics",
-    "category": "Science",
-    "head": "Prof. Thomas V.A.",
-    "description": "Advanced undergraduate and postgraduate physics education with research labs in solid state electronics, nuclear physics, and optics.",
-    "programmes": [
-      "B.Sc (Physics, Chemistry, Maths)",
-      "B.Sc (Physics, Maths, CS)",
-      "M.Sc. Physics"
+    "shortName": "Physics",
+    "facultyId": "faculty-science",
+    "slug": "physics",
+    "description": "One of the founding departments of St. Philomena’s College, established in 1946. Equipped with advanced optics, solid state, and computational physics laboratories.",
+    "officialUrl": "https://stphilos.ac.in/physics/",
+    "photoUrl": "/media/departments/dept-physics.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "bsc-physics"
+    ],
+    "pgProgrammes": [
+      "msc-physics"
+    ],
+    "pathways": [
+      {
+        "id": "path-bsc-msc-physics",
+        "from": "bsc-physics",
+        "to": "msc-physics",
+        "title": "B.Sc Physics → M.Sc Physics",
+        "description": "Progress from classical mechanics and electromagnetism to quantum physics, astrophysics, condensed matter, and nuclear physics research."
+      }
     ]
   },
   {
-    "id": "dept_chemistry",
+    "id": "dept-chemistry",
     "name": "Department of Chemistry",
-    "category": "Science",
-    "head": "Dr. Alphonse P.",
-    "description": "Comprehensive chemical science department equipped with modern organic synthesis, spectroscopy, analytical instrumentation, and industrial chemistry labs.",
-    "programmes": [
-      "B.Sc (Chemistry, Biotech, Biochem)",
-      "B.Sc (Physics, Chemistry, Maths)",
-      "M.Sc. Chemistry"
+    "shortName": "Chemistry",
+    "facultyId": "faculty-science",
+    "slug": "chemistry",
+    "description": "Recognized research department with state-of-the-art instrumentation including spectroscopy, chromatography, and organic synthesis suites.",
+    "officialUrl": "https://stphilos.ac.in/chemistry/",
+    "photoUrl": "/media/departments/dept-chemistry.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "bsc-chemistry"
+    ],
+    "pgProgrammes": [
+      "msc-chemistry"
+    ],
+    "pathways": [
+      {
+        "id": "path-bsc-msc-chem",
+        "from": "bsc-chemistry",
+        "to": "msc-chemistry",
+        "title": "B.Sc Chemistry → M.Sc Chemistry",
+        "description": "Specialization in Organic, Inorganic, Physical, and Analytical Chemistry preparing students for pharmaceutical and chemical industries."
+      }
     ]
   },
   {
-    "id": "dept_cs",
-    "name": "Department of Computer Science",
-    "category": "Science & Technology",
-    "head": "Prof. Sunil D'Souza",
-    "description": "Pioneering computer science education offering BCA, B.Sc Computer Science, M.Sc Computer Science, and AICTE-approved MCA.",
-    "programmes": [
-      "BCA (Computer Applications)",
-      "B.Sc (Physics, Maths, CS)",
-      "M.Sc. Computer Science",
-      "MCA (Master of Computer Applications)"
-    ]
-  },
-  {
-    "id": "dept_commerce",
-    "name": "Department of Commerce",
-    "category": "Commerce & Management",
-    "head": "Prof. Ronald Prakash Cutinha",
-    "description": "Premier commerce faculty delivering B.Com (General & NEP Honours) and M.Com with specializations in Corporate Accounting, Auditing, and Taxation.",
-    "programmes": [
-      "B.Com (Bachelor of Commerce)",
-      "M.Com (Master of Commerce)"
-    ]
-  },
-  {
-    "id": "dept_bba",
-    "name": "Department of Business Administration (BBA)",
-    "category": "Commerce & Management",
-    "head": "Prof. Sanjay D'Souza",
-    "description": "Dynamic management hub offering BBA, BTHM (Tourism & Hospitality), and AICTE-approved MBA with corporate internships and incubation support.",
-    "programmes": [
-      "BBA (Business Administration)",
-      "BTHM (Tourism & Hospitality)",
-      "MBA (Master of Business Administration)"
-    ]
-  },
-  {
-    "id": "dept_socialwork",
-    "name": "Department of Social Work",
-    "category": "Humanities & Social Sciences",
-    "head": "Prof. Mary Joseph",
-    "description": "Dedicated to human empowerment, social justice, community development, and mental health counseling through BSW and MSW degrees.",
-    "programmes": [
-      "BSW (Bachelor of Social Work)",
-      "MSW (Master of Social Work)"
-    ]
-  },
-  {
-    "id": "dept_maths",
+    "id": "dept-mathematics",
     "name": "Department of Mathematics",
-    "category": "Science",
-    "head": "Dr. Suresh Kumar N.",
-    "description": "Foundational and higher mathematical science department offering rigorous training in real analysis, algebra, fluid dynamics, and data analytics.",
-    "programmes": [
-      "B.Sc (Physics, Chemistry, Maths)",
-      "B.Sc (Physics, Maths, CS)",
-      "M.Sc. Mathematics"
+    "shortName": "Mathematics",
+    "facultyId": "faculty-science",
+    "slug": "mathematics",
+    "description": "Fostering abstract analytical thinking, mathematical modeling, discrete mathematics, and applied operations research.",
+    "officialUrl": "https://stphilos.ac.in/mathematics/",
+    "photoUrl": "/media/departments/dept-mathematics.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "bsc-mathematics"
+    ],
+    "pgProgrammes": [
+      "msc-mathematics"
+    ],
+    "pathways": [
+      {
+        "id": "path-bsc-msc-math",
+        "from": "bsc-mathematics",
+        "to": "msc-mathematics",
+        "title": "B.Sc Mathematics → M.Sc Mathematics",
+        "description": "Advanced pure and applied mathematics pathway leading to data analytics, cryptography, academia, and actuarial sciences."
+      }
     ]
   },
   {
-    "id": "dept_biotech",
-    "name": "Department of Biotechnology & Biochemistry",
-    "category": "Science",
-    "head": "Prof. Poornima M.",
-    "description": "Cutting-edge biological sciences department with plant tissue culture, molecular biology, enzymology, and genetic engineering laboratories.",
-    "programmes": [
-      "B.Sc (Biotechnology, Chemistry, Zoology)",
-      "M.Sc. Biochemistry"
+    "id": "dept-biochemistry",
+    "name": "Department of Biochemistry",
+    "shortName": "Biochemistry",
+    "facultyId": "faculty-science",
+    "slug": "biochemistry",
+    "description": "Dedicated to molecular biology, clinical diagnostics, enzymology, proteomics, and biomedical research.",
+    "officialUrl": "https://stphilos.ac.in/biochemistry/",
+    "photoUrl": "/media/departments/dept-biochemistry.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "bsc-biochemistry"
+    ],
+    "pgProgrammes": [
+      "msc-biochemistry"
+    ],
+    "pathways": [
+      {
+        "id": "path-bsc-msc-biochem",
+        "from": "bsc-biochemistry",
+        "to": "msc-biochemistry",
+        "title": "B.Sc Biochemistry → M.Sc Biochemistry",
+        "description": "Advanced postgraduate specialization in clinical enzymology, immunology, toxicology, and pharmaceutical biotechnology."
+      }
     ]
   },
   {
-    "id": "dept_english",
-    "name": "Department of English & Foreign Languages",
-    "category": "Languages & Arts",
-    "head": "Dr. Ravi J.D. Saldanha",
-    "description": "Rich literary studies department delivering B.A. English Literature, M.A. English, and specialized certificate courses in foreign languages.",
-    "programmes": [
-      "B.A. (English, Journalism, Psychology)",
-      "M.A. English Literature"
+    "id": "dept-biotechnology",
+    "name": "Department of Biotechnology",
+    "shortName": "Biotechnology",
+    "facultyId": "faculty-science",
+    "slug": "biotechnology",
+    "description": "Cutting-edge genetic engineering, tissue culture, bioprocess engineering, and bioinformatics research center.",
+    "officialUrl": "https://stphilos.ac.in/biotechnology/",
+    "photoUrl": "/media/departments/dept-biotechnology.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "bsc-biotechnology"
+    ],
+    "pgProgrammes": [
+      "msc-biotechnology"
+    ],
+    "pathways": [
+      {
+        "id": "path-bsc-msc-biotech",
+        "from": "bsc-biotechnology",
+        "to": "msc-biotechnology",
+        "title": "B.Sc Biotechnology → M.Sc Biotechnology",
+        "description": "Direct pathway to recombinant DNA technology, industrial bioprocessing, and clinical biomedical applications."
+      }
     ]
   },
   {
-    "id": "dept_economics",
-    "name": "Department of Economics",
-    "category": "Humanities & Social Sciences",
-    "head": "Dr. Francis Xavier",
-    "description": "Analytical economic studies providing B.A. Economics and M.A. Economics with focus on econometrics, public policy, and quantitative analysis.",
-    "programmes": [
-      "B.A. (Economics, History, Political Science)",
-      "M.A. Economics"
+    "id": "dept-microbiology",
+    "name": "Department of Microbiology",
+    "shortName": "Microbiology",
+    "facultyId": "faculty-science",
+    "slug": "microbiology",
+    "description": "Comprehensive study of microbial genetics, medical virology, bacteriology, and environmental microbiology.",
+    "officialUrl": "https://stphilos.ac.in/microbiology/",
+    "photoUrl": null,
+    "photoVerified": false,
+    "ugProgrammes": [
+      "bsc-microbiology"
+    ],
+    "pgProgrammes": [],
+    "pathways": [
+      {
+        "id": "path-bsc-micro-to-biotech",
+        "from": "bsc-microbiology",
+        "to": "msc-biotechnology",
+        "title": "B.Sc Microbiology → M.Sc Biotechnology (Interdisciplinary)",
+        "description": "Progress into advanced molecular biotechnology and genetic engineering."
+      }
     ]
   },
   {
-    "id": "dept_criminology",
-    "name": "Department of Criminology & Forensic Science",
-    "category": "Science & Social Sciences",
-    "head": "Prof. Benedict Fernandez",
-    "description": "Specialized crime investigation and forensic science department providing B.Sc Criminology and M.Sc Criminology & Forensic Science.",
-    "programmes": [
-      "B.Sc (Criminology, Forensic Science)",
-      "M.Sc. Criminology and Forensic Science"
-    ]
+    "id": "dept-botany-zoology",
+    "name": "Department of Botany & Zoology",
+    "shortName": "Botany & Zoology",
+    "facultyId": "faculty-science",
+    "slug": "botany-zoology",
+    "description": "Promoting biodiversity conservation, plant physiology, animal taxonomy, and ecological sciences with botanical gardens and museum.",
+    "officialUrl": "https://stphilos.ac.in/botany/",
+    "photoUrl": null,
+    "photoVerified": false,
+    "ugProgrammes": [
+      "bsc-botany",
+      "bsc-zoology"
+    ],
+    "pgProgrammes": [],
+    "pathways": []
   },
   {
-    "id": "dept_journalism",
-    "name": "Department of Journalism & Mass Communication",
-    "category": "Humanities & Media",
-    "head": "Dr. Kavitha S. Nair",
-    "description": "Media and communication center featuring digital TV production studio, audio suite, print publishing lab, and M.A. JMC degree.",
-    "programmes": [
-      "B.A. (Journalism, English, Psychology)",
-      "M.A. Journalism & Mass Communication"
-    ]
-  },
-  {
-    "id": "dept_psychology",
-    "name": "Department of Psychology",
-    "category": "Social & Behavioral Sciences",
-    "head": "Dr. Ramesh Chandra",
-    "description": "Behavioral science center offering B.A. Psychology, B.Sc Psychology, M.Sc Psychology, and psychological counseling services.",
-    "programmes": [
-      "B.A. / B.Sc Psychology",
-      "M.Sc. Psychology"
-    ]
-  },
-  {
-    "id": "dept_foodscience",
+    "id": "dept-food-science",
     "name": "Department of Food Science & Nutrition",
-    "category": "Science & Healthcare",
-    "head": "Dr. Shalini Menon",
-    "description": "Nutritional science hub delivering clinical dietetics, food processing, food safety quality control, and M.Sc Food Science & Nutrition.",
-    "programmes": [
-      "B.Sc (Food Science, Chemistry, Microbiology)",
-      "M.Sc. Food Science and Nutrition"
+    "shortName": "Food Science & Nutrition",
+    "facultyId": "faculty-science",
+    "slug": "food-science-and-nutrition",
+    "description": "Pioneering nutrition research, dietetics, clinical nutrition, food microbiology, and food processing laboratory.",
+    "officialUrl": "https://stphilos.ac.in/post-graduation-department-of-food-science-and-nutrition/",
+    "photoUrl": "/media/departments/dept-food-science.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "bsc-food-science"
+    ],
+    "pgProgrammes": [
+      "msc-food-science"
+    ],
+    "pathways": [
+      {
+        "id": "path-bsc-msc-food-sci",
+        "from": "bsc-food-science",
+        "to": "msc-food-science",
+        "title": "B.Sc Food Science → M.Sc Food Science & Nutrition",
+        "description": "Specialization for registered clinical dietitians, food quality auditors, and nutritional researchers."
+      }
     ]
   },
   {
-    "id": "dept_kannada",
-    "name": "Department of Kannada & Indian Languages",
-    "category": "Languages & Culture",
-    "head": "Prof. Rajeshwari K.",
-    "description": "Preserving and promoting Kannada heritage, classical literature, folklore, Hindi, French, and Malayalam language studies.",
-    "programmes": [
-      "Language Courses (Kannada, Hindi, French, Malayalam)",
-      "B.A. Kannada Major"
+    "id": "dept-psychology",
+    "name": "Department of Psychology",
+    "shortName": "Psychology",
+    "facultyId": "faculty-science",
+    "slug": "psychology",
+    "description": "Psychological testing laboratory, counseling clinic, and clinical psychotherapy research suites.",
+    "officialUrl": "https://stphilos.ac.in/dept-of-m-sc-psychology/",
+    "photoUrl": "/media/departments/dept-psychology.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "ba-psychology",
+      "bsc-psychology"
+    ],
+    "pgProgrammes": [
+      "msc-psychology"
+    ],
+    "pathways": [
+      {
+        "id": "path-ba-msc-psychology",
+        "from": "ba-psychology",
+        "to": "msc-psychology",
+        "title": "B.A Psychology → M.Sc Psychology",
+        "description": "Postgraduate training in clinical diagnostics, neuro-psychology, cognitive counseling, and organizational behavior."
+      },
+      {
+        "id": "path-bsc-msc-psychology",
+        "from": "bsc-psychology",
+        "to": "msc-psychology",
+        "title": "B.Sc Psychology → M.Sc Psychology",
+        "description": "Scientific and clinical pathway to professional counseling, mental healthcare, and cognitive psychology."
+      }
+    ]
+  },
+  {
+    "id": "dept-environmental-science",
+    "name": "Department of Environmental Science",
+    "shortName": "Environmental Science",
+    "facultyId": "faculty-science",
+    "slug": "environmental-science",
+    "description": "Environmental impact assessment, air and water quality monitoring, renewable energy studies, and sustainability analysis.",
+    "officialUrl": "https://stphilos.ac.in/department-of-environmental-science/",
+    "photoUrl": null,
+    "photoVerified": false,
+    "ugProgrammes": [
+      "bsc-environmental-science"
+    ],
+    "pgProgrammes": [],
+    "pathways": []
+  },
+  {
+    "id": "dept-criminology",
+    "name": "Department of Criminology & Forensic Science",
+    "shortName": "Criminology & Forensic Science",
+    "facultyId": "faculty-science",
+    "slug": "criminology-and-forensic-science",
+    "description": "Fingerprinting laboratory, ballistics, crime scene investigation suites, cyber forensics, and police administration training.",
+    "officialUrl": "https://stphilos.ac.in/department-of-criminology-and-forensic-science/",
+    "photoUrl": null,
+    "photoVerified": false,
+    "ugProgrammes": [
+      "ba-criminology",
+      "bsc-forensic-science"
+    ],
+    "pgProgrammes": [],
+    "pathways": []
+  },
+  {
+    "id": "dept-management",
+    "name": "Department of Business Administration & Management",
+    "shortName": "Management (BBA / MBA)",
+    "facultyId": "faculty-commerce-management",
+    "slug": "management",
+    "description": "AICTE-approved business education center cultivating executive leadership, marketing strategy, human capital management, and financial analytics.",
+    "officialUrl": "https://stphilos.ac.in/bba/",
+    "photoUrl": "/media/departments/dept-management.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "bba",
+      "bba-thm"
+    ],
+    "pgProgrammes": [
+      "mba"
+    ],
+    "pathways": [
+      {
+        "id": "path-bba-mba",
+        "from": "bba",
+        "to": "mba",
+        "title": "BBA (Bachelor of Business Administration) → MBA (Master of Business Administration)",
+        "description": "Direct progression from foundational management principles to dual-specialization executive corporate leadership."
+      },
+      {
+        "id": "path-bba-thm-mba",
+        "from": "bba-thm",
+        "to": "mba",
+        "title": "BBA-THM (Tourism & Hospitality) → MBA",
+        "description": "Specialized business administration pathway leading to executive hospitality, global tourism, and airline management."
+      }
+    ]
+  },
+  {
+    "id": "dept-commerce",
+    "name": "Department of Commerce",
+    "shortName": "Commerce (B.Com / M.Com)",
+    "facultyId": "faculty-commerce-management",
+    "slug": "commerce",
+    "description": "Premier commerce faculty offering professional certifications in ACCA, CMA, GST taxation, corporate accounting, and investment banking.",
+    "officialUrl": "https://stphilos.ac.in/bcom/",
+    "photoUrl": "/media/departments/dept-commerce.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "bcom",
+      "bcom-corporate-accounting",
+      "bcom-taxation"
+    ],
+    "pgProgrammes": [
+      "mcom"
+    ],
+    "pathways": [
+      {
+        "id": "path-bcom-mcom",
+        "from": "bcom",
+        "to": "mcom",
+        "title": "B.Com (Bachelor of Commerce) → M.Com (Master of Commerce)",
+        "description": "Advanced financial analysis, international accounting standards, forensic accounting, and higher academia."
+      },
+      {
+        "id": "path-bcom-mba",
+        "from": "bcom",
+        "to": "mba",
+        "title": "B.Com → MBA (Master of Business Administration)",
+        "description": "Corporate executive route focusing on financial management, venture capital, and corporate leadership."
+      }
+    ]
+  },
+  {
+    "id": "dept-social-work",
+    "name": "Department of Social Work",
+    "shortName": "Social Work (BSW / MSW)",
+    "facultyId": "faculty-arts-humanities",
+    "slug": "social-work",
+    "description": "Eminent department of social work dedicated to community development, medical and psychiatric social work, and human resource management.",
+    "officialUrl": "https://stphilos.ac.in/bsw/",
+    "photoUrl": "/media/departments/dept-social-work.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "bsw"
+    ],
+    "pgProgrammes": [
+      "msw"
+    ],
+    "pathways": [
+      {
+        "id": "path-bsw-msw",
+        "from": "bsw",
+        "to": "msw",
+        "title": "BSW (Bachelor of Social Work) → MSW (Master of Social Work)",
+        "description": "Comprehensive professional training with concurrent fieldwork, rural immersion, and psychiatric social work specialization."
+      }
+    ]
+  },
+  {
+    "id": "dept-economics",
+    "name": "Department of Economics",
+    "shortName": "Economics",
+    "facultyId": "faculty-arts-humanities",
+    "slug": "economics",
+    "description": "Excellence in econometrics, public finance, monetary economics, rural development, and policy analysis.",
+    "officialUrl": "https://stphilos.ac.in/department-of-economics/",
+    "photoUrl": "/media/departments/dept-economics.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "ba-economics"
+    ],
+    "pgProgrammes": [
+      "ma-economics"
+    ],
+    "pathways": [
+      {
+        "id": "path-ba-ma-econ",
+        "from": "ba-economics",
+        "to": "ma-economics",
+        "title": "B.A Economics → M.A Economics",
+        "description": "Quantitative economic modeling, central banking policy, development economics, and financial consulting."
+      }
+    ]
+  },
+  {
+    "id": "dept-english",
+    "name": "Department of English",
+    "shortName": "English",
+    "facultyId": "faculty-arts-humanities",
+    "slug": "english",
+    "description": "Literature, critical theory, linguistic analysis, creative writing, and communicative competence in English.",
+    "officialUrl": "https://stphilos.ac.in/english/",
+    "photoUrl": "/media/departments/dept-english.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "ba-english",
+      "ba-functional-english"
+    ],
+    "pgProgrammes": [
+      "ma-english"
+    ],
+    "pathways": [
+      {
+        "id": "path-ba-ma-eng",
+        "from": "ba-english",
+        "to": "ma-english",
+        "title": "B.A English → M.A English",
+        "description": "Postcolonial literature, modern critical theory, cultural studies, and comparative literary research."
+      }
+    ]
+  },
+  {
+    "id": "dept-journalism",
+    "name": "Department of Journalism & Mass Communication",
+    "shortName": "Journalism & Mass Communication",
+    "facultyId": "faculty-arts-humanities",
+    "slug": "journalism-and-mass-communication",
+    "description": "Equipped with professional multi-camera broadcasting studio, digital audio recording suite, and print journalism newsroom.",
+    "officialUrl": "https://stphilos.ac.in/m-a-mass-communication-journalism/",
+    "photoUrl": "/media/departments/dept-journalism.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "ba-journalism"
+    ],
+    "pgProgrammes": [
+      "ma-journalism"
+    ],
+    "pathways": [
+      {
+        "id": "path-ba-ma-journalism",
+        "from": "ba-journalism",
+        "to": "ma-journalism",
+        "title": "B.A Journalism → M.A Journalism & Mass Communication",
+        "description": "Broadcast journalism, investigative reporting, digital media production, corporate communications, and public relations."
+      }
+    ]
+  },
+  {
+    "id": "dept-sociology",
+    "name": "Department of Sociology",
+    "shortName": "Sociology",
+    "facultyId": "faculty-arts-humanities",
+    "slug": "sociology",
+    "description": "Understanding social dynamics, institutional structures, gender studies, urban sociology, and social research methods.",
+    "officialUrl": "https://stphilos.ac.in/department-of-sociology/",
+    "photoUrl": null,
+    "photoVerified": false,
+    "ugProgrammes": [
+      "ba-sociology"
+    ],
+    "pgProgrammes": [],
+    "pathways": [
+      {
+        "id": "path-ba-soc-to-msw",
+        "from": "ba-sociology",
+        "to": "msw",
+        "title": "B.A Sociology → MSW (Master of Social Work)",
+        "description": "Interdisciplinary pathway connecting social theoretical foundations with clinical community practice."
+      }
+    ]
+  },
+  {
+    "id": "dept-history",
+    "name": "Department of History",
+    "shortName": "History",
+    "facultyId": "faculty-arts-humanities",
+    "slug": "history",
+    "description": "Historiography, archaeology, heritage studies, Karnataka regional history, and Indian national movement analysis.",
+    "officialUrl": "https://stphilos.ac.in/department-of-history/",
+    "photoUrl": null,
+    "photoVerified": false,
+    "ugProgrammes": [
+      "ba-history"
+    ],
+    "pgProgrammes": [],
+    "pathways": []
+  },
+  {
+    "id": "dept-political-science",
+    "name": "Department of Political Science",
+    "shortName": "Political Science",
+    "facultyId": "faculty-arts-humanities",
+    "slug": "political-science",
+    "description": "Constitutional governance, political philosophy, international relations, public administration, and human rights.",
+    "officialUrl": "https://stphilos.ac.in/department-of-political-science/",
+    "photoUrl": null,
+    "photoVerified": false,
+    "ugProgrammes": [
+      "ba-political-science"
+    ],
+    "pgProgrammes": [],
+    "pathways": []
+  },
+  {
+    "id": "dept-languages",
+    "name": "Department of Indian & Foreign Languages",
+    "shortName": "Languages (Kannada, Hindi, French, Malayalam, Tamil, Urdu)",
+    "facultyId": "faculty-arts-humanities",
+    "slug": "languages",
+    "description": "Celebrating multilingual heritage with specialized faculties in Kannada, Hindi, French, Malayalam, Tamil, and Urdu.",
+    "officialUrl": "https://stphilos.ac.in/kannada/",
+    "photoUrl": null,
+    "photoVerified": false,
+    "ugProgrammes": [
+      "ba-kannada",
+      "ba-hindi"
+    ],
+    "pgProgrammes": [
+      "ma-holistic-spirituality"
+    ],
+    "pathways": []
+  },
+  {
+    "id": "dept-vocational-studies",
+    "name": "Department of Vocational Studies (B.Voc)",
+    "shortName": "Vocational Studies",
+    "facultyId": "faculty-vocational",
+    "slug": "vocational-studies",
+    "description": "Industry-integrated vocational degrees designed with sector skill councils (Healthcare, Media, IT, Hospitality).",
+    "officialUrl": "https://stphilos.ac.in/b-voc/",
+    "photoUrl": null,
+    "photoVerified": false,
+    "ugProgrammes": [
+      "bvoc-healthcare",
+      "bvoc-media-entertainment",
+      "bvoc-it",
+      "bvoc-hospitality"
+    ],
+    "pgProgrammes": [],
+    "pathways": [
+      {
+        "id": "path-bvoc-it-mca",
+        "from": "bvoc-it",
+        "to": "mca",
+        "title": "B.Voc Information Technology → MCA",
+        "description": "Advance from applied technical skills to full postgraduate computer applications degree."
+      },
+      {
+        "id": "path-bvoc-media-ma",
+        "from": "bvoc-media-entertainment",
+        "to": "ma-journalism",
+        "title": "B.Voc Media & Entertainment → M.A Journalism & Mass Communication",
+        "description": "Direct progression into advanced digital media production and broadcast journalism."
+      },
+      {
+        "id": "path-bvoc-hosp-mba",
+        "from": "bvoc-hospitality",
+        "to": "mba",
+        "title": "B.Voc Hospitality Management → MBA",
+        "description": "Progress from operational hospitality management to postgraduate corporate leadership."
+      }
     ]
   }
 ]

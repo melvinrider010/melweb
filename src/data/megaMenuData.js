@@ -1,10 +1,17 @@
 // Master MegaMenu Navigation Data for St. Philomena's College (Autonomous), Mysuru
-// Pure Typographic Multi-Column Navigation (No Images)
+// Rich Multi-Column Navigation with One Dedicated Feature Image per Dropdown
 
 export const MEGA_MENU_DATA = {
   // 1. ABOUT US
   about: {
     title: "About Us",
+    featuredCard: {
+      image: "/media/heritage/st_philos_heritage_palace.jpg",
+      tag: "Est. 1946 Heritage",
+      title: "Historic Heritage Quadrangle",
+      subtitle: "Rooted in Catholic educational tradition and value-based pedagogy since 1946.",
+      link: "/about"
+    },
     columns: [
       {
         heading: "History & Identity",
@@ -32,24 +39,29 @@ export const MEGA_MENU_DATA = {
   // 2. ACADEMICS
   academics: {
     title: "Academics",
+    featuredCard: {
+      image: "/assets/images/campus/science_block_official.png",
+      tag: "Autonomous Curriculum",
+      title: "UG & PG Academic Programmes",
+      subtitle: "NEP 2020 framework, honors pathways, and multidisciplinary subject combinations.",
+      link: "/academics"
+    },
     columns: [
       {
-        heading: "Academic Streams",
+        heading: "Programmes & Degrees",
         links: [
-          { label: "Undergraduate (UG) Programmes", path: "/academics?tab=ug" },
-          { label: "Postgraduate (PG) Programmes", path: "/academics?tab=pg" },
-          { label: "Doctoral & Research Studies", path: "/research" },
-          { label: "Certificate & Value Added Courses", path: "/academics?tab=certificate" }
+          { label: "UG Programme", path: "/academics?tab=ug" },
+          { label: "PG Programme", path: "/academics?tab=pg" },
+          { label: "Course/Program Outcomes", path: "/academics?tab=outcomes" }
         ]
       },
       {
         heading: "Curriculum & Regulations",
         links: [
           { label: "NEP REGULATIONS", path: "/academics?tab=nep" },
-          { label: "E-Content Portal", path: "/academics?tab=econtent" },
+          { label: "E-Content", path: "/academics?tab=econtent" },
           { label: "Syllabus UG", path: "/academics?tab=syllabus-ug" },
-          { label: "Syllabus PG", path: "/academics?tab=syllabus-pg" },
-          { label: "Course/Program Outcomes", path: "/academics?tab=outcomes" }
+          { label: "Syllabus PG", path: "/academics?tab=syllabus-pg" }
         ]
       }
     ]
@@ -58,6 +70,13 @@ export const MEGA_MENU_DATA = {
   // 3. EXAMINATION
   examinations: {
     title: "Examination",
+    featuredCard: {
+      image: "/assets/images/campus/admin_quadrangle_heritage.jpg",
+      tag: "Admissions 2026–27",
+      title: "Admissions & COE Portal",
+      subtitle: "Download official prospectus, fee schedule, and autonomous semester time tables.",
+      link: "/prospectus"
+    },
     columns: [
       {
         heading: "Admission",
@@ -84,14 +103,21 @@ export const MEGA_MENU_DATA = {
   // 4. RESOURCE (RESEARCH)
   research: {
     title: "Resource",
+    featuredCard: {
+      image: "/assets/images/campus/library_block_official.jpg",
+      tag: "50,000+ Volumes",
+      title: "Central Digital Library & RDC",
+      subtitle: "Access INFLIBNET N-LIST e-journals, research grants, and peer-reviewed publications.",
+      link: "/library"
+    },
     columns: [
       {
         heading: "Publications & Media",
         links: [
-          { label: "E Journal", path: "/research" },
-          { label: "Philo's Bulletin", path: "/research" },
-          { label: "Central Library & Digital Commons", path: "/resources" },
-          { label: "College Magazine", path: "/resources" }
+          { label: "E Journal", path: "/e-journal" },
+          { label: "Philo's Bulletin", path: "/e-journal" },
+          { label: "Central Library & Digital Commons", path: "/library" },
+          { label: "College Magazine", path: "/magazine" }
         ]
       },
       {
@@ -109,43 +135,50 @@ export const MEGA_MENU_DATA = {
   // 5. STUDENT SUPPORT
   studentSupport: {
     title: "Student Support",
+    featuredCard: {
+      image: "/assets/images/campus/indoor_stadium_official.png",
+      tag: "Student Life & Amenities",
+      title: "Campus Welfare & Hostels",
+      subtitle: "State-level indoor stadium, on-campus hostels, career placements, and healthcare.",
+      link: "/infrastructure"
+    },
     columns: [
       {
         heading: "Placement Cell & Welfare",
         links: [
-          { label: "Career and Placement Cell", path: "/student-support" },
-          { label: "Grievance Redressal", path: "/compliance/student-grievance-committee" },
-          { label: "Anti-Ragging", path: "/compliance/anti-ragging-policy" },
-          { label: "Women's Cell", path: "/student-support" },
-          { label: "Student Welfare Cell", path: "/student-support" },
-          { label: "Counselling Centre", path: "/student-support" },
-          { label: "Human Values And Professional Ethics", path: "/compliance/code-of-conduct" },
-          { label: "Youth Redcross", path: "/student-support" }
+          { label: "Career and Placement Cell", path: "/student-support/placement-cell" },
+          { label: "Grievance Redressal", path: "/student-support/student-grievance-redressal-committee" },
+          { label: "Anti-Ragging", path: "/student-support/anti-ragging" },
+          { label: "Women's Cell", path: "/student-support/womens-cell" },
+          { label: "Student Welfare Cell", path: "/student-support/student-welfare-cell" },
+          { label: "Counselling Centre", path: "/student-support/counselling-centre" },
+          { label: "Human Values And Professional Ethics", path: "/student-support/human-values-professional-ethics" },
+          { label: "Youth Redcross", path: "/student-support/youth-red-cross-yrc" }
         ]
       },
       {
         heading: "Amenities",
         links: [
-          { label: "Library", path: "/resources" },
-          { label: "College Magazine", path: "/resources" },
-          { label: "Physical Infrastructure", path: "/about?tab=infrastructure" },
-          { label: "Business Lab", path: "/student-support" },
-          { label: "Computer Lab", path: "/student-support" },
-          { label: "Girls Hostel", path: "/student-support" },
-          { label: "Boys Hostel", path: "/student-support" },
-          { label: "Auditorium", path: "/student-support" },
-          { label: "Philos Bulletin", path: "/research" }
+          { label: "Library", path: "/student-support/library" },
+          { label: "College Magazine", path: "/magazine" },
+          { label: "Physical Infrastructure", path: "/infrastructure" },
+          { label: "Business Lab", path: "/student-support/business-lab" },
+          { label: "Computer Lab", path: "/student-support/computer-science-lab" },
+          { label: "Girls Hostel", path: "/student-support/girls-hostel" },
+          { label: "Boys Hostel", path: "/student-support/boys-hostel" },
+          { label: "Auditorium", path: "/student-support/auditorium" },
+          { label: "Philos Bulletin", path: "/e-journal" }
         ]
       },
       {
         heading: "Other Amenities",
         links: [
-          { label: "Bank & ATM", path: "/student-support" },
-          { label: "Chapel", path: "/about?tab=history" },
-          { label: "Ranger and Rovers", path: "/student-support" },
-          { label: "NCC", path: "/student-support" },
-          { label: "NSS", path: "/student-support" },
-          { label: "Indoor Stadium", path: "/student-support" }
+          { label: "Bank & ATM", path: "/student-support/bank-atm" },
+          { label: "Chapel", path: "/chapel" },
+          { label: "Ranger and Rovers", path: "/student-support/ranger-and-rovers" },
+          { label: "NCC", path: "/student-support/ncc" },
+          { label: "NSS", path: "/student-support/nss" },
+          { label: "Indoor Stadium", path: "/indoor-stadium" }
         ]
       }
     ]
@@ -154,6 +187,13 @@ export const MEGA_MENU_DATA = {
   // 6. MANDATORY DISCLOSURE
   compliance: {
     title: "Mandatory Disclosure",
+    featuredCard: {
+      image: "/assets/images/campus/about_building.jpg",
+      tag: "Statutory Governance",
+      title: "Mandatory Disclosure & UGC Norms",
+      subtitle: "Institutional development plans, AICTE disclosures, and committee policies.",
+      link: "/mandatory-disclosure"
+    },
     columns: [
       {
         heading: "Mandatory Disclosure",
@@ -192,19 +232,7 @@ export const MEGA_MENU_DATA = {
           { label: "EOA 2024-25", path: "/compliance/eoa-2026-27" },
           { label: "EOA 2025-26", path: "/compliance/eoa-2026-27" },
           { label: "EOA 2026-27", path: "/compliance/eoa-2026-27" },
-          { label: "Redressal Of Atrocities Against women", path: "/compliance/internal-complaints-committee" },
-          { label: "AICTE Feedback For Faculty And Student", path: "/compliance/code-of-conduct" },
-          { label: "Online Certificate Verification", path: "https://stphilos.directverify.in/student/", isExternal: true },
-          { label: "UUCMS", path: "https://uucms.karnataka.gov.in/Login/Index", isExternal: true },
-          { label: "MHRD", path: "https://www.education.gov.in/", isExternal: true },
-          { label: "UOM", path: "https://uni-mysore.ac.in/", isExternal: true },
-          { label: "UTSAH", path: "https://utsah.ugc.ac.in/", isExternal: true },
-          { label: "AISHE", path: "https://aishe.gov.in/", isExternal: true },
-          { label: "DCE", path: "https://dce.karnataka.gov.in/", isExternal: true },
-          { label: "KSHEC", path: "https://kshec.karnataka.gov.in/", isExternal: true },
-          { label: "Scholarship", path: "https://ssp.postmatric.karnataka.gov.in/homepage.aspx", isExternal: true },
-          { label: "UGC Compliance", path: "/compliance/ugc-refund-policy" },
-          { label: "AICTE Sholarship/ Fellowship", path: "/compliance/aicte-mca-mba-disclosure" }
+          { label: "More Important Links & Portals →", path: "/important-links", isButton: true }
         ]
       }
     ]
@@ -213,10 +241,18 @@ export const MEGA_MENU_DATA = {
   // 7. IQAC
   iqac: {
     title: "IQAC",
+    featuredCard: {
+      image: "/assets/images/facilities/campus_auditorium.jpg",
+      tag: "Academic Excellence",
+      title: "Internal Quality Assurance Cell",
+      subtitle: "NAAC Cycle III accreditation, NIRF ranking data, and institutional quality benchmarks.",
+      link: "/iqac"
+    },
     columns: [
       {
         heading: "Internal Quality Assurance Cell (IQAC)",
         links: [
+          { label: "About IQAC", path: "/iqac" },
           { label: "IIC (Institution's Innovation Council)", path: "/iic" },
           { label: "NIRF", path: "/nirf" },
           { label: "NAAC", path: "/naac" },
@@ -228,3 +264,6 @@ export const MEGA_MENU_DATA = {
     ]
   }
 };
+
+export const initialMegaMenuData = MEGA_MENU_DATA;
+export default MEGA_MENU_DATA;

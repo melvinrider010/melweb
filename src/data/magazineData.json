@@ -1,0 +1,41 @@
+[
+  {
+    "id": "mag-2025",
+    "title": "Philomena — Platinum Jubilee Commemorative College Magazine 2024–2025",
+    "volume": "Volume LXXVIII",
+    "year": "2024–2025",
+    "theme": "“78 Years of Caritas et Scientia: Empowering Minds, Transforming Societies”",
+    "editorInChief": "Magazine Editorial Committee",
+    "coverImage": "/assets/images/campus_quad.jpg",
+    "pdfPath": "/assets/documents/magazines/philomena-college-magazine-2024-25.pdf",
+    "totalPages": 64,
+    "description": "The official annual publication of St. Philomena's College featuring creative writing, poetry, research essays, photography, departmental reports, sports achievements, and institutional milestones in English, Kannada, Hindi, and Malayalam.",
+    "articles": [
+      { "page": 1, "title": "Editorial: Journey of 78 Years of Academic Ministry", "author": "Editorial Board" },
+      { "page": 6, "title": "Rector's & Principal's Annual College Message", "author": "Administration" },
+      { "page": 12, "title": "Annual Academic & NAAC Accreditation Report", "author": "IQAC" },
+      { "page": 24, "title": "Literary Section: English Prose & Poetry", "author": "Student Writers" },
+      { "page": 38, "title": "ಕನ್ನಡ ಸಾಹಿತ್ಯ ವಿಭಾಗ (Kannada Literary Section)", "author": "Department of Kannada" },
+      { "page": 48, "title": "Sports, NCC & Cultural Laurels 2024-25", "author": "Student Council" },
+      { "page": 56, "title": "Alumni Memories & Global Chapters", "author": "Alumni Association" }
+    ]
+  },
+  {
+    "id": "mag-2024",
+    "title": "Philomena — Annual College Magazine 2023–2024",
+    "volume": "Volume LXXVII",
+    "year": "2023–2024",
+    "theme": "“Innovation, Sustainable Ecology & Global Citizenship”",
+    "editorInChief": "Editorial Board",
+    "coverImage": "/assets/images/campus_quad.jpg",
+    "pdfPath": "/assets/documents/magazines/philomena-college-magazine-2023-24.pdf",
+    "totalPages": 52,
+    "description": "Annual chronicling of academic excellence, campus festivals, science exhibitions, and community outreach programs.",
+    "articles": [
+      { "page": 1, "title": "Editorial: Nurturing Compassion in a Digital Era", "author": "Editorial Committee" },
+      { "page": 8, "title": "Departmental Highlights & Research Laurels", "author": "Faculty Deans" },
+      { "page": 20, "title": "Student Creative Arts & Multilingual Poetry", "author": "Philomena Literary Forum" },
+      { "page": 36, "title": "Eco-Club & Green Campus Initiatives", "author": "Green Committee" }
+    ]
+  }
+]

@@ -1,0 +1,908 @@
+[
+  {
+    "id": 34436,
+    "slug": "ms-suhana-kulssum",
+    "title": "Ms.SUHANA KULSSUM",
+    "link": "https://stphilos.ac.in/ms-suhana-kulssum/"
+  },
+  {
+    "id": 34186,
+    "slug": "mr-ranjith-c-v-2",
+    "title": "Mr.RANJITH .C.V",
+    "link": "https://stphilos.ac.in/mr-ranjith-c-v-2/"
+  },
+  {
+    "id": 29684,
+    "slug": "rev-dr-lourdu-prasad-joseph-3",
+    "title": "Rev. Dr. Lourdu Prasad Joseph",
+    "link": "https://stphilos.ac.in/rev-dr-lourdu-prasad-joseph-3/"
+  },
+  {
+    "id": 29681,
+    "slug": "rev-dr-lourdu-prasad-joseph-2",
+    "title": "Rev. Dr. Lourdu Prasad Joseph",
+    "link": "https://stphilos.ac.in/rev-dr-lourdu-prasad-joseph-2/"
+  },
+  {
+    "id": 27661,
+    "slug": "mr-raviraja-i-vadigeri-3",
+    "title": "Mr. Raviraja I Vadigeri",
+    "link": "https://stphilos.ac.in/mr-raviraja-i-vadigeri-3/"
+  },
+  {
+    "id": 27456,
+    "slug": "mr-kudureyallappa",
+    "title": "Mr. KUDUREYALLAPPA",
+    "link": "https://stphilos.ac.in/mr-kudureyallappa/"
+  },
+  {
+    "id": 27445,
+    "slug": "mrs-sowmya-mathew",
+    "title": "Mrs. Sowmya Mathew",
+    "link": "https://stphilos.ac.in/mrs-sowmya-mathew/"
+  },
+  {
+    "id": 26540,
+    "slug": "ms-kaneez-haleema",
+    "title": "Ms. Kaneez Haleema",
+    "link": "https://stphilos.ac.in/ms-kaneez-haleema/"
+  },
+  {
+    "id": 26537,
+    "slug": "dr-seema-siddiqi",
+    "title": "Dr. Seema Siddiqi",
+    "link": "https://stphilos.ac.in/dr-seema-siddiqi/"
+  },
+  {
+    "id": 26519,
+    "slug": "ms-indhushri-l-m",
+    "title": "Ms. Indhushri L. M",
+    "link": "https://stphilos.ac.in/ms-indhushri-l-m/"
+  },
+  {
+    "id": 26396,
+    "slug": "ms-joseph-ashwini-jeyakanthan",
+    "title": "Ms. Joseph Ashwini Jeyakanthan",
+    "link": "https://stphilos.ac.in/ms-joseph-ashwini-jeyakanthan/"
+  },
+  {
+    "id": 26385,
+    "slug": "ms-anitha-samuel",
+    "title": "Ms. ANITHA SAMUEL",
+    "link": "https://stphilos.ac.in/ms-anitha-samuel/"
+  },
+  {
+    "id": 26382,
+    "slug": "ms-nayana-b-r",
+    "title": "Ms. NAYANA B R",
+    "link": "https://stphilos.ac.in/ms-nayana-b-r/"
+  },
+  {
+    "id": 26377,
+    "slug": "mr-vinay-kumar-hanjagi",
+    "title": "Mr. Vinay Kumar Hanjagi",
+    "link": "https://stphilos.ac.in/mr-vinay-kumar-hanjagi/"
+  },
+  {
+    "id": 26373,
+    "slug": "ms-v-gouri-sulakshana",
+    "title": "Ms. V. GOURI SULAKSHANA",
+    "link": "https://stphilos.ac.in/ms-v-gouri-sulakshana/"
+  },
+  {
+    "id": 26331,
+    "slug": "mr-sanju-t-s",
+    "title": "Mr. Sanju T S",
+    "link": "https://stphilos.ac.in/mr-sanju-t-s/"
+  },
+  {
+    "id": 26328,
+    "slug": "mr-ravithej-s-p",
+    "title": "Mr. Ravithej S P",
+    "link": "https://stphilos.ac.in/mr-ravithej-s-p/"
+  },
+  {
+    "id": 26320,
+    "slug": "ms-varshini-s",
+    "title": "Ms. VARSHINI S",
+    "link": "https://stphilos.ac.in/ms-varshini-s/"
+  },
+  {
+    "id": 26311,
+    "slug": "ms-amrin-taj",
+    "title": "Ms. Amrin Taj",
+    "link": "https://stphilos.ac.in/ms-amrin-taj/"
+  },
+  {
+    "id": 26294,
+    "slug": "ms-nidhi-v-gummadi",
+    "title": "Ms. NIDHI V GUMMADI",
+    "link": "https://stphilos.ac.in/ms-nidhi-v-gummadi/"
+  },
+  {
+    "id": 26288,
+    "slug": "ms-reena-joyce-j",
+    "title": "Ms. Reena Joyce J",
+    "link": "https://stphilos.ac.in/ms-reena-joyce-j/"
+  },
+  {
+    "id": 26276,
+    "slug": "ms-p-nandana",
+    "title": "Ms. P NANDANA",
+    "link": "https://stphilos.ac.in/ms-p-nandana/"
+  },
+  {
+    "id": 26273,
+    "slug": "26273-2",
+    "title": "Dr. ROBIN K J",
+    "link": "https://stphilos.ac.in/26273-2/"
+  },
+  {
+    "id": 26250,
+    "slug": "ms-hencieta-fernandes",
+    "title": "Ms. Hencieta Fernandes",
+    "link": "https://stphilos.ac.in/ms-hencieta-fernandes/"
+  },
+  {
+    "id": 26247,
+    "slug": "mr-hanock-a",
+    "title": "Mr. Hanock A",
+    "link": "https://stphilos.ac.in/mr-hanock-a/"
+  },
+  {
+    "id": 26235,
+    "slug": "dr-sachin-c-n",
+    "title": "Dr. Sachin C N",
+    "link": "https://stphilos.ac.in/dr-sachin-c-n/"
+  },
+  {
+    "id": 26075,
+    "slug": "ms-priyanka-olivera",
+    "title": "Ms. Priyanka Olivera",
+    "link": "https://stphilos.ac.in/ms-priyanka-olivera/"
+  },
+  {
+    "id": 26049,
+    "slug": "rev-dr-jose-joseph-svd",
+    "title": "REV. DR. JOSE JOSEPH SVD",
+    "link": "https://stphilos.ac.in/rev-dr-jose-joseph-svd/"
+  },
+  {
+    "id": 26035,
+    "slug": "ms-vibha-m-m",
+    "title": "Ms. Vibha M. M.",
+    "link": "https://stphilos.ac.in/ms-vibha-m-m/"
+  },
+  {
+    "id": 26007,
+    "slug": "ms-niveditha-s",
+    "title": "Ms. Niveditha .S",
+    "link": "https://stphilos.ac.in/ms-niveditha-s/"
+  },
+  {
+    "id": 26004,
+    "slug": "ms-dhanuja-b",
+    "title": "Ms. Dhanuja B",
+    "link": "https://stphilos.ac.in/ms-dhanuja-b/"
+  },
+  {
+    "id": 26000,
+    "slug": "ms-yashaswini-v",
+    "title": "Ms. Yashaswini V",
+    "link": "https://stphilos.ac.in/ms-yashaswini-v/"
+  },
+  {
+    "id": 25975,
+    "slug": "mr-roshan-roy-dsouza",
+    "title": "Mr. Roshan Roy DSouza",
+    "link": "https://stphilos.ac.in/mr-roshan-roy-dsouza/"
+  },
+  {
+    "id": 25972,
+    "slug": "dr-a-emille-surekha",
+    "title": "Dr. A. EMILLE SUREKHA",
+    "link": "https://stphilos.ac.in/dr-a-emille-surekha/"
+  },
+  {
+    "id": 25969,
+    "slug": "ms-radhika-h-j",
+    "title": "Ms. Radhika H J",
+    "link": "https://stphilos.ac.in/ms-radhika-h-j/"
+  },
+  {
+    "id": 25926,
+    "slug": "dr-sadia-tabassum",
+    "title": "Dr. Sadia Tabassum",
+    "link": "https://stphilos.ac.in/dr-sadia-tabassum/"
+  },
+  {
+    "id": 25923,
+    "slug": "dr-divyashree-n",
+    "title": "Dr. DIVYASHREE N.",
+    "link": "https://stphilos.ac.in/dr-divyashree-n/"
+  },
+  {
+    "id": 25920,
+    "slug": "dr-issac-george",
+    "title": "Dr. Issac George",
+    "link": "https://stphilos.ac.in/dr-issac-george/"
+  },
+  {
+    "id": 25917,
+    "slug": "mr-raghu-ram-p-s",
+    "title": "Mr. Raghu Ram P S",
+    "link": "https://stphilos.ac.in/mr-raghu-ram-p-s/"
+  },
+  {
+    "id": 25914,
+    "slug": "ms-vasantha-raghavan",
+    "title": "Ms. Vasantha Raghavan",
+    "link": "https://stphilos.ac.in/ms-vasantha-raghavan/"
+  },
+  {
+    "id": 25911,
+    "slug": "ms-bindushree-k",
+    "title": "Ms. Bindushree K",
+    "link": "https://stphilos.ac.in/ms-bindushree-k/"
+  },
+  {
+    "id": 25891,
+    "slug": "mr-ranjith-c-v",
+    "title": "Mr. Ranjith C.V.",
+    "link": "https://stphilos.ac.in/mr-ranjith-c-v/"
+  },
+  {
+    "id": 25878,
+    "slug": "ms-deeksha-n",
+    "title": "Ms.  Deeksha N",
+    "link": "https://stphilos.ac.in/ms-deeksha-n/"
+  },
+  {
+    "id": 25869,
+    "slug": "25869-2",
+    "title": "Ms. LYDIA ANJALI.A",
+    "link": "https://stphilos.ac.in/25869-2/"
+  },
+  {
+    "id": 25865,
+    "slug": "ms-harshitha-m",
+    "title": "Ms. HARSHITHA M",
+    "link": "https://stphilos.ac.in/ms-harshitha-m/"
+  },
+  {
+    "id": 25861,
+    "slug": "ms-priyanka-mk",
+    "title": "Ms. Priyanka MK",
+    "link": "https://stphilos.ac.in/ms-priyanka-mk/"
+  },
+  {
+    "id": 25858,
+    "slug": "ms-navya-p",
+    "title": "Ms. Navya P",
+    "link": "https://stphilos.ac.in/ms-navya-p/"
+  },
+  {
+    "id": 25854,
+    "slug": "mr-ajay-anthony-g",
+    "title": "Mr. Ajay Anthony G",
+    "link": "https://stphilos.ac.in/mr-ajay-anthony-g/"
+  },
+  {
+    "id": 25828,
+    "slug": "mr-shiva-kumar-c",
+    "title": "Mr. SHIVA KUMAR C",
+    "link": "https://stphilos.ac.in/mr-shiva-kumar-c/"
+  },
+  {
+    "id": 25775,
+    "slug": "ms-princy-a-r",
+    "title": "Ms. Princy A R",
+    "link": "https://stphilos.ac.in/ms-princy-a-r/"
+  },
+  {
+    "id": 25735,
+    "slug": "ms-shruthi-hr",
+    "title": "Ms. SHRUTHI HR",
+    "link": "https://stphilos.ac.in/ms-shruthi-hr/"
+  },
+  {
+    "id": 25717,
+    "slug": "ms-namitha-jois-k-s",
+    "title": "Ms. Namitha Jois K S",
+    "link": "https://stphilos.ac.in/ms-namitha-jois-k-s/"
+  },
+  {
+    "id": 25714,
+    "slug": "dr-nandeesha-h-k-2",
+    "title": "Dr.NANDEESHA H.K",
+    "link": "https://stphilos.ac.in/dr-nandeesha-h-k-2/"
+  },
+  {
+    "id": 25711,
+    "slug": "dr-ashwini-k-j-2",
+    "title": "Dr. Ashwini. K.J",
+    "link": "https://stphilos.ac.in/dr-ashwini-k-j-2/"
+  },
+  {
+    "id": 25650,
+    "slug": "ms-rini-brown",
+    "title": "Ms. RINI BROWN",
+    "link": "https://stphilos.ac.in/ms-rini-brown/"
+  },
+  {
+    "id": 25644,
+    "slug": "mr-mathew-c",
+    "title": "Mr. Mathew C",
+    "link": "https://stphilos.ac.in/mr-mathew-c/"
+  },
+  {
+    "id": 25632,
+    "slug": "mr-anand-c",
+    "title": "Mr.Anand C",
+    "link": "https://stphilos.ac.in/mr-anand-c/"
+  },
+  {
+    "id": 25376,
+    "slug": "chandana-s",
+    "title": "Ms. CHANDANA.S",
+    "link": "https://stphilos.ac.in/chandana-s/"
+  },
+  {
+    "id": 25353,
+    "slug": "mr-babu-p",
+    "title": "Mr.BABU .P",
+    "link": "https://stphilos.ac.in/mr-babu-p/"
+  },
+  {
+    "id": 25347,
+    "slug": "ms-roopa-selveria-j-2",
+    "title": "Ms. ROOPA SELVERIA . J",
+    "link": "https://stphilos.ac.in/ms-roopa-selveria-j-2/"
+  },
+  {
+    "id": 25342,
+    "slug": "ms-jenifer-priya-m",
+    "title": "Ms. Jenifer Priya. M",
+    "link": "https://stphilos.ac.in/ms-jenifer-priya-m/"
+  },
+  {
+    "id": 25324,
+    "slug": "ms-samyukta-madhav-joshi",
+    "title": "MS. SAMYUKTA MADHAV JOSHI",
+    "link": "https://stphilos.ac.in/ms-samyukta-madhav-joshi/"
+  },
+  {
+    "id": 25142,
+    "slug": "dr-yamuna-b-raj-m-a-ph-d",
+    "title": "Dr. Yamuna .B. Raj, M.A, Ph.D",
+    "link": "https://stphilos.ac.in/dr-yamuna-b-raj-m-a-ph-d/"
+  },
+  {
+    "id": 8314,
+    "slug": "ms-jeevitha-saldanha",
+    "title": "Ms.JEEVITHA SALDANHA",
+    "link": "https://stphilos.ac.in/ms-jeevitha-saldanha/"
+  },
+  {
+    "id": 24335,
+    "slug": "ms-meghana-sd",
+    "title": "Ms. Meghana SD",
+    "link": "https://stphilos.ac.in/ms-meghana-sd/"
+  },
+  {
+    "id": 21582,
+    "slug": "dr-sarita-rawat",
+    "title": "Dr.SARITA RAWAT",
+    "link": "https://stphilos.ac.in/dr-sarita-rawat/"
+  },
+  {
+    "id": 21573,
+    "slug": "ms-vidya",
+    "title": "Ms.Vidya G",
+    "link": "https://stphilos.ac.in/ms-vidya/"
+  },
+  {
+    "id": 21487,
+    "slug": "ms-sandra-agnes",
+    "title": "Ms. J. Sandra Agnes",
+    "link": "https://stphilos.ac.in/ms-sandra-agnes/"
+  },
+  {
+    "id": 17688,
+    "slug": "ms-amrutha-shankpal-a",
+    "title": "Ms.Amrutha Shankpal A",
+    "link": "https://stphilos.ac.in/ms-amrutha-shankpal-a/"
+  },
+  {
+    "id": 15291,
+    "slug": "ms-ameena-firdose",
+    "title": "Ms. AMEENA FIRDOSE",
+    "link": "https://stphilos.ac.in/ms-ameena-firdose/"
+  },
+  {
+    "id": 14771,
+    "slug": "dr-shivaraju",
+    "title": "Dr.Shivaraju",
+    "link": "https://stphilos.ac.in/dr-shivaraju/"
+  },
+  {
+    "id": 14686,
+    "slug": "mr-prajwal-nr",
+    "title": "Mr.PRAJWAL NR",
+    "link": "https://stphilos.ac.in/mr-prajwal-nr/"
+  },
+  {
+    "id": 14647,
+    "slug": "ms-uzma-bathool",
+    "title": "Ms.Uzma Bathool",
+    "link": "https://stphilos.ac.in/ms-uzma-bathool/"
+  },
+  {
+    "id": 14641,
+    "slug": "mr-francis-devasahayam-b",
+    "title": "Mr.FRANCIS DEVASAHAYAM B",
+    "link": "https://stphilos.ac.in/mr-francis-devasahayam-b/"
+  },
+  {
+    "id": 14639,
+    "slug": "mr-raviraja-i-vadigeri-2",
+    "title": "MR. Raviraja I Vadigeri",
+    "link": "https://stphilos.ac.in/mr-raviraja-i-vadigeri-2/"
+  },
+  {
+    "id": 14613,
+    "slug": "mrs-shirley-cynthia-anthony",
+    "title": "Mrs. Shirley Cynthia Anthony",
+    "link": "https://stphilos.ac.in/mrs-shirley-cynthia-anthony/"
+  },
+  {
+    "id": 14609,
+    "slug": "ms-blessy-george",
+    "title": "Ms.BLESSY GEORGE",
+    "link": "https://stphilos.ac.in/ms-blessy-george/"
+  },
+  {
+    "id": 14606,
+    "slug": "dr-vanitha-a-2",
+    "title": "Dr. VANITHA A.",
+    "link": "https://stphilos.ac.in/dr-vanitha-a-2/"
+  },
+  {
+    "id": 14574,
+    "slug": "mr-akhil-e-j",
+    "title": "Mr. Akhil E J",
+    "link": "https://stphilos.ac.in/mr-akhil-e-j/"
+  },
+  {
+    "id": 14571,
+    "slug": "ms-anjana-simon",
+    "title": "Ms. ANJANA SIMON",
+    "link": "https://stphilos.ac.in/ms-anjana-simon/"
+  },
+  {
+    "id": 14566,
+    "slug": "dr-divakara-n",
+    "title": "Dr.Divakara  N",
+    "link": "https://stphilos.ac.in/dr-divakara-n/"
+  },
+  {
+    "id": 14563,
+    "slug": "dr-seetha-r",
+    "title": "Dr. Seetha R",
+    "link": "https://stphilos.ac.in/dr-seetha-r/"
+  },
+  {
+    "id": 14281,
+    "slug": "peria-nayagammal-s",
+    "title": "Mrs. Peria Nayagammal S",
+    "link": "https://stphilos.ac.in/peria-nayagammal-s/"
+  },
+  {
+    "id": 13864,
+    "slug": "mr-puneeth-s-2",
+    "title": "Mr. Puneeth S.",
+    "link": "https://stphilos.ac.in/mr-puneeth-s-2/"
+  },
+  {
+    "id": 13662,
+    "slug": "dr-vinod-gubbiveeranna",
+    "title": "Dr. Vinod Gubbiveeranna",
+    "link": "https://stphilos.ac.in/dr-vinod-gubbiveeranna/"
+  },
+  {
+    "id": 12315,
+    "slug": "ms-jennifer-j",
+    "title": "Ms.VINCY S",
+    "link": "https://stphilos.ac.in/ms-jennifer-j/"
+  },
+  {
+    "id": 12171,
+    "slug": "ms-rao-nandita-jayaprakash",
+    "title": "Ms.Rao Nandita Jayaprakash",
+    "link": "https://stphilos.ac.in/ms-rao-nandita-jayaprakash/"
+  },
+  {
+    "id": 12168,
+    "slug": "ms-roopa-selveria-j",
+    "title": "Ms. ROOPA SELVERIA . J",
+    "link": "https://stphilos.ac.in/ms-roopa-selveria-j/"
+  },
+  {
+    "id": 12157,
+    "slug": "ms-alvira-afsar-sulthana-a",
+    "title": "Ms. ALVIRA AFSAR SULTHANA. A",
+    "link": "https://stphilos.ac.in/ms-alvira-afsar-sulthana-a/"
+  },
+  {
+    "id": 11699,
+    "slug": "mr-leyander-lobo",
+    "title": "Mr. Leyander Lobo",
+    "link": "https://stphilos.ac.in/mr-leyander-lobo/"
+  },
+  {
+    "id": 11693,
+    "slug": "ms-suhan-poovaiah",
+    "title": "Ms.SUHAN POOVAIAH",
+    "link": "https://stphilos.ac.in/ms-suhan-poovaiah/"
+  },
+  {
+    "id": 11651,
+    "slug": "11651-2",
+    "title": "Dr. Asha MS",
+    "link": "https://stphilos.ac.in/11651-2/"
+  },
+  {
+    "id": 11631,
+    "slug": "dr-viveka-marie-g",
+    "title": "Dr. Viveka Marie G",
+    "link": "https://stphilos.ac.in/dr-viveka-marie-g/"
+  },
+  {
+    "id": 11626,
+    "slug": "ms-sowmya-n",
+    "title": "Ms.Sowmya N",
+    "link": "https://stphilos.ac.in/ms-sowmya-n/"
+  },
+  {
+    "id": 11608,
+    "slug": "dr-zabiulla",
+    "title": "Dr. ZABIULLA",
+    "link": "https://stphilos.ac.in/dr-zabiulla/"
+  },
+  {
+    "id": 11432,
+    "slug": "dr-vanitha-a",
+    "title": "Dr. VANITHA A.",
+    "link": "https://stphilos.ac.in/dr-vanitha-a/"
+  },
+  {
+    "id": 11427,
+    "slug": "mr-puneeth-s",
+    "title": "Mr.Puneeth S",
+    "link": "https://stphilos.ac.in/mr-puneeth-s/"
+  },
+  {
+    "id": 11421,
+    "slug": "mr-mahendra-v-p",
+    "title": "Mr. MAHENDRA V P",
+    "link": "https://stphilos.ac.in/mr-mahendra-v-p/"
+  },
+  {
+    "id": 11377,
+    "slug": "dr-padmapriya-p",
+    "title": "Dr. PADMAPRIYA P.",
+    "link": "https://stphilos.ac.in/dr-padmapriya-p/"
+  },
+  {
+    "id": 11368,
+    "slug": "dr-angelina",
+    "title": "Dr. Angelina",
+    "link": "https://stphilos.ac.in/dr-angelina/"
+  },
+  {
+    "id": 8323,
+    "slug": "mr-raviraja-i-vadigeri",
+    "title": "Mr.Raviraja I Vadigeri",
+    "link": "https://stphilos.ac.in/mr-raviraja-i-vadigeri/"
+  },
+  {
+    "id": 8316,
+    "slug": "mr-william-joseph-j",
+    "title": "Mr.WILLIAM JOSEPH J",
+    "link": "https://stphilos.ac.in/mr-william-joseph-j/"
+  },
+  {
+    "id": 8312,
+    "slug": "mr-rini-brown",
+    "title": "Mr.RINI BROWN",
+    "link": "https://stphilos.ac.in/mr-rini-brown/"
+  },
+  {
+    "id": 8225,
+    "slug": "dr-vagdevi-h-s",
+    "title": "Dr. VAGDEVI H S",
+    "link": "https://stphilos.ac.in/dr-vagdevi-h-s/"
+  },
+  {
+    "id": 8222,
+    "slug": "mr-venugopal-gowda-m-k",
+    "title": "Mr.Venugopal Gowda M K",
+    "link": "https://stphilos.ac.in/mr-venugopal-gowda-m-k/"
+  },
+  {
+    "id": 8212,
+    "slug": "ms-mary-irene-j",
+    "title": "Ms.Mary Irene J",
+    "link": "https://stphilos.ac.in/ms-mary-irene-j/"
+  },
+  {
+    "id": 8183,
+    "slug": "dr-sandhya-n-c",
+    "title": "Dr. SANDHYA. N. C",
+    "link": "https://stphilos.ac.in/dr-sandhya-n-c/"
+  },
+  {
+    "id": 8181,
+    "slug": "dr-k-nandini",
+    "title": "Dr. K. NANDINI",
+    "link": "https://stphilos.ac.in/dr-k-nandini/"
+  },
+  {
+    "id": 8179,
+    "slug": "dr-a-shivakumar",
+    "title": "Dr. A. SHIVAKUMAR",
+    "link": "https://stphilos.ac.in/dr-a-shivakumar/"
+  },
+  {
+    "id": 8175,
+    "slug": "dr-b-shyla",
+    "title": "Dr. B. SHYLA",
+    "link": "https://stphilos.ac.in/dr-b-shyla/"
+  },
+  {
+    "id": 8139,
+    "slug": "ms-milagris-antonius",
+    "title": "Ms. Milagris Antonius",
+    "link": "https://stphilos.ac.in/ms-milagris-antonius/"
+  },
+  {
+    "id": 8136,
+    "slug": "ms-naziya-habeeb-m",
+    "title": "Ms. Naziya Habeeb M.",
+    "link": "https://stphilos.ac.in/ms-naziya-habeeb-m/"
+  },
+  {
+    "id": 8130,
+    "slug": "ms-fathimunnisa-begum",
+    "title": "Ms. Fathimunnisa Begum",
+    "link": "https://stphilos.ac.in/ms-fathimunnisa-begum/"
+  },
+  {
+    "id": 8123,
+    "slug": "ms-rashmi-vincia",
+    "title": "Ms. RASHMI VINCIA",
+    "link": "https://stphilos.ac.in/ms-rashmi-vincia/"
+  },
+  {
+    "id": 8111,
+    "slug": "dr-prashanth-d-a",
+    "title": "Dr.PRASHANTH.D.A",
+    "link": "https://stphilos.ac.in/dr-prashanth-d-a/"
+  },
+  {
+    "id": 8067,
+    "slug": "ms-archana-priyanka-mendonca",
+    "title": "Ms.ARCHANA PRIYANKA MENDONCA",
+    "link": "https://stphilos.ac.in/ms-archana-priyanka-mendonca/"
+  },
+  {
+    "id": 8014,
+    "slug": "mr-eliezer-vishwas",
+    "title": "Mr.ELIEZER VISHWAS",
+    "link": "https://stphilos.ac.in/mr-eliezer-vishwas/"
+  },
+  {
+    "id": 7016,
+    "slug": "dr-poornima-umesh",
+    "title": "Dr.Poornima Umesh",
+    "link": "https://stphilos.ac.in/dr-poornima-umesh/"
+  },
+  {
+    "id": 5434,
+    "slug": "mr-kunal-a",
+    "title": "Mr.Kunal A",
+    "link": "https://stphilos.ac.in/mr-kunal-a/"
+  },
+  {
+    "id": 18465,
+    "slug": "mr-vidhyadhar-sanjay-nair",
+    "title": "Mr. Vidhyadhar Sanjay Nair",
+    "link": "https://stphilos.ac.in/mr-vidhyadhar-sanjay-nair/"
+  },
+  {
+    "id": 5416,
+    "slug": "rev-dr-bernard-prakash-barnis",
+    "title": "Rev. Dr. Bernard Prakash Barnis",
+    "link": "https://stphilos.ac.in/rev-dr-bernard-prakash-barnis/"
+  },
+  {
+    "id": 5403,
+    "slug": "dr-d-revannasiddaiah",
+    "title": "Dr. D. Revannasiddaiah",
+    "link": "https://stphilos.ac.in/dr-d-revannasiddaiah/"
+  },
+  {
+    "id": 5399,
+    "slug": "dr-manjula-m",
+    "title": "Dr. Manjula M",
+    "link": "https://stphilos.ac.in/dr-manjula-m/"
+  },
+  {
+    "id": 5395,
+    "slug": "dr-b-s-shivashankar",
+    "title": "Dr B S Shivashankar",
+    "link": "https://stphilos.ac.in/dr-b-s-shivashankar/"
+  },
+  {
+    "id": 5392,
+    "slug": "ms-s-n-namitha",
+    "title": "Ms. Namitha S. N.",
+    "link": "https://stphilos.ac.in/ms-s-n-namitha/"
+  },
+  {
+    "id": 5389,
+    "slug": "felan-amal",
+    "title": "Dr. FELAN AMAL",
+    "link": "https://stphilos.ac.in/felan-amal/"
+  },
+  {
+    "id": 5367,
+    "slug": "mary-sofia-i",
+    "title": "Ms. MARY SOFIA I",
+    "link": "https://stphilos.ac.in/mary-sofia-i/"
+  },
+  {
+    "id": 5359,
+    "slug": "arvind-kispotta",
+    "title": "Mr. Arvind Kispotta",
+    "link": "https://stphilos.ac.in/arvind-kispotta/"
+  },
+  {
+    "id": 5292,
+    "slug": "dr-ashwini-k-j",
+    "title": "Dr. Ashwini.K.J.",
+    "link": "https://stphilos.ac.in/dr-ashwini-k-j/"
+  },
+  {
+    "id": 5288,
+    "slug": "dr-nandeesha-h-k",
+    "title": "Dr.NANDEESHA H K",
+    "link": "https://stphilos.ac.in/dr-nandeesha-h-k/"
+  },
+  {
+    "id": 5277,
+    "slug": "shruthi-g",
+    "title": "Ms. SHRUTHI.G",
+    "link": "https://stphilos.ac.in/shruthi-g/"
+  },
+  {
+    "id": 5255,
+    "slug": "mary-niveditha",
+    "title": "Ms. MARY NIVEDITHA",
+    "link": "https://stphilos.ac.in/mary-niveditha/"
+  },
+  {
+    "id": 5249,
+    "slug": "dr-sowmya-p",
+    "title": "Dr Sowmya P",
+    "link": "https://stphilos.ac.in/dr-sowmya-p/"
+  },
+  {
+    "id": 5232,
+    "slug": "mr-sandesh-dsouza",
+    "title": "Mr. SANDESH D&#8217;SOUZA",
+    "link": "https://stphilos.ac.in/mr-sandesh-dsouza/"
+  },
+  {
+    "id": 5163,
+    "slug": "dr-sunil-dsouza",
+    "title": "Dr. Sunil D&#8217;Souza",
+    "link": "https://stphilos.ac.in/dr-sunil-dsouza/"
+  },
+  {
+    "id": 4327,
+    "slug": "4327-2",
+    "title": "Ms. Amreen Kousar",
+    "link": "https://stphilos.ac.in/4327-2/"
+  },
+  {
+    "id": 4087,
+    "slug": "mr-a-t-sadebose",
+    "title": "Mr.A.T.Sadebose",
+    "link": "https://stphilos.ac.in/mr-a-t-sadebose/"
+  },
+  {
+    "id": 3672,
+    "slug": "ravi",
+    "title": "Dr. RAVI.J.D SALDANHA",
+    "link": "https://stphilos.ac.in/ravi/"
+  },
+  {
+    "id": 1305,
+    "slug": "lydia",
+    "title": "Mrs. LYDIYA VANDANA",
+    "link": "https://stphilos.ac.in/lydia/"
+  },
+  {
+    "id": 1300,
+    "slug": "1300-2",
+    "title": "Ms. Lydiya Vandana",
+    "link": "https://stphilos.ac.in/1300-2/"
+  },
+  {
+    "id": 1251,
+    "slug": "noor",
+    "title": "Dr. Noor Mubasheer",
+    "link": "https://stphilos.ac.in/noor/"
+  },
+  {
+    "id": 1186,
+    "slug": "bharath",
+    "title": "Dr. BHARATHA K",
+    "link": "https://stphilos.ac.in/bharath/"
+  },
+  {
+    "id": 1144,
+    "slug": "ms-meenakshi-giridhar",
+    "title": "Ms. Meenakshi Giridhar",
+    "link": "https://stphilos.ac.in/ms-meenakshi-giridhar/"
+  },
+  {
+    "id": 1131,
+    "slug": "ashaprofile",
+    "title": "Dr. Asha M S",
+    "link": "https://stphilos.ac.in/ashaprofile/"
+  },
+  {
+    "id": 943,
+    "slug": "ginsonprofile",
+    "title": "Mr. GINSON GEORGE",
+    "link": "https://stphilos.ac.in/ginsonprofile/"
+  },
+  {
+    "id": 925,
+    "slug": "sanjaynairprofile",
+    "title": "Mr. Vidyadhar Sanjay Nair",
+    "link": "https://stphilos.ac.in/sanjaynairprofile/"
+  },
+  {
+    "id": 854,
+    "slug": "gunasheelandetails",
+    "title": "Mr. A. Thomas Gunaseelan",
+    "link": "https://stphilos.ac.in/gunasheelandetails/"
+  },
+  {
+    "id": 853,
+    "slug": "reenafrancisprofile",
+    "title": "Dr. Reena Francis",
+    "link": "https://stphilos.ac.in/reenafrancisprofile/"
+  },
+  {
+    "id": 821,
+    "slug": "reena-moldetail",
+    "title": "Ms. REENA MOL V U",
+    "link": "https://stphilos.ac.in/reena-moldetail/"
+  },
+  {
+    "id": 815,
+    "slug": "archana",
+    "title": "Ms. Archana.A",
+    "link": "https://stphilos.ac.in/archana/"
+  },
+  {
+    "id": 39636,
+    "slug": "dr-poornima-head-dept-of-hindi",
+    "title": "Dr. Poornima, Head, Dept. of Hindi",
+    "link": "https://stphilos.ac.in/dr-poornima-head-dept-of-hindi/"
+  }
+]

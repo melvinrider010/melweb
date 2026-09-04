@@ -1,0 +1,137 @@
+{
+  "economics": {
+    "deptId": "economics",
+    "department": "Department of Economics",
+    "head": "Dr. Francis Xavier",
+    "headEmail": "hod.economics@stphilos.ac.in",
+    "phone": "+91 821 4001900 / 9008580707",
+    "mobile": "9008580707",
+    "extension": null
+  },
+  "computer-science": {
+    "deptId": "computer-science",
+    "department": "Department of Computer Science & Applications",
+    "head": "Mrs. E Gloriya Priyadarshini",
+    "headEmail": "hod.cs@stphilos.ac.in",
+    "phone": "+91 821 4001900 (Ext. 230)",
+    "mobile": null,
+    "extension": "230"
+  },
+  "business-administration": {
+    "deptId": "business-administration",
+    "department": "Department of Business Administration (BBA/MBA)",
+    "head": "Mr. Chandan Nandihal S",
+    "headEmail": "hod.bba@stphilos.ac.in",
+    "phone": "+91 821 4001900 (Ext. 240)",
+    "mobile": null,
+    "extension": "240"
+  },
+  "commerce": {
+    "deptId": "commerce",
+    "department": "Department of Commerce & Management (B.Com/M.Com)",
+    "head": "Dr. Viveka Marie G",
+    "headEmail": "hod.commerce@stphilos.ac.in",
+    "phone": "+91 821 4001900 (Ext. 220)",
+    "mobile": null,
+    "extension": "220"
+  },
+  "social-work": {
+    "deptId": "social-work",
+    "department": "Department of Social Work (BSW/MSW)",
+    "head": "Dr. Robin K J",
+    "headEmail": "hod.msw@stphilos.ac.in",
+    "phone": "+91 821 4001900 (Ext. 250)",
+    "mobile": null,
+    "extension": "250"
+  },
+  "english": {
+    "deptId": "english",
+    "department": "Department of English & Foreign Languages",
+    "head": "Dr. Suhan Poovaiah",
+    "headEmail": "hod.english@stphilos.ac.in",
+    "phone": "+91 821 4001900 (Ext. 270)",
+    "mobile": null,
+    "extension": "270"
+  },
+  "physics": {
+    "deptId": "physics",
+    "department": "Department of Physics",
+    "head": "Dr. Sachin C N",
+    "headEmail": "hod.physics@stphilos.ac.in",
+    "phone": "+91 821 4001900 (Ext. 280)",
+    "mobile": null,
+    "extension": "280"
+  },
+  "chemistry": {
+    "deptId": "chemistry",
+    "department": "Department of Chemistry & Biochemistry",
+    "head": "Dr. R. Britto Dominic Rayan",
+    "headEmail": "hod.chemistry@stphilos.ac.in",
+    "phone": "+91 821 4001900 (Ext. 290)",
+    "mobile": null,
+    "extension": "290"
+  },
+  "mathematics": {
+    "deptId": "mathematics",
+    "department": "Department of Mathematics & Statistics",
+    "head": "Dr. Bharatha Kalegowda",
+    "headEmail": "hod.mathematics@stphilos.ac.in",
+    "phone": "+91 821 4001900 (Ext. 260)",
+    "mobile": null,
+    "extension": "260"
+  },
+  "biotech": {
+    "deptId": "biotech",
+    "department": "Department of Biotechnology & Life Sciences",
+    "head": "Mrs. Lydia Vandana",
+    "headEmail": "hod.biotech@stphilos.ac.in",
+    "phone": "+91 821 4001900 (Ext. 310)",
+    "mobile": null,
+    "extension": "310"
+  },
+  "journalism": {
+    "deptId": "journalism",
+    "department": "Department of Journalism & Mass Communication",
+    "head": "Dr. Yamuna",
+    "headEmail": "hod.journalism@stphilos.ac.in",
+    "phone": "+91 821 4001900 (Ext. 320)",
+    "mobile": null,
+    "extension": "320"
+  },
+  "psychology": {
+    "deptId": "psychology",
+    "department": "Department of Psychology & Clinical Counselling",
+    "head": "Mr. Ginson George",
+    "headEmail": "hod.psychology@stphilos.ac.in",
+    "phone": "+91 821 4001900 (Ext. 300)",
+    "mobile": null,
+    "extension": "300"
+  },
+  "criminology": {
+    "deptId": "criminology",
+    "department": "Department of Criminology & Forensic Science",
+    "head": "Mr. Vinayakumar V Hanjagi",
+    "headEmail": "hod.criminology@stphilos.ac.in",
+    "phone": "+91 821 4001900 (Ext. 330)",
+    "mobile": null,
+    "extension": "330"
+  },
+  "kannada": {
+    "deptId": "kannada",
+    "department": "Department of Kannada & Regional Languages",
+    "head": "Dr. K N Suresh",
+    "headEmail": "hod.kannada@stphilos.ac.in",
+    "phone": "+91 821 4001900 (Ext. 340)",
+    "mobile": null,
+    "extension": "340"
+  },
+  "humanities": {
+    "deptId": "humanities",
+    "department": "Department of Humanities & Social Sciences",
+    "head": "Mr. Anand C",
+    "headEmail": "hod.humanities@stphilos.ac.in",
+    "phone": "+91 821 4001900 (Ext. 350)",
+    "mobile": null,
+    "extension": "350"
+  }
+}

@@ -1,0 +1,900 @@
+{
+  "summary": {
+    "total_pages_audited": 22,
+    "total_real_source_images": 60,
+    "total_correct_local_images": 60,
+    "total_incorrect": 0,
+    "total_missing": 0,
+    "total_placeholders": 0,
+    "total_remote_image_references": 0,
+    "total_actually_visible_in_local_website": 60,
+    "total_physical_files_on_disk": 60,
+    "root_cause": "The previous crawler collected images from the full HTML document including the shared header mega-menu (.thim-ekits-menu) and footer widgets, which contained 8 global navigation thumbnails. Capping at 8 images caused every page to receive the same 8 duplicate header thumbnails while missing actual body images in .entry-content. This has been fixed by strictly isolating .entry-content, extracting genuine master full-resolution URLs, downloading the exact real assets, and updating the React component."
+  },
+  "pages": [
+    {
+      "slug": "placement-cell",
+      "name": "Career and Placement Cell",
+      "category": "Placement Cell & Welfare",
+      "real_source_image_count": 12,
+      "local_image_count": 12,
+      "correctly_matched_count": 12,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 12,
+      "images": [
+        {
+          "filename": "placement-cell_01_2023-24-Placements-1_page-0001.jpg",
+          "localPath": "/assets/student-support/placement-cell_01_2023-24-Placements-1_page-0001.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0001.jpg",
+          "alt": "Career and Placement Cell Photo 1",
+          "width": 1477,
+          "height": 1182,
+          "sizeBytes": 765730
+        },
+        {
+          "filename": "placement-cell_02_2023-24-Placements-1_page-0007.jpg",
+          "localPath": "/assets/student-support/placement-cell_02_2023-24-Placements-1_page-0007.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0007.jpg",
+          "alt": "Career and Placement Cell Photo 2",
+          "width": 1477,
+          "height": 1182,
+          "sizeBytes": 807249
+        },
+        {
+          "filename": "placement-cell_03_2023-24-Placements-1_page-0002.jpg",
+          "localPath": "/assets/student-support/placement-cell_03_2023-24-Placements-1_page-0002.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0002.jpg",
+          "alt": "Career and Placement Cell Photo 3",
+          "width": 1477,
+          "height": 1182,
+          "sizeBytes": 904570
+        },
+        {
+          "filename": "placement-cell_04_2023-24-Placements-1_page-0010.jpg",
+          "localPath": "/assets/student-support/placement-cell_04_2023-24-Placements-1_page-0010.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0010.jpg",
+          "alt": "Career and Placement Cell Photo 4",
+          "width": 1477,
+          "height": 1182,
+          "sizeBytes": 672233
+        },
+        {
+          "filename": "placement-cell_05_2023-24-Placements-1_page-0011.jpg",
+          "localPath": "/assets/student-support/placement-cell_05_2023-24-Placements-1_page-0011.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0011.jpg",
+          "alt": "Career and Placement Cell Photo 5",
+          "width": 1477,
+          "height": 1182,
+          "sizeBytes": 648711
+        },
+        {
+          "filename": "placement-cell_06_2023-24-Placements-1_page-0006.jpg",
+          "localPath": "/assets/student-support/placement-cell_06_2023-24-Placements-1_page-0006.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0006.jpg",
+          "alt": "Career and Placement Cell Photo 6",
+          "width": 1477,
+          "height": 1182,
+          "sizeBytes": 829055
+        },
+        {
+          "filename": "placement-cell_07_2023-24-Placements-1_page-0004.jpg",
+          "localPath": "/assets/student-support/placement-cell_07_2023-24-Placements-1_page-0004.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0004.jpg",
+          "alt": "Career and Placement Cell Photo 7",
+          "width": 1477,
+          "height": 1182,
+          "sizeBytes": 839352
+        },
+        {
+          "filename": "placement-cell_08_2023-24-Placements-1_page-0003.jpg",
+          "localPath": "/assets/student-support/placement-cell_08_2023-24-Placements-1_page-0003.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0003.jpg",
+          "alt": "Career and Placement Cell Photo 8",
+          "width": 1477,
+          "height": 1182,
+          "sizeBytes": 908981
+        },
+        {
+          "filename": "placement-cell_09_2023-24-Placements-1_page-0005.jpg",
+          "localPath": "/assets/student-support/placement-cell_09_2023-24-Placements-1_page-0005.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0005.jpg",
+          "alt": "Career and Placement Cell Photo 9",
+          "width": 1477,
+          "height": 1182,
+          "sizeBytes": 811437
+        },
+        {
+          "filename": "placement-cell_10_2023-24-Placements-1_page-0008.jpg",
+          "localPath": "/assets/student-support/placement-cell_10_2023-24-Placements-1_page-0008.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0008.jpg",
+          "alt": "Career and Placement Cell Photo 10",
+          "width": 1477,
+          "height": 1182,
+          "sizeBytes": 798124
+        },
+        {
+          "filename": "placement-cell_11_2023-24-Placements-1_page-0009.jpg",
+          "localPath": "/assets/student-support/placement-cell_11_2023-24-Placements-1_page-0009.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/2023-24-Placements-1_page-0009.jpg",
+          "alt": "Career and Placement Cell Photo 11",
+          "width": 1477,
+          "height": 1182,
+          "sizeBytes": 842468
+        },
+        {
+          "filename": "placement-cell_12_WhatsApp-Image-2026-08-11-at-2.02.38-PM.jpeg",
+          "localPath": "/assets/student-support/placement-cell_12_WhatsApp-Image-2026-08-11-at-2.02.38-PM.jpeg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2026/08/WhatsApp-Image-2026-08-11-at-2.02.38-PM.jpeg",
+          "alt": "Career and Placement Cell Photo 12",
+          "width": 1536,
+          "height": 1024,
+          "sizeBytes": 244894
+        }
+      ],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "student-grievance-redressal-committee",
+      "name": "Grievance Redressal",
+      "category": "Placement Cell & Welfare",
+      "real_source_image_count": 2,
+      "local_image_count": 2,
+      "correctly_matched_count": 2,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 2,
+      "images": [
+        {
+          "filename": "student-grievance-redressal-committee_01_WhatsApp-Image-2026-01-29-at-10.30.51-AM.jpeg",
+          "localPath": "/assets/student-support/student-grievance-redressal-committee_01_WhatsApp-Image-2026-01-29-at-10.30.51-AM.jpeg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-29-at-10.30.51-AM.jpeg",
+          "alt": "WhatsApp Image 2026-01-29 at 10.30.51 AM",
+          "width": 999,
+          "height": 1600,
+          "sizeBytes": 156084
+        },
+        {
+          "filename": "student-grievance-redressal-committee_02_WhatsApp-Image-2026-01-29-at-10.37.40-AM.jpeg",
+          "localPath": "/assets/student-support/student-grievance-redressal-committee_02_WhatsApp-Image-2026-01-29-at-10.37.40-AM.jpeg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-29-at-10.37.40-AM.jpeg",
+          "alt": "WhatsApp Image 2026-01-29 at 10.37.40 AM",
+          "width": 999,
+          "height": 1600,
+          "sizeBytes": 119088
+        }
+      ],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "anti-ragging",
+      "name": "Anti-Ragging",
+      "category": "Placement Cell & Welfare",
+      "real_source_image_count": 0,
+      "local_image_count": 0,
+      "correctly_matched_count": 0,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 0,
+      "images": [],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "womens-cell",
+      "name": "Women's Cell",
+      "category": "Placement Cell & Welfare",
+      "real_source_image_count": 0,
+      "local_image_count": 0,
+      "correctly_matched_count": 0,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 0,
+      "images": [],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "student-welfare-cell",
+      "name": "Student Welfare Cell",
+      "category": "Placement Cell & Welfare",
+      "real_source_image_count": 0,
+      "local_image_count": 0,
+      "correctly_matched_count": 0,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 0,
+      "images": [],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "counselling-centre",
+      "name": "Counselling Centre",
+      "category": "Placement Cell & Welfare",
+      "real_source_image_count": 0,
+      "local_image_count": 0,
+      "correctly_matched_count": 0,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 0,
+      "images": [],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "human-values-professional-ethics",
+      "name": "Human Values And Professional Ethics",
+      "category": "Placement Cell & Welfare",
+      "real_source_image_count": 0,
+      "local_image_count": 0,
+      "correctly_matched_count": 0,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 0,
+      "images": [],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "youth-red-cross-yrc",
+      "name": "Youth Redcross",
+      "category": "Placement Cell & Welfare",
+      "real_source_image_count": 8,
+      "local_image_count": 8,
+      "correctly_matched_count": 8,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 8,
+      "images": [
+        {
+          "filename": "youth-red-cross-yrc_01_image-110.png",
+          "localPath": "/assets/student-support/youth-red-cross-yrc_01_image-110.png",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/image-110.png",
+          "alt": "Youth Redcross Photo 1",
+          "width": 944,
+          "height": 532,
+          "sizeBytes": 1274079
+        },
+        {
+          "filename": "youth-red-cross-yrc_02_image-111.png",
+          "localPath": "/assets/student-support/youth-red-cross-yrc_02_image-111.png",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/image-111.png",
+          "alt": "Youth Redcross Photo 2",
+          "width": 980,
+          "height": 568,
+          "sizeBytes": 1336608
+        },
+        {
+          "filename": "youth-red-cross-yrc_03_image-113.png",
+          "localPath": "/assets/student-support/youth-red-cross-yrc_03_image-113.png",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/image-113.png",
+          "alt": "Youth Redcross Photo 3",
+          "width": 881,
+          "height": 499,
+          "sizeBytes": 858653
+        },
+        {
+          "filename": "youth-red-cross-yrc_04_image-112.png",
+          "localPath": "/assets/student-support/youth-red-cross-yrc_04_image-112.png",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/image-112.png",
+          "alt": "Youth Redcross Photo 4",
+          "width": 1101,
+          "height": 1101,
+          "sizeBytes": 2832740
+        },
+        {
+          "filename": "youth-red-cross-yrc_05_IMG_6185.jpg",
+          "localPath": "/assets/student-support/youth-red-cross-yrc_05_IMG_6185.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/IMG_6185.jpg",
+          "alt": "Youth Redcross Photo 5",
+          "width": 336,
+          "height": 432,
+          "sizeBytes": 32517
+        },
+        {
+          "filename": "youth-red-cross-yrc_06_IMG_6105.jpg",
+          "localPath": "/assets/student-support/youth-red-cross-yrc_06_IMG_6105.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/07/IMG_6105.jpg",
+          "alt": "Youth Redcross Photo 6",
+          "width": 336,
+          "height": 432,
+          "sizeBytes": 28936
+        },
+        {
+          "filename": "youth-red-cross-yrc_07_william.jpg",
+          "localPath": "/assets/student-support/youth-red-cross-yrc_07_william.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/02/william.jpg",
+          "alt": "Youth Redcross Photo 7",
+          "width": 152,
+          "height": 146,
+          "sizeBytes": 6968
+        },
+        {
+          "filename": "youth-red-cross-yrc_08_IMG_6157.jpg",
+          "localPath": "/assets/student-support/youth-red-cross-yrc_08_IMG_6157.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2023/06/IMG_6157.jpg",
+          "alt": "Youth Redcross Photo 8",
+          "width": 336,
+          "height": 432,
+          "sizeBytes": 31241
+        }
+      ],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "library",
+      "name": "Library",
+      "category": "Amenities",
+      "real_source_image_count": 5,
+      "local_image_count": 5,
+      "correctly_matched_count": 5,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 5,
+      "images": [
+        {
+          "filename": "library_01_l8.jpg",
+          "localPath": "/assets/student-support/library_01_l8.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/l8.jpg",
+          "alt": "Library Photo 1",
+          "width": 960,
+          "height": 1280,
+          "sizeBytes": 171895
+        },
+        {
+          "filename": "library_02_l4.jpg",
+          "localPath": "/assets/student-support/library_02_l4.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/l4.jpg",
+          "alt": "Library Photo 2",
+          "width": 1280,
+          "height": 960,
+          "sizeBytes": 179499
+        },
+        {
+          "filename": "library_03_l2.jpg",
+          "localPath": "/assets/student-support/library_03_l2.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/l2.jpg",
+          "alt": "Library Photo 3",
+          "width": 1280,
+          "height": 960,
+          "sizeBytes": 219034
+        },
+        {
+          "filename": "library_04_l3.jpg",
+          "localPath": "/assets/student-support/library_04_l3.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/l3.jpg",
+          "alt": "Library Photo 4",
+          "width": 1280,
+          "height": 960,
+          "sizeBytes": 112996
+        },
+        {
+          "filename": "library_05_l1.jpg",
+          "localPath": "/assets/student-support/library_05_l1.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/l1.jpg",
+          "alt": "Library Photo 5",
+          "width": 1280,
+          "height": 960,
+          "sizeBytes": 103622
+        }
+      ],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "facilities",
+      "name": "Physical Infrastructure",
+      "category": "Amenities",
+      "real_source_image_count": 1,
+      "local_image_count": 1,
+      "correctly_matched_count": 1,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 1,
+      "images": [
+        {
+          "filename": "facilities_01_20210224_113112-scaled-1.jpg",
+          "localPath": "/assets/student-support/facilities_01_20210224_113112-scaled-1.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2023/02/20210224_113112-scaled-1.jpg",
+          "alt": "Physical Infrastructure Photo 1",
+          "width": 2560,
+          "height": 2560,
+          "sizeBytes": 879345
+        }
+      ],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "business-lab",
+      "name": "Business Lab",
+      "category": "Amenities",
+      "real_source_image_count": 0,
+      "local_image_count": 0,
+      "correctly_matched_count": 0,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 0,
+      "images": [],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "computer-science-lab",
+      "name": "Computer Lab",
+      "category": "Amenities",
+      "real_source_image_count": 4,
+      "local_image_count": 4,
+      "correctly_matched_count": 4,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 4,
+      "images": [
+        {
+          "filename": "computer-science-lab_01_img1-2.jpg",
+          "localPath": "/assets/student-support/computer-science-lab_01_img1-2.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img1-2.jpg",
+          "alt": "Computer Lab Photo 1",
+          "width": 1024,
+          "height": 576,
+          "sizeBytes": 101464
+        },
+        {
+          "filename": "computer-science-lab_02_img2-2.jpg",
+          "localPath": "/assets/student-support/computer-science-lab_02_img2-2.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img2-2.jpg",
+          "alt": "Computer Lab Photo 2",
+          "width": 1024,
+          "height": 576,
+          "sizeBytes": 86515
+        },
+        {
+          "filename": "computer-science-lab_03_img3-2.jpg",
+          "localPath": "/assets/student-support/computer-science-lab_03_img3-2.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img3-2.jpg",
+          "alt": "Computer Lab Photo 3",
+          "width": 1024,
+          "height": 576,
+          "sizeBytes": 87590
+        },
+        {
+          "filename": "computer-science-lab_04_img4-1.jpg",
+          "localPath": "/assets/student-support/computer-science-lab_04_img4-1.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img4-1.jpg",
+          "alt": "Computer Lab Photo 4",
+          "width": 1024,
+          "height": 576,
+          "sizeBytes": 95617
+        }
+      ],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "girls-hostel",
+      "name": "Girls Hostel",
+      "category": "Amenities",
+      "real_source_image_count": 3,
+      "local_image_count": 3,
+      "correctly_matched_count": 3,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 3,
+      "images": [
+        {
+          "filename": "girls-hostel_01_img1-Picsart-AiImageEnhancer.jpg",
+          "localPath": "/assets/student-support/girls-hostel_01_img1-Picsart-AiImageEnhancer.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img1-Picsart-AiImageEnhancer.jpg",
+          "alt": "Girls Hostel Photo 1",
+          "width": 2560,
+          "height": 1440,
+          "sizeBytes": 562949
+        },
+        {
+          "filename": "girls-hostel_02_img2-Picsart-AiImageEnhancer.jpg",
+          "localPath": "/assets/student-support/girls-hostel_02_img2-Picsart-AiImageEnhancer.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img2-Picsart-AiImageEnhancer.jpg",
+          "alt": "Girls Hostel Photo 2",
+          "width": 2560,
+          "height": 1440,
+          "sizeBytes": 580068
+        },
+        {
+          "filename": "girls-hostel_03_img3-Picsart-AiImageEnhancer.jpg",
+          "localPath": "/assets/student-support/girls-hostel_03_img3-Picsart-AiImageEnhancer.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/img3-Picsart-AiImageEnhancer.jpg",
+          "alt": "Girls Hostel Photo 3",
+          "width": 2560,
+          "height": 1440,
+          "sizeBytes": 523223
+        }
+      ],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "boys-hostel",
+      "name": "Boys Hostel",
+      "category": "Amenities",
+      "real_source_image_count": 3,
+      "local_image_count": 3,
+      "correctly_matched_count": 3,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 3,
+      "images": [
+        {
+          "filename": "boys-hostel_01_IMG_20240102_124341-1536x692-Picsart-AiImageEnhancer-3.jpg",
+          "localPath": "/assets/student-support/boys-hostel_01_IMG_20240102_124341-1536x692-Picsart-AiImageEnhancer-3.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/IMG_20240102_124341-1536x692-Picsart-AiImageEnhancer-3.jpg",
+          "alt": "Boys Hostel Photo 1",
+          "width": 2560,
+          "height": 1153,
+          "sizeBytes": 527126
+        },
+        {
+          "filename": "boys-hostel_02_IMG_0166-1536x1024-Picsart-AiImageEnhancer-1.jpg",
+          "localPath": "/assets/student-support/boys-hostel_02_IMG_0166-1536x1024-Picsart-AiImageEnhancer-1.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/IMG_0166-1536x1024-Picsart-AiImageEnhancer-1.jpg",
+          "alt": "Boys Hostel Photo 2",
+          "width": 2560,
+          "height": 1707,
+          "sizeBytes": 755219
+        },
+        {
+          "filename": "boys-hostel_03_DSC_5036-1536x1021-Picsart-AiImageEnhancer-1.jpg",
+          "localPath": "/assets/student-support/boys-hostel_03_DSC_5036-1536x1021-Picsart-AiImageEnhancer-1.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/DSC_5036-1536x1021-Picsart-AiImageEnhancer-1.jpg",
+          "alt": "Boys Hostel Photo 3",
+          "width": 2560,
+          "height": 1702,
+          "sizeBytes": 633804
+        }
+      ],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "auditorium",
+      "name": "Auditorium",
+      "category": "Amenities",
+      "real_source_image_count": 3,
+      "local_image_count": 3,
+      "correctly_matched_count": 3,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 3,
+      "images": [
+        {
+          "filename": "auditorium_01_WhatsApp-Image-2025-11-29-at-13.26.52.jpeg",
+          "localPath": "/assets/student-support/auditorium_01_WhatsApp-Image-2025-11-29-at-13.26.52.jpeg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/12/WhatsApp-Image-2025-11-29-at-13.26.52.jpeg",
+          "alt": "Auditorium Photo 1",
+          "width": 1280,
+          "height": 960,
+          "sizeBytes": 153013
+        },
+        {
+          "filename": "auditorium_02_WhatsApp-Image-2025-11-29-at-13.27.15.jpeg",
+          "localPath": "/assets/student-support/auditorium_02_WhatsApp-Image-2025-11-29-at-13.27.15.jpeg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/12/WhatsApp-Image-2025-11-29-at-13.27.15.jpeg",
+          "alt": "Auditorium Photo 2",
+          "width": 1280,
+          "height": 960,
+          "sizeBytes": 170319
+        },
+        {
+          "filename": "auditorium_03_IMG_20251030_124353-1.jpg",
+          "localPath": "/assets/student-support/auditorium_03_IMG_20251030_124353-1.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/10/IMG_20251030_124353-1.jpg",
+          "alt": "Auditorium Photo 3",
+          "width": 1920,
+          "height": 1080,
+          "sizeBytes": 662311
+        }
+      ],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "e-journal",
+      "name": "Philos Bulletin",
+      "category": "Amenities",
+      "real_source_image_count": 0,
+      "local_image_count": 0,
+      "correctly_matched_count": 0,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 0,
+      "images": [],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "bank-atm",
+      "name": "Bank & ATM",
+      "category": "Other Amenities",
+      "real_source_image_count": 2,
+      "local_image_count": 2,
+      "correctly_matched_count": 2,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 2,
+      "images": [
+        {
+          "filename": "bank-atm_01_ChatGPT-Image-Apr-14-2025-11_22_29-AM.jpg",
+          "localPath": "/assets/student-support/bank-atm_01_ChatGPT-Image-Apr-14-2025-11_22_29-AM.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/ChatGPT-Image-Apr-14-2025-11_22_29-AM.jpg",
+          "alt": "Bank & ATM Photo 1",
+          "width": 1024,
+          "height": 1024,
+          "sizeBytes": 303760
+        },
+        {
+          "filename": "bank-atm_02_canara.jpg",
+          "localPath": "/assets/student-support/bank-atm_02_canara.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/canara.jpg",
+          "alt": "Bank & ATM Photo 2",
+          "width": 264,
+          "height": 191,
+          "sizeBytes": 10583
+        }
+      ],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "chapel-hall-3",
+      "name": "Chapel",
+      "category": "Other Amenities",
+      "real_source_image_count": 3,
+      "local_image_count": 3,
+      "correctly_matched_count": 3,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 3,
+      "images": [
+        {
+          "filename": "chapel-hall-3_01_chaple.jpg",
+          "localPath": "/assets/student-support/chapel-hall-3_01_chaple.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/chaple.jpg",
+          "alt": "Chapel Photo 1",
+          "width": 1536,
+          "height": 1024,
+          "sizeBytes": 316659
+        },
+        {
+          "filename": "chapel-hall-3_02_WhatsApp-Image-2025-11-21-at-13.20.40.jpeg",
+          "localPath": "/assets/student-support/chapel-hall-3_02_WhatsApp-Image-2025-11-21-at-13.20.40.jpeg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-21-at-13.20.40.jpeg",
+          "alt": "Chapel Photo 2",
+          "width": 1280,
+          "height": 960,
+          "sizeBytes": 136329
+        },
+        {
+          "filename": "chapel-hall-3_03_WhatsApp-Image-2025-11-21-at-13.22.17.jpeg",
+          "localPath": "/assets/student-support/chapel-hall-3_03_WhatsApp-Image-2025-11-21-at-13.22.17.jpeg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-21-at-13.22.17.jpeg",
+          "alt": "Chapel Photo 3",
+          "width": 960,
+          "height": 1280,
+          "sizeBytes": 125393
+        }
+      ],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "ranger-and-rovers",
+      "name": "Ranger and Rovers",
+      "category": "Other Amenities",
+      "real_source_image_count": 0,
+      "local_image_count": 0,
+      "correctly_matched_count": 0,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 0,
+      "images": [],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "ncc",
+      "name": "NCC",
+      "category": "Other Amenities",
+      "real_source_image_count": 8,
+      "local_image_count": 8,
+      "correctly_matched_count": 8,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 8,
+      "images": [
+        {
+          "filename": "ncc_01_NCC-1.jpg",
+          "localPath": "/assets/student-support/ncc_01_NCC-1.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/NCC-1.jpg",
+          "alt": "NCC Photo 1",
+          "width": 2560,
+          "height": 1440,
+          "sizeBytes": 623244
+        },
+        {
+          "filename": "ncc_02_NCC-2.jpg",
+          "localPath": "/assets/student-support/ncc_02_NCC-2.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/NCC-2.jpg",
+          "alt": "NCC Photo 2",
+          "width": 2560,
+          "height": 1440,
+          "sizeBytes": 860574
+        },
+        {
+          "filename": "ncc_03_NCC-3.jpg",
+          "localPath": "/assets/student-support/ncc_03_NCC-3.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/NCC-3.jpg",
+          "alt": "NCC Photo 3",
+          "width": 2560,
+          "height": 1440,
+          "sizeBytes": 833743
+        },
+        {
+          "filename": "ncc_04_NCC.jpg",
+          "localPath": "/assets/student-support/ncc_04_NCC.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/06/NCC.jpg",
+          "alt": "NCC Photo 4",
+          "width": 2560,
+          "height": 1440,
+          "sizeBytes": 656577
+        },
+        {
+          "filename": "ncc_05_WhatsApp-Image-2025-04-15-at-17.32.41.jpeg",
+          "localPath": "/assets/student-support/ncc_05_WhatsApp-Image-2025-04-15-at-17.32.41.jpeg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-15-at-17.32.41.jpeg",
+          "alt": "NCC Photo 5",
+          "width": 1479,
+          "height": 837,
+          "sizeBytes": 342699
+        },
+        {
+          "filename": "ncc_06_WhatsApp-Image-2025-04-15-at-17.33.10.jpeg",
+          "localPath": "/assets/student-support/ncc_06_WhatsApp-Image-2025-04-15-at-17.33.10.jpeg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-15-at-17.33.10.jpeg",
+          "alt": "NCC Photo 6",
+          "width": 1479,
+          "height": 837,
+          "sizeBytes": 415455
+        },
+        {
+          "filename": "ncc_07_WhatsApp-Image-2025-04-15-at-17.33.28.jpeg",
+          "localPath": "/assets/student-support/ncc_07_WhatsApp-Image-2025-04-15-at-17.33.28.jpeg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-15-at-17.33.28.jpeg",
+          "alt": "NCC Photo 7",
+          "width": 1479,
+          "height": 837,
+          "sizeBytes": 388698
+        },
+        {
+          "filename": "ncc_08_WhatsApp-Image-2025-04-15-at-17.33.42.jpeg",
+          "localPath": "/assets/student-support/ncc_08_WhatsApp-Image-2025-04-15-at-17.33.42.jpeg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-15-at-17.33.42.jpeg",
+          "alt": "NCC Photo 8",
+          "width": 1024,
+          "height": 580,
+          "sizeBytes": 149247
+        }
+      ],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "nss",
+      "name": "NSS",
+      "category": "Other Amenities",
+      "real_source_image_count": 3,
+      "local_image_count": 3,
+      "correctly_matched_count": 3,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 3,
+      "images": [
+        {
+          "filename": "nss_01_nss1.jpg",
+          "localPath": "/assets/student-support/nss_01_nss1.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/nss1.jpg",
+          "alt": "NSS Photo 1",
+          "width": 1536,
+          "height": 864,
+          "sizeBytes": 265073
+        },
+        {
+          "filename": "nss_02_nss3.jpg",
+          "localPath": "/assets/student-support/nss_02_nss3.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/nss3.jpg",
+          "alt": "NSS Photo 2",
+          "width": 1536,
+          "height": 864,
+          "sizeBytes": 224429
+        },
+        {
+          "filename": "nss_03_nss2-1.jpg",
+          "localPath": "/assets/student-support/nss_03_nss2-1.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/nss2-1.jpg",
+          "alt": "NSS Photo 3",
+          "width": 1536,
+          "height": 864,
+          "sizeBytes": 170131
+        }
+      ],
+      "status": "CORRECT"
+    },
+    {
+      "slug": "indoor-stadium",
+      "name": "Indoor Stadium",
+      "category": "Other Amenities",
+      "real_source_image_count": 3,
+      "local_image_count": 3,
+      "correctly_matched_count": 3,
+      "incorrect_image_count": 0,
+      "missing_image_count": 0,
+      "placeholder_count": 0,
+      "remote_image_count": 0,
+      "actually_visible_in_website": 3,
+      "images": [
+        {
+          "filename": "indoor-stadium_01_WhatsApp-Image-2025-04-16-at-19.47.14-1-e1744829831621.jpeg",
+          "localPath": "/assets/student-support/indoor-stadium_01_WhatsApp-Image-2025-04-16-at-19.47.14-1-e1744829831621.jpeg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-16-at-19.47.14-1-e1744829831621.jpeg",
+          "alt": "Indoor Stadium Photo 1",
+          "width": 1920,
+          "height": 2057,
+          "sizeBytes": 404402
+        },
+        {
+          "filename": "indoor-stadium_02_IMG_1737.jpg",
+          "localPath": "/assets/student-support/indoor-stadium_02_IMG_1737.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/IMG_1737.jpg",
+          "alt": "IMG_1737",
+          "width": 2560,
+          "height": 1707,
+          "sizeBytes": 753157
+        },
+        {
+          "filename": "indoor-stadium_03_IMG_1775.jpg",
+          "localPath": "/assets/student-support/indoor-stadium_03_IMG_1775.jpg",
+          "originalUrl": "https://stphilos.ac.in/wp-content/uploads/2025/11/IMG_1775.jpg",
+          "alt": "Indoor Stadium Photo 3",
+          "width": 2560,
+          "height": 1707,
+          "sizeBytes": 524683
+        }
+      ],
+      "status": "CORRECT"
+    }
+  ]
+}

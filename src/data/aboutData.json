@@ -1,12 +1,12 @@
 {
   "_source": "https://stphilos.ac.in/",
-  "_auditDate": "2026-08-27",
-  "vision": "The holistic development of the youth to carve out a better world by imparting value-based quality education for global competencies.",
-  "mission": [
-    "To promote quality education, human values, research attitude, and ethical standard.",
-    "To create a healthy environment for academic excellence and overall personality development.",
-    "To foster global competencies, innovation, social responsibility, and scientific temper among youth.",
-    "To empower underprivileged and marginalized sections of society through inclusive education."
+  "vision": "The college is guided by the visionary zeal of providing value-based education to everyone irrespective of religion, caste, creed or sex by which the character is formed.",
+  "mission": "At St. Philomena’s College, our mission is to holistically transform young men and women into intellectually curious, emotionally resilient, and socially responsible individuals. By fostering a dynamic learning environment where students live, learn, work, and play together, we nurture essential life skills, a spirit of unity, and a strong ethical foundation. Through disciplined inquiry, compassionate service, and unwavering integrity, we empower our students to emerge as leaders and changemakers—citizens committed to building a just, inclusive, and progressive society.",
+  "missionPoints": [
+    "Holistically transform young men and women into intellectually curious, emotionally resilient, and socially responsible individuals.",
+    "Foster a dynamic learning environment where students live, learn, work, and play together, nurturing essential life skills and unity.",
+    "Instill disciplined inquiry, compassionate service, and unwavering integrity across all disciplines.",
+    "Empower students to emerge as ethical leaders and changemakers committed to building a just, inclusive, and progressive society."
   ],
   "coreValues": [
     {
@@ -32,14 +32,14 @@
   ],
   "coatOfArms": {
     "motto": "Caritas in Scientia",
-    "mottoMeaning": "Love in Knowledge \u2014 derived from the Holy Father's maxim 'Caritas vestra magis ac magis abundet in scientia'.",
-    "history": "Before its foundation on October 9, 1946, the college received its motto from His Holiness the Pope: 'Caritas in Scientia' (Love in Knowledge). The seal features Saint Philomena, a Greek princess and virgin martyr discovered in May 1802 at the Catacombs of Priscilla.",
+    "mottoMeaning": "Derived from the Holy Father's maxim 'Caritas vestra magis ac magis abundet in scientia'.",
+    "history": "Before its foundation on October 9, 1946, the college received its motto from His Holiness the Pope: 'Caritas in Scientia'. The seal features Saint Philomena, a Greek princess and virgin martyr discovered in May 1802 at the Catacombs of Priscilla.",
     "image": "/assets/images/about/crest-stphilos.png",
     "hdImage": "/assets/images/about/crest-hd.png",
     "symbols": [
       {
         "symbol": "Anchor",
-        "meaning": "Symbol of HOPE and steadfast faith \u2014 similar to the Holy Cross symbolizing Faith in Christ."
+        "meaning": "Symbol of HOPE and steadfast faith — similar to the Holy Cross symbolizing Faith in Christ."
       },
       {
         "symbol": "Arrows",
@@ -61,52 +61,101 @@
   },
   "bishops": [
     {
+      "id": "rene-feuga",
       "name": "Most Rev. Dr. Rene Feuga",
-      "tenure": "1946\u20131964",
+      "title": "MOST REV. DR. RENE FEUGA – FOUNDER PATRON (1946-1964)",
+      "tenure": "1946–1964",
       "role": "Founder Patron",
-      "description": "His Excellency, Rt. Rev. Dr. Rene Feuga, MEP, the first Bishop of Mysore, vacated his own episcopal mansion to make room for the first classrooms of St. Philomena's College on October 9, 1946. Together with Sri Jayachamarajendra Wodeyar, the Maharaja of Mysore, his vision laid the foundations of the premier higher education institution in Mysore region.",
-      "image": "/assets/images/bishops/rene-feuga.jpg",
-      "source": "https://stphilos.ac.in/former-bishops/"
+      "description": "Bishop René-Jean-Baptiste-Germain Feuga, M.E.P., fondly known as Bishop Feuga, was the first Bishop of the Diocese of Mysore and founder Patron of St. Philomena's College. Consecrated in 1941, he vacated his episcopal mansion to start the first classrooms on October 9, 1946. Together with Maharaja Sri Jayachamarajendra Wodeyar's generous 29-acre land grant and blessings from Pope Pius XII, he laid the foundations of premier higher education in the Mysore region.",
+      "fullBiography": [
+        "Bishop René-Jean-Baptiste-Germain Feuga, M.E.P., fondly known as Bishop Feuga was the first Bishop of the bifurcated Diocese of Mysore with its headquarters in Mysore and the founder Patron of St. Philomena's College. He was consecrated Bishop in 1941 and continued as the first prelate of the present Mysore diocese till he retired in 1962. His term was extended as Bishop till his demise in 1964.",
+        "Missions Etrangeres de Paris (MEP) commonly known as Paris Foreign Mission Society started sending priests to India in the latter part of the 18th century. The Vicariate of Mysore paved the way for the creation of the Diocese of Mysore in 1886. Rev. Fr. Rene Feuga came to India in 1913, chaired the French Department at St. Joseph's College Bangalore, and later chaired the French Department in Maharaja's College Mysore.",
+        "In 1929 he was appointed preceptor to Chamarajendra Wodeyar who succeeded as the Maharaja of Mysore in 1940. Bishop Feuga vacated his newly constructed Bishop's Mansion to house the initial classrooms of St. Philomena's College, while the Maharaja matched his sacrifice with 29 acres of land. He obtained the papal maxim 'Caritas in Scientia' from Pope Pius XII and equipped the first science labs."
+      ],
+      "image": "/assets/images/bishops/rene-feuga.jpg"
     },
     {
+      "id": "mathias-fernandes",
       "name": "Most Rev. Dr. Mathias Fernandes",
-      "tenure": "1964\u20131985",
+      "title": "Most Rev. Dr. Mathias Fernandes (1964-1985)",
+      "tenure": "1964–1985",
       "role": "Patron",
-      "description": "Bishop Mathias Fernandes spearheaded monumental infrastructure expansion, constructing the college auditorium in 1966 and the ground floor of the library block in 1981. It was during his tenure as Patron that the College celebrated its historic Silver Jubilee.",
-      "image": "/assets/images/bishops/mathias-fernandes.jpg",
-      "source": "https://stphilos.ac.in/former-bishops/"
+      "description": "Bishop Mathias Sebastião Francisco Fernandes was appointed the second Bishop of Mysore in 1964. He spearheaded monumental infrastructural growth, constructing the college auditorium in 1966 and the ground floor of the library block in 1981. It was during his tenure as Patron that the College celebrated its historic Silver Jubilee.",
+      "fullBiography": [
+        "Bishop Mathias Sebastião Francisco Fernandes commonly known as Bishop Mathias Fernandes was appointed the second Bishop of the present Diocese of Mysore and consecrated on February 3, 1964 at the young age of 46. Hailing from Goa, he chose to be a missionary in the large undivided diocese of Mysore.",
+        "His relentless work, mostly in rural areas like Shettihalli and Nagavalli, prompted him to uplift the poor through education, enabling hundreds of young people from rural areas to pursue higher studies and become lecturers, teachers, doctors and engineers.",
+        "Bishop Mathias Fernandes took keen interest in the growth of St. Philomena's College and was nominated twice to the Senate of the University of Mysore. In 1966 a much-needed elegant auditorium was constructed and in 1981 the ground floor of the library block, alongside the Silver Jubilee celebrations."
+      ],
+      "image": "/assets/images/bishops/mathias-fernandes.jpg"
     },
     {
+      "id": "francis-michaelappa",
       "name": "Most Rev. Dr. Francis Michaelappa",
-      "tenure": "1987\u20131995",
+      "title": "Most Rev. Dr. Francis Michaelappa (1987-1995)",
+      "tenure": "1987–1995",
       "role": "Patron",
-      "description": "Most Rev. Dr. Francis Michaelappa guided the college through pivotal academic consolidations, fostering community outreach, moral education, and science laboratory modernizations.",
-      "image": "/assets/images/bishops/francis-michaelappa.jpg",
-      "source": "https://stphilos.ac.in/former-bishops/"
+      "description": "Rt. Rev. Dr. Francis Michaelappa was consecrated the third Bishop of Mysore in 1987. Holding a Master's Degree in Communication and Journalism from Marquette University, USA, and profound scholarship in Kannada literature and Vachanas, he guided St. Philomena's College through pivotal academic consolidations.",
+      "fullBiography": [
+        "Rt. Rev. Dr. Francis Michaelappa, a priest of the Arch-diocese of Bangalore, hailing from Harobale was consecrated the third Bishop of Mysore on May 27, 1987.",
+        "Besides studies in Philosophy and Theology, Bishop Michaelappa had a Master's Degree in Communication and Journalism from Marquette University, Milwaukee, Wisconsin, USA. He had vast knowledge of Kannada literature and quoted eloquently from the Vachanas in his speeches.",
+        "Simple and humble, but extraordinarily human, Bishop Michaelappa was proud to be chairman of St. Philomena's College, bravely managing the diocese and its institutions until his demise on March 17, 1993."
+      ],
+      "image": "/assets/images/bishops/francis-michaelappa.jpg"
     },
     {
+      "id": "joseph-roy",
       "name": "Most Rev. Dr. Joseph Roy",
-      "tenure": "1995\u20132003",
+      "title": "Most Rev. Dr. Joseph Roy (1995-2003)",
+      "tenure": "1995–2003",
       "role": "Patron & Chairman",
-      "description": "Rt. Rev. Dr. Joseph Roy, the first local Bishop of Mysore, oversaw the grand Golden Jubilee celebrations, the construction of the iconic Octagonal Chapel in memory of Bishop Feuga, the campus perimeter wall, three floors of the library block, and the installation of Computer Science, Microbiology, and Biotechnology labs.",
-      "image": "/assets/images/bishops/joseph-roy.jpg",
-      "source": "https://stphilos.ac.in/former-bishops/"
+      "description": "Rt. Rev. Dr. Joseph Roy, born and brought up in Mysore, was the fourth Bishop and first local Bishop of Mysore. He oversaw the Golden Jubilee celebrations, the construction of the Octagonal Chapel in memory of Bishop Feuga, campus perimeter wall, library expansion, and new science laboratories.",
+      "fullBiography": [
+        "Rt. Rev. Dr. Joseph Roy, born and brought up in Mysore, was the fourth Bishop of Mysore and the first local Bishop. He cherished having stayed during his minor seminary days in the present Administrative Block before it was handed over to the College.",
+        "Aware of the need to ensure academic growth, he supported Principal Rev. Fr. Leslie Moras in starting new courses and developing infrastructure, including the massive granite compound wall, three floors of the library block, and modern Computer Science, Microbiology, Biochemistry and Biotechnology laboratories.",
+        "The grand Golden Jubilee was celebrated under Bishop Roy's leadership, marked by the construction of the beautiful Octagonal Chapel at the college entrance in honour of Founder Bishop Rene Feuga."
+      ],
+      "image": "/assets/images/bishops/joseph-roy.jpg"
     },
     {
+      "id": "thomas-anthony-vazhapilly",
       "name": "Most Rev. Dr. Thomas Anthony Vazhapilly",
-      "tenure": "2003\u20132017",
+      "title": "Most Rev. Dr. Thomas Anthony Vazhapilly (2003-2017)",
+      "tenure": "2003–2017",
       "role": "Patron & Chairman",
-      "description": "Under Bishop Thomas Anthony Vazhapilly, the college achieved Autonomous status in 2011, NAAC 'A+' accreditation with 3.58 CGPA, College with Potential for Excellence (2010), College of Excellence (2015), the Diamond Jubilee with President Dr. A.P.J. Abdul Kalam, and the monumental 1500-seat multi-purpose Indoor Stadium.",
-      "image": "/assets/images/bishops/thomas-anthony-vazhapilly.jpg",
-      "source": "https://stphilos.ac.in/former-bishops/"
+      "description": "Under Bishop Thomas Anthony Vazhapilly, St. Philomena's College reached historic pinnacles: Autonomous status (2011), NAAC 'A+' grade (3.58 CGPA), College of Excellence (2015), 5-storey PG block, 1500-seat multi-purpose Indoor Stadium, and Diamond Jubilee with President Dr. A.P.J. Abdul Kalam.",
+      "fullBiography": [
+        "Rt. Rev. Dr. Thomas Anthony Vazhapilly, the fifth Bishop of Mysore, held doctoral studies in Moral Theology from Gregorian University, Rome, and served as Professor and President of St. Peter's Pontifical Institute Bangalore before his election as Bishop on March 25, 2003.",
+        "Thanks to his collaboration with Principal Rev. Fr. Leslie Moras, PG courses were started in 2008 with a massive 5-storey PG block housing 14 programmes, a research centre, a 5-storey ladies' hostel for 350 students, and an international student body from 33 countries and 19 Indian states.",
+        "Under his chairmanship, the college achieved Autonomous status in 2011, NAAC A+ accreditation (3.58 CGPA), College with Potential for Excellence (2010), College of Excellence (2015), the 1500-seat Indoor Stadium, and Diamond Jubilee celebration inaugurated by President Dr. A.P.J. Abdul Kalam."
+      ],
+      "image": "/assets/images/bishops/thomas-anthony-vazhapilly.jpg"
     }
   ],
+  "presentPrincipal": {
+    "name": "Dr. Ravi J.D. Saldanha",
+    "designation": "Principal in Office",
+    "tenure": "2022–Present",
+    "role": "Present Principal",
+    "description": "Principal of St. Philomena's College (Autonomous), leading institutional governance, NEP 2020 curriculum implementations, research advancements, and student excellence.",
+    "image": "/assets/images/principals/ravi-jd-saldanha.jpg",
+    "source": "https://stphilos.ac.in/principals-message/"
+  },
   "principals": [
+    {
+      "num": "15",
+      "name": "Dr. Ravi J.D. Saldanha",
+      "qualification": "Principal in Office",
+      "tenure": "2022–Present",
+      "isCurrent": true,
+      "description": "Present Principal of St. Philomena's College (Autonomous), leading academic governance, research advancements, and NEP-aligned institutional excellence.",
+      "image": "/assets/images/principals/ravi-jd-saldanha.jpg",
+      "source": "https://stphilos.ac.in/principals-message/"
+    },
     {
       "num": "01",
       "name": "Rev. Fr. C.A. Browne",
       "qualification": "Principal",
-      "tenure": "1946\u20131948",
+      "tenure": "1946–1948",
       "description": "First Principal of St. Philomena's College, handpicked by Bishop Rene Feuga to establish the institution's academic foundation and rigorous traditions.",
       "image": "/assets/images/principals/rev-fr-ca-browne.jpg",
       "source": "https://stphilos.ac.in/about-us-2/principles/"
@@ -115,7 +164,7 @@
       "num": "02",
       "name": "Chevalier C.J. Varkey",
       "qualification": "Principal",
-      "tenure": "1948\u20131951",
+      "tenure": "1948–1951",
       "description": "Renowned educationist, former Minister of Education in Madras Presidency, and Chevalier who established degree-level science courses.",
       "image": "/assets/images/principals/chevalier-cj-varkey.jpg",
       "source": "https://stphilos.ac.in/about-us-2/principles/"
@@ -124,7 +173,7 @@
       "num": "03",
       "name": "Rev. Dr. J.B. Freeman",
       "qualification": "Principal",
-      "tenure": "1951\u20131952",
+      "tenure": "1951–1952",
       "description": "Distinguished academician who consolidated laboratory infrastructure and inter-collegiate university affiliations.",
       "image": "/assets/images/principals/rev-dr-jb-freeman.jpg",
       "source": "https://stphilos.ac.in/about-us-2/principles/"
@@ -133,7 +182,7 @@
       "num": "04",
       "name": "Rev. Fr. Audiau",
       "qualification": "Principal",
-      "tenure": "1952\u20131960",
+      "tenure": "1952–1960",
       "description": "Dedicated French MEP missionary who led the college for eight transformative years, expanding humanities and science wings.",
       "image": "/assets/images/principals/rev-fr-audiau.jpg",
       "source": "https://stphilos.ac.in/about-us-2/principles/"
@@ -142,7 +191,7 @@
       "num": "05",
       "name": "Rev. Fr. N.T. Thomas",
       "qualification": "Principal",
-      "tenure": "1960\u20131966",
+      "tenure": "1960–1966",
       "description": "Visionary administrator who planned the campus auditorium, sports fields, and introduced diverse subject combinations.",
       "image": "/assets/images/principals/rev-fr-nt-thomas.jpg",
       "source": "https://stphilos.ac.in/about-us-2/principles/"
@@ -151,7 +200,7 @@
       "num": "06",
       "name": "Rev. Fr. A. Fleury",
       "qualification": "Principal",
-      "tenure": "1966\u20131971",
+      "tenure": "1966–1971",
       "description": "Inaugurated the College Auditorium in 1966 and celebrated the College Silver Jubilee, mentoring a generation of scholars.",
       "image": "/assets/images/principals/rev-fr-a-fleury.png",
       "source": "https://stphilos.ac.in/about-us-2/principles/"
@@ -160,7 +209,7 @@
       "num": "07",
       "name": "Rev. Fr. Frank D'Souza",
       "qualification": "Principal",
-      "tenure": "1971\u20131977",
+      "tenure": "1971–1977",
       "description": "Spearheaded student discipline, cultural societies, NSS community wings, and modern pedagogical reforms.",
       "image": "/assets/images/principals/rev-fr-frank-dsouza.png",
       "source": "https://stphilos.ac.in/about-us-2/principles/"
@@ -169,7 +218,7 @@
       "num": "08",
       "name": "Rev. Fr. Thomas Vazhapilly",
       "qualification": "Principal",
-      "tenure": "1977\u20131979",
+      "tenure": "1977–1979",
       "description": "Eminent botanist and professor who strengthened biological science laboratories and research herbariums.",
       "image": "/assets/images/principals/rev-fr-thomas-vazhapilly.png",
       "source": "https://stphilos.ac.in/about-us-2/principles/"
@@ -178,7 +227,7 @@
       "num": "09",
       "name": "Rev. Fr. Thomas Ezhanikat",
       "qualification": "Principal",
-      "tenure": "1979\u20131980",
+      "tenure": "1979–1980",
       "description": "Scholar and educationist who guided the institution's transition towards modern multidisciplinary curricula.",
       "image": "/assets/images/principals/rev-fr-thomas-ezhanikat.png",
       "source": "https://stphilos.ac.in/about-us-2/principles/"
@@ -187,7 +236,7 @@
       "num": "10",
       "name": "Rev. Fr. Valerian D'Souza",
       "qualification": "Principal",
-      "tenure": "1980\u20131992",
+      "tenure": "1980–1992",
       "description": "Dynamic leader for 12 years who constructed the central library building (1981) and expanded commerce and science departments.",
       "image": "/assets/images/principals/rev-fr-valerian-dsouza.png",
       "source": "https://stphilos.ac.in/about-us-2/principles/"
@@ -196,7 +245,7 @@
       "num": "11",
       "name": "Rev. Fr. Leslie Moras",
       "qualification": "Principal",
-      "tenure": "1992\u20132015",
+      "tenure": "1992–2015",
       "description": "Longest serving Principal (23 years) who elevated St. Philomena's to Autonomy (2011), NAAC A+, CPE/CE status, international student diversity from 33 nations, Diamond Jubilee with President Dr. Kalam, and the Indoor Stadium.",
       "image": "/assets/images/principals/rev-fr-leslie-moras.png",
       "source": "https://stphilos.ac.in/about-us-2/principles/"
@@ -205,7 +254,7 @@
       "num": "12",
       "name": "Mr. M. Krishnegowda",
       "qualification": "Principal",
-      "tenure": "2015\u20132017",
+      "tenure": "2015–2017",
       "description": "Accomplished academician, orator, and professor of Kannada who fostered cultural arts and postgraduate program development.",
       "image": "/assets/images/principals/krishne-gowda.jpg",
       "source": "https://stphilos.ac.in/about-us-2/principles/"
@@ -214,7 +263,7 @@
       "num": "13",
       "name": "Dr. Ruth Shantha Kumari T",
       "qualification": "Principal",
-      "tenure": "2017\u20132021",
+      "tenure": "2017–2021",
       "description": "Distinguished scholar and administrator who championed UN Sustainable Development Goals conferences, research journals, and digital learning transformations.",
       "image": "/assets/images/principals/dr-ruth-shantha-kumari.png",
       "source": "https://stphilos.ac.in/about-us-2/principles/"
@@ -223,7 +272,7 @@
       "num": "14",
       "name": "Dr. Alphonsus D'souza",
       "qualification": "Principal",
-      "tenure": "2021\u20132022",
+      "tenure": "2021–2022",
       "description": "Senior professor and academician who steered the institution during the NEP-2020 transition and post-pandemic academic resurgence.",
       "image": "/assets/images/principals/dr-alphonsus-dsouza.png",
       "source": "https://stphilos.ac.in/about-us-2/principles/"

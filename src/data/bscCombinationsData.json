@@ -1,0 +1,174 @@
+[
+  {
+    "key": "physics",
+    "label": "List of combinations with Physics",
+    "departmentName": "Department of Physics",
+    "deptId": "dept-physics",
+    "slug": "physics",
+    "officialUrl": "https://stphilos.ac.in/admissions/ug-courses/b-sc/physics/",
+    "localRoute": "/departments/dept-physics",
+    "combinations": [],
+    "contentSummary": "Physics"
+  },
+  {
+    "key": "chemistry",
+    "label": "List of combinations with Chemistry",
+    "departmentName": "Department of Chemistry",
+    "deptId": "dept-chemistry",
+    "slug": "chemistry",
+    "officialUrl": "https://stphilos.ac.in/admissions/ug-courses/b-sc/chemistry/",
+    "localRoute": "/departments/dept-chemistry",
+    "combinations": [
+      "To carry out major revision in the curriculum after studying curriculum of top Universities / Colleges.",
+      "To introduce project work as one of the practical paper in the V and VI semester.",
+      "Tie up with the industry – making internship as a part of the project work.",
+      "Motivating the students to take up summer research programmes organized by reputed institutions like IISc.",
+      "Arranging guest lectures by eminent scientists and industrialists.",
+      "Motivating the students to write research articles and publish in the national/ international Journals.",
+      "Taking up minor/major research projects and publishing research articles in the reputed Journals.",
+      "To develop research centre and taking up the guideship."
+    ],
+    "contentSummary": "DEPARTMENT OF CHEMISTRY Brief History: The Department of Chemistry came into existence when the college was established in the year 1946, with the objective of giving a practical and concrete shape to the educational ideas of its founders. Hence, since its inception, the department has been engaged "
+  },
+  {
+    "key": "mathematics",
+    "label": "List of combinations with Mathematics",
+    "departmentName": "Department of Mathematics",
+    "deptId": "dept-mathematics",
+    "slug": "mathematics",
+    "officialUrl": "https://stphilos.ac.in/admissions/ug-courses/b-sc/mathematics/",
+    "localRoute": "/departments/dept-mathematics",
+    "combinations": [],
+    "contentSummary": "Mathematics"
+  },
+  {
+    "key": "botany",
+    "label": "List of combinations with Botany",
+    "departmentName": "Department of Botany",
+    "deptId": "dept-botany-zoology",
+    "slug": "botany",
+    "officialUrl": "https://stphilos.ac.in/admissions/ug-courses/b-sc/botany/",
+    "localRoute": "/departments/dept-botany-zoology",
+    "combinations": [],
+    "contentSummary": ""
+  },
+  {
+    "key": "computer-science",
+    "label": "List of combinations with Computer Science",
+    "departmentName": "Department of Computer Science",
+    "deptId": "dept-computer-science",
+    "slug": "computer-science",
+    "officialUrl": "https://stphilos.ac.in/admissions/ug-courses/bca-bachelor-of-computer-applications/",
+    "localRoute": "/departments/dept-computer-science",
+    "combinations": [
+      "One day seminar on Information and Knowledge Management using BIG DATA Computing: Challenges and Research Opportunities 2017",
+      "2016 Feb organised two days National Conference on “ Emerging trends in Computer science”",
+      "Guest Lecture by Dr. Suresha, chairman, Dept.of Computer science, UOM,Mysore on Internet of Things.",
+      "2015 Jan 2 days National Conference was collaborated with department of Mathematics on “ Recent Advances in Applied Mathematics”",
+      "Seminar on VMware : By Mr.Arun Solomon , Manager IT, L &amp;T Mysore 2014",
+      "Guest Lecture on Parallel Computing , 2014"
+    ],
+    "contentSummary": "About Computer Science Department The Department of Computer Science established in 1993, the department strives to train the students for software companies and industries through its well qualified and proficient teaching staff. The department offers Computer Science as one of the optional subject"
+  },
+  {
+    "key": "zoology",
+    "label": "List of combinations with Zoology",
+    "departmentName": "Department of Zoology",
+    "deptId": "dept-botany-zoology",
+    "slug": "zoology",
+    "officialUrl": "https://stphilos.ac.in/admissions/ug-courses/b-sc/zoology/",
+    "localRoute": "/departments/dept-botany-zoology",
+    "combinations": [
+      "To create, innovate, and disseminate knowledge in Zoological sciences.",
+      "To provide state-of-the-art infrastructure and a conducive learning environment for students and faculty to nurture globally competent professionals.",
+      "To promote the conservation of faunal diversity through sustainable approaches.",
+      "To instil values of morality, ethics, and humanity among young minds.",
+      "25 August 2020 : Organized a National-level Webinar on “Implications of Biological Rhythms on the Neuroscience of Learning.”",
+      "18 December 2020 : Donated books and study materials to Government Higher Primary School , Hebbalu Extension, K.R. Nagar Taluk, Mysuru, as part of an Extension Activity .",
+      "June 2021 : Produced a video on the theme “Ecosystem Restoration” to observe World Environment Day , effectively creating awareness during the pandemic lockdown.",
+      "6 June 2022 : Organized a walkathon and plantation drive to commemorate World Environment Day under the theme “Only One Earth – Let’s Live in Harmony with Nature.”"
+    ],
+    "contentSummary": "DEPARTMENT OF ZOOLOGY Vision: To achieve excellence in higher education, research, and innovation in the field of Zoology, while remaining sensitive and responsive to the evolving needs of society. Mission To create, innovate, and disseminate knowledge in Zoological sciences. To provide state-of-the"
+  },
+  {
+    "key": "microbiology",
+    "label": "List of combinations with Microbiology",
+    "departmentName": "Department of Microbiology",
+    "deptId": "dept-microbiology",
+    "slug": "microbiology",
+    "officialUrl": "https://stphilos.ac.in/admissions/ug-courses/b-sc/microbiology/",
+    "localRoute": "/departments/dept-microbiology",
+    "combinations": [
+      "Workshop on “Herbal Remedies for Vibrant Health” on 24th April, 2014",
+      "UGC Sponsored Two-day State level seminar on “Recombinant DNA Technology” on 9th and 10th of April 2010.",
+      "UGC Sponsored Two-day National level workshop on “Biosystematics” on 23 rd and 24th of April 2010.",
+      "“Microbiology- Principles and Explorations” by Dr. Geetha N.P. Asst. Professor, PG Dept of Applied Botany and Biotechnology, University of Mysore on 3 rd April, 2014.",
+      "“Current trends in Clinical Microbiology” by Dr. Nagarathna Chandrashekhar, Dept. of Microbiology, NIMHANS, Bangalore on 3rd April,2014,.",
+      "“Clinical Microbiology” by Mr. Abhijit from ACRI Clinical Research Institute, Bangalore on 4th April, 2014.",
+      "One-day workshop for teachers on “Achieving excellence in college teaching skills and strategies” on 5th September 2006 at St. Philomena’s College, Mysore.",
+      "One-day National level Seminar on “Religion, Spirituality and Education in the Challenging Globalised World” on 8th -10th of April 2007 at St. Philomena’s College, Mysore."
+    ],
+    "contentSummary": "DEPARTMENT OF MICROBIOLOGY A Brief History: The self-financed department of Microbiology was established as an offshoot of the department of Botany in the year 1994. The course is linked as a combination of core subjects with Botany and Biochemistry with the acronym CZMb (Chemistry, Zoology and Micr"
+  },
+  {
+    "key": "biochemistry",
+    "label": "List of combinations with Biochemistry",
+    "departmentName": "Department of Biochemistry",
+    "deptId": "dept-biochemistry",
+    "slug": "biochemistry",
+    "officialUrl": "https://stphilos.ac.in/admissions/ug-courses/b-sc/biochemistry/",
+    "localRoute": "/departments/dept-biochemistry",
+    "combinations": [],
+    "contentSummary": "Biochemistry"
+  },
+  {
+    "key": "biotechnology",
+    "label": "List of combinations with Biotechnology",
+    "departmentName": "Department of Biotechnology",
+    "deptId": "dept-biotechnology",
+    "slug": "biotechnology",
+    "officialUrl": "https://stphilos.ac.in/admissions/ug-courses/b-sc/biotechnology/",
+    "localRoute": "/departments/dept-biotechnology",
+    "combinations": [],
+    "contentSummary": "Research Methodologies 5th Semester E-Content"
+  },
+  {
+    "key": "food-and-nutrition",
+    "label": "List of combinations with Food & Nutrition",
+    "departmentName": "Department of Food & Nutrition",
+    "deptId": "dept-food-science",
+    "slug": "food-and-nutrition",
+    "officialUrl": "https://stphilos.ac.in/admissions/ug-courses/ba/food-and-nutrition/",
+    "localRoute": "/departments/dept-food-science",
+    "combinations": [],
+    "contentSummary": "DEPARTMENT OF NUTRITION About The Department The Department of Food Science and Nutrition was established in the year 2014, it was introduced as optional subject in the combination of CBFN (Chemistry, Botany, Food Science and Nutrition). In the course of green revolution, India has stirred from food"
+  },
+  {
+    "key": "environmental-science",
+    "label": "List of combinations with Environmental Science",
+    "departmentName": "Environmental Science",
+    "deptId": "dept-environmental-science",
+    "slug": "environmental-science-2",
+    "officialUrl": "https://stphilos.ac.in/environmental-science-2/",
+    "localRoute": "/departments/dept-environmental-science",
+    "combinations": [
+      "Transformative Education : We aim to provide an engaging and hands-on educational experience that fosters critical thinking, creativity, and problem-solving skills. Our curriculum will integrate theoretical knowledge with practical applications, enabling students to tackle real-world environmental issues.",
+      "Interdisciplinary Learning : Our department embraces an interdisciplinary approach, combining insights from Botany, Zoology, Food Science and Biotechnology. This holistic perspective will allow students to understand the interconnectedness of environmental systems and human impacts.",
+      "Active Community Engagement : We are committed to fostering strong connections between our students and the communities they serve. Through service-learning projects, internships, and collaborative research initiatives, students will apply their knowledge in meaningful ways that benefit society.",
+      "Participate in field trips that allow students to study ecosystems and conservation efforts.",
+      "Encourage attendance at workshops, seminars, and conferences related to environmental science. Networking with professionals in the field can lead to mentorship opportunities and job placements."
+    ],
+    "contentSummary": "Department of Environmental Science Those who protect the nature, Nature protects them. Brief History: The Department of Environmental Science began its journey in the year 2024 with a vision to foster environmental awareness and equip students with the knowledge and skills required to address conte"
+  },
+  {
+    "key": "criminology",
+    "label": "List of combinations with Criminology and Forensic Science",
+    "departmentName": "Criminology and Forensic Science",
+    "deptId": "dept-criminology",
+    "slug": "criminology-and-forensic-science",
+    "officialUrl": "https://stphilos.ac.in/criminology-and-forensic-science/",
+    "localRoute": "/departments/dept-criminology",
+    "combinations": [],
+    "contentSummary": "DEPARTMENT OF CRIMINOLOGY AND FORENSIC SCIENCE About: The Department of Criminology and Forensic Science is relatively a new department, established recently from the academic year 2014 presently headed by Lt. B. Francis Devasahayam . It has an updated analytical curriculum according to the need of "
+  }
+]

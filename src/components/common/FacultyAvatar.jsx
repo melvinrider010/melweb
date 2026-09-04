@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function FacultyAvatar({ 
   src, 
@@ -9,10 +9,14 @@ export default function FacultyAvatar({
 }) {
   const [error, setError] = useState(false);
 
-  // Derive initials for rare fallback
+  useEffect(() => {
+    setError(false);
+  }, [src]);
+
+  // Derive initials cleanly stripping honorific/religious prefixes
   const initials = name
     ? name
-        .replace(/^(Dr\.|Prof\.|Mr\.|Mrs\.|Ms\.|Rev\.|Fr\.)\s+/i, '')
+        .replace(/^(Dr\.?|Prof\.?|Mr\.?|Mrs\.?|Ms\.?|Rev\.?|Fr\.?|Sr\.?)\s+/i, '')
         .split(' ')
         .filter(Boolean)
         .slice(0, 2)

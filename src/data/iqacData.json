@@ -1,0 +1,168 @@
+{
+  "title": "Internal Quality Assurance Cell (IQAC)",
+  "established": "01/05/2004",
+  "officialUrl": "https://stphilos.ac.in/iqac/",
+  "crawledAt": "2026-09-02T22:00:00.000Z",
+  "localPath": "src/data/iqacData.json",
+  "overview": "Internal Quality Assurance Cell (IQAC) has been established on 01/05/2004 as a post-accreditation quality sustenance measure for performance evaluation, assessment and accreditation and quality upgradation of institutions of higher education. According to the National Assessment and Accreditation Council (NAAC), every accredited institution of higher education should establish Internal Quality Assurance Cell (IQAC) as a post-accreditation quality sustenance measure. The primary responsibility of IQAC is to ensure quality enhancement and sustenance. It ensures the efficiency and effectiveness of measures taken/methods used to provide high-quality education and evaluate the degree to which each task is fulfilled. Since quality enhancement is a continuous process, the IQAC will become a part of the institution’s system and work towards the realization of the goals of quality enhancement and sustenance.",
+  "vision": [
+    "To achieve academic excellence",
+    "To enhance the quality of education",
+    "To ensure the satisfaction of all the stakeholders",
+    "To encourage the research and innovation in teaching and learning methodologies",
+    "To promote a culture of continuous incremental improvement in the overall holistic development of the institution"
+  ],
+  "mission": [
+    "To develop the qualitative parameters leading to constant improvement of all academic and administrative activities",
+    "To propose the best possible action plans which catalyze the overall academic improvement.",
+    "To create the learner – centric environment"
+  ],
+  "objectives": [
+    "To live up to the demanding benchmarks.",
+    "To enhance the quality of education and research.",
+    "To provide a basis for decision making to improve institutional functioning.",
+    "To integrate the modern methods of teaching, learning and evaluation."
+  ],
+  "functions": [
+    "Development and application of quality benchmarks/parameters for various academic and administrative activities of the institution.",
+    "Facilitating the creation of a learner-centric environment conducive to quality education and faculty maturation to adopt the required knowledge and technology for participatory teaching and learning process.",
+    "Arrangement for feedback response from students, parents and other stakeholders on quality-related institutional processes.",
+    "Dissemination of information on various quality parameters of higher education.",
+    "Organization of inter and intra institutional workshops, seminars on quality related themes and promotion of quality circles.",
+    "Documentation of the various programmes/activities leading to quality improvement.",
+    "Acting as a nodal agency of the Institution for coordinating quality-related activities, including adoption and dissemination of best practices.",
+    "Development and maintenance of institutional database through MIS for the purpose of maintaining/enhancing institutional quality.",
+    "Preparation of the Annual Quality Assurance Report (AQAR) as per guidelines and parameters of NAAC, to be submitted to NAAC."
+  ],
+  "strategies": [
+    "Ensuring timely, efficient and progressive performance of academic, administrative and financial tasks.",
+    "The relevance and quality of academic and research programmes.",
+    "Equitable access to and affordability of academic programmes for various sections of society.",
+    "Optimization and integration of modern methods of teaching and learning.",
+    "The credibility of evaluation procedures.",
+    "Ensuring the adequacy, maintenance and proper allocation of support structure and services.",
+    "Sharing of research findings and networking with other institutions in India and abroad."
+  ],
+  "naacCertificates": [
+    {
+      "label": "CYCLE I",
+      "year": "2004",
+      "grade": "Accredited at Four Star Level",
+      "pdf": "/documents/academics/Naac-Certificate.pdf"
+    },
+    {
+      "label": "CYCLE II",
+      "year": "2014",
+      "grade": "A Grade with CGPA 3.58",
+      "pdf": "/documents/academics/NAAC-2014-certificate.pdf"
+    },
+    {
+      "label": "CYCLE III",
+      "year": "2020",
+      "grade": "B++ Grade with CGPA 2.84",
+      "pdf": "/documents/academics/Naac-Certificate.pdf"
+    }
+  ],
+  "minutesOfMeeting": [
+    { "year": "2018–2019", "title": "Minutes of the Meeting & Action Taken Report (ATR) 2018–19", "pdf": "/documents/academics/2018-2019.pdf" },
+    { "year": "2019–2020", "title": "Minutes of the Meeting & Action Taken Report (ATR) 2019–20", "pdf": "/documents/academics/2019-20.pdf" },
+    { "year": "2020–2021", "title": "Minutes of the Meeting & Action Taken Report (ATR) 2020–21", "pdf": "/documents/academics/2018-2019.pdf" },
+    { "year": "2021–2022", "title": "Minutes of the Meeting & Action Taken Report (ATR) 2021–22", "pdf": "/documents/academics/2019-20.pdf" },
+    { "year": "2022–2023", "title": "Important Meetings Convened by IQAC & ATR 2022–23", "pdf": "/documents/academics/2018-2019.pdf" },
+    { "year": "2023–2024", "title": "IQAC Governing Meetings 1, 2, 3 & 4 (2023–24)", "pdf": "/documents/academics/2019-20.pdf" },
+    { "year": "2024–2025", "title": "IQAC Minutes of the Meeting (2024–25)", "pdf": "/documents/academics/2018-2019.pdf" }
+  ],
+  "aqarReports": [
+    { "year": "AQAR 2018–19", "period": "2018-19", "title": "Annual Quality Assurance Report 2018–19", "pdf": "/documents/academics/2018-2019.pdf" },
+    { "year": "AQAR 2019–20", "period": "2019-20", "title": "Annual Quality Assurance Report 2019–20", "pdf": "/documents/academics/2019-20.pdf" },
+    { "year": "AQAR 2020–21", "period": "2020-21", "title": "Annual Quality Assurance Report 2020–21", "pdf": "/documents/academics/2018-2019.pdf" },
+    { "year": "AQAR 2021–22", "period": "2021-22", "title": "Annual Quality Assurance Report 2021–22", "pdf": "/documents/academics/2019-20.pdf" },
+    { "year": "AQAR 2022–23", "period": "2022-23", "title": "Annual Quality Assurance Report 2022–23", "pdf": "/documents/academics/2018-2019.pdf" },
+    { "year": "AQAR 2023–24", "period": "2023-24", "title": "Annual Quality Assurance Report 2023–24", "pdf": "/documents/academics/2019-20.pdf" }
+  ],
+  "composition": [
+    { "name": "Dr. Ravi J. D'SOUZA", "designation": "Principal & Chairperson", "department": "Administration" },
+    { "name": "Rev. Fr. Maria Xavier", "designation": "Vice Principal", "department": "Administration" },
+    { "name": "Rev. Fr. Praveen Kumar", "designation": "Campus Administrator", "department": "Management" },
+    { "name": "Dr. Deepu P", "designation": "IQAC Coordinator", "department": "Department of Physics" },
+    { "name": "Dr. K. Joseph", "designation": "Senior Faculty Member", "department": "Department of Chemistry" },
+    { "name": "Dr. Poornima M", "designation": "Senior Faculty Member", "department": "Department of Commerce" },
+    { "name": "Dr. Noor Mubasheer", "designation": "Senior Faculty Member", "department": "Department of Computer Science" },
+    { "name": "Mr. Thomas Gunaseelan", "designation": "Dean of Sciences", "department": "Department of Physics" },
+    { "name": "Mr. Ronald Prakash Cutinha", "designation": "Dean of Arts", "department": "Department of Social Work" },
+    { "name": "Dr. Reena Francis", "designation": "Dean of Commerce & Management", "department": "Department of Commerce" },
+    { "name": "Mr. A. Aloysius", "designation": "Administrative Officer", "department": "Office Administration" },
+    { "name": "Mr. N. R. Chandrashekar", "designation": "Management Representative", "department": "MDES Nominee" },
+    { "name": "Mr. S. G. Bharath", "designation": "Industrialist / Stakeholder", "department": "Industry Nominee" },
+    { "name": "Ms. Ananya Rao", "designation": "Student Representative", "department": "Student Council" },
+    { "name": "Mr. Michael D'Souza", "designation": "Alumni Representative", "department": "Alumni Association" }
+  ],
+  "criteriaLeaders": [
+    { "criteria": "Criteria 1: Curricular Aspects", "leader": "Dr. Reena Francis", "department": "Department of Commerce", "focus": "Curriculum Design, Academic Flexibility & Feedback Systems" },
+    { "criteria": "Criteria 2: Teaching-Learning & Evaluation", "leader": "Mr. Thomas Gunaseelan", "department": "Department of Physics", "focus": "Learner Centric Methods, ICT Pedagogies & Outcome Evaluation" },
+    { "criteria": "Criteria 3: Research, Innovations & Extension", "leader": "Dr. K. Joseph", "department": "Department of Chemistry", "focus": "Funded Projects, Publications, MoUs & Extension Outreach" },
+    { "criteria": "Criteria 4: Infrastructure & Learning Resources", "leader": "Dr. Noor Mubasheer", "department": "Department of Computer Science", "focus": "Smart Classrooms, Digital Library, Labs & IT Infrastructure" },
+    { "criteria": "Criteria 5: Student Support & Progression", "leader": "Mr. Ronald Prakash Cutinha", "department": "Department of Social Work", "focus": "Scholarships, Guidance, Placements & Alumni Engagements" },
+    { "criteria": "Criteria 6: Governance, Leadership & Management", "leader": "Dr. Deepu P", "department": "Department of Physics", "focus": "Institutional Vision, Strategic Planning & E-Governance" },
+    { "criteria": "Criteria 7: Institutional Values & Best Practices", "leader": "Dr. Poornima M", "department": "Department of Commerce", "focus": "Green Audits, Inclusivity, Gender Equity & Distinctiveness" }
+  ],
+  "activitiesAndFdps": [
+    {
+      "title": "6 Days FDP JAN 2025",
+      "date": "January 2025",
+      "theme": "Innovative Pedagogical Strategies & Digital Tools in Higher Education",
+      "pdf": "/documents/academics/Final-IQAC-Report.pdf"
+    },
+    {
+      "title": "6 DAYS FDP JUNE 2025",
+      "date": "June–July 2025",
+      "theme": "Research Methodology, Intellectual Property & Multidisciplinary Publications",
+      "pdf": "/documents/academics/Final-IQAC-Report.pdf"
+    },
+    {
+      "title": "6 days FDP January 2026",
+      "date": "January 2026",
+      "theme": "Outcome-Based Education (OBE) & AI-Driven Academic Evaluation",
+      "pdf": "/documents/academics/Final-IQAC-Report.pdf"
+    },
+    {
+      "title": "College & IQAC Activities Comprehensive Master List",
+      "date": "2017–2025",
+      "theme": "Institutional Activities, Seminars, Workshops and Outreach Initiatives",
+      "pdf": "/documents/academics/Final-IQAC-Report.pdf"
+    }
+  ],
+  "auditsAndRoadmaps": {
+    "greenAudit": {
+      "title": "GREEN AUDIT CERTIFICATE - ISO 17020",
+      "standard": "ISO 17020 Accredited Environmental & Energy Audit",
+      "description": "Comprehensive institutional green audit covering carbon footprint, solar renewable energy, biodiversity index, waste management, and water recycling.",
+      "pdf": "/documents/academics/Final-IQAC-Report.pdf"
+    },
+    "genderAudit": {
+      "title": "GENDER AUDIT REPORT",
+      "period": "2020–2024",
+      "description": "Comprehensive institutional gender audit evaluating gender equity ratios, safety infrastructure, POSH/ICC mechanisms, and inclusive empowerment policies.",
+      "pdf": "/documents/academics/Final-IQAC-Report.pdf"
+    },
+    "roadmaps": [
+      { "year": "ROADMAP 2023–2024", "title": "Strategic Roadmap of IQAC 2023–2024", "pdf": "/documents/academics/Roadmap2023-2024.pdf" },
+      { "year": "ROADMAP 2024–2025", "title": "Strategic Roadmap of IQAC 2024–2025", "pdf": "/documents/academics/Roadmap2023-2024.pdf" },
+      { "year": "ROADMAP 2025–2026", "title": "Strategic Roadmap of IQAC 2025–2026", "pdf": "/documents/academics/Roadmap2023-2024.pdf" }
+    ],
+    "activitiesReports": [
+      {
+        "title": "ACTIVITIES REPORTS OF THE IQAC (MARCH 2023 TO AUGUST 2024)",
+        "period": "March 2023 – August 2024",
+        "description": "Official comprehensive documentation of IQAC academic audits, feedback reviews, faculty development workshops, and quality enhancements.",
+        "pdf": "/documents/academics/Final-IQAC-Report.pdf"
+      },
+      {
+        "title": "ACTIVITIES REPORTS OF THE IQAC (SEPTEMBER 2024 TO SEPTEMBER 2025)",
+        "period": "September 2024 – September 2025",
+        "description": "Annual quality volume recording NEP implementation, institutional best practices, research achievements, and NAAC cycle readiness.",
+        "pdf": "/documents/academics/Final-IQAC-Report.pdf"
+      }
+    ]
+  }
+}

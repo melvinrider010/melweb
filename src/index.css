@@ -191,7 +191,7 @@
 /* Button System */
 .btn-gold {
   background: linear-gradient(135deg, #C9A84C 0%, #a88530 100%);
-  color: #060f26;
+  color: #164E8C;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -217,7 +217,7 @@
 }
 
 .btn-navy:hover {
-  background: #060f26;
+  background: #164E8C;
   border-color: #C9A84C;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(11, 31, 78, 0.25);
@@ -280,7 +280,7 @@
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 35s linear infinite;
+  animation: marquee 45s linear infinite;
 }
 
 .animate-marquee:hover {
@@ -515,6 +515,17 @@ html, body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* NO SCROLLBAR UTILITY (CROSS-BROWSER COMPATIBLE) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
 }
 
 /* CUSTOM SLEEK SCROLLBAR */

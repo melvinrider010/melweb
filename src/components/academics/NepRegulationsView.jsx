@@ -1,12 +1,9 @@
-﻿import React, { useState } from 'react';
-import { Layers, CheckCircle2, FileText, Download, Award, BookOpen, Eye } from 'lucide-react';
+import React, { useState } from 'react';
+import { Layers, FileText, BookOpen } from 'lucide-react';
 import PDFViewerEmbed from '../common/PDFViewerEmbed';
-import PDFModalViewer from '../common/PDFModalViewer';
+import ViewAsBookButton from '../common/ViewAsBookButton';
 
 export default function NepRegulationsView() {
-  const [selectedPdf, setSelectedPdf] = useState('/assets/documents/academics/NEP-Statutes-2-HOURS-Exam-Final-22th-March-2022.pdf');
-  const [modalPdf, setModalPdf] = useState(null);
-
   const complianceDocs = [
     { title: 'National Education Policy 2020 Statutes & Regulations', type: 'Primary Regulation PDF', path: '/assets/documents/academics/NEP-Statutes-2-HOURS-Exam-Final-22th-March-2022.pdf' },
     { title: 'Official Institutional Fee Structure (UG & PG)', type: 'Statutory PDF Document', path: '/assets/documents/academics/SKM_C30813010105381-2Fees-Structure.pdf' },
@@ -14,6 +11,8 @@ export default function NepRegulationsView() {
     { title: 'AICTE Extension of Approval (EOA) 2025-26', type: 'Approval PDF Document', path: '/assets/documents/academics/EOA-Report-2025-26.pdf' },
     { title: "Institution's Innovation Council (IIC) Establishment", type: 'Establishment PDF Document', path: '/assets/documents/academics/EstablismentCertificate.pdf' }
   ];
+
+  const [selectedDoc, setSelectedDoc] = useState(complianceDocs[0]);
 
   return (
     <div className="space-y-8 animate-fadeIn">
@@ -35,77 +34,106 @@ export default function NepRegulationsView() {
           </p>
         </div>
 
-        <a
-          href="/assets/documents/academics/NEP-Statutes-2-HOURS-Exam-Final-22th-March-2022.pdf"
-          download
-          className="btn-gold px-4 py-2 rounded-xl text-xs font-bold shadow-sm flex items-center space-x-1.5 shrink-0 self-start md:self-auto cursor-pointer"
-        >
-          <Download className="w-3.5 h-3.5" />
-          <span>Download NEP Statutes (PDF)</span>
-        </a>
-      </div>
-
-      {/* Embedded Interactive PDF Viewer (Exactly as on stphilos.ac.in/nep-regulations/) */}
-      <div className="space-y-3">
-        <div className="flex items-center justify-between flex-wrap gap-2">
-          <h3 className="font-serif font-bold text-lg text-[#0B1F4E] flex items-center space-x-2">
-            <FileText className="w-5 h-5 text-[#1C5496]" />
-            <span>Interactive Regulations Document Viewer</span>
-          </h3>
-          <span className="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">
-            Interactive Page Flip / Scroll
-          </span>
-        </div>
-
-        <PDFViewerEmbed
-          src={selectedPdf}
-          title="National Education Policy 2020 Regulations - St. Philomena's College (Autonomous)"
-          height="820px"
-          badge="Official Statutes PDF"
+        <ViewAsBookButton
+          pdfUrl={selectedDoc.path}
+          title={selectedDoc.title}
+          label="Open Regulations (3D Book)"
+          size="md"
         />
       </div>
 
-      {/* Statutory Regulations & Compliance Document Downloads */}
-      <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-5">
-        <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
-          <div>
-            <h3 className="font-serif font-bold text-xl text-[#0B1F4E]">Statutory Documents & Additional Regulations</h3>
-            <p className="text-xs text-slate-500">Click to preview in document viewer or download locally.</p>
+      {/* SIDE-BY-SIDE SPLIT VIEW: Regulations List (Left) + Interactive Live Viewer (Right) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        {/* LEFT COLUMN: Searchable Regulations List (5 Cols) */}
+        <div className="lg:col-span-5 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col h-[750px]">
+          
+          <div className="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between shrink-0">
+            <h3 className="font-serif font-bold text-sm text-[#0B1F4E]">
+              Statutory Regulations & Frameworks
+            </h3>
+            <span className="text-[11px] font-mono text-slate-500 font-semibold">
+              {complianceDocs.length} Documents
+            </span>
           </div>
-          <span className="bg-blue-50 text-[#1C5496] font-mono font-bold text-xs px-3 py-1 rounded-md">
-            5 Stored Documents
-          </span>
+
+          {/* List of Documents */}
+          <div className="flex-1 overflow-y-auto divide-y divide-slate-100 custom-scrollbar">
+            {complianceDocs.map((doc, idx) => {
+              const isSelected = selectedDoc?.path === doc.path;
+              return (
+                <div
+                  key={idx}
+                  onClick={() => setSelectedDoc(doc)}
+                  className={`p-4 transition-all cursor-pointer flex items-center justify-between gap-3 ${
+                    isSelected
+                      ? 'bg-blue-50/90 border-l-4 border-[#1C5496]'
+                      : 'hover:bg-slate-50 border-l-4 border-transparent'
+                  }`}
+                >
+                  <div className="space-y-1 min-w-0 flex-1">
+                    <span className="font-mono font-bold text-[10px] text-[#1C5496] bg-blue-100/60 px-2 py-0.5 rounded uppercase tracking-wider block w-max">
+                      {doc.type}
+                    </span>
+                    <h4 className="font-serif font-bold text-sm text-slate-900 leading-snug">
+                      {doc.title}
+                    </h4>
+                  </div>
+
+                  <div className="shrink-0" onClick={(e) => e.stopPropagation()}>
+                    <ViewAsBookButton
+                      pdfUrl={doc.path}
+                      title={doc.title}
+                      size="sm"
+                      className="text-xs px-3 py-1.5"
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {complianceDocs.map((doc, idx) => (
-            <div key={idx} className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between gap-3">
-              <div className="space-y-0.5 truncate">
-                <span className="text-[10px] font-mono font-bold uppercase text-[#1C5496] tracking-wider">{doc.type}</span>
-                <h4 className="font-serif font-bold text-xs sm:text-sm text-slate-900 leading-snug truncate">{doc.title}</h4>
+        {/* RIGHT COLUMN: Interactive Live Viewer Preview (7 Cols) */}
+        <div className="lg:col-span-7 sticky top-20 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col h-[750px]">
+          
+          {/* Header Bar */}
+          <div className="p-4 bg-[#071324] text-white flex items-center justify-between shrink-0 border-b border-slate-800">
+            <div className="flex items-center space-x-2.5 overflow-hidden pr-3">
+              <div className="w-7 h-7 rounded-lg bg-[#FFD84A] text-[#071A33] flex items-center justify-center shrink-0">
+                <BookOpen className="w-3.5 h-3.5 font-bold" />
               </div>
-              <div className="flex items-center space-x-1.5 shrink-0">
-                <button
-                  onClick={() => setSelectedPdf(doc.path)}
-                  className="px-2.5 py-1.5 bg-[#0B1F4E] hover:bg-[#1C5496] text-white rounded-lg text-xs font-bold flex items-center space-x-1 transition-colors cursor-pointer"
-                  title="View in main viewer"
-                >
-                  <Eye className="w-3.5 h-3.5" />
-                  <span>View</span>
-                </button>
-                <a
-                  href={doc.path}
-                  download
-                  className="px-2.5 py-1.5 bg-[#FFD84A] hover:bg-[#ffcd1f] text-slate-900 rounded-lg text-xs font-bold flex items-center space-x-1 shadow-2xs cursor-pointer"
-                  title="Download local file"
-                >
-                  <Download className="w-3.5 h-3.5 text-slate-900" />
-                  <span>PDF</span>
-                </a>
+              <div className="overflow-hidden">
+                <span className="text-[10px] font-mono text-[#FFD84A] uppercase tracking-wider block">
+                  Live Regulations Document
+                </span>
+                <h3 className="font-serif font-bold text-sm text-white truncate">
+                  {selectedDoc.title}
+                </h3>
               </div>
             </div>
-          ))}
+
+            <ViewAsBookButton
+              pdfUrl={selectedDoc.path}
+              title={selectedDoc.title}
+              label="Open 3D Flipbook"
+              size="sm"
+            />
+          </div>
+
+          {/* Embedded Interactive Viewer */}
+          <div className="flex-1 w-full relative bg-slate-900 overflow-hidden">
+            <PDFViewerEmbed
+              src={selectedDoc.path}
+              title={selectedDoc.title}
+              height="100%"
+              badge="Official Statutes PDF"
+            />
+          </div>
+
         </div>
+
       </div>
 
       {/* 4-Year Progressive Degree Framework Cards */}
@@ -130,14 +158,6 @@ export default function NepRegulationsView() {
           </div>
         ))}
       </div>
-
-      {/* Modal Viewer */}
-      <PDFModalViewer
-        isOpen={Boolean(modalPdf)}
-        onClose={() => setModalPdf(null)}
-        pdfUrl={modalPdf?.path}
-        title={modalPdf?.title}
-      />
 
     </div>
   );

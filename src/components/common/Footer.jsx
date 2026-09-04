@@ -5,7 +5,7 @@ import collegeInfo from '../../data/college_info.json';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#060f26] text-white pt-14 pb-8 border-t-4 border-[#C9A84C]">
+    <footer className="bg-[#164E8C] text-white pt-14 pb-8 border-t-4 border-[#C9A84C]">
       <div className="max-w-[1720px] mx-auto px-4 sm:px-8 space-y-12">
         
         {/* Main Footer Column Grid */}
@@ -15,10 +15,10 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-3.5">
               <img
-                src="/assets/logo.png"
+                src="/assets/images/logo/crest_gold_hd.png"
                 alt="St. Philomena's Crest"
-                className="h-14 w-auto object-contain"
-                onError={(e) => { e.target.style.display = 'none'; }}
+                className="h-14 w-auto object-contain filter drop-shadow-sm"
+                onError={(e) => { e.target.src = '/assets/images/logo/crest_white_hd.png'; }}
               />
               <div>
                 <h3 className="font-serif font-extrabold text-lg sm:text-xl text-white">St. Philomena's College</h3>
@@ -29,8 +29,18 @@ export default function Footer() {
               Affiliated to the University of Mysore. A premier UGC Autonomous Catholic institution managed by the Mysore Diocesan Educational Society (MDES). Re-accredited by NAAC with Cycle III B++ Grade (2020).
             </p>
             <div className="space-y-2 text-slate-300 text-xs">
-              <p className="flex items-center"><Phone className="w-3.5 h-3.5 mr-2.5 text-[#C9A84C] shrink-0" />{collegeInfo.phone}</p>
-              <p className="flex items-center"><Mail className="w-3.5 h-3.5 mr-2.5 text-[#C9A84C] shrink-0" />{collegeInfo.email}</p>
+              <p className="flex items-center">
+                <Phone className="w-3.5 h-3.5 mr-2.5 text-[#C9A84C] shrink-0" />
+                <a href="tel:+919008580707" className="hover:text-[#F0D98C] font-mono font-bold transition-colors">
+                  +91 9008580707
+                </a>
+              </p>
+              <p className="flex items-center">
+                <Mail className="w-3.5 h-3.5 mr-2.5 text-[#C9A84C] shrink-0" />
+                <a href={`mailto:${collegeInfo.email}`} className="hover:text-[#F0D98C] transition-colors">
+                  {collegeInfo.email}
+                </a>
+              </p>
               <p className="flex items-start"><MapPin className="w-3.5 h-3.5 mr-2.5 text-[#C9A84C] shrink-0 mt-0.5" />PB No. 2, Bannimantap, Mysuru – 570015, Karnataka, India</p>
             </div>
           </div>
@@ -55,41 +65,34 @@ export default function Footer() {
               <li><Link to="/examinations" className="hover:text-[#F0D98C] transition-colors">End-Semester Results Portal</Link></li>
               <li><Link to="/examinations" className="hover:text-[#F0D98C] transition-colors">Revaluation & Photocopy Forms</Link></li>
               <li><Link to="/admissions" className="hover:text-[#F0D98C] transition-colors">Prospectus & Admissions 2026–27</Link></li>
-              <li><Link to="/student-support" className="hover:text-[#F0D98C] transition-colors">Career & Placement Cell</Link></li>
             </ul>
           </div>
 
-          {/* Institutional Compliance Column */}
+          {/* Mandatory Disclosures & Portals */}
           <div className="space-y-3">
-            <h4 className="font-serif font-bold text-sm text-[#F0D98C] uppercase tracking-wider border-b border-white/10 pb-1.5">IQAC & Compliance</h4>
+            <h4 className="font-serif font-bold text-sm text-[#F0D98C] uppercase tracking-wider border-b border-white/10 pb-1.5">Mandatory Disclosure</h4>
             <ul className="space-y-2 text-slate-300">
-              <li><Link to="/naac" className="hover:text-[#F0D98C] transition-colors">NAAC Cycle III (B++) Accreditation</Link></li>
-              <li><Link to="/iqac" className="hover:text-[#F0D98C] transition-colors">IQAC Quality Policy & AQAR</Link></li>
-              <li><Link to="/nirf" className="hover:text-[#F0D98C] transition-colors">NIRF Rankings & Data Submission</Link></li>
-              <li><Link to="/iic" className="hover:text-[#F0D98C] transition-colors">Institution's Innovation Council</Link></li>
-              <li><Link to="/mandatory-disclosure" className="hover:text-[#F0D98C] transition-colors">Statutory Governance & Code of Conduct</Link></li>
+              <li><Link to="/compliance" className="hover:text-[#F0D98C] transition-colors">UGC & AICTE Disclosures</Link></li>
+              <li><Link to="/iqac" className="hover:text-[#F0D98C] transition-colors">IQAC Quality Benchmarks</Link></li>
+              <li><Link to="/compliance" className="hover:text-[#F0D98C] transition-colors">Statutory Governing Bodies</Link></li>
+              <li><Link to="/compliance" className="hover:text-[#F0D98C] transition-colors">Student Grievance Committee</Link></li>
+              <li><Link to="/contact" className="hover:text-[#F0D98C] transition-colors">RTI & Institutional Desk</Link></li>
             </ul>
           </div>
 
         </div>
 
-        {/* Bottom Bar: Copyright & Affiliated Links */}
-        <div className="flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-400 gap-4">
+        {/* Bottom Copyright & Web Accreditation Bar */}
+        <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-4 pt-2">
           <p>© {new Date().getFullYear()} St. Philomena's College (Autonomous), Mysuru. All Rights Reserved.</p>
-          <div className="flex flex-wrap items-center gap-3">
-            <a href="https://uni-mysore.ac.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#F0D98C] flex items-center">
-              <span>University of Mysore</span>
-              <ExternalLink className="w-3 h-3 ml-1 text-[#C9A84C]" />
-            </a>
-            <span>•</span>
-            <a href="https://ugc.ac.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#F0D98C] flex items-center">
-              <span>UGC Autonomy</span>
-              <ExternalLink className="w-3 h-3 ml-1 text-[#C9A84C]" />
-            </a>
-            <span>•</span>
-            <Link to="/mandatory-disclosure" className="hover:text-[#F0D98C]">
-              Mandatory Disclosures
-            </Link>
+          <div className="flex items-center space-x-4">
+            <Link to="/about" className="hover:text-white transition-colors">About MDES</Link>
+            <span>·</span>
+            <Link to="/compliance" className="hover:text-white transition-colors">Privacy & Terms</Link>
+            <span>·</span>
+            <Link to="/contact" className="hover:text-white transition-colors">Contact Support</Link>
+            <span>·</span>
+            <Link to="/admin/login" className="text-slate-500 hover:text-white transition-colors text-[11px] font-mono">CMS Portal</Link>
           </div>
         </div>
 

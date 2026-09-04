@@ -20,6 +20,7 @@ import {
 import { cmsStore } from '../lib/cmsStore';
 import { getEventById } from '../lib/eventsNoticesService';
 import { animatePageIn } from '../animations/pageTransitions';
+import ViewAsBookButton from '../components/common/ViewAsBookButton';
 
 export default function NoticeDetailPage() {
   const { id, slug } = useParams();
@@ -76,14 +77,14 @@ export default function NoticeDetailPage() {
     <div ref={containerRef} className="bg-[#f8f9fc] min-h-screen text-[#0B1F4E] pb-20">
       
       {/* 1. CINEMATIC TOP BANNER (MATCHING AUTHENTIC INSTITUTIONAL DESIGN) */}
-      <div className="relative bg-[#060f26] text-white py-14 sm:py-20 px-4 sm:px-8 border-b-4 border-[#C9A84C] overflow-hidden">
+      <div className="relative bg-[#164E8C] text-white py-14 sm:py-20 px-4 sm:px-8 border-b-4 border-[#C9A84C] overflow-hidden">
         
         {/* Campus Quadrangle Background with Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-25 filter blur-[1px]"
           style={{ backgroundImage: `url('/media/gallery/campus/campus_quadrangle_main.jpg')` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060f26] via-[#060f26]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#164E8C] via-[#164E8C]/80 to-transparent" />
 
         <div className="max-w-[1200px] mx-auto relative z-10 space-y-4">
           
@@ -142,14 +143,12 @@ export default function NoticeDetailPage() {
             </button>
 
             {item.documentPdf && (
-              <a
-                href={item.documentPdf}
-                download
-                className="btn-gold text-xs font-bold px-4 py-2 rounded-lg flex items-center shadow-xs"
-              >
-                <Download className="w-3.5 h-3.5 mr-1.5" />
-                <span>Download PDF</span>
-              </a>
+              <ViewAsBookButton
+                pdfUrl={item.documentPdf}
+                title={item.title}
+                label="View Document"
+                variant="blue"
+              />
             )}
           </div>
         </div>
@@ -308,15 +307,13 @@ export default function NoticeDetailPage() {
                 {item.attachments.map((att, attIdx) => (
                   <div key={attIdx} className="flex items-center justify-between p-3 bg-white rounded-lg border border-blue-200 text-xs">
                     <span className="font-bold text-slate-800 truncate pr-2">{att.title}</span>
-                    <a
-                      href={att.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-gold text-[11px] px-3 py-1 rounded font-bold shrink-0 flex items-center"
-                    >
-                      <Download className="w-3 h-3 mr-1" />
-                      <span>Download</span>
-                    </a>
+                    <ViewAsBookButton
+                      pdfUrl={att.url}
+                      title={att.title}
+                      label="View"
+                      size="xs"
+                      variant="blue"
+                    />
                   </div>
                 ))}
               </div>

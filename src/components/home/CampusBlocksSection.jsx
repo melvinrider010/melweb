@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   Building2, 
   BookOpen, 
@@ -12,7 +12,8 @@ import {
   ChevronRight, 
   CheckCircle2,
   MapPin,
-  Sparkles
+  Sparkles,
+  ExternalLink
 } from 'lucide-react';
 
 const CAMPUS_SPACES = [
@@ -25,6 +26,7 @@ const CAMPUS_SPACES = [
     image: '/media/gallery/campus/campus_chapel.jpg',
     alt: "St. Philomena's College Historic Chapel",
     tag: 'Spiritual Sanctuary',
+    link: '/chapel',
     features: ['Historic Sacred Architecture', 'Peaceful Meditation', 'Est. 1946 Heritage'],
     description: 'A serene sanctuary of prayer and contemplation, inspiring moral grounding, ethical purpose, and spiritual peace for students and faculty of all faiths.'
   },
@@ -38,6 +40,7 @@ const CAMPUS_SPACES = [
     objectPosition: 'center 85%',
     alt: "St. Philomena's Administrative Quadrangle Building",
     tag: 'Governance & Admissions',
+    link: '/about',
     features: ["Principal's Office", 'COE Examination Center', 'Central Admissions Desk'],
     description: 'The historic architectural center coordinating autonomous academic operations, admissions guidance, and institutional governance under MDES stewardship.'
   },
@@ -50,6 +53,7 @@ const CAMPUS_SPACES = [
     image: '/assets/images/campus/science_block_official.png',
     alt: "St. Philomena's Science & Biotechnology Block Building",
     tag: 'DBT Star Supported',
+    link: '/departments',
     features: ['Advanced Instrumentation Center', 'Biotechnology Suites', 'Chemistry & Physics Labs'],
     description: 'State-of-the-art laboratory infrastructure equipped with analytical instruments, supporting experiential scientific learning and undergraduate research.'
   },
@@ -62,6 +66,7 @@ const CAMPUS_SPACES = [
     image: '/assets/images/campus/library_block_official.jpg',
     alt: "Central Library & Information Resource Center Building",
     tag: '50,000+ Volumes',
+    link: '/library',
     features: ['INFLIBNET / N-LIST Access', 'Digital Research Commons', 'Quiet Study Halls'],
     description: 'A rich repository of academic volumes, international peer-reviewed journals, and digital workstations supporting faculty and student scholarship.'
   },
@@ -74,6 +79,7 @@ const CAMPUS_SPACES = [
     image: '/assets/images/campus/pg_block_official.png',
     alt: "Postgraduate and Research Complex Building",
     tag: 'Master Degrees & RDC',
+    link: '/research',
     features: ['Research Development Cell (RDC)', 'Smart Audio-Visual Theatres', 'Doctoral Workspaces'],
     description: 'Dedicated modern multi-story complex for postgraduate disciplines, interdisciplinary research grants, patents, and faculty development initiatives.'
   },
@@ -86,6 +92,7 @@ const CAMPUS_SPACES = [
     image: '/assets/images/campus/indoor_stadium_official.png',
     alt: "Indoor Sports Stadium and Athletics Arena Building",
     tag: 'Athletics & Cultural Hub',
+    link: '/indoor-stadium',
     features: ['Multi-Sport Wooden Courts', 'Inter-Collegiate Tournaments', 'Modern Fitness Gymnasium'],
     description: 'Full-sized indoor sports facility hosting state-level championships, university basketball & badminton tournaments, and vibrant cultural festivals.'
   }
@@ -94,6 +101,7 @@ const CAMPUS_SPACES = [
 export default function CampusBlocksSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const navigate = useNavigate();
 
   const activeSpace = CAMPUS_SPACES[activeIndex];
 
@@ -101,11 +109,11 @@ export default function CampusBlocksSection() {
   useEffect(() => {
     if (isPaused) return;
 
-    const timer = setInterval(() => {
+    const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % CAMPUS_SPACES.length);
     }, 6000);
 
-    return () => clearInterval(timer);
+    return () => clearInterval(interval);
   }, [isPaused]);
 
   const handlePrev = () => {
@@ -117,47 +125,51 @@ export default function CampusBlocksSection() {
   };
 
   return (
-    <section className="bg-white py-14 sm:py-18 border-y border-slate-200/80 relative overflow-hidden text-[#0B1F4E]">
+    <section className="relative overflow-hidden">
       
-      {/* Background Architectural Grid Pattern */}
+      {/* Background Micro Grid */}
       <div 
-        aria-hidden="true" 
-        className="absolute inset-0 bg-[linear-gradient(to_right,#0B1F4E_1px,transparent_1px),linear-gradient(to_bottom,#0B1F4E_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-[0.02] pointer-events-none" 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#071A33 1px, transparent 1px)',
+          backgroundSize: '24px 24px'
+        }}
       />
 
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 space-y-8 relative z-10">
+      <div className="space-y-6">
         
-        {/* SECTION HEADER */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-100 pb-5 gap-4">
-          <div className="space-y-1.5 max-w-2xl">
-            <div className="section-heading text-start mb-0">
-              <span className="sub-label">Campus & Infrastructure</span>
-              <h2>Discover Our 28-Acre Campus</h2>
-              <div className="heading-line"></div>
-            </div>
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-sans">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+          <div className="space-y-2">
+            <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">
+              Campus & Infrastructure
+            </span>
+            <h2 className="font-serif font-extrabold text-2xl sm:text-4xl text-[#071A33] tracking-tight">
+              Discover Our 28-Acre Campus
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 max-w-xl font-sans">
               Explore the perfect blend of historic heritage, modern scientific research suites, comprehensive digital libraries, and premier athletic infrastructure.
             </p>
           </div>
 
-          {/* Carousel Arrows & Counter */}
+          {/* Controls & Nav Buttons */}
           <div className="flex items-center space-x-3 shrink-0">
-            <span className="text-xs font-mono font-bold text-slate-500">
+            <span className="font-mono text-xs font-bold text-slate-500">
               {String(activeIndex + 1).padStart(2, '0')} / {String(CAMPUS_SPACES.length).padStart(2, '0')}
             </span>
 
-            <div className="flex items-center space-x-1.5">
+            <div className="flex items-center space-x-1">
               <button
                 onClick={handlePrev}
-                aria-label="Previous Facility"
-                className="w-9 h-9 rounded-xl bg-slate-100 hover:bg-[#0B1F4E] text-[#0B1F4E] hover:text-white border border-slate-200 transition-all flex items-center justify-center cursor-pointer"
+                className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
+                title="Previous Space"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
               <button
                 onClick={handleNext}
-                aria-label="Next Facility"
-                className="w-9 h-9 rounded-xl bg-slate-100 hover:bg-[#0B1F4E] text-[#0B1F4E] hover:text-white border border-slate-200 transition-all flex items-center justify-center cursor-pointer"
+                className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
+                title="Next Space"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -165,7 +177,7 @@ export default function CampusBlocksSection() {
           </div>
         </div>
 
-        {/* DYNAMIC SPLIT SHOWCASE (HERO ON LEFT + INTERACTIVE CARDS ON RIGHT) */}
+        {/* Dynamic Dual-Column Presentation Layout */}
         <div 
           className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch"
           onMouseEnter={() => setIsPaused(true)}
@@ -175,8 +187,12 @@ export default function CampusBlocksSection() {
           {/* ================= LEFT: HERO SHOWCASE STAGE (7 COLS) ================= */}
           <div className="lg:col-span-7 flex flex-col space-y-4">
             
-            {/* Image Stage Container */}
-            <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 aspect-[16/10] bg-[#060f26] group">
+            {/* Image Stage Container (Clickable to open page) */}
+            <Link
+              to={activeSpace.link}
+              className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 aspect-[16/10] bg-[#164E8C] group cursor-pointer block"
+              title={`Click to open ${activeSpace.title} page`}
+            >
               
               {/* Dynamic Image with Smooth Crossfade */}
               <img
@@ -184,20 +200,24 @@ export default function CampusBlocksSection() {
                 src={activeSpace.image}
                 alt={activeSpace.alt}
                 style={{ objectPosition: activeSpace.objectPosition || 'center center' }}
-                className="w-full h-full object-cover transition-all duration-700 ease-out filter brightness-[0.92] group-hover:scale-102"
+                className="w-full h-full object-cover transition-all duration-700 ease-out filter brightness-[0.92] group-hover:scale-103"
+                onError={(e) => {
+                  e.target.src = '/assets/banner-college.jpg';
+                }}
               />
 
               {/* Gradient Scrim */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060f26] via-[#060f26]/30 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#164E8C] via-[#164E8C]/30 to-transparent pointer-events-none" />
 
               {/* Top Meta Badges */}
               <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
-                <span className="bg-[#060f26]/90 backdrop-blur-md border border-[#C9A84C]/50 text-[#F0D98C] font-mono text-[11px] font-bold px-2.5 py-1 rounded-md shadow-xs">
+                <span className="bg-[#164E8C]/90 backdrop-blur-md border border-[#C9A84C]/50 text-[#F0D98C] font-mono text-[11px] font-bold px-2.5 py-1 rounded-md shadow-xs">
                   {activeSpace.number} · {activeSpace.tag}
                 </span>
 
-                <span className="bg-slate-900/80 backdrop-blur-md text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-slate-700">
-                  St. Philomena's Campus
+                <span className="bg-slate-900/80 backdrop-blur-md text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-slate-700 flex items-center space-x-1">
+                  <span>Open Page</span>
+                  <ExternalLink className="w-3 h-3 ml-1 text-[#F0D98C]" />
                 </span>
               </div>
 
@@ -206,22 +226,32 @@ export default function CampusBlocksSection() {
                 <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#F0D98C]">
                   {activeSpace.eyebrow}
                 </span>
-                <h3 className="font-serif font-bold text-xl sm:text-2xl text-white leading-tight">
-                  {activeSpace.title}
+                <h3 className="font-serif font-bold text-xl sm:text-2xl text-white leading-tight group-hover:text-[#F0D98C] transition-colors flex items-center justify-between">
+                  <span>{activeSpace.title}</span>
+                  <ArrowRight className="w-5 h-5 text-[#F0D98C] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </h3>
               </div>
 
-            </div>
+            </Link>
 
             {/* Dynamic Metadata & Feature Details Box */}
             <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-2xs space-y-3">
               
-              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-sans">
-                {activeSpace.description}
-              </p>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-sans flex-1">
+                  {activeSpace.description}
+                </p>
+                <Link
+                  to={activeSpace.link}
+                  className="btn-navy text-xs font-bold px-4 py-2 rounded-xl inline-flex items-center space-x-1.5 shadow-xs whitespace-nowrap self-start sm:self-auto shrink-0"
+                >
+                  <span>Explore {activeSpace.shortName}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
 
               {/* Key Features Chips */}
-              <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-slate-200/60">
+              <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-200/60">
                 {activeSpace.features.map((feat, fIdx) => (
                   <span
                     key={fIdx}
@@ -245,7 +275,13 @@ export default function CampusBlocksSection() {
               return (
                 <div
                   key={space.id}
-                  onClick={() => setActiveIndex(idx)}
+                  onClick={() => {
+                    if (isActive) {
+                      navigate(space.link);
+                    } else {
+                      setActiveIndex(idx);
+                    }
+                  }}
                   className={`p-3 sm:p-3.5 rounded-xl border transition-all duration-200 cursor-pointer flex items-center space-x-3 group relative ${
                     isActive
                       ? 'bg-white border-[#C9A84C] shadow-sm ring-1 ring-[#C9A84C]/40 border-r-4 border-r-[#C9A84C]'
@@ -258,8 +294,11 @@ export default function CampusBlocksSection() {
                       src={space.image}
                       alt={space.shortName}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      onError={(e) => {
+                        e.target.src = '/assets/banner-college.jpg';
+                      }}
                     />
-                    <span className="absolute bottom-0.5 right-0.5 bg-[#060f26]/90 text-[#F0D98C] font-mono text-[9px] font-bold px-1 rounded">
+                    <span className="absolute bottom-0.5 right-0.5 bg-[#164E8C]/90 text-[#F0D98C] font-mono text-[9px] font-bold px-1 rounded">
                       {space.number}
                     </span>
                   </div>
@@ -281,14 +320,19 @@ export default function CampusBlocksSection() {
                     </p>
                   </div>
 
-                  {/* Indicator Arrow */}
-                  <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
-                    isActive
-                      ? 'bg-[#0B1F4E] text-[#F0D98C]'
-                      : 'bg-slate-100 text-slate-400 group-hover:bg-slate-200 group-hover:text-slate-700'
-                  }`}>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </div>
+                  {/* Indicator Arrow / Direct Link Button */}
+                  <Link
+                    to={space.link}
+                    onClick={(e) => e.stopPropagation()}
+                    className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
+                      isActive
+                        ? 'bg-[#0B1F4E] text-[#F0D98C] hover:bg-[#1C5496]'
+                        : 'bg-slate-100 text-slate-400 group-hover:bg-[#0B1F4E] group-hover:text-[#F0D98C]'
+                    }`}
+                    title={`Open ${space.title} page`}
+                  >
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </div>
               );
             })}

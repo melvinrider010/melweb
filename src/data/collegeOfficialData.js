@@ -362,7 +362,7 @@ export const collegeOfficialData = {
   ],
   "coatOfArms": {
     "motto": "Caritas in Scientia",
-    "mottoEnglish": "Love in Knowledge",
+    "mottoEnglish": "Caritas in Scientia",
     "image": "/assets/images/about/crest-stphilos.png",
     "hdImage": "/assets/images/about/crest-hd.png",
     "source": "https://stphilos.ac.in/coat-of-arms/",

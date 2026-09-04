@@ -1,14 +1,12 @@
-﻿import React, { useState } from 'react';
-import { GraduationCap, Search, ChevronRight, Download, FileText, Eye } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { GraduationCap, Search, ChevronRight, FileText, BookOpen } from 'lucide-react';
+import { useFlipbook } from '../../context/FlipbookContext';
 import PDFViewerEmbed from '../common/PDFViewerEmbed';
+import ViewAsBookButton from '../common/ViewAsBookButton';
 
 export default function SyllabusPGView() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedPdf, setSelectedPdf] = useState({
-    title: 'MCA - Master of Computer Applications (AICTE Approved)',
-    url: '/assets/documents/academics/MCA.pdf'
-  });
+  const { openFlipbook } = useFlipbook();
 
   const pgSyllabusList = [
     { code: 'MCA', dept: 'Computer Applications', degree: 'MCA (AICTE Approved)', semesters: 'Sem I to IV (CBCS Curricula)', credits: '88 Credits', localPdf: '/assets/documents/academics/MCA.pdf', slug: 'mca' },
@@ -17,6 +15,8 @@ export default function SyllabusPGView() {
     { code: 'M.Sc-PSY', dept: 'Psychology', degree: 'M.Sc (Autonomous)', semesters: 'PG Curriculum Scheme', credits: '80 Credits', localPdf: '/assets/documents/academics/PG-Curriculum-Psychology.pdf', slug: 'msc-psych' },
     { code: 'M.Sc-FSN', dept: 'Food Science & Nutrition', degree: 'M.Sc (Autonomous)', semesters: 'PG Master Scheme & Labs', credits: '84 Credits', localPdf: '/assets/documents/academics/PG-FOOD-SCIENCE.pdf', slug: 'msc-food' }
   ];
+
+  const [selectedItem, setSelectedItem] = useState(pgSyllabusList[0]);
 
   const filtered = pgSyllabusList.filter(
     (s) =>
@@ -40,108 +40,130 @@ export default function SyllabusPGView() {
             Postgraduate (PG) Syllabi & CBCS Schemes
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 font-sans">
-            Choice Based Credit System (CBCS) syllabus regulations, core papers, hard-core/soft-core electives, open electives, and downloadable PDFs for Master degree programs.
+            Choice Based Credit System (CBCS) syllabus regulations, core papers, hard-core/soft-core electives, and downloadable PDFs for Master degree programs.
           </p>
         </div>
 
         <div className="flex items-center space-x-3 shrink-0">
           <span className="bg-emerald-50 text-emerald-800 font-mono font-bold text-xs px-3.5 py-1.5 rounded-xl border border-emerald-200">
-            Official Master Syllabi Stored
+            {pgSyllabusList.length} Official Master Syllabi Stored
           </span>
         </div>
       </div>
 
-      {/* Embedded Live Syllabus Viewer */}
-      <div className="space-y-3">
-        <div className="flex items-center justify-between flex-wrap gap-2">
-          <h3 className="font-serif font-bold text-lg text-[#0B1F4E] flex items-center space-x-2">
-            <FileText className="w-5 h-5 text-[#1C5496]" />
-            <span>Interactive PG Syllabus Document Viewer: <span className="text-[#1C5496] font-bold">{selectedPdf.title}</span></span>
-          </h3>
-          <span className="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">
-            Click Any Row Below to Switch Syllabus
-          </span>
+      {/* SIDE-BY-SIDE SPLIT VIEW: Syllabus List (Left) + Interactive Live Viewer (Right) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        {/* LEFT COLUMN: Searchable Syllabus List (5 Cols) */}
+        <div className="lg:col-span-5 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col h-[750px]">
+          
+          {/* Header & Search */}
+          <div className="p-4 bg-slate-50 border-b border-slate-200 space-y-3 shrink-0">
+            <div className="flex items-center justify-between">
+              <h3 className="font-serif font-bold text-sm text-[#0B1F4E]">
+                Select Master Degree Syllabus
+              </h3>
+              <span className="text-[11px] font-mono text-slate-500 font-semibold">
+                {filtered.length} of {pgSyllabusList.length}
+              </span>
+            </div>
+            <div className="relative w-full">
+              <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                placeholder="Search PG discipline or code..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-8 pr-3 py-2 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-[#1C5496]"
+              />
+            </div>
+          </div>
+
+          {/* Scrollable List of Syllabus Cards */}
+          <div className="flex-1 overflow-y-auto divide-y divide-slate-100 custom-scrollbar">
+            {filtered.map((s, idx) => {
+              const isSelected = selectedItem?.code === s.code;
+              return (
+                <div
+                  key={idx}
+                  onClick={() => setSelectedItem(s)}
+                  className={`p-4 transition-all cursor-pointer flex items-center justify-between gap-3 ${
+                    isSelected
+                      ? 'bg-emerald-50/90 border-l-4 border-emerald-600'
+                      : 'hover:bg-slate-50 border-l-4 border-transparent'
+                  }`}
+                >
+                  <div className="space-y-1 min-w-0 flex-1">
+                    <div className="flex items-center space-x-2">
+                      <span className="font-mono font-bold text-xs text-emerald-800 bg-emerald-100/70 px-2 py-0.5 rounded">
+                        {s.code}
+                      </span>
+                      <span className="text-[11px] font-medium text-slate-500">
+                        {s.semesters}
+                      </span>
+                    </div>
+                    <h4 className="font-serif font-bold text-sm text-slate-900 truncate">
+                      {s.dept}
+                    </h4>
+                    <p className="text-[11px] text-slate-500 truncate">
+                      {s.degree} · {s.credits}
+                    </p>
+                  </div>
+
+                  <div className="shrink-0 flex items-center space-x-1.5" onClick={(e) => e.stopPropagation()}>
+                    <ViewAsBookButton
+                      pdfUrl={s.localPdf}
+                      title={`${s.dept} (${s.code}) - ${s.semesters}`}
+                      size="sm"
+                      className="text-xs px-3 py-1.5"
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
         </div>
 
-        <PDFViewerEmbed
-          src={selectedPdf.url}
-          title={selectedPdf.title}
-          height="800px"
-          badge="Postgraduate Syllabus"
-        />
-      </div>
+        {/* RIGHT COLUMN: Interactive Live Viewer Preview (7 Cols) */}
+        <div className="lg:col-span-7 sticky top-20 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col h-[750px]">
+          
+          {/* Header Bar */}
+          <div className="p-4 bg-[#071324] text-white flex items-center justify-between shrink-0 border-b border-slate-800">
+            <div className="flex items-center space-x-2.5 overflow-hidden pr-3">
+              <div className="w-7 h-7 rounded-lg bg-[#FFD84A] text-[#071A33] flex items-center justify-center shrink-0">
+                <BookOpen className="w-3.5 h-3.5 font-bold" />
+              </div>
+              <div className="overflow-hidden">
+                <span className="text-[10px] font-mono text-[#FFD84A] uppercase tracking-wider block">
+                  Active Document Preview
+                </span>
+                <h3 className="font-serif font-bold text-sm text-white truncate">
+                  {selectedItem.dept} ({selectedItem.code})
+                </h3>
+              </div>
+            </div>
 
-      {/* PG Syllabi Table */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="p-4 sm:p-5 bg-slate-50 border-b border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <h3 className="font-serif font-bold text-sm sm:text-base text-[#0B1F4E]">
-            Select Master Degree Syllabus to View or Download
-          </h3>
-          <div className="relative w-full sm:w-72">
-            <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              placeholder="Search by PG discipline or degree code..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-8 pr-3 py-1.5 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-[#1C5496]"
+            <ViewAsBookButton
+              pdfUrl={selectedItem.localPdf}
+              title={`${selectedItem.dept} (${selectedItem.code}) Syllabus`}
+              label="Open 3D Flipbook"
+              size="sm"
             />
           </div>
+
+          {/* Embedded Interactive Viewer */}
+          <div className="flex-1 w-full relative bg-slate-900 overflow-hidden">
+            <PDFViewerEmbed
+              src={selectedItem.localPdf}
+              title={`${selectedItem.dept} (${selectedItem.code}) Syllabus`}
+              height="100%"
+              badge="Postgraduate Syllabus"
+            />
+          </div>
+
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs sm:text-sm border-collapse font-sans">
-            <thead>
-              <tr className="bg-[#0B1F4E] text-white font-serif uppercase tracking-wider text-[11px]">
-                <th className="py-3 px-4">Code</th>
-                <th className="py-3 px-6">Postgraduate Discipline</th>
-                <th className="py-3 px-6">Approved Degree</th>
-                <th className="py-3 px-6">Structure</th>
-                <th className="py-3 px-6">Credits</th>
-                <th className="py-3 px-6 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {filtered.map((s, idx) => {
-                const isCurrent = selectedPdf.url === s.localPdf;
-                return (
-                  <tr 
-                    key={idx} 
-                    className={`transition-colors cursor-pointer ${
-                      isCurrent ? 'bg-emerald-50/80 font-semibold' : 'hover:bg-slate-50'
-                    }`}
-                    onClick={() => setSelectedPdf({ title: `${s.dept} (${s.code}) Syllabus`, url: s.localPdf })}
-                  >
-                    <td className="py-3.5 px-4 font-mono font-bold text-[#1C5496]">{s.code}</td>
-                    <td className="py-3.5 px-6 font-serif font-bold text-slate-900">{s.dept}</td>
-                    <td className="py-3.5 px-6 text-slate-600">{s.degree}</td>
-                    <td className="py-3.5 px-6 text-slate-600 font-mono text-xs">{s.semesters}</td>
-                    <td className="py-3.5 px-6 text-slate-600 font-mono text-xs">{s.credits}</td>
-                    <td className="py-3.5 px-6 text-right">
-                      <div className="flex items-center justify-end space-x-2" onClick={(e) => e.stopPropagation()}>
-                        <button
-                          onClick={() => setSelectedPdf({ title: `${s.dept} (${s.code}) Syllabus`, url: s.localPdf })}
-                          className="px-2.5 py-1.5 bg-[#0B1F4E] hover:bg-[#1C5496] text-white rounded-md text-xs font-bold inline-flex items-center space-x-1 transition-colors cursor-pointer"
-                        >
-                          <Eye className="w-3.5 h-3.5" />
-                          <span>View</span>
-                        </button>
-                        <a
-                          href={s.localPdf}
-                          download
-                          className="px-2.5 py-1.5 bg-[#FFD84A] hover:bg-[#ffcd1f] text-slate-900 rounded-md text-xs font-bold inline-flex items-center space-x-1 transition-colors shadow-2xs cursor-pointer"
-                        >
-                          <Download className="w-3.5 h-3.5 text-slate-900" />
-                          <span>PDF</span>
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
       </div>
 
     </div>

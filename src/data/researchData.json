@@ -1,0 +1,156 @@
+{
+  "overview": {
+    "title": "Research & Development Center",
+    "tagline": "Fostering Interdisciplinary Inquiry, Innovation & Knowledge Creation",
+    "description": "The Research & Development Cell (RDC) at St. Philomena's College (Autonomous), Mysuru promotes cutting-edge scholarly investigations across basic sciences, humanities, commerce, and computational technologies in accordance with UGC Guidelines.",
+    "director": "Dr. Felan Amal (Dean of Research)",
+    "established": "Autonomous Research Cell Est. 2011"
+  },
+  "rdcCommittees": [
+    {
+      "id": "comm-1",
+      "number": "Committee 1",
+      "name": "Finance & Infrastructure",
+      "convener": "Rev. Fr. Ganana Pragasam (Campus Administrator)",
+      "focus": "Research lab infrastructure, modern instrumentation grants, computational labs, and seed funding management."
+    },
+    {
+      "id": "comm-2",
+      "number": "Committee 2",
+      "name": "Research Programs & Policy Development",
+      "convener": "Dr. Felan Amal (Head & Assistant Professor of Physics)",
+      "focus": "Institutional research ethics, NEP research integration, interdisciplinary symposiums, and student fellowship policy."
+    },
+    {
+      "id": "comm-3",
+      "number": "Committee 3",
+      "name": "Collaboration, MoUs & Community Extension",
+      "convener": "Dr. Vagdevi H S (Associate Professor)",
+      "focus": "University-industry bilateral agreements, international academic exchange, and community extension research projects."
+    },
+    {
+      "id": "comm-4",
+      "number": "Committee 4",
+      "name": "Product Development, Monitoring & Commercialization",
+      "convener": "Dr. Sadia Tabassum (Assistant Professor)",
+      "focus": "Pre-incubation prototyping, technology transfer, student entrepreneurship, and industry product trials."
+    },
+    {
+      "id": "comm-5",
+      "number": "Committee 5",
+      "name": "IPR & Ethical Matters",
+      "convener": "Dr. Shiva Kumar (Assistant Professor)",
+      "focus": "Patent drafting, copyright filings, trademark registration, anti-plagiarism checks, and institutional ethics review."
+    }
+  ],
+  "majorResearchProjects": [
+    {
+      "id": "proj-1",
+      "title": "Synthesis and Characterization of Novel Transition Metal Complexes for Targeted Oncology Drug Delivery",
+      "principalInvestigator": "Dr. Felan Amal & Mrs. Sowmya Mathew",
+      "department": "Departments of Physics & Chemistry",
+      "fundingAgency": "VGST (Vision Group on Science and Technology) / UGC",
+      "grantAmount": "₹ 35,00,000",
+      "duration": "2023 – 2026",
+      "status": "Ongoing",
+      "summaryPdf": "/assets/documents/research/major-research-project-summary-1.pdf"
+    },
+    {
+      "id": "proj-2",
+      "title": "Impact Assessment of Tribal Welfare & Healthcare Programs in Chamarajanagar & H.D. Kote",
+      "principalInvestigator": "Dr. Noor Mubasheer C A",
+      "department": "Postgraduate Department of Social Work (MSW)",
+      "fundingAgency": "ICSSR (Indian Council of Social Science Research)",
+      "grantAmount": "₹ 18,50,000",
+      "duration": "2022 – 2025",
+      "status": "Ongoing",
+      "summaryPdf": "/assets/documents/research/major-research-project-summary-2.pdf"
+    },
+    {
+      "id": "proj-3",
+      "title": "Microbial Bioremediation of Industrial Effluents using Indigenous Bacterial Isolates in Mysuru Industrial Area",
+      "principalInvestigator": "Department of Microbiology & Biotechnology",
+      "department": "Faculty of Life Sciences",
+      "fundingAgency": "Karnataka State Bioenergy Development Board",
+      "grantAmount": "₹ 12,00,000",
+      "duration": "2021 – 2024",
+      "status": "Completed",
+      "summaryPdf": "/assets/documents/research/major-research-project-summary-3.pdf"
+    },
+    {
+      "id": "proj-4",
+      "title": "Econometric Modeling of Micro-Enterprises and Digital Financial Inclusion in Southern Karnataka",
+      "principalInvestigator": "Dr. Nandeesha H K",
+      "department": "Department of Economics",
+      "fundingAgency": "UGC Autonomous Research Grant",
+      "grantAmount": "₹ 8,00,000",
+      "duration": "2023 – 2025",
+      "status": "Ongoing",
+      "summaryPdf": "/assets/documents/research/major-research-project-summary-4.pdf"
+    }
+  ],
+  "patentsAndPublications": {
+    "patents": [
+      {
+        "id": "pat-1",
+        "title": "Automated Solar-Powered Agro-Nutrient Dispenser with IoT Soil pH Telemetry",
+        "inventors": "Department of Computer Science & Electronics",
+        "applicationNumber": "202441058921 A",
+        "status": "Published / Patent Office Journal",
+        "filingDate": "14th August 2024",
+        "patentPdf": "/assets/documents/research/patent-publication-doc-1.pdf"
+      },
+      {
+        "id": "pat-2",
+        "title": "Eco-Friendly Herbal Formulation for Anti-Microbial Preservation of Perishable Agricultural Produce",
+        "inventors": "Faculty of Biochemistry & Food Science",
+        "applicationNumber": "202341032145 A",
+        "status": "Published & Under Examination",
+        "filingDate": "22nd November 2023",
+        "patentPdf": "/assets/documents/research/patent-publication-doc-2.pdf"
+      }
+    ],
+    "publicationMetrics": {
+      "totalScopusIndexed": 142,
+      "totalWebOfScience": 98,
+      "totalUgcCareJournals": 215,
+      "totalBooksPublished": 38,
+      "totalCitations": 1850,
+      "hIndex": 18
+    }
+  },
+  "mousAndCollaborations": [
+    {
+      "id": "mou-1",
+      "institution": "CSIR – Central Food Technological Research Institute (CFTRI), Mysuru",
+      "scope": "Joint research, student internships, food science laboratory access, and analytical instrumentation sharing.",
+      "validity": "2023 – 2028 (5 Years)",
+      "category": "National Research Laboratory",
+      "mouPdf": "/assets/documents/research/mou-cftri-stphilos.pdf"
+    },
+    {
+      "id": "mou-2",
+      "institution": "Infosys Springboard & IT Excellence Center",
+      "scope": "Industry curriculum alignment, cloud computing certifications, faculty enablement, and student placement fast-track.",
+      "validity": "2022 – 2027 (5 Years)",
+      "category": "Corporate IT Leader",
+      "mouPdf": "/assets/documents/research/mou-infosys-springboard.pdf"
+    },
+    {
+      "id": "mou-3",
+      "institution": "University of Mysore (DoS in Chemistry & Physics)",
+      "scope": "Collaborative Ph.D. co-guidance, NMR/XRD instrumentation usage, and joint research symposiums.",
+      "validity": "2021 – 2026 (5 Years)",
+      "category": "Apex University Partner",
+      "mouPdf": "/assets/documents/research/mou-university-of-mysore.pdf"
+    },
+    {
+      "id": "mou-4",
+      "institution": "All India Institute of Speech and Hearing (AIISH), Mysuru",
+      "scope": "Psychology clinical practicum, cognitive neuroscience workshops, and rehabilitation field training.",
+      "validity": "2023 – 2028 (5 Years)",
+      "category": "Autonomous Healthcare Institute",
+      "mouPdf": "/assets/documents/research/mou-aiish-psychology.pdf"
+    }
+  ]
+}

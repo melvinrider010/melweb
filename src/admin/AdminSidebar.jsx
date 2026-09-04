@@ -4,7 +4,7 @@ import {
   LayoutDashboard, Sliders, FileText, Calendar, Image as ImageIcon, 
   GraduationCap, Users, Building2, Award, ShieldCheck, FolderGit2, 
   Settings, UserCheck, History, Archive, CheckCircle2, Sparkles, Layers,
-  BookOpen, HelpCircle, MessageSquare
+  BookOpen, HelpCircle, MessageSquare, HeartHandshake
 } from 'lucide-react';
 
 export default function AdminSidebar() {
@@ -21,6 +21,8 @@ export default function AdminSidebar() {
       title: "CONTENT MANAGEMENT",
       items: [
         { label: "Hero Sliders", path: "/admin/sliders", icon: Sliders },
+        { label: "Custom Pages", path: "/admin/pages", icon: BookOpen },
+        { label: "Navigation Menus", path: "/admin/menus", icon: Layers },
         { label: "Notices & Announcements", path: "/admin/notices", icon: FileText },
         { label: "Campus Events", path: "/admin/events", icon: Calendar },
         { label: "Photo Gallery", path: "/admin/gallery", icon: ImageIcon }
@@ -31,7 +33,8 @@ export default function AdminSidebar() {
       items: [
         { label: "UG & PG Programmes", path: "/admin/programmes", icon: GraduationCap },
         { label: "Academic Departments", path: "/admin/departments", icon: Building2 },
-        { label: "Faculty Directory", path: "/admin/faculty", icon: Users }
+        { label: "Faculty Directory", path: "/admin/faculty", icon: Users },
+        { label: "Alumni Registrations", path: "/admin/alumni", icon: HeartHandshake }
       ]
     },
     {

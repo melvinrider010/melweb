@@ -36,14 +36,16 @@ export default function ResearchPage() {
 
     if (tabParam) {
       setActiveTab(tabParam);
-    } else if (path.includes('project')) {
+    } else if (path.includes('major-research') || path.includes('project')) {
       setActiveTab('projects');
     } else if (path.includes('patent') || path.includes('publication')) {
       setActiveTab('patents');
-    } else if (path.includes('iic') || path.includes('innovation')) {
-      setActiveTab('iic');
     } else if (path.includes('mou') || path.includes('collab')) {
       setActiveTab('mou');
+    } else if (path.includes('research-development-cell') || path.includes('rdc') || path.includes('rd-cell')) {
+      setActiveTab('rdc');
+    } else if (path.includes('iic') || path.includes('innovation')) {
+      setActiveTab('iic');
     } else if (path.includes('facilit') || path.includes('lab') || path.includes('instrument')) {
       setActiveTab('facilities');
     } else {

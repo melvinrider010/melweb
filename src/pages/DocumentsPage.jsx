@@ -1,8 +1,8 @@
-import { animatePageIn } from '../animations/pageTransitions';
-import { useEffect, useRef } from 'react';
-﻿import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Search, FileText, Download, Filter } from 'lucide-react';
 import docsData from '../data/documents.json';
+import ViewAsBookButton from '../components/common/ViewAsBookButton';
+import { animatePageIn } from '../animations/pageTransitions';
 
 // Animation wrapper
 export default function DocumentsPage() {
@@ -82,14 +82,16 @@ export default function DocumentsPage() {
                 {doc.link_text || doc.document_name}
               </h3>
             </div>
-            <a
-              href={doc.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center text-xs text-blue-700 font-bold hover:underline"
-            >
-              <Download className="w-3.5 h-3.5 mr-1" /> Download File
-            </a>
+            
+            <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-end">
+              <ViewAsBookButton
+                pdfUrl={doc.url}
+                title={doc.link_text || doc.document_name}
+                label="View"
+                size="xs"
+                variant="blue"
+              />
+            </div>
           </div>
         ))}
       </div>

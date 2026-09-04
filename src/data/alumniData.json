@@ -1,0 +1,182 @@
+{
+  "association": {
+    "name": "St. Philomena's College Alumni Association",
+    "shortName": "SPCAA",
+    "banner": "/assets/images/alumni/alumni_banner.jpg",
+    "tagline": "Fostering Lifelong Connections, Global Networking & Student Mentorship",
+    "description": "St. Philomena's College Alumni Association (SPCAA) unites over seven decades of graduates across the globe. Our alumni community provides active student mentorship, merit scholarships, campus infrastructure support, and professional networking chapters across India and abroad.",
+    "stats": [
+      { "label": "Global Alumni Network", "value": "25,000+" },
+      { "label": "Active Countries", "value": "35+" },
+      { "label": "Annual Scholarships Funded", "value": "₹15 Lakhs+" },
+      { "label": "Student Mentorship Sessions", "value": "120+/Yr" }
+    ],
+    "objectives": [
+      "To foster an enduring bond between the Alma Mater and its alumni worldwide.",
+      "To mentor current undergraduate and postgraduate students in industry trends, competitive exams, and career pathways.",
+      "To sponsor scholarships, financial aid, and research equipment for meritorious and underprivileged students.",
+      "To organize annual global reunions, regional chapter meets, and distinguished alumni lectures."
+    ]
+  },
+  "options": {
+    "courses": [
+      "Bachelor of Computer Applications (BCA)",
+      "Bachelor of Business Administration (BBA)",
+      "Bachelor of Commerce (B.Com)",
+      "Bachelor of Science (B.Sc - Physical Sciences)",
+      "Bachelor of Science (B.Sc - Life Sciences / Biotech / BioChem)",
+      "Bachelor of Arts (BA - Humanities / Journalism / Economics)",
+      "Bachelor of Social Work (BSW)",
+      "Bachelor of Vocation (B.Voc - Digital Media / Healthcare)",
+      "Master of Computer Applications (MCA)",
+      "Master of Business Administration (MBA)",
+      "Master of Commerce (M.Com)",
+      "Master of Social Work (MSW)",
+      "M.Sc Chemistry",
+      "M.Sc Physics",
+      "M.Sc Computer Science",
+      "M.Sc Mathematics",
+      "M.Sc Biochemistry",
+      "MA English Literature",
+      "MA Economics / Journalism",
+      "Postgraduate Diploma / Certificate"
+    ],
+    "departments": [
+      "Department of Computer Science & Applications",
+      "Department of Business Administration & Management",
+      "Department of Commerce",
+      "Department of Physics",
+      "Department of Chemistry & Biochemistry",
+      "Department of Biotechnology & Botany",
+      "Department of Zoology",
+      "Department of Mathematics & Statistics",
+      "Department of English Literature",
+      "Department of Journalism & Mass Communication",
+      "Department of Economics & Political Science",
+      "Department of Social Work",
+      "Department of Languages (Kannada / Hindi / French / Malayalam)",
+      "Department of Physical Education & Sports"
+    ],
+    "genders": ["Male", "Female", "Other"],
+    "classes": [
+      "Distinction / Exemplary (>80%)",
+      "First Class (60% - 79%)",
+      "Second Class (50% - 59%)",
+      "Pass Class",
+      "Pursuing / Awaited"
+    ],
+    "industries": [
+      "Information Technology & Artificial Intelligence",
+      "Banking, Financial Services & Insurance (BFSI)",
+      "Healthcare, Pharmaceuticals & Life Sciences",
+      "Education, Academia & Scientific Research",
+      "Government, Civil Services & Defense",
+      "Media, Journalism & Creative Arts",
+      "Hospitality, Tourism & Aviation",
+      "Corporate Management & Human Resources",
+      "Entrepreneurship & Startups",
+      "Legal Services & Judiciary",
+      "Non-Profit, NGOs & Social Welfare",
+      "Manufacturing, Engineering & Energy",
+      "Other Professional Fields"
+    ]
+  },
+  "distinguishedAlumni": [
+    {
+      "id": "alumni-01",
+      "name": "Dr. C.N. Manjunath",
+      "batch": "B.Sc (Batch 1978)",
+      "role": "Padma Shri Awardee, Renowned Cardiologist & Former Director, Sri Jayadeva Institute of Cardiovascular Sciences",
+      "sector": "Healthcare & Medicine",
+      "quote": "St. Philomena's gave me the moral compass, scientific curiosity, and dedication to serve humanity through medicine."
+    },
+    {
+      "id": "alumni-02",
+      "name": "Justice H. Billappa",
+      "batch": "BA (Batch 1975)",
+      "role": "Former Judge, High Court of Karnataka",
+      "sector": "Judiciary & Law",
+      "quote": "The rigorous ethics and academic discipline ingrained during my student days at St. Philomena's paved my judicial career."
+    },
+    {
+      "id": "alumni-03",
+      "name": "Prof. S. R. Niranjana",
+      "batch": "B.Sc (Batch 1982)",
+      "role": "Former Vice Chancellor, Gulbarga University & Eminent Plant Pathologist",
+      "sector": "Academia & Research",
+      "quote": "The world-class botany and chemistry laboratories of St. Philomena's sparked my passion for lifelong scientific inquiry."
+    },
+    {
+      "id": "alumni-04",
+      "name": "Mr. Joseph V. Thomas",
+      "batch": "B.Com (Batch 1994)",
+      "role": "Executive Vice President, Global Financial Markets (London / Singapore)",
+      "sector": "Corporate Finance",
+      "quote": "From the iconic Quadrangle classrooms to multinational trading desks, Philomena's values remain my strongest foundation."
+    }
+  ],
+  "initialRegistrations": [
+    {
+      "id": "ALM-2026-1001",
+      "registrationNo": "SPCAA-2026-0089",
+      "fullName": "Ananya Sharma",
+      "email": "ananya.sharma@techcorp.io",
+      "mobile": "+91 98450 12345",
+      "dob": "1997-06-15",
+      "gender": "Female",
+      "course": "Bachelor of Computer Applications (BCA)",
+      "department": "Department of Computer Science & Applications",
+      "batchYear": "2015",
+      "passingYear": "2018",
+      "registerNumber": "U15CS104",
+      "classObtained": "Distinction / Exemplary (>80%)",
+      "address": "45/2 Temple Bell Layout, Vijayanagar",
+      "city": "Mysuru",
+      "state": "Karnataka",
+      "country": "India",
+      "jobTitle": "Senior Full-Stack Engineer",
+      "organisation": "Microsoft India",
+      "industry": "Information Technology & Artificial Intelligence",
+      "workLocation": "Bengaluru, India",
+      "higherStudies": "MS in Software Engineering (BITS Pilani)",
+      "willingToMentor": "Yes",
+      "expertise": "Cloud Architecture, React, AI Web Systems",
+      "linkedinUrl": "https://linkedin.com/in/ananya-sharma-demo",
+      "achievements": "Recipient of Microsoft Engineering Excellence Award 2024; Author of 2 research papers in IEEE.",
+      "remarks": "Deeply grateful to the BCA faculty and Father Leslie Moras for their mentorship.",
+      "status": "approved",
+      "submissionDate": "2026-08-20"
+    },
+    {
+      "id": "ALM-2026-1002",
+      "registrationNo": "SPCAA-2026-0090",
+      "fullName": "Kiran Kumar M",
+      "email": "kiran.kumar@biotechlab.org",
+      "mobile": "+91 97410 88992",
+      "dob": "1994-11-22",
+      "gender": "Male",
+      "course": "Bachelor of Science (B.Sc - Life Sciences / Biotech / BioChem)",
+      "department": "Department of Biotechnology & Botany",
+      "batchYear": "2012",
+      "passingYear": "2015",
+      "registerNumber": "U12BT058",
+      "classObtained": "First Class (60% - 79%)",
+      "address": "12 Gokulam 3rd Stage",
+      "city": "Mysuru",
+      "state": "Karnataka",
+      "country": "India",
+      "jobTitle": "Lead Research Associate",
+      "organisation": "Biocon Biologics",
+      "industry": "Healthcare, Pharmaceuticals & Life Sciences",
+      "workLocation": "Bengaluru, India",
+      "higherStudies": "M.Sc Biotechnology (University of Mysore)",
+      "willingToMentor": "Yes",
+      "expertise": "Molecular Biology, Fermentation, Good Laboratory Practice",
+      "linkedinUrl": "https://linkedin.com/in/kiran-kumar-demo",
+      "achievements": "Contributed to 3 biosimilar regulatory filings across FDA and EMA.",
+      "remarks": "The biotechnology lab practicals at St. Philomena's laid the bedrock of my career.",
+      "status": "approved",
+      "submissionDate": "2026-08-25"
+    }
+  ]
+}

@@ -5,10 +5,10 @@ import { Shield, ArrowRight } from 'lucide-react';
 const LEADERSHIP_ROSTER = [
   {
     id: 'bishop-president',
-    name: 'Most Rev. Dr. Bernard Moras',
-    designation: 'President, MDES & Apostolic Administrator',
-    image: '/media/management/secretary_edward_saldanha.jpg',
-    objectPosition: '50% 0%',
+    name: 'Most Rev. Dr. Francis Serrao, S.J.',
+    designation: 'Bishop of Mysore Diocese & President, MDES',
+    image: '/assets/images/leadership/bishop_francis_serrao.jpg',
+    objectPosition: '50% 12%',
     link: '/about?tab=mdes'
   },
   {
@@ -73,7 +73,7 @@ export default function ManagementSection() {
                 />
                 
                 {/* Bottom subtle gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060f26]/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#164E8C]/60 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Full Name & Designation Block (Zero Truncation) */}

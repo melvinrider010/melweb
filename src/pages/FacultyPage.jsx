@@ -1,21 +1,41 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, Mail, BookOpen, GraduationCap, User, Filter, ArrowRight, Building2, Briefcase } from 'lucide-react';
-import { ALL_FACULTY } from '../data/facultyData';
+import { DEPARTMENTS, getDepartmentById } from '../data/academicsHierarchyData';
 import FacultyAvatar from '../components/common/FacultyAvatar';
+import cmsStore from '../lib/cmsStore';
+import useCms from '../lib/useCms';
 
 export default function FacultyPage() {
+  const allFaculty = useCms(() => cmsStore.getFaculty());
+  const allDepartments = useCms(() => cmsStore.getDepartments());
   const [search, setSearch] = useState('');
   const [selectedDept, setSelectedDept] = useState('All');
 
-  const departments = ['All', ...new Set(ALL_FACULTY.map(f => f.department))];
+  // Friendly departments for filter dropdown
+  const departmentOptions = [
+    { id: 'All', name: 'All Academic Departments' },
+    ...allDepartments.filter(d => allFaculty.some(f => f.departmentId === d.id || f.departmentId === d.deptId)).map(d => ({
+      id: d.id,
+      name: d.name
+    }))
+  ];
 
-  const filtered = ALL_FACULTY.filter(f => {
-    const matchesSearch = f.name.toLowerCase().includes(search.toLowerCase()) ||
-                          f.department.toLowerCase().includes(search.toLowerCase()) ||
-                          f.designation.toLowerCase().includes(search.toLowerCase()) ||
-                          (f.specialization && f.specialization.toLowerCase().includes(search.toLowerCase()));
-    const matchesDept = selectedDept === 'All' || f.department === selectedDept;
+  const cleanStr = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+  const filtered = allFaculty.filter(f => {
+    const deptObj = getDepartmentById(f.departmentId);
+    const deptName = deptObj ? deptObj.name : (f.departmentName || f.departmentId || '');
+    
+    const searchClean = cleanStr(search);
+    const matchesSearch = !searchClean || 
+      cleanStr(f.name).includes(searchClean) ||
+      cleanStr(deptName).includes(searchClean) ||
+      cleanStr(f.designation).includes(searchClean) ||
+      cleanStr(f.qualification).includes(searchClean) ||
+      cleanStr(f.specialization).includes(searchClean);
+    
+    const matchesDept = selectedDept === 'All' || f.departmentId === selectedDept || (deptObj && deptObj.id === selectedDept);
     return matchesSearch && matchesDept;
   });
 
@@ -39,7 +59,7 @@ export default function FacultyPage() {
               <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
-                placeholder="Search faculty by name, department, designation, or specialization..."
+                placeholder="Search faculty by name, department, designation, or qualification..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-[#1C5496] focus:bg-white transition-colors"
@@ -54,9 +74,9 @@ export default function FacultyPage() {
                 onChange={(e) => setSelectedDept(e.target.value)}
                 className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-[#1C5496] font-semibold text-slate-800"
               >
-                {departments.map((d) => (
-                  <option key={d} value={d}>
-                    {d === 'All' ? 'All Academic Departments' : d}
+                {departmentOptions.map((opt) => (
+                  <option key={opt.id} value={opt.id}>
+                    {opt.name}
                   </option>
                 ))}
               </select>
@@ -65,61 +85,65 @@ export default function FacultyPage() {
           </div>
 
           <div className="text-xs text-slate-500 pt-1 font-mono">
-            Showing <strong>{filtered.length}</strong> faculty members across campus.
+            Showing <strong>{filtered.length}</strong> authentic faculty members across campus.
           </div>
         </div>
 
         {/* Faculty Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filtered.map((member) => (
-            <div
-              key={member.id}
-              className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-all group flex flex-col justify-between"
-            >
-              <div className="space-y-3">
-                
-                {/* Photo */}
-                <div className="aspect-[4/3] bg-slate-900 relative overflow-hidden flex items-center justify-center">
-                  <FacultyAvatar
-                    src={member.image}
-                    name={member.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    fallbackSize="text-4xl"
-                  />
-                  <span className="absolute top-2 left-2 bg-[#071A33]/90 text-[#FFD84A] text-[10px] font-bold px-2 py-0.5 rounded uppercase">
-                    {member.department.replace('Department of ', '')}
-                  </span>
+          {filtered.map((member) => {
+            const deptObj = getDepartmentById(member.departmentId);
+            const deptDisplayName = deptObj ? deptObj.shortName || deptObj.name : (member.departmentName || member.departmentId);
+
+            return (
+              <div
+                key={member.id}
+                className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-all group flex flex-col justify-between"
+              >
+                <div className="space-y-3">
+                  
+                  {/* Photo */}
+                  <div className="aspect-[4/3] bg-slate-900 relative overflow-hidden flex items-center justify-center">
+                    <FacultyAvatar
+                      src={member.photoUrl || member.image}
+                      name={member.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      fallbackSize="text-4xl"
+                    />
+                    <span className="absolute top-2 left-2 bg-[#071A33]/90 text-[#FFD84A] text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+                      {deptDisplayName}
+                    </span>
+                  </div>
+
+                  {/* Info */}
+                  <div className="p-4 space-y-2 text-xs">
+                    <h3 className="font-serif font-bold text-base text-slate-900 group-hover:text-[#1C5496] transition-colors line-clamp-1">
+                      {member.name}
+                    </h3>
+                    <p className="text-[#1C5496] font-bold text-xs line-clamp-1">{member.designation}</p>
+                    {member.qualification && (
+                      <p className="text-[11px] text-slate-500 font-medium truncate">Qual: {member.qualification}</p>
+                    )}
+                  </div>
+
                 </div>
 
-                {/* Info */}
-                <div className="p-4 space-y-2 text-xs">
-                  <h3 className="font-serif font-bold text-base text-slate-900 group-hover:text-[#1C5496] transition-colors line-clamp-1">
-                    {member.name}
-                  </h3>
-                  <p className="text-[#1C5496] font-bold text-xs line-clamp-1">{member.designation}</p>
-                  <p className="text-[11px] text-slate-500 font-medium">Qual: {member.qualification}</p>
-                  
-                  {member.email && (
-                    <p className="text-[11px] text-slate-600 flex items-center pt-1 truncate">
-                      <Mail className="w-3 h-3 mr-1 text-[#1C5496] shrink-0" />
-                      <span className="truncate">{member.email}</span>
-                    </p>
+                {/* Footer action */}
+                <div className="p-4 pt-0 border-t border-slate-100 pt-3">
+                  {deptObj ? (
+                    <Link
+                      to={`/departments/${deptObj.slug}`}
+                      className="text-xs font-bold text-[#1C5496] hover:underline inline-flex items-center"
+                    >
+                      <span>Visit Department →</span>
+                    </Link>
+                  ) : (
+                    <span className="text-xs font-semibold text-slate-400">St. Philomena's College</span>
                   )}
                 </div>
-
               </div>
-
-              {/* Profile Action Link */}
-              <div className="p-4 pt-0">
-                <Link
-                  to={`/departments/${member.deptId}/faculty/${member.id}`}
-                  className="w-full btn-primary-blue py-2 rounded-xl text-xs font-bold text-center block"
-                >
-                  View Faculty Profile →
-                </Link>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

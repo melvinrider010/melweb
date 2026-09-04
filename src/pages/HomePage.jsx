@@ -52,25 +52,19 @@ export default function HomePage() {
                   <span>Our Heritage & Milestones</span>
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
-                <Link
-                  to="/mandatory-disclosure"
-                  className="btn-gold px-6 py-3 rounded-lg text-sm font-bold shadow-sm"
-                >
-                  <span>NAAC Cycle III & Autonomy Compliance</span>
-                </Link>
               </div>
             </div>
 
-            <div className="lg:col-span-5 rounded-2xl overflow-hidden shadow-xl border border-slate-200 min-h-[420px] sm:min-h-[480px] lg:h-full relative group bg-[#060f26]">
+            <div className="lg:col-span-5 rounded-2xl overflow-hidden shadow-xl border border-slate-200 min-h-[420px] sm:min-h-[480px] lg:h-full relative group bg-[#164E8C]">
               <img
                 src="/media/heritage/st_philos_heritage_palace.jpg"
                 alt="St. Philomena's College Campus & Historic Heritage Building"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-[0.98]"
                 style={{ objectPosition: 'center 85%' }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060f26]/90 via-transparent to-transparent flex flex-col justify-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#164E8C]/90 via-transparent to-transparent flex flex-col justify-end p-6">
                 <span className="font-serif font-extrabold text-2xl text-[#F0D98C]">EST. 1946</span>
-                <span className="text-xs text-slate-200 font-sans tracking-wide">"Caritas in Scientia" — Love in Knowledge</span>
+                <span className="text-xs text-slate-200 font-serif italic tracking-wide">"Caritas in Scientia"</span>
               </div>
             </div>
 
@@ -93,7 +87,7 @@ export default function HomePage() {
         <GallerySection />
 
         {/* 12. FULL-BLEED EDITORIAL CTA BANNER */}
-        <section className="bg-gradient-to-r from-[#060f26] via-[#0B1F4E] to-[#060f26] text-white py-20 px-4 sm:px-8 text-center border-t-4 border-[#C9A84C]">
+        <section className="bg-gradient-to-r from-[#164E8C] via-[#0B1F4E] to-[#164E8C] text-white py-20 px-4 sm:px-8 text-center border-t-4 border-[#C9A84C]">
           <div className="max-w-3xl mx-auto space-y-5 relative z-10">
             <span className="inline-block bg-[#C9A84C]/20 border border-[#F0D98C]/40 text-[#F0D98C] px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase shadow-xs">
               Admissions 2026–27 Open

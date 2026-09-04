@@ -18,10 +18,20 @@ import {
 import { getFacultyById, ALL_FACULTY } from '../data/facultyData';
 import { getDepartmentById } from '../data/departmentsData';
 import FacultyAvatar from '../components/common/FacultyAvatar';
+import cmsStore from '../lib/cmsStore';
+import useCms from '../lib/useCms';
 
 export default function FacultyDetailPage() {
   const { facultyId, deptId } = useParams();
-  const faculty = getFacultyById(facultyId);
+  const faculty = useCms(() => {
+    const raw = getFacultyById(facultyId) || cmsStore.getFacultyById(facultyId);
+    if (!raw) return null;
+    return {
+      ...raw,
+      image: raw.photoUrl || raw.image,
+      photoUrl: raw.photoUrl || raw.image
+    };
+  }, [facultyId]);
 
   if (!faculty) {
     return (
@@ -113,18 +123,24 @@ export default function FacultyDetailPage() {
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600 pt-2 font-medium">
-                <p className="flex items-center">
-                  <GraduationCap className="w-4 h-4 mr-2 text-slate-400 shrink-0" />
-                  <span><strong>Qualification:</strong> {faculty.qualification}</span>
-                </p>
-                <p className="flex items-center">
-                  <Briefcase className="w-4 h-4 mr-2 text-slate-400 shrink-0" />
-                  <span><strong>Experience:</strong> {faculty.experience}</span>
-                </p>
-                <p className="flex items-center sm:col-span-2">
-                  <Mail className="w-4 h-4 mr-2 text-[#1C5496] shrink-0" />
-                  <span><strong>Official Email:</strong> <span className="font-mono text-slate-800">{faculty.email || `${faculty.id}@stphilos.ac.in`}</span></span>
-                </p>
+                {faculty.qualification && (
+                  <p className="flex items-center">
+                    <GraduationCap className="w-4 h-4 mr-2 text-slate-400 shrink-0" />
+                    <span><strong>Qualification:</strong> {faculty.qualification}</span>
+                  </p>
+                )}
+                {faculty.experience && faculty.experience.trim() !== '' && (
+                  <p className="flex items-center">
+                    <Briefcase className="w-4 h-4 mr-2 text-slate-400 shrink-0" />
+                    <span><strong>Experience / Date of Joining:</strong> {faculty.experience}</span>
+                  </p>
+                )}
+                {faculty.email && (
+                  <p className="flex items-center sm:col-span-2">
+                    <Mail className="w-4 h-4 mr-2 text-[#1C5496] shrink-0" />
+                    <span><strong>Official Email:</strong> <span className="font-mono text-slate-800">{faculty.email}</span></span>
+                  </p>
+                )}
               </div>
             </div>
 
@@ -138,60 +154,141 @@ export default function FacultyDetailPage() {
           <div className="lg:col-span-8 space-y-6">
 
             {/* Profile Statement */}
-            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-              <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
-                <Sparkles className="w-5 h-5 mr-2 text-[#1C5496]" />
-                <span>Biography & Academic Background</span>
-              </h2>
-              <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-sans">
-                {faculty.profile}
-              </p>
-            </div>
-
-            {/* Areas of Specialization */}
-            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-              <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
-                <Award className="w-5 h-5 mr-2 text-[#1C5496]" />
-                <span>Areas of Specialization & Research Interests</span>
-              </h2>
-              <p className="text-slate-800 font-semibold text-xs sm:text-sm bg-slate-50 p-4 rounded-xl border border-slate-200">
-                {faculty.specialization}
-              </p>
-            </div>
-
-            {/* Subjects / Courses Taught */}
-            {faculty.subjectsTaught && faculty.subjectsTaught.length > 0 && (
+            {(faculty.profile || faculty.bio) && (
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
                 <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
-                  <BookOpen className="w-5 h-5 mr-2 text-[#1C5496]" />
-                  <span>Subjects & Courses Taught</span>
+                  <Sparkles className="w-5 h-5 mr-2 text-[#1C5496]" />
+                  <span>Biography & Academic Background</span>
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {faculty.subjectsTaught.map((subject, idx) => (
-                    <div key={idx} className="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center space-x-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-[#1C5496] shrink-0" />
-                      <span className="text-xs font-bold text-slate-800">{subject}</span>
+                <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-sans">
+                  {faculty.profile || faculty.bio}
+                </p>
+              </div>
+            )}
+
+            {/* Areas of Specialization */}
+            {faculty.specialization && (
+              <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+                <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
+                  <Award className="w-5 h-5 mr-2 text-[#1C5496]" />
+                  <span>Areas of Specialization</span>
+                </h2>
+                <p className="text-slate-800 font-semibold text-xs sm:text-sm bg-slate-50 p-4 rounded-xl border border-slate-200">
+                  {faculty.specialization}
+                </p>
+              </div>
+            )}
+
+            {/* Academic Qualifications Table */}
+            {faculty.cvData?.qualifications && faculty.cvData.qualifications.length > 0 && (
+              <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+                <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
+                  <GraduationCap className="w-5 h-5 mr-2 text-[#1C5496]" />
+                  <span>Academic Qualifications</span>
+                </h2>
+                <div className="space-y-2">
+                  {faculty.cvData.qualifications.map((q, idx) => (
+                    <div key={idx} className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex items-center space-x-3">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <span className="text-xs sm:text-sm font-semibold text-slate-800">{q}</span>
                     </div>
                   ))}
                 </div>
               </div>
             )}
 
-            {/* Research Publications & Conferences */}
-            {faculty.researchPublications && faculty.researchPublications.length > 0 && (
+            {/* Conference & Seminar Papers Presented */}
+            {faculty.cvData?.conferencePresentations && faculty.cvData.conferencePresentations.length > 0 && (
+              <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+                <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                  <span className="flex items-center">
+                    <FileText className="w-5 h-5 mr-2 text-[#1C5496]" />
+                    <span>Research Papers & Conference Presentations</span>
+                  </span>
+                  <span className="text-xs font-mono font-bold bg-blue-50 text-[#1C5496] px-2.5 py-0.5 rounded-full">
+                    {faculty.cvData.conferencePresentations.length} Papers
+                  </span>
+                </h2>
+                <div className="space-y-3">
+                  {faculty.cvData.conferencePresentations.map((paper, idx) => (
+                    <div key={idx} className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                      <div className="flex items-start space-x-2">
+                        <span className="font-mono font-bold text-xs text-[#1C5496] shrink-0">[{idx + 1}]</span>
+                        <h4 className="font-semibold text-xs sm:text-sm text-slate-900">{paper.title}</h4>
+                      </div>
+                      {paper.conferenceName && (
+                        <p className="text-xs text-slate-600 pl-5 italic font-sans">{paper.conferenceName}</p>
+                      )}
+                      {paper.dates && (
+                        <p className="text-[11px] text-slate-400 pl-5 font-mono">{paper.dates}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Seminars, Conferences & Workshops Attended */}
+            {faculty.cvData?.seminarsAttended && faculty.cvData.seminarsAttended.length > 0 && (
+              <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+                <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                  <span className="flex items-center">
+                    <BookOpen className="w-5 h-5 mr-2 text-[#1C5496]" />
+                    <span>Conferences, Seminars & Workshops Attended</span>
+                  </span>
+                  <span className="text-xs font-mono font-bold bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full">
+                    {faculty.cvData.seminarsAttended.length} Attended
+                  </span>
+                </h2>
+                <div className="space-y-2.5 max-h-[400px] overflow-y-auto pr-1">
+                  {faculty.cvData.seminarsAttended.map((sem, idx) => (
+                    <div key={idx} className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-xs flex items-start space-x-2">
+                      <span className="font-mono font-bold text-slate-400 shrink-0">{idx + 1}.</span>
+                      <div className="space-y-0.5">
+                        <p className="font-semibold text-slate-800">{sem.title}</p>
+                        {sem.institution && <p className="text-slate-500 italic">{sem.institution}</p>}
+                        {sem.duration && <p className="text-[11px] text-slate-400 font-mono">{sem.duration}</p>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Acted as Resource Person */}
+            {faculty.cvData?.resourcePerson && faculty.cvData.resourcePerson.length > 0 && (
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
                 <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
-                  <FileText className="w-5 h-5 mr-2 text-[#1C5496]" />
-                  <span>Selected Publications & Papers</span>
+                  <Layers className="w-5 h-5 mr-2 text-[#1C5496]" />
+                  <span>Invited Lectures & Resource Person Details</span>
                 </h2>
-                <ul className="space-y-3">
-                  {faculty.researchPublications.map((pub, idx) => (
-                    <li key={idx} className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-700 font-medium leading-relaxed flex items-start space-x-2">
-                      <span className="font-mono font-bold text-[#1C5496] shrink-0">[{idx + 1}]</span>
-                      <span>{pub}</span>
-                    </li>
+                <div className="space-y-2.5">
+                  {faculty.cvData.resourcePerson.map((res, idx) => (
+                    <div key={idx} className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
+                      <p className="font-bold text-slate-800">Topic: {res.topic}</p>
+                      {res.institution && <p className="text-slate-600">Institution: {res.institution}</p>}
+                      {res.date && <p className="text-[11px] text-slate-400 font-mono">Date: {res.date}</p>}
+                    </div>
                   ))}
-                </ul>
+                </div>
+              </div>
+            )}
+
+            {/* Awards & Recognitions */}
+            {faculty.cvData?.awards && faculty.cvData.awards.length > 0 && (
+              <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+                <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
+                  <Award className="w-5 h-5 mr-2 text-[#C9A84C]" />
+                  <span>Awards & Honors</span>
+                </h2>
+                <div className="space-y-2.5">
+                  {faculty.cvData.awards.map((awd, idx) => (
+                    <div key={idx} className="p-3.5 bg-amber-50/40 rounded-xl border border-amber-200/60 text-xs space-y-1">
+                      <p className="font-bold text-slate-900">{awd.award}</p>
+                      {awd.organization && <p className="text-slate-600">{awd.organization}</p>}
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
 

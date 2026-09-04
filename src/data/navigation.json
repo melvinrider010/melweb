@@ -370,14 +370,14 @@
         "items": [
           {
             "label": "MOUs & Industry Partnerships",
-            "path": "/research",
+            "path": "/mou-and-collaborations",
             "desc": "Academic & industrial exchange agreements",
             "type": "internal"
           },
           {
             "label": "Philos Bulletin & E-Journal",
-            "path": "/research",
-            "desc": "Interdisciplinary peer-reviewed college journal",
+            "path": "/e-journal",
+            "desc": "Interdisciplinary peer-reviewed college journal (3D Flipbook & Local PDFs)",
             "type": "internal"
           },
           {

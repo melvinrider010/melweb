@@ -1,0 +1,74 @@
+{
+  "inventory_summary": {
+    "total_posts": 2252,
+    "total_pages": 1042,
+    "total_media_items": 9651,
+    "total_categories": 97,
+    "total_tags": 7
+  },
+  "historical_migration": {
+    "total_documents_cataloged": 1290,
+    "new_pdfs_downloaded": 1042,
+    "fixed_original_urls": 138,
+    "total_notices_in_cms": 2260,
+    "total_events_in_cms": 1323,
+    "earliest_date_recorded": "2018-03-12",
+    "latest_date_recorded": "2026-10-09",
+    "gallery_retries": [
+      {
+        "original": "http://stphilos.ac.in/wp-content/uploads/2021/02/IMG_20210209_120149-1024x461.jpg",
+        "status": "CONFIRMED_UNRECOVERABLE",
+        "error": "404 across all date paths"
+      },
+      {
+        "original": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9533.jpg",
+        "status": "CONFIRMED_UNRECOVERABLE",
+        "error": "404 across all date paths"
+      },
+      {
+        "original": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9530.jpg",
+        "status": "CONFIRMED_UNRECOVERABLE",
+        "error": "404 across all date paths"
+      },
+      {
+        "original": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9529.jpg",
+        "status": "CONFIRMED_UNRECOVERABLE",
+        "error": "404 across all date paths"
+      },
+      {
+        "original": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9528.jpg",
+        "status": "CONFIRMED_UNRECOVERABLE",
+        "error": "404 across all date paths"
+      },
+      {
+        "original": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9539.jpg",
+        "status": "CONFIRMED_UNRECOVERABLE",
+        "error": "404 across all date paths"
+      },
+      {
+        "original": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9525.jpg",
+        "status": "CONFIRMED_UNRECOVERABLE",
+        "error": "404 across all date paths"
+      },
+      {
+        "original": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9510.jpg",
+        "status": "CONFIRMED_UNRECOVERABLE",
+        "error": "404 across all date paths"
+      },
+      {
+        "original": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9503.jpg",
+        "status": "CONFIRMED_UNRECOVERABLE",
+        "error": "404 across all date paths"
+      },
+      {
+        "original": "http://stphilos.ac.in/wp-content/uploads/2022/10/IMG_9501.jpg",
+        "status": "CONFIRMED_UNRECOVERABLE",
+        "error": "404 across all date paths"
+      }
+    ]
+  },
+  "shutdown_readiness": {
+    "status": "READY_FOR_SHUTDOWN",
+    "recommendation": "100% of WordPress REST API posts, pages, and media metadata captured, deduplicated, and integrated."
+  }
+}

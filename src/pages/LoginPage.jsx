@@ -74,9 +74,9 @@ export default function LoginPage() {
           <img
             src="/assets/images/admin-login-hero.jpg"
             alt="St. Philomena's College Heritage Campus Building"
-            className="w-full h-full object-cover filter brightness-95"
+            className="w-full h-full object-cover object-bottom"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071A33]/90 via-[#071A33]/20 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071A33]/90 via-[#071A33]/25 to-transparent"></div>
         </div>
 
         {/* Minimal Bottom-Left Institutional Identification */}

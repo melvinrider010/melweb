@@ -1,0 +1,682 @@
+{
+  "praveen-saldanha": {
+    "facultyId": "praveen-saldanha",
+    "name": "Dr.Praveen Saldanha",
+    "department": "Department of Economics",
+    "deptId": "economics",
+    "designation": "HOD, Asst. Professor",
+    "email": "praveen.saldanha@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "sowmyashree-m": {
+    "facultyId": "sowmyashree-m",
+    "name": "Ms.Sowmyashree M",
+    "department": "Department of Economics",
+    "deptId": "economics",
+    "designation": "Asst. Professor",
+    "email": "sowmyashree.m@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "nandeesha-h-k": {
+    "facultyId": "nandeesha-h-k",
+    "name": "Dr.Nandeesha H K",
+    "department": "Department of Economics",
+    "deptId": "economics",
+    "designation": "Head PG Dept of Economics Assistant Professor",
+    "email": "nandeesha.h.k@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "amrutha-k-g": {
+    "facultyId": "amrutha-k-g",
+    "name": "Mrs.Amrutha K G",
+    "department": "Department of Economics",
+    "deptId": "economics",
+    "designation": "Assistant Professor",
+    "email": "amrutha.k.g@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "syeda-sadiya-farheen": {
+    "facultyId": "syeda-sadiya-farheen",
+    "name": "Mrs.Syeda Sadiya Farheen",
+    "department": "Department of Economics",
+    "deptId": "economics",
+    "designation": "Assistant Professor",
+    "email": "syeda.sadiya.farheen@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "monisha-v": {
+    "facultyId": "monisha-v",
+    "name": "Ms.Monisha V",
+    "department": "Department of Economics",
+    "deptId": "economics",
+    "designation": "Assistant Professor",
+    "email": "monisha.v@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "reena-dsouza": {
+    "facultyId": "reena-dsouza",
+    "name": "Dr. Reena D'Souza",
+    "department": "Department of Economics",
+    "deptId": "economics",
+    "designation": "Associate Professor & Dean of Arts",
+    "email": "reena.dsouza@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "antony-paul": {
+    "facultyId": "antony-paul",
+    "name": "Dr. Antony Paul",
+    "department": "Department of Economics",
+    "deptId": "economics",
+    "designation": "Assistant Professor",
+    "email": "antony.paul@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mary-stellamaris": {
+    "facultyId": "mary-stellamaris",
+    "name": "Dr. Mary Stellamaris",
+    "department": "Department of Economics",
+    "deptId": "economics",
+    "designation": "Assistant Professor",
+    "email": "mary.stellamaris@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "shashidhar-m": {
+    "facultyId": "shashidhar-m",
+    "name": "Mr. Shashidhar M",
+    "department": "Department of Economics",
+    "deptId": "economics",
+    "designation": "Assistant Professor",
+    "email": "shashidhar.m@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "kavitha-r": {
+    "facultyId": "kavitha-r",
+    "name": "Mrs. Kavitha R",
+    "department": "Department of Economics",
+    "deptId": "economics",
+    "designation": "Assistant Professor",
+    "email": "kavitha.r@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "sowmya-k": {
+    "facultyId": "sowmya-k",
+    "name": "Ms. Sowmya K",
+    "department": "Department of Computer Science & Applications",
+    "deptId": "computer-science",
+    "designation": "HOD & Asst. Professor",
+    "email": "sowmya.k@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "vincent-a": {
+    "facultyId": "vincent-a",
+    "name": "Dr. Vincent A",
+    "department": "Department of Computer Science & Applications",
+    "deptId": "computer-science",
+    "designation": "Associate Professor & Dean of Sciences",
+    "email": "vincent.a@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "priya-sharma": {
+    "facultyId": "priya-sharma",
+    "name": "Mrs. Priya Sharma",
+    "department": "Department of Computer Science & Applications",
+    "deptId": "computer-science",
+    "designation": "Assistant Professor",
+    "email": "priya.sharma@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "rajesh-kumar": {
+    "facultyId": "rajesh-kumar",
+    "name": "Mr. Rajesh Kumar",
+    "department": "Department of Computer Science & Applications",
+    "deptId": "computer-science",
+    "designation": "Assistant Professor & Cloud Computing Lab Head",
+    "email": "rajesh.kumar@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "deepa-menon": {
+    "facultyId": "deepa-menon",
+    "name": "Ms. Deepa Menon",
+    "department": "Department of Computer Science & Applications",
+    "deptId": "computer-science",
+    "designation": "Assistant Professor",
+    "email": "deepa.menon@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "arun-varghese": {
+    "facultyId": "arun-varghese",
+    "name": "Mr. Arun Varghese",
+    "department": "Department of Computer Science & Applications",
+    "deptId": "computer-science",
+    "designation": "Assistant Professor",
+    "email": "arun.varghese@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "sheeja-r": {
+    "facultyId": "sheeja-r",
+    "name": "Mrs. Sheeja R",
+    "department": "Department of Computer Science & Applications",
+    "deptId": "computer-science",
+    "designation": "Assistant Professor",
+    "email": "sheeja.r@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "pradeep-kumar-s": {
+    "facultyId": "pradeep-kumar-s",
+    "name": "Dr. Pradeep Kumar S",
+    "department": "Department of Business Administration (BBA)",
+    "deptId": "business-administration",
+    "designation": "HOD & Associate Professor",
+    "email": "pradeep.kumar.s@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "sunitha-m": {
+    "facultyId": "sunitha-m",
+    "name": "Dr. Sunitha M",
+    "department": "Department of Business Administration (BBA)",
+    "deptId": "business-administration",
+    "designation": "Associate Professor & Dean of Management",
+    "email": "sunitha.m@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "harish-v": {
+    "facultyId": "harish-v",
+    "name": "Mr. Harish V",
+    "department": "Department of Business Administration (BBA)",
+    "deptId": "business-administration",
+    "designation": "Assistant Professor",
+    "email": "harish.v@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "meera-patel": {
+    "facultyId": "meera-patel",
+    "name": "Mrs. Meera Patel",
+    "department": "Department of Business Administration (BBA)",
+    "deptId": "business-administration",
+    "designation": "Assistant Professor",
+    "email": "meera.patel@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "johnson-mathew": {
+    "facultyId": "johnson-mathew",
+    "name": "Mr. Johnson Mathew",
+    "department": "Department of Business Administration (BBA)",
+    "deptId": "business-administration",
+    "designation": "Assistant Professor",
+    "email": "johnson.mathew@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-joseph-m-p": {
+    "facultyId": "dr-joseph-m-p",
+    "name": "Dr. Joseph M P",
+    "department": "Department of Commerce & Management",
+    "deptId": "commerce",
+    "designation": "HOD & Professor of Commerce",
+    "email": "dr.joseph.m.p@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-shalini-r": {
+    "facultyId": "dr-shalini-r",
+    "name": "Dr. Shalini R",
+    "department": "Department of Commerce & Management",
+    "deptId": "commerce",
+    "designation": "Associate Professor",
+    "email": "dr.shalini.r@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mr-suresh-babu": {
+    "facultyId": "mr-suresh-babu",
+    "name": "Mr. Suresh Babu",
+    "department": "Department of Commerce & Management",
+    "deptId": "commerce",
+    "designation": "Assistant Professor",
+    "email": "mr.suresh.babu@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mrs-divya-mary": {
+    "facultyId": "mrs-divya-mary",
+    "name": "Mrs. Divya Mary",
+    "department": "Department of Commerce & Management",
+    "deptId": "commerce",
+    "designation": "Assistant Professor",
+    "email": "mrs.divya.mary@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-ravi-kumar": {
+    "facultyId": "dr-ravi-kumar",
+    "name": "Dr. Ravi Kumar",
+    "department": "Department of Commerce & Management",
+    "deptId": "commerce",
+    "designation": "Assistant Professor",
+    "email": "dr.ravi.kumar@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-robin-kj": {
+    "facultyId": "dr-robin-kj",
+    "name": "Dr. Robin K J",
+    "department": "Department of Social Work",
+    "deptId": "social-work",
+    "designation": "HOD & Associate Professor",
+    "email": "dr.robin.kj@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mary-joseph": {
+    "facultyId": "mary-joseph",
+    "name": "Mrs. Mary Joseph",
+    "department": "Department of Social Work",
+    "deptId": "social-work",
+    "designation": "Assistant Professor & Field Work Coordinator",
+    "email": "mary.joseph@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-noor-mubasheer": {
+    "facultyId": "dr-noor-mubasheer",
+    "name": "Dr. Noor Mubasheer C A",
+    "department": "Department of Social Work",
+    "deptId": "social-work",
+    "designation": "Assistant Professor",
+    "email": "dr.noor.mubasheer@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "matthew-c": {
+    "facultyId": "matthew-c",
+    "name": "Mr. Matthew C",
+    "department": "Department of Social Work",
+    "deptId": "social-work",
+    "designation": "Assistant Professor",
+    "email": "matthew.c@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "shirley-cynthia-anthony": {
+    "facultyId": "shirley-cynthia-anthony",
+    "name": "Mrs. Shirley Cynthia Anthony",
+    "department": "Department of Social Work",
+    "deptId": "social-work",
+    "designation": "Assistant Professor",
+    "email": "shirley.cynthia.anthony@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "p-nandana": {
+    "facultyId": "p-nandana",
+    "name": "Ms. P Nandana",
+    "department": "Department of Social Work",
+    "deptId": "social-work",
+    "designation": "Assistant Professor",
+    "email": "p.nandana@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-philomena-mary": {
+    "facultyId": "dr-philomena-mary",
+    "name": "Dr. Philomena Mary",
+    "department": "Department of English & Languages",
+    "deptId": "english",
+    "designation": "HOD & Professor of English",
+    "email": "dr.philomena.mary@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-george-kutty": {
+    "facultyId": "dr-george-kutty",
+    "name": "Dr. George Kutty",
+    "department": "Department of English & Languages",
+    "deptId": "english",
+    "designation": "Associate Professor",
+    "email": "dr.george.kutty@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mrs-sarah-mathew": {
+    "facultyId": "mrs-sarah-mathew",
+    "name": "Mrs. Sarah Mathew",
+    "department": "Department of English & Languages",
+    "deptId": "english",
+    "designation": "Assistant Professor",
+    "email": "mrs.sarah.mathew@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mr-alok-singh": {
+    "facultyId": "mr-alok-singh",
+    "name": "Mr. Alok Singh",
+    "department": "Department of English & Languages",
+    "deptId": "english",
+    "designation": "Assistant Professor",
+    "email": "mr.alok.singh@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "thomas-va": {
+    "facultyId": "thomas-va",
+    "name": "Rev. Fr. Thomas V A",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "physics",
+    "designation": "HOD & Associate Professor of Physics",
+    "email": "thomas.va@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-ravikumar-m": {
+    "facultyId": "dr-ravikumar-m",
+    "name": "Dr. Ravikumar M",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "physics",
+    "designation": "Associate Professor & DST-FIST Coordinator",
+    "email": "dr.ravikumar.m@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-bs-prathibha": {
+    "facultyId": "dr-bs-prathibha",
+    "name": "Dr. B S Prathibha",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "physics",
+    "designation": "Assistant Professor",
+    "email": "dr.bs.prathibha@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "janet-dsouza": {
+    "facultyId": "janet-dsouza",
+    "name": "Mrs. Janet D'Souza",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "physics",
+    "designation": "Assistant Professor",
+    "email": "janet.dsouza@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "david-raj": {
+    "facultyId": "david-raj",
+    "name": "Mr. David Raj",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "physics",
+    "designation": "Assistant Professor & Spectroscopy Lab Head",
+    "email": "david.raj@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-alphonsus-d": {
+    "facultyId": "dr-alphonsus-d",
+    "name": "Dr. Alphonsus D",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "chemistry",
+    "designation": "HOD & Professor of Chemistry",
+    "email": "dr.alphonsus.d@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-kavitha-n": {
+    "facultyId": "dr-kavitha-n",
+    "name": "Dr. Kavitha N",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "chemistry",
+    "designation": "Associate Professor",
+    "email": "dr.kavitha.n@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mrs-leena-jacob": {
+    "facultyId": "mrs-leena-jacob",
+    "name": "Mrs. Leena Jacob",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "chemistry",
+    "designation": "Assistant Professor",
+    "email": "mrs.leena.jacob@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mr-santhosh-kumar": {
+    "facultyId": "mr-santhosh-kumar",
+    "name": "Mr. Santhosh Kumar",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "chemistry",
+    "designation": "Assistant Professor",
+    "email": "mr.santhosh.kumar@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-shylaja-m": {
+    "facultyId": "dr-shylaja-m",
+    "name": "Dr. Shylaja M",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "mathematics",
+    "designation": "HOD & Professor of Mathematics",
+    "email": "dr.shylaja.m@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mr-francis-xavier": {
+    "facultyId": "mr-francis-xavier",
+    "name": "Dr. Francis Xavier",
+    "department": "Department of Economics",
+    "deptId": "economics",
+    "designation": "Associate Professor & Head of the Department",
+    "email": "hod.economics@stphilos.ac.in",
+    "mobile": "9008580707",
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mrs-manjula-k": {
+    "facultyId": "mrs-manjula-k",
+    "name": "Mrs. Manjula K",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "mathematics",
+    "designation": "Assistant Professor",
+    "email": "mrs.manjula.k@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "philomena-dsouza": {
+    "facultyId": "philomena-dsouza",
+    "name": "Mrs. Philomena D'Souza",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "mathematics",
+    "designation": "Assistant Professor",
+    "email": "philomena.dsouza@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-m-r-narendra": {
+    "facultyId": "dr-m-r-narendra",
+    "name": "Dr. M R Narendra",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "biotech",
+    "designation": "HOD & Associate Professor of Biotechnology",
+    "email": "dr.m.r.narendra@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-anitha-c": {
+    "facultyId": "dr-anitha-c",
+    "name": "Dr. Anitha C",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "biotech",
+    "designation": "Associate Professor",
+    "email": "dr.anitha.c@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mrs-grace-latha": {
+    "facultyId": "mrs-grace-latha",
+    "name": "Mrs. Grace Latha",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "biotech",
+    "designation": "Assistant Professor",
+    "email": "mrs.grace.latha@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mr-vinay-kumar": {
+    "facultyId": "mr-vinay-kumar",
+    "name": "Mr. Vinay Kumar",
+    "department": "Department of Physical & Biological Sciences",
+    "deptId": "biotech",
+    "designation": "Assistant Professor",
+    "email": "mr.vinay.kumar@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-mahesh-chandra": {
+    "facultyId": "dr-mahesh-chandra",
+    "name": "Dr. Mahesh Chandra",
+    "department": "Department of Humanities & Social Sciences",
+    "deptId": "journalism",
+    "designation": "HOD & Associate Professor of Journalism",
+    "email": "dr.mahesh.chandra@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mrs-rohini-sharma": {
+    "facultyId": "mrs-rohini-sharma",
+    "name": "Mrs. Rohini Sharma",
+    "department": "Department of Humanities & Social Sciences",
+    "deptId": "journalism",
+    "designation": "Assistant Professor & Studio Coordinator",
+    "email": "mrs.rohini.sharma@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mr-joseph-mathew": {
+    "facultyId": "mr-joseph-mathew",
+    "name": "Mr. Joseph Mathew",
+    "department": "Department of Humanities & Social Sciences",
+    "deptId": "journalism",
+    "designation": "Assistant Professor",
+    "email": "mr.joseph.mathew@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-ramesh-chandra": {
+    "facultyId": "dr-ramesh-chandra",
+    "name": "Dr. Ramesh Chandra",
+    "department": "Department of Humanities & Social Sciences",
+    "deptId": "psychology",
+    "designation": "HOD & Associate Professor of Psychology",
+    "email": "dr.ramesh.chandra@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "anitha-verghese": {
+    "facultyId": "anitha-verghese",
+    "name": "Dr. Anitha Verghese",
+    "department": "Department of Humanities & Social Sciences",
+    "deptId": "psychology",
+    "designation": "Associate Professor & Clinical Counsellor",
+    "email": "anitha.verghese@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "rohit-paul": {
+    "facultyId": "rohit-paul",
+    "name": "Mr. Rohit Paul",
+    "department": "Department of Humanities & Social Sciences",
+    "deptId": "psychology",
+    "designation": "Assistant Professor",
+    "email": "rohit.paul@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-k-n-suresh": {
+    "facultyId": "dr-k-n-suresh",
+    "name": "Dr. K N Suresh",
+    "department": "Department of Languages & Kannada",
+    "deptId": "kannada",
+    "designation": "HOD & Professor of Kannada",
+    "email": "dr.k.n.suresh@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mrs-manjula-devi": {
+    "facultyId": "mrs-manjula-devi",
+    "name": "Mrs. Manjula Devi",
+    "department": "Department of Languages & Kannada",
+    "deptId": "kannada",
+    "designation": "Associate Professor",
+    "email": "mrs.manjula.devi@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mr-shankar-gowda": {
+    "facultyId": "mr-shankar-gowda",
+    "name": "Mr. Shankar Gowda",
+    "department": "Department of Languages & Kannada",
+    "deptId": "kannada",
+    "designation": "Assistant Professor",
+    "email": "mr.shankar.gowda@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "dr-rajendra-prasad": {
+    "facultyId": "dr-rajendra-prasad",
+    "name": "Dr. Rajendra Prasad",
+    "department": "Department of Humanities & Social Sciences",
+    "deptId": "humanities",
+    "designation": "HOD & Associate Professor of History",
+    "email": "dr.rajendra.prasad@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mrs-sumathi-r": {
+    "facultyId": "mrs-sumathi-r",
+    "name": "Mrs. Sumathi R",
+    "department": "Department of Humanities & Social Sciences",
+    "deptId": "humanities",
+    "designation": "Associate Professor of Sociology",
+    "email": "mrs.sumathi.r@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mr-anand-kumar": {
+    "facultyId": "mr-anand-kumar",
+    "name": "Mr. Anand Kumar",
+    "department": "Department of Humanities & Social Sciences",
+    "deptId": "humanities",
+    "designation": "Assistant Professor of Political Science",
+    "email": "mr.anand.kumar@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  },
+  "mr-kudureyallappa": {
+    "facultyId": "mr-kudureyallappa",
+    "name": "Mr. Kudureyallappa",
+    "department": "Department of Humanities & Social Sciences",
+    "deptId": "humanities",
+    "designation": "Assistant Professor",
+    "email": "mr.kudureyallappa@stphilos.ac.in",
+    "mobile": null,
+    "officialOfficePhone": "+91 821 4001900"
+  }
+}

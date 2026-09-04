@@ -31,7 +31,7 @@ export default function MobileNavDrawer({ isOpen, onClose, onOpenSearch }) {
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end bg-slate-950/80 backdrop-blur-sm animate-fadeIn min-[1200px]:hidden">
-      <div className="bg-[#060f26] text-white w-full max-w-sm h-full flex flex-col justify-between shadow-2xl border-l border-white/10 overflow-hidden">
+      <div className="bg-[#164E8C] text-white w-full max-w-sm h-full flex flex-col justify-between shadow-2xl border-l border-white/10 overflow-hidden">
         
         {/* Header Bar */}
         <div className="p-4 bg-[#0B1F4E] border-b border-white/10 flex justify-between items-center">
@@ -177,52 +177,94 @@ export default function MobileNavDrawer({ isOpen, onClose, onOpenSearch }) {
               ))}
 
               {/* Column-based Layout (Academics, Departments, Admissions, Examinations, Resources, Student Support, Compliance) */}
-              {activeCategory.columns && activeCategory.columns.map((col, idx) => (
-                <div key={idx} className="space-y-2">
-                  <span className="font-serif font-bold text-[11px] text-[#FFD84A] uppercase tracking-wider block border-b border-slate-800 pb-1">
-                    {col.heading}
-                  </span>
-                  <div className="space-y-1 pl-2">
-                    {col.items && col.items.map((sub, subIdx) => (
-                      <div key={subIdx}>
-                        {sub.isDownload ? (
-                          <a
-                            href={sub.path}
-                            download
-                            onClick={onClose}
-                            className="flex items-center justify-between py-1.5 text-slate-300 hover:text-white"
-                          >
-                            <span className="flex items-center truncate">
-                              <Download className="w-3 h-3 mr-1.5 text-[#FFD84A] shrink-0" />
-                              <span className="truncate">{sub.label}</span>
-                            </span>
-                            <span className="text-[10px] text-[#FFD84A] shrink-0 ml-1">PDF</span>
-                          </a>
-                        ) : sub.isExternal || sub.path?.startsWith('http') ? (
-                          <a
-                            href={sub.path}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={onClose}
-                            className="flex items-center justify-between py-1.5 text-slate-300 hover:text-white"
-                          >
-                            <span className="truncate">{sub.label}</span>
-                            <span className="text-[10px] text-[#FFD84A] shrink-0 ml-1">↗</span>
-                          </a>
-                        ) : (
-                          <Link
-                            to={sub.path}
-                            onClick={onClose}
-                            className="block py-1.5 text-slate-300 hover:text-[#FFD84A] truncate"
-                          >
-                            {sub.label}
-                          </Link>
-                        )}
-                      </div>
-                    ))}
+              {activeCategory.columns && activeCategory.columns.map((col, idx) => {
+                if (col.isImageCard) {
+                  return (
+                    <div key={idx} className="pb-1">
+                      <Link
+                        to={col.path}
+                        onClick={onClose}
+                        className="flex items-center space-x-3 p-2 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-[#FFD84A] transition-colors"
+                      >
+                        <img
+                          src={col.image}
+                          alt={col.title}
+                          className="w-12 h-12 object-cover rounded-lg shrink-0"
+                        />
+                        <span className="font-serif font-bold text-sm text-[#FFD84A]">
+                          {col.title}
+                        </span>
+                      </Link>
+                    </div>
+                  );
+                }
+
+                const linkItems = col.links || col.items || [];
+                return (
+                  <div key={idx} className="space-y-2">
+                    {col.heading && (
+                      <span className="font-serif font-bold text-[11px] text-[#FFD84A] uppercase tracking-wider block border-b border-slate-800 pb-1">
+                        {col.heading}
+                      </span>
+                    )}
+                    <div className="space-y-1 pl-2">
+                      {linkItems.map((sub, subIdx) => {
+                        if (sub.isButton) {
+                          return (
+                            <div key={subIdx} className="pt-2">
+                              <Link
+                                to={sub.path}
+                                onClick={onClose}
+                                className="block w-full py-2 px-3 rounded-lg bg-[#0F3B70] hover:bg-[#1C5496] text-[#FFD84A] font-bold text-xs text-center border border-[#C9A84C]/40 transition-colors shadow-xs"
+                              >
+                                {sub.label}
+                              </Link>
+                            </div>
+                          );
+                        }
+
+                        return (
+                          <div key={subIdx}>
+                            {sub.isDownload ? (
+                              <a
+                                href={sub.path}
+                                download
+                                onClick={onClose}
+                                className="flex items-center justify-between py-1.5 text-slate-300 hover:text-white"
+                              >
+                                <span className="flex items-center truncate">
+                                  <Download className="w-3 h-3 mr-1.5 text-[#FFD84A] shrink-0" />
+                                  <span className="truncate">{sub.label}</span>
+                                </span>
+                                <span className="text-[10px] text-[#FFD84A] shrink-0 ml-1">PDF</span>
+                              </a>
+                            ) : sub.isExternal || sub.path?.startsWith('http') ? (
+                              <a
+                                href={sub.path}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={onClose}
+                                className="flex items-center justify-between py-1.5 text-slate-300 hover:text-white"
+                              >
+                                <span className="truncate">{sub.label}</span>
+                                <span className="text-[10px] text-[#FFD84A] shrink-0 ml-1">↗</span>
+                              </a>
+                            ) : (
+                              <Link
+                                to={sub.path}
+                                onClick={onClose}
+                                className="block py-1.5 text-slate-300 hover:text-[#FFD84A] truncate"
+                              >
+                                {sub.label}
+                              </Link>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
 

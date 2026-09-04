@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { ChevronDown, Menu, X, Search, Phone, ExternalLink, Award, Sparkles } from 'lucide-react';
+import { ChevronDown, Menu, X, Search, Phone, ExternalLink, Sparkles } from 'lucide-react';
 import collegeInfo from '../../data/college_info.json';
 import { MEGA_MENU_DATA } from '../../data/megaMenuData';
 import MegaMenuOverlay from './MegaMenuOverlay';
@@ -98,31 +98,19 @@ export default function Header() {
       >
         
         {/* =========================================================================
-            TIER 1: TOP INSTITUTIONAL UTILITY BAR (Midnight Navy #060f26)
+            TIER 1: TOP INSTITUTIONAL UTILITY BAR (Midnight Navy #164E8C)
             ========================================================================= */}
-        <div className="bg-[#060f26] text-slate-200 text-[11px] sm:text-xs py-1.5 px-3 sm:px-8 border-b border-white/10 font-medium">
+        <div className="bg-[#164E8C] text-slate-200 text-[11px] sm:text-xs py-1.5 px-3 sm:px-8 border-b border-white/10 font-medium">
           <div className="max-w-[1720px] mx-auto flex justify-between items-center gap-2">
             
-            {/* Accreditation & Institutional Identity */}
-            <div className="flex items-center space-x-2 sm:space-x-3 overflow-x-auto no-scrollbar whitespace-nowrap text-slate-300">
-              <span className="font-semibold text-[#F0D98C] flex items-center">
-                <Award className="w-3.5 h-3.5 mr-1 text-[#C9A84C]" />
-                UGC Autonomous · NAAC Cycle III B++
-              </span>
-              <span className="text-slate-600 hidden md:inline">|</span>
-              <span className="hidden md:inline">Affiliated to University of Mysore</span>
-              <span className="text-slate-600 hidden lg:inline">|</span>
-              <span className="hidden lg:inline text-slate-300">Govt. Aid No. 1951</span>
-              <span className="text-slate-600 hidden sm:inline">|</span>
-              <Link to="/alumni" className="hover:text-[#F0D98C] transition-colors hidden sm:inline">Alumni Network</Link>
-            </div>
+            <div className="hidden sm:block"></div>
 
             {/* Quick Contact & Search */}
             <div className="flex items-center space-x-3 shrink-0">
-              <div className="hidden sm:flex items-center space-x-1 text-slate-300">
+              <a href="tel:+919008580707" className="hidden sm:flex items-center space-x-1.5 text-slate-300 hover:text-[#F0D98C] transition-colors">
                 <Phone className="w-3 h-3 text-[#C9A84C]" />
-                <span>+91 821 2490728</span>
-              </div>
+                <span className="font-mono font-bold">+91 9008580707</span>
+              </a>
               <span className="text-slate-600 hidden sm:inline">|</span>
               <Link to="/contact" className="hover:text-[#F0D98C] transition-colors text-slate-300">
                 Contact Desk
@@ -147,16 +135,17 @@ export default function Header() {
         <div className="bg-white px-3 sm:px-8 py-2 sm:py-2.5 border-b border-slate-200/80">
           <div className="max-w-[1720px] mx-auto flex justify-between items-center gap-4">
             
-            {/* Official College Header Logo Banner */}
+            {/* Official College Header Brand Logo */}
             <Link 
               to="/" 
               onClick={() => setActiveMegaKey(null)} 
-              className="flex items-center group shrink min-w-0 py-0.5"
+              className="flex items-center group shrink min-w-0 py-1"
             >
               <img
-                src="/assets/college-header-logo.png"
+                src="/assets/images/logo/official_college_banner_logo_transparent.png"
                 alt="St. Philomena's College (Autonomous), Mysuru"
-                className="h-12 sm:h-16 md:h-20 lg:h-22 w-auto max-w-[65vw] sm:max-w-none object-contain group-hover:opacity-95 transition-opacity"
+                className="h-12 sm:h-14 md:h-16 lg:h-18 w-auto max-w-[80vw] sm:max-w-[620px] object-contain drop-shadow-2xs group-hover:scale-[1.01] transition-transform duration-200"
+                onError={(e) => { e.target.src = '/assets/images/logo/official_college_banner_logo.png'; }}
               />
             </Link>
 
@@ -196,10 +185,10 @@ export default function Header() {
         </div>
 
         {/* =========================================================================
-            TIER 3: DEDICATED FULL-WIDTH PRIMARY NAVIGATION BAR (#0B1F4E Institutional Navy)
+            TIER 3: DEDICATED FULL-WIDTH PRIMARY NAVIGATION BAR (Royal Blue #164E8C / #1C5496)
             ========================================================================= */}
         <nav 
-          className="hidden min-[1100px]:block bg-[#0B1F4E] border-b-2 border-[#C9A84C] text-white overflow-x-auto no-scrollbar" 
+          className="hidden min-[1100px]:block bg-[#164E8C] border-b-2 border-[#C9A84C] text-white overflow-x-auto no-scrollbar shadow-xs" 
           aria-label="Main Navigation"
         >
           <div className="max-w-[1720px] mx-auto px-2 sm:px-4 lg:px-6 xl:px-8 flex items-center justify-between min-w-max gap-2">

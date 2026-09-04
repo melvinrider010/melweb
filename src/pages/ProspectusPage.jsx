@@ -1,6 +1,7 @@
 import React from 'react';
 import { BookOpen, Download, ExternalLink, Award, FileText, CheckCircle2, ArrowRight, ShieldCheck, BookMarked } from 'lucide-react';
 import PDFViewerEmbed from '../components/common/PDFViewerEmbed';
+import ViewAsBookButton from '../components/common/ViewAsBookButton';
 
 export default function ProspectusPage() {
   const prospectusPdf = '/assets/documents/admission/Final-Copy-of-College-Prospectus.pdf';
@@ -42,14 +43,13 @@ export default function ProspectusPage() {
               <ArrowRight className="w-4 h-4" />
             </a>
 
-            <a
-              href={prospectusPdf}
-              download="St-Philomenas-College-Prospectus-2026-27.pdf"
-              className="px-6 py-3 bg-[#0B1F4E] hover:bg-[#1C5496] text-white rounded-xl text-sm font-bold text-center flex items-center justify-center space-x-2 transition-colors cursor-pointer"
-            >
-              <Download className="w-4 h-4 text-[#FFD84A]" />
-              <span>Download Full Prospectus (PDF)</span>
-            </a>
+            <ViewAsBookButton
+              pdfUrl={prospectusPdf}
+              title="St. Philomena's College Prospectus 2026-27"
+              label="View Prospectus"
+              variant="primary"
+              size="lg"
+            />
           </div>
         </div>
 
@@ -100,10 +100,14 @@ export default function ProspectusPage() {
                 Download the complete statutory fee schedule approved by the Governing Body for all merit and management categories.
               </p>
             </div>
-            <a href={feeStructurePdf} download className="text-xs font-bold text-[#1C5496] hover:underline flex items-center space-x-1 pt-2">
-              <Download className="w-3.5 h-3.5" />
-              <span>Download Fee PDF →</span>
-            </a>
+            <div className="pt-2">
+              <ViewAsBookButton
+                pdfUrl={feeStructurePdf}
+                title="Official Fee Structure 2026-27"
+                label="View Fee Structure"
+                variant="minimal"
+              />
+            </div>
           </div>
 
           <div className="p-6 bg-white rounded-2xl border border-slate-200 shadow-xs space-y-3 flex flex-col justify-between">

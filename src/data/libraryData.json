@@ -1,0 +1,47 @@
+{
+  "title": "St. Philomena's College Central Library & Digital Commons",
+  "tagline": "“A Gateway to Knowledge, Research & Enlightenment”",
+  "description": "Established in 1946, the St. Philomena's Central Library houses over 50,000 print volumes, automated with Koha Integrated Library Management Software, RF-ID security gates, and digital access to over 6,000+ international e-journals through N-LIST and DELNET.",
+  "librarian": "Chief Librarian & Information Officers",
+  "timings": {
+    "weekdays": "8:30 AM – 5:30 PM",
+    "saturdays": "8:30 AM – 2:00 PM",
+    "examPeriod": "8:00 AM – 7:00 PM"
+  },
+  "metrics": {
+    "totalPrintBooks": "52,400+",
+    "eJournals": "6,000+",
+    "eBooks": "1,99,500+",
+    "rareManuscripts": "1,200+",
+    "digitalWorkstations": "45 PCs",
+    "seatingCapacity": "350 Students"
+  },
+  "digitalResources": [
+    {
+      "name": "UGC N-LIST Consortium (INFLIBNET)",
+      "desc": "Direct remote access to 6,000+ e-journals and 1,99,500+ e-books for all enrolled UG/PG students and faculty.",
+      "link": "https://nlist.inflibnet.ac.in/",
+      "badge": "Remote Access"
+    },
+    {
+      "name": "DELNET (Developing Library Network)",
+      "desc": "Inter-library loans, document delivery services, and access to union catalogs across 7,000+ libraries.",
+      "link": "https://www.delnet.in/",
+      "badge": "Inter-Library Network"
+    },
+    {
+      "name": "NDL (National Digital Library of India)",
+      "desc": "Access to millions of educational resources in multiple Indian and foreign languages sponsored by MoE.",
+      "link": "https://ndl.iitkgp.ac.in/",
+      "badge": "National Portal"
+    },
+    {
+      "name": "Shodhganga & Shodhgangotri",
+      "desc": "Open access repository of Indian electronic theses and dissertations submitted to universities.",
+      "link": "https://shodhganga.inflibnet.ac.in/",
+      "badge": "Ph.D. Theses Repository"
+    }
+  ],
+  "rulesDoc": "/assets/documents/library/library-rules-and-regulations-manual.pdf",
+  "opacGuideDoc": "/assets/documents/library/koha-opac-digital-catalog-guide.pdf"
+}

@@ -1,0 +1,134 @@
+{
+  "placement-cell": {
+    "slug": "placement-cell",
+    "name": "Career and Placement Cell",
+    "url": "https://stphilos.ac.in/placement-cell/",
+    "real_content_images": []
+  },
+  "student-grievance-redressal-committee": {
+    "slug": "student-grievance-redressal-committee",
+    "name": "Grievance Redressal",
+    "url": "https://stphilos.ac.in/student-grievance-redressal-committee/",
+    "real_content_images": []
+  },
+  "anti-ragging": {
+    "slug": "anti-ragging",
+    "name": "Anti-Ragging",
+    "url": "https://stphilos.ac.in/anti-ragging/",
+    "real_content_images": []
+  },
+  "womens-cell": {
+    "slug": "womens-cell",
+    "name": "Women's Cell",
+    "url": "https://stphilos.ac.in/womens-cell/",
+    "real_content_images": []
+  },
+  "student-welfare-cell": {
+    "slug": "student-welfare-cell",
+    "name": "Student Welfare Cell",
+    "url": "https://stphilos.ac.in/student-welfare-cell/",
+    "real_content_images": []
+  },
+  "counselling-centre": {
+    "slug": "counselling-centre",
+    "name": "Counselling Centre",
+    "url": "https://stphilos.ac.in/counselling-centre/",
+    "real_content_images": []
+  },
+  "human-values-professional-ethics": {
+    "slug": "human-values-professional-ethics",
+    "name": "Human Values And Professional Ethics",
+    "url": "https://stphilos.ac.in/human-values-professional-ethics/",
+    "real_content_images": []
+  },
+  "youth-red-cross-yrc": {
+    "slug": "youth-red-cross-yrc",
+    "name": "Youth Redcross",
+    "url": "https://stphilos.ac.in/youth-red-cross-yrc/",
+    "real_content_images": []
+  },
+  "library": {
+    "slug": "library",
+    "name": "Library",
+    "url": "https://stphilos.ac.in/library/",
+    "real_content_images": []
+  },
+  "facilities": {
+    "slug": "facilities",
+    "name": "Physical Infrastructure",
+    "url": "https://stphilos.ac.in/facilities/",
+    "real_content_images": []
+  },
+  "business-lab": {
+    "slug": "business-lab",
+    "name": "Business Lab",
+    "url": "https://stphilos.ac.in/business-lab/",
+    "real_content_images": []
+  },
+  "computer-science-lab": {
+    "slug": "computer-science-lab",
+    "name": "Computer Lab",
+    "url": "https://stphilos.ac.in/computer-science-lab/",
+    "real_content_images": []
+  },
+  "girls-hostel": {
+    "slug": "girls-hostel",
+    "name": "Girls Hostel",
+    "url": "https://stphilos.ac.in/about-us-2/infrastructure/girls-hostel/",
+    "real_content_images": []
+  },
+  "boys-hostel": {
+    "slug": "boys-hostel",
+    "name": "Boys Hostel",
+    "url": "https://stphilos.ac.in/about-us-2/infrastructure/boys-hostel/",
+    "real_content_images": []
+  },
+  "auditorium": {
+    "slug": "auditorium",
+    "name": "Auditorium",
+    "url": "https://stphilos.ac.in/auditorium/",
+    "real_content_images": []
+  },
+  "e-journal": {
+    "slug": "e-journal",
+    "name": "Philos Bulletin",
+    "url": "https://stphilos.ac.in/e-journal/",
+    "real_content_images": []
+  },
+  "bank-atm": {
+    "slug": "bank-atm",
+    "name": "Bank & ATM",
+    "url": "https://stphilos.ac.in/about-us-2/infrastructure/bank-atm/",
+    "real_content_images": []
+  },
+  "chapel-hall-3": {
+    "slug": "chapel-hall-3",
+    "name": "Chapel",
+    "url": "https://stphilos.ac.in/chapel-hall-3/",
+    "real_content_images": []
+  },
+  "ranger-and-rovers": {
+    "slug": "ranger-and-rovers",
+    "name": "Ranger and Rovers",
+    "url": "https://stphilos.ac.in/ranger-and-rovers/",
+    "real_content_images": []
+  },
+  "ncc": {
+    "slug": "ncc",
+    "name": "NCC",
+    "url": "https://stphilos.ac.in/ncc/",
+    "real_content_images": []
+  },
+  "nss": {
+    "slug": "nss",
+    "name": "NSS",
+    "url": "https://stphilos.ac.in/nss/",
+    "real_content_images": []
+  },
+  "indoor-stadium": {
+    "slug": "indoor-stadium",
+    "name": "Indoor Stadium",
+    "url": "https://stphilos.ac.in/indoor-stadium/",
+    "real_content_images": []
+  }
+}

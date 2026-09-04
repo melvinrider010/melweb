@@ -2354,6 +2354,148 @@ export const PROGRAMME_DETAILS = {
     "syllabusDoc": "/assets/documents/syllabus/ug-nep-syllabus-2026.pdf",
     "regulationsDoc": "/assets/documents/academics/nep-2020-academic-regulations.pdf",
     "relatedIds": ["ba", "esp", "environmental-studies"]
+  },
+  'msc': {
+    "id": "msc",
+    "aliases": ["msc", "m-sc", "master-of-science", "m.sc"],
+    "code": "M.Sc",
+    "title": "Master of Science (M.Sc - Science & Computing Disciplines)",
+    "shortTitle": "Master of Science",
+    "degree": "Master of Science (Autonomous Postgraduate)",
+    "level": "Postgraduate (CBCS)",
+    "type": "pg",
+    "stream": "Physical, Chemical, Biological & Computing Sciences",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "B.Sc degree in relevant discipline (Physics, Chemistry, Mathematics, Computer Science, Biochemistry, Psychology, Food Science, or Criminology) with minimum 45% aggregate (40% for SC/ST/Cat-I candidates).",
+    "department": "Postgraduate Science Departments",
+    "deptSlug": "physics",
+    "deptId": "physics",
+    "image": "/media/departments/dept-physics.jpg",
+    "overview": "The Master of Science (M.Sc) programs at St. Philomena's College offer advanced theoretical, experimental, and research training across diverse scientific frontiers. The college provides specialized postgraduate master's degrees across Computer Science, Mathematics, Physics, Chemistry, Biochemistry, Psychology, Food Science & Nutrition, and Criminology & Forensic Science with state-of-the-art research instrumentation and computation facilities.",
+    "objectives": [
+      "Provide rigorous postgraduate theoretical mastery, laboratory experimentation, and research methodology across specialized science domains.",
+      "Foster independent scientific inquiry, data modeling, dissertation research, and peer-reviewed publishing.",
+      "Prepare graduates for competitive research examinations (CSIR-NET, GATE, SLET), doctoral studies, and high-impact industrial R&D positions."
+    ],
+    "disciplines": [
+      {
+        "name": "M.Sc Computer Science",
+        "desc": "Advanced AI & Machine Learning, Cloud Architecture, Cyber Security, High-Performance Computing, and Full-Stack Engineering."
+      },
+      {
+        "name": "M.Sc Mathematics",
+        "desc": "Real & Complex Analysis, Abstract Algebra, Differential Equations, Topology, Fluid Dynamics, and Mathematical Cryptography."
+      },
+      {
+        "name": "M.Sc Physics",
+        "desc": "Quantum Mechanics, Solid State Physics, Nuclear & Particle Physics, Electrodynamics, and Computational Astrophysics."
+      },
+      {
+        "name": "M.Sc Chemistry",
+        "desc": "Organic Reaction Mechanisms, Synthetic Chemistry, Spectroscopy, Physical Chemistry, and Pharmaceutical Analytical Methods."
+      },
+      {
+        "name": "M.Sc Biochemistry",
+        "desc": "Enzymology, Clinical Diagnostics, Molecular Genetics, Immunochemistry, and Recombinant DNA Technology."
+      },
+      {
+        "name": "M.Sc Psychology",
+        "desc": "Clinical Psychotherapy, Cognitive Neuropsychology, Psychometrics, Counseling Interventions, and Behavioral Assessment."
+      },
+      {
+        "name": "M.Sc Food Science & Nutrition",
+        "desc": "Clinical Dietetics, Food Safety & Quality Management, Food Processing Engineering, and Therapeutic Nutrition."
+      },
+      {
+        "name": "M.Sc Criminology & Forensic Science",
+        "desc": "Crime Scene Investigation, Forensic Ballistics & Toxicology, Cyber Forensics, Questioned Documents, and Criminal Jurisprudence."
+      }
+    ],
+    "curriculumHighlights": [
+      "State-of-the-art DST-FIST & DBT Star College research laboratories with advanced analytical instrumentation.",
+      "Mandatory 4th-semester Master's Research Dissertation, Project Defense, and Industrial/Hospital Internship.",
+      "Specialized computational data labs with Python, MATLAB, R, Gaussian, and SPSS statistical packages.",
+      "Regular guest lectures by premier scientists from IISc, CFTRI, DRDO, and top research institutes."
+    ],
+    "careerOpportunities": [
+      "Research Scientist & Industrial R&D Specialist",
+      "AI & Data Science Specialist / Software Architect (CS)",
+      "Forensic Investigator & Cyber Security Analyst (Criminology)",
+      "Clinical Counselor & Organizational Psychologist (Psychology)",
+      "Food Safety Officer, Quality Control Specialist & Dietician (Food Science)",
+      "Higher Studies: Ph.D., CSIR-NET JRF, Postdoctoral Fellowships"
+    ],
+    "combinations": [
+      { "code": "M.Sc CS", "subjects": "Computer Science (AI, Cloud, Cyber Security)", "deptSlug": "dept-computer-science" },
+      { "code": "M.Sc Math", "subjects": "Mathematics (Analysis, Algebra, Differential Equations)", "deptSlug": "dept-mathematics" },
+      { "code": "M.Sc Phys", "subjects": "Physics (Quantum, Solid State, Nuclear, Astrophysics)", "deptSlug": "dept-physics" },
+      { "code": "M.Sc Chem", "subjects": "Chemistry (Organic, Inorganic, Physical, Analytical)", "deptSlug": "dept-chemistry" },
+      { "code": "M.Sc Biochem", "subjects": "Biochemistry (Enzymology, Genetics, Diagnostics)", "deptSlug": "dept-biochemistry" },
+      { "code": "M.Sc Psych", "subjects": "Psychology (Clinical, Counseling, Neuropsychology)", "deptSlug": "dept-psychology" },
+      { "code": "M.Sc Food", "subjects": "Food Science & Nutrition (Dietetics, Quality Control)", "deptSlug": "dept-food-science-and-nutrition" },
+      { "code": "M.Sc Crim", "subjects": "Criminology & Forensic Science (Crime Scene, Toxicology)", "deptSlug": "dept-criminology-and-forensic-science" }
+    ],
+    "syllabusDoc": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+    "regulationsDoc": "/assets/documents/academics/nep-2020-academic-regulations.pdf",
+    "relatedIds": ["msc-cs", "msc-math", "msc-phy", "msc-chem", "msc-biochem", "msc-psych", "msc-food", "msc-crim"]
+  },
+  'ma': {
+    "id": "ma",
+    "aliases": ["ma", "m-a", "master-of-arts", "m.a"],
+    "code": "M.A",
+    "title": "Master of Arts (M.A - Humanities & Media Streams)",
+    "shortTitle": "Master of Arts",
+    "degree": "Master of Arts (Autonomous Postgraduate)",
+    "level": "Postgraduate (CBCS)",
+    "type": "pg",
+    "stream": "Humanities, Social Sciences & Media Studies",
+    "duration": "2 Years (4 Semesters)",
+    "eligibility": "Bachelor degree (BA / B.Sc / B.Com) with minimum 45% aggregate (40% for SC/ST/Cat-I candidates) with relevant optional subjects where applicable.",
+    "department": "Postgraduate Humanities & Media Departments",
+    "deptSlug": "humanities",
+    "deptId": "humanities",
+    "image": "/media/departments/dept-english.jpg",
+    "overview": "The Master of Arts (M.A) postgraduate programmes at St. Philomena's College offer deep critical, analytical, and professional education across literary studies, economic policy, and digital communication. The college offers M.A. degrees in English Literature, Economics, and Journalism & Mass Communication (JMC), fostering intellectual leadership, socio-economic research, and high-impact media production.",
+    "objectives": [
+      "Provide comprehensive command of advanced critical theory, literary traditions, macroeconomic policy analysis, and multimedia journalism.",
+      "Cultivate rigorous research methodology, empirical socio-economic survey capabilities, and persuasive scholarly argumentation.",
+      "Prepare graduates for civil services (UPSC/KPSC), academic research (UGC-NET), broadcast and digital media careers, and global non-governmental organizations."
+    ],
+    "disciplines": [
+      {
+        "name": "M.A English Literature",
+        "desc": "British, American, Postcolonial, and Indian English Literatures, Critical Theory, Cultural Studies, and Applied Linguistics."
+      },
+      {
+        "name": "M.A Economics",
+        "desc": "Advanced Micro & Macroeconomics, Econometrics, Public Finance, Development Economics, Monetary Policy, and International Trade."
+      },
+      {
+        "name": "M.A Journalism & Mass Communication (JMC)",
+        "desc": "Print & Broadcast Journalism, Television Studio Production, Digital Media Strategy, Public Relations, Film Studies, and Media Ethics."
+      }
+    ],
+    "curriculumHighlights": [
+      "Full-fledged Audio-Visual Media Studio and digital editing suites for broadcast production.",
+      "Mandatory postgraduate Master's Dissertation / Capstone Media Project in Semester 4.",
+      "Active UGC-NET and civil services mentoring workshops by distinguished academicians.",
+      "Industry internships with premier media houses, economic research think tanks, and publishing firms."
+    ],
+    "careerOpportunities": [
+      "Broadcast Journalist, News Anchor, Editor & Digital Content Producer",
+      "Economic Policy Analyst, Financial Economist & Banking Consultant",
+      "Corporate Communications Specialist & Public Relations Manager",
+      "UPSC / KPSC Civil Services & Public Administration Officer",
+      "Higher Studies: Ph.D., UGC-NET JRF, Academic Professorships"
+    ],
+    "combinations": [
+      { "code": "M.A Eng", "subjects": "English Literature & Critical Theory", "deptSlug": "dept-english" },
+      { "code": "M.A Econ", "subjects": "Economics, Econometrics & Public Policy", "deptSlug": "dept-economics" },
+      { "code": "M.A JMC", "subjects": "Journalism & Mass Communication", "deptSlug": "dept-journalism-and-mass-communication" }
+    ],
+    "syllabusDoc": "/assets/documents/syllabus/pg-cbcs-syllabus-2026.pdf",
+    "regulationsDoc": "/assets/documents/academics/nep-2020-academic-regulations.pdf",
+    "relatedIds": ["ma-eng", "ma-econ", "ma-jmc", "msw"]
   }
 };
 

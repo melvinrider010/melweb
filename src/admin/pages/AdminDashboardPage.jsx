@@ -30,12 +30,16 @@ export default function AdminDashboardPage() {
     return () => window.removeEventListener('cms_store_updated', handleUpdate);
   }, []);
 
+  const totalProgrammesCount = (ugList.length + pgList.length) > 0 
+    ? (ugList.length + pgList.length) 
+    : cmsStore.getProgrammes().length;
+
   const stats = [
     { label: "Discovered Public URLs", value: "3,853", icon: ArrowUpRight, color: "text-blue-600", bg: "bg-blue-50" },
     { label: "Archived Media Assets", value: mediaList.length.toLocaleString(), icon: ImageIcon, color: "text-indigo-600", bg: "bg-indigo-50" },
     { label: "Archived Documents", value: docList.length.toLocaleString(), icon: FolderGit2, color: "text-emerald-600", bg: "bg-emerald-50" },
     { label: "Faculty Directory", value: facultyList.length, icon: Users, color: "text-purple-600", bg: "bg-purple-50" },
-    { label: "UG & PG Programmes", value: ugList.length + pgList.length, icon: GraduationCap, color: "text-[#C88A00]", bg: "bg-amber-50" },
+    { label: "UG & PG Programmes", value: totalProgrammesCount, icon: GraduationCap, color: "text-[#C88A00]", bg: "bg-amber-50" },
     { label: "Academic Departments", value: deptList.length, icon: Building2, color: "text-rose-600", bg: "bg-rose-50" }
   ];
 

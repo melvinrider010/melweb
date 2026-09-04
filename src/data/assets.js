@@ -3,7 +3,10 @@
 
 export const ASSETS = {
   // Brand & Logos
-  logo: '/assets/images/logo/logo.png',
+  logo: '/assets/images/logo/official_college_banner_logo.png',
+  bannerLogo: '/assets/images/logo/official_college_banner_logo.png',
+  crest: '/assets/images/logo/st_philos_official_crest.png',
+  mdesCrest: '/assets/images/logo/mdes_official_crest.png',
   
   // Hero & Banners
   banners: {

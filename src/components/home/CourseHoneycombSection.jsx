@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Clock, X, BookOpen, Sparkles, CheckCircle2, ChevronRight } from 'lucide-react';
-import honeycombData from '../../data/honeycomb-programmes.json';
+import { ArrowRight, Clock, X, BookOpen, Sparkles, CheckCircle2, ChevronRight, Layers } from 'lucide-react';
+import useCms from '../../lib/useCms';
+import cmsStore from '../../lib/cmsStore';
+import fallbackHoneycombData from '../../data/honeycomb-programmes.json';
 
 export default function CourseHoneycombSection() {
   const [filter, setFilter] = useState('ug'); // 'ug', 'pg', 'all'
@@ -9,29 +11,74 @@ export default function CourseHoneycombSection() {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [popoverPos, setPopoverPos] = useState({ side: 'right', vertical: 'center' });
 
-  // Filter dataset
-  const filteredCourses = honeycombData.filter((item) => {
-    if (filter === 'all') return true;
-    return item.type === filter;
-  });
+  // 1. Reactive live programmes from Metronic Admin CMS store
+  const allProgrammes = useCms(() => cmsStore.getProgrammes());
 
-  // Balanced row distribution: 4+4 for UG, 5+5+5 for PG, 6+6+6+5 for ALL
+  // 2. Filter dataset based on active status and honeycomb toggle from Admin
+  const filteredCourses = (allProgrammes && allProgrammes.length > 0 ? allProgrammes : fallbackHoneycombData)
+    .filter((item) => {
+      // Must be strictly published (not draft/inactive) AND honeycomb enabled
+      const isDraft = item.status === 'draft' || item.status === 'inactive' || item.status === 'deleted';
+      const isPublished = !isDraft && (item.status === 'published' || !item.status);
+      const isHoneycombEnabled = item.isFeaturedHoneycomb !== false;
+
+      if (!isPublished || !isHoneycombEnabled) return false;
+
+      const itemType = (item.type || item.level || 'ug').toLowerCase();
+      if (filter === 'all') return true;
+      return itemType === filter || itemType.includes(filter);
+    })
+    .map((p) => {
+      const code = p.code || p.name || 'COURSE';
+      let displayLines = p.displayLines;
+      if (!displayLines || !Array.isArray(displayLines) || displayLines.length === 0) {
+        const titleWords = (p.title || p.name || code).split(' ');
+        if (titleWords.length > 2) {
+          displayLines = [
+            titleWords.slice(0, Math.ceil(titleWords.length / 2)).join(' '),
+            titleWords.slice(Math.ceil(titleWords.length / 2)).join(' ')
+          ];
+        } else {
+          displayLines = [p.title || p.name || code];
+        }
+      }
+      return {
+        ...p,
+        code,
+        displayLines,
+        type: (p.type || p.level || 'ug').toLowerCase(),
+        title: p.title || p.name || code,
+        duration: p.duration || '3 Years / 4 Years (NEP 2020)',
+        description: p.description || 'Comprehensive degree programme offering advanced curricular exploration, laboratory skills, and career pathways at St. Philomena’s College.',
+        link: p.link || `/academics/${(p.slug || p.code || p.id).toLowerCase()}`
+      };
+    });
+
+  // Balanced dynamic row distribution based on active course count
   const getRowItems = (items, filterMode) => {
+    if (items.length === 0) return [];
     const rows = [];
+    const total = items.length;
+
     let pattern = [4, 4];
-    if (filterMode === 'ug') {
-      pattern = [4, 4]; // 4 on top + 4 below for perfect hexagonal interlock
-    } else if (filterMode === 'pg') {
-      pattern = [5, 5, 5]; // 15 PG programmes in 3 balanced rows
+    if (total <= 4) {
+      pattern = [total];
+    } else if (total <= 8) {
+      const top = Math.ceil(total / 2);
+      pattern = [top, total - top];
+    } else if (total <= 12) {
+      const top = Math.ceil(total / 3);
+      const mid = Math.ceil((total - top) / 2);
+      pattern = [top, mid, total - top - mid];
     } else {
-      pattern = [6, 6, 6, 5]; // 23 total programmes
+      pattern = [5, 4, 5];
     }
 
     let idx = 0;
     let pIdx = 0;
 
     while (idx < items.length) {
-      const count = pattern[pIdx % pattern.length];
+      const count = pattern[pIdx % pattern.length] || 4;
       rows.push(items.slice(idx, idx + count));
       idx += count;
       pIdx++;
@@ -63,12 +110,7 @@ export default function CourseHoneycombSection() {
     } else {
       setSelectedCourse(course);
     }
-  };
-
-  // Dynamic index for editorial numbering
-  let cumulativeIndex = 0;
-
-  return (
+  };  return (
     <section className="bg-[#f8f9fc] text-[#0B1F4E] py-12 sm:py-16 px-3 sm:px-6 lg:px-8 border-y border-slate-200/80 relative">
       
       {/* 1. GHOST / OUTLINE HONEYCOMB WATERMARK LAYER */}
@@ -98,7 +140,7 @@ export default function CourseHoneycombSection() {
                 d="M 0 90.93 L 105 136.4 L 105 227.33 L 0 272.8 L -105 227.33 L -105 136.4 Z"
                 stroke="currentColor"
                 strokeWidth="1"
-                strokeOpacity="0.03"
+                strokeOpacity="0.04"
                 fill="none"
               />
             </pattern>
@@ -164,7 +206,18 @@ export default function CourseHoneycombSection() {
           key={filter}
           className="flex flex-col items-center justify-center pt-2 pb-2 w-full mx-auto relative animate-fadeIn"
         >
-          {rows.map((rowItems, rowIndex) => {
+          {rows.length === 0 ? (
+            <div className="py-10 px-6 text-center bg-white rounded-2xl border border-slate-200/80 shadow-xs max-w-md mx-auto space-y-2">
+              <span className="inline-block p-2 rounded-full bg-slate-100 text-slate-500 font-mono text-xs font-bold uppercase">
+                Offline Showcase
+              </span>
+              <h3 className="font-serif font-bold text-base text-slate-800">No Programmes Currently Active</h3>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                All degree programmes in this stream have been switched off or hidden from the Honeycomb grid in the Metronic Admin CMS.
+              </p>
+            </div>
+          ) : (
+            rows.map((rowItems, rowIndex) => {
             return (
               <div
                 key={rowIndex}
@@ -173,8 +226,6 @@ export default function CourseHoneycombSection() {
                 }`}
               >
                 {rowItems.map((course, colIdx) => {
-                  cumulativeIndex++;
-                  const formattedNumber = String(cumulativeIndex).padStart(2, '0');
                   const isHovered = hoveredCourse?.id === course.id;
                   const isSelected = selectedCourse?.id === course.id;
                   const isActive = isHovered || isSelected;
@@ -209,18 +260,13 @@ export default function CourseHoneycombSection() {
                         <div
                           className={`absolute inset-[2px] transition-all duration-200 flex flex-col items-center justify-center px-1.5 py-2 sm:px-2 sm:py-3 text-center ${
                             isActive
-                              ? 'bg-[#060f26] text-white shadow-inner'
+                              ? 'bg-[#164E8C] text-white shadow-inner'
                               : 'bg-white group-hover:bg-[#f8f9fc] text-[#0B1F4E]'
                           }`}
                           style={{
                             clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
                           }}
                         >
-                          {/* Gold Editorial Number */}
-                          <span className={`font-mono text-[10px] sm:text-[11px] font-bold tracking-wider mb-0.5 ${isActive ? 'text-[#F0D98C]' : 'text-[#C9A84C]'}`}>
-                            {formattedNumber}
-                          </span>
-
                           {/* Hero Programme Abbreviation */}
                           <span
                             className={`font-serif font-extrabold leading-none transition-colors duration-200 tracking-tight my-0.5 ${
@@ -274,8 +320,8 @@ export default function CourseHoneycombSection() {
                                 {course.type === 'ug' ? 'UNDERGRADUATE' : 'POSTGRADUATE'}
                               </span>
                             </div>
-                            <span className="bg-[#060f26] text-[#F0D98C] text-xs px-2 py-0.5 rounded font-mono font-bold border border-[#C9A84C]/40">
-                              {formattedNumber} · {course.code}
+                            <span className="bg-[#164E8C] text-[#F0D98C] text-xs px-2.5 py-0.5 rounded font-mono font-bold border border-[#C9A84C]/40">
+                              {course.code}
                             </span>
                           </div>
 
@@ -321,7 +367,7 @@ export default function CourseHoneycombSection() {
                 })}
               </div>
             );
-          })}
+          }))}
         </div>
 
         {/* MOBILE CONTEXTUAL DETAIL DRAWER (FOR TOUCH DEVICES) */}
@@ -344,7 +390,7 @@ export default function CourseHoneycombSection() {
             </div>
 
             <div className="flex items-center space-x-3">
-              <span className="w-10 h-10 rounded-lg bg-[#060f26] text-[#F0D98C] font-serif font-extrabold text-base flex items-center justify-center border border-[#C9A84C]/40 shrink-0">
+              <span className="w-10 h-10 rounded-lg bg-[#164E8C] text-[#F0D98C] font-serif font-extrabold text-base flex items-center justify-center border border-[#C9A84C]/40 shrink-0">
                 {selectedCourse.code}
               </span>
               <h3 className="font-serif font-bold text-lg text-[#0B1F4E]">
