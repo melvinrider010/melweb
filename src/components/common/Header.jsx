@@ -184,9 +184,9 @@ export default function Header() {
           className="hidden min-[1100px]:block bg-gradient-to-r from-[#061330] via-[#0B1F4E] to-[#091b42] border-b-2 border-[#C9A84C] text-white overflow-x-auto no-scrollbar shadow-xs" 
           aria-label="Main Navigation"
         >
-          <div className="max-w-[1720px] mx-auto px-2 sm:px-4 lg:px-6 xl:px-8 flex items-center justify-between min-w-max gap-2">
+          <div className="w-full mx-auto px-2 sm:px-4 lg:px-6 xl:px-8 flex items-center justify-center min-w-max">
             
-            <div className="flex items-center space-x-0.5 xl:space-x-1 2xl:space-x-1.5">
+            <div className="flex items-center justify-center space-x-0.5 xl:space-x-1 2xl:space-x-1.5">
               {desktopNavItems.map((item) => {
                 const isMegaOpen = activeMegaKey === item.megaKey;
                 const isRouteActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
