@@ -10,15 +10,15 @@ export const collegeOfficialData = {
   },
   "currentLeadership": [
     {
-      "id": "sec-mdes",
-      "name": "Rev. Fr. Edward William Saldanha",
-      "designation": "Secretary of MDES",
+      "id": "president-mdes",
+      "name": "Most Rev. Dr. Francis Serrao, S.J.",
+      "designation": "Bishop of Mysore Diocese & President, MDES",
       "role": "Management",
-      "imageUrl": "/media/gallery/picture-gallery/athletic_day_2026.jpg",
-      "localPath": "public/assets/images/leadership/edward-william-saldanha.jpg",
-      "assetPath": "/assets/images/leadership/edward-william-saldanha.jpg",
+      "imageUrl": "/assets/images/leadership/bishop_francis_serrao.jpg",
+      "localPath": "public/assets/images/leadership/bishop_francis_serrao.jpg",
+      "assetPath": "/assets/images/leadership/bishop_francis_serrao.jpg",
       "source": "https://stphilos.ac.in/administration/",
-      "biography": "Secretary of the Mysore Diocesan Educational Society (MDES), providing executive leadership across diocesan institutions."
+      "biography": "Bishop of the Mysore Diocese and President of the Mysore Diocesan Educational Society (MDES), providing spiritual and institutional leadership across diocesan institutions."
     },
     {
       "id": "rector",

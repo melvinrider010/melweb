@@ -715,8 +715,8 @@ export default function AboutPage() {
               {aboutData.administration.map((person, idx) => {
                 // Determine custom object-position to preserve full head and face for portrait photos
                 const objectPosition = 
-                  person.id === 'sec-mdes' || person.name.toLowerCase().includes('edward')
-                    ? '50% 0%'
+                  person.id === 'president-mdes' || person.id === 'bishop-president' || person.name.toLowerCase().includes('francis')
+                    ? '50% 12%'
                     : person.id === 'rector' || person.name.toLowerCase().includes('lourdu')
                     ? '50% 12%'
                     : person.id === 'principal' || person.name.toLowerCase().includes('ravi')
