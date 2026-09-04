@@ -26,8 +26,13 @@
   ],
   "phone": "+91 9008580707",
   "mobile": "+91 9008580707",
+  "proMobile": "+91 6364118983",
+  "rectorMobile": "+91 7022371285",
   "telephone": "+91 821 2490728",
   "email": "stphilos1951@gmail.com",
+  "admissionEmail": "admission.office@stphilos.ac.in",
+  "placementEmail": "spcplacement@stphilos.ac.in",
+  "coeEmail": "coe@stphilos.ac.in",
   "website": "/",
   "stats": {
     "established": "1946",
@@ -39,8 +44,12 @@
   "leadership": {
     "rector": "Rev. Dr. Lourdu Prasad Joseph",
     "rectorTitle": "Rector and Manager",
+    "rectorContact": "+91 7022371285",
     "principal": "Dr. Ravi J.D. Saldanha",
     "principalTitle": "Principal",
+    "pro": "Mr. MadanKumar YC (Madan Shaiva)",
+    "proTitle": "Public Relations Officer & Placement Officer",
+    "proContact": "+91 6364118983",
     "financeOfficer": "Rev. Fr. Roshan",
     "financeTitle": "Financial Officer"
   }

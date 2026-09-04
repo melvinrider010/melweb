@@ -1,0 +1,95 @@
+{
+  "institutionName": "St. Philomena's College (Autonomous)",
+  "address": {
+    "line1": "St Philomena's College (Autonomous)",
+    "line2": "PB No. 2, Bannimantap",
+    "city": "Mysuru",
+    "state": "Karnataka",
+    "pincode": "570015",
+    "country": "India",
+    "fullAddress": "St. Philomena's College (Autonomous), PB No. 2, Bannimantap, Mysuru – 570015, Karnataka, India"
+  },
+  "contacts": [
+    {
+      "role": "Rector / Manager",
+      "name": "Fr. Dr. Lourdu Prasad Joseph",
+      "mobile": "7022371285",
+      "email": "stphilos1951@gmail.com"
+    },
+    {
+      "role": "Public Relations Officer (PRO) / Placement Officer",
+      "name": "Mr. MadanKumar YC (Madan Shaiva)",
+      "mobile": "6364118983",
+      "email": "spcplacement@stphilos.ac.in"
+    },
+    {
+      "role": "College Office / General Enquiries",
+      "name": "Administrative Office",
+      "mobile": "9008580707",
+      "phone": "+91 9008580707",
+      "email": "stphilos1951@gmail.com"
+    }
+  ],
+  "departments": {
+    "admissions": {
+      "title": "Admissions Office",
+      "email": "admission.office@stphilos.ac.in",
+      "phone": "9008580707 / 6364118983",
+      "portal": "https://student.stphiloserp.in/"
+    },
+    "examinations": {
+      "title": "Examination & Controller of Examinations",
+      "email": "coe@stphilos.ac.in",
+      "phone": "9008580707",
+      "note": "Exam Enquiries, Results, Revaluation & Transcripts"
+    },
+    "placement": {
+      "title": "Career & Placement Cell",
+      "officer": "Mr. MadanKumar YC",
+      "email": "spcplacement@stphilos.ac.in",
+      "mobile": "6364118983"
+    },
+    "rectorOffice": {
+      "title": "Office of the Rector / Manager",
+      "name": "Fr. Dr. Lourdu Prasad Joseph",
+      "mobile": "7022371285"
+    },
+    "generalOffice": {
+      "title": "Principal & Administrative Desk",
+      "email": "stphilos1951@gmail.com",
+      "phone": "9008580707"
+    }
+  },
+  "officeHours": {
+    "weekdays": "Monday – Friday: 9:00 AM – 5:00 PM",
+    "saturday": "Saturday: 9:00 AM – 1:00 PM",
+    "sunday": "Sunday: Closed",
+    "holidays": "Closed on Public & Institutional Holidays"
+  },
+  "phoneNumbers": [
+    "6364118983",
+    "7022371285",
+    "9008580707"
+  ],
+  "emails": [
+    {
+      "label": "General & Administrative",
+      "email": "stphilos1951@gmail.com"
+    },
+    {
+      "label": "Admissions",
+      "email": "admission.office@stphilos.ac.in"
+    },
+    {
+      "label": "Career & Placement",
+      "email": "spcplacement@stphilos.ac.in"
+    },
+    {
+      "label": "Examinations",
+      "email": "coe@stphilos.ac.in"
+    }
+  ],
+  "mapEmbedUrl": "https://maps.google.com/maps?q=St.%20Philomena%27s%20College%20Mysore&t=&z=15&ie=UTF8&iwloc=&output=embed",
+  "fetchedFrom": "https://stphilos.ac.in/contact-us/",
+  "fetchedAt": "2026-09-04T05:48:42.196Z"
+}

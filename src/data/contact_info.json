@@ -1,0 +1,74 @@
+{
+  "source": "https://stphilos.ac.in/contact-us/",
+  "lastUpdated": "2026-09-04",
+  "college": {
+    "name": "St. Philomena's College (Autonomous)",
+    "address": "PB No. 2, Bannimantap, Mysuru – 570015, Karnataka, India",
+    "location": "Bannimantap, Mysuru - 570015",
+    "googleMapUrl": "https://maps.google.com/maps?q=St.+Philomena%27s+College+Bannimantap+Mysuru&t=&z=15&ie=UTF8&iwloc=&output=embed"
+  },
+  "keyPersonnel": [
+    {
+      "name": "Fr. Dr. Lourdu Prasad Joseph",
+      "designation": "Rector / Manager",
+      "mobile": "+91 7022371285",
+      "telLink": "tel:+917022371285",
+      "email": "stphilos1951@gmail.com"
+    },
+    {
+      "name": "Mr. MadanKumar YC (Madan Shaiva)",
+      "designation": "Public Relations Officer / Placement Officer",
+      "mobile": "+91 6364118983",
+      "telLink": "tel:+916364118983",
+      "email": "spcplacement@stphilos.ac.in"
+    },
+    {
+      "name": "Administrative & Reception Desk",
+      "designation": "College Office",
+      "mobile": "+91 9008580707",
+      "telLink": "tel:+919008580707",
+      "landline": "+91 821 2490728",
+      "email": "stphilos1951@gmail.com"
+    }
+  ],
+  "departmentalContacts": [
+    {
+      "department": "Admissions Office",
+      "description": "UG & PG Admissions, Eligibility, Prospectus & Portal Inquiries",
+      "email": "admission.office@stphilos.ac.in",
+      "phone": "+91 9008580707 / +91 6364118983",
+      "portalUrl": "https://student.stphiloserp.in/"
+    },
+    {
+      "department": "Career & Placement Cell",
+      "description": "Campus Placements, Internships, Industry MOUs & Recruiter Relations",
+      "officer": "Mr. MadanKumar YC",
+      "email": "spcplacement@stphilos.ac.in",
+      "phone": "+91 6364118983"
+    },
+    {
+      "department": "Examination Branch & COE",
+      "description": "Autonomous Semester Examinations, Results, Revaluation & Transcripts",
+      "email": "coe@stphilos.ac.in",
+      "phone": "+91 9008580707"
+    },
+    {
+      "department": "Central Administrative Desk",
+      "description": "General Institutional Information, Verification & Principal's Office",
+      "email": "stphilos1951@gmail.com",
+      "phone": "+91 9008580707 / +91 821 2490728"
+    }
+  ],
+  "officeHours": {
+    "weekdays": "Monday – Friday: 9:00 AM – 5:00 PM",
+    "saturday": "Saturday: 9:00 AM – 1:00 PM",
+    "sunday": "Sunday: Closed",
+    "holidays": "Closed on Public & Institutional Holidays"
+  },
+  "hotlines": [
+    { "label": "Office Main", "number": "+91 9008580707" },
+    { "label": "PRO / Placement", "number": "+91 6364118983" },
+    { "label": "Rector Office", "number": "+91 7022371285" },
+    { "label": "Office Landline", "number": "+91 821 2490728" }
+  ]
+}
