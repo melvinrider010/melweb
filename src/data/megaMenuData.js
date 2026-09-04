@@ -81,6 +81,7 @@ export const MEGA_MENU_DATA = {
       {
         heading: "Admission",
         links: [
+          { label: "Apply Online (ERP Portal)", path: "https://student.stphiloserp.in/", isExternal: true },
           { label: "Prospectus", path: "/prospectus" },
           { label: "Fees Structure", path: "/compliance/fee-structure" },
           { label: "Calendar", path: "/examinations" },

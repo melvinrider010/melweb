@@ -309,18 +309,22 @@ export default function ProgrammeDetailPage() {
                   </div>
 
                   <div className="space-y-2 pt-1">
-                    <Link
-                      to="/admissions"
+                    <a
+                      href="https://student.stphiloserp.in/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full btn-gold py-2.5 rounded-xl font-bold text-xs text-center block shadow-sm"
                     >
-                      CLICK TO APPLY ONLINE
-                    </Link>
-                    <Link
-                      to="/admissions"
+                      CLICK TO APPLY ONLINE (ERP PORTAL)
+                    </a>
+                    <a
+                      href="https://student.stphiloserp.in/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full bg-white/10 hover:bg-white/20 text-white py-2 rounded-xl text-xs font-semibold text-center block border border-white/20"
                     >
-                      ENQUIRY
-                    </Link>
+                      ONLINE ADMISSION PORTAL
+                    </a>
                   </div>
                 </div>
               ) : (
@@ -338,12 +342,14 @@ export default function ProgrammeDetailPage() {
                   </div>
 
                   <div className="space-y-2 pt-2">
-                    <Link
-                      to="/admissions"
-                      className="w-full btn-gold py-2.5 rounded-xl font-bold text-xs text-center block"
+                    <a
+                      href="https://student.stphiloserp.in/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full btn-gold py-2.5 rounded-xl font-bold text-xs text-center block shadow-md hover:scale-[1.02] transition-transform"
                     >
                       Apply Online Now
-                    </Link>
+                    </a>
                     <Link
                       to="/prospectus"
                       className="w-full bg-white/10 hover:bg-white/20 text-white py-2 rounded-xl text-xs font-semibold text-center block border border-white/20"
@@ -577,6 +583,18 @@ export default function ProgrammeDetailPage() {
                     <h5 className="font-bold text-slate-900 text-xs">Admission Confirmation</h5>
                     <p className="text-[11px] text-slate-500">Fee payment and enrollment onboarding.</p>
                   </div>
+                </div>
+
+                <div className="pt-3">
+                  <a
+                    href="https://student.stphiloserp.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-gold px-6 py-2.5 rounded-xl font-bold text-xs inline-flex items-center space-x-2 shadow-md hover:scale-[1.02] transition-transform"
+                  >
+                    <span>Apply Online on Official ERP Portal</span>
+                    <span className="text-xs">↗</span>
+                  </a>
                 </div>
               </div>
             )}

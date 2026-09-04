@@ -269,8 +269,32 @@ export default function AdmissionsPage() {
 
         {/* 1. INTERACTIVE ONLINE APPLICATION FORM */}
         {activeTab === 'apply' && (
-          <div className="space-y-8 animate-fadeIn">
+          <div className="space-y-6 animate-fadeIn">
             
+            {/* Direct Official ERP Link Card */}
+            <div className="bg-gradient-to-r from-[#071A33] via-[#164E8C] to-[#071A33] text-white p-6 sm:p-7 rounded-2xl border border-blue-900 shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div className="space-y-1 max-w-2xl">
+                <span className="text-[10.5px] font-mono font-bold text-[#F0D98C] uppercase tracking-wider block">
+                  Official Admission Portal (Academic Year 2026–27)
+                </span>
+                <h3 className="font-serif font-bold text-lg sm:text-xl text-white">
+                  Apply Directly via St. Philomena's Student ERP
+                </h3>
+                <p className="text-xs text-slate-200 leading-relaxed font-sans">
+                  Complete official registration, upload certificates, select subject combinations, and process online application fees through our secure student ERP portal.
+                </p>
+              </div>
+              <a
+                href="https://student.stphiloserp.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gold px-6 py-3 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap shadow-xl inline-flex items-center space-x-2 shrink-0 hover:scale-105 transition-transform"
+              >
+                <span>Apply Online (ERP Portal)</span>
+                <ExternalLink className="w-4 h-4 ml-1" />
+              </a>
+            </div>
+
             {!submittedApplication ? (
               <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
                 
