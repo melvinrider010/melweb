@@ -151,13 +151,6 @@ export default function Header() {
 
             {/* Right Action Tools (Admissions CTA + Mobile Trigger) */}
             <div className="flex items-center space-x-3 sm:space-x-4 shrink-0">
-              
-              {/* Admissions Helpline (Desktop) */}
-              <div className="hidden xl:flex flex-col items-end pr-2 text-right">
-                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Admissions Office</span>
-                <span className="text-sm font-extrabold font-serif text-[#0B1F4E]">+91 821 4268800</span>
-              </div>
-
               {/* Gold Admissions CTA Button */}
               <a
                 href="https://student.stphiloserp.in/"

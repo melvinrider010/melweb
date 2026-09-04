@@ -27,7 +27,6 @@
       "designation": "College Office",
       "mobile": "+91 9008580707",
       "telLink": "tel:+919008580707",
-      "landline": "+91 821 2490728",
       "email": "stphilos1951@gmail.com"
     }
   ],
@@ -36,7 +35,7 @@
       "department": "Admissions Office",
       "description": "UG & PG Admissions, Eligibility, Prospectus & Portal Inquiries",
       "email": "admission.office@stphilos.ac.in",
-      "phone": "+91 9008580707 / +91 6364118983",
+      "phone": "+91 9008580707",
       "portalUrl": "https://student.stphiloserp.in/"
     },
     {
@@ -44,7 +43,7 @@
       "description": "Campus Placements, Internships, Industry MOUs & Recruiter Relations",
       "officer": "Mr. MadanKumar YC",
       "email": "spcplacement@stphilos.ac.in",
-      "phone": "+91 6364118983"
+      "phone": "+91 9008580707"
     },
     {
       "department": "Examination Branch & COE",
@@ -56,7 +55,7 @@
       "department": "Central Administrative Desk",
       "description": "General Institutional Information, Verification & Principal's Office",
       "email": "stphilos1951@gmail.com",
-      "phone": "+91 9008580707 / +91 821 2490728"
+      "phone": "+91 9008580707"
     }
   ],
   "officeHours": {
@@ -66,9 +65,9 @@
     "holidays": "Closed on Public & Institutional Holidays"
   },
   "hotlines": [
-    { "label": "Office Main", "number": "+91 9008580707" },
-    { "label": "PRO / Placement", "number": "+91 6364118983" },
-    { "label": "Rector Office", "number": "+91 7022371285" },
-    { "label": "Office Landline", "number": "+91 821 2490728" }
+    {
+      "label": "Universal College Helpline",
+      "number": "+91 9008580707"
+    }
   ]
 }
