@@ -229,44 +229,44 @@ export default function ContactPage() {
         <div className="lg:col-span-5 space-y-6">
           
           {/* Official Address Card */}
-          <div className="bg-[#071A33] text-white p-7 rounded-2xl border border-slate-800 space-y-4 shadow-sm">
+          <div className="bg-[#071A33] text-white p-7 rounded-2xl border border-slate-700/80 space-y-4 shadow-md">
             <h3 className="font-serif font-bold text-lg text-[#FFD84A] flex items-center">
               <MapPin className="w-5 h-5 mr-2 text-[#FFD84A]" />
               <span>Campus Address</span>
             </h3>
             
-            <p className="text-xs text-slate-200 leading-relaxed">
-              <strong>St. Philomena's College (Autonomous)</strong><br />
-              PB No. 2, Bannimantap, Mysuru – 570015<br />
-              Karnataka, India
+            <p className="text-xs text-slate-100 leading-relaxed font-sans">
+              <strong className="text-white font-semibold">St. Philomena's College (Autonomous)</strong><br />
+              <span className="text-slate-200">PB No. 2, Bannimantap, Mysuru – 570015</span><br />
+              <span className="text-slate-200">Karnataka, India</span>
             </p>
 
-            <div className="space-y-2.5 text-xs text-slate-200 pt-3 border-t border-slate-800">
-              <p className="flex items-center">
-                <Phone className="w-4 h-4 mr-2 text-[#FFD84A] shrink-0" />
-                <span>Helpline / Office:</span>
-                <a href="tel:+919008580707" className="font-mono font-bold text-[#FFD84A] hover:underline ml-1.5">
+            <div className="space-y-3 text-xs pt-3 border-t border-slate-700/60">
+              <p className="flex items-center text-slate-200">
+                <Phone className="w-4 h-4 mr-2.5 text-[#FFD84A] shrink-0" />
+                <span className="text-slate-300 font-medium mr-1.5">Helpline / Office:</span>
+                <a href="tel:+919008580707" className="font-mono font-bold text-[#FFD84A] hover:text-white hover:underline">
                   +91 9008580707
                 </a>
               </p>
-              <p className="flex items-center">
-                <Phone className="w-4 h-4 mr-2 text-[#FFD84A] shrink-0" />
-                <span>PRO / Placement:</span>
-                <a href="tel:+916364118983" className="font-mono font-bold text-[#FFD84A] hover:underline ml-1.5">
+              <p className="flex items-center text-slate-200">
+                <Phone className="w-4 h-4 mr-2.5 text-[#FFD84A] shrink-0" />
+                <span className="text-slate-300 font-medium mr-1.5">PRO / Placement:</span>
+                <a href="tel:+916364118983" className="font-mono font-bold text-[#FFD84A] hover:text-white hover:underline">
                   +91 6364118983
                 </a>
               </p>
-              <p className="flex items-center">
-                <Phone className="w-4 h-4 mr-2 text-[#FFD84A] shrink-0" />
-                <span>Rector Office:</span>
-                <a href="tel:+917022371285" className="font-mono font-bold text-[#FFD84A] hover:underline ml-1.5">
+              <p className="flex items-center text-slate-200">
+                <Phone className="w-4 h-4 mr-2.5 text-[#FFD84A] shrink-0" />
+                <span className="text-slate-300 font-medium mr-1.5">Rector Office:</span>
+                <a href="tel:+917022371285" className="font-mono font-bold text-[#FFD84A] hover:text-white hover:underline">
                   +91 7022371285
                 </a>
               </p>
-              <p className="flex items-center">
-                <Mail className="w-4 h-4 mr-2 text-[#FFD84A] shrink-0" />
-                <span>General Email:</span>
-                <a href={`mailto:${collegeInfo.email}`} className="text-white hover:underline ml-1.5">
+              <p className="flex items-center text-slate-200">
+                <Mail className="w-4 h-4 mr-2.5 text-[#FFD84A] shrink-0" />
+                <span className="text-slate-300 font-medium mr-1.5">General Email:</span>
+                <a href={`mailto:${collegeInfo.email}`} className="text-white hover:text-[#FFD84A] hover:underline font-medium">
                   {collegeInfo.email}
                 </a>
               </p>
