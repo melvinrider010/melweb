@@ -287,38 +287,40 @@
   animation-play-state: paused;
 }
 
-/* INSTITUTIONAL ROYAL BLUE #274C97 & PROFESSIONAL GRADIENT PALETTE */
+/* ==========================================================================
+   UNIVERSAL INSTITUTIONAL NAVY #0B1F4E & PROFESSIONAL GRADIENT SYSTEM
+   ========================================================================== */
 :root {
-  --color-stphilos-blue: #274C97;
-  --color-stphilos-blue-dark: #142E61;
-  --color-stphilos-blue-deep: #0B1C3D;
-  --color-stphilos-blue-light: #3B66BD;
+  --color-primary-navy: #0B1F4E;
+  --color-navy-dark: #071536;
+  --color-navy-deep: #040B1E;
+  --color-navy-light: #153784;
 }
 
+.bg-institutional-navy,
 .bg-institutional-blue {
-  background-color: #274C97 !important;
+  background-color: #0B1F4E !important;
 }
 
-.bg-institutional-navy {
-  background-color: #071A33 !important;
-}
-
-/* Professional Multi-Stop Gradients retaining #274C97 */
+/* Universal Multi-Stop Gradients with #0B1F4E Foundation */
+.bg-navy-gradient,
 .bg-stphilos-gradient,
 .bg-gradient-blue {
-  background: linear-gradient(135deg, #16346e 0%, #274C97 52%, #1b3e82 100%) !important;
+  background: linear-gradient(135deg, #071536 0%, #0B1F4E 50%, #102d6c 100%) !important;
 }
 
+.bg-navy-gradient-rich,
 .bg-stphilos-gradient-rich {
-  background: linear-gradient(135deg, #0c1c3c 0%, #183774 42%, #274C97 100%) !important;
+  background: linear-gradient(135deg, #040b1e 0%, #071536 40%, #0B1F4E 100%) !important;
 }
 
+.bg-navy-gradient-horizontal,
 .bg-stphilos-gradient-horizontal {
-  background: linear-gradient(90deg, #132b5b 0%, #274C97 50%, #173672 100%) !important;
+  background: linear-gradient(90deg, #061230 0%, #0B1F4E 50%, #08173c 100%) !important;
 }
 
 .bg-gradient-blue-dark {
-  background: linear-gradient(180deg, #091733 0%, #142e61 50%, #274C97 100%) !important;
+  background: linear-gradient(180deg, #040b1e 0%, #071536 45%, #0B1F4E 100%) !important;
 }
 
 /* RESTRAINED ACADEMIC GOLD PALETTE */
@@ -337,20 +339,23 @@
   box-shadow: 0 4px 12px rgba(255, 201, 40, 0.3) !important;
 }
 
+.btn-navy,
 .btn-primary-blue {
-  background: linear-gradient(135deg, #274C97 0%, #173775 100%) !important;
+  background: linear-gradient(135deg, #0B1F4E 0%, #061332 100%) !important;
   color: #FFFFFF !important;
   font-family: var(--font-body);
   font-size: var(--text-sm) !important;
   font-weight: 700 !important;
   border-radius: 0.5rem !important;
-  box-shadow: 0 2px 8px rgba(39, 76, 151, 0.25);
+  border: 1px solid rgba(201, 168, 76, 0.3) !important;
+  box-shadow: 0 2px 8px rgba(11, 31, 78, 0.3);
   transition: all 0.2s ease-in-out !important;
 }
 
+.btn-navy:hover,
 .btn-primary-blue:hover {
-  background: linear-gradient(135deg, #3562be 0%, #274C97 100%) !important;
-  box-shadow: 0 4px 14px rgba(39, 76, 151, 0.35) !important;
+  background: linear-gradient(135deg, #153784 0%, #0B1F4E 100%) !important;
+  box-shadow: 0 4px 14px rgba(11, 31, 78, 0.45) !important;
   transform: translateY(-1px);
 }
 
