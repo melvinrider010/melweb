@@ -5,7 +5,7 @@ import collegeInfo from '../../data/college_info.json';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0f3b70] text-white pt-14 pb-8 border-t-4 border-[#C9A84C]">
+    <footer className="bg-gradient-to-b from-[#132d5f] via-[#274C97] to-[#0d1d3d] text-white pt-14 pb-8 border-t-4 border-[#C9A84C]">
       <div className="max-w-[1720px] mx-auto px-4 sm:px-8 space-y-12">
         
         {/* Main Footer Column Grid */}

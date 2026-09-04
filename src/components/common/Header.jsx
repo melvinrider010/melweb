@@ -98,9 +98,9 @@ export default function Header() {
       >
         
         {/* =========================================================================
-            TIER 1: TOP INSTITUTIONAL UTILITY BAR (Midnight Navy #164E8C)
+            TIER 1: TOP INSTITUTIONAL UTILITY BAR (#274C97 Professional Gradient)
             ========================================================================= */}
-        <div className="bg-[#164E8C] text-slate-200 text-[11px] sm:text-xs py-1.5 px-3 sm:px-8 border-b border-white/10 font-medium">
+        <div className="bg-gradient-to-r from-[#153168] via-[#274C97] to-[#153168] text-slate-200 text-[11px] sm:text-xs py-1.5 px-3 sm:px-8 border-b border-white/10 font-medium">
           <div className="max-w-[1720px] mx-auto flex justify-between items-center gap-2">
             
             <div className="hidden sm:block"></div>
@@ -178,10 +178,10 @@ export default function Header() {
         </div>
 
         {/* =========================================================================
-            TIER 3: DEDICATED FULL-WIDTH PRIMARY NAVIGATION BAR (Royal Blue #164E8C / #1C5496)
+            TIER 3: DEDICATED FULL-WIDTH PRIMARY NAVIGATION BAR (#274C97 Professional Gradient)
             ========================================================================= */}
         <nav 
-          className="hidden min-[1100px]:block bg-[#164E8C] border-b-2 border-[#C9A84C] text-white overflow-x-auto no-scrollbar shadow-xs" 
+          className="hidden min-[1100px]:block bg-gradient-to-r from-[#173674] via-[#274C97] to-[#18397a] border-b-2 border-[#C9A84C] text-white overflow-x-auto no-scrollbar shadow-xs" 
           aria-label="Main Navigation"
         >
           <div className="max-w-[1720px] mx-auto px-2 sm:px-4 lg:px-6 xl:px-8 flex items-center justify-between min-w-max gap-2">

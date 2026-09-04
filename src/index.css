@@ -287,21 +287,38 @@
   animation-play-state: paused;
 }
 
-/* INSTITUTIONAL ROYAL BLUE & NAVY PALETTE */
+/* INSTITUTIONAL ROYAL BLUE #274C97 & PROFESSIONAL GRADIENT PALETTE */
+:root {
+  --color-stphilos-blue: #274C97;
+  --color-stphilos-blue-dark: #142E61;
+  --color-stphilos-blue-deep: #0B1C3D;
+  --color-stphilos-blue-light: #3B66BD;
+}
+
 .bg-institutional-blue {
-  background-color: #1C5496 !important;
+  background-color: #274C97 !important;
 }
 
 .bg-institutional-navy {
   background-color: #071A33 !important;
 }
 
+/* Professional Multi-Stop Gradients retaining #274C97 */
+.bg-stphilos-gradient,
 .bg-gradient-blue {
-  background: linear-gradient(135deg, #0F3B70 0%, #1C5496 100%) !important;
+  background: linear-gradient(135deg, #16346e 0%, #274C97 52%, #1b3e82 100%) !important;
+}
+
+.bg-stphilos-gradient-rich {
+  background: linear-gradient(135deg, #0c1c3c 0%, #183774 42%, #274C97 100%) !important;
+}
+
+.bg-stphilos-gradient-horizontal {
+  background: linear-gradient(90deg, #132b5b 0%, #274C97 50%, #173672 100%) !important;
 }
 
 .bg-gradient-blue-dark {
-  background: linear-gradient(180deg, #071A33 0%, #0F3B70 100%) !important;
+  background: linear-gradient(180deg, #091733 0%, #142e61 50%, #274C97 100%) !important;
 }
 
 /* RESTRAINED ACADEMIC GOLD PALETTE */
@@ -321,17 +338,20 @@
 }
 
 .btn-primary-blue {
-  background-color: #1C5496 !important;
+  background: linear-gradient(135deg, #274C97 0%, #173775 100%) !important;
   color: #FFFFFF !important;
   font-family: var(--font-body);
   font-size: var(--text-sm) !important;
   font-weight: 700 !important;
   border-radius: 0.5rem !important;
+  box-shadow: 0 2px 8px rgba(39, 76, 151, 0.25);
   transition: all 0.2s ease-in-out !important;
 }
 
 .btn-primary-blue:hover {
-  background-color: #0F3B70 !important;
+  background: linear-gradient(135deg, #3562be 0%, #274C97 100%) !important;
+  box-shadow: 0 4px 14px rgba(39, 76, 151, 0.35) !important;
+  transform: translateY(-1px);
 }
 
 .text-gold {

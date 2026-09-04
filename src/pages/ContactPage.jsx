@@ -22,7 +22,7 @@ export default function ContactPage() {
     <div className="space-y-10 py-10 px-4 sm:px-8 max-w-[1500px] mx-auto text-[#071A33]">
       
       {/* Top Header Banner */}
-      <div className="bg-gradient-to-r from-[#0F3B70] to-[#1C5496] p-8 sm:p-10 rounded-2xl text-white shadow-md border-b-4 border-[#C9A84C] space-y-4">
+      <div className="bg-gradient-to-r from-[#142e61] via-[#274C97] to-[#18397a] p-8 sm:p-10 rounded-2xl text-white shadow-md border-b-4 border-[#C9A84C] space-y-4">
         <div className="flex items-center space-x-2.5">
           <span className="bg-[#C9A84C] text-[#071A33] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
             Official Directory
@@ -40,13 +40,13 @@ export default function ContactPage() {
       {/* Key Administrative Officers Section */}
       <div>
         <div className="flex items-center space-x-2 mb-6">
-          <UserCheck className="w-5 h-5 text-[#1C5496]" />
+          <UserCheck className="w-5 h-5 text-[#274C97]" />
           <h2 className="font-serif font-bold text-xl sm:text-2xl text-slate-900">Key Administrative Contacts</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {contactData.keyPersonnel.map((person, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-xl border border-slate-200 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between space-y-4 border-t-4 border-[#1C5496]">
+            <div key={idx} className="bg-white p-6 rounded-xl border border-slate-200 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between space-y-4 border-t-4 border-[#274C97]">
               <div className="space-y-2">
                 <span className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider text-[#C9A84C] bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
                   {person.designation}
