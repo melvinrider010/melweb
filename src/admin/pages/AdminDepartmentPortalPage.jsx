@@ -101,7 +101,9 @@ export default function AdminDepartmentPortalPage() {
     regulation: 'Autonomous NEP 2020 / CBCS Curriculum Scheme',
     totalCredits: 144,
     semestersCount: 6,
-    localPdf: '/assets/documents/academic-regulations.pdf',
+    localPdf: '',
+    pdfFileName: '',
+    pdfFileSize: null,
     semesters: []
   });
 
@@ -116,7 +118,8 @@ export default function AdminDepartmentPortalPage() {
     email: '',
     phone: '',
     profile: '',
-    photoUrl: '/assets/images/faculty/default_faculty.png'
+    photoUrl: '/assets/images/faculty/default_faculty.png',
+    photoFileName: ''
   });
 
   // 4. Document Modal & Form State
@@ -125,7 +128,9 @@ export default function AdminDepartmentPortalPage() {
     title: '',
     category: 'Lab Manual',
     year: '2026',
-    localPath: '/assets/documents/academic-regulations.pdf'
+    localPath: '',
+    fileName: '',
+    fileSize: null
   });
 
   // Load department data into form when department changes
@@ -202,7 +207,9 @@ export default function AdminDepartmentPortalPage() {
       regulation: 'Autonomous NEP 2020 / CBCS Curriculum Scheme',
       totalCredits: 144,
       semestersCount: 6,
-      localPdf: '/assets/documents/academic-regulations.pdf',
+      localPdf: '',
+      pdfFileName: '',
+      pdfFileSize: null,
       semesters: [
         {
           sem: 'Semester I',
@@ -236,7 +243,9 @@ export default function AdminDepartmentPortalPage() {
       regulation: syl.regulation || 'Autonomous NEP 2020 / CBCS Curriculum Scheme',
       totalCredits: syl.totalCredits || 144,
       semestersCount: syl.semestersCount || 6,
-      localPdf: syl.localPdf || '/assets/documents/academic-regulations.pdf',
+      localPdf: syl.localPdf || '',
+      pdfFileName: syl.pdfFileName || (syl.localPdf ? syl.localPdf.split('/').pop() : ''),
+      pdfFileSize: syl.pdfFileSize || null,
       semesters: syl.semesters || []
     });
     setIsSyllabusModalOpen(true);
@@ -328,6 +337,18 @@ export default function AdminDepartmentPortalPage() {
   };
 
   // --- Handlers: Department Files ---
+  const handleOpenAddDocument = () => {
+    setDocForm({
+      title: '',
+      category: 'Lab Manual',
+      year: '2026',
+      localPath: '',
+      fileName: '',
+      fileSize: null
+    });
+    setIsDocModalOpen(true);
+  };
+
   const handleSaveDocument = async (e) => {
     e.preventDefault();
     try {
@@ -335,11 +356,11 @@ export default function AdminDepartmentPortalPage() {
         ...docForm,
         departmentId: dept?.id,
         department: dept?.name,
-        filename: `${docForm.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.pdf`,
-        fileSize: 1024 * 350
+        filename: docForm.fileName || `${docForm.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.pdf`,
+        fileSize: docForm.fileSize || 1024 * 350
       }, user?.name || 'HOD User', isHOD ? userDepartmentId : null);
       setIsDocModalOpen(false);
-      setDocForm({ title: '', category: 'Lab Manual', year: '2026', localPath: '/assets/documents/academic-regulations.pdf' });
+      setDocForm({ title: '', category: 'Lab Manual', year: '2026', localPath: '', fileName: '', fileSize: null });
       showFeedback('Departmental file uploaded successfully!');
     } catch (err) {
       showFeedback(err.message, true);
@@ -812,7 +833,7 @@ export default function AdminDepartmentPortalPage() {
               <p className="text-xs text-slate-500">Upload lab manuals, project guidelines, student notices, and departmental documents.</p>
             </div>
             <button
-              onClick={() => setIsDocModalOpen(true)}
+              onClick={handleOpenAddDocument}
               className="btn-navy px-4 py-2 rounded-xl text-xs font-bold inline-flex items-center space-x-1.5 shadow-xs cursor-pointer"
             >
               <Upload className="w-4 h-4" />
