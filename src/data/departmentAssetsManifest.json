@@ -1,0 +1,170 @@
+[
+  {
+    "deptId": "dept-bca",
+    "deptName": "Department of Computer Applications (BCA / MCA)",
+    "syllabusRelPath": "/assets/departments/dept-bca/syllabus/bca-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-bca/documents/bca-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-bca/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-physics",
+    "deptName": "Department of Physics",
+    "syllabusRelPath": "/assets/departments/dept-physics/syllabus/dept-physics-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-physics/documents/dept-physics-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-physics/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-chemistry",
+    "deptName": "Department of Chemistry",
+    "syllabusRelPath": "/assets/departments/dept-chemistry/syllabus/dept-chemistry-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-chemistry/documents/dept-chemistry-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-chemistry/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-mathematics",
+    "deptName": "Department of Mathematics",
+    "syllabusRelPath": "/assets/departments/dept-mathematics/syllabus/dept-mathematics-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-mathematics/documents/dept-mathematics-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-mathematics/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-computer-science",
+    "deptName": "Department of Computer Science",
+    "syllabusRelPath": "/assets/departments/dept-computer-science/syllabus/dept-computer-science-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-computer-science/documents/dept-computer-science-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-computer-science/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-biochemistry",
+    "deptName": "Department of Biochemistry",
+    "syllabusRelPath": "/assets/departments/dept-biochemistry/syllabus/dept-biochemistry-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-biochemistry/documents/dept-biochemistry-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-biochemistry/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-biotechnology",
+    "deptName": "Department of Biotechnology",
+    "syllabusRelPath": "/assets/departments/dept-biotechnology/syllabus/dept-biotechnology-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-biotechnology/documents/dept-biotechnology-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-biotechnology/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-microbiology",
+    "deptName": "Department of Microbiology",
+    "syllabusRelPath": "/assets/departments/dept-microbiology/syllabus/dept-microbiology-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-microbiology/documents/dept-microbiology-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-microbiology/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-botany-zoology",
+    "deptName": "Department of Botany & Zoology",
+    "syllabusRelPath": "/assets/departments/dept-botany-zoology/syllabus/dept-botany-zoology-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-botany-zoology/documents/dept-botany-zoology-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-botany-zoology/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-food-science",
+    "deptName": "Department of Food Science & Nutrition",
+    "syllabusRelPath": "/assets/departments/dept-food-science/syllabus/dept-food-science-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-food-science/documents/dept-food-science-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-food-science/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-environmental-science",
+    "deptName": "Department of Environmental Science",
+    "syllabusRelPath": "/assets/departments/dept-environmental-science/syllabus/dept-environmental-science-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-environmental-science/documents/dept-environmental-science-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-environmental-science/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-criminology",
+    "deptName": "Department of Criminology & Forensic Science",
+    "syllabusRelPath": "/assets/departments/dept-criminology/syllabus/dept-criminology-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-criminology/documents/dept-criminology-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-criminology/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-commerce",
+    "deptName": "Department of Commerce (B.Com / M.Com)",
+    "syllabusRelPath": "/assets/departments/dept-commerce/syllabus/dept-commerce-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-commerce/documents/dept-commerce-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-commerce/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-management",
+    "deptName": "Department of Management Studies (BBA / MBA / BBA-THM)",
+    "syllabusRelPath": "/assets/departments/dept-management/syllabus/dept-management-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-management/documents/dept-management-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-management/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-social-work",
+    "deptName": "Department of Social Work (BSW / MSW)",
+    "syllabusRelPath": "/assets/departments/dept-social-work/syllabus/dept-social-work-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-social-work/documents/dept-social-work-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-social-work/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-economics",
+    "deptName": "Department of Economics (BA / MA)",
+    "syllabusRelPath": "/assets/departments/dept-economics/syllabus/dept-economics-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-economics/documents/dept-economics-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-economics/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-english",
+    "deptName": "Department of English (BA / MA)",
+    "syllabusRelPath": "/assets/departments/dept-english/syllabus/dept-english-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-english/documents/dept-english-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-english/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-history",
+    "deptName": "Department of History",
+    "syllabusRelPath": "/assets/departments/dept-history/syllabus/dept-history-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-history/documents/dept-history-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-history/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-journalism",
+    "deptName": "Department of Journalism & Mass Communication (BA / MA)",
+    "syllabusRelPath": "/assets/departments/dept-journalism/syllabus/dept-journalism-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-journalism/documents/dept-journalism-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-journalism/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-psychology",
+    "deptName": "Department of Psychology (BA / M.Sc)",
+    "syllabusRelPath": "/assets/departments/dept-psychology/syllabus/dept-psychology-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-psychology/documents/dept-psychology-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-psychology/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-sociology",
+    "deptName": "Department of Sociology",
+    "syllabusRelPath": "/assets/departments/dept-sociology/syllabus/dept-sociology-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-sociology/documents/dept-sociology-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-sociology/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-political-science",
+    "deptName": "Department of Political Science",
+    "syllabusRelPath": "/assets/departments/dept-political-science/syllabus/dept-political-science-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-political-science/documents/dept-political-science-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-political-science/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-languages",
+    "deptName": "Department of Languages (Kannada / Hindi / French / Malayalam)",
+    "syllabusRelPath": "/assets/departments/dept-languages/syllabus/dept-languages-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-languages/documents/dept-languages-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-languages/images/banner.jpg"
+  },
+  {
+    "deptId": "dept-physical-education",
+    "deptName": "Department of Physical Education & Sports",
+    "syllabusRelPath": "/assets/departments/dept-physical-education/syllabus/dept-physical-education-official-syllabus.pdf",
+    "docRelPath": "/assets/departments/dept-physical-education/documents/dept-physical-education-lab-manual-and-regulations.pdf",
+    "bannerRelPath": "/assets/departments/dept-physical-education/images/banner.jpg"
+  }
+]

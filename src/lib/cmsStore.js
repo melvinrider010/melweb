@@ -12,12 +12,15 @@ import logData from '../data/activity-logs.json';
 import settingsData from '../data/settings.json';
 import { initialMegaMenuData } from '../data/megaMenuData.js';
 import { SYLLABUS_REGISTRY } from '../data/syllabusData.js';
+import departmentAssetsManifest from '../data/departmentAssetsManifest.json';
 
-const STORAGE_KEY = 'stphilos_cms_store_v9';
-const REVISIONS_KEY = 'stphilos_cms_revisions_v9';
+const STORAGE_KEY = 'stphilos_cms_store_v10';
+const REVISIONS_KEY = 'stphilos_cms_revisions_v10';
 
 // 1. Initial State Seeding
 function getInitialData() {
+  const manifestMap = new Map((departmentAssetsManifest || []).map(m => [m.deptId, m]));
+
   const seededFaculty = (hierarchyData.faculty || []).map(f => ({
     ...f,
     status: f.status || 'published',
@@ -25,12 +28,16 @@ function getInitialData() {
     order: f.order || 0
   }));
 
-  const seededDepartments = (hierarchyData.departments || []).map(d => ({
-    ...d,
-    status: d.status || 'published',
-    origin: d.origin || 'imported',
-    order: d.order || 0
-  }));
+  const seededDepartments = (hierarchyData.departments || []).map(d => {
+    const manifest = manifestMap.get(d.id);
+    return {
+      ...d,
+      photoUrl: manifest?.bannerRelPath || d.photoUrl || '/assets/banner-college.jpg',
+      status: d.status || 'published',
+      origin: d.origin || 'imported',
+      order: d.order || 0
+    };
+  });
 
   // Build a map of honeycomb programmes
   const hcMap = new Map();
@@ -119,29 +126,52 @@ function getInitialData() {
     }
   ];
 
-  const seededSyllabuses = Object.entries(SYLLABUS_REGISTRY || {}).map(([key, syl]) => ({
-    id: `syl-${syl.code?.toLowerCase() || key}`,
-    code: syl.code || key.toUpperCase(),
-    slug: syl.slug || key,
-    title: syl.title || '',
-    degree: syl.degree || '',
-    department: syl.department || '',
-    deptSlug: syl.deptSlug || '',
-    departmentId: syl.deptSlug ? `dept-${syl.deptSlug}` : '',
-    totalCredits: syl.totalCredits || 144,
-    semestersCount: syl.semestersCount || (syl.semesters ? syl.semesters.length : 6),
-    regulation: syl.regulation || 'Autonomous NEP 2020 / CBCS Curriculum Scheme',
-    localPdf: syl.localPdf || '/assets/documents/academic-regulations.pdf',
-    semesters: syl.semesters || [],
-    status: 'published',
-    lastModified: '2026-09-02'
-  }));
+  const seededSyllabuses = (hierarchyData.departments || []).map(dept => {
+    const manifest = manifestMap.get(dept.id);
+    const customSyl = SYLLABUS_REGISTRY[dept.slug] || SYLLABUS_REGISTRY[dept.id.replace('dept-', '')] || SYLLABUS_REGISTRY.bca;
+    
+    return {
+      id: `syl-${dept.id}`,
+      code: dept.code || dept.shortName || dept.name,
+      slug: dept.slug || dept.id,
+      title: `${dept.name} Autonomous Curriculum & Syllabus Scheme`,
+      degree: dept.faculty || 'Autonomous Degree Curriculum (NEP 2020 / CBCS)',
+      department: dept.name,
+      deptSlug: dept.slug || dept.id,
+      departmentId: dept.id,
+      totalCredits: 144,
+      semestersCount: 6,
+      regulation: 'Autonomous NEP 2020 / CBCS Curriculum Scheme',
+      localPdf: manifest?.syllabusRelPath || `/assets/departments/${dept.id}/syllabus/${dept.slug || dept.id}-official-syllabus.pdf`,
+      semesters: customSyl?.semesters || [],
+      status: 'published',
+      lastModified: '2026-09-02'
+    };
+  });
+
+  const seededDepartmentDocs = (hierarchyData.departments || []).map(dept => {
+    const manifest = manifestMap.get(dept.id);
+    return {
+      id: `doc-${dept.id}`,
+      title: `${dept.name} - Laboratory Manual & Department Regulations`,
+      category: 'Lab Manual',
+      year: '2026',
+      departmentId: dept.id,
+      department: dept.name,
+      filename: `${dept.slug || dept.id}-lab-manual-and-regulations.pdf`,
+      localPath: manifest?.docRelPath || `/assets/departments/${dept.id}/documents/${dept.slug || dept.id}-lab-manual-and-regulations.pdf`,
+      fileSize: 1024 * 750,
+      status: 'published',
+      lastModified: '2026-09-02'
+    };
+  });
 
   return {
     faculty: seededFaculty,
     departments: seededDepartments,
     programmes: seededProgrammes,
     syllabuses: seededSyllabuses,
+    departmentDocs: seededDepartmentDocs,
     pages: seededPages,
     events: [...eventsData],
     notices: [...noticesData],
@@ -218,6 +248,12 @@ function loadCache() {
           }
         });
         parsed.faculty = mergedFaculty;
+      }
+      if (!parsed.syllabuses || !Array.isArray(parsed.syllabuses) || parsed.syllabuses.length === 0) {
+        parsed.syllabuses = initial.syllabuses;
+      }
+      if (!parsed.departmentDocs || !Array.isArray(parsed.departmentDocs) || parsed.departmentDocs.length === 0) {
+        parsed.departmentDocs = initial.departmentDocs;
       }
       if (!parsed.alumni || !Array.isArray(parsed.alumni) || parsed.alumni.length === 0) {
         parsed.alumni = initial.alumni;
