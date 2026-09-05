@@ -40,7 +40,31 @@ export default function AdminDepartmentPortalPage() {
   const deptSyllabuses = useCms(() => cmsStore.getSyllabuses(selectedDeptId), [selectedDeptId]);
   const deptDocs = useCms(() => cmsStore.getDepartmentDocuments(selectedDeptId), [selectedDeptId]);
 
-  const [activeTab, setActiveTab] = useState('page'); // 'page' | 'syllabus' | 'faculty' | 'documents'
+  const urlTab = searchParams.get('tab');
+  const getNormalizedTab = (tabStr) => {
+    if (!tabStr) return 'page';
+    if (tabStr === 'overview' || tabStr === 'page') return 'page';
+    if (tabStr === 'syllabus') return 'syllabus';
+    if (tabStr === 'faculty') return 'faculty';
+    if (tabStr === 'documents' || tabStr === 'files') return 'documents';
+    return 'page';
+  };
+
+  const [activeTab, setActiveTab] = useState(() => getNormalizedTab(urlTab));
+
+  useEffect(() => {
+    if (urlTab) {
+      setActiveTab(getNormalizedTab(urlTab));
+    }
+  }, [urlTab]);
+
+  const handleTabChange = (newTab) => {
+    setActiveTab(newTab);
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set('tab', newTab === 'page' ? 'overview' : newTab);
+    setSearchParams(newParams);
+  };
+
   const [saveSuccess, setSaveSuccess] = useState('');
   const [saveError, setSaveError] = useState('');
 
@@ -413,7 +437,7 @@ export default function AdminDepartmentPortalPage() {
       {/* 2. NAVIGATION TABS */}
       <div className="flex border-b border-slate-200 bg-white rounded-xl px-3 pt-2 shadow-2xs gap-2 overflow-x-auto no-scrollbar">
         <button
-          onClick={() => setActiveTab('page')}
+          onClick={() => handleTabChange('page')}
           className={`px-4 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer flex items-center space-x-2 ${
             activeTab === 'page'
               ? 'border-[#0B1F4E] text-[#0B1F4E] bg-blue-50/50 rounded-t-lg'
@@ -425,7 +449,7 @@ export default function AdminDepartmentPortalPage() {
         </button>
 
         <button
-          onClick={() => setActiveTab('syllabus')}
+          onClick={() => handleTabChange('syllabus')}
           className={`px-4 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer flex items-center space-x-2 ${
             activeTab === 'syllabus'
               ? 'border-[#0B1F4E] text-[#0B1F4E] bg-blue-50/50 rounded-t-lg'
@@ -437,7 +461,7 @@ export default function AdminDepartmentPortalPage() {
         </button>
 
         <button
-          onClick={() => setActiveTab('faculty')}
+          onClick={() => handleTabChange('faculty')}
           className={`px-4 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer flex items-center space-x-2 ${
             activeTab === 'faculty'
               ? 'border-[#0B1F4E] text-[#0B1F4E] bg-blue-50/50 rounded-t-lg'
@@ -449,7 +473,7 @@ export default function AdminDepartmentPortalPage() {
         </button>
 
         <button
-          onClick={() => setActiveTab('documents')}
+          onClick={() => handleTabChange('documents')}
           className={`px-4 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer flex items-center space-x-2 ${
             activeTab === 'documents'
               ? 'border-[#0B1F4E] text-[#0B1F4E] bg-blue-50/50 rounded-t-lg'

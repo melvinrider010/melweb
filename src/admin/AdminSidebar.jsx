@@ -17,10 +17,10 @@ export default function AdminSidebar() {
     {
       title: "DEPARTMENT PORTAL",
       items: [
-        { label: "Department Overview", path: "/admin/department-portal", icon: Building2 },
-        { label: "Syllabus & Regulations", path: "/admin/department-portal", icon: BookOpen },
-        { label: "Faculty Directory", path: "/admin/department-portal", icon: Users },
-        { label: "Department Documents", path: "/admin/department-portal", icon: FolderGit2 }
+        { label: "Department Overview", path: "/admin/department-portal?tab=overview", icon: Building2, tabKey: "overview" },
+        { label: "Syllabus & Regulations", path: "/admin/department-portal?tab=syllabus", icon: BookOpen, tabKey: "syllabus" },
+        { label: "Faculty Directory", path: "/admin/department-portal?tab=faculty", icon: Users, tabKey: "faculty" },
+        { label: "Department Documents", path: "/admin/department-portal?tab=documents", icon: FolderGit2, tabKey: "documents" }
       ]
     },
     {
@@ -82,6 +82,8 @@ export default function AdminSidebar() {
 
   const menuSections = isHOD ? hodMenuSections : adminMenuSections;
 
+  const currentTabParam = new URLSearchParams(location.search).get('tab') || (location.pathname === '/admin/department-portal' ? 'overview' : null);
+
   return (
     <aside className="w-64 bg-[#0D1B2A] text-slate-300 min-h-screen border-r border-slate-800 flex flex-col shrink-0">
       
@@ -118,7 +120,13 @@ export default function AdminSidebar() {
             <div className="space-y-1">
               {sec.items.map((item, iIdx) => {
                 const Icon = item.icon;
-                const isActive = location.pathname === item.path;
+                let isActive = false;
+                if (item.tabKey) {
+                  isActive = location.pathname === '/admin/department-portal' && (currentTabParam === item.tabKey || (item.tabKey === 'overview' && currentTabParam === 'page'));
+                } else {
+                  isActive = location.pathname === item.path;
+                }
+
                 return (
                   <Link
                     key={`${item.path}-${iIdx}`}
