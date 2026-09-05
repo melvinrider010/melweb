@@ -300,17 +300,132 @@ export function getProgrammeSecondaryFaculty(progIdOrCode) {
 export function getProgrammeById(progIdOrCode) {
   if (!progIdOrCode) return null;
   const key = String(progIdOrCode).toLowerCase().trim();
+  
+  const progAliases = {
+    'ma-in-english': 'ma-english',
+    'm-sc-psychology': 'msc',
+    'bcom': 'b-com',
+    'mcom': 'm-com',
+    'bbathm': 'bba-thm',
+    'msc-physics': 'm-sc-physics',
+    'msc-chemistry': 'm-sc-chemistry',
+    'msc-mathematics': 'm-sc-mathematics',
+    'msc-biochemistry': 'm-sc-biochemistry',
+    'msc-computer-science': 'm-sc-computer-science'
+  };
+
+  const lookupKey = progAliases[key] || key;
   const progs = getLiveProgrammes();
   return progs.find(p => {
     const pId = (p.id || '').toLowerCase();
     const pSlug = (p.slug || '').toLowerCase();
     const pCode = (p.code || '').toLowerCase();
     const pName = (p.name || '').toLowerCase();
-    return pId === key || pSlug === key || pCode === key || pName === key ||
-           pId.replace(/[^a-z0-9]/g, '') === key.replace(/[^a-z0-9]/g, '') ||
-           pCode.replace(/[^a-z0-9]/g, '') === key.replace(/[^a-z0-9]/g, '') ||
-           pSlug.replace(/[^a-z0-9]/g, '') === key.replace(/[^a-z0-9]/g, '');
+    return pId === lookupKey || pSlug === lookupKey || pCode === lookupKey || pName === lookupKey ||
+           pId === key || pSlug === key || pCode === key || pName === key ||
+           pId.replace(/[^a-z0-9]/g, '') === lookupKey.replace(/[^a-z0-9]/g, '') ||
+           pCode.replace(/[^a-z0-9]/g, '') === lookupKey.replace(/[^a-z0-9]/g, '') ||
+           pSlug.replace(/[^a-z0-9]/g, '') === lookupKey.replace(/[^a-z0-9]/g, '');
   }) || null;
+}
+
+/**
+ * Get Continuum / Degree Switcher options for any Department or Programme.
+ * e.g. BCA <-> MCA, BBA <-> MBA <-> BBA-THM, B.Com <-> M.Com, BSW <-> MSW, B.Sc <-> M.Sc
+ */
+export function getDepartmentContinuumProgrammes(progOrDept) {
+  if (!progOrDept) return { department: null, programmes: [], currentId: null };
+
+  let currentProg = null;
+  let targetDept = null;
+
+  if (typeof progOrDept === 'object') {
+    if (progOrDept.ugProgrammes || progOrDept.deptId || progOrDept.facilities) {
+      targetDept = progOrDept;
+    } else {
+      currentProg = progOrDept;
+      targetDept = getDepartmentById(progOrDept.departmentId || progOrDept.deptSlug || progOrDept.department);
+    }
+  } else {
+    currentProg = getProgrammeById(progOrDept);
+    if (currentProg) {
+      targetDept = getDepartmentById(currentProg.departmentId || currentProg.deptSlug || currentProg.department);
+    } else {
+      targetDept = getDepartmentById(progOrDept);
+    }
+  }
+
+  // Fallback lookup if department was not resolved
+  if (!targetDept && currentProg) {
+    const code = (currentProg.code || currentProg.id || '').toUpperCase();
+    if (code.includes('BCA') || code.includes('MCA')) targetDept = getDepartmentById('dept-bca');
+    else if (code.includes('BBA') || code.includes('MBA')) targetDept = getDepartmentById('dept-management');
+    else if (code.includes('COM')) targetDept = getDepartmentById('dept-commerce');
+    else if (code.includes('SW')) targetDept = getDepartmentById('dept-social-work');
+    else if (currentProg.stream?.toLowerCase().includes('science') || code.includes('SC')) targetDept = getDepartmentById('dept-physics');
+    else targetDept = getDepartmentById('dept-economics');
+  }
+
+  const rawUgIds = targetDept?.ugProgrammes || [];
+  const rawPgIds = targetDept?.pgProgrammes || [];
+
+  let ugs = rawUgIds.map(id => getProgrammeById(id)).filter(Boolean);
+  let pgs = rawPgIds.map(id => getProgrammeById(id)).filter(Boolean);
+
+  if (ugs.length === 0) {
+    if (targetDept?.category === 'Science' || targetDept?.faculty?.toLowerCase().includes('science')) {
+      const bsc = getProgrammeById('bsc');
+      if (bsc) ugs.push(bsc);
+    } else if (targetDept?.category === 'Humanities' || targetDept?.faculty?.toLowerCase().includes('humanities')) {
+      const ba = getProgrammeById('ba');
+      if (ba) ugs.push(ba);
+    }
+  }
+
+  if (pgs.length === 0) {
+    if (targetDept?.category === 'Science' || targetDept?.faculty?.toLowerCase().includes('science')) {
+      const msc = getProgrammeById('msc');
+      if (msc) pgs.push(msc);
+    } else if (targetDept?.category === 'Humanities' || targetDept?.faculty?.toLowerCase().includes('humanities')) {
+      const ma = getProgrammeById('ma');
+      if (ma) pgs.push(ma);
+    }
+  }
+
+  const seen = new Set();
+  const allProgs = [...ugs, ...pgs].filter(p => {
+    if (!p || !p.id) return false;
+    if (seen.has(p.id)) return false;
+    seen.add(p.id);
+    return true;
+  });
+
+  const currentId = currentProg?.id || (typeof progOrDept === 'string' ? progOrDept.toLowerCase() : null);
+
+  const formattedProgrammes = allProgs.map(p => {
+    const isCurrent = currentId ? (
+      p.id.toLowerCase() === currentId ||
+      (p.code && p.code.toLowerCase().replace(/[^a-z0-9]/g, '') === currentId.replace(/[^a-z0-9]/g, ''))
+    ) : false;
+
+    return {
+      id: p.id,
+      code: p.code || p.degree || p.id.toUpperCase(),
+      title: p.title,
+      type: p.type || (p.level?.toLowerCase().includes('post') ? 'pg' : 'ug'),
+      level: p.level || (p.type === 'pg' ? 'Postgraduate' : 'Undergraduate'),
+      link: `/academics/${(p.code || p.id).toLowerCase().replace(/\s+/g, '-')}`,
+      isCurrent
+    };
+  });
+
+  return {
+    department: targetDept,
+    deptLink: targetDept ? `/departments/${targetDept.slug || targetDept.id}` : '/departments',
+    deptName: targetDept?.name || 'Department Hub',
+    programmes: formattedProgrammes,
+    currentId
+  };
 }
 
 /**

@@ -32,7 +32,8 @@ import {
   getProgrammeSecondaryFaculty,
   getRelatedUgProgrammes, 
   getRelatedPgProgrammes, 
-  getProgressionPathways 
+  getProgressionPathways,
+  getDepartmentContinuumProgrammes
 } from '../data/academicsHierarchyData';
 import { getProgrammeByCode } from '../data/programmeDetailsData';
 import FacultyAvatar from '../components/common/FacultyAvatar';
@@ -140,6 +141,7 @@ export default function ProgrammeDetailPage() {
 
   // Relational Lookups
   const department = getDepartmentById(prog.departmentId || prog.deptSlug || prog.department);
+  const continuum = getDepartmentContinuumProgrammes(prog);
   const relatedUgList = getRelatedUgProgrammes(prog);
   const relatedPgList = getRelatedPgProgrammes(prog);
   const pathways = getProgressionPathways(prog);
@@ -238,6 +240,61 @@ export default function ProgrammeDetailPage() {
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans max-w-3xl pt-1">
                 {prog.overview}
               </p>
+
+              {/* Department Degree Continuum Switcher Buttons */}
+              {continuum.programmes.length > 0 && (
+                <div className="bg-gradient-to-r from-blue-50/90 via-slate-50 to-amber-50/70 p-3.5 sm:p-4 rounded-2xl border border-blue-100/90 shadow-2xs space-y-2.5">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center space-x-2">
+                      <GraduationCap className="w-4 h-4 text-[#1C5496]" />
+                      <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-slate-700">
+                        {continuum.department?.shortName || continuum.department?.name || 'Department'} Degree Continuum:
+                      </span>
+                    </div>
+                    {continuum.deptLink && (
+                      <Link 
+                        to={continuum.deptLink}
+                        className="text-[11px] sm:text-xs font-bold text-[#1C5496] hover:text-[#071A33] inline-flex items-center group"
+                      >
+                        <span>Visit {continuum.department?.shortName || 'Department'} Hub</span>
+                        <ArrowRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-0.5 transition-transform" />
+                      </Link>
+                    )}
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+                    {continuum.programmes.map((p) => {
+                      const isCurrent = p.isCurrent;
+                      return isCurrent ? (
+                        <div
+                          key={p.id}
+                          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0B1F4E] text-[#FFD84A] border-2 border-[#C9A84C] font-mono font-extrabold text-xs sm:text-sm shadow-sm tracking-wide cursor-default select-none ring-2 ring-[#C9A84C]/30"
+                          title={`Currently viewing ${p.title}`}
+                        >
+                          <span className="w-2 h-2 rounded-full bg-[#FFD84A] animate-pulse"></span>
+                          <span>{p.code}</span>
+                          <span className="text-[10px] uppercase font-sans font-semibold bg-[#C9A84C]/30 text-amber-200 px-1.5 py-0.5 rounded">
+                            {p.type.toUpperCase()} • Current
+                          </span>
+                        </div>
+                      ) : (
+                        <Link
+                          key={p.id}
+                          to={p.link}
+                          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-[#1C5496] text-[#1C5496] hover:text-white border-2 border-slate-200 hover:border-[#1C5496] font-mono font-bold text-xs sm:text-sm shadow-2xs hover:shadow-sm transition-all duration-150 transform hover:-translate-y-0.5 group"
+                          title={`Switch to ${p.title}`}
+                        >
+                          <BookOpen className="w-3.5 h-3.5 opacity-70 group-hover:text-white" />
+                          <span>{p.code}</span>
+                          <span className="text-[10px] uppercase font-sans font-semibold text-slate-500 group-hover:text-white/90 bg-slate-100 group-hover:bg-white/20 px-1.5 py-0.5 rounded transition-colors">
+                            {p.type.toUpperCase()}
+                          </span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
 
               {/* Quick Metrics Bar */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4 border-t border-slate-100">
