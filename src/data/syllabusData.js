@@ -12,7 +12,7 @@ export const SYLLABUS_REGISTRY = {
     totalCredits: 144,
     semestersCount: 6,
     regulation: 'Autonomous NEP 2020 / CBCS Curriculum Scheme',
-    localPdf: '/assets/documents/academic-regulations.pdf',
+    localPdf: '/assets/documents/syllabus/bca-syllabus-2026.pdf',
     semesters: [
       {
         sem: 'Semester I',
@@ -107,7 +107,7 @@ export const SYLLABUS_REGISTRY = {
     totalCredits: 144,
     semestersCount: 6,
     regulation: 'Autonomous NEP 2020 / CBCS Curriculum Scheme',
-    localPdf: '/assets/documents/academic-regulations.pdf',
+    localPdf: '/assets/documents/syllabus/bcom-syllabus-2026.pdf',
     semesters: [
       {
         sem: 'Semester I',
@@ -198,7 +198,7 @@ export const SYLLABUS_REGISTRY = {
     totalCredits: 144,
     semestersCount: 6,
     regulation: 'Autonomous NEP 2020 / CBCS Curriculum Scheme',
-    localPdf: '/assets/documents/academic-regulations.pdf',
+    localPdf: '/assets/documents/syllabus/bba-syllabus-2026.pdf',
     semesters: [
       {
         sem: 'Semester I',
@@ -288,7 +288,7 @@ export const SYLLABUS_REGISTRY = {
     totalCredits: 144,
     semestersCount: 6,
     regulation: 'Autonomous NEP 2020 / CBCS Curriculum Scheme',
-    localPdf: '/assets/documents/academic-regulations.pdf',
+    localPdf: '/assets/documents/syllabus/economics-syllabus-2026.pdf',
     semesters: [
       {
         sem: 'Semester I',
@@ -378,7 +378,7 @@ export const SYLLABUS_REGISTRY = {
     totalCredits: 144,
     semestersCount: 6,
     regulation: 'Autonomous NEP 2020 / CBCS Curriculum Scheme',
-    localPdf: '/assets/documents/academic-regulations.pdf',
+    localPdf: '/assets/documents/syllabus/computer-science-syllabus-2026.pdf',
     semesters: [
       {
         sem: 'Semester I',

@@ -13,8 +13,8 @@ import settingsData from '../data/settings.json';
 import { initialMegaMenuData } from '../data/megaMenuData.js';
 import { SYLLABUS_REGISTRY } from '../data/syllabusData.js';
 
-const STORAGE_KEY = 'stphilos_cms_store_v8';
-const REVISIONS_KEY = 'stphilos_cms_revisions_v8';
+const STORAGE_KEY = 'stphilos_cms_store_v9';
+const REVISIONS_KEY = 'stphilos_cms_revisions_v9';
 
 // 1. Initial State Seeding
 function getInitialData() {
