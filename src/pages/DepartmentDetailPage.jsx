@@ -16,7 +16,10 @@ import {
   Clock,
   GraduationCap,
   TrendingUp,
-  ChevronRight
+  ChevronRight,
+  Download,
+  MapPin,
+  FolderGit2
 } from 'lucide-react';
 import { 
   getDepartmentById, 
@@ -25,12 +28,17 @@ import {
   DEPARTMENTS 
 } from '../data/academicsHierarchyData';
 import FacultyAvatar from '../components/common/FacultyAvatar';
+import cmsStore from '../lib/cmsStore';
 import useCms from '../lib/useCms';
 
 export default function DepartmentDetailPage() {
   const { deptId } = useParams();
-  const dept = getDepartmentById(deptId);
-  const deptFaculty = useCms(() => dept ? getFacultyByDepartmentId(dept.id) : [], [deptId, dept?.id]);
+  
+  // Live reactive data from CMS store (updates instantly when HOD saves changes)
+  const dept = useCms(() => cmsStore.getDepartmentById(deptId) || getDepartmentById(deptId), [deptId]);
+  const deptFaculty = useCms(() => dept ? (cmsStore.getFacultyByDepartment(dept.id) || getFacultyByDepartmentId(dept.id)) : [], [deptId, dept?.id]);
+  const deptSyllabuses = useCms(() => cmsStore.getSyllabuses(dept?.id || deptId), [deptId, dept?.id]);
+  const deptDocs = useCms(() => cmsStore.getDepartmentDocuments(dept?.id || deptId), [deptId, dept?.id]);
 
   if (!dept) {
     return (
@@ -47,6 +55,7 @@ export default function DepartmentDetailPage() {
   const ugList = (dept.ugProgrammes || []).map(id => getProgrammeById(id)).filter(Boolean);
   const pgList = (dept.pgProgrammes || []).map(id => getProgrammeById(id)).filter(Boolean);
   const pathways = dept.pathways || [];
+  const facilities = Array.isArray(dept.facilities) ? dept.facilities : [];
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] text-[#071A33] py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
@@ -65,32 +74,33 @@ export default function DepartmentDetailPage() {
           <div className="flex items-center space-x-2 text-xs font-semibold text-slate-500 font-mono">
             <Link to="/departments" className="hover:text-[#1C5496]">DEPARTMENTS</Link>
             <span>/</span>
-            <span className="text-slate-800 font-bold uppercase">{dept.shortName || dept.id}</span>
+            <span className="text-slate-800 font-bold uppercase">{dept.shortName || dept.code || dept.id}</span>
           </div>
         </div>
 
         {/* 2. DEPARTMENT HERO BANNER */}
         <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs relative overflow-hidden space-y-6">
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-            <span className="bg-[#1C5496] text-white font-mono font-extrabold text-xs sm:text-sm px-3 py-1 rounded-md tracking-wider">
-              {dept.faculty || 'St. Philomena’s College'}
+            <span className="bg-[#0B1F4E] text-white font-mono font-extrabold text-xs sm:text-sm px-3.5 py-1 rounded-md tracking-wider">
+              {dept.faculty || dept.facultyName || 'St. Philomena’s College'}
             </span>
             <span className="bg-emerald-50 text-emerald-800 font-sans font-semibold text-xs px-3 py-1 rounded-md border border-emerald-200/60 flex items-center">
-              <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-emerald-600" /> Autonomous Department
+              <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-emerald-600" /> Autonomous Academic Department
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-            {dept.photoUrl && dept.photoVerified && (
+            {dept.photoUrl && (
               <div className="md:col-span-5">
                 <img
                   src={dept.photoUrl}
                   alt={dept.name}
                   className="w-full h-48 sm:h-56 object-cover rounded-2xl border border-slate-200 shadow-xs"
+                  onError={(e) => { e.target.style.display = 'none'; }}
                 />
               </div>
             )}
-            <div className={`${dept.photoUrl && dept.photoVerified ? 'md:col-span-7' : 'md:col-span-12'} space-y-3`}>
+            <div className={`${dept.photoUrl ? 'md:col-span-7' : 'md:col-span-12'} space-y-3`}>
               <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 leading-tight">
                 {dept.name}
               </h1>
@@ -103,14 +113,14 @@ export default function DepartmentDetailPage() {
           {/* Key Department Details */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-700">
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <span className="text-[10px] uppercase font-bold text-slate-400 block">Faculty Roster</span>
-              <span className="font-serif font-bold text-sm text-slate-900">{deptFaculty.length} Teaching Faculty</span>
+              <span className="text-[10px] uppercase font-bold text-slate-400 block">Faculty Staff</span>
+              <span className="font-serif font-bold text-sm text-slate-900">{deptFaculty.length} Teaching Members</span>
               <span className="text-[11px] text-slate-500 block">Professors, Readers & Lecturers</span>
             </div>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <span className="text-[10px] uppercase font-bold text-slate-400 block">Degree Programmes</span>
+              <span className="text-[10px] uppercase font-bold text-slate-400 block">Curriculum Schemes</span>
               <span className="font-mono text-xs text-[#1C5496] block truncate">
-                {ugList.length} UG Stream(s) • {pgList.length} PG Stream(s)
+                {deptSyllabuses.length > 0 ? `${deptSyllabuses.length} Syllabus Structure(s)` : `${ugList.length + pgList.length} Degree Streams`}
               </span>
               <span className="text-[11px] text-slate-500 block">Undergraduate & Master's</span>
             </div>
@@ -207,7 +217,73 @@ export default function DepartmentDetailPage() {
               </div>
             )}
 
-            {/* C. PRESENT FACULTY ROSTER */}
+            {/* C. FACILITIES & LABORATORIES */}
+            {facilities.length > 0 && (
+              <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+                <div className="flex items-center space-x-2.5 border-b border-slate-100 pb-3">
+                  <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-800 flex items-center justify-center">
+                    <Building2 className="w-4 h-4 text-[#C9A84C]" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif font-bold text-xl text-slate-900">Laboratories & Departmental Facilities</h3>
+                    <p className="text-xs text-slate-500">Specialized infrastructure and equipment available to students</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-2.5 pt-1">
+                  {facilities.map((fac, fIdx) => (
+                    <div key={fIdx} className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start space-x-3">
+                      <CheckCircle2 className="w-4 h-4 text-[#C9A84C] shrink-0 mt-0.5" />
+                      <span className="text-xs sm:text-sm text-slate-800 font-medium">{fac}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* D. DEPARTMENT SYLLABUS & CURRICULUM SCHEMES */}
+            {deptSyllabuses.length > 0 && (
+              <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                  <div className="flex items-center space-x-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1C5496] flex items-center justify-center">
+                      <BookOpen className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h3 className="font-serif font-bold text-xl text-slate-900">Syllabus & Course Regulations</h3>
+                      <p className="text-xs text-slate-500">Autonomous curriculum outlines and semester schemes</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-3 pt-1">
+                  {deptSyllabuses.map((syl) => (
+                    <div key={syl.id} className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="space-y-1">
+                        <div className="flex items-center space-x-2">
+                          <span className="bg-[#0B1F4E] text-[#FFD84A] font-mono text-[10px] font-bold px-2 py-0.5 rounded">
+                            {syl.code}
+                          </span>
+                          <span className="text-xs font-serif font-bold text-slate-900">{syl.title}</span>
+                        </div>
+                        <p className="text-xs text-slate-600">{syl.degree} · {syl.regulation}</p>
+                      </div>
+
+                      <a
+                        href={syl.localPdf || '/assets/documents/academic-regulations.pdf'}
+                        download
+                        className="btn-navy px-4 py-2 rounded-lg text-xs font-bold inline-flex items-center space-x-1.5 shadow-2xs self-start sm:self-auto shrink-0"
+                      >
+                        <Download className="w-3.5 h-3.5 text-[#FFD84A]" />
+                        <span>Download Syllabus PDF</span>
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* E. PRESENT FACULTY ROSTER */}
             <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-5">
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
                 <div className="flex items-center space-x-2.5">
@@ -263,11 +339,73 @@ export default function DepartmentDetailPage() {
           {/* Sidebar 4 Columns */}
           <div className="lg:col-span-4 space-y-6">
 
+            {/* Department Office & Contact Info */}
+            {(dept.email || dept.phone || dept.office) && (
+              <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+                <h3 className="font-serif font-bold text-base text-slate-900 border-b pb-2 flex items-center">
+                  <Building2 className="w-4 h-4 mr-2 text-[#0B1F4E]" />
+                  <span>Department Contact Desk</span>
+                </h3>
+                <div className="space-y-2.5 text-xs text-slate-600">
+                  {dept.office && (
+                    <p className="flex items-start">
+                      <MapPin className="w-4 h-4 mr-2 text-[#C9A84C] shrink-0 mt-0.5" />
+                      <span>{dept.office}</span>
+                    </p>
+                  )}
+                  {dept.email && (
+                    <p className="flex items-center">
+                      <Mail className="w-4 h-4 mr-2 text-[#1C5496] shrink-0" />
+                      <a href={`mailto:${dept.email}`} className="text-[#1C5496] hover:underline font-medium">
+                        {dept.email}
+                      </a>
+                    </p>
+                  )}
+                  {dept.phone && (
+                    <p className="flex items-center">
+                      <Phone className="w-4 h-4 mr-2 text-[#1C5496] shrink-0" />
+                      <a href={`tel:${dept.phone}`} className="font-mono text-slate-800 hover:underline">
+                        {dept.phone}
+                      </a>
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Department Files & Lab Manuals */}
+            {deptDocs.length > 0 && (
+              <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block">Student Downloads</span>
+                <h3 className="font-serif font-bold text-base text-slate-900">Departmental Files & Manuals</h3>
+                <div className="space-y-2">
+                  {deptDocs.map((d) => (
+                    <a
+                      key={d.id}
+                      href={d.localPath || '/assets/documents/academic-regulations.pdf'}
+                      download
+                      className="p-3 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-between transition-colors group"
+                    >
+                      <div className="min-w-0 pr-2">
+                        <span className="font-serif font-bold text-xs text-slate-900 block truncate group-hover:text-[#1C5496]">
+                          {d.title}
+                        </span>
+                        <span className="text-[10px] text-slate-500 font-mono">
+                          {d.category || 'PDF File'} · {d.year || '2026'}
+                        </span>
+                      </div>
+                      <Download className="w-4 h-4 text-slate-400 group-hover:text-[#1C5496] shrink-0" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* UG Degrees */}
             {ugList.length > 0 && (
               <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3.5">
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block">Undergraduate Streams</span>
-                <h3 className="font-serif font-bold text-base text-slate-900">UG Degrees in {dept.shortName}</h3>
+                <h3 className="font-serif font-bold text-base text-slate-900">UG Degrees in {dept.shortName || dept.name}</h3>
                 <div className="space-y-2.5">
                   {ugList.map((prog) => (
                     <Link
@@ -294,7 +432,7 @@ export default function DepartmentDetailPage() {
             {pgList.length > 0 && (
               <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3.5">
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block">Postgraduate Degrees</span>
-                <h3 className="font-serif font-bold text-base text-slate-900">Master's Streams in {dept.shortName}</h3>
+                <h3 className="font-serif font-bold text-base text-slate-900">Master's Streams in {dept.shortName || dept.name}</h3>
                 <div className="space-y-2.5">
                   {pgList.map((prog) => (
                     <Link

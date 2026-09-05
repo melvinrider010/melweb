@@ -1,23 +1,246 @@
 [
   {
-    "id": "usr_01",
-    "name": "Administrator",
+    "id": "usr_admin",
+    "name": "College Administrator",
     "email": "admin@stphilos.ac.in",
     "role": "SUPER_ADMIN",
-    "status": "Active"
+    "status": "Active",
+    "departmentId": null,
+    "departmentName": "All Institutional Departments",
+    "avatar": "/assets/images/leadership/principal_ravi_saldanha.jpg"
   },
   {
-    "id": "usr_02",
+    "id": "usr_iqac",
     "name": "IQAC Coordinator",
     "email": "iqac@stphilos.ac.in",
     "role": "IQAC_MANAGER",
-    "status": "Active"
+    "status": "Active",
+    "departmentId": null,
+    "departmentName": "Internal Quality Assurance Cell"
   },
   {
-    "id": "usr_03",
+    "id": "usr_academics",
     "name": "Academic Editor",
     "email": "academics@stphilos.ac.in",
     "role": "ACADEMIC_MANAGER",
+    "status": "Active",
+    "departmentId": null,
+    "departmentName": "Academic Affairs"
+  },
+  {
+    "id": "hod_bca",
+    "name": "HOD - Computer Applications (BCA / MCA)",
+    "email": "hod.bca@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-bca",
+    "departmentName": "Department of Computer Applications (BCA / MCA)",
+    "status": "Active"
+  },
+  {
+    "id": "hod_physics",
+    "name": "HOD - Physics",
+    "email": "hod.physics@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-physics",
+    "departmentName": "Department of Physics",
+    "status": "Active"
+  },
+  {
+    "id": "hod_chemistry",
+    "name": "HOD - Chemistry",
+    "email": "hod.chemistry@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-chemistry",
+    "departmentName": "Department of Chemistry",
+    "status": "Active"
+  },
+  {
+    "id": "hod_mathematics",
+    "name": "HOD - Mathematics",
+    "email": "hod.mathematics@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-mathematics",
+    "departmentName": "Department of Mathematics",
+    "status": "Active"
+  },
+  {
+    "id": "hod_cs",
+    "name": "HOD - Computer Science",
+    "email": "hod.cs@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-computer-science",
+    "departmentName": "Department of Computer Science",
+    "status": "Active"
+  },
+  {
+    "id": "hod_biochemistry",
+    "name": "HOD - Biochemistry",
+    "email": "hod.biochemistry@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-biochemistry",
+    "departmentName": "Department of Biochemistry",
+    "status": "Active"
+  },
+  {
+    "id": "hod_biotechnology",
+    "name": "HOD - Biotechnology",
+    "email": "hod.biotechnology@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-biotechnology",
+    "departmentName": "Department of Biotechnology",
+    "status": "Active"
+  },
+  {
+    "id": "hod_microbiology",
+    "name": "HOD - Microbiology",
+    "email": "hod.microbiology@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-microbiology",
+    "departmentName": "Department of Microbiology",
+    "status": "Active"
+  },
+  {
+    "id": "hod_botany_zoology",
+    "name": "HOD - Botany & Zoology",
+    "email": "hod.botany-zoology@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-botany-zoology",
+    "departmentName": "Department of Botany & Zoology",
+    "status": "Active"
+  },
+  {
+    "id": "hod_foodscience",
+    "name": "HOD - Food Science & Nutrition",
+    "email": "hod.foodscience@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-food-science",
+    "departmentName": "Department of Food Science & Nutrition",
+    "status": "Active"
+  },
+  {
+    "id": "hod_envscience",
+    "name": "HOD - Environmental Science",
+    "email": "hod.envscience@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-environmental-science",
+    "departmentName": "Department of Environmental Science",
+    "status": "Active"
+  },
+  {
+    "id": "hod_criminology",
+    "name": "HOD - Criminology & Forensic Science",
+    "email": "hod.criminology@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-criminology",
+    "departmentName": "Department of Criminology & Forensic Science",
+    "status": "Active"
+  },
+  {
+    "id": "hod_commerce",
+    "name": "HOD - Commerce",
+    "email": "hod.commerce@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-commerce",
+    "departmentName": "Department of Commerce",
+    "status": "Active"
+  },
+  {
+    "id": "hod_management",
+    "name": "HOD - Management Studies (BBA / MBA / BTHM)",
+    "email": "hod.management@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-management",
+    "departmentName": "Department of Management Studies",
+    "status": "Active"
+  },
+  {
+    "id": "hod_socialwork",
+    "name": "HOD - Social Work (BSW / MSW)",
+    "email": "hod.socialwork@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-social-work",
+    "departmentName": "Department of Social Work",
+    "status": "Active"
+  },
+  {
+    "id": "hod_economics",
+    "name": "HOD - Economics",
+    "email": "hod.economics@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-economics",
+    "departmentName": "Department of Economics",
+    "status": "Active"
+  },
+  {
+    "id": "hod_english",
+    "name": "HOD - English Literature",
+    "email": "hod.english@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-english",
+    "departmentName": "Department of English Literature",
+    "status": "Active"
+  },
+  {
+    "id": "hod_history",
+    "name": "HOD - History",
+    "email": "hod.history@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-history",
+    "departmentName": "Department of History",
+    "status": "Active"
+  },
+  {
+    "id": "hod_journalism",
+    "name": "HOD - Journalism & Mass Communication",
+    "email": "hod.journalism@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-journalism",
+    "departmentName": "Department of Journalism & Mass Communication",
+    "status": "Active"
+  },
+  {
+    "id": "hod_psychology",
+    "name": "HOD - Psychology",
+    "email": "hod.psychology@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-psychology",
+    "departmentName": "Department of Psychology",
+    "status": "Active"
+  },
+  {
+    "id": "hod_sociology",
+    "name": "HOD - Sociology",
+    "email": "hod.sociology@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-sociology",
+    "departmentName": "Department of Sociology",
+    "status": "Active"
+  },
+  {
+    "id": "hod_politicalscience",
+    "name": "HOD - Political Science",
+    "email": "hod.politicalscience@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-political-science",
+    "departmentName": "Department of Political Science",
+    "status": "Active"
+  },
+  {
+    "id": "hod_languages",
+    "name": "HOD - Languages (Kannada / Hindi / French)",
+    "email": "hod.languages@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-languages",
+    "departmentName": "Department of Languages",
+    "status": "Active"
+  },
+  {
+    "id": "hod_sports",
+    "name": "HOD - Physical Education & Sports",
+    "email": "hod.sports@stphilos.ac.in",
+    "role": "HOD_DEPARTMENT",
+    "departmentId": "dept-physical-education",
+    "departmentName": "Department of Physical Education & Sports",
     "status": "Active"
   }
 ]

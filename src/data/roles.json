@@ -1,18 +1,27 @@
 [
   {
     "role": "SUPER_ADMIN",
-    "description": "Full System Access & Configuration"
+    "title": "Super Administrator",
+    "description": "Full System Access, User Management, Global Content & Institutional Oversight"
+  },
+  {
+    "role": "HOD_DEPARTMENT",
+    "title": "Head of Department (HOD)",
+    "description": "Departmental Portal Access: Edit own department page, syllabus, faculty roster, and departmental files"
   },
   {
     "role": "IQAC_MANAGER",
-    "description": "NAAC, AQAR & Compliance Management"
+    "title": "IQAC Coordinator",
+    "description": "NAAC, AQAR & Statutory Compliance Management"
   },
   {
     "role": "ACADEMIC_MANAGER",
-    "description": "Programmes, Syllabus & Faculty Management"
+    "title": "Academic Editor",
+    "description": "Programmes, Syllabus & Academic Operations Management"
   },
   {
     "role": "EDITOR",
+    "title": "Content Editor",
     "description": "Notices, News & Events Management"
   }
 ]

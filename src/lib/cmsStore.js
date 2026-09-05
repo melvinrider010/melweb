@@ -11,9 +11,10 @@ import userData from '../data/users.json';
 import logData from '../data/activity-logs.json';
 import settingsData from '../data/settings.json';
 import { initialMegaMenuData } from '../data/megaMenuData.js';
+import { SYLLABUS_REGISTRY } from '../data/syllabusData.js';
 
-const STORAGE_KEY = 'stphilos_cms_store_v7';
-const REVISIONS_KEY = 'stphilos_cms_revisions_v7';
+const STORAGE_KEY = 'stphilos_cms_store_v8';
+const REVISIONS_KEY = 'stphilos_cms_revisions_v8';
 
 // 1. Initial State Seeding
 function getInitialData() {
@@ -118,10 +119,29 @@ function getInitialData() {
     }
   ];
 
+  const seededSyllabuses = Object.entries(SYLLABUS_REGISTRY || {}).map(([key, syl]) => ({
+    id: `syl-${syl.code?.toLowerCase() || key}`,
+    code: syl.code || key.toUpperCase(),
+    slug: syl.slug || key,
+    title: syl.title || '',
+    degree: syl.degree || '',
+    department: syl.department || '',
+    deptSlug: syl.deptSlug || '',
+    departmentId: syl.deptSlug ? `dept-${syl.deptSlug}` : '',
+    totalCredits: syl.totalCredits || 144,
+    semestersCount: syl.semestersCount || (syl.semesters ? syl.semesters.length : 6),
+    regulation: syl.regulation || 'Autonomous NEP 2020 / CBCS Curriculum Scheme',
+    localPdf: syl.localPdf || '/assets/documents/academic-regulations.pdf',
+    semesters: syl.semesters || [],
+    status: 'published',
+    lastModified: '2026-09-02'
+  }));
+
   return {
     faculty: seededFaculty,
     departments: seededDepartments,
     programmes: seededProgrammes,
+    syllabuses: seededSyllabuses,
     pages: seededPages,
     events: [...eventsData],
     notices: [...noticesData],
@@ -982,7 +1002,161 @@ export const cmsStore = {
     return cache.alumni;
   },
 
-  // ================= 11. REVISIONS & ROLLBACK =================
+  // ================= 11. SYLLABUS & CURRICULUM MANAGEMENT =================
+  getSyllabuses: (deptIdOrSlug = null) => {
+    let list = cache.syllabuses || [];
+    if (!deptIdOrSlug) return list;
+    const clean = String(deptIdOrSlug).toLowerCase().trim().replace(/^dept[-_]/, '');
+    return list.filter(s => {
+      const sDept = String(s.departmentId || s.deptSlug || s.deptId || '').toLowerCase().replace(/^dept[-_]/, '');
+      return sDept === clean || (s.slug && s.slug.toLowerCase() === clean);
+    });
+  },
+
+  getSyllabusById: (idOrSlug) => {
+    if (!idOrSlug) return null;
+    const clean = String(idOrSlug).toLowerCase().trim();
+    return (cache.syllabuses || []).find(s => 
+      (s.id && s.id.toLowerCase() === clean) || 
+      (s.slug && s.slug.toLowerCase() === clean) ||
+      (s.code && s.code.toLowerCase() === clean)
+    ) || null;
+  },
+
+  saveSyllabus: async (syllabusItem, user = 'Administrator', userDeptId = null) => {
+    if (userDeptId) {
+      const uClean = String(userDeptId).toLowerCase().replace(/^dept[-_]/, '');
+      const tClean = String(syllabusItem.departmentId || syllabusItem.deptSlug || '').toLowerCase().replace(/^dept[-_]/, '');
+      if (tClean && tClean !== uClean) {
+        throw new Error(`Permission Denied: You are only authorized to manage syllabus for your assigned department.`);
+      }
+    }
+
+    const isNew = !syllabusItem.id;
+    const id = isNew ? `syl-${(syllabusItem.code || Date.now()).toString().toLowerCase().replace(/[^a-z0-9]+/g, '-')}` : syllabusItem.id;
+    const record = {
+      ...syllabusItem,
+      id,
+      status: syllabusItem.status || 'published',
+      lastModified: new Date().toISOString()
+    };
+
+    const existingIndex = (cache.syllabuses || []).findIndex(s => s.id === id || (record.code && s.code && s.code.toLowerCase() === record.code.toLowerCase()));
+    if (existingIndex >= 0) {
+      cache.syllabuses[existingIndex] = { ...cache.syllabuses[existingIndex], ...record };
+    } else {
+      cache.syllabuses = [record, ...(cache.syllabuses || [])];
+    }
+
+    emitUpdate();
+    cmsStore.logActivity(`Saved Syllabus: ${record.title || record.code}`, user);
+    return record;
+  },
+
+  deleteSyllabus: async (id, user = 'Administrator', userDeptId = null) => {
+    const existing = (cache.syllabuses || []).find(s => s.id === id);
+    if (existing && userDeptId) {
+      const uClean = String(userDeptId).toLowerCase().replace(/^dept[-_]/, '');
+      const tClean = String(existing.departmentId || existing.deptSlug || '').toLowerCase().replace(/^dept[-_]/, '');
+      if (tClean && tClean !== uClean) {
+        throw new Error(`Permission Denied: You can only delete syllabus for your assigned department.`);
+      }
+    }
+    cache.syllabuses = (cache.syllabuses || []).filter(s => s.id !== id);
+    emitUpdate();
+    cmsStore.logActivity(`Deleted Syllabus ID: ${id}`, user);
+    return cache.syllabuses;
+  },
+
+  // ================= 12. DEPARTMENT DOCUMENTS & LAB FILES =================
+  getDepartmentDocuments: (deptIdOrSlug = null) => {
+    let list = cache.documents || [];
+    if (!deptIdOrSlug) return list;
+    const clean = String(deptIdOrSlug).toLowerCase().trim().replace(/^dept[-_]/, '');
+    return list.filter(d => {
+      const dDept = String(d.departmentId || d.department || d.category || '').toLowerCase().replace(/^dept[-_]/, '');
+      return dDept === clean || dDept.includes(clean);
+    });
+  },
+
+  saveDepartmentDocument: async (docItem, user = 'Administrator', userDeptId = null) => {
+    if (userDeptId) {
+      const uClean = String(userDeptId).toLowerCase().replace(/^dept[-_]/, '');
+      const tClean = String(docItem.departmentId || docItem.department || '').toLowerCase().replace(/^dept[-_]/, '');
+      if (tClean && tClean !== uClean) {
+        throw new Error(`Permission Denied: You can only upload files for your assigned department.`);
+      }
+    }
+
+    const isNew = !docItem.id;
+    const id = isNew ? `doc-dept-${Date.now()}` : docItem.id;
+    const record = {
+      ...docItem,
+      id,
+      uploadedAt: new Date().toISOString(),
+      downloadStatus: 'Downloaded'
+    };
+
+    const existingIndex = (cache.documents || []).findIndex(d => d.id === id);
+    if (existingIndex >= 0) {
+      cache.documents[existingIndex] = { ...cache.documents[existingIndex], ...record };
+    } else {
+      cache.documents = [record, ...(cache.documents || [])];
+    }
+
+    emitUpdate();
+    cmsStore.logActivity(`Uploaded Department File: ${record.title}`, user);
+    return record;
+  },
+
+  deleteDepartmentDocument: async (id, user = 'Administrator', userDeptId = null) => {
+    const existing = (cache.documents || []).find(d => d.id === id);
+    if (existing && userDeptId) {
+      const uClean = String(userDeptId).toLowerCase().replace(/^dept[-_]/, '');
+      const tClean = String(existing.departmentId || existing.department || '').toLowerCase().replace(/^dept[-_]/, '');
+      if (tClean && tClean !== uClean) {
+        throw new Error(`Permission Denied: You can only delete files from your assigned department.`);
+      }
+    }
+    cache.documents = (cache.documents || []).filter(d => d.id !== id);
+    emitUpdate();
+    cmsStore.logActivity(`Deleted Department Document ID: ${id}`, user);
+    return cache.documents;
+  },
+
+  // ================= 13. USER & HOD ACCESS DIRECTORY =================
+  getUsers: () => cache.users || [...userData],
+
+  saveUser: async (userItem, adminUser = 'Administrator') => {
+    const isNew = !userItem.id;
+    const id = isNew ? `usr_${Date.now()}` : userItem.id;
+    const record = {
+      ...userItem,
+      id,
+      status: userItem.status || 'Active',
+      lastModified: new Date().toISOString()
+    };
+
+    const existingIndex = (cache.users || []).findIndex(u => u.id === id || (u.email && u.email.toLowerCase() === record.email.toLowerCase()));
+    if (existingIndex >= 0) {
+      cache.users[existingIndex] = { ...cache.users[existingIndex], ...record };
+    } else {
+      cache.users = [record, ...(cache.users || [])];
+    }
+
+    emitUpdate();
+    cmsStore.logActivity(`Updated User Account: ${record.name} (${record.role})`, adminUser);
+    return record;
+  },
+
+  deleteUser: async (id, adminUser = 'Administrator') => {
+    cache.users = (cache.users || []).filter(u => u.id !== id);
+    emitUpdate();
+    cmsStore.logActivity(`Deleted User Account ID: ${id}`, adminUser);
+    return cache.users;
+  },
+
+  // ================= 14. REVISIONS & ROLLBACK =================
   getRevisions: (entityType, entityId) => {
     const revisions = loadRevisions();
     return revisions[`${entityType}:${entityId}`] || [];

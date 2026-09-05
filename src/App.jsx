@@ -53,6 +53,7 @@ import AdminDocumentManagerPage from './admin/pages/AdminDocumentManagerPage';
 import AdminEventsManagerPage from './admin/pages/AdminEventsManagerPage';
 import AdminFacultyManagerPage from './admin/pages/AdminFacultyManagerPage';
 import AdminDepartmentManagerPage from './admin/pages/AdminDepartmentManagerPage';
+import AdminDepartmentPortalPage from './admin/pages/AdminDepartmentPortalPage';
 import AdminProgrammeManagerPage from './admin/pages/AdminProgrammeManagerPage';
 import AdminPagesManagerPage from './admin/pages/AdminPagesManagerPage';
 import AdminNoticesManagerPage from './admin/pages/AdminNoticesManagerPage';
@@ -201,6 +202,7 @@ export default function App() {
             <Route path="gallery" element={<AdminGalleryManagerPage />} />
             <Route path="programmes" element={<AdminProgrammeManagerPage />} />
             <Route path="departments" element={<AdminDepartmentManagerPage />} />
+            <Route path="department-portal" element={<AdminDepartmentPortalPage />} />
             <Route path="faculty" element={<AdminFacultyManagerPage />} />
             <Route path="alumni" element={<AdminAlumniManagerPage />} />
             <Route path="iqac" element={<AdminDocumentManagerPage />} />
