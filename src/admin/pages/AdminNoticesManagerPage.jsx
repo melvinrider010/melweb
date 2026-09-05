@@ -18,6 +18,7 @@ import {
 import cmsStore from '../../lib/cmsStore';
 import useCms from '../../lib/useCms';
 import ViewAsBookButton from '../../components/common/ViewAsBookButton';
+import FileUploadZone from '../../components/common/FileUploadZone';
 
 export default function AdminNoticesManagerPage() {
   const notices = useCms(() => cmsStore.getNotices());
@@ -305,14 +306,21 @@ export default function AdminNoticesManagerPage() {
                 </div>
               </div>
 
-              <div className="space-y-1">
-                <label className="text-slate-400 font-bold block">PDF Circular Attachment Path</label>
-                <input
-                  type="text"
-                  placeholder="/documents/academics/TimeTable.pdf"
+              <div>
+                <FileUploadZone
+                  label="Notice Document / PDF Circular Attachment"
+                  subLabel="Drag & drop official PDF circular here, or click to browse (up to 25MB)"
+                  accept=".pdf,application/pdf"
+                  type="pdf"
                   value={formData.attachmentUrl}
-                  onChange={(e) => setFormData({ ...formData, attachmentUrl: e.target.value })}
-                  className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none"
+                  fileName={formData.attachmentFileName || (formData.attachmentUrl?.startsWith('data:') ? `${formData.title || 'Notice'}.pdf` : formData.attachmentUrl?.split('/').pop())}
+                  onChange={({ dataUrl, fileName }) => {
+                    setFormData(prev => ({
+                      ...prev,
+                      attachmentUrl: dataUrl,
+                      attachmentFileName: fileName
+                    }));
+                  }}
                 />
               </div>
 

@@ -26,6 +26,7 @@ import {
 import { useAuth } from '../../lib/authContext';
 import cmsStore from '../../lib/cmsStore';
 import useCms from '../../lib/useCms';
+import FileUploadZone from '../../components/common/FileUploadZone';
 
 export default function AdminDepartmentPortalPage() {
   const { user, isSuperAdmin, isHOD, userDepartmentId, userDepartmentName } = useAuth();
@@ -598,6 +599,23 @@ export default function AdminDepartmentPortalPage() {
             </div>
           </div>
 
+          {/* Department Banner / Photo Upload */}
+          <div className="pt-2 border-t border-slate-100">
+            <FileUploadZone
+              label="Department Cover / Laboratory Photograph"
+              subLabel="Upload high-resolution image of the department / laboratory (PNG, JPG, WEBP)"
+              accept="image/*"
+              type="image"
+              value={deptForm.photoUrl}
+              onChange={({ dataUrl, fileName }) => {
+                setDeptForm(prev => ({
+                  ...prev,
+                  photoUrl: dataUrl
+                }));
+              }}
+            />
+          </div>
+
           {/* Contact & Office Details */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs pt-4 border-t border-slate-100">
             <div>
@@ -895,27 +913,35 @@ export default function AdminDepartmentPortalPage() {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-slate-700 font-bold mb-1">Academic Regulation</label>
-                  <input
-                    type="text"
-                    value={syllabusForm.regulation}
-                    onChange={(e) => setSyllabusForm({ ...syllabusForm, regulation: e.target.value })}
-                    placeholder="Autonomous NEP 2020 / CBCS"
-                    className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:border-[#1C5496]"
-                  />
-                </div>
-                <div>
-                  <label className="block text-slate-700 font-bold mb-1">Syllabus PDF File Link</label>
-                  <input
-                    type="text"
-                    value={syllabusForm.localPdf}
-                    onChange={(e) => setSyllabusForm({ ...syllabusForm, localPdf: e.target.value })}
-                    placeholder="/assets/documents/syllabus-bca.pdf"
-                    className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:border-[#1C5496]"
-                  />
-                </div>
+              <div>
+                <label className="block text-slate-700 font-bold mb-1">Academic Regulation Scheme</label>
+                <input
+                  type="text"
+                  value={syllabusForm.regulation}
+                  onChange={(e) => setSyllabusForm({ ...syllabusForm, regulation: e.target.value })}
+                  placeholder="Autonomous NEP 2020 / CBCS"
+                  className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:border-[#1C5496]"
+                />
+              </div>
+
+              <div>
+                <FileUploadZone
+                  label="Upload Syllabus PDF Document"
+                  subLabel="Drag & drop official syllabus PDF here, or click to browse (up to 25MB)"
+                  accept=".pdf,application/pdf"
+                  type="pdf"
+                  value={syllabusForm.localPdf}
+                  fileName={syllabusForm.pdfFileName || (syllabusForm.localPdf?.startsWith('data:') ? `${syllabusForm.code || 'Course'}-Syllabus.pdf` : syllabusForm.localPdf?.split('/').pop())}
+                  onChange={({ dataUrl, fileName, fileSize }) => {
+                    setSyllabusForm(prev => ({
+                      ...prev,
+                      localPdf: dataUrl,
+                      pdfFileName: fileName,
+                      pdfFileSize: fileSize
+                    }));
+                  }}
+                  required={true}
+                />
               </div>
 
               <div className="flex justify-end space-x-3 pt-4 border-t">
@@ -991,27 +1017,31 @@ export default function AdminDepartmentPortalPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-slate-700 font-bold mb-1">Official Email</label>
-                  <input
-                    type="email"
-                    value={facultyForm.email}
-                    onChange={(e) => setFacultyForm({ ...facultyForm, email: e.target.value })}
-                    placeholder="faculty@stphilos.ac.in"
-                    className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:border-[#1C5496]"
-                  />
-                </div>
-                <div>
-                  <label className="block text-slate-700 font-bold mb-1">Photo URL</label>
-                  <input
-                    type="text"
-                    value={facultyForm.photoUrl}
-                    onChange={(e) => setFacultyForm({ ...facultyForm, photoUrl: e.target.value })}
-                    placeholder="/assets/images/faculty/fac.jpg"
-                    className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:border-[#1C5496]"
-                  />
-                </div>
+              <div>
+                <label className="block text-slate-700 font-bold mb-1">Official Email</label>
+                <input
+                  type="email"
+                  value={facultyForm.email}
+                  onChange={(e) => setFacultyForm({ ...facultyForm, email: e.target.value })}
+                  placeholder="faculty@stphilos.ac.in"
+                  className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:border-[#1C5496]"
+                />
+              </div>
+
+              <div>
+                <FileUploadZone
+                  label="Faculty Profile Photograph"
+                  subLabel="Upload passport photo or portrait (PNG, JPG, WEBP)"
+                  accept="image/*"
+                  type="image"
+                  value={facultyForm.photoUrl}
+                  onChange={({ dataUrl, fileName }) => {
+                    setFacultyForm(prev => ({
+                      ...prev,
+                      photoUrl: dataUrl
+                    }));
+                  }}
+                />
               </div>
 
               <div>
@@ -1094,13 +1124,24 @@ export default function AdminDepartmentPortalPage() {
               </div>
 
               <div>
-                <label className="block text-slate-700 font-bold mb-1">PDF File Path</label>
-                <input
-                  type="text"
+                <FileUploadZone
+                  label="Upload Department File / Lab Manual"
+                  subLabel="Drag & drop PDF or Word Document here, or click to browse (up to 25MB)"
+                  accept=".pdf,.doc,.docx,application/pdf"
+                  type="pdf"
                   value={docForm.localPath}
-                  onChange={(e) => setDocForm({ ...docForm, localPath: e.target.value })}
-                  placeholder="/assets/documents/lab-manual.pdf"
-                  className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:border-[#1C5496]"
+                  fileName={docForm.fileName || (docForm.localPath?.startsWith('data:') ? `${docForm.title || 'document'}.pdf` : docForm.localPath?.split('/').pop())}
+                  fileSize={docForm.fileSize}
+                  onChange={({ dataUrl, fileName, fileSize }) => {
+                    setDocForm(prev => ({
+                      ...prev,
+                      localPath: dataUrl,
+                      fileName: fileName || prev.title,
+                      fileSize: fileSize || 1024 * 350,
+                      title: prev.title ? prev.title : (fileName ? fileName.replace(/\.[^/.]+$/, "") : '')
+                    }));
+                  }}
+                  required={true}
                 />
               </div>
 
