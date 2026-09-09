@@ -160,7 +160,7 @@ export default function AdminSliderManagerPage() {
       
       {/* SUCCESS TOAST NOTIFICATION */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-emerald-600 text-white px-5 py-3.5 rounded-2xl shadow-2xl font-sans text-xs font-bold flex items-center space-x-3 animate-slideUp">
+        <div className="fixed bottom-6 right-6 z-50 bg-emerald-600 text-white px-5 py-3.5 rounded-2xl shadow-xl font-sans text-xs font-bold flex items-center space-x-3 animate-slideUp">
           <CheckCircle2 className="w-5 h-5 text-white shrink-0" />
           <span>{toastMessage}</span>
           <a 
@@ -175,20 +175,20 @@ export default function AdminSliderManagerPage() {
       )}
 
       {/* 1. TOP HEADER & HERO INFO */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-[#08121E] border border-slate-800 p-6 sm:p-8 rounded-3xl shadow-2xl">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white border border-slate-200/80 p-6 sm:p-8 rounded-2xl shadow-xs">
         <div className="space-y-1.5">
           <div className="flex items-center space-x-2">
-            <span className="px-2.5 py-0.5 rounded-full bg-[#1C5496] text-[#FFD84A] font-mono text-[10px] font-bold uppercase tracking-wider">
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-mono text-[10px] font-bold uppercase tracking-wider">
               CMS Module · Live Hero Showcase
             </span>
             <span className="text-slate-400 text-xs font-sans">
               {slides.length} Hero Slides Configured
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-serif font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#191d28] tracking-tight">
             Hero Slider & Homepage Showcase
           </h1>
-          <p className="text-xs sm:text-sm text-slate-400 font-sans max-w-2xl leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-500 font-medium max-w-2xl leading-relaxed">
             Manage public homepage cinematic photography, headline typography, institutional badges, and interactive call-to-action cards. Changes are published immediately to the live site.
           </p>
         </div>
@@ -198,7 +198,7 @@ export default function AdminSliderManagerPage() {
             href="/"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs inline-flex items-center space-x-1.5 transition-colors"
+            className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs inline-flex items-center space-x-1.5 transition-colors"
           >
             <ExternalLink className="w-3.5 h-3.5" />
             <span>View Live Site</span>
@@ -206,7 +206,7 @@ export default function AdminSliderManagerPage() {
 
           <button
             onClick={handleOpenAdd}
-            className="btn-gold px-5 py-2.5 rounded-xl text-xs font-bold shadow-lg inline-flex items-center space-x-2 cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all"
+            className="bg-[#18191f] hover:bg-black text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-xs inline-flex items-center space-x-2 cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all"
           >
             <Plus className="w-4 h-4" />
             <span>+ Add New Slide</span>
@@ -216,46 +216,46 @@ export default function AdminSliderManagerPage() {
 
       {/* 2. STATS ROW */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div className="bg-[#0D1B2A] border border-slate-800 p-4 rounded-2xl space-y-1">
+        <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
           <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">Total Slides</span>
-          <p className="text-2xl sm:text-3xl font-bold text-white font-mono">{slides.length}</p>
+          <p className="text-2xl sm:text-3xl font-extrabold text-[#191d28] font-mono">{slides.length}</p>
         </div>
 
-        <div className="bg-[#0D1B2A] border border-slate-800 p-4 rounded-2xl space-y-1">
-          <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-wider block">Live on Homepage</span>
-          <p className="text-2xl sm:text-3xl font-bold text-emerald-400 font-mono">
+        <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
+          <span className="text-[10px] font-mono text-emerald-600 uppercase tracking-wider block">Live on Homepage</span>
+          <p className="text-2xl sm:text-3xl font-extrabold text-emerald-600 font-mono">
             {slides.filter(s => (s.status || 'published') === 'published').length}
           </p>
         </div>
 
-        <div className="bg-[#0D1B2A] border border-slate-800 p-4 rounded-2xl space-y-1">
-          <span className="text-[10px] font-mono text-[#FFD84A] uppercase tracking-wider block">Drafts (Hidden)</span>
-          <p className="text-2xl sm:text-3xl font-bold text-[#FFD84A] font-mono">
+        <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
+          <span className="text-[10px] font-mono text-amber-600 uppercase tracking-wider block">Drafts (Hidden)</span>
+          <p className="text-2xl sm:text-3xl font-extrabold text-amber-600 font-mono">
             {slides.filter(s => s.status === 'draft').length}
           </p>
         </div>
 
-        <div className="bg-[#0D1B2A] border border-slate-800 p-4 rounded-2xl space-y-1">
-          <span className="text-[10px] font-mono text-indigo-400 uppercase tracking-wider block">Rotation Cycle</span>
-          <p className="text-2xl sm:text-3xl font-bold text-indigo-400 font-mono">7s</p>
+        <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
+          <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block">Rotation Cycle</span>
+          <p className="text-2xl sm:text-3xl font-extrabold text-[#191d28] font-mono">7s</p>
         </div>
       </div>
 
       {/* 3. SLIDES MASTER TABLE */}
-      <div className="bg-[#0D1B2A] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
-        <div className="p-4 bg-[#08121E] border-b border-slate-800 flex items-center justify-between">
+      <div className="bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-xs">
+        <div className="p-4 bg-slate-50/80 border-b border-slate-200/80 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <Sliders className="w-4 h-4 text-[#FFD84A]" />
-            <h3 className="font-serif font-bold text-sm text-white">Active Homepage Slider Queue</h3>
+            <Sliders className="w-4 h-4 text-slate-700" />
+            <h3 className="font-bold text-sm text-[#191d28]">Active Homepage Slider Queue</h3>
           </div>
-          <span className="text-xs text-slate-400 font-mono">
+          <span className="text-xs text-slate-500 font-mono">
             Order in queue matches rotation sequence
           </span>
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs text-slate-300">
-            <thead className="bg-[#08121E]/60 text-slate-400 uppercase font-mono text-[10px] tracking-wider border-b border-slate-800">
+          <table className="w-full text-left text-xs text-slate-600">
+            <thead className="bg-slate-50/80 text-slate-500 uppercase font-mono text-[10px] tracking-wider border-b border-slate-200/80">
               <tr>
                 <th className="py-3.5 px-4 w-16 text-center">Order</th>
                 <th className="py-3.5 px-4 w-28">Preview</th>
@@ -266,19 +266,19 @@ export default function AdminSliderManagerPage() {
                 <th className="py-3.5 px-4 text-right min-w-[160px]">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60 font-sans">
+            <tbody className="divide-y divide-slate-100 font-sans">
               {slides.map((s, idx) => (
-                <tr key={s.id || idx} className="hover:bg-slate-800/40 transition-colors group">
+                <tr key={s.id || idx} className="hover:bg-slate-50/70 transition-colors group">
                   
                   {/* Order & Reorder Arrows */}
                   <td className="py-3.5 px-4 text-center">
-                    <div className="flex items-center justify-center space-x-1 font-mono font-bold text-slate-400">
+                    <div className="flex items-center justify-center space-x-1 font-mono font-bold text-slate-500">
                       <span>#{idx + 1}</span>
                       <div className="flex flex-col ml-1">
                         <button
                           disabled={idx === 0}
                           onClick={() => handleMove(idx, -1)}
-                          className="p-0.5 text-slate-500 hover:text-white disabled:opacity-20 cursor-pointer"
+                          className="p-0.5 text-slate-400 hover:text-slate-900 disabled:opacity-20 cursor-pointer"
                           title="Move Up in Queue"
                         >
                           <ArrowUp className="w-3 h-3" />
@@ -286,7 +286,7 @@ export default function AdminSliderManagerPage() {
                         <button
                           disabled={idx === slides.length - 1}
                           onClick={() => handleMove(idx, 1)}
-                          className="p-0.5 text-slate-500 hover:text-white disabled:opacity-20 cursor-pointer"
+                          className="p-0.5 text-slate-400 hover:text-slate-900 disabled:opacity-20 cursor-pointer"
                           title="Move Down in Queue"
                         >
                           <ArrowDown className="w-3 h-3" />
@@ -297,7 +297,7 @@ export default function AdminSliderManagerPage() {
 
                   {/* Thumbnail */}
                   <td className="py-3.5 px-4">
-                    <div className="w-20 h-12 rounded-lg bg-slate-900 overflow-hidden border border-slate-700 relative shrink-0">
+                    <div className="w-20 h-12 rounded-lg bg-slate-100 overflow-hidden border border-slate-200 relative shrink-0">
                       <img
                         src={s.image || '/media/heritage/st_philos_heritage_palace.jpg'}
                         alt={s.title}
@@ -313,11 +313,11 @@ export default function AdminSliderManagerPage() {
                   {/* Headline & Subtitle */}
                   <td className="py-3.5 px-4">
                     <div className="space-y-0.5 max-w-md">
-                      <span className="font-bold text-white group-hover:text-[#FFD84A] transition-colors block text-sm">
+                      <span className="font-bold text-[#191d28] group-hover:text-slate-900 transition-colors block text-sm">
                         {s.title}
                       </span>
                       {s.subtitle && (
-                        <p className="text-[11px] text-[#F0D98C] truncate font-serif">
+                        <p className="text-[11px] text-slate-500 truncate">
                           {s.subtitle}
                         </p>
                       )}
@@ -331,7 +331,7 @@ export default function AdminSliderManagerPage() {
 
                   {/* Category Badge */}
                   <td className="py-3.5 px-4">
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold font-mono uppercase bg-[#1C5496]/20 text-[#FFD84A] border border-[#1C5496]/40 inline-block">
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold font-mono uppercase bg-slate-100 text-slate-700 border border-slate-200 inline-block">
                       {s.category || 'EXCELLENCE'}
                     </span>
                   </td>
@@ -339,8 +339,8 @@ export default function AdminSliderManagerPage() {
                   {/* CTA */}
                   <td className="py-3.5 px-4 font-mono text-[11px]">
                     <div className="space-y-0.5">
-                      <span className="text-white font-bold">{s.ctaText || 'Explore'}</span>
-                      <span className="text-slate-500 block truncate max-w-[120px]">{s.ctaLink || '/academics'}</span>
+                      <span className="text-slate-800 font-bold">{s.ctaText || 'Explore'}</span>
+                      <span className="text-slate-400 block truncate max-w-[120px]">{s.ctaLink || '/academics'}</span>
                     </div>
                   </td>
 
@@ -350,8 +350,8 @@ export default function AdminSliderManagerPage() {
                       onClick={() => handleToggleStatus(s)}
                       className={`px-2.5 py-1 rounded-full text-[10px] font-bold font-mono uppercase border cursor-pointer transition-colors ${
                         (s.status || 'published') === 'published'
-                          ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20 hover:bg-emerald-500/20'
-                          : 'bg-amber-500/10 text-amber-400 border-amber-500/20 hover:bg-amber-500/20'
+                          ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
+                          : 'bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-100'
                       }`}
                       title="Click to toggle publish/draft"
                     >
@@ -366,7 +366,7 @@ export default function AdminSliderManagerPage() {
                         href="/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-[#FFD84A] transition-colors"
+                        className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-colors"
                         title="View Live on Homepage"
                       >
                         <Eye className="w-3.5 h-3.5" />
@@ -374,7 +374,7 @@ export default function AdminSliderManagerPage() {
 
                       <button
                         onClick={() => handleOpenEdit(s)}
-                        className="p-1.5 rounded-lg bg-slate-800 hover:bg-[#1C5496] text-slate-400 hover:text-white transition-colors cursor-pointer"
+                        className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-colors cursor-pointer"
                         title="Edit Slide"
                       >
                         <Edit className="w-3.5 h-3.5" />
@@ -382,7 +382,7 @@ export default function AdminSliderManagerPage() {
 
                       <button
                         onClick={() => handleDelete(s.id, s.title)}
-                        className="p-1.5 rounded-lg bg-slate-800 hover:bg-rose-600 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                        className="p-1.5 rounded-lg bg-slate-100 hover:bg-rose-50 text-slate-600 hover:text-rose-600 transition-colors cursor-pointer"
                         title="Delete Slide"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -399,22 +399,22 @@ export default function AdminSliderManagerPage() {
 
       {/* ================= MODAL: ADD / EDIT SLIDE ================= */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 animate-fadeIn overflow-y-auto">
-          <div className="bg-[#0D1B2A] border border-slate-700 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-6 max-h-[92vh] overflow-y-auto my-auto text-slate-200">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn overflow-y-auto">
+          <div className="bg-white border border-slate-200 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-6 max-h-[92vh] overflow-y-auto my-auto text-slate-800">
             
-            <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <div className="space-y-1">
-                <span className="text-[10px] font-mono text-[#FFD84A] uppercase tracking-wider block">
+                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block">
                   Metronic Hero Slider Studio
                 </span>
-                <h3 className="font-serif font-bold text-2xl text-white">
+                <h3 className="font-extrabold text-2xl text-[#191d28]">
                   {editingSlide ? `Edit Slide: ${editingSlide.title}` : 'Publish New Hero Slide'}
                 </h3>
               </div>
 
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -424,14 +424,14 @@ export default function AdminSliderManagerPage() {
               
               {/* Category / Badge */}
               <div className="space-y-1.5">
-                <label className="text-slate-300 font-bold block">Slide Category / Badge Text *</label>
+                <label className="text-slate-700 font-bold block">Slide Category / Badge Text *</label>
                 <input
                   type="text"
                   required
                   placeholder="e.g. ESTABLISHED 1946 · AUTONOMOUS MYSURU"
                   value={formData.category}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white font-mono focus:outline-none focus:border-[#1C5496]"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-mono focus:outline-none focus:border-slate-900 focus:bg-white"
                 />
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {PRESET_BADGES.map(badge => (
@@ -439,7 +439,7 @@ export default function AdminSliderManagerPage() {
                       type="button"
                       key={badge}
                       onClick={() => setFormData({ ...formData, category: badge })}
-                      className="px-2 py-0.5 rounded-md bg-slate-800 hover:bg-slate-700 text-[10px] font-mono text-slate-300 cursor-pointer"
+                      className="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-slate-200 text-[10px] font-mono text-slate-600 cursor-pointer"
                     >
                       {badge}
                     </button>
@@ -449,50 +449,50 @@ export default function AdminSliderManagerPage() {
 
               {/* Main Headline */}
               <div className="space-y-1.5">
-                <label className="text-slate-300 font-bold block">Slide Main Headline *</label>
+                <label className="text-slate-700 font-bold block">Slide Main Headline *</label>
                 <input
                   type="text"
                   required
                   placeholder="e.g. Legacy of Academic Excellence in Mysuru"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  className="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white text-sm font-serif font-bold focus:outline-none focus:border-[#1C5496]"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm font-bold focus:outline-none focus:border-slate-900 focus:bg-white"
                 />
               </div>
 
               {/* Subtitle / Motto */}
               <div className="space-y-1.5">
-                <label className="text-slate-300 font-bold block">Slide Subtitle / Secondary Motto</label>
+                <label className="text-slate-700 font-bold block">Slide Subtitle / Secondary Motto</label>
                 <input
                   type="text"
                   placeholder="e.g. St. Philomena's College (Autonomous), Mysuru"
                   value={formData.subtitle}
                   onChange={(e) => setFormData({ ...formData, subtitle: e.target.value })}
-                  className="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-[#1C5496]"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-slate-900 focus:bg-white"
                 />
               </div>
 
               {/* Description for Frosted Glass Card */}
               <div className="space-y-1.5">
-                <label className="text-slate-300 font-bold block">Highlight Card Summary / Description</label>
+                <label className="text-slate-700 font-bold block">Highlight Card Summary / Description</label>
                 <textarea
                   rows={3}
                   placeholder="Brief descriptive highlight shown in the floating glass card on the homepage..."
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  className="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-[#1C5496]"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-slate-900 focus:bg-white"
                 />
               </div>
 
               {/* Background Media URL */}
               <div className="space-y-1.5">
-                <label className="text-slate-300 font-bold block">Hero Background Image URL</label>
+                <label className="text-slate-700 font-bold block">Hero Background Image URL</label>
                 <input
                   type="text"
                   placeholder="/media/heritage/st_philos_heritage_palace.jpg"
                   value={formData.image}
                   onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                  className="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white font-mono focus:outline-none focus:border-[#1C5496]"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-mono focus:outline-none focus:border-slate-900 focus:bg-white"
                 />
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {PRESET_IMAGES.map(img => (
@@ -501,7 +501,7 @@ export default function AdminSliderManagerPage() {
                       key={img.url}
                       onClick={() => setFormData({ ...formData, image: img.url })}
                       className={`px-2 py-0.5 rounded-md text-[10px] font-mono cursor-pointer transition-colors ${
-                        formData.image === img.url ? 'bg-[#1C5496] text-white' : 'bg-slate-800 text-slate-400 hover:text-white'
+                        formData.image === img.url ? 'bg-[#18191f] text-white' : 'bg-slate-100 text-slate-600 hover:text-slate-900'
                       }`}
                     >
                       {img.label}
@@ -513,24 +513,24 @@ export default function AdminSliderManagerPage() {
               {/* CTA Row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="text-slate-300 font-bold block">CTA Button Label</label>
+                  <label className="text-slate-700 font-bold block">CTA Button Label</label>
                   <input
                     type="text"
                     placeholder="e.g. Explore Academics"
                     value={formData.ctaText}
                     onChange={(e) => setFormData({ ...formData, ctaText: e.target.value })}
-                    className="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-[#1C5496]"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-slate-900 focus:bg-white"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-slate-300 font-bold block">CTA Target Link</label>
+                  <label className="text-slate-700 font-bold block">CTA Target Link</label>
                   <input
                     type="text"
                     placeholder="e.g. /academics"
                     value={formData.ctaLink}
                     onChange={(e) => setFormData({ ...formData, ctaLink: e.target.value })}
-                    className="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white font-mono focus:outline-none focus:border-[#1C5496]"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-mono focus:outline-none focus:border-slate-900 focus:bg-white"
                   />
                 </div>
               </div>
@@ -538,11 +538,11 @@ export default function AdminSliderManagerPage() {
               {/* Status & Priority Row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="text-slate-300 font-bold block">Publication Status</label>
+                  <label className="text-slate-700 font-bold block">Publication Status</label>
                   <select
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                    className="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-[#1C5496]"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-slate-900 focus:bg-white"
                   >
                     <option value="published">Published (Live on Homepage)</option>
                     <option value="draft">Draft (Hidden)</option>
@@ -550,30 +550,30 @@ export default function AdminSliderManagerPage() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-slate-300 font-bold block">Display Priority (1 = First Slide)</label>
+                  <label className="text-slate-700 font-bold block">Display Priority (1 = First Slide)</label>
                   <input
                     type="number"
                     min="1"
                     value={formData.priority}
                     onChange={(e) => setFormData({ ...formData, priority: parseInt(e.target.value, 10) || 1 })}
-                    className="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white font-mono focus:outline-none focus:border-[#1C5496]"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-mono focus:outline-none focus:border-slate-900 focus:bg-white"
                   />
                 </div>
               </div>
 
               {/* FOOTER BUTTONS */}
-              <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold cursor-pointer transition-colors"
+                  className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold cursor-pointer transition-colors"
                 >
                   Cancel
                 </button>
 
                 <button
                   type="submit"
-                  className="btn-gold px-6 py-2.5 rounded-xl font-bold shadow-md cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center space-x-1.5"
+                  className="bg-[#18191f] hover:bg-black text-white px-6 py-2.5 rounded-xl font-bold shadow-xs cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center space-x-1.5"
                 >
                   <Plus className="w-4 h-4" />
                   <span>{editingSlide ? 'Update & Publish Slide' : 'Publish to Live Homepage'}</span>

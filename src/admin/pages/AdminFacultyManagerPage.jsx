@@ -228,30 +228,30 @@ export default function AdminFacultyManagerPage() {
   ])];
 
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-6 animate-fadeIn pb-12">
       
       {/* 1. TOP HEADER & METRICS */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#08121E] border border-slate-800 p-6 rounded-2xl shadow-xl">
-        <div className="space-y-1">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/80 p-6 sm:p-8 rounded-2xl shadow-xs">
+        <div className="space-y-1.5">
           <div className="flex items-center space-x-2">
-            <span className="px-2.5 py-0.5 rounded-full bg-[#1C5496] text-[#FFD84A] font-mono text-[10px] font-bold uppercase tracking-wider">
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-mono text-[10px] font-bold uppercase tracking-wider">
               Server Authoritative CMS
             </span>
-            <span className="text-slate-400 text-xs font-mono">MySQL / Laravel API Synced</span>
+            <span className="text-slate-500 text-xs font-mono">MySQL / Laravel API Synced</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-serif font-extrabold text-white">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#191d28] tracking-tight">
             Faculty Directory Manager
           </h1>
-          <p className="text-xs sm:text-sm text-slate-400 font-sans">
+          <p className="text-xs sm:text-sm text-slate-500 font-medium max-w-2xl leading-relaxed">
             Add, update, transfer departments, edit academic CVs, and publish faculty profiles with instant server persistence.
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 shrink-0">
           <button
             onClick={loadData}
             disabled={loading}
-            className="p-3 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-bold inline-flex items-center space-x-2 cursor-pointer transition-colors"
+            className="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold inline-flex items-center space-x-2 cursor-pointer transition-colors shadow-xs"
             title="Reload from server"
           >
             <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
@@ -259,7 +259,7 @@ export default function AdminFacultyManagerPage() {
 
           <button
             onClick={handleOpenAdd}
-            className="btn-gold px-5 py-3 rounded-xl text-xs font-bold shadow-lg inline-flex items-center space-x-2 shrink-0 cursor-pointer"
+            className="bg-[#18191f] hover:bg-black text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-xs inline-flex items-center space-x-2 shrink-0 cursor-pointer transition-all"
           >
             <Plus className="w-4 h-4" />
             <span>Add Faculty Member</span>
@@ -269,19 +269,19 @@ export default function AdminFacultyManagerPage() {
 
       {/* Notifications */}
       {actionSuccess && (
-        <div className="bg-emerald-950/80 border border-emerald-800 text-emerald-300 p-4 rounded-xl text-xs font-bold flex items-center space-x-2">
-          <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+        <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-4 rounded-xl text-xs font-bold flex items-center space-x-2 animate-fadeIn">
+          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
           <span>{actionSuccess}</span>
         </div>
       )}
 
       {error && (
-        <div className="bg-rose-950/80 border border-rose-800 text-rose-300 p-4 rounded-xl text-xs font-bold flex items-center justify-between">
+        <div className="bg-rose-50 border border-rose-200 text-rose-800 p-4 rounded-xl text-xs font-bold flex items-center justify-between animate-fadeIn">
           <div className="flex items-center space-x-2">
-            <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
+            <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
             <span>{error}</span>
           </div>
-          <button onClick={() => setError(null)} className="text-rose-400 hover:text-white">
+          <button onClick={() => setError(null)} className="text-rose-600 hover:text-rose-900 cursor-pointer">
             <X className="w-4 h-4" />
           </button>
         </div>
@@ -289,51 +289,51 @@ export default function AdminFacultyManagerPage() {
 
       {/* 2. STATS OVERVIEW */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div className="bg-[#0D1B2A] border border-slate-800 p-4 rounded-xl space-y-1">
-          <span className="text-[11px] font-mono text-slate-400 uppercase">Authoritative Roster</span>
-          <p className="text-2xl font-bold text-white">{faculty.length}</p>
+        <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
+          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">Authoritative Roster</span>
+          <p className="text-2xl sm:text-3xl font-extrabold text-[#191d28] font-mono">{faculty.length}</p>
         </div>
-        <div className="bg-[#0D1B2A] border border-slate-800 p-4 rounded-xl space-y-1">
-          <span className="text-[11px] font-mono text-emerald-400 uppercase">Verified Records</span>
-          <p className="text-2xl font-bold text-emerald-400">
+        <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
+          <span className="text-[10px] font-mono text-emerald-600 uppercase tracking-wider block">Verified Records</span>
+          <p className="text-2xl sm:text-3xl font-extrabold text-emerald-600 font-mono">
             {faculty.filter(f => f.source_verified !== false).length}
           </p>
         </div>
-        <div className="bg-[#0D1B2A] border border-slate-800 p-4 rounded-xl space-y-1">
-          <span className="text-[11px] font-mono text-amber-400 uppercase">With Profiles</span>
-          <p className="text-2xl font-bold text-amber-400">
+        <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
+          <span className="text-[10px] font-mono text-amber-600 uppercase tracking-wider block">With Profiles</span>
+          <p className="text-2xl sm:text-3xl font-extrabold text-amber-600 font-mono">
             {faculty.filter(f => f.profile && f.profile.trim() !== '').length}
           </p>
         </div>
-        <div className="bg-[#0D1B2A] border border-slate-800 p-4 rounded-xl space-y-1">
-          <span className="text-[11px] font-mono text-blue-400 uppercase">Active Departments</span>
-          <p className="text-2xl font-bold text-blue-400">{deptOptions.length}</p>
+        <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
+          <span className="text-[10px] font-mono text-blue-600 uppercase tracking-wider block">Active Departments</span>
+          <p className="text-2xl sm:text-3xl font-extrabold text-blue-600 font-mono">{deptOptions.length}</p>
         </div>
       </div>
 
       {/* 3. FILTERS & SEARCH TOOLBAR */}
-      <div className="bg-[#0D1B2A] border border-slate-800 p-4 rounded-xl flex flex-col md:flex-row gap-4 justify-between items-center">
+      <div className="bg-white border border-slate-200/80 p-4 rounded-2xl flex flex-col md:flex-row gap-4 justify-between items-center shadow-xs">
         
         {/* Search Input */}
         <div className="relative w-full md:w-80">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
           <input
             type="text"
             placeholder="Search by name, designation, dept..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 bg-slate-900 border border-slate-700 rounded-lg text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#1C5496]"
+            className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200/80 rounded-xl text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-slate-900"
           />
         </div>
 
         {/* Filter Dropdowns */}
         <div className="flex flex-wrap gap-3 items-center w-full md:w-auto">
-          <div className="flex items-center space-x-1 text-xs text-slate-400">
+          <div className="flex items-center space-x-1 text-xs text-slate-500">
             <Building2 className="w-3.5 h-3.5" />
             <select
               value={selectedDeptFilter}
               onChange={(e) => setSelectedDeptFilter(e.target.value)}
-              className="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none"
+              className="bg-slate-50 border border-slate-200/80 rounded-xl px-3 py-1.5 text-xs text-slate-700 font-medium focus:outline-none focus:bg-white cursor-pointer"
             >
               <option value="all">All Departments ({deptOptions.length})</option>
               {deptOptions.map((deptName, idx) => (
@@ -346,16 +346,16 @@ export default function AdminFacultyManagerPage() {
       </div>
 
       {/* 4. FACULTY DATA TABLE */}
-      <div className="bg-[#0D1B2A] border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+      <div className="bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-xs">
         {loading ? (
           <div className="p-12 text-center text-slate-400 space-y-3">
-            <Loader2 className="w-8 h-8 animate-spin mx-auto text-[#FFD84A]" />
+            <Loader2 className="w-8 h-8 animate-spin mx-auto text-blue-600" />
             <p className="text-xs font-mono">Loading authoritative faculty data from MySQL...</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs text-slate-300">
-              <thead className="bg-[#08121E] text-slate-400 uppercase font-mono text-[10px] tracking-wider border-b border-slate-800">
+            <table className="w-full text-left text-xs text-slate-600">
+              <thead className="bg-slate-50/80 text-slate-500 uppercase font-mono text-[10px] tracking-wider border-b border-slate-200/80">
                 <tr>
                   <th className="py-3.5 px-4">Faculty Member</th>
                   <th className="py-3.5 px-4">Department</th>
@@ -364,18 +364,18 @@ export default function AdminFacultyManagerPage() {
                   <th className="py-3.5 px-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60 font-sans">
+              <tbody className="divide-y divide-slate-100 font-sans">
                 {filteredFaculty.slice(0, 100).map((f, idx) => {
                   const photo = f.photo_url || f.photoUrl || f.image || f.photo;
                   const isDeleting = deletingId === f.id;
 
                   return (
-                    <tr key={f.id || idx} className="hover:bg-slate-800/40 transition-colors group">
+                    <tr key={f.id || idx} className="hover:bg-slate-50/70 transition-colors group">
                       
                       {/* Avatar + Name */}
-                      <td className="py-3 px-4">
+                      <td className="py-3.5 px-4">
                         <div className="flex items-center space-x-3">
-                          <div className="w-10 h-10 rounded-full overflow-hidden border border-slate-700 bg-slate-900 shrink-0">
+                          <div className="w-10 h-10 rounded-full overflow-hidden border border-slate-200 bg-slate-100 shrink-0">
                             <img
                               src={photo || '/assets/faculty/default-avatar.jpg'}
                               alt={f.name}
@@ -387,7 +387,7 @@ export default function AdminFacultyManagerPage() {
                             />
                           </div>
                           <div>
-                            <span className="font-bold text-slate-100 block group-hover:text-[#FFD84A] transition-colors">
+                            <span className="font-bold text-slate-900 block group-hover:text-blue-600 transition-colors">
                               {f.name}
                             </span>
                             <span className="text-[11px] text-slate-400 font-mono">
@@ -398,30 +398,30 @@ export default function AdminFacultyManagerPage() {
                       </td>
 
                       {/* Department */}
-                      <td className="py-3 px-4">
-                        <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-slate-800 text-slate-300 border border-slate-700">
+                      <td className="py-3.5 px-4">
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-medium bg-slate-100 text-slate-700 border border-slate-200">
                           {f.department || f.departmentName || 'Unassigned'}
                         </span>
                       </td>
 
                       {/* Designation */}
-                      <td className="py-3 px-4 text-slate-200 font-medium">
+                      <td className="py-3.5 px-4 text-slate-800 font-medium">
                         {f.designation || 'Faculty Member'}
                       </td>
 
                       {/* Qualification */}
-                      <td className="py-3 px-4 text-slate-400">
+                      <td className="py-3.5 px-4 text-slate-500">
                         {f.qualification || '—'}
                       </td>
 
                       {/* Action Buttons */}
-                      <td className="py-3 px-4 text-right">
+                      <td className="py-3.5 px-4 text-right">
                         <div className="flex items-center justify-end space-x-1.5">
                           
                           {/* Edit */}
                           <button
                             onClick={() => handleOpenEdit(f)}
-                            className="p-1.5 rounded-lg bg-slate-800 hover:bg-[#1C5496] text-slate-400 hover:text-white transition-colors cursor-pointer"
+                            className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-blue-600 transition-colors cursor-pointer"
                             title="Edit Faculty Details"
                           >
                             <Edit3 className="w-3.5 h-3.5" />
@@ -431,11 +431,11 @@ export default function AdminFacultyManagerPage() {
                           <button
                             onClick={() => handleDelete(f.id, f.name)}
                             disabled={isDeleting}
-                            className="p-1.5 rounded-lg bg-slate-800 hover:bg-rose-600 text-slate-400 hover:text-white transition-colors cursor-pointer disabled:opacity-50"
+                            className="p-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 transition-colors cursor-pointer disabled:opacity-50"
                             title="Delete Faculty Member"
                           >
                             {isDeleting ? (
-                              <Loader2 className="w-3.5 h-3.5 animate-spin text-rose-400" />
+                              <Loader2 className="w-3.5 h-3.5 animate-spin text-rose-600" />
                             ) : (
                               <Trash2 className="w-3.5 h-3.5" />
                             )}
@@ -452,31 +452,31 @@ export default function AdminFacultyManagerPage() {
           </div>
         )}
 
-        <div className="p-4 bg-[#08121E] border-t border-slate-800 text-xs text-slate-400 flex items-center justify-between">
+        <div className="p-4 bg-slate-50/80 border-t border-slate-200/80 text-xs text-slate-500 flex items-center justify-between">
           <span>Showing {filteredFaculty.length} of {faculty.length} faculty records in MySQL</span>
-          <span className="font-mono text-[11px] text-[#FFD84A]">Laravel Sanctum Authorized</span>
+          <span className="font-mono text-[11px] text-emerald-600 font-bold">Laravel Sanctum Authorized</span>
         </div>
       </div>
 
       {/* ================= MODAL: ADD / EDIT FACULTY ================= */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 animate-fadeIn overflow-y-auto">
-          <div className="bg-[#0D1B2A] border border-slate-700 rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto my-auto text-slate-200">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn overflow-y-auto">
+          <div className="bg-white border border-slate-200 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto my-auto text-slate-800">
             
             {/* Modal Header */}
-            <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <div className="space-y-0.5">
-                <span className="text-[10px] font-mono text-[#FFD84A] uppercase tracking-wider block">
+                <span className="text-[10px] font-mono text-blue-600 uppercase tracking-wider block font-bold">
                   Server-Authoritative Faculty CMS
                 </span>
-                <h3 className="font-serif font-bold text-xl text-white">
+                <h3 className="font-extrabold text-xl text-[#191d28]">
                   {editingFaculty ? `Edit Faculty: ${editingFaculty.name}` : 'Add New Faculty Member'}
                 </h3>
               </div>
 
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
+                className="p-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -490,32 +490,32 @@ export default function AdminFacultyManagerPage() {
                   
                   {/* Name */}
                   <div className="space-y-1 sm:col-span-2">
-                    <label className="text-slate-400 font-bold block">Faculty Full Name *</label>
+                    <label className="text-slate-700 font-bold block">Faculty Full Name *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. Dr. John Doe"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-[#1C5496]"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                     />
                   </div>
 
                   {/* Designation */}
                   <div className="space-y-1">
-                    <label className="text-slate-400 font-bold block">Designation</label>
+                    <label className="text-slate-700 font-bold block">Designation</label>
                     <input
                       type="text"
                       placeholder="e.g. Assistant Professor / Head of Department"
                       value={formData.designation}
                       onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
-                      className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-[#1C5496]"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                     />
                   </div>
 
                   {/* Department */}
                   <div className="space-y-1">
-                    <label className="text-slate-400 font-bold block">
+                    <label className="text-slate-700 font-bold block">
                       Assigned Department
                     </label>
                     <input
@@ -523,45 +523,45 @@ export default function AdminFacultyManagerPage() {
                       placeholder="e.g. Computer Applications (BCA)"
                       value={formData.department}
                       onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                      className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-[#1C5496]"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                     />
                   </div>
 
                   {/* Qualification */}
                   <div className="space-y-1 sm:col-span-2">
-                    <label className="text-slate-400 font-bold block">Academic Qualifications</label>
+                    <label className="text-slate-700 font-bold block">Academic Qualifications</label>
                     <input
                       type="text"
                       placeholder="e.g. M.Sc., M.Phil., Ph.D., NET, KSET"
                       value={formData.qualification}
                       onChange={(e) => setFormData({ ...formData, qualification: e.target.value })}
-                      className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-[#1C5496]"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                     />
                   </div>
 
                   {/* Biography / Profile Statement */}
                   <div className="space-y-1 sm:col-span-2">
-                    <label className="text-slate-400 font-bold block">Biography / Profile Summary</label>
+                    <label className="text-slate-700 font-bold block">Biography / Profile Summary</label>
                     <textarea
                       rows={4}
                       placeholder="Enter biographical overview, specialization, or research interests..."
                       value={formData.profile}
                       onChange={(e) => setFormData({ ...formData, profile: e.target.value })}
-                      className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none font-sans text-xs"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900 font-sans text-xs"
                     />
                   </div>
 
                   {/* Photograph Upload & Path */}
-                  <div className="space-y-2 sm:col-span-2 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+                  <div className="space-y-2 sm:col-span-2 bg-slate-50 p-4 rounded-2xl border border-slate-200">
                     <div className="flex items-center justify-between">
-                      <label className="text-slate-300 font-bold block text-xs">
+                      <label className="text-slate-700 font-bold block text-xs">
                         Faculty Photograph
                       </label>
                       {formData.photoUrl && formData.photoUrl !== '/assets/faculty/default-avatar.jpg' && (
                         <button
                           type="button"
                           onClick={() => setFormData({ ...formData, photoUrl: '/assets/faculty/default-avatar.jpg' })}
-                          className="text-[11px] text-rose-400 hover:text-rose-300 transition-colors cursor-pointer"
+                          className="text-[11px] text-rose-600 hover:text-rose-800 transition-colors cursor-pointer font-medium"
                         >
                           Reset to Default Avatar
                         </button>
@@ -570,7 +570,7 @@ export default function AdminFacultyManagerPage() {
 
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                       {/* Preview Avatar with Badge */}
-                      <div className="relative w-16 h-16 rounded-xl overflow-hidden border-2 border-[#1C5496] bg-slate-800 shrink-0 shadow-md">
+                      <div className="relative w-16 h-16 rounded-2xl overflow-hidden border-2 border-slate-300 bg-white shrink-0 shadow-xs">
                         <img
                           src={formData.photoUrl || '/assets/faculty/default-avatar.jpg'}
                           alt="Faculty Preview"
@@ -582,7 +582,7 @@ export default function AdminFacultyManagerPage() {
                       {/* Upload Button + File Input + Direct URL Input */}
                       <div className="flex-1 w-full space-y-2">
                         <div className="flex items-center gap-2 flex-wrap">
-                          <label className="inline-flex items-center space-x-2 px-3.5 py-2 bg-[#1C5496] hover:bg-[#2563eb] text-white text-xs font-bold rounded-lg cursor-pointer transition-all shadow-xs shrink-0">
+                          <label className="inline-flex items-center space-x-2 px-3.5 py-2 bg-[#18191f] hover:bg-black text-white text-xs font-bold rounded-xl cursor-pointer transition-all shadow-xs shrink-0">
                             <Upload className="w-3.5 h-3.5" />
                             <span>Upload Local Photo</span>
                             <input
@@ -594,12 +594,12 @@ export default function AdminFacultyManagerPage() {
                           </label>
 
                           {uploadStatus === 'uploading' && (
-                            <span className="text-[11px] text-amber-400 flex items-center font-mono animate-pulse">
+                            <span className="text-[11px] text-amber-600 flex items-center font-mono animate-pulse">
                               ⏳ Uploading to Server...
                             </span>
                           )}
                           {uploadStatus === 'server' && (
-                            <span className="text-[11px] text-emerald-400 bg-emerald-950/80 border border-emerald-800 px-2 py-0.5 rounded font-mono font-bold flex items-center">
+                            <span className="text-[11px] text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-lg font-mono font-bold flex items-center">
                               ✓ Stored on Server
                             </span>
                           )}
@@ -610,7 +610,7 @@ export default function AdminFacultyManagerPage() {
                           placeholder="Or enter image URL / local path (e.g. /media/faculty/photo.jpg)"
                           value={formData.photoUrl}
                           onChange={(e) => setFormData({ ...formData, photoUrl: e.target.value })}
-                          className="w-full px-3 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-white text-xs focus:outline-none focus:border-[#1C5496]"
+                          className="w-full px-3 py-2 bg-white border border-slate-200 rounded-xl text-slate-900 text-xs focus:outline-none focus:border-slate-900"
                         />
                       </div>
                     </div>
@@ -618,13 +618,13 @@ export default function AdminFacultyManagerPage() {
 
                   {/* Source URL */}
                   <div className="space-y-1 sm:col-span-2">
-                    <label className="text-slate-400 font-bold block">Source URL / Reference Link</label>
+                    <label className="text-slate-700 font-bold block">Source URL / Reference Link</label>
                     <input
                       type="text"
                       placeholder="https://stphilos.ac.in/faculty-profile-url"
                       value={formData.source_url}
                       onChange={(e) => setFormData({ ...formData, source_url: e.target.value })}
-                      className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none font-mono text-[11px]"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900 font-mono text-[11px]"
                     />
                   </div>
 
@@ -632,12 +632,12 @@ export default function AdminFacultyManagerPage() {
               </div>
 
               {/* Modal Actions */}
-              <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
                   disabled={saving}
-                  className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold cursor-pointer"
+                  className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold cursor-pointer transition-colors"
                 >
                   Cancel
                 </button>
@@ -645,7 +645,7 @@ export default function AdminFacultyManagerPage() {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="btn-gold px-6 py-2.5 rounded-xl font-bold shadow-md cursor-pointer inline-flex items-center space-x-2"
+                  className="bg-[#18191f] hover:bg-black text-white px-6 py-2.5 rounded-xl font-bold shadow-xs cursor-pointer inline-flex items-center space-x-2 transition-all"
                 >
                   {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   <span>{editingFaculty ? 'Save to Server' : 'Create in Database'}</span>

@@ -399,9 +399,9 @@ export default function AdminDepartmentPortalPage() {
     return (
       <div className="p-8 text-center bg-white rounded-2xl border border-slate-200 space-y-4">
         <ShieldAlert className="w-12 h-12 mx-auto text-amber-500" />
-        <h2 className="font-serif font-bold text-xl text-slate-900">Department Not Assigned</h2>
+        <h2 className="text-xl font-extrabold text-[#191d28]">Department Not Assigned</h2>
         <p className="text-xs text-slate-500 max-w-md mx-auto">
-          Your account is not currently mapped to an active academic department. Please contact the administrator at <strong className="text-[#0B1F4E]">admin@stphilos.ac.in</strong>.
+          Your account is not currently mapped to an active academic department. Please contact the administrator at <strong className="text-slate-900">admin@stphilos.ac.in</strong>.
         </p>
       </div>
     );
@@ -411,35 +411,35 @@ export default function AdminDepartmentPortalPage() {
     <div className="space-y-6">
       
       {/* 1. TOP PORTAL BANNER */}
-      <div className="bg-gradient-to-r from-[#061230] via-[#0B1F4E] to-[#102d6c] text-white p-6 sm:p-8 rounded-2xl shadow-md border-b-4 border-[#C9A84C] relative overflow-hidden flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div className="bg-white border border-slate-200/80 p-6 sm:p-8 rounded-2xl shadow-xs flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div className="space-y-1.5 z-10">
           <div className="flex items-center space-x-2.5">
-            <span className="bg-[#C9A84C] text-[#061230] px-3 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider font-mono">
-              HOD DEPARTMENT PORTAL
+            <span className="bg-slate-100 text-slate-700 px-3 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider font-mono">
+              HOD Department Portal
             </span>
-            <span className="text-blue-200 text-xs font-semibold">
+            <span className="text-slate-500 text-xs font-semibold">
               {dept.faculty || 'St. Philomena’s College (Autonomous)'}
             </span>
           </div>
 
-          <h1 className="font-serif font-extrabold text-2xl sm:text-3xl text-white tracking-tight">
+          <h1 className="font-extrabold text-2xl sm:text-3xl text-[#191d28] tracking-tight">
             {dept.name}
           </h1>
 
-          <p className="text-xs text-slate-300 font-sans">
-            Logged in as <strong className="text-[#F0D98C]">{user?.name}</strong> ({user?.email}) · <span className="text-emerald-400 font-bold">Authorized Department Administrator</span>
+          <p className="text-xs sm:text-sm text-slate-500 font-medium">
+            Logged in as <strong className="text-slate-800">{user?.name}</strong> ({user?.email}) · <span className="text-emerald-700 font-bold">Authorized Department Administrator</span>
           </p>
         </div>
 
         {/* Super Admin Switcher or View Public Page Button */}
         <div className="flex items-center space-x-3 z-10">
           {isSuperAdmin && (
-            <div className="flex items-center space-x-2 bg-white/10 p-2 rounded-xl border border-white/20">
-              <span className="text-xs text-slate-300 font-bold">Switch Dept:</span>
+            <div className="flex items-center space-x-2 bg-slate-50 p-2 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600 font-bold">Switch Dept:</span>
               <select
                 value={dept.id}
                 onChange={(e) => setSearchParams({ deptId: e.target.value })}
-                className="bg-[#071A33] text-white text-xs font-semibold p-1.5 rounded-lg border border-slate-600 focus:outline-none"
+                className="bg-white text-slate-800 text-xs font-semibold p-1.5 rounded-lg border border-slate-200 focus:outline-none"
               >
                 {allDepartments.map(d => (
                   <option key={d.id} value={d.id}>{d.shortName || d.name}</option>
@@ -451,7 +451,7 @@ export default function AdminDepartmentPortalPage() {
           <Link
             to={`/departments/${dept.slug || dept.id}`}
             target="_blank"
-            className="btn-gold px-4 py-2 rounded-xl text-xs font-bold inline-flex items-center space-x-1.5 shadow-md"
+            className="bg-[#18191f] hover:bg-black text-white px-5 py-2.5 rounded-xl text-xs font-bold inline-flex items-center space-x-1.5 shadow-xs transition-all"
           >
             <span>View Public Page</span>
             <ExternalLink className="w-3.5 h-3.5" />
@@ -474,13 +474,13 @@ export default function AdminDepartmentPortalPage() {
       )}
 
       {/* 2. NAVIGATION TABS */}
-      <div className="flex border-b border-slate-200 bg-white rounded-xl px-3 pt-2 shadow-2xs gap-2 overflow-x-auto no-scrollbar">
+      <div className="bg-slate-100/80 border border-slate-200/60 p-1.5 rounded-2xl flex items-center gap-1.5 overflow-x-auto text-xs font-sans">
         <button
           onClick={() => handleTabChange('page')}
-          className={`px-4 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer flex items-center space-x-2 ${
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center space-x-2 shrink-0 ${
             activeTab === 'page'
-              ? 'border-[#0B1F4E] text-[#0B1F4E] bg-blue-50/50 rounded-t-lg'
-              : 'border-transparent text-slate-500 hover:text-slate-900'
+              ? 'bg-[#18191f] text-white shadow-xs'
+              : 'text-slate-600 hover:text-slate-900 font-semibold'
           }`}
         >
           <Building2 className="w-4 h-4" />
@@ -489,10 +489,10 @@ export default function AdminDepartmentPortalPage() {
 
         <button
           onClick={() => handleTabChange('syllabus')}
-          className={`px-4 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer flex items-center space-x-2 ${
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center space-x-2 shrink-0 ${
             activeTab === 'syllabus'
-              ? 'border-[#0B1F4E] text-[#0B1F4E] bg-blue-50/50 rounded-t-lg'
-              : 'border-transparent text-slate-500 hover:text-slate-900'
+              ? 'bg-[#18191f] text-white shadow-xs'
+              : 'text-slate-600 hover:text-slate-900 font-semibold'
           }`}
         >
           <BookOpen className="w-4 h-4" />
@@ -501,10 +501,10 @@ export default function AdminDepartmentPortalPage() {
 
         <button
           onClick={() => handleTabChange('faculty')}
-          className={`px-4 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer flex items-center space-x-2 ${
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center space-x-2 shrink-0 ${
             activeTab === 'faculty'
-              ? 'border-[#0B1F4E] text-[#0B1F4E] bg-blue-50/50 rounded-t-lg'
-              : 'border-transparent text-slate-500 hover:text-slate-900'
+              ? 'bg-[#18191f] text-white shadow-xs'
+              : 'text-slate-600 hover:text-slate-900 font-semibold'
           }`}
         >
           <Users className="w-4 h-4" />
@@ -513,10 +513,10 @@ export default function AdminDepartmentPortalPage() {
 
         <button
           onClick={() => handleTabChange('documents')}
-          className={`px-4 py-3 text-xs font-bold transition-all border-b-2 cursor-pointer flex items-center space-x-2 ${
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center space-x-2 shrink-0 ${
             activeTab === 'documents'
-              ? 'border-[#0B1F4E] text-[#0B1F4E] bg-blue-50/50 rounded-t-lg'
-              : 'border-transparent text-slate-500 hover:text-slate-900'
+              ? 'bg-[#18191f] text-white shadow-xs'
+              : 'text-slate-600 hover:text-slate-900 font-semibold'
           }`}
         >
           <FolderGit2 className="w-4 h-4" />
@@ -526,17 +526,17 @@ export default function AdminDepartmentPortalPage() {
 
       {/* 3. TAB 1: DEPARTMENT OVERVIEW & PAGE EDITOR */}
       {activeTab === 'page' && (
-        <form onSubmit={handleSaveDeptInfo} className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
-          <div className="flex items-center justify-between border-b pb-4">
+        <form onSubmit={handleSaveDeptInfo} className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs space-y-6">
+          <div className="flex items-center justify-between border-b border-slate-100 pb-4">
             <div>
-              <h2 className="font-serif font-bold text-lg text-slate-900">Department Public Page Information</h2>
+              <h2 className="font-extrabold text-lg text-[#191d28]">Department Public Page Information</h2>
               <p className="text-xs text-slate-500">Edit the official descriptions, vision, mission, facilities, and contact details for {dept.name}.</p>
             </div>
             <button
               type="submit"
-              className="btn-navy px-5 py-2.5 rounded-xl text-xs font-bold inline-flex items-center space-x-2 shadow-xs cursor-pointer"
+              className="bg-[#18191f] hover:bg-black text-white px-5 py-2.5 rounded-xl text-xs font-bold inline-flex items-center space-x-2 shadow-xs cursor-pointer transition-all"
             >
-              <Save className="w-4 h-4 text-[#FFD84A]" />
+              <Save className="w-4 h-4" />
               <span>Save & Publish Changes</span>
             </button>
           </div>
@@ -611,7 +611,7 @@ export default function AdminDepartmentPortalPage() {
               <button
                 type="button"
                 onClick={handleAddFacility}
-                className="btn-navy px-4 py-2.5 rounded-lg text-xs font-bold inline-flex items-center space-x-1 cursor-pointer shrink-0"
+                className="bg-[#18191f] hover:bg-black text-white px-4 py-2.5 rounded-xl text-xs font-bold inline-flex items-center space-x-1 cursor-pointer shrink-0 transition-all"
               >
                 <Plus className="w-4 h-4" />
                 <span>Add Facility</span>
@@ -691,9 +691,9 @@ export default function AdminDepartmentPortalPage() {
           <div className="pt-4 border-t border-slate-100 flex justify-end">
             <button
               type="submit"
-              className="btn-navy px-6 py-2.5 rounded-xl text-xs font-bold inline-flex items-center space-x-2 shadow-xs cursor-pointer"
+              className="bg-[#18191f] hover:bg-black text-white px-6 py-2.5 rounded-xl text-xs font-bold inline-flex items-center space-x-2 shadow-xs cursor-pointer transition-all"
             >
-              <Save className="w-4 h-4 text-[#FFD84A]" />
+              <Save className="w-4 h-4" />
               <span>Save & Publish Changes</span>
             </button>
           </div>
@@ -702,15 +702,15 @@ export default function AdminDepartmentPortalPage() {
 
       {/* 4. TAB 2: SYLLABUS & CURRICULUM MANAGEMENT */}
       {activeTab === 'syllabus' && (
-        <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-4">
+        <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
             <div>
-              <h2 className="font-serif font-bold text-lg text-slate-900">Department Syllabus & Regulations</h2>
+              <h2 className="font-extrabold text-lg text-[#191d28]">Department Syllabus & Regulations</h2>
               <p className="text-xs text-slate-500">Upload and configure semester syllabus schemes, NEP 2020 course structures, and curriculum PDFs for {dept.name}.</p>
             </div>
             <button
               onClick={handleOpenAddSyllabus}
-              className="btn-navy px-4 py-2 rounded-xl text-xs font-bold inline-flex items-center space-x-1.5 shadow-xs cursor-pointer"
+              className="bg-[#18191f] hover:bg-black text-white px-4 py-2 rounded-xl text-xs font-bold inline-flex items-center space-x-1.5 shadow-xs cursor-pointer transition-all"
             >
               <Plus className="w-4 h-4" />
               <span>Add Syllabus Scheme</span>
@@ -722,7 +722,7 @@ export default function AdminDepartmentPortalPage() {
               <div key={syl.id} className="p-5 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#1C5496] transition-all flex flex-col justify-between space-y-4">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded-md bg-[#0B1F4E] text-[#FFD84A]">
+                    <span className="font-mono text-[10px] font-bold px-2.5 py-0.5 rounded-lg bg-[#18191f] text-white uppercase tracking-wider">
                       {syl.code}
                     </span>
                     <span className="text-[11px] font-mono font-bold text-slate-500">
@@ -730,7 +730,7 @@ export default function AdminDepartmentPortalPage() {
                     </span>
                   </div>
 
-                  <h3 className="font-serif font-bold text-base text-slate-900">{syl.title}</h3>
+                  <h3 className="font-extrabold text-base text-[#191d28]">{syl.title}</h3>
                   <p className="text-xs text-slate-600">{syl.degree}</p>
                   <p className="text-[11px] text-[#1C5496] font-semibold">{syl.regulation}</p>
                 </div>
@@ -779,15 +779,15 @@ export default function AdminDepartmentPortalPage() {
 
       {/* 5. TAB 3: FACULTY ROSTER MANAGEMENT */}
       {activeTab === 'faculty' && (
-        <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-4">
+        <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
             <div>
-              <h2 className="font-serif font-bold text-lg text-slate-900">Department Faculty Members</h2>
+              <h2 className="font-extrabold text-lg text-[#191d28]">Department Faculty Members</h2>
               <p className="text-xs text-slate-500">Manage teaching staff, designations, qualifications, and profile photos for {dept.name}.</p>
             </div>
             <button
               onClick={handleOpenAddFaculty}
-              className="btn-navy px-4 py-2 rounded-xl text-xs font-bold inline-flex items-center space-x-1.5 shadow-xs cursor-pointer"
+              className="bg-[#18191f] hover:bg-black text-white px-4 py-2 rounded-xl text-xs font-bold inline-flex items-center space-x-1.5 shadow-xs cursor-pointer transition-all"
             >
               <Plus className="w-4 h-4" />
               <span>Add Faculty Member</span>
@@ -796,32 +796,32 @@ export default function AdminDepartmentPortalPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {deptFaculty.map((fac) => (
-              <div key={fac.id} className="p-4 rounded-2xl border border-slate-200 bg-slate-50 flex items-start space-x-3.5 justify-between">
+              <div key={fac.id} className="p-4 rounded-2xl border border-slate-200/80 bg-slate-50/80 flex items-start space-x-3.5 justify-between">
                 <div className="flex items-start space-x-3 min-w-0">
                   <img
                     src={fac.photoUrl || fac.image || '/assets/images/faculty/default_faculty.png'}
                     alt={fac.name}
-                    className="w-14 h-14 rounded-xl object-cover object-top shrink-0 border border-slate-300 bg-white"
+                    className="w-14 h-14 rounded-xl object-cover object-top shrink-0 border border-slate-200 bg-white"
                     onError={(e) => { e.target.src = '/assets/images/faculty/default_faculty.png'; }}
                   />
                   <div className="min-w-0 space-y-0.5">
-                    <h4 className="font-serif font-bold text-sm text-slate-900 truncate">{fac.name}</h4>
-                    <p className="text-xs text-[#1C5496] font-semibold truncate">{fac.designation}</p>
-                    <p className="text-[11px] text-slate-500 truncate">{fac.qualification}</p>
+                    <h4 className="font-bold text-sm text-[#191d28] truncate">{fac.name}</h4>
+                    <p className="text-xs text-slate-700 font-semibold truncate">{fac.designation}</p>
+                    <p className="text-[11px] text-slate-400 truncate">{fac.qualification}</p>
                   </div>
                 </div>
 
                 <div className="flex flex-col space-y-1 shrink-0">
                   <button
                     onClick={() => handleOpenEditFaculty(fac)}
-                    className="p-1 text-slate-500 hover:text-[#1C5496] rounded transition-colors"
+                    className="p-1 text-slate-400 hover:text-slate-900 rounded transition-colors cursor-pointer"
                     title="Edit Profile"
                   >
                     <Edit3 className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => handleDeleteFaculty(fac.id, fac.name)}
-                    className="p-1 text-slate-400 hover:text-rose-600 rounded transition-colors"
+                    className="p-1 text-slate-400 hover:text-rose-600 rounded transition-colors cursor-pointer"
                     title="Delete Profile"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -843,15 +843,15 @@ export default function AdminDepartmentPortalPage() {
 
       {/* 6. TAB 4: DEPARTMENT DOCUMENTS & LAB MANUALS */}
       {activeTab === 'documents' && (
-        <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-4">
+        <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
             <div>
-              <h2 className="font-serif font-bold text-lg text-slate-900">Departmental Files & Downloads</h2>
+              <h2 className="font-extrabold text-lg text-[#191d28]">Departmental Files & Downloads</h2>
               <p className="text-xs text-slate-500">Upload lab manuals, project guidelines, student notices, and departmental documents.</p>
             </div>
             <button
               onClick={handleOpenAddDocument}
-              className="btn-navy px-4 py-2 rounded-xl text-xs font-bold inline-flex items-center space-x-1.5 shadow-xs cursor-pointer"
+              className="bg-[#18191f] hover:bg-black text-white px-4 py-2 rounded-xl text-xs font-bold inline-flex items-center space-x-1.5 shadow-xs cursor-pointer transition-all"
             >
               <Upload className="w-4 h-4" />
               <span>Upload Document</span>
@@ -866,7 +866,7 @@ export default function AdminDepartmentPortalPage() {
                     <FileText className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
-                    <h4 className="font-serif font-bold text-sm text-slate-900 truncate">{doc.title}</h4>
+                    <h4 className="font-bold text-sm text-[#191d28] truncate">{doc.title}</h4>
                     <p className="text-xs text-slate-500 font-mono">
                       {doc.category || 'Department Document'} · {doc.year || '2026'} · PDF
                     </p>
@@ -906,13 +906,18 @@ export default function AdminDepartmentPortalPage() {
 
       {/* --- MODAL: SYLLABUS FORM --- */}
       {isSyllabusModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 space-y-6 shadow-2xl border border-slate-200 my-8">
-            <div className="flex items-center justify-between border-b pb-3">
-              <h3 className="font-serif font-bold text-lg text-slate-900">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-fadeIn">
+          <div className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 shadow-2xl border border-slate-200 my-8 text-slate-800">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h3 className="font-extrabold text-xl text-[#191d28]">
                 {editingSyllabus ? 'Edit Syllabus Scheme' : 'Add New Department Syllabus Scheme'}
               </h3>
-              <button onClick={() => setIsSyllabusModalOpen(false)} className="text-slate-400 hover:text-slate-700">✕</button>
+              <button 
+                onClick={() => setIsSyllabusModalOpen(false)} 
+                className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
+              >
+                ✕
+              </button>
             </div>
 
             <form onSubmit={handleSaveSyllabus} className="space-y-4 text-xs">
@@ -925,7 +930,7 @@ export default function AdminDepartmentPortalPage() {
                     value={syllabusForm.code}
                     onChange={(e) => setSyllabusForm({ ...syllabusForm, code: e.target.value })}
                     placeholder="e.g. BCA or PHY-UG"
-                    className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-[#1C5496]"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-semibold focus:outline-none focus:border-slate-900 focus:bg-white"
                   />
                 </div>
                 <div>
@@ -934,7 +939,7 @@ export default function AdminDepartmentPortalPage() {
                     type="number"
                     value={syllabusForm.totalCredits}
                     onChange={(e) => setSyllabusForm({ ...syllabusForm, totalCredits: parseInt(e.target.value) || 144 })}
-                    className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:border-[#1C5496]"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-slate-900 focus:bg-white"
                   />
                 </div>
               </div>
@@ -947,7 +952,7 @@ export default function AdminDepartmentPortalPage() {
                   value={syllabusForm.title}
                   onChange={(e) => setSyllabusForm({ ...syllabusForm, title: e.target.value })}
                   placeholder="e.g. Bachelor of Computer Applications (BCA)"
-                  className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-[#1C5496]"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-semibold focus:outline-none focus:border-slate-900 focus:bg-white"
                 />
               </div>
 
@@ -958,7 +963,7 @@ export default function AdminDepartmentPortalPage() {
                   value={syllabusForm.regulation}
                   onChange={(e) => setSyllabusForm({ ...syllabusForm, regulation: e.target.value })}
                   placeholder="Autonomous NEP 2020 / CBCS"
-                  className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:border-[#1C5496]"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-slate-900 focus:bg-white"
                 />
               </div>
 
@@ -982,17 +987,17 @@ export default function AdminDepartmentPortalPage() {
                 />
               </div>
 
-              <div className="flex justify-end space-x-3 pt-4 border-t">
+              <div className="flex justify-end space-x-3 pt-4 border-t border-slate-100">
                 <button
                   type="button"
                   onClick={() => setIsSyllabusModalOpen(false)}
-                  className="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-bold"
+                  className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold cursor-pointer transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="btn-navy px-5 py-2 rounded-lg font-bold"
+                  className="bg-[#18191f] hover:bg-black text-white px-5 py-2.5 rounded-xl font-bold shadow-xs cursor-pointer transition-all"
                 >
                   Save Syllabus
                 </button>
@@ -1004,13 +1009,18 @@ export default function AdminDepartmentPortalPage() {
 
       {/* --- MODAL: FACULTY FORM --- */}
       {isFacultyModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 space-y-6 shadow-2xl border border-slate-200 my-8">
-            <div className="flex items-center justify-between border-b pb-3">
-              <h3 className="font-serif font-bold text-lg text-slate-900">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-fadeIn">
+          <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-6 shadow-2xl border border-slate-200 my-8 text-slate-800">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h3 className="font-extrabold text-xl text-[#191d28]">
                 {editingFaculty ? 'Edit Faculty Profile' : 'Add Faculty Member'}
               </h3>
-              <button onClick={() => setIsFacultyModalOpen(false)} className="text-slate-400 hover:text-slate-700">✕</button>
+              <button 
+                onClick={() => setIsFacultyModalOpen(false)} 
+                className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
+              >
+                ✕
+              </button>
             </div>
 
             <form onSubmit={handleSaveFaculty} className="space-y-4 text-xs">
@@ -1022,7 +1032,7 @@ export default function AdminDepartmentPortalPage() {
                   value={facultyForm.name}
                   onChange={(e) => setFacultyForm({ ...facultyForm, name: e.target.value })}
                   placeholder="e.g. Dr. John D'Souza"
-                  className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-[#1C5496]"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-semibold focus:outline-none focus:border-slate-900 focus:bg-white"
                 />
               </div>
 
@@ -1032,7 +1042,7 @@ export default function AdminDepartmentPortalPage() {
                   <select
                     value={facultyForm.designation}
                     onChange={(e) => setFacultyForm({ ...facultyForm, designation: e.target.value })}
-                    className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-[#1C5496]"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-semibold focus:outline-none focus:border-slate-900 focus:bg-white"
                   >
                     <option value="Professor & Head">Professor & Head</option>
                     <option value="Associate Professor">Associate Professor</option>
@@ -1050,7 +1060,7 @@ export default function AdminDepartmentPortalPage() {
                     value={facultyForm.qualification}
                     onChange={(e) => setFacultyForm({ ...facultyForm, qualification: e.target.value })}
                     placeholder="M.Sc., Ph.D, K-SET"
-                    className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:border-[#1C5496]"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-slate-900 focus:bg-white"
                   />
                 </div>
               </div>
@@ -1062,7 +1072,7 @@ export default function AdminDepartmentPortalPage() {
                   value={facultyForm.email}
                   onChange={(e) => setFacultyForm({ ...facultyForm, email: e.target.value })}
                   placeholder="faculty@stphilos.ac.in"
-                  className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:border-[#1C5496]"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-slate-900 focus:bg-white"
                 />
               </div>
 
@@ -1089,21 +1099,21 @@ export default function AdminDepartmentPortalPage() {
                   value={facultyForm.profile}
                   onChange={(e) => setFacultyForm({ ...facultyForm, profile: e.target.value })}
                   placeholder="Specialization in Machine Learning, Cloud Computing, and Algorithms..."
-                  className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:border-[#1C5496]"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-slate-900 focus:bg-white"
                 />
               </div>
 
-              <div className="flex justify-end space-x-3 pt-4 border-t">
+              <div className="flex justify-end space-x-3 pt-4 border-t border-slate-100">
                 <button
                   type="button"
                   onClick={() => setIsFacultyModalOpen(false)}
-                  className="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-bold"
+                  className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold cursor-pointer transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="btn-navy px-5 py-2 rounded-lg font-bold"
+                  className="bg-[#18191f] hover:bg-black text-white px-5 py-2.5 rounded-xl font-bold shadow-xs cursor-pointer transition-all"
                 >
                   Save Profile
                 </button>
@@ -1115,11 +1125,16 @@ export default function AdminDepartmentPortalPage() {
 
       {/* --- MODAL: DOCUMENT UPLOAD --- */}
       {isDocModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 space-y-5 shadow-2xl border border-slate-200">
-            <div className="flex items-center justify-between border-b pb-3">
-              <h3 className="font-serif font-bold text-base text-slate-900">Upload Department Document</h3>
-              <button onClick={() => setIsDocModalOpen(false)} className="text-slate-400 hover:text-slate-700">✕</button>
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn">
+          <div className="bg-white rounded-3xl max-w-md w-full p-6 space-y-5 shadow-2xl border border-slate-200 text-slate-800">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h3 className="font-extrabold text-lg text-[#191d28]">Upload Department Document</h3>
+              <button 
+                onClick={() => setIsDocModalOpen(false)} 
+                className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
+              >
+                ✕
+              </button>
             </div>
 
             <form onSubmit={handleSaveDocument} className="space-y-4 text-xs">
@@ -1131,7 +1146,7 @@ export default function AdminDepartmentPortalPage() {
                   value={docForm.title}
                   onChange={(e) => setDocForm({ ...docForm, title: e.target.value })}
                   placeholder="e.g. Data Structures Laboratory Manual 2026"
-                  className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-[#1C5496]"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-semibold focus:outline-none focus:border-slate-900 focus:bg-white"
                 />
               </div>
 
@@ -1141,7 +1156,7 @@ export default function AdminDepartmentPortalPage() {
                   <select
                     value={docForm.category}
                     onChange={(e) => setDocForm({ ...docForm, category: e.target.value })}
-                    className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-[#1C5496]"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-semibold focus:outline-none focus:border-slate-900 focus:bg-white"
                   >
                     <option value="Lab Manual">Lab Manual</option>
                     <option value="Syllabus">Syllabus</option>
@@ -1156,7 +1171,7 @@ export default function AdminDepartmentPortalPage() {
                     type="text"
                     value={docForm.year}
                     onChange={(e) => setDocForm({ ...docForm, year: e.target.value })}
-                    className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:border-[#1C5496]"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-slate-900 focus:bg-white"
                   />
                 </div>
               </div>
@@ -1183,17 +1198,17 @@ export default function AdminDepartmentPortalPage() {
                 />
               </div>
 
-              <div className="flex justify-end space-x-3 pt-3 border-t">
+              <div className="flex justify-end space-x-3 pt-3 border-t border-slate-100">
                 <button
                   type="button"
                   onClick={() => setIsDocModalOpen(false)}
-                  className="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-bold"
+                  className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold cursor-pointer transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="btn-navy px-5 py-2 rounded-lg font-bold"
+                  className="bg-[#18191f] hover:bg-black text-white px-5 py-2.5 rounded-xl font-bold shadow-xs cursor-pointer transition-all"
                 >
                   Save File
                 </button>

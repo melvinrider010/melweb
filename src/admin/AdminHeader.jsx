@@ -34,7 +34,7 @@ export default function AdminHeader({ onToggleMobileMenu }) {
         />
 
         {isHOD && userDepartmentName ? (
-          <div className="hidden sm:flex items-center space-x-2 text-xs font-bold text-[#0B1F4E] bg-amber-50 px-3.5 py-2 rounded-full border border-amber-200/80 shadow-2xs">
+          <div className="hidden sm:flex items-center space-x-2 text-xs font-bold text-slate-800 bg-slate-100 px-3.5 py-2 rounded-full border border-slate-200/80 shadow-xs">
             <Building2 className="w-4 h-4 text-amber-600" />
             <span>Scope: {userDepartmentName}</span>
           </div>

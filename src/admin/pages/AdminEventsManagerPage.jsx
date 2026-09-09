@@ -150,24 +150,26 @@ export default function AdminEventsManagerPage() {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 animate-fadeIn pb-12">
       {/* Header Banner */}
-      <div className="bg-[#0B1F4E] text-white p-8 rounded-2xl shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b-4 border-[#FFD84A]">
-        <div>
-          <span className="text-[#FFD84A] font-bold text-xs uppercase tracking-widest block mb-1">
-            Metronic CMS · Events & Synchronization Engine
-          </span>
-          <h1 className="font-serif font-bold text-2xl sm:text-3xl text-white">
+      <div className="bg-white border border-slate-200/80 p-6 sm:p-8 rounded-2xl shadow-xs flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div className="space-y-1.5">
+          <div className="flex items-center space-x-2">
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-mono text-[10px] font-bold uppercase tracking-wider">
+              Metronic CMS · Events Engine
+            </span>
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#191d28] tracking-tight">
             Campus Events & Sub-Events Manager
           </h1>
-          <p className="text-xs text-slate-200 mt-1">
+          <p className="text-xs sm:text-sm text-slate-500 font-medium max-w-2xl leading-relaxed">
             Query-time date evaluation with automatic real-time Notice Board synchronization.
           </p>
         </div>
 
         <button
           onClick={() => setIsCreateModalOpen(true)}
-          className="btn-gold text-xs px-5 py-2.5 rounded-xl shadow-lg font-bold flex items-center space-x-1.5 cursor-pointer"
+          className="bg-[#18191f] hover:bg-black text-white text-xs px-5 py-2.5 rounded-xl shadow-xs font-bold flex items-center space-x-1.5 cursor-pointer transition-all shrink-0"
         >
           <Plus className="w-4 h-4" />
           <span>Create New Event</span>
@@ -176,18 +178,18 @@ export default function AdminEventsManagerPage() {
 
       {/* Live Feedback Alert */}
       {feedbackMsg && (
-        <div className="bg-emerald-50 border border-emerald-300 text-emerald-900 px-4 py-3 rounded-xl text-xs font-semibold flex items-center space-x-2 animate-fadeIn">
+        <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 px-4 py-3 rounded-xl text-xs font-semibold flex items-center space-x-2 animate-fadeIn">
           <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
           <span>{feedbackMsg}</span>
         </div>
       )}
 
       {/* Controls & Filter Bar */}
-      <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+      <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           
           {/* Status Tabs */}
-          <div className="flex items-center space-x-1.5 p-1 bg-slate-100 rounded-xl shrink-0">
+          <div className="flex items-center space-x-1.5 p-1 bg-slate-100/80 rounded-xl shrink-0">
             {[
               { id: 'upcoming', label: `Upcoming Events (${upcomingEvents.length})` },
               { id: 'archived', label: `Old Events Archive (${pastEvents.length})` },
@@ -198,8 +200,8 @@ export default function AdminEventsManagerPage() {
                 onClick={() => setTab(t.id)}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   tab === t.id
-                    ? 'bg-[#0B1F4E] text-[#F0D98C] shadow-xs'
-                    : 'text-slate-600 hover:text-[#0B1F4E]'
+                    ? 'bg-[#18191f] text-white shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 {t.label}
@@ -216,14 +218,14 @@ export default function AdminEventsManagerPage() {
                 placeholder="Search events..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-8 pr-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-[#1C5496]"
+                className="w-full pl-8 pr-3 py-1.5 bg-slate-50 border border-slate-200/80 rounded-xl text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-slate-900"
               />
             </div>
 
             <select
               value={levelFilter}
               onChange={(e) => setLevelFilter(e.target.value)}
-              className="bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-700 focus:outline-none cursor-pointer"
+              className="bg-slate-50 border border-slate-200/80 rounded-xl px-3 py-1.5 text-xs font-semibold text-slate-700 focus:outline-none focus:bg-white cursor-pointer"
             >
               <option value="all">All Levels</option>
               <option value="ug">UG Only</option>
@@ -234,10 +236,10 @@ export default function AdminEventsManagerPage() {
       </div>
 
       {/* Events Table / Card List */}
-      <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
+      <div className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-xs">
         <table className="w-full text-left text-xs border-collapse">
           <thead>
-            <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase text-[10px] tracking-wider">
+            <tr className="bg-slate-50/80 border-b border-slate-200/80 text-slate-500 font-bold uppercase text-[10px] tracking-wider">
               <th className="p-4 w-12"></th>
               <th className="p-4">Event Details</th>
               <th className="p-4">Category & Level</th>
@@ -256,7 +258,7 @@ export default function AdminEventsManagerPage() {
 
                 return (
                   <React.Fragment key={evt.id}>
-                    <tr className="hover:bg-slate-50/80 transition-colors">
+                    <tr className="hover:bg-slate-50/70 transition-colors">
                       <td className="p-4">
                         {hasSub && (
                           <button
@@ -278,7 +280,7 @@ export default function AdminEventsManagerPage() {
                       </td>
                       <td className="p-4">
                         <div className="space-y-1">
-                          <span className="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded uppercase block w-max">
+                          <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase block w-max">
                             {evt.category}
                           </span>
                           <span className="text-[10px] font-mono text-slate-500 uppercase">
@@ -288,14 +290,14 @@ export default function AdminEventsManagerPage() {
                       </td>
                       <td className="p-4 font-mono font-semibold text-slate-700">
                         <div className="flex items-center space-x-1">
-                          <Calendar className="w-3.5 h-3.5 text-[#C9A84C]" />
+                          <Calendar className="w-3.5 h-3.5 text-amber-500" />
                           <span>{evt.event_date}</span>
                         </div>
                         {evt.end_date && (
                           <div className="text-[10px] text-slate-400">to {evt.end_date}</div>
                         )}
                         <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded mt-1 inline-block ${
-                          isUpcoming ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-600'
+                          isUpcoming ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-slate-100 text-slate-600 border border-slate-200'
                         }`}>
                           {isUpcoming ? 'UPCOMING' : 'ARCHIVED'}
                         </span>
@@ -311,7 +313,7 @@ export default function AdminEventsManagerPage() {
                               setSubEventForm((prev) => ({ ...prev, event_date: evt.event_date }));
                               setIsSubEventModalOpen(true);
                             }}
-                            className="px-2 py-1 bg-amber-50 hover:bg-amber-100 text-[#a88530] border border-amber-200 rounded text-[11px] font-bold flex items-center space-x-1 cursor-pointer"
+                            className="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 rounded-lg text-[11px] font-bold flex items-center space-x-1 cursor-pointer transition-colors"
                             title="Add sub-event"
                           >
                             <Plus className="w-3 h-3" />
@@ -320,7 +322,7 @@ export default function AdminEventsManagerPage() {
                         </div>
                       </td>
                       <td className="p-4">
-                        <span className="bg-blue-50 text-blue-800 border border-blue-200 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase flex items-center w-max">
+                        <span className="bg-blue-50 text-blue-700 border border-blue-200 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase flex items-center w-max">
                           <CheckCircle2 className="w-3 h-3 mr-1 text-blue-600" />
                           <span>AUTO-SYNCED</span>
                         </span>
@@ -328,7 +330,7 @@ export default function AdminEventsManagerPage() {
                       <td className="p-4 text-right">
                         <button
                           onClick={() => handleDeleteEvent(evt.id, evt.title)}
-                          className="p-1.5 hover:bg-red-50 text-slate-400 hover:text-red-600 rounded-lg transition-colors cursor-pointer"
+                          className="p-1.5 hover:bg-rose-50 text-slate-400 hover:text-rose-600 rounded-lg transition-colors cursor-pointer"
                           title="Delete Event"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -339,7 +341,7 @@ export default function AdminEventsManagerPage() {
                     {/* Expandable Sub-Events Drawer in Table */}
                     {hasSub ? (
                       isExpanded && (
-                        <tr className="bg-slate-50/70 border-b border-slate-200">
+                        <tr className="bg-slate-50/70 border-b border-slate-200/80">
                           <td colSpan={7} className="p-4 pl-12">
                             <div className="space-y-2">
                               <span className="text-[10.5px] font-mono font-bold text-slate-500 uppercase">
@@ -349,10 +351,10 @@ export default function AdminEventsManagerPage() {
                                 {evt.subEvents.map((sub) => (
                                   <div
                                     key={sub.id}
-                                    className="bg-white p-3 rounded-lg border border-slate-200 shadow-2xs flex items-start justify-between gap-2"
+                                    className="bg-white p-3 rounded-xl border border-slate-200/80 shadow-xs flex items-start justify-between gap-2"
                                   >
                                     <div>
-                                      <h6 className="font-serif font-bold text-xs text-[#0B1F4E]">{sub.title}</h6>
+                                      <h6 className="font-bold text-xs text-slate-900">{sub.title}</h6>
                                       {sub.description && <p className="text-[11px] text-slate-600">{sub.description}</p>}
                                       <div className="flex items-center space-x-3 text-[10.5px] text-slate-500 font-mono mt-1">
                                         <span>📅 {sub.event_date}</span>
@@ -362,7 +364,7 @@ export default function AdminEventsManagerPage() {
                                     </div>
                                     <button
                                       onClick={() => handleDeleteSubEvent(evt.id, sub.id, sub.title)}
-                                      className="p-1 text-slate-400 hover:text-red-600 rounded cursor-pointer"
+                                      className="p-1 text-slate-400 hover:text-rose-600 rounded cursor-pointer"
                                       title="Delete sub-event"
                                     >
                                       <X className="w-3.5 h-3.5" />
@@ -391,16 +393,16 @@ export default function AdminEventsManagerPage() {
 
       {/* MODAL 1: CREATE NEW EVENT */}
       {isCreateModalOpen && (
-        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 space-y-4 animate-scaleUp">
-            <div className="flex justify-between items-center border-b pb-3">
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-4 animate-scaleUp text-slate-800">
+            <div className="flex justify-between items-center border-b border-slate-100 pb-3">
               <div>
-                <h3 className="font-serif font-bold text-lg text-slate-900">Create New Campus Event</h3>
+                <h3 className="font-extrabold text-xl text-[#191d28]">Create New Campus Event</h3>
                 <p className="text-[11px] text-slate-500">Will automatically create Notice Board circular entry.</p>
               </div>
               <button
                 onClick={() => setIsCreateModalOpen(false)}
-                className="text-slate-400 hover:text-slate-600 cursor-pointer"
+                className="p-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -415,7 +417,7 @@ export default function AdminEventsManagerPage() {
                   placeholder="e.g. National Symposium on Cyber Security"
                   value={eventForm.title}
                   onChange={(e) => setEventForm({ ...eventForm, title: e.target.value })}
-                  className="w-full p-2.5 border border-slate-300 rounded-lg focus:outline-none focus:border-[#1C5496]"
+                  className="w-full p-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                 />
               </div>
 
@@ -427,7 +429,7 @@ export default function AdminEventsManagerPage() {
                     required
                     value={eventForm.event_date}
                     onChange={(e) => setEventForm({ ...eventForm, event_date: e.target.value })}
-                    className="w-full p-2.5 border border-slate-300 rounded-lg focus:outline-none"
+                    className="w-full p-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   />
                 </div>
 
@@ -437,7 +439,7 @@ export default function AdminEventsManagerPage() {
                     type="date"
                     value={eventForm.end_date}
                     onChange={(e) => setEventForm({ ...eventForm, end_date: e.target.value })}
-                    className="w-full p-2.5 border border-slate-300 rounded-lg focus:outline-none"
+                    className="w-full p-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   />
                 </div>
               </div>
@@ -448,7 +450,7 @@ export default function AdminEventsManagerPage() {
                   <select
                     value={eventForm.category}
                     onChange={(e) => setEventForm({ ...eventForm, category: e.target.value })}
-                    className="w-full p-2.5 border border-slate-300 rounded-lg focus:outline-none"
+                    className="w-full p-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   >
                     <option value="Conferences & Seminars">Conferences & Seminars</option>
                     <option value="Cultural & Sports">Cultural & Sports</option>
@@ -463,7 +465,7 @@ export default function AdminEventsManagerPage() {
                   <select
                     value={eventForm.level}
                     onChange={(e) => setEventForm({ ...eventForm, level: e.target.value })}
-                    className="w-full p-2.5 border border-slate-300 rounded-lg focus:outline-none"
+                    className="w-full p-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   >
                     <option value="all">All Programmes</option>
                     <option value="ug">UG Only</option>
@@ -480,7 +482,7 @@ export default function AdminEventsManagerPage() {
                     placeholder="09:30 AM – 04:30 PM"
                     value={eventForm.time_range}
                     onChange={(e) => setEventForm({ ...eventForm, time_range: e.target.value })}
-                    className="w-full p-2.5 border border-slate-300 rounded-lg focus:outline-none"
+                    className="w-full p-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   />
                 </div>
 
@@ -491,7 +493,7 @@ export default function AdminEventsManagerPage() {
                     placeholder="College Auditorium & AV Hall"
                     value={eventForm.location}
                     onChange={(e) => setEventForm({ ...eventForm, location: e.target.value })}
-                    className="w-full p-2.5 border border-slate-300 rounded-lg focus:outline-none"
+                    className="w-full p-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   />
                 </div>
               </div>
@@ -503,21 +505,21 @@ export default function AdminEventsManagerPage() {
                   placeholder="Provide details about keynote speakers, tracks, registration..."
                   value={eventForm.description}
                   onChange={(e) => setEventForm({ ...eventForm, description: e.target.value })}
-                  className="w-full p-2.5 border border-slate-300 rounded-lg focus:outline-none"
+                  className="w-full p-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                 />
               </div>
 
-              <div className="pt-3 border-t flex justify-end space-x-2">
+              <div className="pt-3 border-t border-slate-100 flex justify-end space-x-2">
                 <button
                   type="button"
                   onClick={() => setIsCreateModalOpen(false)}
-                  className="px-4 py-2 border border-slate-300 rounded-lg text-slate-600 font-bold hover:bg-slate-100 cursor-pointer"
+                  className="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-xl text-slate-700 font-bold cursor-pointer transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="btn-gold px-5 py-2 rounded-lg font-bold shadow-md cursor-pointer"
+                  className="bg-[#18191f] hover:bg-black text-white px-5 py-2.5 rounded-xl font-bold shadow-xs cursor-pointer transition-all"
                 >
                   Publish & Sync Notice
                 </button>
@@ -529,18 +531,18 @@ export default function AdminEventsManagerPage() {
 
       {/* MODAL 2: ADD SUB-EVENT */}
       {isSubEventModalOpen && selectedParentEvent && (
-        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 space-y-4 animate-scaleUp">
-            <div className="flex justify-between items-center border-b pb-3">
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-4 animate-scaleUp text-slate-800">
+            <div className="flex justify-between items-center border-b border-slate-100 pb-3">
               <div>
-                <h3 className="font-serif font-bold text-lg text-slate-900">Add Sub-Event / Track</h3>
+                <h3 className="font-extrabold text-xl text-[#191d28]">Add Sub-Event / Track</h3>
                 <p className="text-[11px] text-slate-500">
-                  Parent: <span className="font-bold text-[#1C5496]">{selectedParentEvent.title}</span>
+                  Parent: <span className="font-bold text-blue-600">{selectedParentEvent.title}</span>
                 </p>
               </div>
               <button
                 onClick={() => setIsSubEventModalOpen(false)}
-                className="text-slate-400 hover:text-slate-600 cursor-pointer"
+                className="p-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -555,7 +557,7 @@ export default function AdminEventsManagerPage() {
                   placeholder="e.g. Keynote Address & Valedictory Session"
                   value={subEventForm.title}
                   onChange={(e) => setSubEventForm({ ...subEventForm, title: e.target.value })}
-                  className="w-full p-2.5 border border-slate-300 rounded-lg focus:outline-none focus:border-[#1C5496]"
+                  className="w-full p-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                 />
               </div>
 
@@ -567,7 +569,7 @@ export default function AdminEventsManagerPage() {
                     required
                     value={subEventForm.event_date}
                     onChange={(e) => setSubEventForm({ ...subEventForm, event_date: e.target.value })}
-                    className="w-full p-2.5 border border-slate-300 rounded-lg focus:outline-none"
+                    className="w-full p-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   />
                   <span className="text-[10px] text-slate-400 mt-0.5 block">
                     (If date is in future, parent event re-emerges in Upcoming Events!)
@@ -581,7 +583,7 @@ export default function AdminEventsManagerPage() {
                     placeholder="10:00 AM – 01:00 PM"
                     value={subEventForm.time_range}
                     onChange={(e) => setSubEventForm({ ...subEventForm, time_range: e.target.value })}
-                    className="w-full p-2.5 border border-slate-300 rounded-lg focus:outline-none"
+                    className="w-full p-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   />
                 </div>
               </div>
@@ -593,7 +595,7 @@ export default function AdminEventsManagerPage() {
                   placeholder="College Main Auditorium"
                   value={subEventForm.location}
                   onChange={(e) => setSubEventForm({ ...subEventForm, location: e.target.value })}
-                  className="w-full p-2.5 border border-slate-300 rounded-lg focus:outline-none"
+                  className="w-full p-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                 />
               </div>
 
@@ -604,21 +606,21 @@ export default function AdminEventsManagerPage() {
                   placeholder="Session abstract, guest speakers, reporting details..."
                   value={subEventForm.description}
                   onChange={(e) => setSubEventForm({ ...subEventForm, description: e.target.value })}
-                  className="w-full p-2.5 border border-slate-300 rounded-lg focus:outline-none"
+                  className="w-full p-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                 />
               </div>
 
-              <div className="pt-3 border-t flex justify-end space-x-2">
+              <div className="pt-3 border-t border-slate-100 flex justify-end space-x-2">
                 <button
                   type="button"
                   onClick={() => setIsSubEventModalOpen(false)}
-                  className="px-4 py-2 border border-slate-300 rounded-lg text-slate-600 font-bold hover:bg-slate-100 cursor-pointer"
+                  className="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-xl text-slate-700 font-bold cursor-pointer transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="btn-gold px-5 py-2 rounded-lg font-bold shadow-md cursor-pointer"
+                  className="bg-[#18191f] hover:bg-black text-white px-5 py-2.5 rounded-xl font-bold shadow-xs cursor-pointer transition-all"
                 >
                   Add Sub-Event & Auto-Sync
                 </button>

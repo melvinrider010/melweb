@@ -400,10 +400,10 @@ export default function AdminGalleryManagerPage() {
     <div className="space-y-6 pb-16">
       
       {/* 1. TOP METRONIC CMS HEADER */}
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
-        <div>
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs">
+        <div className="space-y-1.5">
           <div className="flex items-center space-x-2">
-            <span className="text-[11px] font-bold font-mono text-[#1C5496] uppercase tracking-wider bg-blue-50 px-2.5 py-0.5 rounded border border-blue-200">
+            <span className="text-[10px] font-bold font-mono text-slate-700 uppercase tracking-wider bg-slate-100 px-2.5 py-0.5 rounded-full">
               Metronic Media Hub
             </span>
             <span className="text-xs text-slate-400">·</span>
@@ -412,10 +412,10 @@ export default function AdminGalleryManagerPage() {
               1,763 Verified Images Synced
             </span>
           </div>
-          <h1 className="font-serif font-bold text-2xl sm:text-3xl text-slate-900 mt-1">
+          <h1 className="font-extrabold text-2xl sm:text-3xl text-[#191d28] tracking-tight">
             Photo Gallery & Media Asset Manager
           </h1>
-          <p className="text-xs text-slate-600 max-w-2xl mt-1">
+          <p className="text-xs sm:text-sm text-slate-500 font-medium max-w-2xl leading-relaxed">
             Drag & drop new photos, organize event albums, set cover thumbnails, and manage campus media assets.
           </p>
         </div>
@@ -423,7 +423,7 @@ export default function AdminGalleryManagerPage() {
         <div className="flex flex-wrap items-center gap-2.5">
           <button
             onClick={handleResetToDefaults}
-            className="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-colors flex items-center space-x-1.5 cursor-pointer"
+            className="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors flex items-center space-x-1.5 cursor-pointer"
             title="Reset to factory dataset"
           >
             <RefreshCw className="w-3.5 h-3.5" />
@@ -434,7 +434,7 @@ export default function AdminGalleryManagerPage() {
             href="/gallery"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-outline-navy px-4 py-2 rounded-xl text-xs font-bold inline-flex items-center space-x-1.5"
+            className="px-4 py-2 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors inline-flex items-center space-x-1.5"
           >
             <span>Live Gallery</span>
             <ExternalLink className="w-3.5 h-3.5 ml-1" />
@@ -446,7 +446,7 @@ export default function AdminGalleryManagerPage() {
               setCoverPhotoIndex(0);
               setIsCreateAlbumOpen(true);
             }}
-            className="btn-navy px-4 py-2 rounded-xl text-xs font-bold inline-flex items-center space-x-1.5 shadow-xs cursor-pointer"
+            className="bg-[#18191f] hover:bg-black text-white px-5 py-2.5 rounded-xl text-xs font-bold inline-flex items-center space-x-1.5 shadow-xs cursor-pointer transition-all"
           >
             <UploadCloud className="w-4 h-4" />
             <span>Upload & Create Album</span>
@@ -461,7 +461,7 @@ export default function AdminGalleryManagerPage() {
             <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
             <span>{feedback}</span>
           </div>
-          <button onClick={() => setFeedback('')} className="p-1 text-emerald-600 hover:text-emerald-900">
+          <button onClick={() => setFeedback('')} className="p-1 text-emerald-600 hover:text-emerald-900 cursor-pointer">
             <X className="w-4 h-4" />
           </button>
         </div>
@@ -469,24 +469,24 @@ export default function AdminGalleryManagerPage() {
 
       {/* 2. STATS OVERVIEW METRICS */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-          <p className="text-[11px] font-mono font-bold text-slate-500 uppercase">Total Albums</p>
-          <p className="text-2xl font-serif font-extrabold text-[#1C5496] mt-0.5">{totalAlbumsCount}</p>
+        <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
+          <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block">Total Albums</p>
+          <p className="text-2xl sm:text-3xl font-extrabold text-[#191d28] font-mono">{totalAlbumsCount}</p>
           <span className="text-[10px] text-slate-400">Organized event collections</span>
         </div>
-        <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-          <p className="text-[11px] font-mono font-bold text-slate-500 uppercase">Total Photographs</p>
-          <p className="text-2xl font-serif font-extrabold text-[#0B1F4E] mt-0.5">{totalPhotosCount}</p>
+        <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
+          <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block">Total Photographs</p>
+          <p className="text-2xl sm:text-3xl font-extrabold text-[#191d28] font-mono">{totalPhotosCount}</p>
           <span className="text-[10px] text-slate-400">High-resolution campus assets</span>
         </div>
-        <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-          <p className="text-[11px] font-mono font-bold text-slate-500 uppercase">Event Categories</p>
-          <p className="text-2xl font-serif font-extrabold text-[#C9A84C] mt-0.5">5 Streams</p>
+        <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
+          <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block">Event Categories</p>
+          <p className="text-2xl sm:text-3xl font-extrabold text-[#191d28] font-mono">5 Streams</p>
           <span className="text-[10px] text-slate-400">Academics, Sports, Fests</span>
         </div>
-        <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-          <p className="text-[11px] font-mono font-bold text-slate-500 uppercase">Current Filter Match</p>
-          <p className="text-2xl font-serif font-extrabold text-slate-800 mt-0.5">
+        <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
+          <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block">Current Filter Match</p>
+          <p className="text-2xl sm:text-3xl font-extrabold text-emerald-600 font-mono">
             {activeTab === 'albums' ? filteredAlbums.length : filteredAllPhotos.length}
           </p>
           <span className="text-[10px] text-slate-400">{activeTab === 'albums' ? 'Albums' : 'Individual Photos'}</span>
@@ -501,7 +501,7 @@ export default function AdminGalleryManagerPage() {
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
               <button
                 onClick={() => setCurrentAlbum(null)}
-                className="inline-flex items-center text-xs font-bold text-[#1C5496] hover:text-[#0B1F4E] transition-colors cursor-pointer"
+                className="inline-flex items-center text-xs font-bold text-slate-700 hover:text-slate-900 transition-colors cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4 mr-1.5" />
                 <span>Back to All Albums</span>
@@ -531,7 +531,7 @@ export default function AdminGalleryManagerPage() {
                     setAddPhotosList([]);
                     setIsAddPhotosOpen(true);
                   }}
-                  className="btn-navy px-3.5 py-1.5 rounded-lg text-xs font-bold inline-flex items-center space-x-1.5 cursor-pointer"
+                  className="bg-[#18191f] hover:bg-black text-white px-3.5 py-1.5 rounded-xl text-xs font-bold inline-flex items-center space-x-1.5 cursor-pointer transition-all"
                 >
                   <UploadCloud className="w-3.5 h-3.5" />
                   <span>Drop & Upload Photos</span>
@@ -558,24 +558,24 @@ export default function AdminGalleryManagerPage() {
                     e.target.src = '/assets/banner-college.jpg';
                   }}
                 />
-                <span className="absolute bottom-1 right-1 bg-black/80 text-[#F0D98C] text-[9px] font-mono font-bold px-1 rounded">
+                <span className="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] font-mono font-bold px-1 rounded">
                   COVER
                 </span>
               </div>
               
               <div className="space-y-1 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="px-2.5 py-0.5 bg-[#0B1F4E] text-[#F0D98C] font-mono text-[10px] font-bold rounded-md uppercase">
+                  <span className="px-2.5 py-0.5 bg-slate-100 text-slate-700 font-mono text-[10px] font-bold rounded-full uppercase border border-slate-200">
                     {currentAlbum.categoryLabel || currentAlbum.category}
                   </span>
                   <span className="px-2 py-0.5 bg-slate-100 text-slate-700 font-mono text-[10px] font-bold rounded">
                     Year: {currentAlbum.year || '2026'}
                   </span>
-                  <span className="px-2 py-0.5 bg-blue-50 text-[#1C5496] font-mono text-[10px] font-bold rounded border border-blue-200">
+                  <span className="px-2 py-0.5 bg-slate-100 text-slate-800 font-mono text-[10px] font-bold rounded border border-slate-200">
                     {currentAlbum.images?.length || 0} Photographs
                   </span>
                 </div>
-                <h2 className="font-serif font-bold text-xl sm:text-2xl text-slate-900">
+                <h2 className="font-extrabold text-xl sm:text-2xl text-[#191d28]">
                   {currentAlbum.title}
                 </h2>
                 <p className="text-xs text-slate-500 font-mono">
@@ -612,8 +612,8 @@ export default function AdminGalleryManagerPage() {
             onClick={() => addPhotosInputRef.current?.click()}
             className={`p-6 rounded-2xl border-2 border-dashed transition-all text-center cursor-pointer flex flex-col items-center justify-center space-y-2 ${
               isDragging
-                ? 'border-[#1C5496] bg-blue-50/80 scale-[1.01]'
-                : 'border-slate-300 bg-white hover:border-[#1C5496] hover:bg-slate-50/80'
+                ? 'border-slate-800 bg-slate-100 scale-[1.01]'
+                : 'border-slate-300 bg-white hover:border-slate-400 hover:bg-slate-50/80'
             }`}
           >
             <input
@@ -641,12 +641,12 @@ export default function AdminGalleryManagerPage() {
                 }
               }}
             />
-            <div className="w-10 h-10 rounded-full bg-blue-50 text-[#1C5496] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center">
               <UploadCloud className="w-5 h-5" />
             </div>
             <div>
               <p className="text-xs font-bold text-slate-800">
-                Drag & drop photos here or <span className="text-[#1C5496] underline">browse files to upload</span>
+                Drag & drop photos here or <span className="text-slate-900 underline">browse files to upload</span>
               </p>
               <p className="text-[10px] text-slate-500">Supports JPG, PNG, WebP, GIF (Multiple files supported)</p>
             </div>
@@ -655,7 +655,7 @@ export default function AdminGalleryManagerPage() {
           {/* Album Photos Grid */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <h3 className="font-serif font-bold text-lg text-slate-900">
+              <h3 className="font-extrabold text-lg text-[#191d28]">
                 Photographs in this Album ({currentAlbum.images?.length || 0})
               </h3>
               <p className="text-xs text-slate-500">Click any photo to preview, set as cover, or remove.</p>
@@ -664,7 +664,7 @@ export default function AdminGalleryManagerPage() {
             {(!currentAlbum.images || currentAlbum.images.length === 0) ? (
               <div className="bg-white p-12 rounded-2xl border border-dashed border-slate-300 text-center space-y-3">
                 <ImageIcon className="w-12 h-12 text-slate-300 mx-auto" />
-                <h4 className="font-serif font-bold text-base text-slate-800">This album is currently empty</h4>
+                <h4 className="font-bold text-base text-slate-800">This album is currently empty</h4>
                 <p className="text-xs text-slate-500 max-w-sm mx-auto">
                   Drag and drop files above or click the button below to upload photos.
                 </p>
@@ -700,7 +700,7 @@ export default function AdminGalleryManagerPage() {
                             #{String(idx + 1).padStart(3, '0')}
                           </span>
                           {isCover && (
-                            <span className="bg-[#C9A84C] text-[#071A33] font-mono text-[9px] font-extrabold px-1.5 py-0.5 rounded flex items-center shadow-xs">
+                            <span className="bg-[#18191f] text-white font-mono text-[9px] font-extrabold px-1.5 py-0.5 rounded flex items-center shadow-xs">
                               <Star className="w-2.5 h-2.5 mr-0.5 fill-current" />
                               COVER
                             </span>
@@ -723,12 +723,12 @@ export default function AdminGalleryManagerPage() {
                           disabled={isCover}
                           className={`p-1.5 rounded text-[10px] font-bold flex items-center space-x-1 transition-colors ${
                             isCover
-                              ? 'text-[#C9A84C] font-extrabold cursor-default'
-                              : 'text-slate-600 hover:text-[#1C5496] hover:bg-slate-200 cursor-pointer'
+                              ? 'text-slate-900 font-extrabold cursor-default'
+                              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200 cursor-pointer'
                           }`}
                           title={isCover ? 'Current Cover Image' : 'Set as Album Cover'}
                         >
-                          <Star className={`w-3.5 h-3.5 ${isCover ? 'fill-current text-[#C9A84C]' : ''}`} />
+                          <Star className={`w-3.5 h-3.5 ${isCover ? 'fill-current text-slate-900' : ''}`} />
                           <span className="hidden sm:inline">{isCover ? 'Cover' : 'Set Cover'}</span>
                         </button>
 
@@ -761,16 +761,16 @@ export default function AdminGalleryManagerPage() {
         <div className="space-y-6">
           
           {/* Controls Bar: Navigation Tabs, Category Selector & Search */}
-          <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+          <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
             
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 border-b border-slate-100 pb-3">
               {/* Primary View Toggle */}
-              <div className="inline-flex p-1 bg-slate-100 rounded-xl space-x-1 text-xs font-bold font-sans">
+              <div className="inline-flex p-1 bg-slate-100/80 border border-slate-200/60 rounded-2xl space-x-1 text-xs font-bold font-sans">
                 <button
                   onClick={() => setActiveTab('albums')}
-                  className={`px-4 py-2 rounded-lg transition-all cursor-pointer flex items-center space-x-1.5 ${
+                  className={`px-4 py-2 rounded-xl transition-all cursor-pointer flex items-center space-x-1.5 ${
                     activeTab === 'albums'
-                      ? 'bg-[#1C5496] text-white shadow-xs'
+                      ? 'bg-[#18191f] text-white shadow-xs'
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
@@ -779,9 +779,9 @@ export default function AdminGalleryManagerPage() {
                 </button>
                 <button
                   onClick={() => setActiveTab('all_photos')}
-                  className={`px-4 py-2 rounded-lg transition-all cursor-pointer flex items-center space-x-1.5 ${
+                  className={`px-4 py-2 rounded-xl transition-all cursor-pointer flex items-center space-x-1.5 ${
                     activeTab === 'all_photos'
-                      ? 'bg-[#1C5496] text-white shadow-xs'
+                      ? 'bg-[#18191f] text-white shadow-xs'
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
@@ -798,7 +798,7 @@ export default function AdminGalleryManagerPage() {
                   placeholder={activeTab === 'albums' ? 'Search album title, year...' : 'Search photo filenames...'}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-8 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-[#1C5496] focus:bg-white transition-colors"
+                  className="w-full pl-9 pr-8 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-slate-900 focus:bg-white transition-colors"
                 />
                 {searchQuery && (
                   <button
@@ -820,9 +820,9 @@ export default function AdminGalleryManagerPage() {
                     <button
                       key={cat.id}
                       onClick={() => setSelectedCategory(cat.id)}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                      className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                         isActive
-                          ? 'bg-[#0B1F4E] text-[#F0D98C] shadow-2xs'
+                          ? 'bg-[#18191f] text-white shadow-xs'
                           : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
                       }`}
                     >
@@ -856,11 +856,11 @@ export default function AdminGalleryManagerPage() {
               {filteredAlbums.length === 0 ? (
                 <div className="bg-white p-12 rounded-2xl border border-slate-200 text-center space-y-3">
                   <Folder className="w-12 h-12 text-slate-300 mx-auto" />
-                  <h4 className="font-serif font-bold text-base text-slate-800">No photo albums match your search</h4>
+                  <h4 className="font-extrabold text-base text-[#191d28]">No photo albums match your search</h4>
                   <p className="text-xs text-slate-500">Try adjusting your search query or selecting "All Albums".</p>
                   <button
                     onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}
-                    className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold"
+                    className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold cursor-pointer"
                   >
                     Clear Filters
                   </button>
@@ -872,7 +872,7 @@ export default function AdminGalleryManagerPage() {
                     return (
                       <div
                         key={album.id}
-                        className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-lg transition-all group flex flex-col justify-between"
+                        className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-xs hover:shadow-md transition-all group flex flex-col justify-between"
                       >
                         {/* Album Cover Container */}
                         <div 
@@ -894,11 +894,11 @@ export default function AdminGalleryManagerPage() {
 
                           {/* Top Badges */}
                           <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between">
-                            <span className="bg-[#0B1F4E]/90 text-[#F0D98C] text-[10px] font-mono font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-xs border border-[#C9A84C]/30">
+                            <span className="bg-[#18191f]/90 text-white text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-lg uppercase tracking-wider backdrop-blur-xs border border-white/10">
                               {album.categoryLabel || album.category}
                             </span>
                             {album.year && (
-                              <span className="bg-black/60 text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded backdrop-blur-xs">
+                              <span className="bg-black/60 text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded-lg backdrop-blur-xs">
                                 {album.year}
                               </span>
                             )}
@@ -906,11 +906,11 @@ export default function AdminGalleryManagerPage() {
 
                           {/* Bottom Count inside Photo */}
                           <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-white">
-                            <span className="text-[11px] font-mono font-bold flex items-center bg-black/50 px-2 py-0.5 rounded backdrop-blur-xs">
-                              <ImageIcon className="w-3 h-3 mr-1 text-[#F0D98C]" />
+                            <span className="text-[11px] font-mono font-bold flex items-center bg-black/50 px-2 py-0.5 rounded-lg backdrop-blur-xs">
+                              <ImageIcon className="w-3 h-3 mr-1 text-slate-300" />
                               {album.images?.length || album.imageCount || 0} Photos
                             </span>
-                            <span className="text-[10px] text-slate-200 underline group-hover:text-[#F0D98C] transition-colors flex items-center">
+                            <span className="text-[10px] text-slate-200 group-hover:text-white transition-colors flex items-center font-bold">
                               <span>Open</span>
                               <ChevronRight className="w-3 h-3 ml-0.5" />
                             </span>
@@ -922,7 +922,7 @@ export default function AdminGalleryManagerPage() {
                           <div className="space-y-1">
                             <h3 
                               onClick={() => setCurrentAlbum(album)}
-                              className="font-serif font-bold text-base text-slate-900 group-hover:text-[#1C5496] transition-colors line-clamp-2 cursor-pointer leading-snug"
+                              className="font-extrabold text-base text-[#191d28] group-hover:text-slate-900 transition-colors line-clamp-2 cursor-pointer leading-snug"
                             >
                               {album.title}
                             </h3>
@@ -934,7 +934,7 @@ export default function AdminGalleryManagerPage() {
                           <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
                             <button
                               onClick={() => setCurrentAlbum(album)}
-                              className="btn-navy text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center space-x-1 flex-1 justify-center cursor-pointer"
+                              className="bg-[#18191f] hover:bg-black text-white text-xs font-bold px-3 py-1.5 rounded-xl inline-flex items-center space-x-1 flex-1 justify-center cursor-pointer transition-all shadow-xs"
                             >
                               <Eye className="w-3.5 h-3.5" />
                               <span>Manage Photos</span>
@@ -1003,7 +1003,7 @@ export default function AdminGalleryManagerPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-2 flex flex-col justify-end">
                         <p className="text-[10px] text-white font-bold truncate">{photo.albumTitle}</p>
-                        <p className="text-[9px] text-[#F0D98C] font-mono">{photo.year || '2026'}</p>
+                        <p className="text-[9px] text-white/80 font-mono">{photo.year || '2026'}</p>
                       </div>
                     </div>
                   </div>
@@ -1048,7 +1048,7 @@ export default function AdminGalleryManagerPage() {
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => copyPhotoLink(lightboxImage)}
-                  className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-bold flex items-center space-x-1"
+                  className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-bold flex items-center space-x-1 cursor-pointer"
                 >
                   <Copy className="w-3.5 h-3.5" />
                   <span>{copiedUrl === lightboxImage ? 'Copied!' : 'Copy Path'}</span>
@@ -1058,7 +1058,7 @@ export default function AdminGalleryManagerPage() {
                   download="stphilos-photo.jpg"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-gold px-3.5 py-1.5 rounded-lg font-bold flex items-center space-x-1"
+                  className="bg-white hover:bg-slate-100 text-slate-900 px-3.5 py-1.5 rounded-lg font-bold flex items-center space-x-1 cursor-pointer transition-colors"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Download Photo</span>
@@ -1071,16 +1071,16 @@ export default function AdminGalleryManagerPage() {
 
       {/* 6. CREATE NEW ALBUM MODAL (WITH DRAG & DROP + FILE PICKER) */}
       {isCreateAlbumOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn overflow-y-auto">
-          <div className="bg-white rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-slate-200 space-y-4 my-8 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn overflow-y-auto">
+          <div className="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-4 my-8 max-h-[90vh] overflow-y-auto text-slate-800">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <h3 className="font-serif font-bold text-lg text-slate-900 flex items-center space-x-2">
-                <FolderPlus className="w-5 h-5 text-[#1C5496]" />
+              <h3 className="font-extrabold text-xl text-[#191d28] flex items-center space-x-2">
+                <FolderPlus className="w-5 h-5 text-slate-800" />
                 <span>Create New Photo Album</span>
               </h3>
               <button
                 onClick={() => setIsCreateAlbumOpen(false)}
-                className="p-1 rounded text-slate-400 hover:text-slate-700 cursor-pointer"
+                className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1095,7 +1095,7 @@ export default function AdminGalleryManagerPage() {
                   placeholder="e.g. Annual Sports Meet 2026"
                   value={newAlbumForm.title}
                   onChange={(e) => setNewAlbumForm({ ...newAlbumForm, title: e.target.value })}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1C5496]"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-slate-900 focus:bg-white text-slate-900"
                 />
               </div>
 
@@ -1105,7 +1105,7 @@ export default function AdminGalleryManagerPage() {
                   <select
                     value={newAlbumForm.category}
                     onChange={(e) => setNewAlbumForm({ ...newAlbumForm, category: e.target.value })}
-                    className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1C5496]"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-slate-900 focus:bg-white text-slate-900 font-medium"
                   >
                     {categories.filter(c => c.id !== 'all').map(c => (
                       <option key={c.id} value={c.id}>{c.label}</option>
@@ -1120,7 +1120,7 @@ export default function AdminGalleryManagerPage() {
                     placeholder="2026"
                     value={newAlbumForm.year}
                     onChange={(e) => setNewAlbumForm({ ...newAlbumForm, year: e.target.value })}
-                    className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1C5496]"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-slate-900 focus:bg-white text-slate-900"
                   />
                 </div>
               </div>
@@ -1129,7 +1129,7 @@ export default function AdminGalleryManagerPage() {
               <div className="space-y-2">
                 <label className="font-bold text-slate-700 flex items-center justify-between">
                   <span>Upload Album Photographs</span>
-                  <span className="text-[11px] text-[#1C5496] font-semibold">
+                  <span className="text-[11px] text-slate-500 font-semibold">
                     {uploadedFilesList.length} photo(s) selected
                   </span>
                 </label>
@@ -1141,8 +1141,8 @@ export default function AdminGalleryManagerPage() {
                   onClick={() => fileInputRef.current?.click()}
                   className={`p-6 rounded-2xl border-2 border-dashed transition-all text-center cursor-pointer flex flex-col items-center justify-center space-y-2 ${
                     isDragging
-                      ? 'border-[#1C5496] bg-blue-50/80 scale-[1.01]'
-                      : 'border-slate-300 bg-slate-50 hover:border-[#1C5496] hover:bg-blue-50/30'
+                      ? 'border-slate-800 bg-slate-100 scale-[1.01]'
+                      : 'border-slate-300 bg-slate-50 hover:border-slate-400 hover:bg-slate-100'
                   }`}
                 >
                   <input
@@ -1157,12 +1157,12 @@ export default function AdminGalleryManagerPage() {
                       }
                     }}
                   />
-                  <div className="w-12 h-12 rounded-full bg-white shadow-xs border border-slate-200 text-[#1C5496] flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-white shadow-xs border border-slate-200 text-slate-700 flex items-center justify-center">
                     <UploadCloud className="w-6 h-6" />
                   </div>
                   <div>
                     <p className="text-xs font-bold text-slate-800">
-                      Drag and drop photos here, or <span className="text-[#1C5496] underline">browse your files</span>
+                      Drag and drop photos here, or <span className="text-slate-900 underline">browse your files</span>
                     </p>
                     <p className="text-[10px] text-slate-500 mt-0.5">
                       Select multiple images (PNG, JPG, JPEG, WebP, GIF)
@@ -1183,7 +1183,7 @@ export default function AdminGalleryManagerPage() {
                           <div
                             key={idx}
                             className={`relative aspect-square rounded-lg overflow-hidden border-2 bg-slate-900 group ${
-                              isCover ? 'border-[#C9A84C] ring-2 ring-[#C9A84C]/40' : 'border-slate-200'
+                              isCover ? 'border-slate-900 ring-2 ring-slate-900/40' : 'border-slate-200'
                             }`}
                           >
                             <img
@@ -1201,7 +1201,7 @@ export default function AdminGalleryManagerPage() {
                               }}
                               className={`absolute top-1 left-1 p-1 rounded-md text-[9px] font-bold flex items-center ${
                                 isCover
-                                  ? 'bg-[#C9A84C] text-[#071A33] shadow-xs'
+                                  ? 'bg-white text-slate-900 shadow-xs'
                                   : 'bg-black/60 text-white hover:bg-black/80'
                               }`}
                               title={isCover ? 'Cover Photo' : 'Set as Cover'}
@@ -1241,13 +1241,13 @@ export default function AdminGalleryManagerPage() {
                     setIsCreateAlbumOpen(false);
                     setUploadedFilesList([]);
                   }}
-                  className="px-4 py-2 rounded-xl text-slate-600 bg-slate-100 hover:bg-slate-200 font-bold"
+                  className="px-4 py-2 rounded-xl text-slate-700 bg-slate-100 hover:bg-slate-200 font-bold cursor-pointer transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="btn-navy px-5 py-2 rounded-xl font-bold shadow-xs flex items-center space-x-1.5"
+                  className="bg-[#18191f] hover:bg-black text-white px-5 py-2.5 rounded-xl font-bold shadow-xs flex items-center space-x-1.5 cursor-pointer transition-all"
                 >
                   <Upload className="w-3.5 h-3.5" />
                   <span>Save & Publish Album</span>
@@ -1260,16 +1260,16 @@ export default function AdminGalleryManagerPage() {
 
       {/* 7. EDIT ALBUM MODAL */}
       {isEditAlbumOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn">
+          <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-4 text-slate-800">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <h3 className="font-serif font-bold text-lg text-slate-900 flex items-center space-x-2">
-                <Edit3 className="w-5 h-5 text-[#1C5496]" />
+              <h3 className="font-extrabold text-xl text-[#191d28] flex items-center space-x-2">
+                <Edit3 className="w-5 h-5 text-slate-800" />
                 <span>Edit Album Details</span>
               </h3>
               <button
                 onClick={() => setIsEditAlbumOpen(false)}
-                className="p-1 rounded text-slate-400 hover:text-slate-700 cursor-pointer"
+                className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1283,7 +1283,7 @@ export default function AdminGalleryManagerPage() {
                   required
                   value={editAlbumForm.title}
                   onChange={(e) => setEditAlbumForm({ ...editAlbumForm, title: e.target.value })}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1C5496]"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-slate-900 focus:bg-white text-slate-900"
                 />
               </div>
 
@@ -1293,7 +1293,7 @@ export default function AdminGalleryManagerPage() {
                   <select
                     value={editAlbumForm.category}
                     onChange={(e) => setEditAlbumForm({ ...editAlbumForm, category: e.target.value })}
-                    className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1C5496]"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-slate-900 focus:bg-white text-slate-900 font-medium"
                   >
                     {categories.filter(c => c.id !== 'all').map(c => (
                       <option key={c.id} value={c.id}>{c.label}</option>
@@ -1307,7 +1307,7 @@ export default function AdminGalleryManagerPage() {
                     type="text"
                     value={editAlbumForm.year}
                     onChange={(e) => setEditAlbumForm({ ...editAlbumForm, year: e.target.value })}
-                    className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1C5496]"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-slate-900 focus:bg-white text-slate-900"
                   />
                 </div>
               </div>
@@ -1318,7 +1318,7 @@ export default function AdminGalleryManagerPage() {
                   type="text"
                   value={editAlbumForm.cover}
                   onChange={(e) => setEditAlbumForm({ ...editAlbumForm, cover: e.target.value })}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#1C5496]"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-slate-900 focus:bg-white text-slate-900 font-mono"
                 />
               </div>
 
@@ -1326,13 +1326,13 @@ export default function AdminGalleryManagerPage() {
                 <button
                   type="button"
                   onClick={() => setIsEditAlbumOpen(false)}
-                  className="px-4 py-2 rounded-xl text-slate-600 bg-slate-100 hover:bg-slate-200 font-bold"
+                  className="px-4 py-2 rounded-xl text-slate-700 bg-slate-100 hover:bg-slate-200 font-bold cursor-pointer transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="btn-navy px-5 py-2 rounded-xl font-bold"
+                  className="bg-[#18191f] hover:bg-black text-white px-5 py-2.5 rounded-xl font-bold shadow-xs cursor-pointer transition-all"
                 >
                   Save Changes
                 </button>
@@ -1344,11 +1344,11 @@ export default function AdminGalleryManagerPage() {
 
       {/* 8. ADD PHOTOS MODAL (WITH DRAG & DROP + FILE PICKER) */}
       {isAddPhotosOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn overflow-y-auto">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 space-y-4 my-8 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn overflow-y-auto">
+          <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-4 my-8 max-h-[90vh] overflow-y-auto text-slate-800">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <h3 className="font-serif font-bold text-lg text-slate-900 flex items-center space-x-2">
-                <UploadCloud className="w-5 h-5 text-[#1C5496]" />
+              <h3 className="font-extrabold text-xl text-[#191d28] flex items-center space-x-2">
+                <UploadCloud className="w-5 h-5 text-slate-800" />
                 <span>Upload Photos to "{currentAlbum?.title}"</span>
               </h3>
               <button
@@ -1356,7 +1356,7 @@ export default function AdminGalleryManagerPage() {
                   setIsAddPhotosOpen(false);
                   setAddPhotosList([]);
                 }}
-                className="p-1 rounded text-slate-400 hover:text-slate-700 cursor-pointer"
+                className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1372,8 +1372,8 @@ export default function AdminGalleryManagerPage() {
                 onClick={() => addPhotosInputRef.current?.click()}
                 className={`p-6 rounded-2xl border-2 border-dashed transition-all text-center cursor-pointer flex flex-col items-center justify-center space-y-2 ${
                   isDragging
-                    ? 'border-[#1C5496] bg-blue-50/80 scale-[1.01]'
-                    : 'border-slate-300 bg-slate-50 hover:border-[#1C5496] hover:bg-blue-50/30'
+                    ? 'border-slate-800 bg-slate-100 scale-[1.01]'
+                    : 'border-slate-300 bg-slate-50 hover:border-slate-400 hover:bg-slate-100'
                 }`}
               >
                 <input
@@ -1388,12 +1388,12 @@ export default function AdminGalleryManagerPage() {
                     }
                   }}
                 />
-                <div className="w-12 h-12 rounded-full bg-white shadow-xs border border-slate-200 text-[#1C5496] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-white shadow-xs border border-slate-200 text-slate-700 flex items-center justify-center">
                   <UploadCloud className="w-6 h-6" />
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-800">
-                    Drag and drop photos here, or <span className="text-[#1C5496] underline">browse files</span>
+                    Drag and drop photos here, or <span className="text-slate-900 underline">browse files</span>
                   </p>
                   <p className="text-[10px] text-slate-500 mt-0.5">
                     Select one or more images from your device
@@ -1414,7 +1414,7 @@ export default function AdminGalleryManagerPage() {
                         <button
                           type="button"
                           onClick={() => setAddPhotosList(prev => prev.filter((_, i) => i !== idx))}
-                          className="absolute top-1 right-1 p-1 bg-black/60 hover:bg-rose-600 text-white rounded-md transition-colors"
+                          className="absolute top-1 right-1 p-1 bg-black/60 hover:bg-rose-600 text-white rounded-md transition-colors cursor-pointer"
                         >
                           <X className="w-3 h-3" />
                         </button>
@@ -1434,14 +1434,14 @@ export default function AdminGalleryManagerPage() {
                     setIsAddPhotosOpen(false);
                     setAddPhotosList([]);
                   }}
-                  className="px-4 py-2 rounded-xl text-slate-600 bg-slate-100 hover:bg-slate-200 font-bold"
+                  className="px-4 py-2 rounded-xl text-slate-700 bg-slate-100 hover:bg-slate-200 font-bold cursor-pointer transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={addPhotosList.length === 0}
-                  className="btn-navy px-5 py-2 rounded-xl font-bold shadow-xs flex items-center space-x-1.5 disabled:opacity-50"
+                  className="bg-[#18191f] hover:bg-black text-white px-5 py-2.5 rounded-xl font-bold shadow-xs flex items-center space-x-1.5 disabled:opacity-50 cursor-pointer transition-all"
                 >
                   <Upload className="w-3.5 h-3.5" />
                   <span>Save & Append to Album</span>

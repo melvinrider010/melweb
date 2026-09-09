@@ -125,28 +125,28 @@ export default function AdminDepartmentManagerPage() {
   };
 
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-6 animate-fadeIn pb-12">
       
       {/* 1. TOP HEADER & METRICS */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#08121E] border border-slate-800 p-6 rounded-2xl shadow-xl">
-        <div className="space-y-1">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/80 p-6 sm:p-8 rounded-2xl shadow-xs">
+        <div className="space-y-1.5">
           <div className="flex items-center space-x-2">
-            <span className="px-2.5 py-0.5 rounded-full bg-[#1C5496] text-[#FFD84A] font-mono text-[10px] font-bold uppercase tracking-wider">
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-mono text-[10px] font-bold uppercase tracking-wider">
               CMS Module · Academic Departments
             </span>
-            <span className="text-slate-400 text-xs">Dynamic Institutional Registry</span>
+            <span className="text-slate-500 text-xs">Dynamic Institutional Registry</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-serif font-extrabold text-white">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#191d28] tracking-tight">
             Academic Departments Manager
           </h1>
-          <p className="text-xs sm:text-sm text-slate-400 font-sans">
+          <p className="text-xs sm:text-sm text-slate-500 font-medium max-w-2xl leading-relaxed">
             Turn ON or OFF academic departments, assign faculty rosters, link degree programmes, and control public visibility instantly.
           </p>
         </div>
 
         <button
           onClick={handleOpenAdd}
-          className="btn-gold px-5 py-3 rounded-xl text-xs font-bold shadow-lg inline-flex items-center space-x-2 shrink-0 cursor-pointer"
+          className="bg-[#18191f] hover:bg-black text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-xs inline-flex items-center space-x-2 shrink-0 cursor-pointer transition-all"
         >
           <Plus className="w-4 h-4" />
           <span>Add New Department</span>
@@ -158,44 +158,44 @@ export default function AdminDepartmentManagerPage() {
         
         {/* Stats */}
         <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <div className="bg-[#0D1B2A] border border-slate-800 p-3.5 rounded-xl space-y-1">
-            <span className="text-[10px] font-mono text-slate-400 uppercase">Departments</span>
-            <p className="text-xl font-bold text-white">{departments.length}</p>
+          <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
+            <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">Departments</span>
+            <p className="text-xl sm:text-2xl font-extrabold text-[#191d28] font-mono">{departments.length}</p>
           </div>
-          <div className="bg-[#0D1B2A] border border-slate-800 p-3.5 rounded-xl space-y-1">
-            <span className="text-[10px] font-mono text-emerald-400 uppercase">Live (ON)</span>
-            <p className="text-xl font-bold text-emerald-400">
+          <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
+            <span className="text-[10px] font-mono text-emerald-600 uppercase tracking-wider block">Live (ON)</span>
+            <p className="text-xl sm:text-2xl font-extrabold text-emerald-600 font-mono">
               {departments.filter(d => (d.status || 'published') === 'published').length}
             </p>
           </div>
-          <div className="bg-[#0D1B2A] border border-slate-800 p-3.5 rounded-xl space-y-1">
-            <span className="text-[10px] font-mono text-blue-400 uppercase">Faculty</span>
-            <p className="text-xl font-bold text-blue-400">{faculty.length}</p>
+          <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
+            <span className="text-[10px] font-mono text-blue-600 uppercase tracking-wider block">Faculty</span>
+            <p className="text-xl sm:text-2xl font-extrabold text-blue-600 font-mono">{faculty.length}</p>
           </div>
-          <div className="bg-[#0D1B2A] border border-slate-800 p-3.5 rounded-xl space-y-1">
-            <span className="text-[10px] font-mono text-amber-400 uppercase">Programmes</span>
-            <p className="text-xl font-bold text-amber-400">{programmes.length}</p>
+          <div className="bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl space-y-1 shadow-xs hover:border-slate-300 transition-colors">
+            <span className="text-[10px] font-mono text-amber-600 uppercase tracking-wider block">Programmes</span>
+            <p className="text-xl sm:text-2xl font-extrabold text-amber-600 font-mono">{programmes.length}</p>
           </div>
         </div>
 
         {/* Bulk Controls */}
-        <div className="lg:col-span-5 bg-[#0D1B2A] border border-slate-800 p-3.5 rounded-xl flex items-center justify-between gap-3">
+        <div className="lg:col-span-5 bg-slate-50/80 border border-slate-200/60 p-4 rounded-2xl shadow-xs flex items-center justify-between gap-3">
           <div className="space-y-0.5">
-            <span className="text-[10px] font-mono text-[#FFD84A] uppercase font-bold tracking-wider block">
+            <span className="text-[10px] font-mono text-slate-700 uppercase font-bold tracking-wider block">
               Department Master Switch
             </span>
-            <p className="text-xs text-slate-400">Bulk visibility control</p>
+            <p className="text-xs text-slate-500 font-medium">Bulk visibility control</p>
           </div>
           <div className="flex items-center space-x-2">
             <button
               onClick={() => handleBulkSetStatus('published')}
-              className="px-3 py-1.5 bg-emerald-600/80 hover:bg-emerald-600 text-white rounded-lg text-xs font-bold transition-colors cursor-pointer"
+              className="px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-lg text-xs font-bold transition-colors cursor-pointer"
             >
               Turn All ON
             </button>
             <button
               onClick={() => handleBulkSetStatus('draft')}
-              className="px-3 py-1.5 bg-rose-600/80 hover:bg-rose-600 text-white rounded-lg text-xs font-bold transition-colors cursor-pointer"
+              className="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-lg text-xs font-bold transition-colors cursor-pointer"
             >
               Turn All OFF
             </button>
@@ -205,44 +205,44 @@ export default function AdminDepartmentManagerPage() {
       </div>
 
       {/* 3. FILTERS & SEARCH TOOLBAR */}
-      <div className="bg-[#0D1B2A] border border-slate-800 p-4 rounded-xl flex flex-col md:flex-row gap-4 justify-between items-center">
+      <div className="bg-white border border-slate-200/80 p-4 rounded-2xl flex flex-col md:flex-row gap-4 justify-between items-center shadow-xs">
         
         {/* Search Input */}
         <div className="relative w-full md:w-80">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
           <input
             type="text"
             placeholder="Search departments by name, code..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 bg-slate-900 border border-slate-700 rounded-lg text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#1C5496]"
+            className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200/80 rounded-xl text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-slate-900"
           />
         </div>
 
         {/* Status Filter */}
-        <div className="flex items-center space-x-2 text-xs text-slate-400">
-          <span>Status:</span>
-          <div className="flex items-center space-x-1 bg-slate-900 p-1 rounded-lg border border-slate-700">
+        <div className="flex items-center space-x-2 text-xs text-slate-500">
+          <span className="font-semibold">Status:</span>
+          <div className="flex items-center space-x-1 bg-slate-100/80 p-1 rounded-xl">
             <button
               onClick={() => setSelectedStatusFilter('all')}
-              className={`px-3 py-1 rounded text-xs font-medium transition-colors ${
-                selectedStatusFilter === 'all' ? 'bg-[#1C5496] text-white font-bold' : 'text-slate-400 hover:text-white'
+              className={`px-3 py-1 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
+                selectedStatusFilter === 'all' ? 'bg-[#18191f] text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               All
             </button>
             <button
               onClick={() => setSelectedStatusFilter('published')}
-              className={`px-3 py-1 rounded text-xs font-medium transition-colors ${
-                selectedStatusFilter === 'published' ? 'bg-emerald-600 text-white font-bold' : 'text-slate-400 hover:text-emerald-300'
+              className={`px-3 py-1 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
+                selectedStatusFilter === 'published' ? 'bg-[#18191f] text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Live (ON)
             </button>
             <button
               onClick={() => setSelectedStatusFilter('draft')}
-              className={`px-3 py-1 rounded text-xs font-medium transition-colors ${
-                selectedStatusFilter === 'draft' ? 'bg-rose-600 text-white font-bold' : 'text-slate-400 hover:text-rose-300'
+              className={`px-3 py-1 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
+                selectedStatusFilter === 'draft' ? 'bg-[#18191f] text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Draft (OFF)
@@ -261,13 +261,13 @@ export default function AdminDepartmentManagerPage() {
           return (
             <div
               key={dept.id || idx}
-              className={`bg-[#0D1B2A] border rounded-2xl p-5 space-y-4 transition-all flex flex-col justify-between shadow-md group ${
-                isLive ? 'border-slate-800 hover:border-slate-700' : 'border-slate-800/40 opacity-60 bg-slate-950/40'
+              className={`bg-white border rounded-2xl p-5 space-y-4 transition-all flex flex-col justify-between shadow-xs hover:shadow-md group ${
+                isLive ? 'border-slate-200/80 hover:border-slate-300' : 'border-slate-200/40 opacity-60 bg-slate-50/50'
               }`}
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-[#1C5496]/20 text-[#FFD84A] border border-[#1C5496]/40">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase bg-slate-100 text-slate-700 border border-slate-200">
                     {dept.code || dept.id}
                   </span>
 
@@ -276,44 +276,44 @@ export default function AdminDepartmentManagerPage() {
                     onClick={() => handleToggleStatus(dept.id)}
                     className={`inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold font-mono transition-all cursor-pointer ${
                       isLive
-                        ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500/30'
-                        : 'bg-rose-500/20 text-rose-300 border border-rose-500/40 hover:bg-rose-500/30'
+                        ? 'bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100'
+                        : 'bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100'
                     }`}
                     title={`Click to turn ${isLive ? 'OFF (Draft)' : 'ON (Live)'}`}
                   >
-                    <span className={`w-2 h-2 rounded-full ${isLive ? 'bg-emerald-400 animate-pulse' : 'bg-rose-400'}`} />
+                    <span className={`w-2 h-2 rounded-full ${isLive ? 'bg-emerald-500 animate-pulse' : 'bg-rose-400'}`} />
                     <span>{isLive ? 'LIVE (ON)' : 'OFF (Draft)'}</span>
                   </button>
                 </div>
 
-                <h3 className="font-serif font-bold text-base text-white group-hover:text-[#FFD84A] transition-colors line-clamp-2">
+                <h3 className="font-extrabold text-base text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2">
                   {dept.name}
                 </h3>
 
-                <p className="text-xs text-slate-400 line-clamp-2 font-sans">
+                <p className="text-xs text-slate-500 line-clamp-2 font-sans">
                   {dept.description || dept.about || 'Academic department offering specialized undergraduate and postgraduate curricula.'}
                 </p>
 
                 {/* Relationships Meta Badges */}
-                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/80 text-[11px] font-mono text-slate-400">
+                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100 text-[11px] font-mono text-slate-500">
                   <div className="flex items-center space-x-1.5">
-                    <Users className="w-3.5 h-3.5 text-[#FFD84A]" />
+                    <Users className="w-3.5 h-3.5 text-amber-500" />
                     <span>{deptFacultyCount} Faculty</span>
                   </div>
                   <div className="flex items-center space-x-1.5">
-                    <GraduationCap className="w-3.5 h-3.5 text-blue-400" />
+                    <GraduationCap className="w-3.5 h-3.5 text-blue-500" />
                     <span>{(dept.ugProgrammes?.length || 0) + (dept.pgProgrammes?.length || 0)} Programmes</span>
                   </div>
                 </div>
               </div>
 
               {/* Actions Bar */}
-              <div className="pt-3 border-t border-slate-800 flex items-center justify-between">
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                 <a
                   href={`/departments/${dept.slug || dept.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-[#FFD84A] hover:underline font-bold inline-flex items-center space-x-1"
+                  className="text-xs text-blue-600 hover:underline font-bold inline-flex items-center space-x-1"
                 >
                   <Eye className="w-3.5 h-3.5" />
                   <span>View Live</span>
@@ -322,7 +322,7 @@ export default function AdminDepartmentManagerPage() {
                 <div className="flex items-center space-x-1.5">
                   <button
                     onClick={() => setHistoryModalDept(dept)}
-                    className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-amber-400 transition-colors cursor-pointer"
+                    className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-amber-600 transition-colors cursor-pointer"
                     title="View Revisions"
                   >
                     <History className="w-3.5 h-3.5" />
@@ -330,7 +330,7 @@ export default function AdminDepartmentManagerPage() {
 
                   <button
                     onClick={() => handleOpenEdit(dept)}
-                    className="p-1.5 rounded-lg bg-slate-800 hover:bg-[#1C5496] text-slate-400 hover:text-white transition-colors cursor-pointer"
+                    className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-blue-600 transition-colors cursor-pointer"
                     title="Edit Department"
                   >
                     <Edit3 className="w-3.5 h-3.5" />
@@ -338,7 +338,7 @@ export default function AdminDepartmentManagerPage() {
 
                   <button
                     onClick={() => handleDelete(dept.id, dept.name)}
-                    className="p-1.5 rounded-lg bg-slate-800 hover:bg-rose-600 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                    className="p-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 transition-colors cursor-pointer"
                     title="Delete Department"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
@@ -352,22 +352,22 @@ export default function AdminDepartmentManagerPage() {
 
       {/* ================= MODAL: ADD / EDIT DEPARTMENT ================= */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 animate-fadeIn overflow-y-auto">
-          <div className="bg-[#0D1B2A] border border-slate-700 rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto my-auto text-slate-200">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn overflow-y-auto">
+          <div className="bg-white border border-slate-200 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto my-auto text-slate-800">
             
-            <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <div className="space-y-0.5">
-                <span className="text-[10px] font-mono text-[#FFD84A] uppercase tracking-wider block">
+                <span className="text-[10px] font-mono text-blue-600 uppercase tracking-wider block font-bold">
                   Metronic Department Management
                 </span>
-                <h3 className="font-serif font-bold text-xl text-white">
+                <h3 className="font-extrabold text-xl text-[#191d28]">
                   {editingDept ? `Edit Department: ${editingDept.name}` : 'Create New Academic Department'}
                 </h3>
               </div>
 
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
+                className="p-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -379,48 +379,48 @@ export default function AdminDepartmentManagerPage() {
                 
                 {/* Department Name */}
                 <div className="space-y-1 sm:col-span-2">
-                  <label className="text-slate-400 font-bold block">Department Name *</label>
+                  <label className="text-slate-700 font-bold block">Department Name *</label>
                   <input
                     type="text"
                     required
                     placeholder="e.g. Department of Computer Science"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-[#1C5496]"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   />
                 </div>
 
                 {/* Code & Slug */}
                 <div className="space-y-1">
-                  <label className="text-slate-400 font-bold block">Department Code *</label>
+                  <label className="text-slate-700 font-bold block">Department Code *</label>
                   <input
                     type="text"
                     required
                     placeholder="e.g. CS / COMMERCE"
                     value={formData.code}
                     onChange={(e) => setFormData({ ...formData, code: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-slate-400 font-bold block">URL Slug</label>
+                  <label className="text-slate-700 font-bold block">URL Slug</label>
                   <input
                     type="text"
                     placeholder="e.g. computer-science"
                     value={formData.slug}
                     onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   />
                 </div>
 
                 {/* Faculty Group */}
                 <div className="space-y-1 sm:col-span-2">
-                  <label className="text-slate-400 font-bold block">Faculty Division</label>
+                  <label className="text-slate-700 font-bold block">Faculty Division</label>
                   <select
                     value={formData.facultyName}
                     onChange={(e) => setFormData({ ...formData, facultyName: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   >
                     <option value="Faculty of Science & Computer Applications">Faculty of Science & Computer Applications</option>
                     <option value="Faculty of Commerce">Faculty of Commerce</option>
@@ -431,58 +431,58 @@ export default function AdminDepartmentManagerPage() {
 
                 {/* Description */}
                 <div className="space-y-1 sm:col-span-2">
-                  <label className="text-slate-400 font-bold block">Department Overview / About</label>
+                  <label className="text-slate-700 font-bold block">Department Overview / About</label>
                   <textarea
                     rows={3}
                     placeholder="Comprehensive description of the department..."
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   />
                 </div>
 
                 {/* Vision */}
                 <div className="space-y-1 sm:col-span-2">
-                  <label className="text-slate-400 font-bold block">Department Vision</label>
+                  <label className="text-slate-700 font-bold block">Department Vision</label>
                   <textarea
                     rows={2}
                     placeholder="Vision statement..."
                     value={formData.vision}
                     onChange={(e) => setFormData({ ...formData, vision: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   />
                 </div>
 
                 {/* Mission */}
                 <div className="space-y-1 sm:col-span-2">
-                  <label className="text-slate-400 font-bold block">Department Mission</label>
+                  <label className="text-slate-700 font-bold block">Department Mission</label>
                   <textarea
                     rows={2}
                     placeholder="Mission statement..."
                     value={formData.mission}
                     onChange={(e) => setFormData({ ...formData, mission: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   />
                 </div>
 
-                {/* Contact Email & Phone */}
+                {/* Contact Email & Status */}
                 <div className="space-y-1">
-                  <label className="text-slate-400 font-bold block">Official Email</label>
+                  <label className="text-slate-700 font-bold block">Official Email</label>
                   <input
                     type="email"
                     placeholder="dept@stphilos.ac.in"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-slate-400 font-bold block">Status</label>
+                  <label className="text-slate-700 font-bold block">Status</label>
                   <select
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200/90 rounded-xl text-slate-900 focus:outline-none focus:bg-white focus:border-slate-900"
                   >
                     <option value="published">Published</option>
                     <option value="draft">Draft</option>
@@ -492,18 +492,18 @@ export default function AdminDepartmentManagerPage() {
 
               </div>
 
-              <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold cursor-pointer"
+                  className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold cursor-pointer transition-colors"
                 >
                   Cancel
                 </button>
 
                 <button
                   type="submit"
-                  className="btn-gold px-6 py-2.5 rounded-xl font-bold shadow-md cursor-pointer"
+                  className="bg-[#18191f] hover:bg-black text-white px-6 py-2.5 rounded-xl font-bold shadow-xs cursor-pointer transition-all"
                 >
                   {editingDept ? 'Save Changes' : 'Create Department'}
                 </button>
@@ -517,19 +517,19 @@ export default function AdminDepartmentManagerPage() {
 
       {/* ================= MODAL: REVISION HISTORY ================= */}
       {historyModalDept && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 animate-fadeIn">
-          <div className="bg-[#0D1B2A] border border-slate-700 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 text-slate-200">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn">
+          <div className="bg-white border border-slate-200 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl space-y-4 text-slate-800">
             
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center space-x-2">
-                <History className="w-5 h-5 text-[#FFD84A]" />
-                <h3 className="font-serif font-bold text-base text-white">
+                <History className="w-5 h-5 text-amber-500" />
+                <h3 className="font-extrabold text-base text-[#191d28]">
                   Revision History: {historyModalDept.name}
                 </h3>
               </div>
               <button
                 onClick={() => setHistoryModalDept(null)}
-                className="p-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white"
+                className="p-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -542,17 +542,17 @@ export default function AdminDepartmentManagerPage() {
                 </p>
               ) : (
                 cmsStore.getRevisions('department', historyModalDept.id).map((rev, rIdx) => (
-                  <div key={rev.id || rIdx} className="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between text-xs">
+                  <div key={rev.id || rIdx} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between text-xs">
                     <div className="space-y-0.5">
-                      <span className="font-mono text-slate-300 font-bold block">
+                      <span className="font-mono text-slate-800 font-bold block">
                         {new Date(rev.timestamp).toLocaleString()}
                       </span>
-                      <span className="text-[11px] text-slate-500 font-mono">By {rev.user}</span>
+                      <span className="text-[11px] text-slate-400 font-mono">By {rev.user}</span>
                     </div>
 
                     <button
                       onClick={() => handleRestoreRevision(rev.id)}
-                      className="px-3 py-1.5 rounded-lg bg-[#1C5496] hover:bg-[#0B1F4E] text-white font-bold text-xs inline-flex items-center space-x-1 cursor-pointer"
+                      className="px-3 py-1.5 rounded-xl bg-[#18191f] hover:bg-black text-white font-bold text-xs inline-flex items-center space-x-1 cursor-pointer transition-colors shadow-xs"
                     >
                       <RotateCcw className="w-3 h-3" />
                       <span>Restore</span>
@@ -562,10 +562,10 @@ export default function AdminDepartmentManagerPage() {
               )}
             </div>
 
-            <div className="pt-3 border-t border-slate-800 flex justify-end">
+            <div className="pt-3 border-t border-slate-100 flex justify-end">
               <button
                 onClick={() => setHistoryModalDept(null)}
-                className="px-4 py-2 rounded-xl bg-slate-800 text-xs font-bold text-slate-300"
+                className="px-5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700 cursor-pointer"
               >
                 Close
               </button>
