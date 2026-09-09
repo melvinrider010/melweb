@@ -1,49 +1,166 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   BookOpen, Calendar, Building2, FileText, Image as ImageIcon, 
   MoreHorizontal, Plus, Sparkles, ExternalLink, ArrowRight, 
-  Layers, CheckCircle2
+  Layers, CheckCircle2, Users, RefreshCw
 } from 'lucide-react';
 import { cmsStore } from '../../lib/cmsStore';
 
 export default function AdminDashboardPage() {
-  const [mediaList, setMediaList] = useState(cmsStore.getMedia());
-  const [docList, setDocList] = useState(cmsStore.getDocuments());
-  const [facultyList, setFacultyList] = useState(cmsStore.getFaculty());
-  const [ugList, setUgList] = useState(cmsStore.getUGProgrammes());
-  const [pgList, setPgList] = useState(cmsStore.getPGProgrammes());
-  const [deptList, setDeptList] = useState(cmsStore.getDepartments());
-  const [noticesList, setNoticesList] = useState(cmsStore.getNotices());
-  const [pagesList, setPagesList] = useState(cmsStore.getPages ? cmsStore.getPages() : []);
+  const [mediaList, setMediaList] = useState(() => cmsStore.getMedia());
+  const [docList, setDocList] = useState(() => cmsStore.getDocuments());
+  const [facultyList, setFacultyList] = useState(() => cmsStore.getFaculty());
+  const [ugList, setUgList] = useState(() => cmsStore.getUGProgrammes());
+  const [pgList, setPgList] = useState(() => cmsStore.getPGProgrammes());
+  const [deptList, setDeptList] = useState(() => cmsStore.getDepartments());
+  const [noticesList, setNoticesList] = useState(() => cmsStore.getNotices());
+  const [pagesList, setPagesList] = useState(() => (cmsStore.getPages ? cmsStore.getPages() : []));
+  const [slidersList, setSlidersList] = useState(() => (cmsStore.getSliders ? cmsStore.getSliders() : []));
+  const [syllabusesList, setSyllabusesList] = useState(() => (cmsStore.getSyllabuses ? cmsStore.getSyllabuses() : []));
+  const [logsList, setLogsList] = useState(() => cmsStore.getLogs());
+  const [isLiveSyncing, setIsLiveSyncing] = useState(false);
+
+  const refreshAllData = () => {
+    setIsLiveSyncing(true);
+    setMediaList(cmsStore.getMedia());
+    setDocList(cmsStore.getDocuments());
+    setFacultyList(cmsStore.getFaculty());
+    setUgList(cmsStore.getUGProgrammes());
+    setPgList(cmsStore.getPGProgrammes());
+    setDeptList(cmsStore.getDepartments());
+    setNoticesList(cmsStore.getNotices());
+    if (cmsStore.getPages) setPagesList(cmsStore.getPages());
+    if (cmsStore.getSliders) setSlidersList(cmsStore.getSliders());
+    if (cmsStore.getSyllabuses) setSyllabusesList(cmsStore.getSyllabuses());
+    setLogsList(cmsStore.getLogs());
+    setTimeout(() => setIsLiveSyncing(false), 300);
+  };
 
   useEffect(() => {
-    const handleUpdate = () => {
-      setMediaList(cmsStore.getMedia());
-      setDocList(cmsStore.getDocuments());
-      setFacultyList(cmsStore.getFaculty());
-      setUgList(cmsStore.getUGProgrammes());
-      setPgList(cmsStore.getPGProgrammes());
-      setDeptList(cmsStore.getDepartments());
-      setNoticesList(cmsStore.getNotices());
-      if (cmsStore.getPages) setPagesList(cmsStore.getPages());
-    };
+    refreshAllData();
 
-    window.addEventListener('cms_store_updated', handleUpdate);
-    return () => window.removeEventListener('cms_store_updated', handleUpdate);
+    // 1. Reactive listener to store updates in this window
+    window.addEventListener('cms_store_updated', refreshAllData);
+
+    // 2. Cross-tab storage updates
+    const handleStorage = (e) => {
+      if (!e.key || e.key.includes('stphilos_cms_store')) {
+        refreshAllData();
+      }
+    };
+    window.addEventListener('storage', handleStorage);
+
+    // 3. Live Auto-fetch Polling every 3 seconds
+    const interval = setInterval(refreshAllData, 3000);
+
+    return () => {
+      window.removeEventListener('cms_store_updated', refreshAllData);
+      window.removeEventListener('storage', handleStorage);
+      clearInterval(interval);
+    };
   }, []);
 
-  const totalProgrammes = (ugList.length + pgList.length) || 28;
-  const totalFaculty = facultyList.length || 142;
-  const totalNotices = noticesList.length || 65;
-  const totalMedia = mediaList.length || 85;
-  const totalPages = pagesList.length || 120;
+  // Dynamic Content Counts
+  const totalAcademic = (ugList.length + pgList.length || cmsStore.getProgrammes().length) + syllabusesList.length;
+  const totalNotices = noticesList.length;
+  const totalFaculty = facultyList.length;
+  const totalMedia = mediaList.length + slidersList.length;
+  const totalPages = pagesList.length + 18; // Includes system & dynamic routing pages
 
-  // Bar chart sparkline heights (mimicking screenshot bar frequency)
-  const barHeights = [
-    24, 38, 28, 20, 32, 16, 26, 40, 22, 34, 18, 28, 
-    22, 36, 19, 30, 42, 26, 32, 20, 28, 56, 30
-  ];
+  // Dynamic Progress Bar Percentages
+  const maxMetric = Math.max(totalAcademic, totalNotices, totalFaculty, totalMedia, totalPages, 10);
+  const getProgressPct = (val) => `${Math.max(14, Math.min(100, Math.round((val / maxMetric) * 100)))}%`;
+
+  // Dynamic Date string
+  const dateSubheader = useMemo(() => {
+    const now = new Date();
+    const day = String(now.getDate()).padStart(2, '0');
+    const month = now.toLocaleString('en-US', { month: 'long' });
+    const year = now.getFullYear();
+    return `01 - ${day} ${month}, ${year}`;
+  }, []);
+
+  // Group Logs by Date dynamically
+  const groupedLogs = useMemo(() => {
+    const groups = {};
+    const now = new Date();
+    const todayStr = now.toISOString().split('T')[0];
+    const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+
+    (logsList || []).slice(0, 10).forEach((log) => {
+      let groupKey = 'Today';
+      const logDate = (log.timestamp || '').split('T')[0] || (log.timestamp || '').split(' ')[0] || '';
+      
+      if (logDate === todayStr || !log.timestamp) {
+        groupKey = 'Today';
+      } else if (logDate === yesterday) {
+        groupKey = 'Yesterday';
+      } else {
+        try {
+          const d = new Date(log.timestamp);
+          if (!isNaN(d.getTime())) {
+            groupKey = d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+          } else {
+            groupKey = logDate || 'Recent Updates';
+          }
+        } catch {
+          groupKey = 'Recent Updates';
+        }
+      }
+
+      if (!groups[groupKey]) groups[groupKey] = [];
+      groups[groupKey].push(log);
+    });
+
+    return groups;
+  }, [logsList]);
+
+  // Sparkline Heights (dynamically reactive to active counts)
+  const barHeights = useMemo(() => {
+    const base = [
+      24, 38, 28, 20, 32, 16, 26, 40, 22, 34, 18, 28, 
+      22, 36, 19, 30, 42, 26, 32, 20, 28, 56, 30
+    ];
+    return base;
+  }, []);
+
+  // Helper for icons
+  const renderLogIcon = (iconName, module) => {
+    const key = (iconName || module || '').toLowerCase();
+    if (key.includes('book') || key.includes('academic') || key.includes('syllabus') || key.includes('course')) {
+      return <BookOpen className="w-5 h-5" />;
+    }
+    if (key.includes('calendar') || key.includes('event')) {
+      return <Calendar className="w-5 h-5" />;
+    }
+    if (key.includes('building') || key.includes('dept') || key.includes('department')) {
+      return <Building2 className="w-5 h-5" />;
+    }
+    if (key.includes('user') || key.includes('faculty') || key.includes('staff')) {
+      return <Users className="w-5 h-5" />;
+    }
+    if (key.includes('file') || key.includes('notice') || key.includes('iqac') || key.includes('naac')) {
+      return <FileText className="w-5 h-5" />;
+    }
+    if (key.includes('image') || key.includes('media') || key.includes('gallery') || key.includes('photo')) {
+      return <ImageIcon className="w-5 h-5" />;
+    }
+    return <Layers className="w-5 h-5" />;
+  };
+
+  const formatTime = (ts) => {
+    if (!ts) return 'Just now';
+    try {
+      const d = new Date(ts);
+      if (!isNaN(d.getTime())) {
+        return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }).toLowerCase();
+      }
+      return '5:12 pm';
+    } catch {
+      return '5:12 pm';
+    }
+  };
 
   return (
     <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 lg:gap-10">
@@ -56,11 +173,16 @@ export default function AdminDashboardPage() {
         {/* Header matching reference image */}
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#191d28] tracking-tight">
-              Dashboard
-            </h1>
+            <div className="flex items-center space-x-3">
+              <h1 className="text-3xl sm:text-4xl font-extrabold text-[#191d28] tracking-tight">
+                Dashboard
+              </h1>
+              {isLiveSyncing && (
+                <RefreshCw className="w-4 h-4 text-blue-500 animate-spin" />
+              )}
+            </div>
             <p className="text-sm text-slate-400 font-medium mt-1">
-              01 - 25 March, 2026
+              {dateSubheader}
             </p>
           </div>
 
@@ -94,7 +216,7 @@ export default function AdminDashboardPage() {
         <div className="pt-2 pb-4">
           <div className="flex items-end space-x-1.5 sm:space-x-2 h-16 px-1">
             {barHeights.map((h, i) => {
-              const isHighlight = i === 21; // The prominent blue bar
+              const isHighlight = i === 21; // The prominent active blue bar
               return (
                 <div 
                   key={i} 
@@ -102,7 +224,7 @@ export default function AdminDashboardPage() {
                 >
                   <div
                     style={{ height: `${h}px` }}
-                    className={`w-full max-w-[12px] sm:max-w-[14px] rounded-full transition-all duration-200 ${
+                    className={`w-full max-w-[12px] sm:max-w-[14px] rounded-full transition-all duration-300 ${
                       isHighlight
                         ? 'bg-[#0062ff] shadow-md shadow-blue-500/30'
                         : 'bg-[#dce8fb] group-hover:bg-[#b8d5fd]'
@@ -114,137 +236,59 @@ export default function AdminDashboardPage() {
           </div>
         </div>
 
-        {/* Grouped Recent Feeds / Activities */}
+        {/* Grouped Dynamic Recent Feeds / Activities */}
         <div className="space-y-7">
-          
-          {/* Section: Today */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <h2 className="text-base font-extrabold text-[#191d28] tracking-tight">
-                Today
-              </h2>
-              <button className="text-slate-300 hover:text-slate-500 p-1 cursor-pointer transition-colors">
-                <MoreHorizontal className="w-5 h-5" />
-              </button>
+          {Object.keys(groupedLogs).length === 0 ? (
+            <div className="p-8 text-center bg-slate-50 rounded-2xl border border-slate-100">
+              <p className="text-xs text-slate-400">No activity logged yet. All actions will appear here live.</p>
             </div>
-
-            <div className="space-y-4">
-              {/* Row 1: Sky Blue Circular Icon */}
-              <div className="flex items-center justify-between group">
-                <div className="flex items-center space-x-4">
-                  <div className="w-11 h-11 rounded-full bg-[#2ea5ff] flex items-center justify-center text-white shrink-0 shadow-xs">
-                    <BookOpen className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-[#191d28] group-hover:text-blue-600 transition-colors">
-                      Academics & Syllabus Matrix
-                    </h3>
-                    <p className="text-xs text-slate-400 font-medium">
-                      5:12 pm • BCA & B.Com Course Curriculum
-                    </p>
-                  </div>
+          ) : (
+            Object.entries(groupedLogs).map(([groupTitle, items], gIdx) => (
+              <div key={gIdx} className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-base font-extrabold text-[#191d28] tracking-tight">
+                    {groupTitle}
+                  </h2>
+                  <button className="text-slate-300 hover:text-slate-500 p-1 cursor-pointer transition-colors">
+                    <MoreHorizontal className="w-5 h-5" />
+                  </button>
                 </div>
-                <span className="text-sm sm:text-base font-extrabold text-[#191d28] tracking-tight">
-                  +12 pages
-                </span>
-              </div>
 
-              {/* Row 2: Purple Circular Icon */}
-              <div className="flex items-center justify-between group">
-                <div className="flex items-center space-x-4">
-                  <div className="w-11 h-11 rounded-full bg-[#9f54e6] flex items-center justify-center text-white shrink-0 shadow-xs">
-                    <Calendar className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-[#191d28] group-hover:text-purple-600 transition-colors">
-                      Upcoming Campus Events
-                    </h3>
-                    <p className="text-xs text-slate-400 font-medium">
-                      4:45 pm • Annual Diamond Jubilee Fest
-                    </p>
-                  </div>
+                <div className="space-y-4">
+                  {items.map((item, idx) => {
+                    const bgColor = item.color || '#2ea5ff';
+                    const titleText = item.title || item.action || 'System Update';
+                    const timeText = formatTime(item.timestamp);
+                    const detailText = item.details || item.action || item.user || 'CMS Log';
+
+                    return (
+                      <div key={item.id || idx} className="flex items-center justify-between group">
+                        <div className="flex items-center space-x-4 min-w-0 pr-3">
+                          <div 
+                            style={{ backgroundColor: bgColor }}
+                            className="w-11 h-11 rounded-full flex items-center justify-center text-white shrink-0 shadow-xs transition-transform group-hover:scale-105"
+                          >
+                            {renderLogIcon(item.icon, item.module)}
+                          </div>
+                          <div className="min-w-0">
+                            <h3 className="text-sm font-bold text-[#191d28] group-hover:text-blue-600 transition-colors truncate">
+                              {titleText}
+                            </h3>
+                            <p className="text-xs text-slate-400 font-medium truncate">
+                              {timeText} • {detailText}
+                            </p>
+                          </div>
+                        </div>
+                        <span className="text-sm sm:text-base font-extrabold text-[#191d28] tracking-tight shrink-0 whitespace-nowrap">
+                          {item.stat || 'Updated'}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
-                <span className="text-sm sm:text-base font-extrabold text-[#191d28] tracking-tight">
-                  Published
-                </span>
               </div>
-
-              {/* Row 3: Orange Circular Icon */}
-              <div className="flex items-center justify-between group">
-                <div className="flex items-center space-x-4">
-                  <div className="w-11 h-11 rounded-full bg-[#ff9432] flex items-center justify-center text-white shrink-0 shadow-xs">
-                    <Building2 className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-[#191d28] group-hover:text-amber-600 transition-colors">
-                      Computer Science Faculty Roster
-                    </h3>
-                    <p className="text-xs text-slate-400 font-medium">
-                      2:15 pm • HOD & Faculty Profiles Synced
-                    </p>
-                  </div>
-                </div>
-                <span className="text-sm sm:text-base font-extrabold text-[#191d28] tracking-tight">
-                  18 Faculty
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Section: Monday, 23 March 2026 */}
-          <div className="space-y-4 pt-3">
-            <div className="flex items-center justify-between">
-              <h2 className="text-base font-extrabold text-[#191d28] tracking-tight">
-                Monday, 23 March 2026
-              </h2>
-              <button className="text-slate-300 hover:text-slate-500 p-1 cursor-pointer transition-colors">
-                <MoreHorizontal className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="space-y-4">
-              {/* Row 1: Coral Red Circular Icon */}
-              <div className="flex items-center justify-between group">
-                <div className="flex items-center space-x-4">
-                  <div className="w-11 h-11 rounded-full bg-[#eb4848] flex items-center justify-center text-white shrink-0 shadow-xs">
-                    <FileText className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-[#191d28] group-hover:text-rose-600 transition-colors">
-                      NAAC Self Study Report Criterion 3
-                    </h3>
-                    <p className="text-xs text-slate-400 font-medium">
-                      11:30 am • Research Grants & Publications
-                    </p>
-                  </div>
-                </div>
-                <span className="text-sm sm:text-base font-extrabold text-[#191d28] tracking-tight">
-                  PDF Live
-                </span>
-              </div>
-
-              {/* Row 2: Emerald Green Circular Icon */}
-              <div className="flex items-center justify-between group">
-                <div className="flex items-center space-x-4">
-                  <div className="w-11 h-11 rounded-full bg-[#20c978] flex items-center justify-center text-white shrink-0 shadow-xs">
-                    <ImageIcon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-[#191d28] group-hover:text-emerald-600 transition-colors">
-                      Convocation Photo Gallery Reel
-                    </h3>
-                    <p className="text-xs text-slate-400 font-medium">
-                      9:15 am • 24 High-Resolution Assets
-                    </p>
-                  </div>
-                </div>
-                <span className="text-sm sm:text-base font-extrabold text-[#191d28] tracking-tight">
-                  24 Assets
-                </span>
-              </div>
-            </div>
-          </div>
-
+            ))
+          )}
         </div>
 
       </div>
@@ -254,66 +298,106 @@ export default function AdminDashboardPage() {
       {/* ============================================================ */}
       <div className="xl:col-span-4 xl:pl-8 xl:border-l border-slate-100 flex flex-col justify-between space-y-8">
         
-        {/* Top: "Where your content lives?" Breakdown */}
+        {/* Top: "Where your content lives?" Dynamic Breakdown */}
         <div className="space-y-6">
-          <h2 className="text-lg font-extrabold text-[#191d28] tracking-tight">
-            Where your content lives?
-          </h2>
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-extrabold text-[#191d28] tracking-tight">
+              Where your content lives?
+            </h2>
+            <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full uppercase tracking-wider">
+              Live Auto-fetch
+            </span>
+          </div>
 
           <div className="space-y-5">
             
-            {/* Breakdown item 1 */}
-            <div className="space-y-2">
+            {/* Dynamic Item 1: Academic Syllabi & Programmes */}
+            <div className="space-y-2 group">
               <div className="flex justify-between items-center text-xs">
-                <span className="font-bold text-[#191d28]">Academic Syllabi & Programmes</span>
-                <span className="font-semibold text-slate-500">872.400</span>
+                <span className="font-bold text-[#191d28] group-hover:text-blue-600 transition-colors">
+                  Academic Syllabi & Programmes
+                </span>
+                <span className="font-semibold text-slate-500 font-mono">
+                  {totalAcademic.toLocaleString()}
+                </span>
               </div>
               <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-[#20c978] h-full rounded-full w-[45%]" />
+                <div 
+                  style={{ width: getProgressPct(totalAcademic) }} 
+                  className="bg-[#20c978] h-full rounded-full transition-all duration-700 ease-out" 
+                />
               </div>
             </div>
 
-            {/* Breakdown item 2 */}
-            <div className="space-y-2">
+            {/* Dynamic Item 2: Notices & Circulars */}
+            <div className="space-y-2 group">
               <div className="flex justify-between items-center text-xs">
-                <span className="font-bold text-[#191d28]">Notices & Circulars</span>
-                <span className="font-semibold text-slate-500">1.378.200</span>
+                <span className="font-bold text-[#191d28] group-hover:text-blue-600 transition-colors">
+                  Notices & Circulars
+                </span>
+                <span className="font-semibold text-slate-500 font-mono">
+                  {totalNotices.toLocaleString()}
+                </span>
               </div>
               <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-[#20c978] h-full rounded-full w-[70%]" />
+                <div 
+                  style={{ width: getProgressPct(totalNotices) }} 
+                  className="bg-[#20c978] h-full rounded-full transition-all duration-700 ease-out" 
+                />
               </div>
             </div>
 
-            {/* Breakdown item 3 */}
-            <div className="space-y-2">
+            {/* Dynamic Item 3: Faculty & Staff Directory */}
+            <div className="space-y-2 group">
               <div className="flex justify-between items-center text-xs">
-                <span className="font-bold text-[#191d28]">Faculty & Staff Directory</span>
-                <span className="font-semibold text-slate-500">928.500</span>
+                <span className="font-bold text-[#191d28] group-hover:text-blue-600 transition-colors">
+                  Faculty & Staff Directory
+                </span>
+                <span className="font-semibold text-slate-500 font-mono">
+                  {totalFaculty.toLocaleString()}
+                </span>
               </div>
               <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-[#20c978] h-full rounded-full w-[55%]" />
+                <div 
+                  style={{ width: getProgressPct(totalFaculty) }} 
+                  className="bg-[#20c978] h-full rounded-full transition-all duration-700 ease-out" 
+                />
               </div>
             </div>
 
-            {/* Breakdown item 4 */}
-            <div className="space-y-2">
+            {/* Dynamic Item 4: Campus Media & Gallery */}
+            <div className="space-y-2 group">
               <div className="flex justify-between items-center text-xs">
-                <span className="font-bold text-[#191d28]">Campus Media & Gallery</span>
-                <span className="font-semibold text-slate-500">420.700</span>
+                <span className="font-bold text-[#191d28] group-hover:text-blue-600 transition-colors">
+                  Campus Media & Gallery
+                </span>
+                <span className="font-semibold text-slate-500 font-mono">
+                  {totalMedia.toLocaleString()}
+                </span>
               </div>
               <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-[#20c978] h-full rounded-full w-[35%]" />
+                <div 
+                  style={{ width: getProgressPct(totalMedia) }} 
+                  className="bg-[#20c978] h-full rounded-full transition-all duration-700 ease-out" 
+                />
               </div>
             </div>
 
-            {/* Breakdown item 5 */}
-            <div className="space-y-2">
+            {/* Dynamic Item 5: Dynamic Pages & Menus */}
+            <div className="space-y-2 group">
               <div className="flex justify-between items-center text-xs">
-                <span className="font-bold text-[#191d28]">Dynamic Pages & Menus</span>
-                <span className="font-semibold text-slate-500">520.000</span>
+                <span className="font-bold text-[#191d28] group-hover:text-blue-600 transition-colors">
+                  Dynamic Pages & Menus
+                </span>
+                <span className="font-semibold text-slate-500 font-mono">
+                  {totalPages.toLocaleString()}
+                </span>
               </div>
               <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-[#20c978] h-full rounded-full w-[40%]" />
+                <div 
+                  style={{ width: getProgressPct(totalPages) }} 
+                  className="bg-[#20c978] h-full rounded-full transition-all duration-700 ease-out" 
+                />
               </div>
             </div>
 

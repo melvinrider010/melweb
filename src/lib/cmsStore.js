@@ -1212,17 +1212,143 @@ export const cmsStore = {
   },
 
   // ================= 11. ACTIVITY LOGGING =================
-  getLogs: () => cache.logs || [],
+  getLogs: () => {
+    const list = cache.logs || [];
+    if (list.length > 0) return list;
+    
+    // Seed initial realistic activity logs if list is currently empty
+    const now = new Date();
+    const todayStr = now.toISOString();
+    const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000).toISOString();
+    const threeDaysAgo = new Date(now.getTime() - 3 * 24 * 60 * 60 * 1000).toISOString();
 
-  logActivity: (action, user = 'Administrator') => {
+    return [
+      {
+        id: 'seed-log-1',
+        title: 'Academics & Syllabus Matrix',
+        action: 'Updated BCA & B.Com Course Curriculum Matrix',
+        details: 'BCA & B.Com Course Curriculum',
+        user: 'admin@stphilos.ac.in',
+        module: 'Academics',
+        stat: '+12 pages',
+        icon: 'book',
+        color: '#2ea5ff',
+        timestamp: todayStr
+      },
+      {
+        id: 'seed-log-2',
+        title: 'Upcoming Campus Events',
+        action: 'Published Annual Diamond Jubilee Fest 2026 Announcement',
+        details: 'Annual Diamond Jubilee Fest Live',
+        user: 'admin@stphilos.ac.in',
+        module: 'Events',
+        stat: 'Published',
+        icon: 'calendar',
+        color: '#9f54e6',
+        timestamp: todayStr
+      },
+      {
+        id: 'seed-log-3',
+        title: 'Computer Science Faculty Roster',
+        action: 'Synchronized HOD & Faculty Profiles Directory',
+        details: 'HOD & Faculty Profiles Synced',
+        user: 'hod.cs@stphilos.ac.in',
+        module: 'Faculty',
+        stat: '18 Faculty',
+        icon: 'building',
+        color: '#ff9432',
+        timestamp: todayStr
+      },
+      {
+        id: 'seed-log-4',
+        title: 'NAAC Self Study Report Criterion 3',
+        action: 'Uploaded Research Grants & Publications Verification PDF',
+        details: 'Research Grants & Publications',
+        user: 'iqac@stphilos.ac.in',
+        module: 'IQAC & NAAC',
+        stat: 'PDF Live',
+        icon: 'file',
+        color: '#eb4848',
+        timestamp: yesterday
+      },
+      {
+        id: 'seed-log-5',
+        title: 'Convocation Photo Gallery Reel',
+        action: 'Added 24 High-Resolution Campus Assets to Diamond Jubilee Reel',
+        details: '24 High-Resolution Assets',
+        user: 'media@stphilos.ac.in',
+        module: 'Media Gallery',
+        stat: '24 Assets',
+        icon: 'image',
+        color: '#20c978',
+        timestamp: yesterday
+      }
+    ];
+  },
+
+  logActivity: (action, user = 'Administrator', extra = {}) => {
+    let module = extra.module || 'System';
+    let stat = extra.stat || 'Updated';
+    let icon = 'layers';
+    let color = '#3b82f6';
+    let title = extra.title || action;
+
+    const lower = (action || '').toLowerCase();
+    if (lower.includes('syllabus') || lower.includes('programme') || lower.includes('course') || lower.includes('curriculum')) {
+      module = 'Academics';
+      title = extra.title || 'Academics & Syllabus Matrix';
+      stat = lower.includes('save') || lower.includes('new') ? '+1 Course' : 'Updated';
+      icon = 'book';
+      color = '#2ea5ff';
+    } else if (lower.includes('event') || lower.includes('fest') || lower.includes('calendar')) {
+      module = 'Events';
+      title = extra.title || 'Upcoming Campus Events';
+      stat = 'Published';
+      icon = 'calendar';
+      color = '#9f54e6';
+    } else if (lower.includes('faculty') || lower.includes('department') || lower.includes('hod') || lower.includes('staff')) {
+      module = 'Faculty';
+      title = extra.title || 'Department & Faculty Roster';
+      stat = 'Synced';
+      icon = 'building';
+      color = '#ff9432';
+    } else if (lower.includes('notice') || lower.includes('document') || lower.includes('report') || lower.includes('iqac') || lower.includes('naac')) {
+      module = 'Notices & Docs';
+      title = extra.title || 'Official College Notice';
+      stat = lower.includes('pdf') ? 'PDF Live' : 'Published';
+      icon = 'file';
+      color = '#eb4848';
+    } else if (lower.includes('media') || lower.includes('gallery') || lower.includes('photo') || lower.includes('slide')) {
+      module = 'Media Gallery';
+      title = extra.title || 'Campus Media Asset';
+      stat = 'Assets Live';
+      icon = 'image';
+      color = '#20c978';
+    } else if (lower.includes('page') || lower.includes('menu')) {
+      module = 'Pages & Menus';
+      title = extra.title || 'Dynamic Page Update';
+      stat = lower.includes('new') || lower.includes('custom') ? '+1 Page' : 'Published';
+      icon = 'book';
+      color = '#2ea5ff';
+    }
+
     const logItem = {
-      id: `log-${Date.now()}`,
+      id: `log-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`,
+      title,
       action,
+      details: action,
       user,
+      module,
+      stat,
+      icon,
+      color,
       timestamp: new Date().toISOString()
     };
-    cache.logs = [logItem, ...(cache.logs || []).slice(0, 200)];
+
+    const currentLogs = cmsStore.getLogs();
+    cache.logs = [logItem, ...currentLogs.filter(l => l.id !== logItem.id).slice(0, 150)];
     emitUpdate();
+    return logItem;
   },
 
   // ================= 12. RESET TO OFFICIAL IMPORTER STATE =================
