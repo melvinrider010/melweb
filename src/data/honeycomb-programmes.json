@@ -79,6 +79,16 @@
     "description": "Hands-on vocational degrees in Digital Media & Animation, Healthcare Technology, and Software Development aligned with UGC NSQF standards.",
     "link": "/academics/bvoc"
   },
+  {
+    "id": "lang",
+    "type": "ug",
+    "code": "LANG",
+    "title": "Department of Languages & Literature",
+    "displayLines": ["Department of", "Languages & Literature"],
+    "duration": "Course-aligned",
+    "description": "Language foundation and elective literature courses in English, Kannada, Hindi, French, Malayalam, and Urdu with modern digital language laboratory access.",
+    "link": "/academics/departments/dept-languages"
+  },
 
   {
     "id": "mca",
