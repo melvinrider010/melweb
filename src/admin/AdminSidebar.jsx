@@ -54,87 +54,82 @@ export default function AdminSidebar({ mobileOpen, setMobileOpen }) {
       {/* Sidebar Container */}
       <aside className={`
         fixed lg:static top-0 bottom-0 left-0 z-50
-        w-72 sm:w-80 bg-[#121316] text-white flex flex-col justify-between
-        p-7 sm:p-9 transition-transform duration-300 ease-in-out shrink-0
+        w-64 sm:w-72 bg-[#121316] text-white flex flex-col justify-between
+        px-5 py-4 sm:px-6 sm:py-5 transition-transform duration-300 ease-in-out shrink-0
         ${mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
         
         {/* Top & Navigation Section */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           
           {/* Close button for mobile */}
-          <div className="flex justify-between items-center lg:hidden -mt-2 -mr-2">
-            <span className="text-xs font-bold text-zinc-400 tracking-wider uppercase">Metronic CMS</span>
+          <div className="flex justify-between items-center lg:hidden -mt-1 -mr-1">
+            <span className="text-[11px] font-bold text-zinc-400 tracking-wider uppercase">Metronic CMS</span>
             <button 
               onClick={() => setMobileOpen(false)}
-              className="p-2 text-zinc-400 hover:text-white rounded-lg cursor-pointer"
+              className="p-1.5 text-zinc-400 hover:text-white rounded-lg cursor-pointer"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
           </div>
 
           {/* 1. Official College Brand Banner Logo */}
-          <Link 
-            to="/" 
-            target="_blank" 
-            className="block p-2.5 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all group border border-white/20"
-            title="View St. Philomena's College Website"
-          >
-            <img
-              src="/assets/images/logo/dashboard_college_logo.png"
-              alt="St. Philomena's College (Autonomous), Mysuru"
-              className="w-full h-auto max-h-12 object-contain group-hover:scale-[1.02] transition-transform"
-            />
-          </Link>
+          <div className="space-y-2">
+            <Link 
+              to="/" 
+              target="_blank" 
+              className="block p-2 bg-white rounded-xl shadow-xs hover:shadow-sm transition-all group border border-white/20"
+              title="View St. Philomena's College Website"
+            >
+              <img
+                src="/assets/images/logo/dashboard_college_logo.png"
+                alt="St. Philomena's College (Autonomous), Mysuru"
+                className="w-full h-8 object-contain group-hover:scale-[1.02] transition-transform"
+              />
+            </Link>
 
-          {/* College Name & Details in Centre Alignment */}
-          <div className="text-center px-1 -mt-1">
-            <h1 className="text-sm font-bold text-white tracking-wide leading-snug">
-              St. Philomena's College
-            </h1>
-            <p className="text-[11.5px] font-medium text-slate-400 mt-0.5 leading-snug">
-              (Autonomous), Mysuru · Est. 1946
-            </p>
+            {/* College Name & Details in Centre Alignment */}
+            <div className="text-center px-1">
+              <h1 className="text-xs font-bold text-white tracking-wide leading-tight">
+                St. Philomena's College
+              </h1>
+              <p className="text-[10.5px] font-medium text-slate-400 mt-0.5 leading-tight">
+                (Autonomous), Mysuru · Est. 1946
+              </p>
+            </div>
           </div>
 
-          {/* 2. User Details: Small Profile Image + Name + Role */}
-          <div className="p-3 bg-white/[0.04] hover:bg-white/[0.07] border border-white/10 rounded-2xl transition-colors">
-            <div className="flex items-center space-x-3">
-              {/* Small Profile Image with notification badge */}
-              <div className="relative shrink-0">
-                <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
-                  alt={user?.name || "User Profile"}
-                  className="w-10 h-10 rounded-xl object-cover ring-1 ring-white/20 shadow-md"
-                />
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#eb4848] text-white text-[9.5px] font-extrabold rounded-full flex items-center justify-center ring-2 ring-[#121316] shadow-xs">
-                  4
-                </span>
-              </div>
-
-              {/* Name & Role */}
-              <div className="min-w-0 flex-1">
-                <h2 className="text-sm font-bold text-white tracking-tight truncate leading-snug">
-                  {user?.name || 'Samantha (Admin)'}
-                </h2>
-                <p className="text-[11px] font-medium text-slate-400 truncate">
-                  {user?.role || (isHOD ? 'Head of Department' : 'Super Administrator')}
-                </p>
-              </div>
+          {/* 2. User Details: Compact Profile Image + Name + Role */}
+          <div className="flex items-center space-x-2.5 p-2 bg-white/[0.04] hover:bg-white/[0.07] border border-white/10 rounded-xl transition-colors">
+            <div className="relative shrink-0">
+              <img
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80"
+                alt={user?.name || "User Profile"}
+                className="w-8 h-8 rounded-lg object-cover ring-1 ring-white/20 shadow-xs"
+              />
+              <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-[#eb4848] text-white text-[8px] font-extrabold rounded-full flex items-center justify-center ring-1 ring-[#121316] shadow-xs">
+                4
+              </span>
             </div>
 
-            {/* Department Tag if HOD */}
+            <div className="min-w-0 flex-1">
+              <h2 className="text-xs font-bold text-white tracking-tight truncate leading-tight">
+                {user?.name || 'College Administrator'}
+              </h2>
+              <p className="text-[10px] font-medium text-slate-400 truncate">
+                {user?.role || (isHOD ? 'Head of Department' : 'SUPER_ADMIN')}
+              </p>
+            </div>
+
             {isHOD && userDepartmentName && (
-              <div className="mt-2.5 pt-2 border-t border-white/10">
-                <span className="inline-block px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-300 text-[10px] font-bold border border-amber-500/20 truncate max-w-full">
-                  {userDepartmentName}
-                </span>
-              </div>
+              <span className="px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-300 text-[9px] font-bold border border-amber-500/20 truncate max-w-[80px]">
+                {userDepartmentName}
+              </span>
             )}
           </div>
 
-          {/* Minimalist Bold Navigation matching reference design */}
-          <nav className="space-y-5 pt-2">
+          {/* Minimalist Bold Navigation with compact spacing */}
+          <nav className="space-y-3 pt-1">
             {navItems.map((item, idx) => {
               const isActive = item.match(location.pathname);
               return (
@@ -144,8 +139,8 @@ export default function AdminSidebar({ mobileOpen, setMobileOpen }) {
                     onClick={() => setMobileOpen && setMobileOpen(false)}
                     className={`block transition-all duration-150 tracking-tight text-left ${
                       isActive
-                        ? 'text-white font-extrabold text-[19px] sm:text-[20px]'
-                        : 'text-[#71717a] hover:text-white font-medium text-[19px] sm:text-[20px]'
+                        ? 'text-white font-extrabold text-[17px] sm:text-[18px]'
+                        : 'text-[#71717a] hover:text-white font-medium text-[17px] sm:text-[18px]'
                     }`}
                   >
                     {item.label}
