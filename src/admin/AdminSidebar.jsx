@@ -87,6 +87,16 @@ export default function AdminSidebar({ mobileOpen, setMobileOpen }) {
             />
           </Link>
 
+          {/* College Name & Details in Centre Alignment */}
+          <div className="text-center px-1 -mt-1">
+            <h1 className="text-sm font-bold text-white tracking-wide leading-snug">
+              St. Philomena's College
+            </h1>
+            <p className="text-[11.5px] font-medium text-slate-400 mt-0.5 leading-snug">
+              (Autonomous), Mysuru · Est. 1946
+            </p>
+          </div>
+
           {/* 2. User Details: Small Profile Image + Name + Role */}
           <div className="p-3 bg-white/[0.04] hover:bg-white/[0.07] border border-white/10 rounded-2xl transition-colors">
             <div className="flex items-center space-x-3">
