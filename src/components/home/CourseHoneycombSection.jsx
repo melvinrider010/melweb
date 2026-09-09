@@ -2,29 +2,51 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, X, BookOpen, Sparkles, CheckCircle2, ChevronRight, Layers, Loader2 } from 'lucide-react';
 import { getProgrammes } from '../../services/programmesService';
+import honeycombData from '../../data/honeycomb-programmes.json';
+import cmsStore from '../../lib/cmsStore';
 
 export default function CourseHoneycombSection() {
   const [filter, setFilter] = useState('ug'); // 'ug', 'pg', 'all'
   const [hoveredCourse, setHoveredCourse] = useState(null);
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [popoverPos, setPopoverPos] = useState({ side: 'right', vertical: 'center' });
-  const [allProgrammes, setAllProgrammes] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+
+  // 1. Instant Synchronous Seeding from Store / JSON (0ms latency, zero flash of empty state)
+  const [allProgrammes, setAllProgrammes] = useState(() => {
+    try {
+      const fromStore = cmsStore.getProgrammes ? cmsStore.getProgrammes() : null;
+      if (fromStore && fromStore.length > 0) return fromStore;
+    } catch (e) {}
+    return honeycombData || [];
+  });
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
     async function loadProgrammes() {
       try {
         const data = await getProgrammes();
-        if (isMounted) {
-          setAllProgrammes(data || []);
-          setIsLoading(false);
+        if (isMounted && Array.isArray(data) && data.length > 0) {
+          const hcMap = new Map((honeycombData || []).map(hc => [(hc.code || hc.id || '').toUpperCase(), hc]));
+          const merged = data.map(p => {
+            const key = (p.code || p.id || '').toUpperCase();
+            const hc = hcMap.get(key) || {};
+            return {
+              ...hc,
+              ...p,
+              id: p.id || hc.id || p.code,
+              code: p.code || hc.code,
+              type: (p.level || p.type || hc.type || 'ug').toLowerCase(),
+              displayLines: p.displayLines || hc.displayLines || [p.title || p.name || p.code],
+              duration: p.duration || hc.duration || '3 Years / 4 Years (NEP 2020)',
+              description: p.overview || p.description || hc.description,
+              link: p.link || hc.link || `/academics/${(p.slug || p.code || p.id).toLowerCase()}`
+            };
+          });
+          setAllProgrammes(merged);
         }
       } catch (err) {
-        if (isMounted) {
-          setAllProgrammes([]);
-          setIsLoading(false);
-        }
+        // Retain pre-loaded programmes seamlessly
       }
     }
     loadProgrammes();
@@ -42,7 +64,11 @@ export default function CourseHoneycombSection() {
 
       const itemType = (item.type || item.level || 'ug').toLowerCase();
       if (filter === 'all') return true;
-      return itemType === filter || itemType.includes(filter);
+      const isUG = itemType === 'ug' || itemType.startsWith('ug') || itemType.startsWith('undergrad');
+      const isPG = itemType === 'pg' || itemType.startsWith('pg') || itemType.startsWith('postgrad');
+      if (filter === 'ug') return isUG;
+      if (filter === 'pg') return isPG;
+      return true;
     })
     .map((p) => {
       const code = p.code || p.id || p.name || 'COURSE';
@@ -224,7 +250,12 @@ export default function CourseHoneycombSection() {
           key={filter}
           className="flex flex-col items-center justify-center pt-2 pb-2 w-full mx-auto relative animate-fadeIn"
         >
-          {rows.length === 0 ? (
+          {isLoading && rows.length === 0 ? (
+            <div className="py-12 flex flex-col items-center justify-center space-y-3">
+              <Loader2 className="w-8 h-8 text-[#C9A84C] animate-spin" />
+              <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">Loading Academic Streams...</span>
+            </div>
+          ) : rows.length === 0 ? (
             <div className="py-10 px-6 text-center bg-white rounded-2xl border border-slate-200/80 shadow-xs max-w-md mx-auto space-y-2">
               <span className="inline-block p-2 rounded-full bg-slate-100 text-slate-500 font-mono text-xs font-bold uppercase">
                 Offline Showcase

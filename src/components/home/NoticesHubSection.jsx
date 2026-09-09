@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { getUpcomingEvents } from '../../services/eventsService';
 import { getNotices } from '../../services/noticesService';
+import cmsStore from '../../lib/cmsStore';
 
 export default function NoticesHubSection() {
   const [levelFilter, setLevelFilter] = useState('all'); // 'all', 'ug', 'pg'
@@ -27,28 +28,37 @@ export default function NoticesHubSection() {
   const [expandedEventIds, setExpandedEventIds] = useState({});
   const scrollContainerRef = useRef(null);
 
-  const [rawEvents, setRawEvents] = useState([]);
-  const [rawNotices, setRawNotices] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [rawEvents, setRawEvents] = useState(() => {
+    try {
+      const stored = cmsStore.getEvents ? cmsStore.getEvents() : null;
+      if (stored && stored.length > 0) return stored;
+    } catch (e) {}
+    return [];
+  });
+  const [rawNotices, setRawNotices] = useState(() => {
+    try {
+      const stored = cmsStore.getNotices ? cmsStore.getNotices() : null;
+      if (stored && stored.length > 0) return stored;
+    } catch (e) {}
+    return [];
+  });
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
     async function loadData() {
-      setIsLoading(true);
       try {
         const [events, notices] = await Promise.all([
           getUpcomingEvents({ level: levelFilter, category: categoryFilter, search: searchQuery }),
           getNotices({ level: levelFilter, category: categoryFilter, search: searchQuery }),
         ]);
         if (isMounted) {
-          setRawEvents(events || []);
-          setRawNotices(notices || []);
+          if (events && events.length > 0) setRawEvents(events);
+          if (notices && notices.length > 0) setRawNotices(notices);
           setIsLoading(false);
         }
       } catch (e) {
         if (isMounted) {
-          setRawEvents([]);
-          setRawNotices([]);
           setIsLoading(false);
         }
       }

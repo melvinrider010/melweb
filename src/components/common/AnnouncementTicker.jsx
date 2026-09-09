@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Bell, ArrowRight } from 'lucide-react';
 import { getNotices } from '../../services/noticesService';
+import cmsStore from '../../lib/cmsStore';
 
 export default function AnnouncementTicker() {
-  const [notices, setNotices] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [notices, setNotices] = useState(() => {
+    try {
+      const fromStore = cmsStore.getNotices ? cmsStore.getNotices() : null;
+      if (fromStore && fromStore.length > 0) return fromStore;
+    } catch (e) {}
+    return [];
+  });
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
     async function loadNotices() {
       try {
         const data = await getNotices();
-        if (isMounted) {
-          setNotices(data || []);
+        if (isMounted && data && data.length > 0) {
+          setNotices(data);
           setIsLoading(false);
         }
       } catch (err) {
-        if (isMounted) {
-          setNotices([]);
-          setIsLoading(false);
-        }
+        // Retain initial notices
       }
     }
     loadNotices();
