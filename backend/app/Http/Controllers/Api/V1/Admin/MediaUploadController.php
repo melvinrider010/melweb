@@ -17,13 +17,27 @@ class MediaUploadController extends Controller
     public function upload(Request $request)
     {
         $request->validate([
-            'file' => 'required|file|max:20480', // max 20MB
-            'category' => 'nullable|string',
-            'alt_text' => 'nullable|string',
+            'file' => [
+                'required',
+                'file',
+                'max:15360', // max 15MB
+                'mimes:jpg,jpeg,png,webp,pdf',
+                'mimetypes:image/jpeg,image/png,image/webp,application/pdf',
+            ],
+            'category' => 'nullable|string|max:50',
+            'alt_text' => 'nullable|string|max:255',
         ]);
 
         $file = $request->file('file');
-        $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'webp', 'pdf'];
+        $extension = strtolower($file->guessExtension() ?: $file->extension());
+        
+        if (!in_array($extension, $allowedExtensions, true)) {
+            return response()->json(['message' => 'Unsupported or prohibited file type.'], 422);
+        }
+
+        // Generate cryptographically unique filename, never preserving raw client executable paths
+        $filename = Str::uuid() . '.' . $extension;
         
         $path = $file->storeAs('uploads/media', $filename, 'public');
         $url = '/storage/' . $path;

@@ -49,8 +49,8 @@ export default function AdminUserManagerPage() {
     return matchesSearch && matchesRole;
   });
 
-  const handleCopyCredentials = (email) => {
-    navigator.clipboard.writeText(`Email: ${email}\nPassword: StPhilos@HOD2026!`);
+  const handleCopyEmail = (email) => {
+    navigator.clipboard.writeText(email);
     setCopiedEmail(email);
     setTimeout(() => setCopiedEmail(''), 3000);
   };
@@ -115,15 +115,15 @@ export default function AdminUserManagerPage() {
         </button>
       </div>
 
-      {/* 2. CREDENTIALS QUICK REFERENCE BANNER */}
+      {/* 2. CREDENTIALS DIRECTORY BANNER */}
       <div className="bg-gradient-to-r from-[#061230] via-[#0B1F4E] to-[#091B42] text-white p-5 sm:p-6 rounded-2xl shadow-sm border-l-4 border-[#C9A84C] flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div className="space-y-1">
           <div className="flex items-center space-x-2">
             <Lock className="w-4 h-4 text-[#F0D98C]" />
-            <span className="text-xs font-bold uppercase tracking-wider text-[#F0D98C]">HOD Login Credentials Standard</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#F0D98C]">Departmental Access Control</span>
           </div>
           <p className="text-xs text-slate-200">
-            All department heads can log in using their department email (e.g. <code className="bg-white/10 px-1.5 py-0.5 rounded text-[#F0D98C] font-mono">hod.bca@stphilos.ac.in</code>) with standard initial password <code className="bg-white/10 px-1.5 py-0.5 rounded text-white font-mono font-bold">StPhilos@HOD2026!</code>.
+            Department heads authenticate via their institutional email. Passwords are encrypted on the server and never stored in plain text.
           </p>
         </div>
         <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[11px] font-mono font-bold px-3 py-1.5 rounded-xl shrink-0">
@@ -196,9 +196,9 @@ export default function AdminUserManagerPage() {
                       <div className="flex items-center space-x-1.5">
                         <span>{u.email}</span>
                         <button
-                          onClick={() => handleCopyCredentials(u.email)}
+                          onClick={() => handleCopyEmail(u.email)}
                           className="text-slate-400 hover:text-[#1C5496] p-1 rounded"
-                          title="Copy login details"
+                          title="Copy email address"
                         >
                           {copiedEmail === u.email ? (
                             <Check className="w-3.5 h-3.5 text-emerald-600" />

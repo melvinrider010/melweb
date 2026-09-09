@@ -44,7 +44,7 @@ export default function AdminSidebar() {
       title: "CONTENT MANAGEMENT",
       items: [
         { label: "Hero Sliders", path: "/admin/sliders", icon: Sliders },
-        { label: "Custom Pages", path: "/admin/pages", icon: BookOpen },
+        { label: "All Pages & Content Hub", path: "/admin/pages", icon: BookOpen },
         { label: "Navigation Menus", path: "/admin/menus", icon: Layers },
         { label: "Notices & Announcements", path: "/admin/notices", icon: FileText },
         { label: "Campus Events", path: "/admin/events", icon: Calendar },

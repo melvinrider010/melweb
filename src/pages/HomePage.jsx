@@ -4,8 +4,6 @@ import { ChevronRight, ArrowRight, ShieldCheck, Trophy, Users, BookOpen, Calenda
 import collegeInfo from '../data/college_info.json';
 import siteImages from '../data/site_images.json';
 import facilities from '../data/facilities.json';
-import ugProgrammes from '../data/ug-programmes.json';
-import pgProgrammes from '../data/pg-programmes.json';
 
 import HeroSlider from '../components/home/HeroSlider';
 import AnnouncementTicker from '../components/common/AnnouncementTicker';

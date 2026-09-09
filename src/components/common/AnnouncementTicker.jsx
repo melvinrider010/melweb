@@ -1,16 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Bell, ArrowRight } from 'lucide-react';
-import { cmsStore } from '../../lib/cmsStore';
+import { getNotices } from '../../services/noticesService';
 
 export default function AnnouncementTicker() {
-  const [notices, setNotices] = useState(cmsStore.getNotices());
+  const [notices, setNotices] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const handleUpdate = () => {
-      setNotices(cmsStore.getNotices());
-    };
-    window.addEventListener('cms_store_updated', handleUpdate);
-    return () => window.removeEventListener('cms_store_updated', handleUpdate);
+    let isMounted = true;
+    async function loadNotices() {
+      try {
+        const data = await getNotices();
+        if (isMounted) {
+          setNotices(data || []);
+          setIsLoading(false);
+        }
+      } catch (err) {
+        if (isMounted) {
+          setNotices([]);
+          setIsLoading(false);
+        }
+      }
+    }
+    loadNotices();
+    return () => { isMounted = false; };
   }, []);
 
   // Limit ticker to the latest 8 most recent updates for smooth readable scrolling

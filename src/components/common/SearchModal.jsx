@@ -1,20 +1,42 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, X, BookOpen, Building2, User, FileText, Calendar, ArrowRight, ExternalLink } from 'lucide-react';
-import ugProgrammes from '../../data/ug-programmes.json';
-import pgProgrammes from '../../data/pg-programmes.json';
-import departments from '../../data/departments.json';
+import { getProgrammes } from '../../services/programmesService';
+import { getDepartments } from '../../services/departmentsService';
+import { getNotices } from '../../services/noticesService';
 import faculty from '../../data/faculty.json';
-import notices from '../../data/notices.json';
 
 export default function SearchModal({ isOpen, onClose }) {
   const [query, setQuery] = useState('');
+  const [programmesList, setProgrammesList] = useState([]);
+  const [departmentsList, setDepartmentsList] = useState([]);
+  const [noticesList, setNoticesList] = useState([]);
   const inputRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 50);
+      // Fetch live searchable datasets from API
+      let isMounted = true;
+      async function loadSearchData() {
+        try {
+          const [progs, depts, nots] = await Promise.all([
+            getProgrammes(),
+            getDepartments(),
+            getNotices()
+          ]);
+          if (isMounted) {
+            setProgrammesList(progs || []);
+            setDepartmentsList(depts || []);
+            setNoticesList(nots || []);
+          }
+        } catch (e) {
+          // ignore background search cache failure
+        }
+      }
+      loadSearchData();
+      return () => { isMounted = false; };
     } else {
       setQuery('');
     }
@@ -40,21 +62,21 @@ export default function SearchModal({ isOpen, onClose }) {
   const q = query.trim().toLowerCase();
 
   const matchedProgrammes = q
-    ? [...ugProgrammes, ...pgProgrammes].filter(
-        p => p.title.toLowerCase().includes(q) || p.code.toLowerCase().includes(q)
+    ? (programmesList || []).filter(
+        p => (p.title || p.name || '').toLowerCase().includes(q) || (p.code || '').toLowerCase().includes(q)
       )
     : [];
 
   const matchedDepartments = q
-    ? departments.filter(d => d.name.toLowerCase().includes(q) || d.category.toLowerCase().includes(q))
+    ? (departmentsList || []).filter(d => (d.name || '').toLowerCase().includes(q) || (d.category || '').toLowerCase().includes(q))
     : [];
 
   const matchedFaculty = q
-    ? faculty.filter(f => f.name.toLowerCase().includes(q) || f.department.toLowerCase().includes(q) || f.designation.toLowerCase().includes(q))
+    ? faculty.filter(f => f.name.toLowerCase().includes(q) || (f.department || '').toLowerCase().includes(q) || (f.designation || '').toLowerCase().includes(q))
     : [];
 
   const matchedNotices = q
-    ? notices.filter(n => n.title.toLowerCase().includes(q) || n.category.toLowerCase().includes(q))
+    ? (noticesList || []).filter(n => (n.title || '').toLowerCase().includes(q) || (n.category || '').toLowerCase().includes(q))
     : [];
 
   const handleSelect = (path) => {

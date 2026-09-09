@@ -11,6 +11,7 @@ use App\Models\Programme;
 use App\Models\Setting;
 use App\Models\ActivityLog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 
 class ContentController extends Controller
@@ -18,6 +19,8 @@ class ContentController extends Controller
     // --- Sliders ---
     public function storeSlider(Request $request)
     {
+        Gate::authorize('create', Slider::class);
+
         $validated = $request->validate([
             'title' => 'required|string',
             'category' => 'nullable|string',
@@ -49,6 +52,8 @@ class ContentController extends Controller
     public function destroySlider(Request $request, $id)
     {
         $slider = Slider::findOrFail($id);
+        Gate::authorize('delete', $slider);
+
         $slider->delete();
         return response()->json(['status' => 'success', 'message' => 'Slider deleted.']);
     }
@@ -57,37 +62,129 @@ class ContentController extends Controller
     public function storeFaculty(Request $request)
     {
         $validated = $request->validate([
+            'id' => 'nullable|string',
             'name' => 'required|string',
             'designation' => 'nullable|string',
             'department' => 'nullable|string',
             'qualification' => 'nullable|string',
             'profile' => 'nullable|string',
             'photoUrl' => 'nullable|string',
+            'source_url' => 'nullable|string',
         ]);
 
+        $id = $request->input('id');
+        if ($id && ($existing = Faculty::find($id))) {
+            Gate::authorize('update', $existing);
+            $existing->update([
+                'name' => $validated['name'],
+                'designation' => $validated['designation'] ?? $existing->designation,
+                'department' => $validated['department'] ?? $existing->department,
+                'qualification' => $validated['qualification'] ?? $existing->qualification,
+                'profile' => $validated['profile'] ?? $existing->profile,
+                'photo_url' => $validated['photoUrl'] ?? $existing->photo_url,
+                'source_url' => $validated['source_url'] ?? $existing->source_url,
+            ]);
+
+            ActivityLog::create([
+                'id' => 'log_' . Str::random(10),
+                'user_id' => $request->user()?->id,
+                'user_email' => $request->user()?->email ?? 'admin@stphilos.ac.in',
+                'action' => 'UPDATE_FACULTY',
+                'module' => 'Faculty',
+                'details' => "Updated faculty {$existing->name} ({$existing->id})",
+            ]);
+
+            return response()->json(['status' => 'success', 'faculty' => $existing], 200);
+        }
+
+        Gate::authorize('create', [Faculty::class, $validated['department'] ?? null]);
+
         $faculty = Faculty::create([
-            'id' => $request->input('id') ?: 'fac_' . Str::random(8),
+            'id' => $id ?: 'fac_' . Str::random(8),
             'name' => $validated['name'],
             'designation' => $validated['designation'] ?? null,
             'department' => $validated['department'] ?? null,
             'qualification' => $validated['qualification'] ?? null,
             'profile' => $validated['profile'] ?? null,
             'photo_url' => $validated['photoUrl'] ?? null,
+            'source_url' => $validated['source_url'] ?? null,
+        ]);
+
+        ActivityLog::create([
+            'id' => 'log_' . Str::random(10),
+            'user_id' => $request->user()?->id,
+            'user_email' => $request->user()?->email ?? 'admin@stphilos.ac.in',
+            'action' => 'CREATE_FACULTY',
+            'module' => 'Faculty',
+            'details' => "Created faculty {$faculty->name} ({$faculty->id}) in department " . ($faculty->department ?? 'Unassigned'),
         ]);
 
         return response()->json(['status' => 'success', 'faculty' => $faculty], 201);
     }
 
+    public function updateFaculty(Request $request, $id)
+    {
+        $faculty = Faculty::findOrFail($id);
+        Gate::authorize('update', $faculty);
+
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'designation' => 'nullable|string',
+            'department' => 'nullable|string',
+            'qualification' => 'nullable|string',
+            'profile' => 'nullable|string',
+            'photoUrl' => 'nullable|string',
+            'source_url' => 'nullable|string',
+        ]);
+
+        $faculty->update([
+            'name' => $validated['name'],
+            'designation' => $validated['designation'] ?? $faculty->designation,
+            'department' => $validated['department'] ?? $faculty->department,
+            'qualification' => $validated['qualification'] ?? $faculty->qualification,
+            'profile' => $validated['profile'] ?? $faculty->profile,
+            'photo_url' => $validated['photoUrl'] ?? $faculty->photo_url,
+            'source_url' => $validated['source_url'] ?? $faculty->source_url,
+        ]);
+
+        ActivityLog::create([
+            'id' => 'log_' . Str::random(10),
+            'user_id' => $request->user()?->id,
+            'user_email' => $request->user()?->email ?? 'admin@stphilos.ac.in',
+            'action' => 'UPDATE_FACULTY',
+            'module' => 'Faculty',
+            'details' => "Updated faculty {$faculty->name} ({$faculty->id})",
+        ]);
+
+        return response()->json(['status' => 'success', 'faculty' => $faculty]);
+    }
+
     public function destroyFaculty(Request $request, $id)
     {
         $faculty = Faculty::findOrFail($id);
+        Gate::authorize('delete', $faculty);
+
+        $facultyName = $faculty->name;
+        $facultyId = $faculty->id;
         $faculty->delete();
+
+        ActivityLog::create([
+            'id' => 'log_' . Str::random(10),
+            'user_id' => $request->user()?->id,
+            'user_email' => $request->user()?->email ?? 'admin@stphilos.ac.in',
+            'action' => 'DELETE_FACULTY',
+            'module' => 'Faculty',
+            'details' => "Deleted faculty {$facultyName} ({$facultyId})",
+        ]);
+
         return response()->json(['status' => 'success', 'message' => 'Faculty member deleted.']);
     }
 
     // --- Documents ---
     public function storeDocument(Request $request)
     {
+        Gate::authorize('create', Document::class);
+
         $validated = $request->validate([
             'title' => 'required|string',
             'filename' => 'required|string',
@@ -113,6 +210,8 @@ class ContentController extends Controller
     public function destroyDocument(Request $request, $id)
     {
         $doc = Document::findOrFail($id);
+        Gate::authorize('delete', $doc);
+
         $doc->delete();
         return response()->json(['status' => 'success', 'message' => 'Document deleted.']);
     }
@@ -120,6 +219,8 @@ class ContentController extends Controller
     // --- Settings ---
     public function updateSettings(Request $request)
     {
+        Gate::authorize('update', Setting::class);
+
         $data = $request->all();
         foreach ($data as $k => $v) {
             Setting::updateOrCreate(['key' => $k], ['value' => $v]);
@@ -128,8 +229,10 @@ class ContentController extends Controller
     }
 
     // --- Logs ---
-    public function logs()
+    public function logs(Request $request)
     {
+        Gate::authorize('viewAny', ActivityLog::class);
+
         $logs = ActivityLog::orderBy('created_at', 'desc')->take(100)->get();
         return response()->json($logs);
     }

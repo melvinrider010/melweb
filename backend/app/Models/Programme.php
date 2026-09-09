@@ -32,4 +32,9 @@ class Programme extends Model
             'source_verified' => 'boolean',
         ];
     }
+
+    public function faculty()
+    {
+        return $this->belongsToMany(Faculty::class, 'faculty_programme', 'programme_code', 'faculty_id', 'code', 'id')->where('faculty.status', 'active');
+    }
 }

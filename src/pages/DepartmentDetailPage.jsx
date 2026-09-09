@@ -1,57 +1,108 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { 
   Building2, 
   ArrowLeft, 
-  ArrowRight,
+  ArrowRight, 
   BookOpen, 
   Users, 
   Mail, 
-  Phone,
+  Phone, 
   CheckCircle2, 
   FileText, 
   Sparkles, 
   Award, 
-  Target,
-  Clock,
-  GraduationCap,
-  TrendingUp,
-  ChevronRight,
-  Download,
-  MapPin,
-  FolderGit2
+  Target, 
+  Clock, 
+  GraduationCap, 
+  TrendingUp, 
+  ChevronRight, 
+  Download, 
+  MapPin, 
+  FolderGit2,
+  Loader2,
+  AlertTriangle
 } from 'lucide-react';
 import { 
-  getDepartmentById, 
   getFacultyByDepartmentId, 
-  getProgrammeById,
-  getDepartmentContinuumProgrammes,
-  DEPARTMENTS 
+  getProgrammeById, 
+  getDepartmentContinuumProgrammes 
 } from '../data/academicsHierarchyData';
 import FacultyAvatar from '../components/common/FacultyAvatar';
-import cmsStore from '../lib/cmsStore';
-import useCms from '../lib/useCms';
+import { getDepartments } from '../services/departmentsService';
 
 export default function DepartmentDetailPage() {
   const { deptId } = useParams();
-  
-  // Live reactive data from CMS store (updates instantly when HOD saves changes)
-  const dept = useCms(() => cmsStore.getDepartmentById(deptId) || getDepartmentById(deptId), [deptId]);
-  const deptFaculty = useCms(() => dept ? (cmsStore.getFacultyByDepartment(dept.id) || getFacultyByDepartmentId(dept.id)) : [], [deptId, dept?.id]);
-  const deptSyllabuses = useCms(() => cmsStore.getSyllabuses(dept?.id || deptId), [deptId, dept?.id]);
-  const deptDocs = useCms(() => cmsStore.getDepartmentDocuments(dept?.id || deptId), [deptId, dept?.id]);
+  const [dept, setDept] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  if (!dept) {
+  useEffect(() => {
+    let isMounted = true;
+    async function loadDepartment() {
+      setIsLoading(true);
+      setError(null);
+      try {
+        const list = await getDepartments();
+        if (isMounted) {
+          const raw = String(deptId || '').toLowerCase().trim();
+          const clean = raw.replace(/^dept[-_]/, '');
+          const withPrefix = `dept-${clean}`;
+          
+          const found = (list || []).find(d => {
+            const dId = (d.id || '').toLowerCase();
+            const dSlug = (d.slug || '').toLowerCase();
+            const dCode = (d.code || '').toLowerCase();
+            return dId === raw || dId === clean || dId === withPrefix ||
+                   dSlug === raw || dSlug === clean || dSlug === withPrefix ||
+                   dCode === raw || dCode === clean ||
+                   d.name.toLowerCase().includes(clean);
+          });
+
+          if (found) {
+            setDept(found);
+          } else {
+            setError(`The academic department "${deptId}" could not be located.`);
+          }
+          setIsLoading(false);
+        }
+      } catch (err) {
+        if (isMounted) {
+          setError(err?.message || 'Failed to retrieve department details.');
+          setIsLoading(false);
+        }
+      }
+    }
+    loadDepartment();
+    return () => { isMounted = false; };
+  }, [deptId]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-[#FAF9F6] text-[#071A33] py-24 px-4 flex flex-col items-center justify-center space-y-4">
+        <Loader2 className="w-10 h-10 text-[#1C5496] animate-spin mx-auto" />
+        <h2 className="text-xl font-serif font-bold text-slate-800">Loading Department Profile...</h2>
+        <p className="text-xs text-slate-500">Connecting to St. Philomena's academic repository</p>
+      </div>
+    );
+  }
+
+  if (error || !dept) {
     return (
       <div className="min-h-screen bg-[#FAF9F6] text-[#071A33] py-16 px-4 flex flex-col items-center justify-center space-y-4">
+        <AlertTriangle className="w-10 h-10 text-amber-500 mx-auto" />
         <h2 className="text-2xl font-serif font-bold text-slate-800">Academic Department Not Found</h2>
-        <p className="text-sm text-slate-600">The department identifier "{deptId}" could not be located.</p>
+        <p className="text-sm text-slate-600">{error || `The department identifier "${deptId}" could not be located.`}</p>
         <Link to="/departments" className="mt-4 px-4 py-2 bg-[#1C5496] text-white rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors">
           View All Departments
         </Link>
       </div>
     );
   }
+
+  const deptFaculty = getFacultyByDepartmentId(dept.id);
+  const deptSyllabuses = dept.syllabuses || [];
+  const deptDocs = dept.departmentDocs || [];
 
   const ugList = (dept.ugProgrammes || []).map(id => getProgrammeById(id)).filter(Boolean);
   const pgList = (dept.pgProgrammes || []).map(id => getProgrammeById(id)).filter(Boolean);

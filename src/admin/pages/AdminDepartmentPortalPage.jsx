@@ -27,6 +27,7 @@ import { useAuth } from '../../lib/authContext';
 import cmsStore from '../../lib/cmsStore';
 import useCms from '../../lib/useCms';
 import FileUploadZone from '../../components/common/FileUploadZone';
+import * as facultyService from '../../services/facultyService';
 
 export default function AdminDepartmentPortalPage() {
   const { user, isSuperAdmin, isHOD, userDepartmentId, userDepartmentName } = useAuth();
@@ -312,26 +313,42 @@ export default function AdminDepartmentPortalPage() {
   const handleSaveFaculty = async (e) => {
     e.preventDefault();
     try {
+      const payload = {
+        id: facultyForm.id || undefined,
+        name: facultyForm.name,
+        designation: facultyForm.designation,
+        department: dept?.name || facultyForm.departmentName,
+        qualification: facultyForm.qualification,
+        profile: facultyForm.profile,
+        photoUrl: facultyForm.photoUrl,
+      };
+
+      await facultyService.saveFaculty(payload);
+
       await cmsStore.saveFaculty({
         ...facultyForm,
         departmentId: dept?.id,
         departmentSlug: dept?.slug || dept?.id,
         departmentName: dept?.name
       }, user?.name || 'HOD User');
+
       setIsFacultyModalOpen(false);
-      showFeedback('Faculty member profile updated successfully!');
+      showFeedback('Faculty member profile updated on server successfully!');
     } catch (err) {
-      showFeedback(err.message, true);
+      const errMsg = err?.data?.message || err?.message || 'Failed to update faculty member.';
+      showFeedback(errMsg, true);
     }
   };
 
   const handleDeleteFaculty = async (id, name) => {
     if (window.confirm(`Remove faculty member "${name}" from this department?`)) {
       try {
+        await facultyService.deleteFaculty(id);
         await cmsStore.deleteFaculty(id, user?.name);
-        showFeedback('Faculty profile removed successfully.');
+        showFeedback('Faculty profile removed from server successfully.');
       } catch (err) {
-        showFeedback(err.message, true);
+        const errMsg = err?.data?.message || err?.message || 'Failed to delete faculty member.';
+        showFeedback(errMsg, true);
       }
     }
   };

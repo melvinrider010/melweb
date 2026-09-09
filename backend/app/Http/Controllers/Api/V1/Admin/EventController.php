@@ -10,6 +10,7 @@ use App\Models\ActivityLog;
 use App\Http\Resources\EventResource;
 use App\Http\Resources\SubEventResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 
 class EventController extends Controller
@@ -19,6 +20,8 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('create', Event::class);
+
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -113,6 +116,7 @@ class EventController extends Controller
     public function update(Request $request, $id)
     {
         $event = Event::where('id', $id)->orWhere('slug', $id)->firstOrFail();
+        Gate::authorize('update', $event);
 
         $validated = $request->validate([
             'title' => 'sometimes|string|max:255',
@@ -176,6 +180,8 @@ class EventController extends Controller
     public function destroy(Request $request, $id)
     {
         $event = Event::where('id', $id)->orWhere('slug', $id)->firstOrFail();
+        Gate::authorize('delete', $event);
+
         $title = $event->title;
         $event->delete();
 
@@ -195,11 +201,12 @@ class EventController extends Controller
     }
 
     /**
-     * Add a sub-event to an event (sub-event resurrection triggers here).
+     * Add a sub-event to an event.
      */
     public function addSubEvent(Request $request, $eventId)
     {
         $event = Event::where('id', $eventId)->orWhere('slug', $eventId)->firstOrFail();
+        Gate::authorize('update', $event);
 
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -247,6 +254,11 @@ class EventController extends Controller
     public function destroySubEvent(Request $request, $id)
     {
         $subEvent = SubEvent::findOrFail($id);
+        $parent = Event::find($subEvent->event_id);
+        if ($parent) {
+            Gate::authorize('update', $parent);
+        }
+
         $title = $subEvent->title;
         $eventId = $subEvent->event_id;
         $subEvent->delete();
@@ -260,12 +272,12 @@ class EventController extends Controller
             'details' => "Deleted sub-event '{$title}'.",
         ]);
 
-        $parent = Event::with(['subEvents', 'attachments'])->find($eventId);
+        $parentEvent = Event::with(['subEvents', 'attachments'])->find($eventId);
 
         return response()->json([
             'status' => 'success',
             'message' => "Sub-event '{$title}' deleted successfully.",
-            'event' => $parent ? new EventResource($parent) : null,
+            'event' => $parentEvent ? new EventResource($parentEvent) : null,
         ]);
     }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { 
   Calendar, 
@@ -15,10 +15,12 @@ import {
   ExternalLink,
   Sparkles,
   Layers,
-  Paperclip
+  Paperclip,
+  Loader2,
+  AlertTriangle
 } from 'lucide-react';
-import { cmsStore } from '../lib/cmsStore';
-import { getEventById } from '../lib/eventsNoticesService';
+import { getEventById } from '../services/eventsService';
+import { getNoticeById, getNotices } from '../services/noticesService';
 import { animatePageIn } from '../animations/pageTransitions';
 import ViewAsBookButton from '../components/common/ViewAsBookButton';
 
@@ -27,27 +29,77 @@ export default function NoticeDetailPage() {
   const navigate = useNavigate();
   const containerRef = useRef(null);
 
+  const [item, setItem] = useState(null);
+  const [isEvent, setIsEvent] = useState(false);
+  const [recentNotices, setRecentNotices] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const targetKey = id || slug;
+
   useEffect(() => {
     animatePageIn(containerRef);
     window.scrollTo(0, 0);
-  }, [id, slug]);
 
-  const targetKey = id || slug || 'congratulations-25';
+    let isMounted = true;
+    async function fetchDetail() {
+      if (!targetKey) return;
+      setIsLoading(true);
+      setError(null);
+      try {
+        // Try fetching as event or notice
+        let found = null;
+        let isEvt = false;
 
-  // Find item by checking events first, then notices
-  const { item, isEvent } = useMemo(() => {
-    const event = getEventById(targetKey);
-    if (event) {
-      return { item: event, isEvent: true };
+        try {
+          found = await getEventById(targetKey);
+          if (found && found.id) {
+            isEvt = true;
+          }
+        } catch (e) {
+          // not found as event, try notice
+        }
+
+        if (!found) {
+          try {
+            found = await getNoticeById(targetKey);
+            if (found && found.id) {
+              isEvt = found.type === 'Event';
+            }
+          } catch (e) {
+            // not found
+          }
+        }
+
+        if (isMounted) {
+          if (found) {
+            setItem(found);
+            setIsEvent(isEvt);
+          } else {
+            setError('Official document or event record not found.');
+          }
+          setIsLoading(false);
+        }
+
+        // Fetch recent bulletins
+        try {
+          const bulletins = await getNotices();
+          if (isMounted) {
+            setRecentNotices(bulletins || []);
+          }
+        } catch (e) {
+          // ignore background bulletins error
+        }
+      } catch (err) {
+        if (isMounted) {
+          setError(err?.message || 'Failed to load document details.');
+          setIsLoading(false);
+        }
+      }
     }
-    const notices = cmsStore.getNotices();
-    const foundNotice = notices.find(
-      (n) => n.id === targetKey || n.slug === targetKey || n.linked_event_id === targetKey
-    );
-    if (foundNotice) {
-      return { item: foundNotice, isEvent: foundNotice.type === 'Event' };
-    }
-    return { item: notices[0] || event, isEvent: false };
+
+    fetchDetail();
+    return () => { isMounted = false; };
   }, [targetKey]);
 
   const handlePrint = () => {
@@ -66,6 +118,40 @@ export default function NoticeDetailPage() {
       alert('Link copied to clipboard!');
     }
   };
+
+  if (isLoading) {
+    return (
+      <div ref={containerRef} className="bg-[#f8f9fc] min-h-screen text-[#0B1F4E] pb-20">
+        <div className="relative bg-[#0B1F4E] text-white py-14 sm:py-20 px-4 sm:px-8 border-b-4 border-[#C9A84C]">
+          <div className="max-w-[1200px] mx-auto text-center space-y-4">
+            <Loader2 className="w-10 h-10 text-[#F0D98C] animate-spin mx-auto" />
+            <h1 className="font-serif font-extrabold text-2xl sm:text-3xl text-white">Loading Official Circular / Event...</h1>
+            <p className="text-xs text-slate-300">Retrieving official document from St. Philomena's repository</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !item) {
+    return (
+      <div ref={containerRef} className="bg-[#f8f9fc] min-h-screen text-[#0B1F4E] pb-20">
+        <div className="relative bg-[#0B1F4E] text-white py-14 sm:py-20 px-4 sm:px-8 border-b-4 border-[#C9A84C]">
+          <div className="max-w-[1200px] mx-auto text-center space-y-4">
+            <AlertTriangle className="w-10 h-10 text-amber-400 mx-auto" />
+            <h1 className="font-serif font-extrabold text-2xl sm:text-3xl text-white">Document Not Found</h1>
+            <p className="text-xs text-slate-300">{error || "The requested notice or event record could not be found."}</p>
+            <div className="pt-2">
+              <Link to="/news-events" className="btn-gold px-4 py-2 text-xs font-bold rounded-lg inline-flex items-center space-x-1.5">
+                <ArrowLeft className="w-3.5 h-3.5 mr-1" />
+                <span>Back to Bulletins & Notices</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const hasSubEvents = Array.isArray(item.subEvents) && item.subEvents.length > 0;
   const hasAttachments = Array.isArray(item.attachments) && item.attachments.length > 0;
@@ -352,7 +438,7 @@ export default function NoticeDetailPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {cmsStore.getNotices()
+            {recentNotices
               .filter((n) => n.id !== item.id && n.linked_event_id !== item.id)
               .slice(0, 3)
               .map((other) => (
@@ -363,7 +449,7 @@ export default function NoticeDetailPage() {
                 >
                   <div className="flex items-center justify-between text-[10px] font-mono">
                     <span className="bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded uppercase">
-                      {other.type}
+                      {other.type || "NOTICE"}
                     </span>
                     <span className="text-slate-500">{other.date}</span>
                   </div>

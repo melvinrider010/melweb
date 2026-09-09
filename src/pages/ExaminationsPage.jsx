@@ -1,10 +1,31 @@
-import React from 'react';
-import { Calendar, FileText, Download, ExternalLink, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import notices from '../data/notices.json';
+import React, { useState, useEffect } from 'react';
+import { Calendar, FileText, Download, ExternalLink, ShieldCheck, CheckCircle2, Loader2 } from 'lucide-react';
+import { getNotices } from '../services/noticesService';
 import { ASSETS } from '../data/assets';
 
 export default function ExaminationsPage() {
-  const examNotices = notices.filter(n => n.category === 'Examinations' || n.type === 'Notice');
+  const [examNotices, setExamNotices] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+    async function loadExamNotices() {
+      try {
+        const data = await getNotices({ category: 'Examinations' });
+        if (isMounted) {
+          setExamNotices(data || []);
+          setIsLoading(false);
+        }
+      } catch (err) {
+        if (isMounted) {
+          setExamNotices([]);
+          setIsLoading(false);
+        }
+      }
+    }
+    loadExamNotices();
+    return () => { isMounted = false; };
+  }, []);
 
   return (
     <div className="space-y-10 py-10 px-4 sm:px-8 max-w-[1400px] mx-auto text-[#071A33]">
@@ -67,26 +88,36 @@ export default function ExaminationsPage() {
       <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
         <h2 className="font-serif font-bold text-2xl text-slate-900 border-b border-slate-100 pb-3">Latest COE Examination Notifications</h2>
         <div className="space-y-3">
-          {examNotices.map((n) => (
-            <div key={n.id} className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-              <div className="space-y-1">
-                <div className="flex items-center space-x-2">
-                  <span className="bg-blue-100 text-[#1C5496] font-bold text-[10px] px-2 py-0.5 rounded">{n.category}</span>
-                  <span className="text-[11px] text-slate-400 font-mono">{n.date}</span>
-                </div>
-                <h4 className="font-serif font-bold text-sm text-slate-900">{n.title}</h4>
-                <p className="text-xs text-slate-600">{n.summary}</p>
-              </div>
-              <a
-                href={n.link}
-                download
-                className="btn-primary-blue px-4 py-2 rounded-md text-xs font-bold shrink-0 flex items-center"
-              >
-                <Download className="w-3.5 h-3.5 mr-1.5" />
-                <span>Download Circular PDF</span>
-              </a>
+          {isLoading ? (
+            <div className="p-8 text-center space-y-2">
+              <Loader2 className="w-6 h-6 text-[#1C5496] animate-spin mx-auto" />
+              <p className="text-xs text-slate-500">Loading COE Examination notices...</p>
             </div>
-          ))}
+          ) : examNotices.length > 0 ? (
+            examNotices.map((n) => (
+              <div key={n.id} className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div className="space-y-1">
+                  <div className="flex items-center space-x-2">
+                    <span className="bg-blue-100 text-[#1C5496] font-bold text-[10px] px-2 py-0.5 rounded">{n.category || 'Examinations'}</span>
+                    <span className="text-[11px] text-slate-400 font-mono">{n.date}</span>
+                  </div>
+                  <h4 className="font-serif font-bold text-sm text-slate-900">{n.title}</h4>
+                  <p className="text-xs text-slate-600">{n.summary}</p>
+                </div>
+                <a
+                  href={n.link || `/news-events/${n.id}`}
+                  className="btn-primary-blue px-4 py-2 rounded-md text-xs font-bold shrink-0 flex items-center"
+                >
+                  <Download className="w-3.5 h-3.5 mr-1.5" />
+                  <span>View Notification</span>
+                </a>
+              </div>
+            ))
+          ) : (
+            <div className="p-8 text-center text-slate-500 text-xs">
+              <p>No active examination notifications found.</p>
+            </div>
+          )}
         </div>
       </div>
 

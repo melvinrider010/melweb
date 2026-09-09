@@ -5,7 +5,6 @@ import alumniData from '../data/alumniData.json';
 import noticesData from '../data/notices.json';
 import eventsData from '../data/events.json';
 import mediaData from '../data/media.json';
-import docData from '../data/documents.json';
 import slidersData from '../data/sliders.json';
 import userData from '../data/users.json';
 import logData from '../data/activity-logs.json';
@@ -13,6 +12,7 @@ import settingsData from '../data/settings.json';
 import { initialMegaMenuData } from '../data/megaMenuData.js';
 import { SYLLABUS_REGISTRY } from '../data/syllabusData.js';
 import departmentAssetsManifest from '../data/departmentAssetsManifest.json';
+import masterPagesData from '../data/masterPagesData.json';
 
 const STORAGE_KEY = 'stphilos_cms_store_v10';
 const REVISIONS_KEY = 'stphilos_cms_revisions_v10';
@@ -89,42 +89,11 @@ function getInitialData() {
 
   const seededProgrammes = baseProgrammes;
 
-  const seededPages = [
-    {
-      id: 'page-about-college',
-      title: "About St. Philomena's College",
-      slug: 'about-college',
-      parentSlug: '',
-      pageType: 'general',
-      featuredImage: '/assets/banner-college.jpg',
-      excerpt: 'Autonomous College affiliated to University of Mysore with NAAC A+ accreditation.',
-      content: 'Established in 1946 by His Excellency Rt. Rev. Dr. Rene Feuga, St. Philomena’s College is a premier autonomous institution in Mysuru, Karnataka.',
-      seoTitle: "About Us | St. Philomena's College (Autonomous), Mysuru",
-      seoDescription: 'Premier autonomous educational institution imparting value-based higher education since 1946.',
-      status: 'published',
-      origin: 'imported',
-      publishDate: '2026-01-01',
-      lastUpdated: '2026-09-02',
-      order: 1
-    },
-    {
-      id: 'page-academic-regulations',
-      title: 'Academic Regulations & NEP Framework',
-      slug: 'academic-regulations',
-      parentSlug: 'academics',
-      pageType: 'academic',
-      featuredImage: '/assets/banner-college.jpg',
-      excerpt: 'Comprehensive guidelines and examination ordinances under NEP 2020.',
-      content: 'St. Philomena’s College implements the National Education Policy (NEP) guidelines with multi-disciplinary curriculum structures, skill enhancement courses, and continuous internal evaluations.',
-      seoTitle: "Academic Regulations | St. Philomena's College",
-      seoDescription: 'Autonomous curriculum guidelines and evaluation ordinances.',
-      status: 'published',
-      origin: 'imported',
-      publishDate: '2026-01-01',
-      lastUpdated: '2026-09-02',
-      order: 2
-    }
-  ];
+  const seededPages = (masterPagesData || []).map(p => ({
+    ...p,
+    status: p.status || 'published',
+    origin: p.origin || 'system'
+  }));
 
   const seededSyllabuses = (hierarchyData.departments || []).map(dept => {
     const manifest = manifestMap.get(dept.id);
@@ -175,7 +144,7 @@ function getInitialData() {
     pages: seededPages,
     events: [...eventsData],
     notices: [...noticesData],
-    documents: [...docData],
+    documents: [],
     media: [...mediaData],
     sliders: [...slidersData],
     alumni: [...(alumniData.initialRegistrations || [])],
@@ -257,6 +226,20 @@ function loadCache() {
       }
       if (!parsed.alumni || !Array.isArray(parsed.alumni) || parsed.alumni.length === 0) {
         parsed.alumni = initial.alumni;
+      }
+      if (!parsed.pages || !Array.isArray(parsed.pages) || parsed.pages.length < initial.pages.length) {
+        const cachedPageMap = new Map((parsed.pages || []).map(p => [p.slug || p.id, p]));
+        const mergedPages = initial.pages.map(initP => {
+          const cached = cachedPageMap.get(initP.slug) || cachedPageMap.get(initP.id);
+          return cached ? { ...initP, ...cached } : initP;
+        });
+        const initialSlugSet = new Set(initial.pages.map(p => p.slug));
+        (parsed.pages || []).forEach(p => {
+          if (p.slug && !initialSlugSet.has(p.slug)) {
+            mergedPages.push(p);
+          }
+        });
+        parsed.pages = mergedPages;
       }
       return { ...initial, ...parsed };
     }

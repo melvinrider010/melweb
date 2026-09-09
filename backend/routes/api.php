@@ -29,7 +29,9 @@ Route::prefix('v1')->group(function () {
     Route::get('/sliders', [ContentController::class, 'sliders']);
     Route::get('/media', [ContentController::class, 'media']);
     Route::get('/documents', [ContentController::class, 'documents']);
+    Route::get('/documents/{id}', [ContentController::class, 'showDocument']);
     Route::get('/faculty', [ContentController::class, 'faculty']);
+    Route::get('/faculty/{id}', [ContentController::class, 'showFaculty']);
     Route::get('/departments', [ContentController::class, 'departments']);
     Route::get('/programmes', [ContentController::class, 'programmes']);
     Route::get('/settings', [ContentController::class, 'settings']);
@@ -63,6 +65,7 @@ Route::prefix('v1')->group(function () {
         Route::post('/admin/sliders', [AdminContentController::class, 'storeSlider']);
         Route::delete('/admin/sliders/{id}', [AdminContentController::class, 'destroySlider']);
         Route::post('/admin/faculty', [AdminContentController::class, 'storeFaculty']);
+        Route::put('/admin/faculty/{id}', [AdminContentController::class, 'updateFaculty']);
         Route::delete('/admin/faculty/{id}', [AdminContentController::class, 'destroyFaculty']);
         Route::post('/admin/documents', [AdminContentController::class, 'storeDocument']);
         Route::delete('/admin/documents/{id}', [AdminContentController::class, 'destroyDocument']);

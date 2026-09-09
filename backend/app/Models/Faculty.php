@@ -14,6 +14,8 @@ class Faculty extends Model
         'id',
         'name',
         'designation',
+        'department_id',
+        'status',
         'department',
         'qualification',
         'source_url',
@@ -27,5 +29,15 @@ class Faculty extends Model
         return [
             'source_verified' => 'boolean',
         ];
+    }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'department_id', 'id');
+    }
+
+    public function programmes()
+    {
+        return $this->belongsToMany(Programme::class, 'faculty_programme', 'faculty_id', 'programme_code', 'id', 'code');
     }
 }

@@ -1,30 +1,53 @@
 /**
- * Central API Client for St. Philomena's College Laravel Backend
+ * Central Secure API Client for St. Philomena's College Laravel Backend
  */
 
 const API_BASE = '/api/v1';
 
+// In-Memory Token Reference (Avoids localStorage plain-text token persistence)
+let inMemoryAuthToken = '';
+
 export function getAuthToken() {
-  return localStorage.getItem('stphilos_auth_token') || '';
+  return inMemoryAuthToken;
 }
 
 export function setAuthToken(token) {
-  if (token) {
-    localStorage.setItem('stphilos_auth_token', token);
-  } else {
-    localStorage.removeItem('stphilos_auth_token');
+  inMemoryAuthToken = token || '';
+}
+
+function getXsrfCookie() {
+  if (typeof document === 'undefined') return '';
+  const match = document.cookie.match(/(?:^|;\s*)XSRF-TOKEN=([^;]*)/);
+  return match ? decodeURIComponent(match[1]) : '';
+}
+
+export async function initCsrf() {
+  try {
+    await fetch('/sanctum/csrf-cookie', {
+      method: 'GET',
+      credentials: 'include'
+    });
+  } catch (e) {
+    // Silently continue if backend is starting or offline
   }
 }
 
 async function request(endpoint, options = {}) {
   const token = getAuthToken();
+  const xsrfToken = getXsrfCookie();
+
   const headers = {
     'Accept': 'application/json',
+    'X-Requested-With': 'XMLHttpRequest',
     ...(options.headers || {}),
   };
 
   if (token) {
     headers['Authorization'] = `Bearer ${token}`;
+  }
+
+  if (xsrfToken && options.method && options.method.toUpperCase() !== 'GET') {
+    headers['X-XSRF-TOKEN'] = xsrfToken;
   }
 
   if (options.body && !(options.body instanceof FormData)) {
@@ -36,6 +59,7 @@ async function request(endpoint, options = {}) {
   
   const response = await fetch(url, {
     ...options,
+    credentials: 'include',
     headers,
   });
 
@@ -52,6 +76,7 @@ async function request(endpoint, options = {}) {
 }
 
 export const api = {
+  initCsrf,
   get: (endpoint, params = {}) => {
     const query = new URLSearchParams(params).toString();
     const url = query ? `${endpoint}?${query}` : endpoint;

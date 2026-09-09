@@ -1,0 +1,97 @@
+import api from '../lib/api';
+
+/**
+ * Faculty Service - Server Authoritative
+ * Handles public faculty reading and administrative faculty mutations via Laravel API.
+ */
+
+export async function getFaculty(filters = {}) {
+  const params = {};
+  if (filters.department_id && filters.department_id !== 'All' && filters.department_id !== 'all') {
+    params.department_id = filters.department_id;
+  } else if (filters.department && filters.department !== 'All' && filters.department !== 'all') {
+    params.department = filters.department;
+  }
+
+  if (filters.programme_code && filters.programme_code !== 'All' && filters.programme_code !== 'all') {
+    params.programme_code = filters.programme_code;
+  }
+
+  if (filters.category && filters.category !== 'All' && filters.category !== 'all') {
+    params.category = filters.category;
+  }
+
+  if (filters.search && filters.search.trim() !== '') {
+    params.search = filters.search.trim();
+  }
+
+  const response = await api.get('/faculty', params);
+  const list = Array.isArray(response) ? response : (response?.data || []);
+
+  return list.map(f => ({
+    ...f,
+    id: f.id,
+    name: f.name,
+    designation: f.designation || 'Faculty Member',
+    department_id: f.department_id || f.departmentId || f.department?.id,
+    departmentId: f.department_id || f.departmentId || f.department?.id,
+    department: f.department?.name || f.department || 'Academic Department',
+    departmentName: f.department?.name || f.department || 'Academic Department',
+    facultyCategory: f.department?.category || 'Academics',
+    qualification: f.qualification || '',
+    photo_url: f.photo_url || f.photoUrl || f.photo,
+    photoUrl: f.photo_url || f.photoUrl || f.photo,
+    programmes: Array.isArray(f.programmes) ? f.programmes : [],
+  }));
+}
+
+export async function getFacultyById(id) {
+  if (!id) return null;
+  try {
+    const response = await api.get(`/faculty/${encodeURIComponent(id)}`);
+    return response?.data || response || null;
+  } catch (err) {
+    if (err.status === 404) return null;
+    throw err;
+  }
+}
+
+export async function createFaculty(facultyData) {
+  const payload = {
+    ...facultyData,
+    photoUrl: facultyData.photoUrl || facultyData.image || facultyData.photo || null,
+  };
+  const response = await api.post('/admin/faculty', payload);
+  return response?.faculty || response?.data || response;
+}
+
+export async function updateFaculty(id, facultyData) {
+  const payload = {
+    ...facultyData,
+    photoUrl: facultyData.photoUrl || facultyData.image || facultyData.photo || null,
+  };
+  const response = await api.put(`/admin/faculty/${encodeURIComponent(id)}`, payload);
+  return response?.faculty || response?.data || response;
+}
+
+export async function saveFaculty(facultyData) {
+  if (facultyData.id) {
+    return updateFaculty(facultyData.id, facultyData);
+  }
+  return createFaculty(facultyData);
+}
+
+export async function deleteFaculty(id) {
+  if (!id) return null;
+  const response = await api.delete(`/admin/faculty/${encodeURIComponent(id)}`);
+  return response;
+}
+
+export default {
+  getFaculty,
+  getFacultyById,
+  createFaculty,
+  updateFaculty,
+  saveFaculty,
+  deleteFaculty
+};

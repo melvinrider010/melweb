@@ -1,23 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Clock, X, BookOpen, Sparkles, CheckCircle2, ChevronRight, Layers } from 'lucide-react';
-import useCms from '../../lib/useCms';
-import cmsStore from '../../lib/cmsStore';
-import fallbackHoneycombData from '../../data/honeycomb-programmes.json';
+import { ArrowRight, Clock, X, BookOpen, Sparkles, CheckCircle2, ChevronRight, Layers, Loader2 } from 'lucide-react';
+import { getProgrammes } from '../../services/programmesService';
 
 export default function CourseHoneycombSection() {
   const [filter, setFilter] = useState('ug'); // 'ug', 'pg', 'all'
   const [hoveredCourse, setHoveredCourse] = useState(null);
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [popoverPos, setPopoverPos] = useState({ side: 'right', vertical: 'center' });
+  const [allProgrammes, setAllProgrammes] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // 1. Reactive live programmes from Metronic Admin CMS store
-  const allProgrammes = useCms(() => cmsStore.getProgrammes());
+  useEffect(() => {
+    let isMounted = true;
+    async function loadProgrammes() {
+      try {
+        const data = await getProgrammes();
+        if (isMounted) {
+          setAllProgrammes(data || []);
+          setIsLoading(false);
+        }
+      } catch (err) {
+        if (isMounted) {
+          setAllProgrammes([]);
+          setIsLoading(false);
+        }
+      }
+    }
+    loadProgrammes();
+    return () => { isMounted = false; };
+  }, []);
 
-  // 2. Filter dataset based on active status and honeycomb toggle from Admin
-  const filteredCourses = (allProgrammes && allProgrammes.length > 0 ? allProgrammes : fallbackHoneycombData)
+  // Filter dataset based on active status and honeycomb toggle
+  const filteredCourses = allProgrammes
     .filter((item) => {
-      // Must be strictly published (not draft/inactive) AND honeycomb enabled
       const isDraft = item.status === 'draft' || item.status === 'inactive' || item.status === 'deleted';
       const isPublished = !isDraft && (item.status === 'published' || !item.status);
       const isHoneycombEnabled = item.isFeaturedHoneycomb !== false;
@@ -29,7 +45,8 @@ export default function CourseHoneycombSection() {
       return itemType === filter || itemType.includes(filter);
     })
     .map((p) => {
-      const code = p.code || p.name || 'COURSE';
+      const code = p.code || p.id || p.name || 'COURSE';
+      const id = p.id || code;
       let displayLines = p.displayLines;
       if (!displayLines || !Array.isArray(displayLines) || displayLines.length === 0) {
         const titleWords = (p.title || p.name || code).split(' ');
@@ -44,13 +61,14 @@ export default function CourseHoneycombSection() {
       }
       return {
         ...p,
+        id,
         code,
         displayLines,
         type: (p.type || p.level || 'ug').toLowerCase(),
         title: p.title || p.name || code,
         duration: p.duration || '3 Years / 4 Years (NEP 2020)',
-        description: p.description || 'Comprehensive degree programme offering advanced curricular exploration, laboratory skills, and career pathways at St. Philomena’s College.',
-        link: p.link || `/academics/${(p.slug || p.code || p.id).toLowerCase()}`
+        description: p.description || p.overview || 'Comprehensive degree programme offering advanced curricular exploration, laboratory skills, and career pathways at St. Philomena’s College.',
+        link: p.link || `/academics/${(p.slug || code || id).toLowerCase()}`
       };
     });
 
@@ -105,7 +123,7 @@ export default function CourseHoneycombSection() {
   };
 
   const handleCourseClick = (course) => {
-    if (selectedCourse?.id === course.id) {
+    if (selectedCourse && (selectedCourse.id === course.id || selectedCourse.code === course.code)) {
       setSelectedCourse(null);
     } else {
       setSelectedCourse(course);
@@ -226,13 +244,13 @@ export default function CourseHoneycombSection() {
                 }`}
               >
                 {rowItems.map((course, colIdx) => {
-                  const isHovered = hoveredCourse?.id === course.id;
-                  const isSelected = selectedCourse?.id === course.id;
+                  const isHovered = Boolean(hoveredCourse && (hoveredCourse.id === course.id || hoveredCourse.code === course.code));
+                  const isSelected = Boolean(selectedCourse && (selectedCourse.id === course.id || selectedCourse.code === course.code));
                   const isActive = isHovered || isSelected;
 
                   return (
                     <div
-                      key={course.id}
+                      key={course.id || course.code}
                       className={`relative group transition-all duration-200 ${isActive ? 'z-40' : 'z-10'}`}
                       onMouseEnter={() => handleMouseEnter(course, colIdx, rowItems.length, rowIndex, rows.length)}
                       onMouseLeave={handleMouseLeave}

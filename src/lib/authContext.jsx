@@ -1,59 +1,44 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { useNavigate, useLocation, Navigate } from 'react-router-dom';
-import api, { setAuthToken, getAuthToken } from './api';
-import seededUsers from '../data/users.json';
+import { useLocation, Navigate } from 'react-router-dom';
+import api, { setAuthToken } from './api';
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(() => {
-    try {
-      const saved = localStorage.getItem('stphilos_auth_user');
-      return saved ? JSON.parse(saved) : null;
-    } catch (e) {
-      return null;
-    }
-  });
-
+  // Authentication user object held strictly in memory
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [initialCheckDone, setInitialCheckDone] = useState(false);
 
-  // Validate existing token with server on mount
+  // Validate active session with backend on initial load
   useEffect(() => {
-    const token = getAuthToken();
-    if (!token) {
-      setUser(null);
+    // Purge any legacy unencrypted tokens from browser localStorage
+    try {
+      localStorage.removeItem('stphilos_auth_token');
       localStorage.removeItem('stphilos_auth_user');
-      setInitialCheckDone(true);
-      return;
+    } catch (e) {
+      // Ignore storage restrictions
     }
 
-    api.get('/auth/me')
-      .then((res) => {
-        const userData = res.user || res;
-        setUser(userData);
-        localStorage.setItem('stphilos_auth_user', JSON.stringify(userData));
-      })
-      .catch(() => {
-        // If server token validation fails, check if local user exists
-        const localSaved = localStorage.getItem('stphilos_auth_user');
-        if (localSaved) {
-          try {
-            setUser(JSON.parse(localSaved));
-          } catch {
-            setUser(null);
-            setAuthToken(null);
-            localStorage.removeItem('stphilos_auth_user');
-          }
+    const checkSession = async () => {
+      try {
+        await api.initCsrf();
+        const res = await api.get('/auth/me');
+        const userData = res?.user || res;
+        if (userData && userData.id) {
+          setUser(userData);
         } else {
           setUser(null);
-          setAuthToken(null);
-          localStorage.removeItem('stphilos_auth_user');
         }
-      })
-      .finally(() => {
+      } catch (err) {
+        setUser(null);
+        setAuthToken(null);
+      } finally {
         setInitialCheckDone(true);
-      });
+      }
+    };
+
+    checkSession();
   }, []);
 
   const login = async (email, password) => {
@@ -61,36 +46,31 @@ export function AuthProvider({ children }) {
     const cleanEmail = (email || '').trim().toLowerCase();
 
     try {
-      // 1. Attempt API login
-      const res = await api.post('/auth/login', { email: cleanEmail, password });
-      const authUser = res.user;
-      const token = res.token;
+      // 1. Initialize CSRF token
+      await api.initCsrf();
 
-      setAuthToken(token);
-      localStorage.setItem('stphilos_auth_user', JSON.stringify(authUser));
+      // 2. Perform live server-side authentication
+      const res = await api.post('/auth/login', { email: cleanEmail, password });
+      
+      if (!res || !res.user) {
+        throw new Error('Invalid authentication response from server.');
+      }
+
+      const authUser = res.user;
+      const token = res.token || null;
+
+      if (token) {
+        setAuthToken(token);
+      }
+
       setUser(authUser);
       setLoading(false);
       return authUser;
     } catch (err) {
-      // 2. Offline / Local Fallback for seeded users and HODs
-      const localMatch = seededUsers.find(u => (u.email || '').toLowerCase() === cleanEmail);
-      if (localMatch) {
-        // Valid HOD / Admin credentials matched
-        const localUser = {
-          ...localMatch,
-          departmentId: localMatch.departmentId || null,
-          departmentName: localMatch.departmentName || null
-        };
-        const simulatedToken = `local_token_${Date.now()}_${localMatch.id}`;
-        setAuthToken(simulatedToken);
-        localStorage.setItem('stphilos_auth_user', JSON.stringify(localUser));
-        setUser(localUser);
-        setLoading(false);
-        return localUser;
-      }
-
+      setAuthToken(null);
+      setUser(null);
       setLoading(false);
-      throw err;
+      throw new Error(err?.data?.message || err?.message || 'Invalid administrator credentials. Please check your email and password.');
     }
   };
 
@@ -101,7 +81,6 @@ export function AuthProvider({ children }) {
       // Ignore network errors on logout
     } finally {
       setAuthToken(null);
-      localStorage.removeItem('stphilos_auth_user');
       setUser(null);
     }
   };

@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\ActivityLog;
 use App\Http\Resources\UserResource;
+use App\Enums\UserRole;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rules\Enum;
 
 class UserController extends Controller
 {
@@ -17,9 +20,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->user()->role !== 'SUPER_ADMIN') {
-            return response()->json(['message' => 'Unauthorized. Super Admin access required.'], 403);
-        }
+        Gate::authorize('viewAny', User::class);
 
         $users = User::orderBy('id', 'asc')->get();
         return UserResource::collection($users);
@@ -30,25 +31,30 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->user()->role !== 'SUPER_ADMIN') {
-            return response()->json(['message' => 'Unauthorized. Super Admin access required.'], 403);
-        }
+        Gate::authorize('create', User::class);
 
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8',
-            'role' => 'required|string',
+            'role' => ['required', new Enum(UserRole::class)],
+            'department_id' => 'nullable|string|max:100',
+            'departmentId' => 'nullable|string|max:100',
             'status' => 'nullable|string|in:Active,Inactive',
         ]);
+
+        $deptId = $validated['department_id'] ?? $validated['departmentId'] ?? null;
 
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
             'role' => $validated['role'],
+            'department_id' => $deptId,
             'status' => $validated['status'] ?? 'Active',
         ]);
+
+        $roleLabel = $user->role instanceof UserRole ? $user->role->value : (string)$user->role;
 
         ActivityLog::create([
             'id' => 'log_' . Str::random(8),
@@ -56,7 +62,7 @@ class UserController extends Controller
             'user_email' => $request->user()->email,
             'action' => 'CREATE_USER',
             'module' => 'Users',
-            'details' => "Created admin user '{$user->name}' ({$user->email}) with role '{$user->role}'.",
+            'details' => "Created admin user '{$user->name}' ({$user->email}) with role '{$roleLabel}'.",
         ]);
 
         return response()->json([
@@ -71,17 +77,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($request->user()->role !== 'SUPER_ADMIN') {
-            return response()->json(['message' => 'Unauthorized. Super Admin access required.'], 403);
-        }
-
         $user = User::findOrFail($id);
+        Gate::authorize('update', $user);
 
         $validated = $request->validate([
             'name' => 'sometimes|string|max:255',
             'email' => 'sometimes|email|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:8',
-            'role' => 'sometimes|string',
+            'role' => ['sometimes', new Enum(UserRole::class)],
+            'department_id' => 'nullable|string|max:100',
+            'departmentId' => 'nullable|string|max:100',
             'status' => 'sometimes|string|in:Active,Inactive',
         ]);
 
@@ -89,6 +94,9 @@ class UserController extends Controller
         if (isset($validated['email'])) $user->email = $validated['email'];
         if (!empty($validated['password'])) $user->password = Hash::make($validated['password']);
         if (isset($validated['role'])) $user->role = $validated['role'];
+        if (array_key_exists('department_id', $validated) || array_key_exists('departmentId', $validated)) {
+            $user->department_id = $validated['department_id'] ?? $validated['departmentId'] ?? null;
+        }
         if (isset($validated['status'])) $user->status = $validated['status'];
 
         $user->save();
@@ -114,11 +122,8 @@ class UserController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        if ($request->user()->role !== 'SUPER_ADMIN') {
-            return response()->json(['message' => 'Unauthorized. Super Admin access required.'], 403);
-        }
-
         $user = User::findOrFail($id);
+        Gate::authorize('delete', $user);
 
         if ($user->id === $request->user()->id) {
             return response()->json(['message' => 'Cannot delete currently logged in administrator.'], 422);

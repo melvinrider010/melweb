@@ -12,9 +12,11 @@ import {
   ChevronRight,
   Pause,
   Play,
-  Layers
+  Layers,
+  Loader2
 } from 'lucide-react';
-import { getUpcomingEvents, getSyncedNotices } from '../../lib/eventsNoticesService';
+import { getUpcomingEvents } from '../../services/eventsService';
+import { getNotices } from '../../services/noticesService';
 
 export default function NoticesHubSection() {
   const [levelFilter, setLevelFilter] = useState('all'); // 'all', 'ug', 'pg'
@@ -23,41 +25,50 @@ export default function NoticesHubSection() {
   const [activeNoticeTab, setActiveNoticeTab] = useState('notices'); // 'notices', 'examination', 'events'
   const [isPaused, setIsPaused] = useState(false);
   const [expandedEventIds, setExpandedEventIds] = useState({});
-  const [storeTick, setStoreTick] = useState(0);
   const scrollContainerRef = useRef(null);
 
-  // Reactive listener to CMS updates (new events, sub-events, notices)
-  useEffect(() => {
-    const handleStoreUpdate = () => setStoreTick((prev) => prev + 1);
-    window.addEventListener('cms_store_updated', handleStoreUpdate);
-    return () => window.removeEventListener('cms_store_updated', handleStoreUpdate);
-  }, []);
+  const [rawEvents, setRawEvents] = useState([]);
+  const [rawNotices, setRawNotices] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Filter items for Upcoming Events (Left Column) with query-time date comparison
-  const filteredEvents = useMemo(() => {
-    return getUpcomingEvents({
-      level: levelFilter,
-      category: categoryFilter,
-      search: searchQuery
-    });
-  }, [levelFilter, categoryFilter, searchQuery, storeTick]);
+  useEffect(() => {
+    let isMounted = true;
+    async function loadData() {
+      setIsLoading(true);
+      try {
+        const [events, notices] = await Promise.all([
+          getUpcomingEvents({ level: levelFilter, category: categoryFilter, search: searchQuery }),
+          getNotices({ level: levelFilter, category: categoryFilter, search: searchQuery }),
+        ]);
+        if (isMounted) {
+          setRawEvents(events || []);
+          setRawNotices(notices || []);
+          setIsLoading(false);
+        }
+      } catch (e) {
+        if (isMounted) {
+          setRawEvents([]);
+          setRawNotices([]);
+          setIsLoading(false);
+        }
+      }
+    }
+    loadData();
+    return () => { isMounted = false; };
+  }, [levelFilter, categoryFilter, searchQuery]);
+
+  const filteredEvents = rawEvents;
 
   // Filter items for Notice Board (Right Column) with Tab filtering
   const filteredNotices = useMemo(() => {
-    const allNotices = getSyncedNotices({
-      level: levelFilter,
-      category: categoryFilter,
-      search: searchQuery
-    });
-
     if (activeNoticeTab === 'examination') {
-      return allNotices.filter((n) =>
+      return rawNotices.filter((n) =>
         /exam|timetable|time table|revaluation|makeup|supplementary|c1|c2|c3|convocation/i.test(
           `${n.title} ${n.category || ''}`
         )
       );
     } else if (activeNoticeTab === 'events') {
-      return allNotices.filter(
+      return rawNotices.filter(
         (n) =>
           n.type === 'Event' ||
           !!n.linked_event_id ||
@@ -67,20 +78,18 @@ export default function NoticesHubSection() {
       );
     } else {
       // Default 'notices': general circulars, notifications, and all updates
-      return allNotices;
+      return rawNotices;
     }
-  }, [levelFilter, categoryFilter, searchQuery, activeNoticeTab, storeTick]);
+  }, [rawNotices, activeNoticeTab]);
 
   // Extract unique categories across all events and notices for dropdown
   const categories = useMemo(() => {
-    const allEvents = getUpcomingEvents({}, '1970-01-01');
-    const allNotices = getSyncedNotices();
     const cats = new Set([
-      ...allEvents.map((item) => item.category),
-      ...allNotices.map((item) => item.category)
+      ...rawEvents.map((item) => item.category),
+      ...rawNotices.map((item) => item.category)
     ].filter(Boolean));
     return ['all', ...Array.from(cats)];
-  }, [storeTick]);
+  }, [rawEvents, rawNotices]);
 
   // Auto-scrolling Notice Board Ticker Effect
   useEffect(() => {

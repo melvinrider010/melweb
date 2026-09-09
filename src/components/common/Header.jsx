@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ChevronDown, Menu, X, Search, Phone, ExternalLink, Sparkles } from 'lucide-react';
 import collegeInfo from '../../data/college_info.json';
 import { MEGA_MENU_DATA } from '../../data/megaMenuData';
+import cmsStore from '../../lib/cmsStore';
 import MegaMenuOverlay from './MegaMenuOverlay';
 import MobileNavDrawer from './MobileNavDrawer';
 import SearchModal from './SearchModal';
@@ -12,6 +13,25 @@ export default function Header() {
   const [activeMegaKey, setActiveMegaKey] = useState(null);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
+
+  const [megaMenus, setMegaMenus] = useState(() => {
+    try {
+      const stored = cmsStore.getMenus ? cmsStore.getMenus() : null;
+      if (stored && Object.keys(stored).length > 0) return stored;
+    } catch (e) {}
+    return MEGA_MENU_DATA;
+  });
+
+  useEffect(() => {
+    const handleUpdate = () => {
+      try {
+        const stored = cmsStore.getMenus ? cmsStore.getMenus() : null;
+        if (stored && Object.keys(stored).length > 0) setMegaMenus(stored);
+      } catch (e) {}
+    };
+    window.addEventListener('cms_store_updated', handleUpdate);
+    return () => window.removeEventListener('cms_store_updated', handleUpdate);
+  }, []);
 
   const hoverTimeoutRef = useRef(null);
   const headerRef = useRef(null);
@@ -232,10 +252,10 @@ export default function Header() {
         {/* =========================================================================
             ANIMATED MEGA MENU OVERLAY CONTAINER
             ========================================================================= */}
-        {activeMegaKey && MEGA_MENU_DATA[activeMegaKey] && (
+        {activeMegaKey && (megaMenus[activeMegaKey] || MEGA_MENU_DATA[activeMegaKey]) && (
           <div onMouseEnter={() => handleMouseEnter(activeMegaKey)}>
             <MegaMenuOverlay
-              menuData={MEGA_MENU_DATA[activeMegaKey]}
+              menuData={megaMenus[activeMegaKey] || MEGA_MENU_DATA[activeMegaKey]}
               isOpen={Boolean(activeMegaKey)}
               onClose={() => setActiveMegaKey(null)}
             />

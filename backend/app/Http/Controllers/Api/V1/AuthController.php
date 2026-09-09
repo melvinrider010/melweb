@@ -7,14 +7,14 @@ use App\Models\User;
 use App\Models\ActivityLog;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
     /**
-     * Handle admin login and issue Sanctum Bearer token.
+     * Handle admin login and issue Sanctum Bearer token and stateful session.
      */
     public function login(Request $request)
     {
@@ -37,6 +37,11 @@ class AuthController extends Controller
                 'status' => 'error',
                 'message' => 'Your administrator account has been deactivated. Please contact the system administrator.',
             ], 403);
+        }
+
+        // Establish stateful web session for SPA cookies if available
+        if (Auth::guard('web')->hasUser() || $request->hasSession()) {
+            Auth::guard('web')->login($user);
         }
 
         // Revoke old tokens if single active session is preferred
@@ -63,13 +68,15 @@ class AuthController extends Controller
     }
 
     /**
-     * Logout and revoke current token.
+     * Logout and revoke current token & stateful session.
      */
     public function logout(Request $request)
     {
         $user = $request->user();
         if ($user) {
-            $request->user()->currentAccessToken()->delete();
+            if ($request->user()->currentAccessToken()) {
+                $request->user()->currentAccessToken()->delete();
+            }
 
             ActivityLog::create([
                 'id' => 'log_' . Str::random(8),
@@ -79,6 +86,15 @@ class AuthController extends Controller
                 'module' => 'Authentication',
                 'details' => "Administrator {$user->name} logged out.",
             ]);
+        }
+
+        if (Auth::guard('web')->check()) {
+            Auth::guard('web')->logout();
+        }
+
+        if ($request->hasSession()) {
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
         }
 
         return response()->json([

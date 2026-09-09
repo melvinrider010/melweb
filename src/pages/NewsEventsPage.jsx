@@ -14,9 +14,12 @@ import {
   Layers,
   ChevronDown,
   Archive,
-  CheckCircle2
+  CheckCircle2,
+  Loader2,
+  AlertTriangle
 } from 'lucide-react';
-import { getUpcomingEvents, getPastEvents, getSyncedNotices } from '../lib/eventsNoticesService';
+import { getUpcomingEvents, getPastEvents } from '../services/eventsService';
+import { getNotices } from '../services/noticesService';
 import { animatePageIn } from '../animations/pageTransitions';
 
 export default function NewsEventsPage() {
@@ -25,38 +28,39 @@ export default function NewsEventsPage() {
   const [typeFilter, setTypeFilter] = useState('all'); // 'all', 'Upcoming Events', 'Notice', 'Announcement', 'Past Events'
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
-  const [storeTick, setStoreTick] = useState(0);
+
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const [pastEvents, setPastEvents] = useState([]);
+  const [allNotices, setAllNotices] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     animatePageIn(containerRef);
-    const handleUpdate = () => setStoreTick((prev) => prev + 1);
-    window.addEventListener('cms_store_updated', handleUpdate);
-    return () => window.removeEventListener('cms_store_updated', handleUpdate);
   }, []);
 
-  const upcomingEvents = useMemo(() => {
-    return getUpcomingEvents({
-      level: levelFilter,
-      category: categoryFilter,
-      search: searchQuery
-    });
-  }, [levelFilter, categoryFilter, searchQuery, storeTick]);
+  const loadData = async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const [upcoming, past, notices] = await Promise.all([
+        getUpcomingEvents({ level: levelFilter, category: categoryFilter, search: searchQuery }),
+        getPastEvents({ level: levelFilter, category: categoryFilter, search: searchQuery }),
+        getNotices({ level: levelFilter, category: categoryFilter, search: searchQuery }),
+      ]);
+      setUpcomingEvents(upcoming || []);
+      setPastEvents(past || []);
+      setAllNotices(notices || []);
+    } catch (err) {
+      setError(err?.message || 'Failed to load announcements and events from the server.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-  const pastEvents = useMemo(() => {
-    return getPastEvents({
-      level: levelFilter,
-      category: categoryFilter,
-      search: searchQuery
-    });
-  }, [levelFilter, categoryFilter, searchQuery, storeTick]);
-
-  const allNotices = useMemo(() => {
-    return getSyncedNotices({
-      level: levelFilter,
-      category: categoryFilter,
-      search: searchQuery
-    });
-  }, [levelFilter, categoryFilter, searchQuery, storeTick]);
+  useEffect(() => {
+    loadData();
+  }, [levelFilter, categoryFilter, searchQuery]);
 
   const categories = useMemo(() => {
     const cats = new Set([
@@ -209,101 +213,119 @@ export default function NewsEventsPage() {
       </div>
 
       {/* DOCUMENT CARDS GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredItems.length > 0 ? (
-          filteredItems.map((item) => {
-            const hasSub = Array.isArray(item.subEvents) && item.subEvents.length > 0;
-            const itemDate = item.event_date || item.date;
+      {isLoading ? (
+        <div className="bg-white p-16 rounded-2xl border border-slate-200 text-center space-y-4 shadow-sm">
+          <Loader2 className="w-10 h-10 text-[#0B1F4E] animate-spin mx-auto" />
+          <p className="font-serif font-bold text-base text-slate-800">Loading verified circulars & events...</p>
+          <p className="text-xs text-slate-500">Connecting to St. Philomena's institutional repository</p>
+        </div>
+      ) : error ? (
+        <div className="bg-red-50 border border-red-200 p-8 rounded-2xl text-center space-y-3">
+          <AlertTriangle className="w-8 h-8 text-red-600 mx-auto" />
+          <p className="font-serif font-bold text-base text-red-900">{error}</p>
+          <button
+            onClick={loadData}
+            className="btn-navy px-4 py-2 text-xs font-bold rounded-lg cursor-pointer inline-flex items-center space-x-1.5"
+          >
+            <span>Retry Connection</span>
+          </button>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredItems.length > 0 ? (
+            filteredItems.map((item) => {
+              const hasSub = Array.isArray(item.subEvents) && item.subEvents.length > 0;
+              const itemDate = item.event_date || item.date;
 
-            return (
-              <div
-                key={item.id}
-                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-[#C9A84C] transition-all flex flex-col justify-between space-y-4 group"
-              >
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center gap-2">
-                    <div className="flex items-center space-x-1.5 flex-wrap gap-1">
-                      <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded uppercase ${
-                        item.type === 'Notice' || item.type === 'Circular'
-                          ? 'bg-blue-100 text-blue-800'
-                          : item.type === 'Event'
-                          ? item.isPast
-                            ? 'bg-slate-100 text-slate-600'
-                            : 'bg-emerald-100 text-emerald-800'
-                          : 'bg-amber-100 text-amber-800'
-                      }`}>
-                        {item.isPast ? 'PAST EVENT' : item.type}
+              return (
+                <div
+                  key={item.id}
+                  className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-[#C9A84C] transition-all flex flex-col justify-between space-y-4 group"
+                >
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center gap-2">
+                      <div className="flex items-center space-x-1.5 flex-wrap gap-1">
+                        <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded uppercase ${
+                          item.type === 'Notice' || item.type === 'Circular'
+                            ? 'bg-blue-100 text-blue-800'
+                            : item.type === 'Event'
+                            ? item.isPast
+                              ? 'bg-slate-100 text-slate-600'
+                              : 'bg-emerald-100 text-emerald-800'
+                            : 'bg-amber-100 text-amber-800'
+                        }`}>
+                          {item.isPast ? 'PAST EVENT' : item.type}
+                        </span>
+                        {item.level && item.level !== 'all' && (
+                          <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 uppercase">
+                            {item.level}
+                          </span>
+                        )}
+                        {hasSub && (
+                          <span className="bg-amber-50 text-amber-900 border border-amber-200 text-[9px] font-mono font-bold px-1.5 py-0.2 rounded">
+                            {item.subEvents.length} Sub-Events
+                          </span>
+                        )}
+                      </div>
+
+                      <span className="text-xs text-slate-500 font-mono flex items-center shrink-0">
+                        <Calendar className="w-3 h-3 mr-1 text-[#C9A84C]" />
+                        {itemDate}
                       </span>
-                      {item.level && item.level !== 'all' && (
-                        <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 uppercase">
-                          {item.level}
-                        </span>
-                      )}
-                      {hasSub && (
-                        <span className="bg-amber-50 text-amber-900 border border-amber-200 text-[9px] font-mono font-bold px-1.5 py-0.2 rounded">
-                          {item.subEvents.length} Sub-Events
-                        </span>
-                      )}
                     </div>
 
-                    <span className="text-xs text-slate-500 font-mono flex items-center shrink-0">
-                      <Calendar className="w-3 h-3 mr-1 text-[#C9A84C]" />
-                      {itemDate}
+                    <span className="text-[10.5px] font-mono font-bold text-[#a88530] uppercase tracking-wider block">
+                      {item.category}
                     </span>
+
+                    <h2 className="font-serif font-bold text-base sm:text-lg text-[#0B1F4E] group-hover:text-[#a88530] transition-colors leading-snug">
+                      {item.title}
+                    </h2>
+
+                    <p className="text-xs text-slate-600 leading-relaxed font-sans line-clamp-3">
+                      {item.summary || item.description}
+                    </p>
+
+                    {/* Sub-events preview if present */}
+                    {hasSub && (
+                      <div className="bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-[11px] space-y-1">
+                        <span className="font-mono font-bold text-slate-600 uppercase text-[9.5px]">Program Tracks:</span>
+                        <ul className="list-disc list-inside text-slate-700 space-y-0.5">
+                          {item.subEvents.slice(0, 2).map((s) => (
+                            <li key={s.id} className="truncate">
+                              <span className="font-semibold">{s.title}</span> ({s.event_date})
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
 
-                  <span className="text-[10.5px] font-mono font-bold text-[#a88530] uppercase tracking-wider block">
-                    {item.category}
-                  </span>
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[11px] text-slate-400 font-mono">
+                      {item.refNo || item.id}
+                    </span>
 
-                  <h2 className="font-serif font-bold text-base sm:text-lg text-[#0B1F4E] group-hover:text-[#a88530] transition-colors leading-snug">
-                    {item.title}
-                  </h2>
-
-                  <p className="text-xs text-slate-600 leading-relaxed font-sans line-clamp-3">
-                    {item.summary || item.description}
-                  </p>
-
-                  {/* Sub-events preview if present */}
-                  {hasSub && (
-                    <div className="bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-[11px] space-y-1">
-                      <span className="font-mono font-bold text-slate-600 uppercase text-[9.5px]">Program Tracks:</span>
-                      <ul className="list-disc list-inside text-slate-700 space-y-0.5">
-                        {item.subEvents.slice(0, 2).map((s) => (
-                          <li key={s.id} className="truncate">
-                            <span className="font-semibold">{s.title}</span> ({s.event_date})
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+                    <Link
+                      to={`/news-events/${item.id}`}
+                      className="btn-navy text-xs font-bold px-3 py-1.5 rounded-lg flex items-center shadow-xs group/btn"
+                    >
+                      <span>{item.type === 'Event' ? 'View Event' : 'View Circular'}</span>
+                      <ArrowRight className="w-3.5 h-3.5 ml-1 group-hover/btn:translate-x-1 transition-transform text-[#F0D98C]" />
+                    </Link>
+                  </div>
                 </div>
-
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-[11px] text-slate-400 font-mono">
-                    {item.refNo || item.id}
-                  </span>
-
-                  <Link
-                    to={`/news-events/${item.id}`}
-                    className="btn-navy text-xs font-bold px-3 py-1.5 rounded-lg flex items-center shadow-xs group/btn"
-                  >
-                    <span>{item.type === 'Event' ? 'View Event' : 'View Circular'}</span>
-                    <ArrowRight className="w-3.5 h-3.5 ml-1 group-hover/btn:translate-x-1 transition-transform text-[#F0D98C]" />
-                  </Link>
-                </div>
-              </div>
-            );
-          })
-        ) : (
-          <div className="col-span-full bg-white p-12 rounded-2xl border border-slate-200 text-center space-y-3">
-            <Calendar className="w-10 h-10 text-[#C9A84C] mx-auto" />
-            <p className="font-serif font-bold text-lg text-slate-800">No items found matching criteria</p>
-            <p className="text-xs text-slate-500 font-sans">Try adjusting your level, category, or search filters.</p>
-          </div>
-        )}
-      </div>
-
+              );
+            })
+          ) : (
+            <div className="col-span-full bg-white p-12 rounded-2xl border border-slate-200 text-center space-y-3">
+              <Calendar className="w-10 h-10 text-[#C9A84C] mx-auto" />
+              <p className="font-serif font-bold text-lg text-slate-800">No items found matching criteria</p>
+              <p className="text-xs text-slate-500 font-sans">Try adjusting your level, category, or search filters.</p>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

@@ -24,4 +24,9 @@ class Department extends Model
             'programmes' => 'array',
         ];
     }
+
+    public function faculty()
+    {
+        return $this->hasMany(Faculty::class, 'department_id', 'id')->where('status', 'active');
+    }
 }

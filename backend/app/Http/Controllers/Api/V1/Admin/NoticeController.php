@@ -7,6 +7,7 @@ use App\Models\Notice;
 use App\Models\ActivityLog;
 use App\Http\Resources\NoticeResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 
 class NoticeController extends Controller
@@ -16,6 +17,8 @@ class NoticeController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('create', Notice::class);
+
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'type' => 'nullable|string',
@@ -83,6 +86,7 @@ class NoticeController extends Controller
     public function update(Request $request, $id)
     {
         $notice = Notice::where('id', $id)->orWhere('slug', $id)->firstOrFail();
+        Gate::authorize('update', $notice);
 
         $validated = $request->validate([
             'title' => 'sometimes|string|max:255',
@@ -143,6 +147,8 @@ class NoticeController extends Controller
     public function destroy(Request $request, $id)
     {
         $notice = Notice::where('id', $id)->orWhere('slug', $id)->firstOrFail();
+        Gate::authorize('delete', $notice);
+
         $title = $notice->title;
         $notice->delete();
 

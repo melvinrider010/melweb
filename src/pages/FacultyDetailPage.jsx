@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { 
   ArrowLeft, 
@@ -13,36 +13,113 @@ import {
   CheckCircle2, 
   Sparkles,
   Calendar,
-  Layers
+  Layers,
+  RefreshCw,
+  AlertCircle
 } from 'lucide-react';
-import { getFacultyById, ALL_FACULTY } from '../data/facultyData';
-import { getDepartmentById } from '../data/departmentsData';
 import FacultyAvatar from '../components/common/FacultyAvatar';
-import cmsStore from '../lib/cmsStore';
-import useCms from '../lib/useCms';
+import { getFacultyById, getFaculty } from '../services/facultyService';
 
 export default function FacultyDetailPage() {
-  const { facultyId, deptId } = useParams();
-  const faculty = useCms(() => {
-    const raw = getFacultyById(facultyId) || cmsStore.getFacultyById(facultyId);
-    if (!raw) return null;
-    return {
-      ...raw,
-      image: raw.photoUrl || raw.image,
-      photoUrl: raw.photoUrl || raw.image
+  const { facultyId } = useParams();
+  const [faculty, setFaculty] = useState(null);
+  const [colleagues, setColleagues] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    async function loadFacultyDetail() {
+      if (!facultyId) return;
+      setLoading(true);
+      setError(null);
+      try {
+        const fac = await getFacultyById(facultyId);
+        if (!isMounted) return;
+        if (!fac) {
+          setFaculty(null);
+          setLoading(false);
+          return;
+        }
+
+        const normalized = {
+          ...fac,
+          photoUrl: fac.photo_url || fac.photoUrl || fac.image || fac.photo,
+          image: fac.photo_url || fac.photoUrl || fac.image || fac.photo,
+          department: fac.department || fac.departmentName || 'Academic Department',
+        };
+        setFaculty(normalized);
+
+        // Fetch colleagues in same department if department is known
+        const targetDeptId = normalized.department_id || normalized.departmentId;
+        if (targetDeptId || normalized.department) {
+          try {
+            const deptFac = await getFaculty({ 
+              department_id: targetDeptId,
+              department: !targetDeptId ? normalized.department : undefined
+            });
+            if (isMounted) {
+              setColleagues(
+                deptFac
+                  .filter(f => f.id !== normalized.id)
+                  .slice(0, 4)
+                  .map(f => ({
+                    ...f,
+                    photoUrl: f.photo_url || f.photoUrl || f.image || f.photo,
+                    image: f.photo_url || f.photoUrl || f.image || f.photo,
+                  }))
+              );
+            }
+          } catch (deptErr) {
+            console.warn('Failed to load department colleagues:', deptErr);
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching faculty details:', err);
+        if (isMounted) {
+          setError('Failed to load faculty profile from server.');
+        }
+      } finally {
+        if (isMounted) setLoading(false);
+      }
+    }
+
+    loadFacultyDetail();
+    return () => {
+      isMounted = false;
     };
   }, [facultyId]);
 
-  if (!faculty) {
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#FAF9F6] text-[#071A33] py-16 px-4 sm:px-8">
+        <div className="max-w-[1200px] mx-auto space-y-8 animate-pulse">
+          <div className="h-6 bg-slate-200 rounded w-48" />
+          <div className="bg-white p-8 rounded-3xl border border-slate-200 flex gap-6 items-center">
+            <div className="w-36 h-36 bg-slate-200 rounded-2xl shrink-0" />
+            <div className="space-y-3 flex-1">
+              <div className="h-4 bg-slate-200 rounded w-24" />
+              <div className="h-8 bg-slate-200 rounded w-3/4" />
+              <div className="h-4 bg-slate-200 rounded w-1/2" />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !faculty) {
     return (
       <div className="max-w-[1200px] mx-auto py-16 px-4 sm:px-8 text-[#071A33] text-center space-y-6">
         <div className="bg-white p-10 rounded-2xl border border-slate-200 shadow-sm max-w-xl mx-auto space-y-4">
           <div className="w-12 h-12 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mx-auto">
             <GraduationCap className="w-6 h-6" />
           </div>
-          <h1 className="font-serif font-bold text-2xl text-slate-900">Faculty Profile Not Found</h1>
+          <h1 className="font-serif font-bold text-2xl text-slate-900">
+            {error ? 'Error Loading Profile' : 'Faculty Profile Not Found'}
+          </h1>
           <p className="text-sm text-slate-600">
-            We could not find a faculty profile corresponding to "<span className="font-mono font-semibold">{facultyId}</span>".
+            {error || `We could not find a faculty profile corresponding to "${facultyId}".`}
           </p>
           <div className="pt-2 flex justify-center gap-3">
             <Link to="/faculty" className="btn-primary-blue px-6 py-2.5 rounded-lg text-sm font-bold inline-flex items-center">
@@ -55,13 +132,6 @@ export default function FacultyDetailPage() {
     );
   }
 
-  const dept = getDepartmentById(faculty.deptId);
-
-  // Other colleagues in same department
-  const colleagues = ALL_FACULTY
-    .filter(f => f.deptId === faculty.deptId && f.id !== faculty.id)
-    .slice(0, 4);
-
   return (
     <div className="min-h-screen bg-[#FAF9F6] text-[#071A33] py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1400px] mx-auto space-y-8">
@@ -70,18 +140,16 @@ export default function FacultyDetailPage() {
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200/80 pb-4">
           <div className="flex items-center space-x-3">
             <Link
-              to={`/departments/${faculty.deptId}`}
+              to="/faculty"
               className="inline-flex items-center text-xs sm:text-sm font-bold text-[#1C5496] hover:text-[#071A33] transition-colors group cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4 mr-1.5 group-hover:-translate-x-1 transition-transform" />
-              <span>Back to {faculty.department}</span>
+              <span>Back to Faculty Directory</span>
             </Link>
           </div>
 
           <div className="flex items-center space-x-2 text-xs font-semibold text-slate-500 font-mono">
-            <Link to="/departments" className="hover:text-[#1C5496]">DEPARTMENTS</Link>
-            <span>/</span>
-            <Link to={`/departments/${faculty.deptId}`} className="hover:text-[#1C5496] uppercase">{faculty.deptId}</Link>
+            <Link to="/faculty" className="hover:text-[#1C5496]">FACULTY</Link>
             <span>/</span>
             <span className="text-slate-800 font-bold uppercase">{faculty.name}</span>
           </div>
@@ -93,7 +161,7 @@ export default function FacultyDetailPage() {
             
             {/* Local Photo */}
             <FacultyAvatar
-              src={faculty.image}
+              src={faculty.image || faculty.photo_url}
               name={faculty.name}
               className="w-36 h-36 sm:w-48 sm:h-48 rounded-2xl overflow-hidden shadow-md border-4 border-slate-100 shrink-0 object-cover"
               fallbackSize="text-3xl sm:text-4xl"
@@ -105,13 +173,12 @@ export default function FacultyDetailPage() {
                 <span className="bg-[#1C5496] text-white font-mono font-bold text-[11px] px-2.5 py-0.5 rounded uppercase tracking-wider">
                   Verified Faculty
                 </span>
-                <Link
-                  to={`/departments/${faculty.deptId}`}
-                  className="bg-blue-50 text-[#1C5496] font-bold text-xs px-3 py-0.5 rounded hover:underline flex items-center"
-                >
-                  <Building2 className="w-3.5 h-3.5 mr-1" />
-                  {faculty.department}
-                </Link>
+                {faculty.department && (
+                  <span className="bg-blue-50 text-[#1C5496] font-bold text-xs px-3 py-0.5 rounded flex items-center">
+                    <Building2 className="w-3.5 h-3.5 mr-1" />
+                    {faculty.department}
+                  </span>
+                )}
               </div>
 
               <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-slate-900 leading-tight">
@@ -305,10 +372,10 @@ export default function FacultyDetailPage() {
                 St. Philomena's College (Autonomous), Bannimantap, Mysuru.
               </p>
               <Link
-                to={`/departments/${faculty.deptId}`}
+                to={`/faculty`}
                 className="w-full btn-primary-blue py-2.5 rounded-xl text-xs font-bold text-center block"
               >
-                View Department Overview →
+                Explore Full Directory →
               </Link>
             </div>
 
@@ -322,16 +389,16 @@ export default function FacultyDetailPage() {
                   {colleagues.map((col) => (
                     <Link
                       key={col.id}
-                      to={`/departments/${col.deptId}/faculty/${col.id}`}
+                      to={`/faculty/${encodeURIComponent(col.id)}`}
                       className="p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50/60 border border-slate-200 transition-colors flex items-center space-x-3 group"
                     >
-                      <FacultyAvatar src={col.image} name={col.name} className="w-10 h-10 rounded-full object-cover shrink-0 border border-slate-300" fallbackSize="text-xs" />
+                      <FacultyAvatar src={col.image || col.photoUrl} name={col.name} className="w-10 h-10 rounded-full object-cover shrink-0 border border-slate-300" fallbackSize="text-xs" />
                       <div className="min-w-0">
                         <span className="font-serif font-bold text-xs text-slate-900 group-hover:text-[#1C5496] block truncate">
                           {col.name}
                         </span>
                         <span className="text-[10px] text-slate-500 block truncate">
-                          {col.designation}
+                          {col.designation || 'Faculty Member'}
                         </span>
                       </div>
                     </Link>

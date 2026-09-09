@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { BookOpen, CheckCircle2, FileText, ArrowRight, GraduationCap, Building2, ChevronRight, Sparkles, Layers, Globe, Compass } from 'lucide-react';
 import { UG_PROGRAMMES_CATALOGUE } from '../data/ugProgrammesCatalogue';
-import pgProgrammes from '../data/pg-programmes.json';
+import { getPGProgrammes } from '../services/programmesService';
 import CourseHoneycombSection from '../components/home/CourseHoneycombSection';
 import NepRegulationsView from '../components/academics/NepRegulationsView';
 import EContentView from '../components/academics/EContentView';
@@ -37,6 +37,28 @@ export default function AcademicsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialTab = searchParams.get('tab') || 'ug';
   const [tab, setTab] = useState(initialTab);
+  const [pgProgrammes, setPgProgrammes] = useState([]);
+  const [isLoadingPg, setIsLoadingPg] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+    async function loadPg() {
+      try {
+        const data = await getPGProgrammes();
+        if (isMounted) {
+          setPgProgrammes(data || []);
+          setIsLoadingPg(false);
+        }
+      } catch (err) {
+        if (isMounted) {
+          setPgProgrammes([]);
+          setIsLoadingPg(false);
+        }
+      }
+    }
+    loadPg();
+    return () => { isMounted = false; };
+  }, []);
 
   useEffect(() => {
     const currentTab = searchParams.get('tab') || 'ug';

@@ -5,8 +5,8 @@ import { useAuth } from '../lib/authContext';
 import { gsap } from '../animations/gsapConfig';
 
 export default function LoginPage() {
-  const [email, setEmail] = useState('admin@stphilos.ac.in');
-  const [password, setPassword] = useState('••••••••••••');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [remember, setRemember] = useState(true);
   const [error, setError] = useState('');
@@ -45,22 +45,21 @@ export default function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!email.trim() || !password.trim()) {
+      setError('Please provide both administrator email and password.');
+      return;
+    }
     setError('');
     try {
       await login(email, password);
       navigate(from, { replace: true });
     } catch (err) {
-      setError('Invalid admin credentials. Please check your details.');
+      setError(err?.message || 'Invalid administrator credentials or backend server unavailable.');
     }
   };
 
-  const handleGoogleLogin = async () => {
-    try {
-      await login('admin.google@stphilos.ac.in', 'oauth');
-      navigate(from, { replace: true });
-    } catch (err) {
-      setError('Google Sign-In is restricted to verified administrators.');
-    }
+  const handleGoogleLogin = () => {
+    setError('Institutional Google Workspace SSO is restricted. Please sign in using your departmental email and password.');
   };
 
   return (
