@@ -15,7 +15,12 @@ import {
   Layers,
   Loader2
 } from 'lucide-react';
-import { getUpcomingEvents } from '../../services/eventsService';
+import { 
+  getUpcomingEvents, 
+  getPastEvents, 
+  isEventUpcoming, 
+  getTodayDateString 
+} from '../../services/eventsService';
 import { getNotices } from '../../services/noticesService';
 import cmsStore from '../../lib/cmsStore';
 
@@ -28,13 +33,20 @@ export default function NoticesHubSection() {
   const [expandedEventIds, setExpandedEventIds] = useState({});
   const scrollContainerRef = useRef(null);
 
+  const todayStr = useMemo(() => getTodayDateString(), []);
+
+  // Initial events state strictly filtered for upcoming (effectiveDate >= today)
   const [rawEvents, setRawEvents] = useState(() => {
     try {
+      const today = getTodayDateString();
       const stored = cmsStore.getEvents ? cmsStore.getEvents() : null;
-      if (stored && stored.length > 0) return stored;
+      if (stored && stored.length > 0) {
+        return stored.filter((e) => isEventUpcoming(e, today));
+      }
     } catch (e) {}
     return [];
   });
+
   const [rawNotices, setRawNotices] = useState(() => {
     try {
       const stored = cmsStore.getNotices ? cmsStore.getNotices() : null;
@@ -42,19 +54,33 @@ export default function NoticesHubSection() {
     } catch (e) {}
     return [];
   });
+
+  const [pastEvents, setPastEvents] = useState(() => {
+    try {
+      const today = getTodayDateString();
+      const stored = cmsStore.getEvents ? cmsStore.getEvents() : null;
+      if (stored && stored.length > 0) {
+        return stored.filter((e) => !isEventUpcoming(e, today));
+      }
+    } catch (e) {}
+    return [];
+  });
+
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
     async function loadData() {
       try {
-        const [events, notices] = await Promise.all([
+        const [events, notices, past] = await Promise.all([
           getUpcomingEvents({ level: levelFilter, category: categoryFilter, search: searchQuery }),
           getNotices({ level: levelFilter, category: categoryFilter, search: searchQuery }),
+          getPastEvents({ level: levelFilter, category: categoryFilter, search: searchQuery }),
         ]);
         if (isMounted) {
-          if (events && events.length > 0) setRawEvents(events);
-          if (notices && notices.length > 0) setRawNotices(notices);
+          if (events) setRawEvents(events);
+          if (notices) setRawNotices(notices);
+          if (past) setPastEvents(past);
           setIsLoading(false);
         }
       } catch (e) {
@@ -67,10 +93,28 @@ export default function NoticesHubSection() {
     return () => { isMounted = false; };
   }, [levelFilter, categoryFilter, searchQuery]);
 
-  const filteredEvents = rawEvents;
+  // Left column: STRICTLY UPCOMING EVENTS ONLY (date >= today, no older events)
+  const filteredEvents = useMemo(() => {
+    return rawEvents.filter((e) => isEventUpcoming(e, todayStr));
+  }, [rawEvents, todayStr]);
 
-  // Filter items for Notice Board (Right Column) with Tab filtering
+  // Right column: Notice Board with dynamic inclusion of past/completed events
+  // When an event date is done (date < today), it dynamically moves to the Notice Board
   const filteredNotices = useMemo(() => {
+    // Map past events into notice-compatible format for dynamic inclusion
+    const concludedEventsAsNotices = pastEvents.map((evt) => ({
+      id: `evt-done-${evt.id}`,
+      title: evt.title,
+      date: evt.event_date || evt.date,
+      category: evt.category || 'Events',
+      type: 'Event',
+      linked_event_id: evt.id,
+      link: `/news-events/${evt.id}`,
+      tags: ['EVENT', 'CONCLUDED'],
+      summary: evt.summary || evt.description,
+      isConcludedEvent: true
+    }));
+
     if (activeNoticeTab === 'examination') {
       return rawNotices.filter((n) =>
         /exam|timetable|time table|revaluation|makeup|supplementary|c1|c2|c3|convocation/i.test(
@@ -78,28 +122,63 @@ export default function NoticesHubSection() {
         )
       );
     } else if (activeNoticeTab === 'events') {
-      return rawNotices.filter(
-        (n) =>
+      // EVENTS Tab: Shows all concluded/past events plus event notices/circulars
+      const seenEventIds = new Set();
+      const list = [];
+
+      // 1. Add event notices from notice board
+      rawNotices
+        .filter((n) =>
           n.type === 'Event' ||
           !!n.linked_event_id ||
           /event|seminar|conference|sports|cultural|workshop|meeting|job fair|council|celebration/i.test(
             `${n.title} ${n.category || ''}`
           )
-      );
+        )
+        .forEach((n) => {
+          const key = n.linked_event_id ? String(n.linked_event_id) : String(n.id);
+          seenEventIds.add(key);
+          list.push(n);
+        });
+
+      // 2. Dynamically include past events whose dates have passed
+      concludedEventsAsNotices.forEach((n) => {
+        if (!seenEventIds.has(String(n.linked_event_id))) {
+          seenEventIds.add(String(n.linked_event_id));
+          list.push(n);
+        }
+      });
+
+      // Sort newest to oldest completed
+      return list.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
     } else {
-      // Default 'notices': general circulars, notifications, and all updates
-      return rawNotices;
+      // Default 'notices': official circulars, notifications, plus past event announcements
+      const seen = new Set();
+      const combined = [];
+      rawNotices.forEach((n) => {
+        seen.add(n.id);
+        combined.push(n);
+      });
+      // Concluded events also appear dynamically in latest notices
+      concludedEventsAsNotices.slice(0, 5).forEach((n) => {
+        if (!seen.has(n.id) && (!n.linked_event_id || !rawNotices.some((r) => r.linked_event_id === n.linked_event_id))) {
+          combined.push(n);
+        }
+      });
+
+      return combined.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
     }
-  }, [rawNotices, activeNoticeTab]);
+  }, [rawNotices, pastEvents, activeNoticeTab]);
 
   // Extract unique categories across all events and notices for dropdown
   const categories = useMemo(() => {
     const cats = new Set([
-      ...rawEvents.map((item) => item.category),
+      ...filteredEvents.map((item) => item.category),
+      ...pastEvents.map((item) => item.category),
       ...rawNotices.map((item) => item.category)
     ].filter(Boolean));
     return ['all', ...Array.from(cats)];
-  }, [rawEvents, rawNotices]);
+  }, [filteredEvents, pastEvents, rawNotices]);
 
   // Auto-scrolling Notice Board Ticker Effect
   useEffect(() => {
@@ -258,9 +337,16 @@ export default function NoticesHubSection() {
                 {filteredEvents.length > 0 ? (
                   filteredEvents.map((event) => {
                     const eventDateStr = event.event_date || event.date;
-                    const dateObj = new Date(eventDateStr);
-                    const monthStr = dateObj.toLocaleString('en-US', { month: 'short' }).toUpperCase();
-                    const dayStr = dateObj.getDate();
+                    let monthStr = 'SEP';
+                    let dayStr = '01';
+                    if (eventDateStr) {
+                      const parts = String(eventDateStr).split('T')[0].split('-');
+                      if (parts.length === 3) {
+                        const d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+                        monthStr = d.toLocaleString('en-US', { month: 'short' }).toUpperCase();
+                        dayStr = d.getDate();
+                      }
+                    }
                     const hasSubEvents = Array.isArray(event.subEvents) && event.subEvents.length > 0;
                     const isExpanded = !!expandedEventIds[event.id];
 
@@ -478,9 +564,16 @@ export default function NoticesHubSection() {
                   filteredNotices.map((notice, nIdx) => {
                     const isImportant = notice.tags?.includes('IMPORTANT') || notice.category === 'Examinations' || notice.category === 'Admissions' || notice.refNo?.includes('Appreciation');
                     const isEventLinked = !!notice.linked_event_id;
-                    const dateObj = new Date(notice.date || '2026-09-01');
-                    const dayStr = isNaN(dateObj.getDate()) ? '01' : String(dateObj.getDate()).padStart(2, '0');
-                    const monStr = isNaN(dateObj.getDate()) ? 'SEP' : dateObj.toLocaleString('en-US', { month: 'short' }).toUpperCase();
+                    let dayStr = '01';
+                    let monStr = 'SEP';
+                    if (notice.date) {
+                      const parts = String(notice.date).split('T')[0].split('-');
+                      if (parts.length === 3) {
+                        const d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+                        dayStr = String(d.getDate()).padStart(2, '0');
+                        monStr = d.toLocaleString('en-US', { month: 'short' }).toUpperCase();
+                      }
+                    }
                     const isRecent = nIdx < 6 || (notice.date && notice.date >= '2026-08-01');
 
                     return (

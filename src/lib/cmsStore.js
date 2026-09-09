@@ -14,8 +14,8 @@ import { SYLLABUS_REGISTRY } from '../data/syllabusData.js';
 import departmentAssetsManifest from '../data/departmentAssetsManifest.json';
 import masterPagesData from '../data/masterPagesData.json';
 
-const STORAGE_KEY = 'stphilos_cms_store_v10';
-const REVISIONS_KEY = 'stphilos_cms_revisions_v10';
+const STORAGE_KEY = 'stphilos_cms_store_v11';
+const REVISIONS_KEY = 'stphilos_cms_revisions_v11';
 
 // 1. Initial State Seeding
 function getInitialData() {
@@ -240,6 +240,15 @@ function loadCache() {
           }
         });
         parsed.pages = mergedPages;
+      }
+      if (!parsed.events || !Array.isArray(parsed.events)) {
+        parsed.events = initial.events;
+      } else {
+        const cachedEventIds = new Set(parsed.events.map(e => String(e.id)));
+        const missingInitialEvents = initial.events.filter(e => !cachedEventIds.has(String(e.id)));
+        if (missingInitialEvents.length > 0) {
+          parsed.events = [...missingInitialEvents, ...parsed.events];
+        }
       }
       return { ...initial, ...parsed };
     }
