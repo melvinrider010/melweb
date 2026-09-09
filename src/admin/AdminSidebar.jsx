@@ -59,44 +59,71 @@ export default function AdminSidebar({ mobileOpen, setMobileOpen }) {
         ${mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
         
-        {/* Top: Profile Card matching screenshot */}
-        <div className="space-y-8">
+        {/* Top & Navigation Section */}
+        <div className="space-y-6">
           
           {/* Close button for mobile */}
           <div className="flex justify-between items-center lg:hidden -mt-2 -mr-2">
             <span className="text-xs font-bold text-zinc-400 tracking-wider uppercase">Metronic CMS</span>
             <button 
               onClick={() => setMobileOpen(false)}
-              className="p-2 text-zinc-400 hover:text-white rounded-lg"
+              className="p-2 text-zinc-400 hover:text-white rounded-lg cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
-          {/* Profile Avatar + Notification Badge + Name & Email */}
-          <div className="flex flex-col items-start pt-2">
-            <div className="relative mb-4">
-              <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80"
-                alt="Profile Avatar"
-                className="w-16 h-16 rounded-2xl object-cover ring-2 ring-white/10 shadow-lg"
-              />
-              {/* Red notification pill matching screenshot */}
-              <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-[#eb4848] text-white text-[11px] font-extrabold rounded-full flex items-center justify-center ring-2 ring-[#121316] shadow-sm animate-pulse">
-                4
+          {/* 1. College Logo & Name */}
+          <Link to="/" target="_blank" className="flex items-center space-x-3 group">
+            <img
+              src="/assets/images/logo/logo.png"
+              alt="St. Philomena's College Crest"
+              className="w-10 h-10 object-contain brightness-110 drop-shadow-md shrink-0 group-hover:scale-105 transition-transform"
+              onError={(e) => { e.target.src = '/assets/college-header-logo.png'; }}
+            />
+            <div className="min-w-0">
+              <h1 className="text-sm font-extrabold text-white tracking-wide uppercase leading-tight truncate">
+                St. Philomena's
+              </h1>
+              <span className="text-[10px] font-bold text-[#FFD84A] tracking-wider uppercase block truncate">
+                College (Autonomous)
               </span>
             </div>
+          </Link>
 
-            <h2 className="text-xl font-extrabold text-white tracking-tight">
-              {user?.name || 'Samantha'}
-            </h2>
-            <p className="text-xs text-[#71717a] font-medium tracking-tight mt-0.5">
-              {user?.email || 'samantha@email.com'}
-            </p>
+          {/* 2. User Details: Small Profile Image + Name + Role */}
+          <div className="p-3 bg-white/[0.04] hover:bg-white/[0.07] border border-white/10 rounded-2xl transition-colors">
+            <div className="flex items-center space-x-3">
+              {/* Small Profile Image with notification badge */}
+              <div className="relative shrink-0">
+                <img
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
+                  alt={user?.name || "User Profile"}
+                  className="w-10 h-10 rounded-xl object-cover ring-1 ring-white/20 shadow-md"
+                />
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#eb4848] text-white text-[9.5px] font-extrabold rounded-full flex items-center justify-center ring-2 ring-[#121316] shadow-xs">
+                  4
+                </span>
+              </div>
+
+              {/* Name & Role */}
+              <div className="min-w-0 flex-1">
+                <h2 className="text-sm font-bold text-white tracking-tight truncate leading-snug">
+                  {user?.name || 'Samantha (Admin)'}
+                </h2>
+                <p className="text-[11px] font-medium text-slate-400 truncate">
+                  {user?.role || (isHOD ? 'Head of Department' : 'Super Administrator')}
+                </p>
+              </div>
+            </div>
+
+            {/* Department Tag if HOD */}
             {isHOD && userDepartmentName && (
-              <span className="mt-2 inline-block px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-300 text-[10px] font-bold border border-amber-500/20">
-                {userDepartmentName}
-              </span>
+              <div className="mt-2.5 pt-2 border-t border-white/10">
+                <span className="inline-block px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-300 text-[10px] font-bold border border-amber-500/20 truncate max-w-full">
+                  {userDepartmentName}
+                </span>
+              </div>
             )}
           </div>
 
