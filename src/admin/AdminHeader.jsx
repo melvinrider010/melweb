@@ -26,13 +26,20 @@ export default function AdminHeader({ onToggleMobileMenu }) {
           <Menu className="w-5 h-5" />
         </button>
 
+        {/* Mobile Brand Logo */}
+        <img
+          src="/assets/images/logo/dashboard_college_logo.png"
+          alt="St. Philomena's College"
+          className="h-7 sm:h-8 w-auto object-contain lg:hidden"
+        />
+
         {isHOD && userDepartmentName ? (
-          <div className="flex items-center space-x-2 text-xs font-bold text-[#0B1F4E] bg-amber-50 px-3.5 py-2 rounded-full border border-amber-200/80 shadow-2xs">
+          <div className="hidden sm:flex items-center space-x-2 text-xs font-bold text-[#0B1F4E] bg-amber-50 px-3.5 py-2 rounded-full border border-amber-200/80 shadow-2xs">
             <Building2 className="w-4 h-4 text-amber-600" />
             <span>Scope: {userDepartmentName}</span>
           </div>
         ) : (
-          <div className="relative w-52 sm:w-72 md:w-80">
+          <div className="hidden sm:block relative w-52 sm:w-72 md:w-80">
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"

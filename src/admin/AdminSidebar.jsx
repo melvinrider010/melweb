@@ -73,22 +73,18 @@ export default function AdminSidebar({ mobileOpen, setMobileOpen }) {
             </button>
           </div>
 
-          {/* 1. College Logo & Name */}
-          <Link to="/" target="_blank" className="flex items-center space-x-3 group">
+          {/* 1. Official College Brand Banner Logo */}
+          <Link 
+            to="/" 
+            target="_blank" 
+            className="block p-2.5 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all group border border-white/20"
+            title="View St. Philomena's College Website"
+          >
             <img
-              src="/assets/images/logo/logo.png"
-              alt="St. Philomena's College Crest"
-              className="w-10 h-10 object-contain brightness-110 drop-shadow-md shrink-0 group-hover:scale-105 transition-transform"
-              onError={(e) => { e.target.src = '/assets/college-header-logo.png'; }}
+              src="/assets/images/logo/dashboard_college_logo.png"
+              alt="St. Philomena's College (Autonomous), Mysuru"
+              className="w-full h-auto max-h-12 object-contain group-hover:scale-[1.02] transition-transform"
             />
-            <div className="min-w-0">
-              <h1 className="text-sm font-extrabold text-white tracking-wide uppercase leading-tight truncate">
-                St. Philomena's
-              </h1>
-              <span className="text-[10px] font-bold text-[#FFD84A] tracking-wider uppercase block truncate">
-                College (Autonomous)
-              </span>
-            </div>
           </Link>
 
           {/* 2. User Details: Small Profile Image + Name + Role */}
