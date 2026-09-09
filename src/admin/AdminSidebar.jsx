@@ -1,173 +1,179 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
-  LayoutDashboard, Sliders, FileText, Calendar, Image as ImageIcon, 
-  GraduationCap, Users, Building2, Award, ShieldCheck, FolderGit2, 
-  Settings, UserCheck, History, Archive, CheckCircle2, Sparkles, Layers,
-  BookOpen, HelpCircle, MessageSquare, HeartHandshake, ArrowRight
+  LayoutDashboard, BookOpen, Calendar, FileText, Users, Building2, 
+  Image as ImageIcon, FolderGit2, Settings, ShieldCheck, LogOut, 
+  ExternalLink, ChevronDown, Sparkles, X, ChevronRight
 } from 'lucide-react';
 import { useAuth } from '../lib/authContext';
 
-export default function AdminSidebar() {
+export default function AdminSidebar({ mobileOpen, setMobileOpen }) {
   const location = useLocation();
-  const { user, isSuperAdmin, isHOD, userDepartmentId, userDepartmentName } = useAuth();
+  const navigate = useNavigate();
+  const { user, isHOD, userDepartmentName, logout } = useAuth();
+  const [showSubMenu, setShowSubMenu] = useState(false);
 
-  // Navigation menu tailored for HODs vs Super Admins
-  const hodMenuSections = [
-    {
-      title: "DEPARTMENT PORTAL",
-      items: [
-        { label: "Department Overview", path: "/admin/department-portal?tab=overview", icon: Building2, tabKey: "overview" },
-        { label: "Syllabus & Regulations", path: "/admin/department-portal?tab=syllabus", icon: BookOpen, tabKey: "syllabus" },
-        { label: "Faculty Directory", path: "/admin/department-portal?tab=faculty", icon: Users, tabKey: "faculty" },
-        { label: "Department Documents", path: "/admin/department-portal?tab=documents", icon: FolderGit2, tabKey: "documents" }
-      ]
-    },
-    {
-      title: "CAMPUS FEEDS",
-      items: [
-        { label: "Department Notices", path: "/admin/notices", icon: FileText },
-        { label: "Department Events", path: "/admin/events", icon: Calendar }
-      ]
-    }
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+
+  const navItems = [
+    { label: "Dashboard", path: "/admin", match: (p) => p === '/admin' },
+    { label: "Pages & Menu", path: "/admin/pages", match: (p) => p.startsWith('/admin/pages') || p.startsWith('/admin/menus') },
+    { label: "Events & Notices", path: "/admin/events", match: (p) => p.startsWith('/admin/events') || p.startsWith('/admin/notices') },
+    { label: "Academics", path: "/admin/programmes", match: (p) => p.startsWith('/admin/programmes') || p.startsWith('/admin/faculty') },
+    { label: "Departments", path: isHOD ? "/admin/department-portal" : "/admin/departments", match: (p) => p.startsWith('/admin/departments') || p.startsWith('/admin/department-portal') },
+    { label: "Media & Sliders", path: "/admin/gallery", match: (p) => p.startsWith('/admin/gallery') || p.startsWith('/admin/sliders') || p.startsWith('/admin/media') },
+    { label: "Documents", path: "/admin/documents", match: (p) => p.startsWith('/admin/documents') || p.startsWith('/admin/iqac') },
+    { label: "Users & Roles", path: "/admin/users", match: (p) => p.startsWith('/admin/users') || p.startsWith('/admin/logs') },
+    { label: "Settings", path: "/admin/settings", match: (p) => p === '/admin/settings' || p.startsWith('/admin/archive-status') || p.startsWith('/admin/verification') }
   ];
 
-  const adminMenuSections = [
-    {
-      title: "OVERVIEW",
-      items: [
-        { label: "Dashboard", path: "/admin", icon: LayoutDashboard },
-        { label: "Department Portal (HOD)", path: "/admin/department-portal", icon: Building2 }
-      ]
-    },
-    {
-      title: "CONTENT MANAGEMENT",
-      items: [
-        { label: "Hero Sliders", path: "/admin/sliders", icon: Sliders },
-        { label: "All Pages & Content Hub", path: "/admin/pages", icon: BookOpen },
-        { label: "Navigation Menus", path: "/admin/menus", icon: Layers },
-        { label: "Notices & Announcements", path: "/admin/notices", icon: FileText },
-        { label: "Campus Events", path: "/admin/events", icon: Calendar },
-        { label: "Photo Gallery", path: "/admin/gallery", icon: ImageIcon }
-      ]
-    },
-    {
-      title: "ACADEMICS & FACULTY",
-      items: [
-        { label: "UG & PG Programmes", path: "/admin/programmes", icon: GraduationCap },
-        { label: "Academic Departments", path: "/admin/departments", icon: Building2 },
-        { label: "Faculty Directory", path: "/admin/faculty", icon: Users },
-        { label: "Alumni Registrations", path: "/admin/alumni", icon: HeartHandshake }
-      ]
-    },
-    {
-      title: "QUALITY & REPOSITORY",
-      items: [
-        { label: "IQAC & NAAC Hub", path: "/admin/iqac", icon: Award },
-        { label: "Media Library", path: "/admin/media", icon: ImageIcon },
-        { label: "Documents Repository", path: "/admin/documents", icon: FolderGit2 }
-      ]
-    },
-    {
-      title: "SYSTEM & ACCESS",
-      items: [
-        { label: "Users & HOD Logins", path: "/admin/users", icon: UserCheck },
-        { label: "Activity Logs", path: "/admin/logs", icon: History },
-        { label: "System Settings", path: "/admin/settings", icon: Settings },
-        { label: "Archive Status", path: "/admin/archive-status", icon: Archive },
-        { label: "Data Verification", path: "/admin/verification", icon: CheckCircle2 }
-      ]
-    }
+  const quickShortcuts = [
+    { label: "Hero Sliders", path: "/admin/sliders" },
+    { label: "Menu Editor", path: "/admin/menus" },
+    { label: "Notice Board", path: "/admin/notices" },
+    { label: "Faculty Hub", path: "/admin/faculty" },
+    { label: "Alumni Directory", path: "/admin/alumni" },
+    { label: "IQAC Documents", path: "/admin/iqac" },
+    { label: "Data Verification", path: "/admin/verification" },
+    { label: "Archive Audit", path: "/admin/archive-status" }
   ];
-
-  const menuSections = isHOD ? hodMenuSections : adminMenuSections;
-
-  const currentTabParam = new URLSearchParams(location.search).get('tab') || (location.pathname === '/admin/department-portal' ? 'overview' : null);
 
   return (
-    <aside className="w-64 bg-[#0D1B2A] text-slate-300 min-h-screen border-r border-slate-800 flex flex-col shrink-0">
-      
-      {/* Brand Header */}
-      <div className="p-6 border-b border-slate-800 flex items-center space-x-3 bg-[#08121E]">
-        <div className="p-2 rounded-xl btn-gold text-[#071A33]">
-          <Layers className="w-5 h-5" />
-        </div>
-        <div className="min-w-0">
-          <h2 className="font-bold text-white text-sm tracking-wide truncate">ST. PHILOMENA</h2>
-          <span className="text-[10px] text-[#FFD84A] font-mono tracking-widest uppercase block truncate">
-            {isHOD ? 'HOD PORTAL' : 'METRONIC CMS'}
-          </span>
-        </div>
-      </div>
-
-      {/* Active User Department Tag */}
-      {isHOD && userDepartmentName && (
-        <div className="mx-4 my-3 p-3 bg-blue-950/80 border border-[#C9A84C]/40 rounded-xl space-y-1">
-          <span className="text-[9.5px] font-mono font-bold text-[#F0D98C] uppercase tracking-wider block">
-            MY DEPARTMENT:
-          </span>
-          <p className="text-xs font-serif font-bold text-white leading-snug line-clamp-2">
-            {userDepartmentName}
-          </p>
-        </div>
+    <>
+      {/* Mobile Backdrop */}
+      {mobileOpen && (
+        <div 
+          className="fixed inset-0 bg-black/70 backdrop-blur-xs z-40 lg:hidden"
+          onClick={() => setMobileOpen(false)}
+        />
       )}
 
-      {/* Navigation Links */}
-      <nav className="flex-1 px-4 py-4 space-y-5 overflow-y-auto">
-        {menuSections.map((sec, idx) => (
-          <div key={idx} className="space-y-2">
-            <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-3">{sec.title}</h3>
-            <div className="space-y-1">
-              {sec.items.map((item, iIdx) => {
-                const Icon = item.icon;
-                let isActive = false;
-                if (item.tabKey) {
-                  isActive = location.pathname === '/admin/department-portal' && (currentTabParam === item.tabKey || (item.tabKey === 'overview' && currentTabParam === 'page'));
-                } else {
-                  isActive = location.pathname === item.path;
-                }
+      {/* Sidebar Container */}
+      <aside className={`
+        fixed lg:static top-0 bottom-0 left-0 z-50
+        w-72 sm:w-80 bg-[#121316] text-white flex flex-col justify-between
+        p-7 sm:p-9 transition-transform duration-300 ease-in-out shrink-0
+        ${mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+      `}>
+        
+        {/* Top: Profile Card matching screenshot */}
+        <div className="space-y-8">
+          
+          {/* Close button for mobile */}
+          <div className="flex justify-between items-center lg:hidden -mt-2 -mr-2">
+            <span className="text-xs font-bold text-zinc-400 tracking-wider uppercase">Metronic CMS</span>
+            <button 
+              onClick={() => setMobileOpen(false)}
+              className="p-2 text-zinc-400 hover:text-white rounded-lg"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
 
-                return (
+          {/* Profile Avatar + Notification Badge + Name & Email */}
+          <div className="flex flex-col items-start pt-2">
+            <div className="relative mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80"
+                alt="Profile Avatar"
+                className="w-16 h-16 rounded-2xl object-cover ring-2 ring-white/10 shadow-lg"
+              />
+              {/* Red notification pill matching screenshot */}
+              <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-[#eb4848] text-white text-[11px] font-extrabold rounded-full flex items-center justify-center ring-2 ring-[#121316] shadow-sm animate-pulse">
+                4
+              </span>
+            </div>
+
+            <h2 className="text-xl font-extrabold text-white tracking-tight">
+              {user?.name || 'Samantha'}
+            </h2>
+            <p className="text-xs text-[#71717a] font-medium tracking-tight mt-0.5">
+              {user?.email || 'samantha@email.com'}
+            </p>
+            {isHOD && userDepartmentName && (
+              <span className="mt-2 inline-block px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-300 text-[10px] font-bold border border-amber-500/20">
+                {userDepartmentName}
+              </span>
+            )}
+          </div>
+
+          {/* Minimalist Bold Navigation matching reference design */}
+          <nav className="space-y-5 pt-2">
+            {navItems.map((item, idx) => {
+              const isActive = item.match(location.pathname);
+              return (
+                <div key={idx}>
                   <Link
-                    key={`${item.path}-${iIdx}`}
                     to={item.path}
-                    className={`flex items-center space-x-3 px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
+                    onClick={() => setMobileOpen && setMobileOpen(false)}
+                    className={`block transition-all duration-150 tracking-tight text-left ${
                       isActive
-                        ? 'bg-[#1C5496] text-white font-bold shadow-md border-l-4 border-[#FFC928]'
-                        : 'hover:bg-slate-800/60 hover:text-white text-slate-400'
+                        ? 'text-white font-extrabold text-[19px] sm:text-[20px]'
+                        : 'text-[#71717a] hover:text-white font-medium text-[19px] sm:text-[20px]'
                     }`}
                   >
-                    <Icon className={`w-4 h-4 ${isActive ? 'text-[#FFD84A]' : 'text-slate-400'}`} />
-                    <span className="truncate">{item.label}</span>
+                    {item.label}
                   </Link>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
+          </nav>
+
+          {/* Expandable Quick Shortcuts for nested managers */}
+          <div className="pt-2">
+            <button
+              onClick={() => setShowSubMenu(!showSubMenu)}
+              className="flex items-center text-xs font-semibold text-[#8e9099] hover:text-white transition-colors cursor-pointer space-x-1.5"
+            >
+              <span>All CMS Modules</span>
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showSubMenu ? 'rotate-180' : ''}`} />
+            </button>
+            {showSubMenu && (
+              <div className="mt-2.5 pl-2 space-y-1.5 border-l border-zinc-800">
+                {quickShortcuts.map((q, qIdx) => (
+                  <Link
+                    key={qIdx}
+                    to={q.path}
+                    onClick={() => setMobileOpen && setMobileOpen(false)}
+                    className="block text-[12px] text-zinc-400 hover:text-white transition-colors"
+                  >
+                    {q.label}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
-        ))}
-      </nav>
+        </div>
 
-      {/* Switch to Public Site */}
-      <div className="p-4 border-t border-slate-800 bg-[#08121E] space-y-2">
-        {isHOD && userDepartmentId && (
+        {/* Bottom Utility Actions */}
+        <div className="pt-8 border-t border-zinc-800/80 space-y-3">
           <Link
-            to={`/departments/${userDepartmentId.replace('dept-', '')}`}
+            to="/"
             target="_blank"
-            className="flex items-center justify-between px-3 py-2 rounded-lg bg-[#1C5496]/40 hover:bg-[#1C5496] text-[#F0D98C] text-xs font-bold transition-colors"
+            className="flex items-center justify-between px-3 py-2 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white text-xs font-semibold transition-all border border-zinc-800"
           >
-            <span>View Dept Page</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span className="flex items-center space-x-2">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>Public Website</span>
+            </span>
+            <ExternalLink className="w-3.5 h-3.5 text-zinc-500" />
           </Link>
-        )}
-        <Link
-          to="/"
-          className="flex items-center justify-between px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-colors"
-        >
-          <span>View Public Website</span>
-          <Sparkles className="w-3.5 h-3.5 text-[#FFD84A]" />
-        </Link>
-      </div>
 
-    </aside>
+          <button
+            onClick={handleLogout}
+            className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-zinc-400 hover:text-rose-400 hover:bg-rose-500/10 text-xs font-semibold transition-all cursor-pointer"
+          >
+            <span className="flex items-center space-x-2">
+              <LogOut className="w-3.5 h-3.5" />
+              <span>Sign Out</span>
+            </span>
+          </button>
+        </div>
+
+      </aside>
+    </>
   );
 }
