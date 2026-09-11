@@ -777,7 +777,7 @@ export default function AboutPage() {
                   person.id === 'president-mdes' || person.id === 'bishop-president' || person.name.toLowerCase().includes('francis')
                     ? '50% 12%'
                     : person.id === 'rector' || person.name.toLowerCase().includes('lourdu')
-                    ? '50% 12%'
+                    ? '50% 18%'
                     : person.id === 'principal' || person.name.toLowerCase().includes('ravi')
                     ? '50% 10%'
                     : person.id === 'finance-officer' || person.name.toLowerCase().includes('roshan')
