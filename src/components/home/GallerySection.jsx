@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ChevronLeft, 
@@ -11,24 +11,281 @@ import {
 } from 'lucide-react';
 import { EVENT_ALBUMS } from '../../data/eventAlbumsData';
 
+// 3D Parallax Tilt Card for Vivid Motion Hero UI Animation
+function GalleryCard({ item, index, onClick }) {
+  const cardRef = useRef(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0, isHovered: false });
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    // Mild perspective tilt (+/- 5 deg)
+    const rotateX = ((y - centerY) / centerY) * -5;
+    const rotateY = ((x - centerX) / centerX) * 5;
+    setTilt({ x: rotateX, y: rotateY, isHovered: true });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0, isHovered: false });
+  };
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setTilt((prev) => ({ ...prev, isHovered: true }))}
+      onMouseLeave={handleMouseLeave}
+      onClick={onClick}
+      style={{
+        scrollSnapAlign: 'start',
+        transform: tilt.isHovered 
+          ? `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale3d(1.025, 1.025, 1.025)` 
+          : 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
+        transition: tilt.isHovered ? 'transform 0.1s ease-out' : 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1)'
+      }}
+      className="w-[280px] sm:w-[360px] md:w-[420px] aspect-[16/10] rounded-[22px] overflow-hidden shrink-0 shadow-2xl border border-white/10 hover:border-[#FFD84A]/60 group cursor-pointer relative bg-slate-950 select-none transition-all duration-300"
+    >
+      {/* High-Resolution Event Photograph */}
+      <img
+        src={item.image}
+        alt={item.album?.title || "St. Philomena's College Event Photograph"}
+        loading="lazy"
+        draggable={false}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108 filter brightness-[0.97]"
+        onError={(e) => {
+          e.currentTarget.onerror = null;
+          e.currentTarget.src = '/media/gallery/picture-gallery/athletic_day_2026.jpg';
+        }}
+      />
+
+      {/* Vivid Motion Hover Zoom & Soft Focus Overlay */}
+      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center backdrop-blur-[2.5px]">
+        <div 
+          className="w-12 h-12 rounded-full bg-[#E5C358] text-[#071326] flex items-center justify-center shadow-[0_4px_25px_rgba(229,195,88,0.6)] transform scale-80 group-hover:scale-100 transition-all duration-300"
+          style={{
+            transform: tilt.isHovered ? 'translateZ(30px) scale(1)' : 'translateZ(0px) scale(0.85)'
+          }}
+        >
+          <Maximize2 className="w-5 h-5 stroke-[2.5]" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function GallerySection() {
   const [activeAlbum, setActiveAlbum] = useState(null);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
+  const [isScrubbing, setIsScrubbing] = useState(false);
   const [activeSlideIndex, setActiveSlideIndex] = useState(1);
-  const [thumbWidthPercent, setThumbWidthPercent] = useState(25);
+  const [thumbWidthPercent, setThumbWidthPercent] = useState(22);
   const [thumbLeftPercent, setThumbLeftPercent] = useState(0);
+
+  // Direct carousel dragging refs
   const carouselRef = useRef(null);
   const trackRef = useRef(null);
+  const isDraggingCarousel = useRef(false);
+  const startX = useRef(0);
+  const scrollLeftStart = useRef(0);
+  const dragDistance = useRef(0);
 
-  // Flattened high-impact event showcase items mapped to their parent album
-  const carouselItems = React.useMemo(() => {
-    const items = [];
-    EVENT_ALBUMS.forEach(album => {
-      // Pick top 2-3 vibrant photos from each event album
-      const picks = [0, 1, 2].filter(idx => idx < album.images.length);
-      picks.forEach(idx => {
+  // Curated 36 high-impact event showcase items matching Vivid Motion Hero UI
+  const carouselItems = useMemo(() => {
+    const items = [
+      // Top curated items matching the user's screenshot (Incredema 2K26, Parade, etc.)
+      {
+        id: 'incredema_1',
+        image: '/assets/gallery/albums/incredema-2026_1.jpg',
+        album: {
+          id: 'alb_incredema',
+          title: 'Incredema 2K26 — National Level Management Fest',
+          categoryLabel: 'Management Fest',
+          images: [
+            '/assets/gallery/albums/incredema-2026_1.jpg',
+            '/assets/gallery/albums/incredema-2026_2.jpg',
+            '/assets/gallery/albums/incredema-2026_3.jpg'
+          ]
+        },
+        photoIndex: 0
+      },
+      {
+        id: 'incredema_2',
+        image: '/assets/gallery/albums/incredema-2026_2.jpg',
+        album: {
+          id: 'alb_incredema',
+          title: 'Incredema 2K26 — Inaugural Stage Ceremony',
+          categoryLabel: 'Management Fest',
+          images: [
+            '/assets/gallery/albums/incredema-2026_1.jpg',
+            '/assets/gallery/albums/incredema-2026_2.jpg',
+            '/assets/gallery/albums/incredema-2026_3.jpg'
+          ]
+        },
+        photoIndex: 1
+      },
+      {
+        id: 'incredema_3',
+        image: '/assets/gallery/albums/incredema-2026_3.jpg',
+        album: {
+          id: 'alb_incredema',
+          title: 'Incredema 2K26 — Valedictory & Delegates',
+          categoryLabel: 'Management Fest',
+          images: [
+            '/assets/gallery/albums/incredema-2026_1.jpg',
+            '/assets/gallery/albums/incredema-2026_2.jpg',
+            '/assets/gallery/albums/incredema-2026_3.jpg'
+          ]
+        },
+        photoIndex: 2
+      },
+      {
+        id: 'republic_parade',
+        image: '/gallery/albums/republic-day-2026/001.jpg',
+        album: {
+          id: 'alb_republic',
+          title: 'Republic Day 2026 — NCC Ceremonial Parade',
+          categoryLabel: 'National Celebration',
+          images: [
+            '/gallery/albums/republic-day-2026/001.jpg',
+            '/gallery/albums/republic-day-2026/002.jpg',
+            '/gallery/albums/republic-day-2026/003.jpg'
+          ]
+        },
+        photoIndex: 0
+      },
+      {
+        id: 'athletic_1',
+        image: '/assets/gallery/albums/80th-annual-atenthic-day-2026_1.jpg',
+        album: {
+          id: 'alb_athletic',
+          title: '80th Annual Athletic Meet 2026',
+          categoryLabel: 'Sports & Athletics',
+          images: [
+            '/assets/gallery/albums/80th-annual-atenthic-day-2026_1.jpg',
+            '/assets/gallery/albums/80th-annual-atenthic-day-2026_2.jpg',
+            '/assets/gallery/albums/80th-annual-atenthic-day-2026_3.jpg'
+          ]
+        },
+        photoIndex: 0
+      },
+      {
+        id: 'athletic_2',
+        image: '/assets/gallery/albums/80th-annual-atenthic-day-2026_2.jpg',
+        album: {
+          id: 'alb_athletic',
+          title: '80th Annual Athletic Meet — Track & Field',
+          categoryLabel: 'Sports & Athletics',
+          images: [
+            '/assets/gallery/albums/80th-annual-atenthic-day-2026_1.jpg',
+            '/assets/gallery/albums/80th-annual-atenthic-day-2026_2.jpg',
+            '/assets/gallery/albums/80th-annual-atenthic-day-2026_3.jpg'
+          ]
+        },
+        photoIndex: 1
+      },
+      {
+        id: 'desi_habba_1',
+        image: '/assets/gallery/albums/desi-habba-literary-club-relaunch-2026_1.jpg',
+        album: {
+          id: 'alb_desi_habba',
+          title: 'Desi Habba — Literary Club Fest 2026',
+          categoryLabel: 'Cultural Fest',
+          images: [
+            '/assets/gallery/albums/desi-habba-literary-club-relaunch-2026_1.jpg',
+            '/assets/gallery/albums/desi-habba-literary-club-relaunch-2026_2.jpg',
+            '/assets/gallery/albums/desi-habba-literary-club-relaunch-2026_3.jpg'
+          ]
+        },
+        photoIndex: 0
+      },
+      {
+        id: 'graduation_1',
+        image: '/assets/gallery/albums/graduation-day-2026_1.jpg',
+        album: {
+          id: 'alb_grad',
+          title: 'Graduation Day Convocation 2026',
+          categoryLabel: 'Convocation',
+          images: [
+            '/assets/gallery/albums/graduation-day-2026_1.jpg',
+            '/assets/gallery/albums/graduation-day-2026_2.jpg',
+            '/assets/gallery/albums/graduation-day-2026_3.jpg'
+          ]
+        },
+        photoIndex: 0
+      },
+      {
+        id: 'graduation_2',
+        image: '/assets/gallery/albums/graduation-day-2026_2.jpg',
+        album: {
+          id: 'alb_grad',
+          title: 'Graduation Day — Degree Conferment Ceremony',
+          categoryLabel: 'Convocation',
+          images: [
+            '/assets/gallery/albums/graduation-day-2026_1.jpg',
+            '/assets/gallery/albums/graduation-day-2026_2.jpg',
+            '/assets/gallery/albums/graduation-day-2026_3.jpg'
+          ]
+        },
+        photoIndex: 1
+      },
+      {
+        id: 'book_expo_1',
+        image: '/assets/gallery/albums/nava-karnataka-book-exhibition-2026_1.jpg',
+        album: {
+          id: 'alb_book',
+          title: 'Nava Karnataka Book Exhibition',
+          categoryLabel: 'Academic Exhibition',
+          images: [
+            '/assets/gallery/albums/nava-karnataka-book-exhibition-2026_1.jpg',
+            '/assets/gallery/albums/nava-karnataka-book-exhibition-2026_2.jpg',
+            '/assets/gallery/albums/nava-karnataka-book-exhibition-2026_3.jpg'
+          ]
+        },
+        photoIndex: 0
+      },
+      {
+        id: 'flea_market_1',
+        image: '/assets/gallery/albums/flea-market-by-bba-department_1.jpg',
+        album: {
+          id: 'alb_flea',
+          title: 'BBA Entrepreneurship Flea Market',
+          categoryLabel: 'Student Venture',
+          images: [
+            '/assets/gallery/albums/flea-market-by-bba-department_1.jpg',
+            '/assets/gallery/albums/flea-market-by-bba-department_2.jpg',
+            '/assets/gallery/albums/flea-market-by-bba-department_3.jpg'
+          ]
+        },
+        photoIndex: 0
+      },
+      {
+        id: 'mba_freshers_1',
+        image: '/assets/gallery/albums/mba-freshers-day-2026_1.jpg',
+        album: {
+          id: 'alb_mba',
+          title: 'MBA Department Freshers Day',
+          categoryLabel: 'Department Meet',
+          images: [
+            '/assets/gallery/albums/mba-freshers-day-2026_1.jpg',
+            '/assets/gallery/albums/mba-freshers-day-2026_2.jpg',
+            '/assets/gallery/albums/mba-freshers-day-2026_3.jpg'
+          ]
+        },
+        photoIndex: 0
+      }
+    ];
+
+    // Supplement with EVENT_ALBUMS images to achieve exactly 36 curated moments
+    EVENT_ALBUMS.forEach((album) => {
+      if (items.length >= 36) return;
+      const picks = [0, 1, 2].filter((idx) => idx < album.images.length);
+      picks.forEach((idx) => {
+        if (items.length >= 36) return;
         items.push({
           id: `${album.id}_${idx}`,
           image: album.images[idx],
@@ -37,17 +294,18 @@ export default function GallerySection() {
         });
       });
     });
-    return items;
+
+    return items.slice(0, 36);
   }, []);
 
-  // Update scroll metrics dynamically
-  const updateScrollMetrics = () => {
+  // Update dynamic scroll and thumb metrics
+  const updateScrollMetrics = useCallback(() => {
     if (carouselRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
       const maxScroll = scrollWidth - clientWidth;
       
-      // Compute dynamic proportional thumb width
-      const widthPct = Math.max(14, Math.min(45, (clientWidth / scrollWidth) * 100));
+      // Proportional thumb width (bounded between 15% and 35%)
+      const widthPct = Math.max(16, Math.min(35, (clientWidth / scrollWidth) * 100));
       setThumbWidthPercent(widthPct);
 
       if (maxScroll > 0) {
@@ -55,8 +313,8 @@ export default function GallerySection() {
         const leftPct = ratio * (100 - widthPct);
         setThumbLeftPercent(leftPct);
 
-        // Approximate active slide index
-        const itemWidth = 360;
+        // Calculate active item index
+        const itemWidth = 440; // width + gap
         const currentIdx = Math.min(carouselItems.length, Math.max(1, Math.round(scrollLeft / itemWidth) + 1));
         setActiveSlideIndex(currentIdx);
       } else {
@@ -64,15 +322,15 @@ export default function GallerySection() {
         setActiveSlideIndex(1);
       }
     }
-  };
+  }, [carouselItems.length]);
 
   useEffect(() => {
     updateScrollMetrics();
     window.addEventListener('resize', updateScrollMetrics);
     return () => window.removeEventListener('resize', updateScrollMetrics);
-  }, [carouselItems.length]);
+  }, [updateScrollMetrics]);
 
-  // Handle direct scrubbing & drag along the dynamic track
+  // Handle direct scrubbing & drag along the scrubber track
   const handleScrub = (clientX) => {
     if (trackRef.current && carouselRef.current) {
       const rect = trackRef.current.getBoundingClientRect();
@@ -80,26 +338,26 @@ export default function GallerySection() {
       const ratio = clickX / rect.width;
       const { scrollWidth, clientWidth } = carouselRef.current;
       const targetScroll = ratio * (scrollWidth - clientWidth);
-      carouselRef.current.scrollTo({ left: targetScroll, behavior: isDragging ? 'auto' : 'smooth' });
+      carouselRef.current.scrollTo({ left: targetScroll, behavior: isScrubbing ? 'auto' : 'smooth' });
     }
   };
 
-  const handlePointerDown = (e) => {
-    setIsDragging(true);
+  const handleTrackPointerDown = (e) => {
+    setIsScrubbing(true);
     setIsPaused(true);
     e.currentTarget.setPointerCapture(e.pointerId);
     handleScrub(e.clientX);
   };
 
-  const handlePointerMove = (e) => {
-    if (isDragging) {
+  const handleTrackPointerMove = (e) => {
+    if (isScrubbing) {
       handleScrub(e.clientX);
     }
   };
 
-  const handlePointerUp = (e) => {
-    if (isDragging) {
-      setIsDragging(false);
+  const handleTrackPointerUp = (e) => {
+    if (isScrubbing) {
+      setIsScrubbing(false);
       setIsPaused(false);
       try {
         e.currentTarget.releasePointerCapture(e.pointerId);
@@ -107,36 +365,63 @@ export default function GallerySection() {
     }
   };
 
-  // Auto-slide carousel smoothly
+  // Direct Mouse Dragging on the Carousel track (Vivid Motion interaction)
+  const handleCarouselPointerDown = (e) => {
+    if (!carouselRef.current) return;
+    isDraggingCarousel.current = true;
+    dragDistance.current = 0;
+    startX.current = e.clientX;
+    scrollLeftStart.current = carouselRef.current.scrollLeft;
+    setIsPaused(true);
+  };
+
+  const handleCarouselPointerMove = (e) => {
+    if (!isDraggingCarousel.current || !carouselRef.current) return;
+    const dx = e.clientX - startX.current;
+    dragDistance.current = Math.abs(dx);
+    carouselRef.current.scrollLeft = scrollLeftStart.current - dx;
+    updateScrollMetrics();
+  };
+
+  const handleCarouselPointerUp = () => {
+    isDraggingCarousel.current = false;
+    setTimeout(() => {
+      setIsPaused(false);
+    }, 1000);
+  };
+
+  // Auto-play timer
   useEffect(() => {
-    if (isPaused || activeAlbum || isDragging) return;
+    if (isPaused || activeAlbum || isScrubbing) return;
     const interval = setInterval(() => {
-      if (carouselRef.current) {
+      if (carouselRef.current && !isDraggingCarousel.current) {
         const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
-        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+        if (scrollLeft + clientWidth >= scrollWidth - 15) {
           carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
         } else {
-          carouselRef.current.scrollBy({ left: 360, behavior: 'smooth' });
+          carouselRef.current.scrollBy({ left: 420, behavior: 'smooth' });
         }
       }
-    }, 3800);
+    }, 4200);
 
     return () => clearInterval(interval);
-  }, [isPaused, activeAlbum, isDragging]);
+  }, [isPaused, activeAlbum, isScrubbing]);
 
   const scrollLeft = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -360, behavior: 'smooth' });
+      carouselRef.current.scrollBy({ left: -420, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 360, behavior: 'smooth' });
+      carouselRef.current.scrollBy({ left: 420, behavior: 'smooth' });
     }
   };
 
+  // Lightbox controllers
   const openAlbum = (album, photoIdx = 0) => {
+    if (dragDistance.current > 8) return; // Prevent accidental click while dragging
     setActiveAlbum(album);
     setCurrentPhotoIndex(photoIdx);
     document.body.style.overflow = 'hidden';
@@ -160,13 +445,17 @@ export default function GallerySection() {
     setCurrentPhotoIndex((prev) => (prev - 1 + activeAlbum.images.length) % activeAlbum.images.length);
   };
 
-  // Keyboard Navigation Support
+  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (!activeAlbum) return;
-      if (e.key === 'Escape') closeAlbum();
-      if (e.key === 'ArrowRight') nextPhoto();
-      if (e.key === 'ArrowLeft') prevPhoto();
+      if (activeAlbum) {
+        if (e.key === 'Escape') closeAlbum();
+        if (e.key === 'ArrowRight') nextPhoto();
+        if (e.key === 'ArrowLeft') prevPhoto();
+      } else {
+        if (e.key === 'ArrowLeft') scrollLeft();
+        if (e.key === 'ArrowRight') scrollRight();
+      }
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -174,18 +463,18 @@ export default function GallerySection() {
   }, [activeAlbum]);
 
   return (
-    <section className="bg-[#071A33] text-white py-14 sm:py-18 px-4 sm:px-6 lg:px-8 border-y border-slate-800 relative overflow-hidden">
+    <section className="bg-[#06101E] text-white py-14 sm:py-18 px-4 sm:px-6 lg:px-8 relative overflow-hidden select-none">
       
-      {/* Background Subtle Pattern */}
+      {/* Ambient background glow */}
       <div 
         aria-hidden="true" 
-        className="absolute inset-0 bg-[radial-gradient(#0B1F4E_1px,transparent_1px)] [background-size:2rem_2rem] opacity-15 pointer-events-none" 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-blue-900/10 blur-[130px] pointer-events-none rounded-full" 
       />
 
       <div className="max-w-[1440px] mx-auto space-y-8 relative z-10">
         
-        {/* SECTION HEADER & CAROUSEL CONTROLS */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-slate-800 pb-5 gap-4">
+        {/* ================= SECTION HEADER & TOP NAVIGATION ================= */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/5 pb-5 gap-4">
           <div className="space-y-1.5 max-w-2xl">
             <span className="text-[#FFD84A] font-bold text-xs uppercase tracking-widest block font-sans">
               Campus Life & Events
@@ -195,138 +484,128 @@ export default function GallerySection() {
             </h2>
           </div>
 
-          {/* Carousel Left / Right Arrow Buttons */}
+          {/* Sleek circular navigation buttons matching screenshot */}
           <div className="flex items-center space-x-2.5 shrink-0 self-end sm:self-auto">
             <button
               onClick={scrollLeft}
-              className="w-10 h-10 rounded-full bg-slate-900/90 hover:bg-[#C9A84C] text-white hover:text-[#071A33] border border-slate-700 hover:border-[#C9A84C] transition-all flex items-center justify-center cursor-pointer shadow-md"
-              aria-label="Scroll Carousel Left"
+              className="w-9 h-9 rounded-full border border-slate-700/80 bg-slate-900/60 hover:bg-[#FFD84A] text-slate-300 hover:text-slate-950 hover:border-[#FFD84A] transition-all duration-300 flex items-center justify-center cursor-pointer shadow-md active:scale-95"
+              aria-label="Previous Slide"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4 stroke-[2.5]" />
             </button>
             <button
               onClick={scrollRight}
-              className="w-10 h-10 rounded-full bg-slate-900/90 hover:bg-[#C9A84C] text-white hover:text-[#071A33] border border-slate-700 hover:border-[#C9A84C] transition-all flex items-center justify-center cursor-pointer shadow-md"
-              aria-label="Scroll Carousel Right"
+              className="w-9 h-9 rounded-full border border-slate-700/80 bg-slate-900/60 hover:bg-[#FFD84A] text-slate-300 hover:text-slate-950 hover:border-[#FFD84A] transition-all duration-300 flex items-center justify-center cursor-pointer shadow-md active:scale-95"
+              aria-label="Next Slide"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4 stroke-[2.5]" />
             </button>
           </div>
         </div>
 
-        {/* ================= PURE IMAGE CAROUSEL (NO TEXT / NO NUMBERS) ================= */}
+        {/* ================= HERO UI CAROUSEL WITH VELOCITY DRAGGING ================= */}
         <div 
           ref={carouselRef}
           onScroll={updateScrollMetrics}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          className="flex space-x-4 sm:space-x-6 overflow-x-auto no-scrollbar scroll-smooth py-2 px-1 cursor-grab active:cursor-grabbing"
+          onPointerDown={handleCarouselPointerDown}
+          onPointerMove={handleCarouselPointerMove}
+          onPointerUp={handleCarouselPointerUp}
+          onPointerCancel={handleCarouselPointerUp}
+          className="flex space-x-4 sm:space-x-6 overflow-x-auto no-scrollbar scroll-smooth py-3 px-1 cursor-grab active:cursor-grabbing"
           style={{ scrollSnapType: 'x mandatory' }}
         >
-          {carouselItems.map((item) => (
-            <div
+          {carouselItems.map((item, idx) => (
+            <GalleryCard
               key={item.id}
+              item={item}
+              index={idx}
               onClick={() => openAlbum(item.album, item.photoIndex)}
-              className="w-[260px] sm:w-[320px] md:w-[360px] aspect-[16/10] rounded-2xl overflow-hidden shrink-0 shadow-lg border border-slate-800/80 hover:border-[#C9A84C] transition-all duration-300 transform hover:scale-[1.03] group cursor-pointer relative bg-slate-950"
-              style={{ scrollSnapAlign: 'start' }}
-            >
-              {/* Pure Photograph without any overlay text */}
-              <img
-                src={item.image}
-                alt="St. Philomena's College Event Photograph"
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108 filter brightness-[0.96]"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = '/media/gallery/picture-gallery/athletic_day_2026.jpg';
-                }}
-              />
-
-              {/* Hover Sleek Zoom / Expand Indicator */}
-              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                <div className="w-11 h-11 rounded-full bg-[#C9A84C] text-[#071A33] flex items-center justify-center shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
-                  <Maximize2 className="w-5 h-5" />
-                </div>
-              </div>
-            </div>
+            />
           ))}
         </div>
 
-        {/* ================= DYNAMIC MINIMAL PROFESSIONAL SCROLL CONTROLLER ================= */}
-        <div className="pt-3 flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
+        {/* ================= HERO UI BOTTOM CONTROLS BAR ================= */}
+        <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
           
-          {/* Left: Minimal Monospace Slide Counter with Live Indicator */}
-          <div className="flex items-center space-x-2.5 text-xs font-mono">
-            <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[#FFD84A] font-bold tracking-wider">
-              {String(activeSlideIndex).padStart(2, '0')} <span className="text-slate-500 mx-1">/</span> {String(carouselItems.length).padStart(2, '0')}
-            </span>
-            <span className="text-[11px] text-slate-400 hidden md:inline tracking-wider uppercase font-sans">
+          {/* Left: Counter Pill + MOMENTS CAPTURED */}
+          <div className="flex items-center space-x-3 text-xs">
+            <div className="bg-[#0B172E] border border-slate-700/60 rounded-full px-3.5 py-1 text-xs font-mono font-bold shadow-inner inline-flex items-center space-x-1.5">
+              <span className="text-[#FFD84A] font-bold">
+                {String(activeSlideIndex).padStart(2, '0')}
+              </span>
+              <span className="text-slate-500 font-normal">
+                / {String(carouselItems.length).padStart(2, '0')}
+              </span>
+            </div>
+            <span className="text-[11px] text-slate-400 font-sans font-bold tracking-widest uppercase">
               Moments Captured
             </span>
           </div>
 
-          {/* Center: Dynamic Interactive Glass Scrub Rail & Gliding Pill */}
+          {/* Center: Dynamic Scrubber Track with 7 Ticks & Dual-Dot Pill */}
           <div 
             ref={trackRef}
-            onPointerDown={handlePointerDown}
-            onPointerMove={handlePointerMove}
-            onPointerUp={handlePointerUp}
-            onPointerCancel={handlePointerUp}
-            className="w-full sm:w-80 md:w-[420px] h-3.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-full relative cursor-grab active:cursor-grabbing backdrop-blur-md transition-all duration-200 p-0.5 group shadow-inner"
+            onPointerDown={handleTrackPointerDown}
+            onPointerMove={handleTrackPointerMove}
+            onPointerUp={handleTrackPointerUp}
+            onPointerCancel={handleTrackPointerUp}
+            className="w-full sm:w-80 md:w-[440px] h-3.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-full relative cursor-grab active:cursor-grabbing backdrop-blur-md transition-all duration-200 p-0.5 group shadow-inner"
             title="Drag or click anywhere to scrub moments"
           >
-            {/* Subtle Segment Guide Lines */}
-            <div className="absolute inset-0 flex justify-between px-3 items-center pointer-events-none opacity-20">
+            {/* 7 Vertical Tick Marks matching screenshot */}
+            <div className="absolute inset-0 flex justify-between px-3.5 items-center pointer-events-none opacity-25">
               {[...Array(7)].map((_, i) => (
-                <span key={i} className="w-0.5 h-1 bg-white rounded-full" />
+                <span key={i} className="w-[1px] h-1.5 bg-white rounded-full" />
               ))}
             </div>
 
-            {/* Dynamic Sliding Pill Thumb with Glow */}
+            {/* Glowing Golden Sliding Pill with 2 Micro-dots */}
             <div 
-              className={`h-full bg-gradient-to-r from-[#C9A84C] via-[#FFD84A] to-[#C9A84C] rounded-full transition-all shadow-[0_0_14px_rgba(201,168,76,0.6)] group-hover:brightness-110 relative flex items-center justify-center ${
-                isDragging ? 'duration-0 scale-y-110' : 'duration-150'
+              className={`h-full bg-gradient-to-r from-[#D4AF37] via-[#FFD84A] to-[#D4AF37] rounded-full transition-all shadow-[0_0_14px_rgba(255,216,74,0.6)] group-hover:brightness-110 relative flex items-center justify-center ${
+                isScrubbing ? 'duration-0 scale-y-110' : 'duration-150'
               }`}
               style={{ 
                 width: `${thumbWidthPercent}%`,
                 left: `${thumbLeftPercent}%`
               }}
             >
-              {/* Center Grip Micro-Dots */}
-              <div className="flex space-x-1 items-center opacity-70 pointer-events-none">
-                <span className="w-1 h-1 rounded-full bg-[#071A33]" />
-                <span className="w-1 h-1 rounded-full bg-[#071A33]" />
+              {/* Center Grip Micro-Dots •• */}
+              <div className="flex space-x-1 items-center opacity-85 pointer-events-none">
+                <span className="w-1 h-1 rounded-full bg-[#071326]" />
+                <span className="w-1 h-1 rounded-full bg-[#071326]" />
               </div>
             </div>
           </div>
 
-          {/* Right: Quick Action Hint & Keyboard Assist */}
-          <div className="flex items-center space-x-2 text-[11px] font-mono text-slate-400">
-            <span className="hidden lg:inline text-slate-500">Controls:</span>
+          {/* Right: Controls Keyboard Assist */}
+          <div className="flex items-center space-x-2 text-[11px] font-sans text-slate-400">
+            <span className="text-slate-500">Controls:</span>
             <kbd className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300 text-[10px] font-mono shadow-xs">←</kbd>
             <kbd className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300 text-[10px] font-mono shadow-xs">→</kbd>
-            <span className="hidden sm:inline text-slate-400">or Drag Slider</span>
+            <span className="text-slate-400">or Drag Slider</span>
           </div>
 
         </div>
 
       </div>
 
-      {/* ================= INTERACTIVE FULL-SCREEN EVENT ALBUM MODAL / LIGHTBOX ================= */}
+      {/* ================= FULL-SCREEN EVENT ALBUM LIGHTBOX ================= */}
       {activeAlbum && (
         <div 
           className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between animate-fadeIn"
           onClick={closeAlbum}
         >
-          {/* Modal Header Bar */}
+          {/* Modal Header */}
           <div 
             className="p-4 sm:p-5 bg-slate-950/90 border-b border-slate-800 flex items-center justify-between text-white z-20"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="space-y-1 max-w-xl">
               <div className="flex items-center space-x-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider bg-[#C9A84C] text-[#0B1F4E] px-2 py-0.5 rounded">
-                  {activeAlbum.categoryLabel}
+                <span className="text-[10px] font-bold uppercase tracking-wider bg-[#FFD84A] text-[#071326] px-2 py-0.5 rounded">
+                  {activeAlbum.categoryLabel || 'Campus Event'}
                 </span>
                 <span className="text-xs text-slate-400 font-mono">
                   Photo {currentPhotoIndex + 1} of {activeAlbum.images.length}
@@ -337,32 +616,28 @@ export default function GallerySection() {
               </h3>
             </div>
 
-            <div className="flex items-center space-x-3">
-              <button
-                onClick={closeAlbum}
-                className="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 text-white flex items-center justify-center cursor-pointer transition-colors border border-white/20"
-                aria-label="Close Viewer"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
+            <button
+              onClick={closeAlbum}
+              className="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 text-white flex items-center justify-center cursor-pointer transition-colors border border-white/20"
+              aria-label="Close Viewer"
+            >
+              <X className="w-5 h-5" />
+            </button>
           </div>
 
-          {/* Modal Center Stage (Large Photo + Navigation Arrows) */}
+          {/* Modal Center Photo */}
           <div 
             className="relative flex-1 flex items-center justify-center p-4 sm:p-8 min-h-0"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Previous Arrow */}
             <button
               onClick={prevPhoto}
-              className="absolute left-4 sm:left-8 z-30 w-12 h-12 rounded-2xl bg-black/70 hover:bg-[#C9A84C] text-white hover:text-[#0B1F4E] border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-2xl"
+              className="absolute left-4 sm:left-8 z-30 w-12 h-12 rounded-2xl bg-black/70 hover:bg-[#FFD84A] text-white hover:text-[#071326] border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-2xl"
               aria-label="Previous Photo"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
 
-            {/* Main Featured Photo */}
             <div className="relative max-w-5xl max-h-[65vh] w-full h-full flex items-center justify-center">
               <img
                 key={activeAlbum.images[currentPhotoIndex]}
@@ -372,17 +647,16 @@ export default function GallerySection() {
               />
             </div>
 
-            {/* Next Arrow */}
             <button
               onClick={nextPhoto}
-              className="absolute right-4 sm:right-8 z-30 w-12 h-12 rounded-2xl bg-black/70 hover:bg-[#C9A84C] text-white hover:text-[#0B1F4E] border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-2xl"
+              className="absolute right-4 sm:right-8 z-30 w-12 h-12 rounded-2xl bg-black/70 hover:bg-[#FFD84A] text-white hover:text-[#071326] border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-2xl"
               aria-label="Next Photo"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
           </div>
 
-          {/* Modal Bottom Filmstrip Thumbnail Tray */}
+          {/* Modal Filmstrip Tray */}
           <div 
             className="p-3 sm:p-4 bg-slate-950/90 border-t border-slate-800 overflow-x-auto no-scrollbar z-20"
             onClick={(e) => e.stopPropagation()}
@@ -394,7 +668,7 @@ export default function GallerySection() {
                   onClick={() => setCurrentPhotoIndex(idx)}
                   className={`w-14 sm:w-18 h-10 sm:h-12 rounded-lg overflow-hidden border-2 transition-all cursor-pointer shrink-0 ${
                     idx === currentPhotoIndex
-                      ? 'border-[#C9A84C] scale-110 shadow-lg ring-2 ring-[#C9A84C]/50'
+                      ? 'border-[#FFD84A] scale-110 shadow-lg ring-2 ring-[#FFD84A]/50'
                       : 'border-transparent opacity-60 hover:opacity-100'
                   }`}
                 >

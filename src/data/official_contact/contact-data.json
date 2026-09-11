@@ -14,7 +14,7 @@
       "role": "Rector / Manager",
       "name": "Fr. Dr. Lourdu Prasad Joseph",
       "mobile": "7022371285",
-      "email": "stphilos1951@gmail.com"
+      "email": "stphilos1946@gmail.com"
     },
     {
       "role": "Public Relations Officer (PRO) / Placement Officer",
@@ -27,20 +27,20 @@
       "name": "Administrative Office",
       "mobile": "9008580707",
       "phone": "+91 9008580707",
-      "email": "stphilos1951@gmail.com"
+      "email": "stphilos1946@gmail.com"
     }
   ],
   "departments": {
     "admissions": {
       "title": "Admissions Office",
       "email": "admission.office@stphilos.ac.in",
-      "phone": "9008580707 / 6364118983",
+      "phone": "+91 9008580707, 9008028258",
       "portal": "https://student.stphiloserp.in/"
     },
     "examinations": {
       "title": "Examination & Controller of Examinations",
-      "email": "coe@stphilos.ac.in",
-      "phone": "9008580707",
+      "email": "exam-enquiry@stphilos.ac.in",
+      "phone": "+91 9008580707",
       "note": "Exam Enquiries, Results, Revaluation & Transcripts"
     },
     "placement": {
@@ -56,8 +56,8 @@
     },
     "generalOffice": {
       "title": "Principal & Administrative Desk",
-      "email": "stphilos1951@gmail.com",
-      "phone": "9008580707"
+      "email": "stphilos1946@gmail.com",
+      "phone": "+91 9008580707"
     }
   },
   "officeHours": {
@@ -74,7 +74,7 @@
   "emails": [
     {
       "label": "General & Administrative",
-      "email": "stphilos1951@gmail.com"
+      "email": "stphilos1946@gmail.com"
     },
     {
       "label": "Admissions",
@@ -86,7 +86,7 @@
     },
     {
       "label": "Examinations",
-      "email": "coe@stphilos.ac.in"
+      "email": "exam-enquiry@stphilos.ac.in"
     }
   ],
   "mapEmbedUrl": "https://maps.google.com/maps?q=St.%20Philomena%27s%20College%20Mysore&t=&z=15&ie=UTF8&iwloc=&output=embed",

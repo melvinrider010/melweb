@@ -33,10 +33,12 @@ export default function AdminNoticesManagerPage() {
     id: '',
     title: '',
     category: 'Examination',
+    type: 'Notice',
     content: '',
     attachmentUrl: '',
     attachmentFileName: '',
     isPinned: false,
+    date: new Date().toISOString().split('T')[0],
     publishDate: new Date().toISOString().split('T')[0],
     expiryDate: '',
     status: 'published'
@@ -60,14 +62,18 @@ export default function AdminNoticesManagerPage() {
 
   const handleOpenEdit = (n) => {
     setEditingNotice(n);
+    const dateVal = n.publishDate || n.date || new Date().toISOString().split('T')[0];
     setFormData({
       id: n.id || '',
       title: n.title || '',
       category: n.category || 'General',
+      type: n.type || 'Notice',
       content: n.content || n.description || '',
       attachmentUrl: n.attachmentUrl || n.pdf || n.url || '',
+      attachmentFileName: n.attachmentFileName || '',
       isPinned: !!n.isPinned,
-      publishDate: n.publishDate || n.date || new Date().toISOString().split('T')[0],
+      date: dateVal,
+      publishDate: dateVal,
       expiryDate: n.expiryDate || '',
       status: n.status || 'published'
     });
@@ -76,7 +82,14 @@ export default function AdminNoticesManagerPage() {
 
   const handleSave = async (e) => {
     e.preventDefault();
-    await cmsStore.saveNotice(formData);
+    const effectiveDate = formData.publishDate || formData.date || new Date().toISOString().split('T')[0];
+    const payload = {
+      ...formData,
+      type: formData.type || 'Notice',
+      date: effectiveDate,
+      publishDate: effectiveDate
+    };
+    await cmsStore.saveNotice(payload);
     setIsModalOpen(false);
   };
 

@@ -27,12 +27,23 @@ export default function AnnouncementTicker() {
       }
     }
     loadNotices();
-    return () => { isMounted = false; };
+
+    const handleUpdate = () => {
+      loadNotices();
+    };
+    window.addEventListener('cms_store_updated', handleUpdate);
+    window.addEventListener('storage', handleUpdate);
+
+    return () => { 
+      isMounted = false; 
+      window.removeEventListener('cms_store_updated', handleUpdate);
+      window.removeEventListener('storage', handleUpdate);
+    };
   }, []);
 
   // Limit ticker to the latest 8 most recent updates for smooth readable scrolling
   const recentNotices = notices.slice(0, 8);
-  const tickerItems = [...recentNotices, ...recentNotices];
+  const tickerItems = recentNotices.length > 0 ? [...recentNotices, ...recentNotices] : [];
 
   return (
     <div className="bg-gradient-to-r from-[#071536] via-[#0B1F4E] to-[#071536] text-white text-xs py-2 px-3 sm:px-6 border-b border-white/10 shadow-xs max-w-full overflow-hidden">
@@ -48,19 +59,32 @@ export default function AnnouncementTicker() {
         {/* Continuous Smooth Marquee Ticker */}
         <div className="overflow-hidden w-full relative">
           <div className="animate-marquee flex items-center space-x-8 whitespace-nowrap">
-            {tickerItems.map((item, index) => (
-              <a
-                key={`${item.id}-${index}`}
-                href={item.link || "/documents"}
-                className="inline-flex items-center hover:text-[#F0D98C] font-medium text-slate-200 transition-colors whitespace-nowrap group"
-              >
-                <span className="bg-[#C9A84C]/20 text-[#F0D98C] border border-[#C9A84C]/40 text-[10px] font-bold px-2 py-0.5 rounded mr-2 uppercase tracking-wider">
-                  {item.type || item.category || "NOTICE"}
-                </span>
-                <span className="group-hover:underline">{item.title}</span>
-                <ArrowRight className="w-3.5 h-3.5 ml-1.5 inline text-[#C9A84C] shrink-0 group-hover:translate-x-1 transition-transform" />
-              </a>
-            ))}
+            {tickerItems.map((item, index) => {
+              const noticeLink = item.link && item.link !== '/documents' 
+                ? item.link 
+                : `/news-events/${item.linked_event_id || item.id}`;
+              const isPinned = !!item.isPinned;
+
+              return (
+                <a
+                  key={`${item.id}-${index}`}
+                  href={noticeLink}
+                  className="inline-flex items-center hover:text-[#F0D98C] font-medium text-slate-200 transition-colors whitespace-nowrap group"
+                >
+                  {isPinned ? (
+                    <span className="bg-amber-400 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded mr-2 uppercase tracking-wider">
+                      PINNED
+                    </span>
+                  ) : (
+                    <span className="bg-[#C9A84C]/20 text-[#F0D98C] border border-[#C9A84C]/40 text-[10px] font-bold px-2 py-0.5 rounded mr-2 uppercase tracking-wider">
+                      {item.type || item.category || "NOTICE"}
+                    </span>
+                  )}
+                  <span className="group-hover:underline">{item.title}</span>
+                  <ArrowRight className="w-3.5 h-3.5 ml-1.5 inline text-[#C9A84C] shrink-0 group-hover:translate-x-1 transition-transform" />
+                </a>
+              );
+            })}
           </div>
         </div>
 

@@ -24,7 +24,18 @@ export default function ExaminationsPage() {
       }
     }
     loadExamNotices();
-    return () => { isMounted = false; };
+
+    const handleUpdate = () => {
+      loadExamNotices();
+    };
+    window.addEventListener('cms_store_updated', handleUpdate);
+    window.addEventListener('storage', handleUpdate);
+
+    return () => { 
+      isMounted = false; 
+      window.removeEventListener('cms_store_updated', handleUpdate);
+      window.removeEventListener('storage', handleUpdate);
+    };
   }, []);
 
   return (
@@ -98,8 +109,11 @@ export default function ExaminationsPage() {
               <div key={n.id} className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div className="space-y-1">
                   <div className="flex items-center space-x-2">
+                    {n.isPinned && (
+                      <span className="bg-amber-400 text-slate-950 font-extrabold text-[10px] px-2 py-0.5 rounded uppercase">PINNED</span>
+                    )}
                     <span className="bg-blue-100 text-[#1C5496] font-bold text-[10px] px-2 py-0.5 rounded">{n.category || 'Examinations'}</span>
-                    <span className="text-[11px] text-slate-400 font-mono">{n.date}</span>
+                    <span className="text-[11px] text-slate-400 font-mono">{n.date || n.publishDate}</span>
                   </div>
                   <h4 className="font-serif font-bold text-sm text-slate-900">{n.title}</h4>
                   <p className="text-xs text-slate-600">{n.summary}</p>

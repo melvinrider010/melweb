@@ -17,6 +17,101 @@ import masterPagesData from '../data/masterPagesData.json';
 const STORAGE_KEY = 'stphilos_cms_store_v11';
 const REVISIONS_KEY = 'stphilos_cms_revisions_v11';
 
+export const initialHeaderConfig = {
+  topBar: {
+    enabled: true,
+    announcementText: "Admissions Open for Academic Year 2026–27 | UGC Autonomous Catholic College",
+    announcementLink: "/admissions",
+    phone: "+91 9008580707, 9008028258",
+    showPhone: true,
+    showContactDesk: true,
+    contactDeskLabel: "Contact Desk",
+    contactDeskLink: "/contact",
+    showSearch: true
+  },
+  branding: {
+    logoUrl: "/assets/images/logo/official_college_banner_logo_transparent.png",
+    fallbackLogoUrl: "/assets/images/logo/official_college_banner_logo.png",
+    altText: "St. Philomena's College (Autonomous), Mysuru",
+    homeLink: "/"
+  },
+  ctaButton: {
+    enabled: true,
+    label: "Apply Online 2026–27",
+    url: "https://student.stphiloserp.in/",
+    target: "_blank"
+  },
+  navItems: [
+    { label: 'HOME', path: '/' },
+    { label: 'ABOUT US', path: '/about', megaKey: 'about' },
+    { label: 'ACADEMICS', path: '/academics', megaKey: 'academics' },
+    { label: 'EXAMINATION', path: '/examinations', megaKey: 'examinations' },
+    { label: 'RESOURCE', path: '/resources', megaKey: 'research' },
+    { label: 'STUDENT SUPPORT', path: '/student-support', megaKey: 'studentSupport' },
+    { label: 'MANDATORY DISCLOSURE', path: '/mandatory-disclosure', megaKey: 'compliance' },
+    { label: 'IQAC', path: '/iqac', megaKey: 'iqac' },
+    { label: 'ALUMNI', path: '/alumni' },
+    { label: 'CONTACT US', path: '/contact' }
+  ]
+};
+
+export const initialFooterConfig = {
+  brand: {
+    crestUrl: "/assets/images/logo/crest_gold_hd.png",
+    fallbackCrestUrl: "/assets/images/logo/crest_white_hd.png",
+    title: "St. Philomena's College",
+    subtitle: "(Autonomous), Mysuru · Est. 1946",
+    description: "Affiliated to the University of Mysore. A premier UGC Autonomous Catholic institution managed by the Mysore Diocesan Educational Society (MDES). Re-accredited by NAAC with Cycle III B++ Grade (2020)."
+  },
+  columns: [
+    {
+      title: "Academics",
+      links: [
+        { label: "UG Programmes (B.Sc, BCA, B.Com, BBA, BA, BSW, B.Voc)", path: "/academics" },
+        { label: "PG Programmes (M.Sc, M.Com, MA, MSW, MCA, MBA)", path: "/academics" },
+        { label: "Academic Departments", path: "/departments" },
+        { label: "Searchable Faculty Directory", path: "/faculty" },
+        { label: "Central Library & Syllabus", path: "/resources" }
+      ]
+    },
+    {
+      title: "Examinations",
+      links: [
+        { label: "Autonomous Exam Timetables", path: "/examinations" },
+        { label: "End-Semester Results Portal", path: "/examinations" },
+        { label: "Revaluation & Photocopy Forms", path: "/examinations" },
+        { label: "Prospectus & Admissions 2026–27", path: "/admissions" }
+      ]
+    },
+    {
+      title: "Mandatory Disclosure",
+      links: [
+        { label: "UGC & AICTE Disclosures", path: "/compliance" },
+        { label: "IQAC Quality Benchmarks", path: "/iqac" },
+        { label: "Statutory Governing Bodies", path: "/compliance" },
+        { label: "Student Grievance Committee", path: "/compliance" },
+        { label: "RTI & Institutional Desk", path: "/contact" }
+      ]
+    }
+  ],
+  bottomBar: {
+    copyrightText: "St. Philomena's College (Autonomous), Mysuru. All Rights Reserved.",
+    links: [
+      { label: "About MDES", path: "/about" },
+      { label: "Privacy & Terms", path: "/compliance" },
+      { label: "Contact Support", path: "/contact" },
+      { label: "CMS Portal", path: "/admin/login" }
+    ]
+  },
+  socialLinks: {
+    facebook: "https://facebook.com",
+    twitter: "https://twitter.com",
+    instagram: "https://instagram.com",
+    youtube: "https://youtube.com",
+    linkedin: "https://linkedin.com"
+  }
+};
+
 // 1. Initial State Seeding
 function getInitialData() {
   const manifestMap = new Map((departmentAssetsManifest || []).map(m => [m.deptId, m]));
@@ -152,6 +247,8 @@ function getInitialData() {
     users: [...userData],
     logs: [...logData],
     settings: { ...settingsData },
+    headerConfig: JSON.parse(JSON.stringify(initialHeaderConfig)),
+    footerConfig: JSON.parse(JSON.stringify(initialFooterConfig)),
     conflicts: []
   };
 }
@@ -250,6 +347,27 @@ function loadCache() {
           parsed.events = [...missingInitialEvents, ...parsed.events];
         }
       }
+      if (!parsed.settings || typeof parsed.settings !== 'object') {
+        parsed.settings = { ...initial.settings };
+      } else {
+        parsed.settings = { ...initial.settings, ...parsed.settings };
+        if (parsed.settings.phone === '+91 9008580707') {
+          parsed.settings.phone = initial.settings.phone;
+        }
+        if (parsed.settings.mobile === '+91 9008580707') {
+          parsed.settings.mobile = initial.settings.mobile;
+        }
+      }
+      if (!parsed.headerConfig || typeof parsed.headerConfig !== 'object') {
+        parsed.headerConfig = JSON.parse(JSON.stringify(initial.headerConfig));
+      } else {
+        parsed.headerConfig = { ...initial.headerConfig, ...parsed.headerConfig };
+      }
+      if (!parsed.footerConfig || typeof parsed.footerConfig !== 'object') {
+        parsed.footerConfig = JSON.parse(JSON.stringify(initial.footerConfig));
+      } else {
+        parsed.footerConfig = { ...initial.footerConfig, ...parsed.footerConfig };
+      }
       return { ...initial, ...parsed };
     }
   } catch (e) {
@@ -304,12 +422,42 @@ function saveRevision(entityType, entityId, snapshot, user = 'Administrator') {
 
 let cache = loadCache();
 
+// Cross-tab Synchronization Channel
+let broadcastChannel = null;
+if (typeof window !== 'undefined' && typeof window.BroadcastChannel !== 'undefined') {
+  try {
+    broadcastChannel = new BroadcastChannel('stphilos_cms_sync');
+    broadcastChannel.onmessage = (event) => {
+      if (event.data?.type === 'STORE_UPDATED') {
+        cache = loadCache();
+        window.dispatchEvent(new Event('cms_store_updated'));
+      }
+    };
+  } catch (e) {
+    // Continue if BroadcastChannel is restricted
+  }
+}
+
+if (typeof window !== 'undefined') {
+  window.addEventListener('storage', (e) => {
+    if (e.key === STORAGE_KEY) {
+      cache = loadCache();
+      window.dispatchEvent(new Event('cms_store_updated'));
+    }
+  });
+}
+
 function emitUpdate(shouldSave = true) {
   if (shouldSave) {
     saveCache(cache);
   }
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new Event('cms_store_updated'));
+    try {
+      broadcastChannel?.postMessage({ type: 'STORE_UPDATED', timestamp: Date.now() });
+    } catch (e) {
+      // Ignore channel errors
+    }
   }
 }
 
@@ -756,11 +904,15 @@ export const cmsStore = {
   getNotices: (filters = {}) => {
     let list = cache.notices || [];
     if (filters.category && filters.category !== 'all') {
-      list = list.filter(n => (n.category || '').toLowerCase() === filters.category.toLowerCase());
+      const targetCat = filters.category.toLowerCase().replace(/s$/, '');
+      list = list.filter(n => {
+        const itemCat = (n.category || '').toLowerCase().replace(/s$/, '');
+        return itemCat === targetCat;
+      });
     }
     if (filters.search) {
       const q = filters.search.toLowerCase();
-      list = list.filter(n => (n.title && n.title.toLowerCase().includes(q)));
+      list = list.filter(n => (n.title && n.title.toLowerCase().includes(q)) || (n.summary && n.summary.toLowerCase().includes(q)));
     }
     return list;
   },
@@ -768,12 +920,20 @@ export const cmsStore = {
   saveNotice: async (noticeItem, user = 'Administrator') => {
     const isNew = !noticeItem.id;
     const id = isNew ? `notice-${Date.now()}` : noticeItem.id;
+    const effectiveDate = noticeItem.date || noticeItem.publishDate || new Date().toISOString().split('T')[0];
 
     const record = {
       ...noticeItem,
       id,
+      date: effectiveDate,
+      publishDate: effectiveDate,
+      type: noticeItem.type || 'Notice',
+      category: noticeItem.category || 'General',
       status: noticeItem.status || 'published',
-      publishDate: noticeItem.publishDate || new Date().toISOString().split('T')[0]
+      summary: noticeItem.summary || noticeItem.content?.slice(0, 160) || noticeItem.title,
+      isPinned: !!noticeItem.isPinned,
+      tags: noticeItem.tags || (noticeItem.isPinned ? ['IMPORTANT', 'PINNED'] : ['LATEST', 'NOTICE']),
+      link: noticeItem.link || noticeItem.attachmentUrl || `/news-events/${id}`
     };
 
     if (isNew) {
@@ -788,7 +948,21 @@ export const cmsStore = {
   },
 
   addNotice: (noticeItem) => {
-    cache.notices = [noticeItem, ...(cache.notices || [])];
+    const effectiveDate = noticeItem.date || noticeItem.publishDate || noticeItem.event_date || new Date().toISOString().split('T')[0];
+    const record = {
+      ...noticeItem,
+      id: noticeItem.id || `notice-${Date.now()}`,
+      date: effectiveDate,
+      publishDate: effectiveDate,
+      type: noticeItem.type || 'Notice',
+      category: noticeItem.category || 'General',
+      status: noticeItem.status || 'published',
+      summary: noticeItem.summary || noticeItem.content?.slice?.(0, 160) || noticeItem.title,
+      isPinned: !!noticeItem.isPinned,
+      tags: noticeItem.tags || (noticeItem.isPinned ? ['IMPORTANT', 'PINNED'] : ['LATEST', 'NOTICE']),
+      link: noticeItem.link || `/news-events/${noticeItem.id}`
+    };
+    cache.notices = [record, ...(cache.notices || [])];
     emitUpdate();
   },
 
@@ -1351,7 +1525,80 @@ export const cmsStore = {
     return logItem;
   },
 
-  // ================= 12. RESET TO OFFICIAL IMPORTER STATE =================
+  // ================= 12. INSTITUTIONAL SETTINGS & CONTACT =================
+  getSettings: () => {
+    return cache.settings || { ...settingsData };
+  },
+
+  updateSettings: (newSettings, user = 'Administrator') => {
+    cache.settings = { ...(cache.settings || settingsData), ...newSettings };
+    cmsStore.logActivity({
+      action: 'Updated Institutional Contact & General Settings',
+      module: 'Settings',
+      title: 'Institutional Settings Updated',
+      user,
+      details: `Phone: ${newSettings.phone || cache.settings.phone || ''}`
+    });
+    emitUpdate();
+    return cache.settings;
+  },
+
+  // ================= 13. HEADER & FOOTER CUSTOMIZER =================
+  getHeaderConfig: () => {
+    return cache.headerConfig || JSON.parse(JSON.stringify(initialHeaderConfig));
+  },
+
+  updateHeaderConfig: (newConfig, user = 'Administrator') => {
+    cache.headerConfig = {
+      ...(cache.headerConfig || initialHeaderConfig),
+      ...newConfig
+    };
+    cmsStore.logActivity({
+      action: 'Updated Public Website Header Configuration',
+      module: 'Layout',
+      title: 'Header Layout Updated',
+      user,
+      details: `CTA: ${cache.headerConfig.ctaButton?.label || 'Customized'}`
+    });
+    emitUpdate();
+    return cache.headerConfig;
+  },
+
+  getFooterConfig: () => {
+    return cache.footerConfig || JSON.parse(JSON.stringify(initialFooterConfig));
+  },
+
+  updateFooterConfig: (newConfig, user = 'Administrator') => {
+    cache.footerConfig = {
+      ...(cache.footerConfig || initialFooterConfig),
+      ...newConfig
+    };
+    cmsStore.logActivity({
+      action: 'Updated Public Website Footer Configuration',
+      module: 'Layout',
+      title: 'Footer Layout Updated',
+      user,
+      details: `${cache.footerConfig.columns?.length || 3} Column Sections Configured`
+    });
+    emitUpdate();
+    return cache.footerConfig;
+  },
+
+  resetHeaderFooterDefaults: (user = 'Administrator') => {
+    cache.headerConfig = JSON.parse(JSON.stringify(initialHeaderConfig));
+    cache.footerConfig = JSON.parse(JSON.stringify(initialFooterConfig));
+    cmsStore.logActivity({
+      action: 'Reset Header and Footer to Official Defaults',
+      module: 'Layout',
+      title: 'Header & Footer Reset',
+      user,
+      details: 'Restored original institutional layout defaults'
+    });
+    emitUpdate();
+    return { headerConfig: cache.headerConfig, footerConfig: cache.footerConfig };
+  },
+
+  // ================= 14. RESET TO OFFICIAL IMPORTER STATE =================
   resetToImportedState: () => {
     cache = getInitialData();
     emitUpdate();

@@ -49,7 +49,33 @@ export async function getFacultyById(id) {
   if (!id) return null;
   try {
     const response = await api.get(`/faculty/${encodeURIComponent(id)}`);
-    return response?.data || response || null;
+    const f = response?.data || response || null;
+    if (!f) return null;
+
+    const deptName = typeof f.department === 'string'
+      ? f.department
+      : (f.department?.name || f.departmentName || 'Academic Department');
+
+    const deptId = typeof f.department === 'object' && f.department?.id
+      ? f.department.id
+      : (f.department_id || f.departmentId);
+
+    return {
+      ...f,
+      id: f.id,
+      name: f.name,
+      designation: f.designation || 'Faculty Member',
+      department_id: deptId,
+      departmentId: deptId,
+      department: deptName,
+      departmentName: deptName,
+      departmentObj: typeof f.department === 'object' ? f.department : null,
+      facultyCategory: f.department?.category || 'Academics',
+      qualification: f.qualification || '',
+      photo_url: f.photo_url || f.photoUrl || f.photo,
+      photoUrl: f.photo_url || f.photoUrl || f.photo,
+      programmes: Array.isArray(f.programmes) ? f.programmes : [],
+    };
   } catch (err) {
     if (err.status === 404) return null;
     throw err;

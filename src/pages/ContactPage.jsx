@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Send, CheckCircle2, Clock, UserCheck, ShieldCheck, ExternalLink, Building2, HelpCircle } from 'lucide-react';
 import contactData from '../data/contact_info.json';
 import collegeInfo from '../data/college_info.json';
+import { cmsStore } from '../lib/cmsStore';
 
 export default function ContactPage() {
+  const [settings, setSettings] = useState(() => (cmsStore.getSettings ? cmsStore.getSettings() : collegeInfo));
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -12,6 +14,24 @@ export default function ContactPage() {
     subject: 'Admissions',
     message: ''
   });
+
+  useEffect(() => {
+    const handleUpdate = () => {
+      if (cmsStore.getSettings) {
+        setSettings({ ...cmsStore.getSettings() });
+      }
+    };
+    window.addEventListener('cms_store_updated', handleUpdate);
+    window.addEventListener('storage', handleUpdate);
+    return () => {
+      window.removeEventListener('cms_store_updated', handleUpdate);
+      window.removeEventListener('storage', handleUpdate);
+    };
+  }, []);
+
+  const helplinePhone = settings.phone || collegeInfo.phone || '+91 9008580707, 9008028258';
+  const generalEmail = settings.email || collegeInfo.email || 'stphilos1946@gmail.com';
+  const phoneNumbers = helplinePhone.split(/[,/]/).map(p => p.trim()).filter(Boolean);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -242,13 +262,23 @@ export default function ContactPage() {
             </p>
 
             <div className="space-y-3 text-xs pt-3 border-t border-slate-700/60">
-              <p className="flex items-center text-slate-200">
+              <div className="flex items-center text-slate-200">
                 <Phone className="w-4 h-4 mr-2.5 text-[#FFD84A] shrink-0" />
                 <span className="text-slate-300 font-medium mr-1.5">Helpline / Office:</span>
-                <a href="tel:+919008580707" className="font-mono font-bold text-[#FFD84A] hover:text-white hover:underline">
-                  +91 9008580707
-                </a>
-              </p>
+                <div className="flex flex-wrap items-center gap-1 font-mono font-bold">
+                  {phoneNumbers.map((num, idx) => (
+                    <React.Fragment key={idx}>
+                      {idx > 0 && <span className="text-white/40 select-none px-0.5">,</span>}
+                      <a
+                        href={`tel:${num.replace(/\s+/g, '')}`}
+                        className="text-[#FFD84A] hover:text-white hover:underline transition-colors"
+                      >
+                        {num}
+                      </a>
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
               <p className="flex items-center text-slate-200">
                 <Phone className="w-4 h-4 mr-2.5 text-[#FFD84A] shrink-0" />
                 <span className="text-slate-300 font-medium mr-1.5">PRO / Placement:</span>
@@ -266,8 +296,8 @@ export default function ContactPage() {
               <p className="flex items-center text-slate-200">
                 <Mail className="w-4 h-4 mr-2.5 text-[#FFD84A] shrink-0" />
                 <span className="text-slate-300 font-medium mr-1.5">General Email:</span>
-                <a href={`mailto:${collegeInfo.email}`} className="text-white hover:text-[#FFD84A] hover:underline font-medium">
-                  {collegeInfo.email}
+                <a href={`mailto:${generalEmail}`} className="text-white hover:text-[#FFD84A] hover:underline font-medium">
+                  {generalEmail}
                 </a>
               </p>
             </div>

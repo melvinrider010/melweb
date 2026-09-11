@@ -42,11 +42,18 @@ export default function FacultyDetailPage() {
           return;
         }
 
+        const deptName = typeof fac.department === 'string'
+          ? fac.department
+          : (fac.department?.name || fac.departmentName || 'Academic Department');
+
         const normalized = {
           ...fac,
           photoUrl: fac.photo_url || fac.photoUrl || fac.image || fac.photo,
           image: fac.photo_url || fac.photoUrl || fac.image || fac.photo,
-          department: fac.department || fac.departmentName || 'Academic Department',
+          department: deptName,
+          departmentName: deptName,
+          department_id: fac.department_id || fac.departmentId || fac.department?.id,
+          departmentId: fac.department_id || fac.departmentId || fac.department?.id,
         };
         setFaculty(normalized);
 

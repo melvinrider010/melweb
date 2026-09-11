@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   FileText, 
   Plus, 
@@ -12,17 +13,19 @@ import {
   X, 
   Globe, 
   Layers, 
-  Sparkles,
-  ExternalLink,
-  Filter,
-  BookOpen,
-  FolderOpen,
-  Tag,
-  Calendar,
-  Clock,
-  ArrowUpRight,
-  Copy,
-  ChevronRight
+  Sparkles, 
+  ExternalLink, 
+  Filter, 
+  BookOpen, 
+  FolderOpen, 
+  Tag, 
+  Calendar, 
+  Clock, 
+  ArrowUpRight, 
+  Copy, 
+  ChevronRight,
+  Menu,
+  Layout
 } from 'lucide-react';
 import cmsStore from '../../lib/cmsStore';
 import useCms from '../../lib/useCms';
@@ -248,6 +251,30 @@ export default function AdminPagesManagerPage() {
           <span>{toastMessage}</span>
         </div>
       )}
+
+      {/* NAVIGATION SUITE SWITCHER */}
+      <div className="flex items-center space-x-1.5 bg-slate-100/80 p-1.5 rounded-2xl text-xs font-semibold w-fit">
+        <button
+          className="px-4 py-2 rounded-xl bg-white text-indigo-900 font-bold shadow-xs inline-flex items-center space-x-1.5 cursor-default"
+        >
+          <Layers className="w-3.5 h-3.5 text-indigo-600" />
+          <span>All Pages ({pages.length})</span>
+        </button>
+        <Link
+          to="/admin/menus"
+          className="px-4 py-2 rounded-xl text-slate-600 hover:text-slate-900 transition-colors inline-flex items-center space-x-1.5"
+        >
+          <Menu className="w-3.5 h-3.5 text-slate-400" />
+          <span>Mega-Menu Editor</span>
+        </Link>
+        <Link
+          to="/admin/header-footer"
+          className="px-4 py-2 rounded-xl text-slate-600 hover:text-slate-900 transition-colors inline-flex items-center space-x-1.5"
+        >
+          <Layout className="w-3.5 h-3.5 text-slate-400" />
+          <span>Header & Footer</span>
+        </Link>
+      </div>
 
       {/* 1. TOP HEADER & METRICS */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white border border-slate-200/80 p-6 sm:p-8 rounded-2xl shadow-xs">

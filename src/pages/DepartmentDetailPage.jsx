@@ -135,7 +135,7 @@ export default function DepartmentDetailPage() {
         <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs relative overflow-hidden space-y-6">
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <span className="bg-[#0B1F4E] text-white font-mono font-extrabold text-xs sm:text-sm px-3.5 py-1 rounded-md tracking-wider">
-              {dept.faculty || dept.facultyName || 'St. Philomena’s College'}
+              {(typeof dept.faculty === 'string' ? dept.faculty : null) || dept.facultyName || 'St. Philomena’s College'}
             </span>
             <span className="bg-emerald-50 text-emerald-800 font-sans font-semibold text-xs px-3 py-1 rounded-md border border-emerald-200/60 flex items-center">
               <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-emerald-600" /> Autonomous Academic Department

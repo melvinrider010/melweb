@@ -60,6 +60,15 @@ export default function NewsEventsPage() {
 
   useEffect(() => {
     loadData();
+    const handleUpdate = () => {
+      loadData();
+    };
+    window.addEventListener('cms_store_updated', handleUpdate);
+    window.addEventListener('storage', handleUpdate);
+    return () => {
+      window.removeEventListener('cms_store_updated', handleUpdate);
+      window.removeEventListener('storage', handleUpdate);
+    };
   }, [levelFilter, categoryFilter, searchQuery]);
 
   const categories = useMemo(() => {
@@ -80,10 +89,10 @@ export default function NewsEventsPage() {
       return pastEvents.map((e) => ({ ...e, type: 'Event', isPast: true }));
     }
     if (typeFilter === 'Notice') {
-      return allNotices.filter((n) => n.type === 'Notice' || n.type === 'Circular');
+      return allNotices.filter((n) => n.type === 'Notice' || n.type === 'Circular' || !n.type);
     }
     if (typeFilter === 'Announcement') {
-      return allNotices.filter((n) => n.type === 'Announcement');
+      return allNotices.filter((n) => n.type === 'Announcement' || n.tags?.includes('ANNOUNCEMENT'));
     }
 
     // 'all' tab: Combine active upcoming events + all notices (with deduplication on linked_event_id)
@@ -92,10 +101,11 @@ export default function NewsEventsPage() {
       ...allNotices.filter((n) => !n.linked_event_id) // include standalone notices
     ];
 
-    // Sort descending by date
+    // Sort descending by date, pinned items first
     return combined.sort((a, b) => {
-      const dateA = a.event_date || a.date || '';
-      const dateB = b.event_date || b.date || '';
+      if (b.isPinned !== a.isPinned) return (b.isPinned ? 1 : 0) - (a.isPinned ? 1 : 0);
+      const dateA = a.event_date || a.date || a.publishDate || '';
+      const dateB = b.event_date || b.date || b.publishDate || '';
       return dateB.localeCompare(dateA);
     });
   }, [typeFilter, upcomingEvents, pastEvents, allNotices]);
@@ -235,7 +245,8 @@ export default function NewsEventsPage() {
           {filteredItems.length > 0 ? (
             filteredItems.map((item) => {
               const hasSub = Array.isArray(item.subEvents) && item.subEvents.length > 0;
-              const itemDate = item.event_date || item.date;
+              const itemDate = item.event_date || item.date || item.publishDate;
+              const isPinned = !!item.isPinned;
 
               return (
                 <div
@@ -245,6 +256,11 @@ export default function NewsEventsPage() {
                   <div className="space-y-3">
                     <div className="flex justify-between items-center gap-2">
                       <div className="flex items-center space-x-1.5 flex-wrap gap-1">
+                        {isPinned && (
+                          <span className="text-[10px] font-mono font-extrabold px-2 py-0.5 rounded bg-amber-400 text-slate-950 uppercase">
+                            PINNED
+                          </span>
+                        )}
                         <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded uppercase ${
                           item.type === 'Notice' || item.type === 'Circular'
                             ? 'bg-blue-100 text-blue-800'

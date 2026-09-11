@@ -5,6 +5,39 @@ import FacultyAvatar from '../components/common/FacultyAvatar';
 import { getFaculty } from '../services/facultyService';
 import { getDepartments } from '../services/departmentsService';
 
+const CANONICAL_PROGRAMME_TITLES = {
+  'BCA': 'BCA Faculty Members',
+  'MCA': 'MCA Faculty Members',
+  'BCOM': 'B.Com Faculty Members',
+  'MCOM': 'M.Com Faculty Members',
+  'BBA': 'BBA Faculty Members',
+  'BBA-TH': 'BBA Tourism & Hospitality Management Faculty Members',
+  'BTHM': 'BBA Tourism & Hospitality Management Faculty Members',
+  'MBA': 'MBA Faculty Members',
+  'BSW': 'BSW Faculty Members',
+  'MSW': 'MSW Faculty Members',
+  'BSC': 'B.Sc Faculty Members',
+  'MSC-CHEM': 'M.Sc Chemistry Faculty Members',
+  'MSC-PHY': 'M.Sc Physics Faculty Members',
+  'MSC-MATH': 'M.Sc Mathematics Faculty Members',
+  'MSC-BIOCHEM': 'M.Sc Biochemistry Faculty Members',
+  'MSC-CRIM': 'M.Sc Criminology & Forensic Science Faculty Members',
+  'MSC-PSY': 'M.Sc Psychology Faculty Members',
+  'MSC-FSN': 'M.Sc Food Science & Nutrition Faculty Members',
+  'MSC-CS': 'M.Sc Computer Science Faculty Members',
+  'BA': 'B.A. Faculty Members',
+  'MA-ENG': 'M.A. English Literature Faculty Members',
+  'MA-ECON': 'M.A. Economics Faculty Members',
+  'MA-JMC': 'M.A. Journalism & Mass Communication Faculty Members',
+  'LANG': 'Language Faculty Members',
+};
+
+function formatProgrammeHeading(code, rawTitle) {
+  if (CANONICAL_PROGRAMME_TITLES[code]) return CANONICAL_PROGRAMME_TITLES[code];
+  if (rawTitle && !rawTitle.toLowerCase().includes('faculty')) return `${rawTitle} Faculty Members`;
+  return rawTitle || `${code} Faculty Members`;
+}
+
 export default function FacultyPage() {
   const [allFaculty, setAllFaculty] = useState([]);
   const [allDepartments, setAllDepartments] = useState([]);
@@ -109,38 +142,6 @@ export default function FacultyPage() {
 
     return Object.values(deptMap);
   }, [filteredFaculty]);
-
-  const formatProgrammeHeading = (code, rawTitle) => {
-    const canonicalTitles = {
-      'BCA': 'BCA Faculty Members',
-      'MCA': 'MCA Faculty Members',
-      'BCOM': 'B.Com Faculty Members',
-      'MCOM': 'M.Com Faculty Members',
-      'BBA': 'BBA Faculty Members',
-      'BBA-TH': 'BBA Tourism & Hospitality Management Faculty Members',
-      'BTHM': 'BBA Tourism & Hospitality Management Faculty Members',
-      'MBA': 'MBA Faculty Members',
-      'BSW': 'BSW Faculty Members',
-      'MSW': 'MSW Faculty Members',
-      'BSC': 'B.Sc Faculty Members',
-      'MSC-CHEM': 'M.Sc Chemistry Faculty Members',
-      'MSC-PHY': 'M.Sc Physics Faculty Members',
-      'MSC-MATH': 'M.Sc Mathematics Faculty Members',
-      'MSC-BIOCHEM': 'M.Sc Biochemistry Faculty Members',
-      'MSC-CRIM': 'M.Sc Criminology & Forensic Science Faculty Members',
-      'MSC-PSY': 'M.Sc Psychology Faculty Members',
-      'MSC-FSN': 'M.Sc Food Science & Nutrition Faculty Members',
-      'MSC-CS': 'M.Sc Computer Science Faculty Members',
-      'BA': 'B.A. Faculty Members',
-      'MA-ENG': 'M.A. English Literature Faculty Members',
-      'MA-ECON': 'M.A. Economics Faculty Members',
-      'MA-JMC': 'M.A. Journalism & Mass Communication Faculty Members',
-      'LANG': 'Language Faculty Members',
-    };
-    if (canonicalTitles[code]) return canonicalTitles[code];
-    if (rawTitle && !rawTitle.toLowerCase().includes('faculty')) return `${rawTitle} Faculty Members`;
-    return rawTitle || `${code} Faculty Members`;
-  };
 
   const facultyCategories = ['All', 'Science', 'Commerce', 'Management', 'Arts', 'Humanities'];
 

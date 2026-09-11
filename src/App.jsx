@@ -1,5 +1,5 @@
 import React, { useEffect, Suspense, lazy } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AuthProvider, ProtectedRoute } from './lib/authContext';
 import { FlipbookProvider } from './context/FlipbookContext';
 import ErrorBoundary from './components/common/ErrorBoundary';
@@ -42,6 +42,7 @@ const EJournalPage = lazy(() => import('./pages/EJournalPage'));
 const LibraryPage = lazy(() => import('./pages/LibraryPage'));
 const MagazinePage = lazy(() => import('./pages/MagazinePage'));
 const DynamicCmsPage = lazy(() => import('./pages/DynamicCmsPage'));
+const LeadershipMessagePage = lazy(() => import('./pages/LeadershipMessagePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 // Admin CMS Modules (Lazy-Loaded)
@@ -63,6 +64,8 @@ const AdminUserManagerPage = lazy(() => import('./admin/pages/AdminUserManagerPa
 const AdminAlumniManagerPage = lazy(() => import('./admin/pages/AdminAlumniManagerPage'));
 const AdminArchiveStatusPage = lazy(() => import('./admin/pages/AdminArchiveStatusPage'));
 const AdminVerificationPage = lazy(() => import('./admin/pages/AdminVerificationPage'));
+const AdminSettingsPage = lazy(() => import('./admin/pages/AdminSettingsPage'));
+const AdminHeaderFooterPage = lazy(() => import('./admin/pages/AdminHeaderFooterPage'));
 
 export default function App() {
   const location = useLocation();
@@ -91,8 +94,13 @@ export default function App() {
                 <Route path="organogram" element={<AboutPage />} />
                 <Route path="governing-body" element={<AboutPage />} />
                 <Route path="statutory-bodies" element={<AboutPage />} />
-                <Route path="rectors-message" element={<AboutPage />} />
-                <Route path="principals-message" element={<AboutPage />} />
+                <Route path="rectors-message" element={<LeadershipMessagePage defaultSlug="rector" />} />
+                <Route path="principals-message" element={<LeadershipMessagePage defaultSlug="principal" />} />
+                <Route path="bishops-message" element={<Navigate to="/about?tab=mdes" replace />} />
+                <Route path="financial-officers-message" element={<Navigate to="/about?tab=leadership" replace />} />
+                <Route path="leadership/bishop" element={<Navigate to="/about?tab=mdes" replace />} />
+                <Route path="leadership/financial-officer" element={<Navigate to="/about?tab=leadership" replace />} />
+                <Route path="leadership/:slug" element={<LeadershipMessagePage />} />
                 <Route path="academics" element={<AcademicsPage />} />
                 <Route path="academics/:programmeCode" element={<ProgrammeDetailPage />} />
                 <Route path="academics/:programmeCode/syllabus" element={<SyllabusDetailPage />} />
@@ -212,7 +220,9 @@ export default function App() {
                 <Route path="documents" element={<AdminDocumentManagerPage />} />
                 <Route path="users" element={<AdminUserManagerPage />} />
                 <Route path="logs" element={<AdminUserManagerPage />} />
-                <Route path="settings" element={<AdminDashboardPage />} />
+                <Route path="settings" element={<AdminSettingsPage />} />
+                <Route path="header-footer" element={<AdminHeaderFooterPage />} />
+                <Route path="layout" element={<AdminHeaderFooterPage />} />
                 <Route path="archive-status" element={<AdminArchiveStatusPage />} />
                 <Route path="verification" element={<AdminVerificationPage />} />
               </Route>

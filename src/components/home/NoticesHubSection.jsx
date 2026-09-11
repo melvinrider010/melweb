@@ -90,7 +90,18 @@ export default function NoticesHubSection() {
       }
     }
     loadData();
-    return () => { isMounted = false; };
+
+    const handleUpdate = () => {
+      loadData();
+    };
+    window.addEventListener('cms_store_updated', handleUpdate);
+    window.addEventListener('storage', handleUpdate);
+
+    return () => { 
+      isMounted = false; 
+      window.removeEventListener('cms_store_updated', handleUpdate);
+      window.removeEventListener('storage', handleUpdate);
+    };
   }, [levelFilter, categoryFilter, searchQuery]);
 
   // Left column: STRICTLY UPCOMING EVENTS ONLY (date >= today, no older events)
@@ -116,11 +127,20 @@ export default function NoticesHubSection() {
     }));
 
     if (activeNoticeTab === 'examination') {
-      return rawNotices.filter((n) =>
-        /exam|timetable|time table|revaluation|makeup|supplementary|c1|c2|c3|convocation/i.test(
-          `${n.title} ${n.category || ''}`
-        )
-      );
+      const examList = rawNotices.filter((n) => {
+        const cat = (n.category || '').toLowerCase();
+        return (
+          cat === 'examination' ||
+          cat === 'examinations' ||
+          /exam|timetable|time table|revaluation|makeup|supplementary|c1|c2|c3|convocation/i.test(
+            `${n.title} ${n.category || ''}`
+          )
+        );
+      });
+      return examList.sort((a, b) => {
+        if (b.isPinned !== a.isPinned) return (b.isPinned ? 1 : 0) - (a.isPinned ? 1 : 0);
+        return (b.date || b.publishDate || '').localeCompare(a.date || a.publishDate || '');
+      });
     } else if (activeNoticeTab === 'events') {
       // EVENTS Tab: Shows all concluded/past events plus event notices/circulars
       const seenEventIds = new Set();
@@ -150,7 +170,10 @@ export default function NoticesHubSection() {
       });
 
       // Sort newest to oldest completed
-      return list.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      return list.sort((a, b) => {
+        if (b.isPinned !== a.isPinned) return (b.isPinned ? 1 : 0) - (a.isPinned ? 1 : 0);
+        return (b.date || b.publishDate || '').localeCompare(a.date || a.publishDate || '');
+      });
     } else {
       // Default 'notices': official circulars, notifications, plus past event announcements
       const seen = new Set();
@@ -166,7 +189,10 @@ export default function NoticesHubSection() {
         }
       });
 
-      return combined.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      return combined.sort((a, b) => {
+        if (b.isPinned !== a.isPinned) return (b.isPinned ? 1 : 0) - (a.isPinned ? 1 : 0);
+        return (b.date || b.publishDate || '').localeCompare(a.date || a.publishDate || '');
+      });
     }
   }, [rawNotices, pastEvents, activeNoticeTab]);
 
@@ -562,19 +588,21 @@ export default function NoticesHubSection() {
               >
                 {filteredNotices.length > 0 ? (
                   filteredNotices.map((notice, nIdx) => {
-                    const isImportant = notice.tags?.includes('IMPORTANT') || notice.category === 'Examinations' || notice.category === 'Admissions' || notice.refNo?.includes('Appreciation');
+                    const isPinned = !!notice.isPinned;
+                    const isImportant = isPinned || notice.tags?.includes('IMPORTANT') || notice.category === 'Examinations' || notice.category === 'Admissions' || notice.refNo?.includes('Appreciation');
                     const isEventLinked = !!notice.linked_event_id;
                     let dayStr = '01';
                     let monStr = 'SEP';
-                    if (notice.date) {
-                      const parts = String(notice.date).split('T')[0].split('-');
+                    const noticeDate = notice.date || notice.publishDate;
+                    if (noticeDate) {
+                      const parts = String(noticeDate).split('T')[0].split('-');
                       if (parts.length === 3) {
                         const d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
                         dayStr = String(d.getDate()).padStart(2, '0');
                         monStr = d.toLocaleString('en-US', { month: 'short' }).toUpperCase();
                       }
                     }
-                    const isRecent = nIdx < 6 || (notice.date && notice.date >= '2026-08-01');
+                    const isRecent = isPinned || nIdx < 6 || (noticeDate && noticeDate >= '2026-08-01');
 
                     return (
                       <Link
@@ -595,12 +623,17 @@ export default function NoticesHubSection() {
                         {/* Middle Content */}
                         <div className="space-y-1 flex-1 min-w-0">
                           <div className="flex items-center space-x-1.5 flex-wrap gap-1">
-                            {isRecent && (
+                            {isPinned && (
+                              <span className="bg-amber-500 text-slate-950 text-[9px] font-mono font-extrabold px-1.5 py-0.2 rounded uppercase tracking-wider">
+                                PINNED
+                              </span>
+                            )}
+                            {isRecent && !isPinned && (
                               <span className="bg-[#C9A84C] text-[#0B1F4E] text-[9px] font-mono font-extrabold px-1.5 py-0.2 rounded uppercase tracking-wider">
                                 NEW
                               </span>
                             )}
-                            {isImportant && (
+                            {isImportant && !isPinned && (
                               <span className="bg-red-100 text-red-700 text-[9px] font-mono font-bold px-1.5 py-0.2 rounded uppercase">
                                 IMPORTANT
                               </span>

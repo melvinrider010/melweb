@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   LayoutDashboard, BookOpen, Calendar, FileText, Users, Building2, 
   Image as ImageIcon, FolderGit2, Settings, ShieldCheck, LogOut, 
-  ExternalLink, ChevronDown, Sparkles, X, ChevronRight
+  ExternalLink, ChevronDown, Sparkles, X, ChevronRight, Layers, Bell, PanelTop
 } from 'lucide-react';
 import { useAuth } from '../lib/authContext';
 
@@ -19,18 +19,20 @@ export default function AdminSidebar({ mobileOpen, setMobileOpen }) {
   };
 
   const navItems = [
-    { label: "Dashboard", path: "/admin", match: (p) => p === '/admin' },
-    { label: "Pages & Menu", path: "/admin/pages", match: (p) => p.startsWith('/admin/pages') || p.startsWith('/admin/menus') },
-    { label: "Events & Notices", path: "/admin/events", match: (p) => p.startsWith('/admin/events') || p.startsWith('/admin/notices') },
-    { label: "Academics", path: "/admin/programmes", match: (p) => p.startsWith('/admin/programmes') || p.startsWith('/admin/faculty') },
-    { label: "Departments", path: isHOD ? "/admin/department-portal" : "/admin/departments", match: (p) => p.startsWith('/admin/departments') || p.startsWith('/admin/department-portal') },
-    { label: "Media & Sliders", path: "/admin/gallery", match: (p) => p.startsWith('/admin/gallery') || p.startsWith('/admin/sliders') || p.startsWith('/admin/media') },
-    { label: "Documents", path: "/admin/documents", match: (p) => p.startsWith('/admin/documents') || p.startsWith('/admin/iqac') },
-    { label: "Users & Roles", path: "/admin/users", match: (p) => p.startsWith('/admin/users') || p.startsWith('/admin/logs') },
-    { label: "Settings", path: "/admin/settings", match: (p) => p === '/admin/settings' || p.startsWith('/admin/archive-status') || p.startsWith('/admin/verification') }
+    { label: "Dashboard", path: "/admin", icon: LayoutDashboard, match: (p) => p === '/admin' },
+    { label: "Pages & Menu", path: "/admin/pages", icon: Layers, match: (p) => p.startsWith('/admin/pages') || p.startsWith('/admin/menus') },
+    { label: "Header & Footer", path: "/admin/header-footer", icon: PanelTop, match: (p) => p.startsWith('/admin/header-footer') || p.startsWith('/admin/layout') },
+    { label: "Events & Notices", path: "/admin/events", icon: Calendar, match: (p) => p.startsWith('/admin/events') || p.startsWith('/admin/notices') },
+    { label: "Academics", path: "/admin/programmes", icon: BookOpen, match: (p) => p.startsWith('/admin/programmes') || p.startsWith('/admin/faculty') },
+    { label: "Departments", path: isHOD ? "/admin/department-portal" : "/admin/departments", icon: Building2, match: (p) => p.startsWith('/admin/departments') || p.startsWith('/admin/department-portal') },
+    { label: "Media & Sliders", path: "/admin/gallery", icon: ImageIcon, match: (p) => p.startsWith('/admin/gallery') || p.startsWith('/admin/sliders') || p.startsWith('/admin/media') },
+    { label: "Documents", path: "/admin/documents", icon: FileText, match: (p) => p.startsWith('/admin/documents') || p.startsWith('/admin/iqac') },
+    { label: "Users & Roles", path: "/admin/users", icon: Users, match: (p) => p.startsWith('/admin/users') || p.startsWith('/admin/logs') },
+    { label: "Settings", path: "/admin/settings", icon: Settings, match: (p) => p === '/admin/settings' || p.startsWith('/admin/archive-status') || p.startsWith('/admin/verification') }
   ];
 
   const quickShortcuts = [
+    { label: "Header & Footer", path: "/admin/header-footer" },
     { label: "Hero Sliders", path: "/admin/sliders" },
     { label: "Menu Editor", path: "/admin/menus" },
     { label: "Notice Board", path: "/admin/notices" },
@@ -46,159 +48,149 @@ export default function AdminSidebar({ mobileOpen, setMobileOpen }) {
       {/* Mobile Backdrop */}
       {mobileOpen && (
         <div 
-          className="fixed inset-0 bg-black/70 backdrop-blur-xs z-40 lg:hidden"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
           onClick={() => setMobileOpen(false)}
         />
       )}
 
-      {/* Sidebar Container */}
+      {/* Sidebar Container matching deep violet/indigo frosted glass */}
       <aside className={`
         fixed lg:static top-0 bottom-0 left-0 z-50
-        w-64 sm:w-72 bg-[#121316] text-white flex flex-col justify-between
-        px-5 py-4 sm:px-6 sm:py-5 transition-transform duration-300 ease-in-out shrink-0
+        w-64 sm:w-72 bg-gradient-to-b from-[#342456] via-[#281C44] to-[#1A1230] text-white flex flex-col justify-between h-full overflow-hidden
+        px-4 sm:px-5 py-5 transition-transform duration-300 ease-in-out shrink-0 border-r border-white/10
         ${mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
         
         {/* Top & Navigation Section */}
-        <div className="space-y-4">
+        <div className="space-y-4 overflow-y-auto no-scrollbar">
           
           {/* Close button for mobile */}
           <div className="flex justify-between items-center lg:hidden -mt-1 -mr-1">
-            <span className="text-[11px] font-bold text-zinc-400 tracking-wider uppercase">Metronic CMS</span>
+            <span className="text-[11px] font-bold text-white/60 tracking-wider uppercase">Navigation</span>
             <button 
               onClick={() => setMobileOpen(false)}
-              className="p-1.5 text-zinc-400 hover:text-white rounded-lg cursor-pointer"
+              className="p-1.5 text-white/60 hover:text-white rounded-lg cursor-pointer"
             >
-              <X className="w-4 h-4" />
+              <X className="w-5 h-5" />
             </button>
           </div>
 
-          {/* 1. Official College Brand Banner Logo */}
-          <div className="space-y-2">
-            <Link 
-              to="/" 
-              target="_blank" 
-              className="block p-2 bg-white rounded-xl shadow-xs hover:shadow-sm transition-all group border border-white/20"
-              title="View St. Philomena's College Website"
-            >
+          {/* College Header: Wide Logo & Centered Text Details */}
+          <div className="space-y-2 pb-3 border-b border-white/10 text-center">
+            <div className="flex justify-center">
               <img
                 src="/assets/images/logo/dashboard_college_logo.png"
-                alt="St. Philomena's College (Autonomous), Mysuru"
-                className="w-full h-8 object-contain group-hover:scale-[1.02] transition-transform"
+                alt="St. Philomena's College Logo"
+                className="h-10 sm:h-11 w-auto max-w-full object-contain mx-auto filter drop-shadow-md brightness-105"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "/assets/images/logo/college-logo.png";
+                }}
               />
-            </Link>
-
-            {/* College Name & Details in Centre Alignment */}
-            <div className="text-center px-1">
-              <h1 className="text-xs font-bold text-white tracking-wide leading-tight">
+            </div>
+            <div className="text-center">
+              <h2 className="text-xs sm:text-[13px] font-extrabold text-white tracking-tight leading-snug">
                 St. Philomena's College
-              </h1>
-              <p className="text-[10.5px] font-medium text-slate-400 mt-0.5 leading-tight">
+              </h2>
+              <p className="text-[10px] text-white/60 font-medium tracking-tight mt-0.5">
                 (Autonomous), Mysuru · Est. 1946
               </p>
             </div>
           </div>
 
-          {/* 2. User Details: Compact Profile Image + Name + Role */}
-          <div className="flex items-center space-x-2.5 p-2 bg-white/[0.04] hover:bg-white/[0.07] border border-white/10 rounded-xl transition-colors">
-            <div className="relative shrink-0">
-              <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80"
-                alt={user?.name || "User Profile"}
-                className="w-8 h-8 rounded-lg object-cover ring-1 ring-white/20 shadow-xs"
-              />
-              <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-[#eb4848] text-white text-[8px] font-extrabold rounded-full flex items-center justify-center ring-1 ring-[#121316] shadow-xs">
-                4
-              </span>
-            </div>
-
-            <div className="min-w-0 flex-1">
-              <h2 className="text-xs font-bold text-white tracking-tight truncate leading-tight">
-                {user?.name || 'College Administrator'}
-              </h2>
-              <p className="text-[10px] font-medium text-slate-400 truncate">
-                {user?.role || (isHOD ? 'Head of Department' : 'SUPER_ADMIN')}
-              </p>
-            </div>
-
-            {isHOD && userDepartmentName && (
-              <span className="px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-300 text-[9px] font-bold border border-amber-500/20 truncate max-w-[80px]">
-                {userDepartmentName}
-              </span>
-            )}
-          </div>
-
-          {/* Minimalist Bold Navigation with compact spacing */}
-          <nav className="space-y-3 pt-1">
-            {navItems.map((item, idx) => {
-              const isActive = item.match(location.pathname);
+          {/* Navigation Links */}
+          <nav className="space-y-1 pt-1">
+            {navItems.map((item) => {
+              const active = item.match(location.pathname);
+              const Icon = item.icon;
               return (
-                <div key={idx}>
-                  <Link
-                    to={item.path}
-                    onClick={() => setMobileOpen && setMobileOpen(false)}
-                    className={`block transition-all duration-150 tracking-tight text-left ${
-                      isActive
-                        ? 'text-white font-extrabold text-[17px] sm:text-[18px]'
-                        : 'text-[#71717a] hover:text-white font-medium text-[17px] sm:text-[18px]'
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                </div>
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setMobileOpen(false)}
+                  className={`
+                    flex items-center space-x-3 px-4 py-2.5 rounded-2xl text-xs font-semibold transition-all duration-200
+                    ${active 
+                      ? 'bg-[#4871FF] text-white shadow-[0_4px_18px_rgba(72,113,255,0.45)]' 
+                      : 'text-white/70 hover:text-white hover:bg-white/10'
+                    }
+                  `}
+                >
+                  <Icon className={`w-4 h-4 shrink-0 ${active ? 'text-white' : 'text-white/60'}`} />
+                  <span className="truncate">{item.label}</span>
+                </Link>
               );
             })}
           </nav>
 
-          {/* Expandable Quick Shortcuts for nested managers */}
-          <div className="pt-2">
+          {/* Collapsible Quick Shortcuts Drawer */}
+          <div className="pt-2 border-t border-white/10">
             <button
               onClick={() => setShowSubMenu(!showSubMenu)}
-              className="flex items-center text-xs font-semibold text-[#8e9099] hover:text-white transition-colors cursor-pointer space-x-1.5"
+              className="w-full flex items-center justify-between px-4 py-2 text-white/60 hover:text-white text-xs font-semibold rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
             >
-              <span>All CMS Modules</span>
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showSubMenu ? 'rotate-180' : ''}`} />
+              <div className="flex items-center space-x-2">
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <span className="text-[11px] font-bold uppercase tracking-wider">Quick Actions</span>
+              </div>
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${showSubMenu ? 'rotate-180' : ''}`} />
             </button>
+
             {showSubMenu && (
-              <div className="mt-2.5 pl-2 space-y-1.5 border-l border-zinc-800">
-                {quickShortcuts.map((q, qIdx) => (
+              <div className="mt-1 space-y-0.5 pl-3 pr-1 py-1 bg-white/5 rounded-xl animate-fadeIn">
+                {quickShortcuts.map((sc) => (
                   <Link
-                    key={qIdx}
-                    to={q.path}
-                    onClick={() => setMobileOpen && setMobileOpen(false)}
-                    className="block text-[12px] text-zinc-400 hover:text-white transition-colors"
+                    key={sc.path}
+                    to={sc.path}
+                    onClick={() => setMobileOpen(false)}
+                    className="block px-3 py-1.5 text-[11px] text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors truncate"
                   >
-                    {q.label}
+                    {sc.label}
                   </Link>
                 ))}
               </div>
             )}
           </div>
+
         </div>
 
-        {/* Bottom Utility Actions */}
-        <div className="pt-8 border-t border-zinc-800/80 space-y-3">
-          <Link
-            to="/"
-            target="_blank"
-            className="flex items-center justify-between px-3 py-2 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white text-xs font-semibold transition-all border border-zinc-800"
-          >
-            <span className="flex items-center space-x-2">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-              <span>Public Website</span>
-            </span>
-            <ExternalLink className="w-3.5 h-3.5 text-zinc-500" />
-          </Link>
+        {/* Bottom User Card Profile Pill */}
+        <div className="pt-4 border-t border-white/10 space-y-3">
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-2.5 border border-white/15 flex items-center justify-between shadow-xs">
+            <div className="flex items-center space-x-2.5 min-w-0">
+              <div className="relative shrink-0">
+                <img
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80"
+                  alt={user?.name || "Admin User"}
+                  className="w-8 h-8 rounded-full object-cover ring-1 ring-white/30"
+                />
+                <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-amber-400 text-slate-950 font-mono text-[8px] font-extrabold rounded-full flex items-center justify-center shadow-xs">
+                  4
+                </span>
+              </div>
+              <div className="min-w-0 pr-1">
+                <p className="text-xs font-bold text-white truncate">
+                  {user?.name || 'Administrator'}
+                </p>
+                <p className="text-[10px] text-white/60 font-medium truncate">
+                  {isHOD && userDepartmentName ? userDepartmentName : (user?.role || 'Super Admin')}
+                </p>
+              </div>
+            </div>
 
-          <button
-            onClick={handleLogout}
-            className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-zinc-400 hover:text-rose-400 hover:bg-rose-500/10 text-xs font-semibold transition-all cursor-pointer"
-          >
-            <span className="flex items-center space-x-2">
-              <LogOut className="w-3.5 h-3.5" />
-              <span>Sign Out</span>
-            </span>
-          </button>
+            <button
+              onClick={handleLogout}
+              className="p-1.5 text-white/50 hover:text-rose-300 hover:bg-rose-500/20 rounded-lg transition-colors cursor-pointer shrink-0"
+              title="Sign Out"
+            >
+              <LogOut className="w-4 h-4" />
+            </button>
+          </div>
+
+          <div className="flex items-center justify-between text-[10px] text-white/40 px-1 font-mono">
+            <span>St. Philomena's College</span>
+            <span>v2.6 Live</span>
+          </div>
         </div>
 
       </aside>

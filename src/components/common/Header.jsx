@@ -22,15 +22,32 @@ export default function Header() {
     return MEGA_MENU_DATA;
   });
 
+  const [headerConfig, setHeaderConfig] = useState(() => {
+    try {
+      return cmsStore.getHeaderConfig ? cmsStore.getHeaderConfig() : null;
+    } catch (e) {
+      return null;
+    }
+  });
+
   useEffect(() => {
     const handleUpdate = () => {
       try {
         const stored = cmsStore.getMenus ? cmsStore.getMenus() : null;
         if (stored && Object.keys(stored).length > 0) setMegaMenus(stored);
       } catch (e) {}
+      try {
+        if (cmsStore.getHeaderConfig) {
+          setHeaderConfig({ ...cmsStore.getHeaderConfig() });
+        }
+      } catch (e) {}
     };
     window.addEventListener('cms_store_updated', handleUpdate);
-    return () => window.removeEventListener('cms_store_updated', handleUpdate);
+    window.addEventListener('storage', handleUpdate);
+    return () => {
+      window.removeEventListener('cms_store_updated', handleUpdate);
+      window.removeEventListener('storage', handleUpdate);
+    };
   }, []);
 
   const hoverTimeoutRef = useRef(null);
@@ -109,6 +126,32 @@ export default function Header() {
     { label: 'CONTACT US', path: '/contact' }
   ];
 
+  const topBar = headerConfig?.topBar || {};
+  const showTopBar = topBar.enabled !== false;
+  const announcementText = topBar.announcementText;
+  const announcementLink = topBar.announcementLink;
+  const topPhone = topBar.phone || collegeInfo.phone || '+91 9008580707, 9008028258';
+  const showContactDesk = topBar.showContactDesk !== false;
+  const contactDeskLabel = topBar.contactDeskLabel || 'Contact Desk';
+  const contactDeskLink = topBar.contactDeskLink || '/contact';
+  const showSearch = topBar.showSearch !== false;
+
+  const branding = headerConfig?.branding || {};
+  const logoUrl = branding.logoUrl || '/assets/images/logo/official_college_banner_logo_transparent.png';
+  const fallbackLogoUrl = branding.fallbackLogoUrl || '/assets/images/logo/official_college_banner_logo.png';
+  const altText = branding.altText || "St. Philomena's College (Autonomous), Mysuru";
+  const homeLink = branding.homeLink || '/';
+
+  const cta = headerConfig?.ctaButton || {};
+  const showCta = cta.enabled !== false;
+  const ctaLabel = cta.label || 'Apply Online 2026–27';
+  const ctaUrl = cta.url || 'https://student.stphiloserp.in/';
+  const ctaTarget = cta.target || '_blank';
+
+  const navItems = (headerConfig?.navItems && Array.isArray(headerConfig.navItems) && headerConfig.navItems.length > 0)
+    ? headerConfig.navItems
+    : desktopNavItems;
+
   return (
     <>
       <header
@@ -120,34 +163,58 @@ export default function Header() {
         {/* =========================================================================
             TIER 1: TOP INSTITUTIONAL UTILITY BAR (#0B1F4E Universal Gradient)
             ========================================================================= */}
-        <div className="bg-gradient-to-r from-[#061330] via-[#0B1F4E] to-[#061330] text-slate-200 text-[11px] sm:text-xs py-1.5 px-3 sm:px-8 border-b border-white/10 font-medium">
-          <div className="max-w-[1720px] mx-auto flex justify-between items-center gap-2">
-            
-            <div className="hidden sm:block"></div>
+        {showTopBar && (
+          <div className="bg-gradient-to-r from-[#061330] via-[#0B1F4E] to-[#061330] text-slate-200 text-[11px] sm:text-xs py-1.5 px-3 sm:px-8 border-b border-white/10 font-medium">
+            <div className="max-w-[1720px] mx-auto flex justify-between items-center gap-2">
+              
+              {/* Optional Announcement Banner */}
+              <div className="min-w-0 pr-2">
+                {announcementText ? (
+                  <div className="flex items-center space-x-2 text-[11px] text-slate-300 truncate">
+                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse shrink-0"></span>
+                    {announcementLink ? (
+                      <Link to={announcementLink} className="hover:text-[#F0D98C] transition-colors truncate font-medium">
+                        {announcementText}
+                      </Link>
+                    ) : (
+                      <span className="truncate">{announcementText}</span>
+                    )}
+                  </div>
+                ) : (
+                  <div className="hidden sm:block"></div>
+                )}
+              </div>
 
-            {/* Quick Contact & Search */}
-            <div className="flex items-center space-x-3 shrink-0">
-              <a href="tel:+919008580707" className="hidden sm:flex items-center space-x-1.5 text-slate-300 hover:text-[#F0D98C] transition-colors">
-                <Phone className="w-3 h-3 text-[#C9A84C]" />
-                <span className="font-mono font-bold">+91 9008580707</span>
-              </a>
-              <span className="text-slate-600 hidden sm:inline">|</span>
-              <Link to="/contact" className="hover:text-[#F0D98C] transition-colors text-slate-300">
-                Contact Desk
-              </Link>
-              <button
-                onClick={() => setSearchModalOpen(true)}
-                className="flex items-center space-x-1.5 px-2.5 py-0.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-md text-xs text-slate-200 transition-colors font-medium cursor-pointer"
-                title="Search Portal (Ctrl + K)"
-              >
-                <Search className="w-3 h-3 text-[#F0D98C]" />
-                <span className="hidden sm:inline">Search</span>
-                <kbd className="hidden md:inline-block px-1 bg-black/40 border border-white/20 rounded text-[9px] font-mono text-slate-300">Ctrl+K</kbd>
-              </button>
+              {/* Quick Contact & Search */}
+              <div className="flex items-center space-x-3 shrink-0">
+                {topBar.showPhone !== false && topPhone && (
+                  <a href={`tel:${topPhone.split(/[,/]/)[0].trim().replace(/\s+/g, '')}`} className="hidden sm:flex items-center space-x-1.5 text-slate-300 hover:text-[#F0D98C] transition-colors">
+                    <Phone className="w-3 h-3 text-[#C9A84C]" />
+                    <span className="font-mono font-bold">{topPhone.split(/[,/]/)[0].trim()}</span>
+                  </a>
+                )}
+                {topBar.showPhone !== false && showContactDesk && <span className="text-slate-600 hidden sm:inline">|</span>}
+                {showContactDesk && (
+                  <Link to={contactDeskLink} className="hover:text-[#F0D98C] transition-colors text-slate-300">
+                    {contactDeskLabel}
+                  </Link>
+                )}
+                {showSearch && (
+                  <button
+                    onClick={() => setSearchModalOpen(true)}
+                    className="flex items-center space-x-1.5 px-2.5 py-0.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-md text-xs text-slate-200 transition-colors font-medium cursor-pointer"
+                    title="Search Portal (Ctrl + K)"
+                  >
+                    <Search className="w-3 h-3 text-[#F0D98C]" />
+                    <span className="hidden sm:inline">Search</span>
+                    <kbd className="hidden md:inline-block px-1 bg-black/40 border border-white/20 rounded text-[9px] font-mono text-slate-300">Ctrl+K</kbd>
+                  </button>
+                )}
+              </div>
+
             </div>
-
           </div>
-        </div>
+        )}
 
         {/* =========================================================================
             TIER 2: BRAND IDENTITY & ACTION BAR (Crisp White #FFFFFF)
@@ -157,30 +224,32 @@ export default function Header() {
             
             {/* Official College Header Brand Logo */}
             <Link 
-              to="/" 
+              to={homeLink} 
               onClick={() => setActiveMegaKey(null)} 
               className="flex items-center group shrink min-w-0 py-1"
             >
               <img
-                src="/assets/images/logo/official_college_banner_logo_transparent.png"
-                alt="St. Philomena's College (Autonomous), Mysuru"
+                src={logoUrl}
+                alt={altText}
                 className="h-12 sm:h-14 md:h-16 lg:h-18 w-auto max-w-[80vw] sm:max-w-[620px] object-contain drop-shadow-2xs group-hover:scale-[1.01] transition-transform duration-200"
-                onError={(e) => { e.target.src = '/assets/images/logo/official_college_banner_logo.png'; }}
+                onError={(e) => { e.target.src = fallbackLogoUrl; }}
               />
             </Link>
 
             {/* Right Action Tools (Admissions CTA + Mobile Trigger) */}
             <div className="flex items-center space-x-3 sm:space-x-4 shrink-0">
               {/* Gold Admissions CTA Button */}
-              <a
-                href="https://student.stphiloserp.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setActiveMegaKey(null)}
-                className="btn-gold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold shadow-md whitespace-nowrap"
-              >
-                <span>Apply Online 2026–27</span>
-              </a>
+              {showCta && (
+                <a
+                  href={ctaUrl}
+                  target={ctaTarget}
+                  rel={ctaTarget === '_blank' ? 'noopener noreferrer' : undefined}
+                  onClick={() => setActiveMegaKey(null)}
+                  className="btn-gold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold shadow-md whitespace-nowrap"
+                >
+                  <span>{ctaLabel}</span>
+                </a>
+              )}
 
               {/* Mobile Drawer Trigger (Visible on screens < 1200px) */}
               <button
@@ -207,7 +276,7 @@ export default function Header() {
           <div className="w-full mx-auto px-2 sm:px-4 lg:px-6 xl:px-8 flex items-center justify-center min-w-max">
             
             <div className="flex items-center justify-center space-x-0.5 xl:space-x-1 2xl:space-x-1.5">
-              {desktopNavItems.map((item) => {
+              {navItems.map((item) => {
                 const isMegaOpen = activeMegaKey === item.megaKey;
                 const isRouteActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
 

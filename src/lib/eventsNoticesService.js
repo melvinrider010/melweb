@@ -186,8 +186,9 @@ export function getSyncedNotices(filters = {}) {
       return true;
     })
     .sort((a, b) => {
-      const dateA = a.date || '';
-      const dateB = b.date || '';
+      if (b.isPinned !== a.isPinned) return (b.isPinned ? 1 : 0) - (a.isPinned ? 1 : 0);
+      const dateA = a.date || a.publishDate || '';
+      const dateB = b.date || b.publishDate || '';
       return dateB.localeCompare(dateA);
     });
 }

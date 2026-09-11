@@ -250,6 +250,66 @@ export default function AboutPage() {
         {activeTab === 'vision' && (
           <div className="space-y-8 animate-fadeIn">
             
+            {/* OUR PATRON SAINT HERO FEATURE */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-5 flex flex-col items-center justify-center">
+                <div className="relative rounded-2xl p-3 bg-gradient-to-b from-amber-50 via-white to-slate-50 border border-[#C9A84C]/50 shadow-md max-w-[340px] w-full group">
+                  <div className="overflow-hidden rounded-xl bg-slate-900 aspect-[3/4] relative shadow-inner border border-slate-200/80">
+                    <img
+                      src="/assets/images/patron/st_philomena_patron_saint.jpg"
+                      alt="St. Philomena — Our Patron Saint"
+                      className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="text-center pt-3.5 pb-1 space-y-1">
+                    <span className="text-[10px] font-mono font-bold tracking-widest text-[#a88530] uppercase block">
+                      Heavenly Patroness
+                    </span>
+                    <h3 className="font-serif font-extrabold text-xl text-[#0B1F4E] tracking-tight">
+                      St. Philomena
+                    </h3>
+                    <p className="text-xs font-semibold text-slate-500 font-sans">
+                      Our Patron Saint · Virgin & Martyr
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-7 space-y-4">
+                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-xs font-bold uppercase tracking-wider text-[#a88530]">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Heavenly Patroness & Inspiration</span>
+                </div>
+
+                <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900 tracking-tight">
+                  Guided by Faith, Fortitude & Purity
+                </h2>
+
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-sans">
+                  Named under the celestial patronage of <strong>Saint Philomena</strong>, our college embodies the timeless virtues symbolized in her sacred iconography: the anchor of steadfast hope, the lilies of pristine moral integrity, and the palm of glorious courage in the pursuit of truth.
+                </p>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">
+                  From our foundational day on 9th of October 1946, her heavenly intercession and virtue inspire every generation of Philomenites to lead lives rooted in spiritual depth, compassionate service, and academic excellence.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
+                    <span className="font-serif font-bold text-xs text-[#0B1F4E] block">The Anchor</span>
+                    <span className="text-[11px] text-slate-500">Steadfast Faith & Hope</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
+                    <span className="font-serif font-bold text-xs text-[#0B1F4E] block">The Lilies</span>
+                    <span className="text-[11px] text-slate-500">Purity & Character</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
+                    <span className="font-serif font-bold text-xs text-[#0B1F4E] block">The Palm</span>
+                    <span className="text-[11px] text-slate-500">Fortitude & Victory</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* 1. VISION SECTION (Institutional Navy Hero Banner) */}
             <div className="bg-[#0B1F4E] text-white rounded-2xl p-6 sm:p-10 shadow-lg border border-slate-800 relative overflow-hidden space-y-4">
               <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-blue-600/20 to-transparent pointer-events-none" />
@@ -370,10 +430,9 @@ export default function AboutPage() {
               <div className="lg:col-span-5 flex flex-col items-center justify-center p-6 sm:p-8 bg-slate-50/80 rounded-2xl border border-slate-200 text-center space-y-4">
                 <div className="p-4 bg-white rounded-2xl border border-slate-200/80 shadow-xs flex items-center justify-center max-w-[320px]">
                   <img
-                    src="/assets/images/about/coat_of_arms_hd.jpg"
+                    src="/assets/images/about/coat_of_arms_full_color.jpg"
                     alt="Official Coat of Arms of St. Philomena's College, Mysore"
                     className="w-full h-auto max-h-[320px] object-contain drop-shadow-sm hover:scale-103 transition-transform duration-300"
-                    onError={(e) => { e.target.src = "/assets/images/about/coat_of_arms_hd.png"; }}
                   />
                 </div>
                 <div>

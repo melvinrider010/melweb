@@ -1,6 +1,33 @@
 import api from '../lib/api';
 import cmsStore from '../lib/cmsStore';
 
+const normalizeCategory = (cat) => {
+  if (!cat) return '';
+  const lower = String(cat).toLowerCase().trim();
+  if (lower === 'examination' || lower === 'examinations') return 'examination';
+  return lower;
+};
+
+const matchesCategory = (itemCategory, filterCategory) => {
+  if (!filterCategory || filterCategory === 'all') return true;
+  return normalizeCategory(itemCategory) === normalizeCategory(filterCategory);
+};
+
+const standardizeNotice = (n) => {
+  const effectiveDate = n.date || n.publishDate || new Date().toISOString().split('T')[0];
+  return {
+    ...n,
+    id: String(n.id),
+    date: effectiveDate,
+    publishDate: effectiveDate,
+    type: n.type || 'Notice',
+    category: n.category || 'General',
+    status: n.status || 'published',
+    summary: n.summary || n.content?.slice(0, 160) || n.title,
+    link: n.link || n.attachmentUrl || `/news-events/${n.id}`
+  };
+};
+
 /**
  * Public Notices Service - Merges Server + Central CMS Store
  */
@@ -27,20 +54,40 @@ export async function getNotices(filters = {}) {
     localNotices = [];
   }
 
+  // Merge: Local CMS notices take precedence by ID
+  const mergedMap = new Map();
+  localNotices.map(standardizeNotice).forEach(n => mergedMap.set(n.id, n));
+  backendNotices.map(standardizeNotice).forEach(n => {
+    if (!mergedMap.has(n.id)) {
+      mergedMap.set(n.id, n);
+    }
+  });
+
+  let all = Array.from(mergedMap.values());
+
+  // Apply filters
   if (filters.category && filters.category !== 'all') {
-    localNotices = localNotices.filter(n => (n.category || '').toLowerCase() === filters.category.toLowerCase());
+    all = all.filter(n => matchesCategory(n.category, filters.category));
+  }
+  if (filters.type && filters.type !== 'all') {
+    const t = filters.type.toLowerCase();
+    all = all.filter(n => (n.type || 'notice').toLowerCase() === t);
   }
   if (filters.search && filters.search.trim() !== '') {
     const q = filters.search.toLowerCase();
-    localNotices = localNotices.filter(n => (n.title || '').toLowerCase().includes(q) || (n.content || '').toLowerCase().includes(q));
+    all = all.filter(n => (n.title || '').toLowerCase().includes(q) || (n.summary || '').toLowerCase().includes(q) || (n.content || '').toLowerCase().includes(q));
   }
 
-  // Merge: Local CMS notices take precedence by ID, new ones prepended
-  const mergedMap = new Map();
-  backendNotices.forEach(n => mergedMap.set(String(n.id), n));
-  localNotices.forEach(n => mergedMap.set(String(n.id), n));
+  // Sort: Pinned notices first, then date descending (newest first)
+  all.sort((a, b) => {
+    if (a.isPinned && !b.isPinned) return -1;
+    if (!a.isPinned && b.isPinned) return 1;
+    const dateA = a.date || a.publishDate || '';
+    const dateB = b.date || b.publishDate || '';
+    return dateB.localeCompare(dateA);
+  });
 
-  return Array.from(mergedMap.values());
+  return all;
 }
 
 export async function getNoticeById(idOrSlug) {

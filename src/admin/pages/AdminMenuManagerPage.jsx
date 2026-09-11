@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Layers, 
   Plus, 
@@ -10,7 +11,9 @@ import {
   RotateCcw, 
   X, 
   CheckCircle2,
-  FolderTree
+  FolderTree,
+  Menu,
+  Layout
 } from 'lucide-react';
 import cmsStore from '../../lib/cmsStore';
 import useCms from '../../lib/useCms';
@@ -62,6 +65,30 @@ export default function AdminMenuManagerPage() {
   return (
     <div className="space-y-6 animate-fadeIn">
       
+      {/* NAVIGATION SUITE SWITCHER */}
+      <div className="flex items-center space-x-1.5 bg-slate-100/80 p-1.5 rounded-2xl text-xs font-semibold w-fit">
+        <Link
+          to="/admin/pages"
+          className="px-4 py-2 rounded-xl text-slate-600 hover:text-slate-900 transition-colors inline-flex items-center space-x-1.5"
+        >
+          <Layers className="w-3.5 h-3.5 text-slate-400" />
+          <span>All Pages</span>
+        </Link>
+        <button
+          className="px-4 py-2 rounded-xl bg-white text-indigo-900 font-bold shadow-xs inline-flex items-center space-x-1.5 cursor-default"
+        >
+          <Menu className="w-3.5 h-3.5 text-indigo-600" />
+          <span>Mega-Menu Editor</span>
+        </button>
+        <Link
+          to="/admin/header-footer"
+          className="px-4 py-2 rounded-xl text-slate-600 hover:text-slate-900 transition-colors inline-flex items-center space-x-1.5"
+        >
+          <Layout className="w-3.5 h-3.5 text-slate-400" />
+          <span>Header & Footer</span>
+        </Link>
+      </div>
+
       {/* 1. TOP HEADER & ACTIONS */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200/80 p-6 sm:p-8 rounded-2xl shadow-xs">
         <div className="space-y-1.5">
