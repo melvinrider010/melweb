@@ -89,7 +89,6 @@
     { "name": "Dr. Poornima M", "designation": "Senior Faculty Member", "department": "Department of Commerce" },
     { "name": "Dr. Noor Mubasheer", "designation": "Senior Faculty Member", "department": "Department of Computer Science" },
     { "name": "Mr. Thomas Gunaseelan", "designation": "Dean of Sciences", "department": "Department of Physics" },
-    { "name": "Mr. Ronald Prakash Cutinha", "designation": "Dean of Arts", "department": "Department of Social Work" },
     { "name": "Dr. Reena Francis", "designation": "Dean of Commerce & Management", "department": "Department of Commerce" },
     { "name": "Mr. A. Aloysius", "designation": "Administrative Officer", "department": "Office Administration" },
     { "name": "Mr. N. R. Chandrashekar", "designation": "Management Representative", "department": "MDES Nominee" },
@@ -102,7 +101,7 @@
     { "criteria": "Criteria 2: Teaching-Learning & Evaluation", "leader": "Mr. Thomas Gunaseelan", "department": "Department of Physics", "focus": "Learner Centric Methods, ICT Pedagogies & Outcome Evaluation" },
     { "criteria": "Criteria 3: Research, Innovations & Extension", "leader": "Dr. K. Joseph", "department": "Department of Chemistry", "focus": "Funded Projects, Publications, MoUs & Extension Outreach" },
     { "criteria": "Criteria 4: Infrastructure & Learning Resources", "leader": "Dr. Noor Mubasheer", "department": "Department of Computer Science", "focus": "Smart Classrooms, Digital Library, Labs & IT Infrastructure" },
-    { "criteria": "Criteria 5: Student Support & Progression", "leader": "Mr. Ronald Prakash Cutinha", "department": "Department of Social Work", "focus": "Scholarships, Guidance, Placements & Alumni Engagements" },
+    { "criteria": "Criteria 5: Student Support & Progression", "leader": "Dr. Deepa V", "department": "IQAC Co-coordinator", "focus": "Scholarships, Guidance, Placements & Alumni Engagements" },
     { "criteria": "Criteria 6: Governance, Leadership & Management", "leader": "Dr. Deepu P", "department": "Department of Physics", "focus": "Institutional Vision, Strategic Planning & E-Governance" },
     { "criteria": "Criteria 7: Institutional Values & Best Practices", "leader": "Dr. Poornima M", "department": "Department of Commerce", "focus": "Green Audits, Inclusivity, Gender Equity & Distinctiveness" }
   ],

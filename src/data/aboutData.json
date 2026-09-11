@@ -376,19 +376,12 @@
     {
       "slNo": 12,
       "role": "Member",
-      "category": "Internal Administration",
-      "name": "Mr. Ronald Prakash Cutinha",
-      "designation": "Librarian & Vice Principal (Administration)"
-    },
-    {
-      "slNo": 13,
-      "role": "Member",
       "category": "Quality Assurance",
       "name": "Mr. A Thomas Gunaseelan",
       "designation": "Associate Professor and IQAC Co-ordinator"
     },
     {
-      "slNo": 14,
+      "slNo": 13,
       "role": "Member",
       "category": "Postgraduate Studies & Research",
       "name": "Dr. Noor Mubasheer C A",
@@ -481,17 +474,6 @@
       "assetPath": "/assets/images/leadership/anand-c.jpg",
       "source": "https://stphilos.ac.in/administration/",
       "biography": "Dean of Academic Affairs overseeing curriculum development, NEP implementation, and academic regulations."
-    },
-    {
-      "id": "vice-principal",
-      "name": "Mr. Ronald Prakash Cutinha",
-      "designation": "Vice Principal (Administrator)",
-      "role": "Administration",
-      "imageUrl": "/media/gallery/picture-gallery/athletic_day_2026.jpg",
-      "localPath": "public/assets/images/leadership/ronald-prakash-cutinha.jpg",
-      "assetPath": "/assets/images/leadership/ronald-prakash-cutinha.jpg",
-      "source": "https://stphilos.ac.in/administration/",
-      "biography": "Vice Principal (Administrator) managing campus discipline, student welfare, examinations, and operational administration."
     },
     {
       "id": "iqac-coord",

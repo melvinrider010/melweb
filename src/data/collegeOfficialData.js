@@ -65,17 +65,6 @@ export const collegeOfficialData = {
       "biography": "Dean of Academic Affairs overseeing curriculum development, NEP implementation, and academic regulations."
     },
     {
-      "id": "vice-principal",
-      "name": "Mr. Ronald Prakash Cutinha",
-      "designation": "Vice Principal (Administrator)",
-      "role": "Administration",
-      "imageUrl": "/media/gallery/picture-gallery/athletic_day_2026.jpg",
-      "localPath": "public/assets/images/leadership/ronald-prakash-cutinha.jpg",
-      "assetPath": "/assets/images/leadership/ronald-prakash-cutinha.jpg",
-      "source": "https://stphilos.ac.in/administration/",
-      "biography": "Vice Principal (Administrator) managing campus discipline, student welfare, examinations, and operational administration."
-    },
-    {
       "id": "iqac-coord",
       "name": "Mr. A Thomas Gunaseelan",
       "designation": "IQAC Coordinator",
@@ -349,12 +338,6 @@ export const collegeOfficialData = {
     },
     {
       "sl": 11,
-      "name": "Mr. Ronald Prakash Cutinha",
-      "role": "Vice Principal, St. Philomena's College",
-      "designation": "Teacher of the College"
-    },
-    {
-      "sl": 12,
       "name": "Dr. Ravi J D Saldanha",
       "role": "Principal, St. Philomena's College",
       "designation": "Member Secretary"
