@@ -7,7 +7,7 @@
     "displayLines": ["Bachelor of", "Computer Applications"],
     "duration": "3 Years / 4 Years (NEP 2020)",
     "description": "Comprehensive technology degree in software engineering, full-stack web development, Python, Java, database administration, and AI applications.",
-    "link": "/academics/bca"
+    "link": "/departments/bca"
   },
   {
     "id": "bba",
@@ -17,7 +17,7 @@
     "displayLines": ["Bachelor of", "Business Administration"],
     "duration": "3 Years / 4 Years (NEP 2020)",
     "description": "Professional managerial training in marketing, financial management, human resources, organizational leadership, and entrepreneurship.",
-    "link": "/academics/bba"
+    "link": "/departments/management"
   },
   {
     "id": "ba",
@@ -27,7 +27,7 @@
     "displayLines": ["Bachelor of", "Arts (Humanities)"],
     "duration": "3 Years / 4 Years (NEP 2020)",
     "description": "Multidisciplinary humanities streams including Journalism & Mass Comm (JPS), Economics & Political Science (ESP), History (EHP), and English Literature (EnSP).",
-    "link": "/academics/ba"
+    "link": "/departments/history"
   },
   {
     "id": "bcom",
@@ -37,7 +37,7 @@
     "displayLines": ["Bachelor of", "Commerce"],
     "duration": "3 Years / 4 Years (NEP 2020)",
     "description": "Comprehensive commercial degree covering corporate accounting, GST taxation, financial markets, banking operations, and auditing.",
-    "link": "/academics/bcom"
+    "link": "/departments/commerce"
   },
   {
     "id": "bba-th",
@@ -47,7 +47,7 @@
     "displayLines": ["Tourism &", "Hospitality Mgmt"],
     "duration": "3 Years / 4 Years (NEP 2020)",
     "description": "Specialized degree in global aviation, hotel management, eco-tourism, travel agency operations, and event management.",
-    "link": "/academics/bba-th"
+    "link": "/departments/management"
   },
   {
     "id": "bsw",
@@ -57,7 +57,7 @@
     "displayLines": ["Bachelor of", "Social Work"],
     "duration": "3 Years / 4 Years (NEP 2020)",
     "description": "Professional community service degree integrating fieldwork, NGO administration, social policy, counseling, and human rights advocacy.",
-    "link": "/academics/bsw"
+    "link": "/departments/social-work"
   },
   {
     "id": "bsc",
@@ -67,7 +67,7 @@
     "displayLines": ["Bachelor of", "Science (B.Sc)"],
     "duration": "3 Years / 4 Years (NEP 2020)",
     "description": "Diverse science specializations including Physics, Chemistry, Math (PCM), Chemistry, Botany, Zoology (CBZ), Physics, Math, Computer Science (PMC), Biochemistry (BCH), and Biotechnology.",
-    "link": "/academics/bsc"
+    "link": "/departments/physics"
   },
   {
     "id": "bvoc",
@@ -77,7 +77,7 @@
     "displayLines": ["Bachelor of", "Vocation (Skill Streams)"],
     "duration": "3 Years (NSQF Level 7)",
     "description": "Hands-on vocational degrees in Digital Media & Animation, Healthcare Technology, and Software Development aligned with UGC NSQF standards.",
-    "link": "/academics/bvoc"
+    "link": "/departments/bca"
   },
   {
     "id": "lang",
@@ -87,7 +87,7 @@
     "displayLines": ["Department of", "Languages & Literature"],
     "duration": "Course-aligned",
     "description": "Language foundation and elective literature courses in English, Kannada, Hindi, French, Malayalam, and Urdu with modern digital language laboratory access.",
-    "link": "/academics/departments/dept-languages"
+    "link": "/departments/languages"
   },
 
   {
@@ -98,7 +98,7 @@
     "displayLines": ["Master of", "Computer", "Applications"],
     "duration": "2 Years",
     "description": "Advanced postgraduate IT degree specializing in full-stack software development, cloud architecture, artificial intelligence, and enterprise systems.",
-    "link": "/academics/mca"
+    "link": "/departments/bca"
   },
   {
     "id": "mba",
@@ -108,7 +108,7 @@
     "displayLines": ["Master of", "Business", "Administration"],
     "duration": "2 Years",
     "description": "AICTE-aligned executive management degree offering specializations in Finance, Marketing, HR, Business Analytics, and International Trade.",
-    "link": "/academics/mba"
+    "link": "/departments/management"
   },
   {
     "id": "mcom",
@@ -118,7 +118,7 @@
     "displayLines": ["Master of", "Commerce"],
     "duration": "2 Years",
     "description": "Advanced commercial research degree in corporate financial reporting, security analysis, international finance, and quantitative techniques.",
-    "link": "/academics/mcom"
+    "link": "/departments/commerce"
   },
   {
     "id": "msc",
@@ -128,7 +128,7 @@
     "displayLines": ["Master of", "Science (M.Sc)"],
     "duration": "2 Years",
     "description": "Postgraduate science specializations including Computer Science, Mathematics, Physics, Chemistry, Biochemistry, Psychology, Food Science & Nutrition, and Criminology & Forensic Science.",
-    "link": "/academics/msc"
+    "link": "/departments/physics"
   },
   {
     "id": "ma",
@@ -138,7 +138,7 @@
     "displayLines": ["Master of", "Arts (M.A)"],
     "duration": "2 Years",
     "description": "Postgraduate master's degree streams in English Literature, Economics, and Journalism & Mass Communication (JMC).",
-    "link": "/academics/ma"
+    "link": "/departments/english"
   },
   {
     "id": "msw",
@@ -148,6 +148,6 @@
     "displayLines": ["Master of", "Social Work"],
     "duration": "2 Years",
     "description": "Postgraduate professional degree with specializations in Medical & Psychiatric Social Work, Community Development, and HR Management.",
-    "link": "/academics/msw"
+    "link": "/departments/social-work"
   }
 ]

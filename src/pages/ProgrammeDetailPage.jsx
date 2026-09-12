@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 import { 
   ArrowLeft, 
   ArrowRight, 
@@ -114,8 +114,16 @@ export default function ProgrammeDetailPage() {
   const [activeTab, setActiveTab] = useState('overview');
   const [currentSlide, setCurrentSlide] = useState(0);
   
-  // Lookup programme from canonical relational store, with fallback to legacy code lookup
+  // Lookup programme and mapped department
+  const cleanCode = (programmeCode || '').toLowerCase().trim();
   const prog = getProgrammeById(programmeCode) || getProgrammeByCode(programmeCode);
+  const department = getDepartmentById(cleanCode) || getDepartmentById(prog?.departmentId || prog?.deptSlug || prog?.department);
+
+  // When opened through academics, open the Departmental Page directly
+  if (department) {
+    const targetSlug = department.slug || (department.id || '').replace(/^dept-/, '');
+    return <Navigate to={`/departments/${targetSlug || department.id}`} replace />;
+  }
 
   if (!prog) {
     return (
@@ -140,7 +148,6 @@ export default function ProgrammeDetailPage() {
   }
 
   // Relational Lookups
-  const department = getDepartmentById(prog.departmentId || prog.deptSlug || prog.department);
   const continuum = getDepartmentContinuumProgrammes(prog);
   const relatedUgList = getRelatedUgProgrammes(prog);
   const relatedPgList = getRelatedPgProgrammes(prog);
