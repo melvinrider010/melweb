@@ -56,6 +56,8 @@ const AdminEventsManagerPage = lazy(() => import('./admin/pages/AdminEventsManag
 const AdminFacultyManagerPage = lazy(() => import('./admin/pages/AdminFacultyManagerPage'));
 const AdminDepartmentManagerPage = lazy(() => import('./admin/pages/AdminDepartmentManagerPage'));
 const AdminDepartmentPortalPage = lazy(() => import('./admin/pages/AdminDepartmentPortalPage'));
+const AdminDepartmentPagesListPage = lazy(() => import('./admin/pages/AdminDepartmentPagesListPage'));
+const AdminDepartmentEditorPage = lazy(() => import('./admin/pages/AdminDepartmentEditorPage'));
 const AdminProgrammeManagerPage = lazy(() => import('./admin/pages/AdminProgrammeManagerPage'));
 const AdminPagesManagerPage = lazy(() => import('./admin/pages/AdminPagesManagerPage'));
 const AdminNoticesManagerPage = lazy(() => import('./admin/pages/AdminNoticesManagerPage'));
@@ -211,7 +213,10 @@ export default function App() {
                 <Route path="events" element={<AdminEventsManagerPage />} />
                 <Route path="gallery" element={<AdminGalleryManagerPage />} />
                 <Route path="programmes" element={<AdminProgrammeManagerPage />} />
-                <Route path="departments" element={<AdminDepartmentManagerPage />} />
+                <Route path="department-pages" element={<AdminDepartmentPagesListPage />} />
+                <Route path="department-pages/:deptId/edit" element={<AdminDepartmentEditorPage />} />
+                <Route path="departments" element={<AdminDepartmentPagesListPage />} />
+                <Route path="departments/:deptId/edit" element={<AdminDepartmentEditorPage />} />
                 <Route path="department-portal" element={<AdminDepartmentPortalPage />} />
                 <Route path="faculty" element={<AdminFacultyManagerPage />} />
                 <Route path="alumni" element={<AdminAlumniManagerPage />} />

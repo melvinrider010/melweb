@@ -24,7 +24,7 @@ export default function AdminSidebar({ mobileOpen, setMobileOpen }) {
     { label: "Header & Footer", path: "/admin/header-footer", icon: PanelTop, match: (p) => p.startsWith('/admin/header-footer') || p.startsWith('/admin/layout') },
     { label: "Events & Notices", path: "/admin/events", icon: Calendar, match: (p) => p.startsWith('/admin/events') || p.startsWith('/admin/notices') },
     { label: "Academics", path: "/admin/programmes", icon: BookOpen, match: (p) => p.startsWith('/admin/programmes') || p.startsWith('/admin/faculty') },
-    { label: "Departments", path: isHOD ? "/admin/department-portal" : "/admin/departments", icon: Building2, match: (p) => p.startsWith('/admin/departments') || p.startsWith('/admin/department-portal') },
+    { label: "Departmental Pages", path: isHOD ? "/admin/department-portal" : "/admin/department-pages", icon: Building2, match: (p) => p.startsWith('/admin/department-pages') || p.startsWith('/admin/departments') || p.startsWith('/admin/department-portal') },
     { label: "Media & Sliders", path: "/admin/gallery", icon: ImageIcon, match: (p) => p.startsWith('/admin/gallery') || p.startsWith('/admin/sliders') || p.startsWith('/admin/media') },
     { label: "Documents", path: "/admin/documents", icon: FileText, match: (p) => p.startsWith('/admin/documents') || p.startsWith('/admin/iqac') },
     { label: "Users & Roles", path: "/admin/users", icon: Users, match: (p) => p.startsWith('/admin/users') || p.startsWith('/admin/logs') },

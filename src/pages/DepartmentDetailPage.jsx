@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useSearchParams, Link } from 'react-router-dom';
 import { 
   Building2, 
   ArrowLeft, 
@@ -21,7 +21,12 @@ import {
   MapPin, 
   FolderGit2,
   Loader2,
-  AlertTriangle
+  AlertTriangle,
+  Calendar,
+  Bell,
+  Eye,
+  Edit3,
+  ExternalLink
 } from 'lucide-react';
 import { 
   getFacultyByDepartmentId, 
@@ -29,21 +34,45 @@ import {
   getDepartmentContinuumProgrammes 
 } from '../data/academicsHierarchyData';
 import FacultyAvatar from '../components/common/FacultyAvatar';
-import { getDepartments } from '../services/departmentsService';
+import * as deptService from '../services/departmentsService';
 
 export default function DepartmentDetailPage() {
   const { deptId } = useParams();
+  const [searchParams] = useSearchParams();
+  const isPreview = searchParams.get('preview') === '1';
+
   const [dept, setDept] = useState(null);
+  const [sections, setSections] = useState([]);
+  const [facultyList, setFacultyList] = useState([]);
+  const [programmesList, setProgrammesList] = useState([]);
+  const [noticesList, setNoticesList] = useState([]);
+  const [eventsList, setEventsList] = useState([]);
+
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     let isMounted = true;
+
     async function loadDepartment() {
       setIsLoading(true);
       setError(null);
       try {
-        const list = await getDepartments();
+        const res = await deptService.getDepartmentBySlugOrId(deptId, isPreview);
+        
+        if (isMounted && res?.department) {
+          setDept(res.department);
+          setSections(res.sections || []);
+          setFacultyList(res.faculty || []);
+          setProgrammesList(res.programmes || []);
+          setNoticesList(res.notices || []);
+          setEventsList(res.events || []);
+          setIsLoading(false);
+          return;
+        }
+
+        // Fallback to static list lookup if backend structure is different
+        const list = await deptService.getDepartments();
         if (isMounted) {
           const raw = String(deptId || '').toLowerCase().trim();
           const clean = raw.replace(/^dept[-_]/, '');
@@ -61,6 +90,7 @@ export default function DepartmentDetailPage() {
 
           if (found) {
             setDept(found);
+            setSections(found.sections || []);
           } else {
             setError(`The academic department "${deptId}" could not be located.`);
           }
@@ -73,9 +103,10 @@ export default function DepartmentDetailPage() {
         }
       }
     }
+
     loadDepartment();
     return () => { isMounted = false; };
-  }, [deptId]);
+  }, [deptId, isPreview]);
 
   if (isLoading) {
     return (
@@ -100,20 +131,37 @@ export default function DepartmentDetailPage() {
     );
   }
 
-  const deptFaculty = getFacultyByDepartmentId(dept.id);
-  const deptSyllabuses = dept.syllabuses || [];
-  const deptDocs = dept.departmentDocs || [];
-
-  const ugList = (dept.ugProgrammes || []).map(id => getProgrammeById(id)).filter(Boolean);
-  const pgList = (dept.pgProgrammes || []).map(id => getProgrammeById(id)).filter(Boolean);
+  // Fallbacks for faculty / programmes if empty
+  const activeFaculty = facultyList.length > 0 ? facultyList : getFacultyByDepartmentId(dept.id);
   const continuum = getDepartmentContinuumProgrammes(dept);
-  const pathways = dept.pathways || [];
-  const facilities = Array.isArray(dept.facilities) ? dept.facilities : [];
+
+  // Filter only enabled sections
+  const enabledSections = sections.filter(s => s.is_enabled !== false);
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] text-[#071A33] py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1400px] mx-auto space-y-8">
         
+        {/* PREVIEW ALERT BANNER */}
+        {isPreview && (
+          <div className="bg-amber-500 text-slate-950 p-4 rounded-2xl shadow-md border-2 border-amber-600 flex flex-wrap items-center justify-between gap-4 animate-fadeIn">
+            <div className="flex items-center space-x-3">
+              <Eye className="w-6 h-6 shrink-0" />
+              <div>
+                <h4 className="font-bold text-sm">CMS Draft Preview Mode</h4>
+                <p className="text-xs">You are viewing the unpublished draft changes for this department. These changes are NOT visible on the public website until published.</p>
+              </div>
+            </div>
+            <Link
+              to={`/admin/department-pages/${dept.id}/edit`}
+              className="inline-flex items-center space-x-1.5 px-4 py-2 bg-slate-950 text-white rounded-xl text-xs font-bold hover:bg-slate-800 transition-colors shrink-0"
+            >
+              <Edit3 className="w-4 h-4" />
+              <span>Return to CMS Editor</span>
+            </Link>
+          </div>
+        )}
+
         {/* 1. BACK NAVIGATION BAR */}
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200/80 pb-4">
           <Link
@@ -127,7 +175,7 @@ export default function DepartmentDetailPage() {
           <div className="flex items-center space-x-2 text-xs font-semibold text-slate-500 font-mono">
             <Link to="/departments" className="hover:text-[#1C5496]">DEPARTMENTS</Link>
             <span>/</span>
-            <span className="text-slate-800 font-bold uppercase">{dept.shortName || dept.code || dept.id}</span>
+            <span className="text-slate-800 font-bold uppercase">{dept.slug || dept.code || dept.id}</span>
           </div>
         </div>
 
@@ -135,7 +183,7 @@ export default function DepartmentDetailPage() {
         <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs relative overflow-hidden space-y-6">
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <span className="bg-[#0B1F4E] text-white font-mono font-extrabold text-xs sm:text-sm px-3.5 py-1 rounded-md tracking-wider">
-              {(typeof dept.faculty === 'string' ? dept.faculty : null) || dept.facultyName || 'St. Philomena’s College'}
+              {dept.category ? `Faculty of ${dept.category}` : 'St. Philomena’s College (Autonomous)'}
             </span>
             <span className="bg-emerald-50 text-emerald-800 font-sans font-semibold text-xs px-3 py-1 rounded-md border border-emerald-200/60 flex items-center">
               <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-emerald-600" /> Autonomous Academic Department
@@ -143,81 +191,39 @@ export default function DepartmentDetailPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-            {dept.photoUrl && (
+            {(dept.banner_image || dept.photoUrl) && (
               <div className="md:col-span-5">
                 <img
-                  src={dept.photoUrl}
+                  src={dept.banner_image || dept.photoUrl}
                   alt={dept.name}
                   className="w-full h-48 sm:h-56 object-cover rounded-2xl border border-slate-200 shadow-xs"
                   onError={(e) => { e.target.style.display = 'none'; }}
                 />
               </div>
             )}
-            <div className={`${dept.photoUrl ? 'md:col-span-7' : 'md:col-span-12'} space-y-3`}>
+            <div className={`${(dept.banner_image || dept.photoUrl) ? 'md:col-span-7' : 'md:col-span-12'} space-y-3`}>
               <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 leading-tight">
                 {dept.name}
               </h1>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-sans max-w-4xl pt-1">
-                {dept.description}
+                {dept.short_description || dept.description}
               </p>
             </div>
           </div>
 
-          {/* Department Degree Continuum Switcher Strip */}
-          {continuum.programmes.length > 0 && (
-            <div className="bg-gradient-to-r from-blue-50/90 via-slate-50 to-amber-50/70 p-4 sm:p-5 rounded-2xl border border-blue-100/90 shadow-2xs space-y-3">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <div className="flex items-center space-x-2">
-                  <div className="w-7 h-7 rounded-lg bg-[#1C5496] text-white flex items-center justify-center font-bold">
-                    <GraduationCap className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#1C5496] block">
-                      DEPARTMENT DEGREE CONTINUUM & PROGRAMMES
-                    </span>
-                    <h3 className="font-serif font-bold text-sm sm:text-base text-slate-900">
-                      Explore Degrees Offered by {dept.shortName || dept.name}
-                    </h3>
-                  </div>
-                </div>
-                <span className="text-xs font-semibold text-slate-500 font-mono">
-                  {continuum.programmes.length} Academic Degree{continuum.programmes.length > 1 ? 's' : ''}
-                </span>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-2.5 pt-1">
-                {continuum.programmes.map((p) => (
-                  <Link
-                    key={p.id}
-                    to={p.link}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-[#0B1F4E] text-[#1C5496] hover:text-[#FFD84A] border-2 border-slate-200 hover:border-[#C9A84C] font-mono font-bold text-xs sm:text-sm shadow-2xs hover:shadow-md transition-all duration-150 transform hover:-translate-y-0.5 group"
-                    title={`Explore ${p.title}`}
-                  >
-                    <BookOpen className="w-4 h-4 text-[#1C5496] group-hover:text-[#FFD84A] transition-colors" />
-                    <span>{p.code}</span>
-                    <span className="text-[10px] uppercase font-sans font-semibold text-slate-600 group-hover:text-amber-200 bg-slate-100 group-hover:bg-white/20 px-2 py-0.5 rounded transition-colors">
-                      {p.level || p.type.toUpperCase()}
-                    </span>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#FFD84A] transition-transform group-hover:translate-x-0.5" />
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Key Department Details */}
+          {/* Quick Metrics Bar */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-700">
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <span className="text-[10px] uppercase font-bold text-slate-400 block">Faculty Staff</span>
-              <span className="font-serif font-bold text-sm text-slate-900">{deptFaculty.length} Teaching Members</span>
+              <span className="text-[10px] uppercase font-bold text-slate-400 block">Faculty Members</span>
+              <span className="font-serif font-bold text-sm text-slate-900">{activeFaculty.length} Teaching Scholars</span>
               <span className="text-[11px] text-slate-500 block">Professors, Readers & Lecturers</span>
             </div>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <span className="text-[10px] uppercase font-bold text-slate-400 block">Curriculum Schemes</span>
+              <span className="text-[10px] uppercase font-bold text-slate-400 block">Academic Continuum</span>
               <span className="font-mono text-xs text-[#1C5496] block truncate">
-                {deptSyllabuses.length > 0 ? `${deptSyllabuses.length} Syllabus Structure(s)` : `${ugList.length + pgList.length} Degree Streams`}
+                {programmesList.length > 0 ? `${programmesList.length} Active Programme(s)` : `${(dept.programmes || []).length} Degree Streams`}
               </span>
-              <span className="text-[11px] text-slate-500 block">Undergraduate & Master's</span>
+              <span className="text-[11px] text-slate-500 block">Undergraduate & Postgraduate</span>
             </div>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
               <span className="text-[10px] uppercase font-bold text-slate-400 block">Academic Regulations</span>
@@ -227,363 +233,331 @@ export default function DepartmentDetailPage() {
           </div>
         </div>
 
-        {/* 3. MAIN CONTENT (8 COLUMNS) & SIDEBAR (4 COLUMNS) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          
-          {/* Main 8 Columns */}
-          <div className="lg:col-span-8 space-y-8">
-
-            {/* A. ACADEMIC PATHWAYS */}
-            {pathways.length > 0 && (
-              <div className="bg-gradient-to-br from-[#0B1F4E] to-[#1C5496] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-md space-y-4 border border-blue-900">
-                <div className="flex items-center space-x-2.5 border-b border-white/10 pb-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#C9A84C] text-[#0B1F4E] flex items-center justify-center font-bold">
-                    <TrendingUp className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#F0D98C] font-bold block">
-                      ACADEMIC CONTINUUM
-                    </span>
-                    <h2 className="font-serif font-bold text-lg sm:text-xl text-white">
-                      Undergraduate to Postgraduate Progression Pathways
-                    </h2>
-                  </div>
-                </div>
-
-                <div className="space-y-3 pt-1">
-                  {pathways.map((path, pIdx) => {
-                    const targetProg = getProgrammeById(path.targetId || path.to);
-                    return (
-                      <div 
-                        key={pIdx}
-                        className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 space-y-2"
-                      >
-                        <div className="flex flex-wrap items-center justify-between gap-2">
-                          <span className="font-serif font-bold text-sm text-[#F0D98C]">
-                            {path.title}
-                          </span>
-                          {targetProg && (
-                            <Link
-                              to={`/academics/${targetProg.code.toLowerCase()}`}
-                              className="text-xs font-bold text-white hover:underline inline-flex items-center"
-                            >
-                              <span>Explore Degree</span>
-                              <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                            </Link>
-                          )}
-                        </div>
-                        {path.description && (
-                          <p className="text-xs text-slate-200 leading-relaxed font-sans">
-                            {path.description}
-                          </p>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* B. VISION & MISSION */}
-            {(dept.vision || dept.mission) && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {dept.vision && (
-                  <div className="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/90 shadow-xs space-y-3 border-l-4 border-[#1C5496]">
-                    <div className="flex items-center space-x-2 text-[#1C5496]">
-                      <Sparkles className="w-5 h-5 text-[#C9A84C]" />
-                      <h3 className="font-serif font-bold text-lg text-slate-900">Departmental Vision</h3>
-                    </div>
-                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-sans italic">
-                      "{dept.vision}"
-                    </p>
-                  </div>
-                )}
-                {dept.mission && (
-                  <div className="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/90 shadow-xs space-y-3 border-l-4 border-[#C9A84C]">
-                    <div className="flex items-center space-x-2 text-amber-800">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-                      <h3 className="font-serif font-bold text-lg text-slate-900">Departmental Mission</h3>
-                    </div>
-                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-sans">
-                      {dept.mission}
-                    </p>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* C. FACILITIES & LABORATORIES */}
-            {facilities.length > 0 && (
-              <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-                <div className="flex items-center space-x-2.5 border-b border-slate-100 pb-3">
-                  <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-800 flex items-center justify-center">
-                    <Building2 className="w-4 h-4 text-[#C9A84C]" />
-                  </div>
-                  <div>
-                    <h3 className="font-serif font-bold text-xl text-slate-900">Laboratories & Departmental Facilities</h3>
-                    <p className="text-xs text-slate-500">Specialized infrastructure and equipment available to students</p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-2.5 pt-1">
-                  {facilities.map((fac, fIdx) => (
-                    <div key={fIdx} className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80 flex items-start space-x-3">
-                      <CheckCircle2 className="w-4 h-4 text-[#C9A84C] shrink-0 mt-0.5" />
-                      <span className="text-xs sm:text-sm text-slate-800 font-medium">{fac}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* D. DEPARTMENT SYLLABUS & CURRICULUM SCHEMES */}
-            {deptSyllabuses.length > 0 && (
-              <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                  <div className="flex items-center space-x-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1C5496] flex items-center justify-center">
-                      <BookOpen className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h3 className="font-serif font-bold text-xl text-slate-900">Syllabus & Course Regulations</h3>
-                      <p className="text-xs text-slate-500">Autonomous curriculum outlines and semester schemes</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-3 pt-1">
-                  {deptSyllabuses.map((syl) => (
-                    <div key={syl.id} className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                      <div className="space-y-1">
-                        <div className="flex items-center space-x-2">
-                          <span className="bg-[#0B1F4E] text-[#FFD84A] font-mono text-[10px] font-bold px-2 py-0.5 rounded">
-                            {syl.code}
-                          </span>
-                          <span className="text-xs font-serif font-bold text-slate-900">{syl.title}</span>
-                        </div>
-                        <p className="text-xs text-slate-600">{syl.degree} · {syl.regulation}</p>
-                      </div>
-
-                      <a
-                        href={syl.localPdf || '/assets/documents/academic-regulations.pdf'}
-                        download
-                        className="btn-navy px-4 py-2 rounded-lg text-xs font-bold inline-flex items-center space-x-1.5 shadow-2xs self-start sm:self-auto shrink-0"
-                      >
-                        <Download className="w-3.5 h-3.5 text-[#FFD84A]" />
-                        <span>Download Syllabus PDF</span>
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* E. PRESENT FACULTY ROSTER */}
-            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-5">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
-                <div className="flex items-center space-x-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1C5496] flex items-center justify-center">
-                    <Users className="w-4 h-4" />
-                  </div>
-                  <h2 className="font-serif font-bold text-xl sm:text-2xl text-slate-900">
-                    Faculty Members
-                  </h2>
-                </div>
-                <span className="bg-slate-100 text-slate-700 text-xs font-bold px-2.5 py-1 rounded-full">
-                  {deptFaculty.length} Verified Staff
-                </span>
-              </div>
-
-              {deptFaculty.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {deptFaculty.map((fac) => (
-                    <Link
-                      key={fac.id}
-                      to={`/faculty/${fac.id}`}
-                      className="p-4 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-[#1C5496] hover:shadow-md transition-all group flex items-start space-x-4 block"
-                    >
-                      <FacultyAvatar
-                        src={fac.photoUrl || fac.image}
-                        name={fac.name}
-                        className="w-16 h-16 sm:w-18 sm:h-18 rounded-xl object-cover object-top shrink-0 border border-slate-300 group-hover:scale-105 transition-transform shadow-xs"
-                      />
-                      <div className="min-w-0 space-y-1">
-                        <h4 className="font-serif font-bold text-sm sm:text-base text-slate-900 group-hover:text-[#1C5496] transition-colors truncate">
-                          {fac.name}
-                        </h4>
-                        <p className="text-xs text-[#1C5496] font-semibold truncate">
-                          {fac.designation}
-                        </p>
-                        <p className="text-[11px] text-slate-500 truncate">
-                          {fac.qualification}
-                        </p>
-                        <span className="text-[10px] text-[#1C5496] font-bold group-hover:underline inline-flex items-center pt-1">
-                          View Full CV & Profile →
-                        </span>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-xs text-slate-500">Official faculty profiles being cataloged from department archives.</p>
-              )}
-            </div>
-
+        {/* 3. DYNAMIC SECTION RENDERING ENGINE */}
+        {enabledSections.length > 0 ? (
+          <div className="space-y-10">
+            {enabledSections.map((section, idx) => (
+              <DepartmentSectionRenderer
+                key={section.id || idx}
+                section={section}
+                department={dept}
+                facultyList={activeFaculty}
+                programmesList={programmesList}
+                noticesList={noticesList}
+                eventsList={eventsList}
+              />
+            ))}
           </div>
-
-          {/* Sidebar 4 Columns */}
-          <div className="lg:col-span-4 space-y-6">
-
-            {/* Department Office & Contact Info */}
-            {(dept.email || dept.phone || dept.office) && (
-              <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
-                <h3 className="font-serif font-bold text-base text-slate-900 border-b pb-2 flex items-center">
-                  <Building2 className="w-4 h-4 mr-2 text-[#0B1F4E]" />
-                  <span>Department Contact Desk</span>
-                </h3>
-                <div className="space-y-2.5 text-xs text-slate-600">
-                  {dept.office && (
-                    <p className="flex items-start">
-                      <MapPin className="w-4 h-4 mr-2 text-[#C9A84C] shrink-0 mt-0.5" />
-                      <span>{dept.office}</span>
-                    </p>
-                  )}
-                  {dept.email && (
-                    <p className="flex items-center">
-                      <Mail className="w-4 h-4 mr-2 text-[#1C5496] shrink-0" />
-                      <a href={`mailto:${dept.email}`} className="text-[#1C5496] hover:underline font-medium">
-                        {dept.email}
-                      </a>
-                    </p>
-                  )}
-                  {dept.phone && (
-                    <p className="flex items-center">
-                      <Phone className="w-4 h-4 mr-2 text-[#1C5496] shrink-0" />
-                      <a href={`tel:${dept.phone}`} className="font-mono text-slate-800 hover:underline">
-                        {dept.phone}
-                      </a>
-                    </p>
-                  )}
-                </div>
-              </div>
-            )}
-
-            {/* Department Files & Lab Manuals */}
-            {deptDocs.length > 0 && (
-              <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block">Student Downloads</span>
-                <h3 className="font-serif font-bold text-base text-slate-900">Departmental Files & Manuals</h3>
-                <div className="space-y-2">
-                  {deptDocs.map((d) => (
-                    <a
-                      key={d.id}
-                      href={d.localPath || '/assets/documents/academic-regulations.pdf'}
-                      download
-                      className="p-3 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-between transition-colors group"
-                    >
-                      <div className="min-w-0 pr-2">
-                        <span className="font-serif font-bold text-xs text-slate-900 block truncate group-hover:text-[#1C5496]">
-                          {d.title}
-                        </span>
-                        <span className="text-[10px] text-slate-500 font-mono">
-                          {d.category || 'PDF File'} · {d.year || '2026'}
-                        </span>
-                      </div>
-                      <Download className="w-4 h-4 text-slate-400 group-hover:text-[#1C5496] shrink-0" />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* UG Degrees */}
-            {ugList.length > 0 && (
-              <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3.5">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block">Undergraduate Streams</span>
-                <h3 className="font-serif font-bold text-base text-slate-900">UG Degrees in {dept.shortName || dept.name}</h3>
-                <div className="space-y-2.5">
-                  {ugList.map((prog) => (
-                    <Link
-                      key={prog.id}
-                      to={`/academics/${prog.code.toLowerCase()}`}
-                      className="p-3 bg-slate-50 hover:bg-blue-50/70 rounded-xl border border-slate-200 transition-colors flex items-center justify-between group"
-                    >
-                      <div>
-                        <span className="font-serif font-bold text-xs text-slate-900 group-hover:text-[#1C5496] block">
-                          {prog.code} — {prog.degree || prog.title}
-                        </span>
-                        <span className="text-[10px] text-slate-500 font-mono">
-                          {prog.duration}
-                        </span>
-                      </div>
-                      <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#1C5496] group-hover:translate-x-1 transition-all shrink-0 ml-2" />
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* PG Degrees */}
-            {pgList.length > 0 && (
-              <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3.5">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block">Postgraduate Degrees</span>
-                <h3 className="font-serif font-bold text-base text-slate-900">Master's Streams in {dept.shortName || dept.name}</h3>
-                <div className="space-y-2.5">
-                  {pgList.map((prog) => (
-                    <Link
-                      key={prog.id}
-                      to={`/academics/${prog.code.toLowerCase()}`}
-                      className="p-3 bg-blue-50/60 hover:bg-blue-100/70 rounded-xl border border-blue-200/80 transition-colors flex items-center justify-between group"
-                    >
-                      <div>
-                        <span className="font-serif font-bold text-xs text-[#0B1F4E] group-hover:text-[#1C5496] block">
-                          {prog.code} — {prog.degree || prog.title}
-                        </span>
-                        <span className="text-[10px] text-slate-500 font-mono">
-                          {prog.duration}
-                        </span>
-                      </div>
-                      <ChevronRight className="w-4 h-4 text-[#1C5496] group-hover:translate-x-1 transition-all shrink-0 ml-2" />
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Admissions Apply Card */}
-            <div className="bg-[#071A33] text-white p-6 rounded-2xl border border-slate-800 shadow-xl space-y-4">
-              <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#FFD84A] block">
-                ADMISSIONS 2026–27
-              </span>
-              <h3 className="font-serif font-bold text-xl text-white">Apply to {dept.name}</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Admissions for all UG and PG degree combinations offered by {dept.name} are open for 2026–27.
+        ) : (
+          /* Fallback Standard Layout if no sections are defined yet */
+          <div className="space-y-8">
+            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-xs space-y-3">
+              <h3 className="font-serif font-bold text-xl text-slate-900">About the Department</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans whitespace-pre-line">
+                {dept.description}
               </p>
-              <a
-                href="https://student.stphiloserp.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-gold w-full py-2.5 rounded-xl text-xs font-bold text-center block"
-              >
-                Apply for Admissions Now (ERP Portal)
-              </a>
             </div>
-
-            {/* Back to Academics */}
-            <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl text-center space-y-2">
-              <Link to="/academics" className="text-xs font-bold text-[#1C5496] hover:underline block">
-                ← Explore All Academic Programmes
-              </Link>
-              <Link to="/departments" className="text-xs font-bold text-slate-600 hover:underline block">
-                Browse All Academic Departments
-              </Link>
-            </div>
-
           </div>
-
-        </div>
+        )}
 
       </div>
     </div>
   );
+}
+
+/**
+ * Universal Section Renderer for Modular Department CMS Sections
+ */
+function DepartmentSectionRenderer({ section, department, facultyList, programmesList, noticesList, eventsList }) {
+  const content = section.content || {};
+
+  switch (section.type) {
+    
+    // --- 1. TEXT / OVERVIEW SECTION ---
+    case 'text':
+      return (
+        <section className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs space-y-4">
+          <div className="space-y-1 border-b border-slate-100 pb-4">
+            {content.subheading && (
+              <span className="text-[11px] font-mono uppercase tracking-widest text-[#1C5496] font-bold block">
+                {content.subheading}
+              </span>
+            )}
+            <h2 className="font-serif font-bold text-2xl text-slate-900">
+              {content.heading || section.title}
+            </h2>
+          </div>
+          <div className="text-slate-600 text-xs sm:text-sm leading-relaxed font-sans whitespace-pre-line space-y-3 pt-2">
+            {content.body}
+          </div>
+        </section>
+      );
+
+    // --- 2. CARDS / HIGHLIGHTS SECTION ---
+    case 'cards':
+      return (
+        <section className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs space-y-6">
+          <div className="space-y-1 border-b border-slate-100 pb-4">
+            {content.subheading && (
+              <span className="text-[11px] font-mono uppercase tracking-widest text-[#1C5496] font-bold block">
+                {content.subheading}
+              </span>
+            )}
+            <h2 className="font-serif font-bold text-2xl text-slate-900">
+              {content.heading || section.title}
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {(content.cards || []).map((card, cIdx) => (
+              <div key={card.id || cIdx} className="p-6 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-2.5">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 rounded-lg bg-[#0B1F4E] text-[#FFD84A] flex items-center justify-center font-bold">
+                    <Sparkles className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-serif font-bold text-base text-slate-900">{card.title}</h4>
+                    {card.subtitle && <p className="text-[11px] text-[#1C5496] font-semibold">{card.subtitle}</p>}
+                  </div>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans pt-1">
+                  {card.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+
+    // --- 3. PROGRAMMES ROSTER SECTION ---
+    case 'programs':
+      return (
+        <section className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs space-y-6">
+          <div className="space-y-1 border-b border-slate-100 pb-4">
+            {content.subheading && (
+              <span className="text-[11px] font-mono uppercase tracking-widest text-[#1C5496] font-bold block">
+                {content.subheading}
+              </span>
+            )}
+            <h2 className="font-serif font-bold text-2xl text-slate-900">
+              {content.heading || 'Academic Programmes'}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {(programmesList || []).map((p) => (
+              <Link
+                key={p.code}
+                to={`/academics/${p.code.toLowerCase()}`}
+                className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-500 hover:bg-white transition-all shadow-xs hover:shadow-md group flex flex-col justify-between"
+              >
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-[#0B1F4E] text-[#FFD84A]">
+                      {p.level?.toUpperCase() || 'UG'}
+                    </span>
+                    <span className="text-[11px] font-mono text-slate-500">{p.duration || '3-4 Years'}</span>
+                  </div>
+                  <h4 className="font-serif font-bold text-base text-slate-900 group-hover:text-blue-600 transition-colors">
+                    {p.title}
+                  </h4>
+                  <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                    {p.overview || p.eligibility || 'Autonomous academic curriculum scheme under NEP 2020.'}
+                  </p>
+                </div>
+                
+                <div className="pt-3 border-t border-slate-200/60 mt-3 flex items-center justify-between text-xs font-bold text-[#1C5496] group-hover:text-blue-700">
+                  <span>Explore Programme</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      );
+
+    // --- 4. FACULTY DIRECTORY SECTION ---
+    case 'faculty':
+      return (
+        <section className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs space-y-6">
+          <div className="space-y-1 border-b border-slate-100 pb-4 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              {content.subheading && (
+                <span className="text-[11px] font-mono uppercase tracking-widest text-[#1C5496] font-bold block">
+                  {content.subheading}
+                </span>
+              )}
+              <h2 className="font-serif font-bold text-2xl text-slate-900">
+                {content.heading || 'Department Faculty'}
+              </h2>
+            </div>
+            <span className="text-xs font-mono font-bold text-slate-500">
+              {facultyList.length} Active Scholar{facultyList.length > 1 ? 's' : ''}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            {facultyList.map((f, fIdx) => (
+              <div
+                key={f.id || fIdx}
+                className="bg-slate-50 rounded-2xl border border-slate-200/80 p-5 space-y-3 hover:shadow-sm transition-shadow flex flex-col items-center text-center"
+              >
+                <img
+                  src={f.photo_url || f.photoUrl || '/assets/faculty/default-avatar.png'}
+                  alt={f.name}
+                  className="w-20 h-20 rounded-full object-cover border-2 border-white shadow-xs"
+                  onError={(e) => { e.currentTarget.src = '/assets/faculty/default-avatar.png'; }}
+                />
+                <div className="space-y-1">
+                  <h4 className="font-serif font-bold text-sm text-slate-900 leading-snug">{f.name}</h4>
+                  <p className="text-xs text-[#1C5496] font-semibold">{f.designation || 'Faculty Member'}</p>
+                  <p className="text-[11px] text-slate-500 font-mono">{f.qualification || 'M.Sc., Ph.D.'}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+
+    // --- 5. FACILITIES SECTION ---
+    case 'facilities':
+      return (
+        <section className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs space-y-6">
+          <div className="space-y-1 border-b border-slate-100 pb-4">
+            {content.subheading && (
+              <span className="text-[11px] font-mono uppercase tracking-widest text-[#1C5496] font-bold block">
+                {content.subheading}
+              </span>
+            )}
+            <h2 className="font-serif font-bold text-2xl text-slate-900">
+              {content.heading || 'Department Facilities & Laboratories'}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {(content.items || []).map((item, idx) => (
+              <div key={item.id || idx} className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                <div className="w-8 h-8 rounded-lg bg-[#1C5496] text-white flex items-center justify-center font-bold">
+                  <Building2 className="w-4 h-4" />
+                </div>
+                <h4 className="font-serif font-bold text-sm text-slate-900">{item.title}</h4>
+                <p className="text-xs text-slate-600 leading-relaxed font-sans">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+
+    // --- 6. DOCUMENTS & SYLLABUS SECTION ---
+    case 'documents':
+      return (
+        <section className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs space-y-6">
+          <div className="space-y-1 border-b border-slate-100 pb-4">
+            {content.subheading && (
+              <span className="text-[11px] font-mono uppercase tracking-widest text-[#1C5496] font-bold block">
+                {content.subheading}
+              </span>
+            )}
+            <h2 className="font-serif font-bold text-2xl text-slate-900">
+              {content.heading || 'Curriculum & Syllabi'}
+            </h2>
+          </div>
+
+          <div className="space-y-3">
+            {(content.documents || []).map((doc, dIdx) => (
+              <div
+                key={dIdx}
+                className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-4 hover:border-slate-300 transition-colors"
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="w-9 h-9 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center font-bold">
+                    <FileText className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h5 className="font-bold text-xs sm:text-sm text-slate-900">{doc.title}</h5>
+                    <p className="text-[11px] text-slate-500 font-sans">{doc.description || 'Official academic publication'}</p>
+                  </div>
+                </div>
+
+                <a
+                  href={doc.fileUrl || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-white border border-slate-200 hover:border-slate-900 text-slate-900 rounded-lg text-xs font-bold transition-all shadow-2xs"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Download PDF</span>
+                </a>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+
+    // --- 7. NOTICES & EVENTS SECTION ---
+    case 'notices':
+      return (
+        <section className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs space-y-6">
+          <div className="space-y-1 border-b border-slate-100 pb-4 flex items-center justify-between">
+            <h2 className="font-serif font-bold text-2xl text-slate-900 flex items-center gap-2">
+              <Bell className="w-5 h-5 text-amber-500" />
+              <span>{content.heading || 'Department Notices & Circulars'}</span>
+            </h2>
+            <Link to="/notices" className="text-xs text-[#1C5496] font-bold hover:underline">
+              View All Notices
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {noticesList.map((n) => (
+              <div key={n.id} className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                <span className="text-[10px] font-mono text-slate-400">{n.display_date || n.date}</span>
+                <h4 className="font-bold text-xs text-slate-900 hover:text-blue-600 transition-colors line-clamp-2">
+                  {n.title}
+                </h4>
+                <p className="text-[11px] text-slate-500 line-clamp-2">{n.summary}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+
+    // --- 8. CONTACT SECTION ---
+    case 'contact':
+      return (
+        <section className="bg-[#0B1F4E] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-md space-y-6">
+          <div className="space-y-1 border-b border-white/10 pb-4">
+            <h2 className="font-serif font-bold text-2xl text-[#FFD84A]">
+              {content.heading || 'Contact Department'}
+            </h2>
+            <p className="text-xs text-slate-300">Direct inquiries for admissions, syllabus, or academic administration.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs">
+            {content.email && (
+              <div className="space-y-1">
+                <span className="text-[10px] uppercase font-mono tracking-wider text-slate-400 block font-bold">Email Desk</span>
+                <a href={`mailto:${content.email}`} className="text-white hover:text-[#FFD84A] font-medium block">
+                  {content.email}
+                </a>
+              </div>
+            )}
+            {content.phone && (
+              <div className="space-y-1">
+                <span className="text-[10px] uppercase font-mono tracking-wider text-slate-400 block font-bold">Phone</span>
+                <span className="text-white font-medium block">{content.phone}</span>
+              </div>
+            )}
+            {content.office && (
+              <div className="space-y-1">
+                <span className="text-[10px] uppercase font-mono tracking-wider text-slate-400 block font-bold">Office Location</span>
+                <span className="text-white font-medium block">{content.office}</span>
+              </div>
+            )}
+          </div>
+        </section>
+      );
+
+    default:
+      return null;
+  }
 }

@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\EventController;
 use App\Http\Controllers\Api\V1\NoticeController;
 use App\Http\Controllers\Api\V1\ContentController;
+use App\Http\Controllers\Api\V1\DepartmentController;
+use App\Http\Controllers\Api\V1\Admin\DepartmentController as AdminDepartmentController;
 use App\Http\Controllers\Api\V1\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Api\V1\Admin\NoticeController as AdminNoticeController;
 use App\Http\Controllers\Api\V1\Admin\UserController as AdminUserController;
@@ -32,7 +34,8 @@ Route::prefix('v1')->group(function () {
     Route::get('/documents/{id}', [ContentController::class, 'showDocument']);
     Route::get('/faculty', [ContentController::class, 'faculty']);
     Route::get('/faculty/{id}', [ContentController::class, 'showFaculty']);
-    Route::get('/departments', [ContentController::class, 'departments']);
+    Route::get('/departments', [DepartmentController::class, 'index']);
+    Route::get('/departments/{slugOrId}', [DepartmentController::class, 'show']);
     Route::get('/programmes', [ContentController::class, 'programmes']);
     Route::get('/settings', [ContentController::class, 'settings']);
 
@@ -72,5 +75,15 @@ Route::prefix('v1')->group(function () {
         Route::post('/admin/settings', [AdminContentController::class, 'updateSettings']);
         Route::get('/admin/logs', [AdminContentController::class, 'logs']);
         Route::post('/admin/media', [AdminMediaUploadController::class, 'upload']);
+
+        // Admin Departmental Pages Management
+        Route::get('/admin/departments', [AdminDepartmentController::class, 'index']);
+        Route::post('/admin/departments', [AdminDepartmentController::class, 'store']);
+        Route::get('/admin/departments/{id}', [AdminDepartmentController::class, 'show']);
+        Route::put('/admin/departments/{id}', [AdminDepartmentController::class, 'update']);
+        Route::delete('/admin/departments/{id}', [AdminDepartmentController::class, 'destroy']);
+        Route::post('/admin/departments/{id}/draft', [AdminDepartmentController::class, 'saveDraft']);
+        Route::post('/admin/departments/{id}/publish', [AdminDepartmentController::class, 'publish']);
+        Route::post('/admin/departments/{id}/unpublish', [AdminDepartmentController::class, 'unpublish']);
     });
 });
