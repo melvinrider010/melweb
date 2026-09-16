@@ -31,7 +31,8 @@ import {
 import { 
   getFacultyByDepartmentId, 
   getProgrammeById, 
-  getDepartmentContinuumProgrammes 
+  getDepartmentContinuumProgrammes,
+  getDepartmentRelatedProgrammes 
 } from '../data/academicsHierarchyData';
 import FacultyAvatar from '../components/common/FacultyAvatar';
 import * as deptService from '../services/departmentsService';
@@ -134,6 +135,7 @@ export default function DepartmentDetailPage() {
   // Fallbacks for faculty / programmes if empty
   const activeFaculty = facultyList.length > 0 ? facultyList : getFacultyByDepartmentId(dept.id);
   const continuum = getDepartmentContinuumProgrammes(dept);
+  const relatedProgramme = getDepartmentRelatedProgrammes(dept);
 
   // Filter only enabled sections
   const enabledSections = sections.filter(s => s.is_enabled !== false);
@@ -162,41 +164,35 @@ export default function DepartmentDetailPage() {
           </div>
         )}
 
-        {/* 1. BACK NAVIGATION BAR */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200/80 pb-4">
-          <Link
-            to="/departments"
-            className="inline-flex items-center text-xs sm:text-sm font-bold text-[#1C5496] hover:text-[#071A33] transition-colors group cursor-pointer"
-          >
-            <ArrowLeft className="w-4 h-4 mr-1.5 group-hover:-translate-x-1 transition-transform" />
-            <span>Back to All Academic Departments</span>
-          </Link>
-
-          <div className="flex items-center space-x-2 text-xs font-semibold text-slate-500 font-mono">
-            <Link to="/departments" className="hover:text-[#1C5496]">DEPARTMENTS</Link>
-            <span>/</span>
-            <span className="text-slate-800 font-bold uppercase">{dept.slug || dept.code || dept.id}</span>
-          </div>
-        </div>
-
-        {/* 2. DEPARTMENT HERO BANNER */}
-        <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs relative overflow-hidden space-y-6">
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-            <span className="bg-[#0B1F4E] text-white font-mono font-extrabold text-xs sm:text-sm px-3.5 py-1 rounded-md tracking-wider">
-              {dept.category ? `Faculty of ${dept.category}` : 'St. Philomena’s College (Autonomous)'}
-            </span>
-            <span className="bg-emerald-50 text-emerald-800 font-sans font-semibold text-xs px-3 py-1 rounded-md border border-emerald-200/60 flex items-center">
-              <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-emerald-600" /> Autonomous Academic Department
-            </span>
+        {/* 1. HERO & IDENTITY CARD */}
+        <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs space-y-6">
+          <div className="flex items-center justify-between">
+            <Link 
+              to="/departments" 
+              className="inline-flex items-center space-x-2 text-xs font-bold text-[#1C5496] hover:text-blue-800 transition-colors uppercase tracking-wider"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Academic Directory</span>
+            </Link>
+            <div className="flex items-center space-x-2">
+              <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-blue-50 text-[#1C5496] border border-blue-200">
+                {dept.faculty_category || dept.category || 'Academic Division'}
+              </span>
+              {dept.code && (
+                <span className="px-2.5 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-100 text-slate-700">
+                  {dept.code}
+                </span>
+              )}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             {(dept.banner_image || dept.photoUrl) && (
-              <div className="md:col-span-5">
-                <img
-                  src={dept.banner_image || dept.photoUrl}
-                  alt={dept.name}
-                  className="w-full h-48 sm:h-56 object-cover rounded-2xl border border-slate-200 shadow-xs"
+              <div className="md:col-span-5 relative rounded-2xl overflow-hidden shadow-sm aspect-video sm:aspect-4/3 max-h-72">
+                <img 
+                  src={dept.banner_image || dept.photoUrl} 
+                  alt={dept.name} 
+                  className="w-full h-full object-cover"
                   onError={(e) => { e.target.style.display = 'none'; }}
                 />
               </div>
@@ -218,12 +214,23 @@ export default function DepartmentDetailPage() {
               <span className="font-serif font-bold text-sm text-slate-900">{activeFaculty.length} Teaching Scholars</span>
               <span className="text-[11px] text-slate-500 block">Professors, Readers & Lecturers</span>
             </div>
-            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <span className="text-[10px] uppercase font-bold text-slate-400 block">Academic Continuum</span>
-              <span className="font-mono text-xs text-[#1C5496] block truncate">
-                {programmesList.length > 0 ? `${programmesList.length} Active Programme(s)` : `${(dept.programmes || []).length} Degree Streams`}
-              </span>
-              <span className="text-[11px] text-slate-500 block">Undergraduate & Postgraduate</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between">
+              <div>
+                <span className="text-[10px] uppercase font-bold text-slate-400 block">Academic Continuum</span>
+                <span className="font-mono text-xs text-[#1C5496] block truncate font-semibold">
+                  {relatedProgramme ? `${relatedProgramme.code} Available` : (programmesList.length > 0 ? `${programmesList.length} Active Programme(s)` : `${(dept.programmes || []).length} Degree Streams`)}
+                </span>
+                <span className="text-[11px] text-slate-500 block">Undergraduate & Postgraduate</span>
+              </div>
+              {relatedProgramme && (
+                <Link 
+                  to={relatedProgramme.route}
+                  className="mt-1 text-[11px] font-bold text-[#1C5496] hover:text-blue-800 flex items-center gap-1 group"
+                >
+                  <span>Explore {relatedProgramme.buttonText}</span>
+                  <ArrowRight className="w-3 h-3 text-[#FFD84A] group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              )}
             </div>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
               <span className="text-[10px] uppercase font-bold text-slate-400 block">Academic Regulations</span>
@@ -251,11 +258,54 @@ export default function DepartmentDetailPage() {
         ) : (
           /* Fallback Standard Layout if no sections are defined yet */
           <div className="space-y-8">
-            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-xs space-y-3">
-              <h3 className="font-serif font-bold text-xl text-slate-900">About the Department</h3>
+            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-xs space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-100 pb-4">
+                <h3 className="font-serif font-bold text-xl text-slate-900">About the Department</h3>
+                {relatedProgramme && (
+                  <Link
+                    to={relatedProgramme.route}
+                    className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-gradient-to-r from-[#0B1F4E] to-[#1C5496] hover:from-[#1C5496] hover:to-[#0B1F4E] text-white rounded-xl shadow-xs hover:shadow-md transition-all group shrink-0 border border-blue-900/30"
+                  >
+                    <GraduationCap className="w-3.5 h-3.5 text-[#FFD84A]" />
+                    <span className="text-xs font-bold font-serif">{relatedProgramme.buttonText}</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#FFD84A] group-hover:translate-x-1 transition-transform ml-0.5" />
+                  </Link>
+                )}
+              </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans whitespace-pre-line">
                 {dept.description}
               </p>
+
+              {relatedProgramme && (
+                <div className="mt-5 p-4 sm:p-5 bg-gradient-to-br from-blue-50/70 via-slate-50 to-blue-50/30 rounded-2xl border border-blue-100/90 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="flex items-start sm:items-center space-x-3.5">
+                    <div className="w-10 h-10 rounded-xl bg-[#0B1F4E] text-[#FFD84A] flex items-center justify-center shrink-0 shadow-xs">
+                      <GraduationCap className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-[10px] font-mono uppercase font-bold tracking-wider px-2 py-0.5 rounded-md bg-[#0B1F4E] text-[#FFD84A]">
+                          {relatedProgramme.badge}
+                        </span>
+                        <span className="text-xs text-[#1C5496] font-semibold">Academic Continuum</span>
+                      </div>
+                      <h4 className="font-serif font-bold text-sm sm:text-base text-slate-900 mt-1">
+                        {relatedProgramme.fullTitle}
+                      </h4>
+                      <p className="text-xs text-slate-600 font-sans mt-0.5 max-w-2xl leading-relaxed">
+                        {relatedProgramme.description}
+                      </p>
+                    </div>
+                  </div>
+                  <Link
+                    to={relatedProgramme.route}
+                    className="inline-flex items-center justify-center space-x-2 px-4 py-2 bg-[#0B1F4E] hover:bg-[#1C5496] text-white text-xs font-bold rounded-xl shadow-xs hover:shadow-sm transition-all group shrink-0"
+                  >
+                    <span>{relatedProgramme.buttonText}</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#FFD84A] group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -274,24 +324,85 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
   switch (section.type) {
     
     // --- 1. TEXT / OVERVIEW SECTION ---
-    case 'text':
+    case 'text': {
+      const isAboutSection = (content.heading || section.title || '').toLowerCase().includes('about') || section.id?.includes('about') || section.display_order === 1;
+      const relatedProg = isAboutSection ? getDepartmentRelatedProgrammes(department) : null;
+
       return (
-        <section className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs space-y-4">
-          <div className="space-y-1 border-b border-slate-100 pb-4">
-            {content.subheading && (
-              <span className="text-[11px] font-mono uppercase tracking-widest text-[#1C5496] font-bold block">
-                {content.subheading}
-              </span>
+        <section className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs space-y-5">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-100 pb-4">
+            <div className="space-y-1">
+              {content.subheading && (
+                <span className="text-[11px] font-mono uppercase tracking-widest text-[#1C5496] font-bold block">
+                  {content.subheading}
+                </span>
+              )}
+              <h2 className="font-serif font-bold text-2xl text-slate-900">
+                {content.heading || section.title}
+              </h2>
+            </div>
+
+            {relatedProg && (
+              <Link
+                to={relatedProg.route}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-gradient-to-r from-[#0B1F4E] to-[#1C5496] hover:from-[#1C5496] hover:to-[#0B1F4E] text-white rounded-xl shadow-xs hover:shadow-md transition-all group shrink-0 border border-blue-900/30"
+                title={`Navigate to ${relatedProg.fullTitle}`}
+              >
+                <div className="w-6 h-6 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                  <GraduationCap className="w-3.5 h-3.5 text-[#FFD84A]" />
+                </div>
+                <div className="text-left">
+                  <span className="text-[9px] uppercase font-mono tracking-wider text-blue-200 block font-semibold leading-none">
+                    {relatedProg.badge}
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold font-serif leading-tight text-white block">
+                    {relatedProg.buttonText}
+                  </span>
+                </div>
+                <ArrowRight className="w-4 h-4 text-[#FFD84A] group-hover:translate-x-1 transition-transform ml-0.5" />
+              </Link>
             )}
-            <h2 className="font-serif font-bold text-2xl text-slate-900">
-              {content.heading || section.title}
-            </h2>
           </div>
-          <div className="text-slate-600 text-xs sm:text-sm leading-relaxed font-sans whitespace-pre-line space-y-3 pt-2">
+
+          <div className="text-slate-600 text-xs sm:text-sm leading-relaxed font-sans whitespace-pre-line space-y-3 pt-1">
             {content.body}
           </div>
+
+          {relatedProg && (
+            <div className="mt-5 p-4 sm:p-5 bg-gradient-to-br from-blue-50/70 via-slate-50 to-blue-50/30 rounded-2xl border border-blue-100/90 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex items-start sm:items-center space-x-3.5">
+                <div className="w-10 h-10 rounded-xl bg-[#0B1F4E] text-[#FFD84A] flex items-center justify-center shrink-0 shadow-xs mt-0.5 sm:mt-0">
+                  <GraduationCap className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-[10px] font-mono uppercase font-bold tracking-wider px-2 py-0.5 rounded-md bg-[#0B1F4E] text-[#FFD84A]">
+                      {relatedProg.badge}
+                    </span>
+                    <span className="text-xs text-[#1C5496] font-semibold">
+                      Academic Continuum
+                    </span>
+                  </div>
+                  <h4 className="font-serif font-bold text-sm sm:text-base text-slate-900 mt-1">
+                    {relatedProg.fullTitle}
+                  </h4>
+                  <p className="text-xs text-slate-600 font-sans mt-0.5 max-w-2xl leading-relaxed">
+                    {relatedProg.description}
+                  </p>
+                </div>
+              </div>
+              <Link
+                to={relatedProg.route}
+                className="inline-flex items-center justify-center space-x-2 px-4 py-2 bg-[#0B1F4E] hover:bg-[#1C5496] text-white text-xs font-bold rounded-xl shadow-xs hover:shadow-sm transition-all group shrink-0 self-stretch sm:self-auto text-center"
+              >
+                <span>{relatedProg.buttonText}</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#FFD84A] group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          )}
         </section>
       );
+    }
 
     // --- 2. CARDS / HIGHLIGHTS SECTION ---
     case 'cards':

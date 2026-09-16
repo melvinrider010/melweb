@@ -49,6 +49,10 @@ class DepartmentController extends Controller
 
         $departments->each(function ($d) {
             $d->programmes_count = is_array($d->programmes) ? count($d->programmes) : 0;
+            if (\Illuminate\Support\Facades\Schema::hasTable('department_faculty') && 
+                \Illuminate\Support\Facades\DB::table('department_faculty')->where('department_id', $d->id)->exists()) {
+                $d->faculty_count = $d->faculty()->count();
+            }
         });
 
         return response()->json($departments);
@@ -75,10 +79,18 @@ class DepartmentController extends Controller
         }
 
         // Assigned faculty
-        $assignedFaculty = Faculty::where('department_id', $department->id)
-            ->where('status', 'active')
-            ->orderBy('name', 'asc')
-            ->get();
+        if (\Illuminate\Support\Facades\Schema::hasTable('department_faculty') && 
+            \Illuminate\Support\Facades\DB::table('department_faculty')->where('department_id', $department->id)->exists()) {
+            $assignedFaculty = $department->faculty()
+                ->where('faculty.status', 'active')
+                ->orderBy('name', 'asc')
+                ->get();
+        } else {
+            $assignedFaculty = Faculty::where('department_id', $department->id)
+                ->where('status', 'active')
+                ->orderBy('name', 'asc')
+                ->get();
+        }
 
         // All available faculty for linking
         $allFaculty = Faculty::where('status', 'active')
@@ -286,10 +298,15 @@ class DepartmentController extends Controller
 
         // Update faculty assignments if provided
         if (isset($validated['faculty_ids'])) {
-            // Unset previous faculty
-            Faculty::where('department_id', $department->id)->update(['department_id' => null]);
-            // Set new assigned faculty
-            Faculty::whereIn('id', $validated['faculty_ids'])->update(['department_id' => $department->id]);
+            if (\Illuminate\Support\Facades\Schema::hasTable('department_faculty') && 
+                ($department->id === 'dept-bca' || \Illuminate\Support\Facades\DB::table('department_faculty')->where('department_id', $department->id)->exists())) {
+                $department->associatedFaculty()->sync($validated['faculty_ids']);
+            } else {
+                // Unset previous faculty
+                Faculty::where('department_id', $department->id)->update(['department_id' => null]);
+                // Set new assigned faculty
+                Faculty::whereIn('id', $validated['faculty_ids'])->update(['department_id' => $department->id]);
+            }
         }
 
         // Wipe current draft sections and replace with new draft sections

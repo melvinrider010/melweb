@@ -39,7 +39,18 @@ class Department extends Model
 
     public function faculty()
     {
+        if (\Illuminate\Support\Facades\Schema::hasTable('department_faculty') && 
+            \Illuminate\Support\Facades\DB::table('department_faculty')->where('department_id', $this->id)->exists()) {
+            return $this->belongsToMany(Faculty::class, 'department_faculty', 'department_id', 'faculty_id')
+                ->where('faculty.status', 'active');
+        }
+
         return $this->hasMany(Faculty::class, 'department_id', 'id')->where('status', 'active');
+    }
+
+    public function associatedFaculty()
+    {
+        return $this->belongsToMany(Faculty::class, 'department_faculty', 'department_id', 'faculty_id');
     }
 
     public function sections()

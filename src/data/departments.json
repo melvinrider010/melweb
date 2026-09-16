@@ -27,7 +27,7 @@
   },
   {
     "id": "dept-computer-science",
-    "name": "Department of Computer Science (B.Sc / M.Sc)",
+    "name": "Department of Computer Science",
     "shortName": "Computer Science (B.Sc)",
     "facultyId": "faculty-science",
     "slug": "computer-science",
@@ -153,6 +153,13 @@
         "title": "B.Sc Biochemistry → M.Sc Biochemistry",
         "description": "Advanced postgraduate specialization in clinical enzymology, immunology, toxicology, and pharmaceutical biotechnology."
       }
+    ],
+    "short_description": "Focuses on biomolecular mechanisms, enzymology, clinical biochemistry, immunology, and metabolic pathways.",
+    "category": "Science",
+    "status": "published",
+    "display_order": 6,
+    "programmes": [
+      "bsc"
     ]
   },
   {
@@ -179,6 +186,13 @@
         "title": "B.Sc Biotechnology → M.Sc Biotechnology",
         "description": "Direct pathway to recombinant DNA technology, industrial bioprocessing, and clinical biomedical applications."
       }
+    ],
+    "short_description": "Delivers training in recombinant DNA technology, plant tissue culture, bioprocess engineering, and genomics.",
+    "category": "Science",
+    "status": "published",
+    "display_order": 7,
+    "programmes": [
+      "bsc"
     ]
   },
   {
@@ -203,6 +217,13 @@
         "title": "B.Sc Microbiology → M.Sc Biotechnology (Interdisciplinary)",
         "description": "Progress into advanced molecular biotechnology and genetic engineering."
       }
+    ],
+    "short_description": "Covers bacteriology, virology, mycology, industrial microbiology, and environmental microbiology.",
+    "category": "Science",
+    "status": "published",
+    "display_order": 8,
+    "programmes": [
+      "bsc"
     ]
   },
   {
@@ -227,7 +248,7 @@
     "name": "Department of Food Science & Nutrition",
     "shortName": "Food Science & Nutrition",
     "facultyId": "faculty-science",
-    "slug": "food-science-and-nutrition",
+    "slug": "food-science",
     "description": "Pioneering nutrition research, dietetics, clinical nutrition, food microbiology, and food processing laboratory.",
     "officialUrl": "https://stphilos.ac.in/post-graduation-department-of-food-science-and-nutrition/",
     "photoUrl": "/media/departments/dept-food-science.jpg",
@@ -246,6 +267,13 @@
         "title": "B.Sc Food Science → M.Sc Food Science & Nutrition",
         "description": "Specialization for registered clinical dietitians, food quality auditors, and nutritional researchers."
       }
+    ],
+    "short_description": "Provides holistic training in clinical nutrition, food processing, dietetics, community nutrition, and food quality assurance.",
+    "category": "Science",
+    "status": "published",
+    "display_order": 10,
+    "programmes": [
+      "bsc"
     ]
   },
   {
@@ -280,7 +308,15 @@
         "title": "B.Sc Psychology → M.Sc Psychology",
         "description": "Scientific and clinical pathway to professional counseling, mental healthcare, and cognitive psychology."
       }
-    ]
+    ],
+    "short_description": "Specializes in developmental psychology, cognitive neuroscience, psychopathology, counseling, and organizational behavior.",
+    "status": "published",
+    "display_order": 25,
+    "programmes": [
+      "ba",
+      "bsc"
+    ],
+    "banner_image": "/assets/banner-college.jpg"
   },
   {
     "id": "dept-environmental-science",
@@ -408,7 +444,15 @@
         "title": "BSW (Bachelor of Social Work) → MSW (Master of Social Work)",
         "description": "Comprehensive professional training with concurrent fieldwork, rural immersion, and psychiatric social work specialization."
       }
-    ]
+    ],
+    "short_description": "The Department of Social Work equips students with professional knowledge, values, and skills required for community development, clinical social work, and social change.",
+    "category": "Humanities",
+    "status": "published",
+    "display_order": 55,
+    "programmes": [
+      "bsw"
+    ],
+    "banner_image": "/assets/banner-college.jpg"
   },
   {
     "id": "dept-economics",
@@ -487,7 +531,14 @@
         "title": "B.A Journalism → M.A Journalism & Mass Communication",
         "description": "Broadcast journalism, investigative reporting, digital media production, corporate communications, and public relations."
       }
-    ]
+    ],
+    "short_description": "Delivers professional training in print journalism, television broadcasting, digital media, advertising, and public relations.",
+    "status": "published",
+    "display_order": 24,
+    "programmes": [
+      "ba"
+    ],
+    "banner_image": "/assets/banner-college.jpg"
   },
   {
     "id": "dept-sociology",
@@ -603,6 +654,391 @@
         "title": "B.Voc Hospitality Management → MBA",
         "description": "Progress from operational hospitality management to postgraduate corporate leadership."
       }
-    ]
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "dept-bba-th",
+    "name": "Department of BBA -TH",
+    "slug": "bba-th",
+    "short_description": "The Department of BBA -TH offers specialized education in Tourism and Hospitality Management, culinary arts, and hotel administration.",
+    "category": "Commerce & Management",
+    "status": "published",
+    "display_order": 25,
+    "programmes": [
+      "bba-thm"
+    ],
+    "banner_image": "/assets/banner-college.jpg"
+  },
+  {
+    "id": "dept-kannada",
+    "name": "Department of Kannada",
+    "slug": "kannada",
+    "short_description": "The Department of Kannada fosters deep academic engagement with classical Kannada literature, cultural heritage, linguistics, and modern prose and poetry.",
+    "category": "Languages & Culture",
+    "status": "published",
+    "display_order": 30,
+    "programmes": [
+      "ba-kannada"
+    ],
+    "banner_image": "/assets/banner-college.jpg"
+  },
+  {
+    "id": "dept-hindi",
+    "name": "Department of Hindi",
+    "slug": "hindi",
+    "short_description": "The Department of Hindi offers comprehensive education in Hindi literature, linguistics, grammar, translation studies, and functional Hindi.",
+    "category": "Languages & Culture",
+    "status": "published",
+    "display_order": 35,
+    "programmes": [
+      "ba-hindi"
+    ],
+    "banner_image": "/assets/banner-college.jpg"
+  },
+  {
+    "id": "dept-malayalam",
+    "name": "Department of Malayalam",
+    "slug": "malayalam",
+    "short_description": "The Department of Malayalam fosters academic and cultural study of classical and contemporary Malayalam literature, linguistic evolution, and Kerala cultural heritage.",
+    "category": "Languages & Culture",
+    "status": "published",
+    "display_order": 40,
+    "programmes": [
+      "ba-malayalam"
+    ],
+    "banner_image": "/assets/banner-college.jpg"
+  },
+  {
+    "id": "dept-urdu",
+    "name": "Department of Urdu",
+    "slug": "urdu",
+    "short_description": "The Department of Urdu provides comprehensive literary, linguistic, and cultural study of classical and modern Urdu literature and poetry.",
+    "category": "Languages & Culture",
+    "status": "published",
+    "display_order": 45,
+    "programmes": [
+      "ba-urdu"
+    ],
+    "banner_image": "/assets/banner-college.jpg"
+  },
+  {
+    "id": "dept-tamil",
+    "name": "Department of Tamil",
+    "slug": "tamil",
+    "short_description": "The Department of Tamil offers rich academic study of classical Sangam literature, modern Tamil prose, poetry, cultural history, and Dravidian linguistics.",
+    "category": "Languages & Culture",
+    "status": "published",
+    "display_order": 50,
+    "programmes": [
+      "ba-tamil"
+    ],
+    "banner_image": "/assets/banner-college.jpg"
+  },
+  {
+    "id": "dept-french",
+    "name": "Department of French",
+    "slug": "french",
+    "short_description": "The Department of French offers rich academic study in French language, literature, Francophone cultures, translation, and international communication.",
+    "category": "Languages & Culture",
+    "status": "published",
+    "display_order": 51,
+    "programmes": [
+      "ba-french"
+    ],
+    "banner_image": "/assets/banner-college.jpg"
+  },
+  {
+    "id": "dept-botany",
+    "name": "Department of Botany",
+    "slug": "botany",
+    "short_description": "The Department of Botany offers rigorous undergraduate studies in plant biology, taxonomy, physiology, ecology, phytochemistry, and biodiversity conservation.",
+    "category": "Science",
+    "status": "published",
+    "display_order": 52,
+    "programmes": [
+      "bsc-botany"
+    ],
+    "banner_image": "/assets/banner-college.jpg"
+  },
+  {
+    "id": "dept-zoology",
+    "name": "Department of Zoology",
+    "slug": "zoology",
+    "short_description": "The Department of Zoology offers comprehensive education in animal biology, physiology, genetics, ecology, and evolutionary science.",
+    "category": "Science",
+    "status": "published",
+    "display_order": 53,
+    "programmes": [
+      "bsc-zoology"
+    ],
+    "banner_image": "/assets/banner-college.jpg"
+  },
+  {
+    "id": "dept-christianity",
+    "name": "Department of Christianity",
+    "slug": "christianity",
+    "short_description": "The Department of Christianity offers academic study of Christian theology, biblical studies, ethics, philosophy, and history of world Christianity.",
+    "category": "Languages & Culture",
+    "status": "published",
+    "display_order": 54,
+    "programmes": [
+      "ba-christianity"
+    ],
+    "banner_image": "/assets/banner-college.jpg"
+  },
+  {
+    "id": "dept-bvoc",
+    "name": "Department of Vocational Studies (B.Voc)",
+    "slug": "bvoc",
+    "short_description": "Industry-integrated vocational degrees designed with sector skill councils (Healthcare Technology and Media & Entertainment).",
+    "category": "Vocational Studies",
+    "status": "published",
+    "display_order": 11,
+    "programmes": [
+      "bvoc-healthcare",
+      "bvoc-media-entertainment"
+    ],
+    "banner_image": "/assets/banner-college.jpg"
+  },
+  {
+    "id": "dept-environmental-studies",
+    "name": "Department of Environmental Studies",
+    "shortName": "Environmental Studies",
+    "facultyId": "faculty-science",
+    "slug": "environmental-studies",
+    "description": "The Department of Environmental Studies provides interdisciplinary education in environmental awareness, sustainability, and ecological conservation.",
+    "officialUrl": "https://stphilos.ac.in/",
+    "photoUrl": "/media/departments/dept-environmental-science.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "evs"
+    ],
+    "pgProgrammes": [],
+    "pathways": []
+  },
+  {
+    "id": "dept-life-skills",
+    "name": "Department of Life Skills",
+    "shortName": "Life Skills",
+    "facultyId": "faculty-arts",
+    "slug": "life-skills",
+    "description": "The Department of Life Skills provides core personal development, leadership, ethics, and psycho-social competency training for undergraduate students.",
+    "officialUrl": "https://stphilos.ac.in/",
+    "photoUrl": "/media/departments/dept-psychology.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "life-skills"
+    ],
+    "pgProgrammes": [],
+    "pathways": []
+  },
+  {
+    "id": "dept-iks",
+    "name": "Department of Indian Knowledge System (IKS)",
+    "shortName": "Indian Knowledge System",
+    "facultyId": "faculty-arts",
+    "slug": "iks",
+    "description": "The Department of Indian Knowledge System (IKS) provides foundational instruction in Indian scientific, philosophical, and cultural traditions in alignment with NEP/SEP.",
+    "officialUrl": "https://stphilos.ac.in/",
+    "photoUrl": "/media/departments/dept-history.jpg",
+    "photoVerified": true,
+    "ugProgrammes": [
+      "iks"
+    ],
+    "pgProgrammes": [],
+    "pathways": []
+  },
+  {
+    "id": "dept-pg-biochemistry",
+    "deptId": "dept-pg-biochemistry",
+    "name": "PG Department of Biochemistry",
+    "slug": "pg-biochemistry",
+    "code": "PGBCH",
+    "category": "Science",
+    "facultyCategory": "science",
+    "status": "published",
+    "display_order": 36,
+    "short_description": "Postgraduate Department of Biochemistry offering M.Sc Biochemistry."
+  },
+  {
+    "id": "dept-pg-chemistry",
+    "deptId": "dept-pg-chemistry",
+    "name": "PG Department of Chemistry",
+    "slug": "pg-chemistry",
+    "code": "PGCHM",
+    "category": "Science",
+    "facultyCategory": "science",
+    "status": "published",
+    "display_order": 37,
+    "short_description": "Postgraduate Department of Chemistry offering M.Sc Chemistry."
+  },
+  {
+    "id": "dept-pg-commerce",
+    "deptId": "dept-pg-commerce",
+    "name": "PG Department of Commerce",
+    "slug": "pg-commerce",
+    "code": "PGCOM",
+    "category": "Commerce",
+    "facultyCategory": "commerce",
+    "status": "published",
+    "display_order": 38,
+    "short_description": "Postgraduate Department of Commerce offering M.Com."
+  },
+  {
+    "id": "dept-pg-computer-science",
+    "deptId": "dept-pg-computer-science",
+    "name": "PG Department of Computer Science",
+    "slug": "pg-computer-science",
+    "code": "PGCS",
+    "category": "Science",
+    "facultyCategory": "science",
+    "status": "published",
+    "display_order": 39,
+    "short_description": "Postgraduate Department of Computer Science offering M.Sc Computer Science."
+  },
+  {
+    "id": "dept-pg-cfs",
+    "deptId": "dept-pg-cfs",
+    "name": "PG Department of Criminology & Forensic Science",
+    "slug": "pg-cfs",
+    "code": "PGCFS",
+    "category": "Science",
+    "facultyCategory": "science",
+    "status": "published",
+    "display_order": 40,
+    "short_description": "Postgraduate Department of Criminology & Forensic Science offering M.Sc CFS."
+  },
+  {
+    "id": "dept-pg-english",
+    "deptId": "dept-pg-english",
+    "name": "PG Department of English",
+    "slug": "pg-english",
+    "code": "PGENG",
+    "category": "Arts & Humanities",
+    "facultyCategory": "humanities",
+    "status": "published",
+    "display_order": 41,
+    "short_description": "Postgraduate Department of English offering M.A English."
+  },
+  {
+    "id": "dept-pg-journalism",
+    "deptId": "dept-pg-journalism",
+    "name": "PG Department of Journalism & Mass Communication",
+    "slug": "pg-journalism",
+    "code": "PGJMC",
+    "category": "Arts & Humanities",
+    "facultyCategory": "humanities",
+    "status": "published",
+    "display_order": 42,
+    "short_description": "Postgraduate Department of Journalism & Mass Communication offering M.A Journalism."
+  },
+  {
+    "id": "dept-pg-mathematics",
+    "deptId": "dept-pg-mathematics",
+    "name": "PG Department of Mathematics",
+    "slug": "pg-mathematics",
+    "code": "PGMAT",
+    "category": "Science",
+    "facultyCategory": "science",
+    "status": "published",
+    "display_order": 43,
+    "short_description": "Postgraduate Department of Mathematics offering M.Sc Mathematics."
+  },
+  {
+    "id": "dept-pg-physics",
+    "deptId": "dept-pg-physics",
+    "name": "PG Department of Physics",
+    "slug": "pg-physics",
+    "code": "PGPHY",
+    "category": "Science",
+    "facultyCategory": "science",
+    "status": "published",
+    "display_order": 44,
+    "short_description": "Postgraduate Department of Physics offering M.Sc Physics."
+  },
+  {
+    "id": "dept-pg-psychology",
+    "deptId": "dept-pg-psychology",
+    "name": "PG Department of Psychology",
+    "slug": "pg-psychology",
+    "code": "PGPSY",
+    "category": "Arts & Humanities",
+    "facultyCategory": "humanities",
+    "status": "published",
+    "display_order": 45,
+    "short_description": "Postgraduate Department of Psychology offering M.Sc Psychology."
+  },
+  {
+    "id": "dept-pg-social-work",
+    "deptId": "dept-pg-social-work",
+    "name": "PG Department of Social Work",
+    "slug": "pg-social-work",
+    "code": "PGSW",
+    "category": "Arts & Humanities",
+    "facultyCategory": "humanities",
+    "status": "published",
+    "display_order": 46,
+    "short_description": "Postgraduate Department of Social Work offering MSW."
+  },
+  {
+    "id": "dept-pg-economics",
+    "deptId": "dept-pg-economics",
+    "name": "PG Department of Economics",
+    "slug": "pg-economics",
+    "code": "PGECN",
+    "category": "Arts & Humanities",
+    "facultyCategory": "humanities",
+    "status": "published",
+    "display_order": 47,
+    "short_description": "Postgraduate Department of Economics offering M.A Economics."
+  },
+  {
+    "id": "dept-pg-food-science",
+    "deptId": "dept-pg-food-science",
+    "name": "PG Department of Food Science & Nutrition",
+    "slug": "pg-food-science",
+    "code": "PGFSN",
+    "category": "Science",
+    "facultyCategory": "science",
+    "status": "published",
+    "display_order": 48,
+    "short_description": "Postgraduate Department of Food Science & Nutrition offering M.Sc Food Science & Nutrition."
+  },
+  {
+    "id": "dept-mca",
+    "deptId": "dept-mca",
+    "name": "Department of Computer Applications (MCA)",
+    "slug": "mca",
+    "code": "MCA",
+    "category": "Computer Applications",
+    "facultyCategory": "science",
+    "status": "published",
+    "display_order": 49,
+    "short_description": "Department of Computer Applications offering MCA."
+  },
+  {
+    "id": "dept-mba",
+    "deptId": "dept-mba",
+    "name": "Department of Business Administration (MBA)",
+    "slug": "mba",
+    "code": "MBA",
+    "category": "Management",
+    "facultyCategory": "management",
+    "status": "published",
+    "display_order": 50,
+    "short_description": "Department of Business Administration offering MBA."
+  },
+  {
+    "id": "dept-pg-library",
+    "deptId": "dept-pg-library",
+    "name": "Post Graduate Library",
+    "slug": "pg-library",
+    "code": "PGLIB",
+    "category": "Library Services",
+    "facultyCategory": "general",
+    "status": "published",
+    "display_order": 51,
+    "short_description": "Post Graduate Library supporting PG research and study."
   }
 ]
