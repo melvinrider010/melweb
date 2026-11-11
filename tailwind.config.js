@@ -57,29 +57,34 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        body: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        serif: ['Playfair Display', 'Georgia', 'Cambria', 'serif'],
-        heading: ['Playfair Display', 'Georgia', 'Cambria', 'serif'],
+        sans: ['"Source Sans 3"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        body: ['"Source Sans 3"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        serif: ['"Source Sans 3"', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        heading: ['"Source Sans 3"', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        display: ['"Source Sans 3"', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        classical: ['"Playfair Display"', 'Georgia', 'Cambria', 'serif'],
+        cormorant: ['"Cormorant Garamond"', 'Playfair Display', 'Georgia', 'serif'],
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
       },
       fontSize: {
         '2xs': ['0.75rem', { lineHeight: '1.3' }],       // 12px (badges, micro tags)
-        'xs': ['0.8125rem', { lineHeight: '1.4' }],     // 13px (meta tags, dates)
-        'sm': ['0.875rem', { lineHeight: '1.5' }],      // 14px (navigation, buttons)
-        'base': ['0.9375rem', { lineHeight: '1.65' }],  // 15px (standard body copy)
-        'lg': ['1.0625rem', { lineHeight: '1.5' }],     // 17px (lead text, item titles)
-        'xl': ['1.25rem', { lineHeight: '1.35' }],      // 20px (card titles, H4)
-        '2xl': ['1.5rem', { lineHeight: '1.25' }],      // 24px (H3 subsection titles)
-        '3xl': ['1.875rem', { lineHeight: '1.2' }],     // 30px (H2 section titles)
-        '4xl': ['2.25rem', { lineHeight: '1.15' }],     // 36px (Page titles)
-        '5xl': ['2.75rem', { lineHeight: '1.1' }],      // 44px (Hero headlines)
-        '6xl': ['3.5rem', { lineHeight: '1.05' }]       // 56px (Display banners)
+        'xs': ['0.8125rem', { lineHeight: '1.4' }],     // 13px (breadcrumbs, meta tags, dates)
+        'sm': ['0.875rem', { lineHeight: '1.5' }],      // 14px (table data, document lists)
+        'nav': ['0.9375rem', { lineHeight: '1.4' }],    // 15px (primary navigation, controls)
+        'base': ['1rem', { lineHeight: '1.65' }],       // 16px (standard institutional body copy)
+        'card': ['1.0625rem', { lineHeight: '1.35' }],  // 17px (card titles, lead item titles)
+        'lg': ['1.125rem', { lineHeight: '1.35' }],     // 18px (H4 smaller headings, lead text)
+        'xl': ['1.3125rem', { lineHeight: '1.3' }],     // 21px (H3 subsection titles)
+        '2xl': ['1.625rem', { lineHeight: '1.25' }],    // 26px (H2 section titles)
+        '3xl': ['2rem', { lineHeight: '1.2' }],         // 32px (H1 main page titles)
+        '4xl': ['2.25rem', { lineHeight: '1.18' }],     // 36px (large page headings)
+        '5xl': ['2.75rem', { lineHeight: '1.12' }],     // 44px (hero headlines)
+        '6xl': ['3.25rem', { lineHeight: '1.08' }]      // 52px (display banners)
       },
       lineHeight: {
-        'heading': '1.15',
+        'heading': '1.25',
         'body': '1.65',
-        'nav': '1.35'
+        'nav': '1.4'
       }
     },
   },

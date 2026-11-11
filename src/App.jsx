@@ -43,6 +43,7 @@ const LibraryPage = lazy(() => import('./pages/LibraryPage'));
 const MagazinePage = lazy(() => import('./pages/MagazinePage'));
 const DynamicCmsPage = lazy(() => import('./pages/DynamicCmsPage'));
 const LeadershipMessagePage = lazy(() => import('./pages/LeadershipMessagePage'));
+const CollegeComponentShowcase = lazy(() => import('./pages/CollegeComponentShowcase'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 // Admin CMS Modules (Lazy-Loaded)
@@ -68,6 +69,8 @@ const AdminArchiveStatusPage = lazy(() => import('./admin/pages/AdminArchiveStat
 const AdminVerificationPage = lazy(() => import('./admin/pages/AdminVerificationPage'));
 const AdminSettingsPage = lazy(() => import('./admin/pages/AdminSettingsPage'));
 const AdminHeaderFooterPage = lazy(() => import('./admin/pages/AdminHeaderFooterPage'));
+const AdminLeadershipManagerPage = lazy(() => import('./admin/pages/AdminLeadershipManagerPage'));
+const AdminOrganogramPage = lazy(() => import('./admin/pages/AdminOrganogramPage'));
 
 export default function App() {
   const location = useLocation();
@@ -86,6 +89,10 @@ export default function App() {
               <Route path="/" element={<Layout />}>
                 <Route index element={<HomePage />} />
                 <Route path="about" element={<AboutPage />} />
+                <Route path="about/principals-message" element={<LeadershipMessagePage defaultSlug="principal" />} />
+                <Route path="about/principal-message" element={<LeadershipMessagePage defaultSlug="principal" />} />
+                <Route path="about/rectors-message" element={<LeadershipMessagePage defaultSlug="rector" />} />
+                <Route path="about/rector-message" element={<LeadershipMessagePage defaultSlug="rector" />} />
                 <Route path="about/*" element={<AboutPage />} />
                 <Route path="history" element={<AboutPage />} />
                 <Route path="vision-mission" element={<AboutPage />} />
@@ -96,8 +103,11 @@ export default function App() {
                 <Route path="organogram" element={<AboutPage />} />
                 <Route path="governing-body" element={<AboutPage />} />
                 <Route path="statutory-bodies" element={<AboutPage />} />
+                <Route path="leadership" element={<AboutPage />} />
                 <Route path="rectors-message" element={<LeadershipMessagePage defaultSlug="rector" />} />
+                <Route path="rector-message" element={<LeadershipMessagePage defaultSlug="rector" />} />
                 <Route path="principals-message" element={<LeadershipMessagePage defaultSlug="principal" />} />
+                <Route path="principal-message" element={<LeadershipMessagePage defaultSlug="principal" />} />
                 <Route path="bishops-message" element={<Navigate to="/about?tab=mdes" replace />} />
                 <Route path="financial-officers-message" element={<Navigate to="/about?tab=leadership" replace />} />
                 <Route path="leadership/bishop" element={<Navigate to="/about?tab=mdes" replace />} />
@@ -188,7 +198,9 @@ export default function App() {
                 <Route path="library" element={<LibraryPage />} />
                 <Route path="magazine" element={<MagazinePage />} />
                 <Route path="college-magazine" element={<MagazinePage />} />
+                <Route path="important-links" element={<DynamicCmsPage defaultSlug="important-links" />} />
                 <Route path="pages/:slug" element={<DynamicCmsPage />} />
+                <Route path="dev/college-components" element={<CollegeComponentShowcase />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Route>
 
@@ -206,6 +218,9 @@ export default function App() {
                 }
               >
                 <Route index element={<AdminDashboardPage />} />
+                <Route path="leadership" element={<AdminLeadershipManagerPage />} />
+                <Route path="administration" element={<AdminLeadershipManagerPage />} />
+                <Route path="organogram" element={<AdminOrganogramPage />} />
                 <Route path="sliders" element={<AdminSliderManagerPage />} />
                 <Route path="pages" element={<AdminPagesManagerPage />} />
                 <Route path="menus" element={<AdminMenuManagerPage />} />

@@ -25,7 +25,9 @@ import {
   Copy, 
   ChevronRight,
   Menu,
-  Layout
+  Layout,
+  Crown,
+  ArrowRight
 } from 'lucide-react';
 import cmsStore from '../../lib/cmsStore';
 import useCms from '../../lib/useCms';
@@ -57,9 +59,20 @@ const getLiveUrl = (p) => {
   if (!p) return '/';
   if (p.slug === 'home') return '/';
   
+  // Direct mapped tab routes for About Us section
+  if (p.slug === 'vision-mission' || p.slug === 'vision') return '/about?tab=vision';
+  if (p.slug === 'history') return '/about?tab=history';
+  if (p.slug === 'coat-of-arms') return '/about?tab=coat-of-arms';
+  if (p.slug === 'former-bishops') return '/about?tab=bishops';
+  if (p.slug === 'former-principals') return '/about?tab=principals';
+  if (p.slug === 'mdes') return '/about?tab=mdes';
+  if (p.slug === 'organogram') return '/about?tab=organogram';
+  if (p.slug === 'governing-body') return '/about?tab=governing-body';
+  if (p.slug === 'leadership') return '/about?tab=leadership';
+
   const directRoutes = [
     'about', 'history', 'vision-mission', 'coat-of-arms', 'former-bishops', 'former-principals',
-    'mdes', 'organogram', 'governing-body', 'statutory-bodies', 'rectors-message', 'principals-message',
+    'mdes', 'organogram', 'governing-body', 'statutory-bodies', 'leadership', 'rectors-message', 'principals-message',
     'academics', 'departments', 'faculty', 'prospectus', 'admissions', 'apply', 'applications',
     'examinations', 'research', 'student-life', 'student-support', 'facilities', 'infrastructure',
     'campus', 'business-lab', 'computer-science-lab', 'girls-hostel', 'boys-hostel', 'auditorium',
@@ -472,6 +485,15 @@ export default function AdminPagesManagerPage() {
                               {p.excerpt}
                             </p>
                           )}
+                          {(p.slug === 'leadership' || p.id === 'page-leadership') && (
+                            <Link
+                              to="/admin/leadership"
+                              className="inline-flex items-center space-x-1.5 px-2 py-0.5 mt-1 rounded-md bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-bold transition-colors w-fit"
+                            >
+                              <Crown className="w-3 h-3 text-amber-600" />
+                              <span>Manage Leaders Roster &rarr;</span>
+                            </Link>
+                          )}
                         </div>
                       </td>
 
@@ -521,11 +543,11 @@ export default function AdminPagesManagerPage() {
 
                           {/* 2. CMS Dynamic Preview Link */}
                           <a
-                            href={`/pages/${p.slug}`}
+                            href={liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-colors"
-                            title="Preview CMS Dynamic View"
+                            className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-blue-600 transition-colors"
+                            title="Preview Connected Live Page"
                           >
                             <Eye className="w-3.5 h-3.5" />
                           </a>
@@ -600,6 +622,30 @@ export default function AdminPagesManagerPage() {
                 <X className="w-5 h-5" />
               </button>
             </div>
+
+            {/* Direct Link to Leadership & Academic Heads Manager if editing Leadership page */}
+            {editingPage && (editingPage.slug === 'leadership' || editingPage.id === 'page-leadership' || (editingPage.title && editingPage.title.toLowerCase().includes('leadership'))) && (
+              <div className="bg-amber-50 border border-amber-200/90 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 animate-fadeIn">
+                <div className="flex items-center space-x-3">
+                  <div className="w-9 h-9 rounded-xl bg-amber-500/15 flex items-center justify-center text-amber-700 shrink-0">
+                    <Crown className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-amber-950">Looking to add or edit Leaders & Academic Heads?</h4>
+                    <p className="text-[11px] text-amber-800 leading-snug">
+                      Individual officers (Principal, Rector, Deans, IQAC Coordinator, etc.) are managed in the dedicated Leadership Hub with photos, biographies, and reordering.
+                    </p>
+                  </div>
+                </div>
+                <Link
+                  to="/admin/leadership"
+                  className="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold shrink-0 transition-colors shadow-xs"
+                >
+                  <span>Open Leadership CMS</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            )}
 
             {/* Tab Navigation */}
             <div className="flex border-b border-slate-100 text-xs font-semibold gap-2">

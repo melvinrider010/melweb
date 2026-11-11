@@ -104,8 +104,8 @@ export default function Footer() {
                 onError={(e) => { e.target.src = fallbackCrestUrl; }}
               />
               <div>
-                <h3 className="font-serif font-extrabold text-lg sm:text-xl text-white">{brandTitle}</h3>
-                <p className="text-[11px] text-[#F0D98C] font-bold uppercase tracking-wider">{brandSubtitle}</p>
+                <h3 className="font-heading font-bold text-lg sm:text-xl text-white">{brandTitle}</h3>
+                <p className="text-[11px] text-[#F0D98C] font-semibold uppercase tracking-wider">{brandSubtitle}</p>
               </div>
             </div>
             <p className="text-slate-200 leading-relaxed text-xs max-w-sm">
@@ -114,7 +114,7 @@ export default function Footer() {
             <div className="space-y-2 text-xs text-slate-200">
               <div className="flex items-center text-slate-200">
                 <Phone className="w-3.5 h-3.5 mr-2.5 text-[#F0D98C] shrink-0" />
-                <div className="flex flex-wrap items-center gap-1 font-mono font-bold">
+                <div className="flex flex-wrap items-center gap-1 font-mono font-medium">
                   {phoneNumbers.map((num, idx) => (
                     <React.Fragment key={idx}>
                       {idx > 0 && <span className="text-white/40 select-none px-0.5">,</span>}
@@ -144,7 +144,7 @@ export default function Footer() {
           {/* Dynamic Link Columns */}
           {columns.map((col, cIdx) => (
             <div key={cIdx} className="space-y-3">
-              <h4 className="font-serif font-bold text-sm text-[#F0D98C] uppercase tracking-wider border-b border-white/15 pb-1.5">
+              <h4 className="font-heading font-semibold text-xs sm:text-sm text-[#F0D98C] uppercase tracking-wider border-b border-white/15 pb-1.5">
                 {col.title}
               </h4>
               <ul className="space-y-2 text-slate-200">

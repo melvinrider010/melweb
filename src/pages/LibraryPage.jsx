@@ -35,10 +35,10 @@ export default function LibraryPage() {
           </div>
 
           <div className="space-y-2">
-            <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900">
+            <h1 className="font-heading font-semibold text-2xl sm:text-3xl text-slate-900 tracking-tight">
               {libraryData.title}
             </h1>
-            <p className="text-amber-800 font-serif italic text-base sm:text-lg">
+            <p className="text-amber-800 italic text-sm sm:text-base">
               {libraryData.tagline}
             </p>
             <p className="text-slate-600 text-xs sm:text-sm lg:text-base max-w-4xl leading-relaxed font-sans pt-1">
@@ -50,27 +50,27 @@ export default function LibraryPage() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-4 border-t border-slate-100 text-center">
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
               <span className="text-[10px] font-bold text-slate-400 uppercase block">Print Books</span>
-              <span className="font-serif font-extrabold text-xl text-[#1C5496]">{libraryData.metrics.totalPrintBooks}</span>
+              <span className="font-heading font-bold text-lg sm:text-xl text-[#1C5496]">{libraryData.metrics.totalPrintBooks}</span>
             </div>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
               <span className="text-[10px] font-bold text-slate-400 uppercase block">E-Journals</span>
-              <span className="font-serif font-extrabold text-xl text-emerald-700">{libraryData.metrics.eJournals}</span>
+              <span className="font-heading font-bold text-lg sm:text-xl text-emerald-700">{libraryData.metrics.eJournals}</span>
             </div>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
               <span className="text-[10px] font-bold text-slate-400 uppercase block">E-Books</span>
-              <span className="font-serif font-extrabold text-xl text-amber-700">{libraryData.metrics.eBooks}</span>
+              <span className="font-heading font-bold text-lg sm:text-xl text-amber-700">{libraryData.metrics.eBooks}</span>
             </div>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
               <span className="text-[10px] font-bold text-slate-400 uppercase block">Rare Works</span>
-              <span className="font-serif font-extrabold text-xl text-indigo-700">{libraryData.metrics.rareManuscripts}</span>
+              <span className="font-heading font-bold text-lg sm:text-xl text-indigo-700">{libraryData.metrics.rareManuscripts}</span>
             </div>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
               <span className="text-[10px] font-bold text-slate-400 uppercase block">Workstations</span>
-              <span className="font-serif font-extrabold text-xl text-slate-900">{libraryData.metrics.digitalWorkstations}</span>
+              <span className="font-heading font-bold text-lg sm:text-xl text-slate-900">{libraryData.metrics.digitalWorkstations}</span>
             </div>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
               <span className="text-[10px] font-bold text-slate-400 uppercase block">Reading Capacity</span>
-              <span className="font-serif font-extrabold text-xl text-slate-900">{libraryData.metrics.seatingCapacity}</span>
+              <span className="font-heading font-bold text-lg sm:text-xl text-slate-900">{libraryData.metrics.seatingCapacity}</span>
             </div>
           </div>
         </div>
@@ -78,10 +78,10 @@ export default function LibraryPage() {
         {/* 2. DIGITAL COMMONS & ONLINE GATEWAYS */}
         <div className="space-y-6">
           <div className="border-b border-slate-200 pb-3">
-            <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">
+            <span className="text-[#1C5496] font-mono font-semibold text-xs uppercase tracking-widest block">
               E-RESOURCES & DIGITAL DATABASES
             </span>
-            <h2 className="font-serif font-bold text-2xl sm:text-3xl text-slate-900">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
               National & International Digital Commons
             </h2>
           </div>
@@ -91,12 +91,12 @@ export default function LibraryPage() {
               <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-xs flex flex-col justify-between space-y-4 hover:shadow-md transition-all">
                 <div className="space-y-2">
                   <div className="flex justify-between items-start">
-                    <span className="bg-blue-50 text-[#1C5496] font-mono font-bold text-[10.5px] px-2.5 py-1 rounded-md uppercase">
+                    <span className="bg-blue-50 text-[#1C5496] font-mono font-semibold text-[10.5px] px-2.5 py-1 rounded-md uppercase">
                       {res.badge}
                     </span>
                     <BookmarkCheck className="w-4 h-4 text-emerald-600" />
                   </div>
-                  <h3 className="font-serif font-bold text-lg text-slate-900">
+                  <h3 className="font-heading font-semibold text-card text-slate-900">
                     {res.name}
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed font-sans">
@@ -108,7 +108,7 @@ export default function LibraryPage() {
                   href={res.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary-blue py-2.5 px-4 rounded-xl text-xs font-bold text-center inline-flex items-center justify-center space-x-2"
+                  className="btn-primary-blue py-2.5 px-4 rounded-xl text-xs font-semibold text-center inline-flex items-center justify-center space-x-2"
                 >
                   <span>Access Portal Gateway</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -125,21 +125,21 @@ export default function LibraryPage() {
           <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 space-y-5 shadow-xs">
             <div className="flex items-center space-x-3 text-[#1C5496]">
               <Clock className="w-6 h-6" />
-              <h3 className="font-serif font-bold text-xl text-slate-900">Library Operating Schedule</h3>
+              <h3 className="font-heading font-semibold text-lg sm:text-xl text-slate-900">Library Operating Schedule</h3>
             </div>
             
             <div className="space-y-3 text-xs sm:text-sm font-sans divide-y divide-slate-100">
               <div className="flex justify-between py-2">
-                <span className="text-slate-600 font-semibold">Monday to Friday:</span>
-                <span className="font-mono font-bold text-slate-900">{libraryData.timings.weekdays}</span>
+                <span className="text-slate-600 font-medium">Monday to Friday:</span>
+                <span className="font-mono font-semibold text-slate-900">{libraryData.timings.weekdays}</span>
               </div>
               <div className="flex justify-between py-2">
-                <span className="text-slate-600 font-semibold">Saturdays:</span>
-                <span className="font-mono font-bold text-slate-900">{libraryData.timings.saturdays}</span>
+                <span className="text-slate-600 font-medium">Saturdays:</span>
+                <span className="font-mono font-semibold text-slate-900">{libraryData.timings.saturdays}</span>
               </div>
               <div className="flex justify-between py-2">
-                <span className="text-slate-600 font-semibold">Semester Exam Duration:</span>
-                <span className="font-mono font-bold text-emerald-700">{libraryData.timings.examPeriod}</span>
+                <span className="text-slate-600 font-medium">Semester Exam Duration:</span>
+                <span className="font-mono font-semibold text-emerald-700">{libraryData.timings.examPeriod}</span>
               </div>
             </div>
           </div>
@@ -148,19 +148,19 @@ export default function LibraryPage() {
           <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 space-y-5 shadow-xs">
             <div className="flex items-center space-x-3 text-[#1C5496]">
               <FileText className="w-6 h-6" />
-              <h3 className="font-serif font-bold text-xl text-slate-900">Official Local Library Manuals</h3>
+              <h3 className="font-heading font-semibold text-lg sm:text-xl text-slate-900">Official Local Library Manuals</h3>
             </div>
 
             <div className="space-y-3">
               <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex justify-between items-center gap-3">
                 <div className="overflow-hidden">
-                  <h4 className="font-serif font-bold text-xs text-slate-900">Library Rules & User Code of Conduct</h4>
+                  <h4 className="font-heading font-semibold text-sm text-slate-900">Library Rules & User Code of Conduct</h4>
                   <span className="text-[10px] text-slate-500 font-mono">PDF • Stored Locally</span>
                 </div>
                 <a
                   href={libraryData.rulesDoc}
                   download="library-rules-and-regulations-manual.pdf"
-                  className="btn-primary-blue px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 flex items-center space-x-1"
+                  className="btn-primary-blue px-3 py-1.5 rounded-lg text-xs font-semibold shrink-0 flex items-center space-x-1"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Download</span>
@@ -169,13 +169,13 @@ export default function LibraryPage() {
 
               <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex justify-between items-center gap-3">
                 <div className="overflow-hidden">
-                  <h4 className="font-serif font-bold text-xs text-slate-900">Koha Web OPAC Online Catalog User Guide</h4>
+                  <h4 className="font-heading font-semibold text-sm text-slate-900">Koha Web OPAC Online Catalog User Guide</h4>
                   <span className="text-[10px] text-slate-500 font-mono">PDF • Stored Locally</span>
                 </div>
                 <a
                   href={libraryData.opacGuideDoc}
                   download="koha-opac-digital-catalog-guide.pdf"
-                  className="btn-primary-blue px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 flex items-center space-x-1"
+                  className="btn-primary-blue px-3 py-1.5 rounded-lg text-xs font-semibold shrink-0 flex items-center space-x-1"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Download</span>

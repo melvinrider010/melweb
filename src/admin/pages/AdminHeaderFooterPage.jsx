@@ -221,23 +221,25 @@ export default function AdminHeaderFooterPage() {
   };
 
   // --- Save / Reset Actions ---
-  const handleSaveAll = (e) => {
+  const handleSaveAll = async (e) => {
     e?.preventDefault();
     setIsSaving(true);
-    cmsStore.updateHeaderConfig(headerData);
-    cmsStore.updateFooterConfig(footerData);
-
-    setTimeout(() => {
-      setIsSaving(false);
+    try {
+      await cmsStore.updateHeaderConfig(headerData);
+      await cmsStore.updateFooterConfig(footerData);
       setIsSaved(true);
       triggerToast('Header and Footer configurations saved and live across the entire website!');
       setTimeout(() => setIsSaved(false), 3500);
-    }, 400);
+    } catch (err) {
+      triggerToast('Failed to save configuration.');
+    } finally {
+      setIsSaving(false);
+    }
   };
 
-  const handleResetDefaults = () => {
+  const handleResetDefaults = async () => {
     if (!window.confirm('Reset Header and Footer back to official college defaults? Any custom links added will be restored.')) return;
-    const reset = cmsStore.resetHeaderFooterDefaults();
+    const reset = await cmsStore.resetHeaderFooterDefaults();
     setHeaderData(JSON.parse(JSON.stringify(reset.headerConfig)));
     setFooterData(JSON.parse(JSON.stringify(reset.footerConfig)));
     triggerToast('Header and Footer restored to default institutional settings.');

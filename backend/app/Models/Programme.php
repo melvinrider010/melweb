@@ -23,6 +23,8 @@ class Programme extends Model
         'outcomes',
         'source_url',
         'source_verified',
+        'status',
+        'is_featured_honeycomb',
     ];
 
     protected function casts(): array
@@ -30,6 +32,7 @@ class Programme extends Model
         return [
             'departments' => 'array',
             'source_verified' => 'boolean',
+            'is_featured_honeycomb' => 'boolean',
         ];
     }
 

@@ -25,7 +25,9 @@ export default function FacultyAvatar({
         .toUpperCase()
     : 'FC';
 
-  if (error || !src) {
+  const isDefault = typeof src === 'string' && (src.includes('default-avatar') || src.trim() === '');
+
+  if (error || !src || isDefault) {
     return (
       <div 
         className={`${className} bg-gradient-to-br from-[#1C5496] to-[#071A33] text-[#FFD84A] flex items-center justify-center font-serif font-bold ${fallbackSize} shadow-inner select-none shrink-0`}

@@ -57,53 +57,53 @@
   ],
   "dflip": "document",
   "pdfs": [
-    "https://stphilos.ac.in/wp-content/uploads/2024/12/undertakingCertificate.pdf",
-    "https://stphilos.ac.in/wp-content/uploads/2025/01/SKM_C30813010105381-2Fees-Structure.pdf",
-    "https://stphilos.ac.in/wp-content/uploads/2024/05/EstablismentCertificate.pdf",
-    "https://stphilos.ac.in/wp-content/uploads/2025/05/EOA-Report-2025-26.pdf",
-    "https://stphilos.ac.in/wp-content/uploads/2022/03/St.-Philominas-College-Bannimantap20220218-.pdf",
-    "https://stphilos.ac.in/wp-content/uploads/2021/03/St.-Philominas-College-Bannimantap20210305-1.pdf"
+    "/assets/documents/academics/undertakingCertificate.pdf",
+    "/assets/documents/academics/SKM_C30813010105381-2Fees-Structure.pdf",
+    "/assets/documents/academics/EstablismentCertificate.pdf",
+    "/assets/documents/academics/EOA-Report-2025-26.pdf",
+    "/documents/academics/St.-Philominas-College-Bannimantap20220218-.pdf",
+    "/documents/academics/St.-Philominas-College-Bannimantap20210305-1.pdf"
   ],
   "linkList": [
     {
       "text": "Undertaking Certificate",
-      "href": "https://stphilos.ac.in/wp-content/uploads/2024/12/undertakingCertificate.pdf"
+      "href": "/assets/documents/academics/undertakingCertificate.pdf"
     },
     {
       "text": "Fee Structure",
-      "href": "https://stphilos.ac.in/wp-content/uploads/2025/01/SKM_C30813010105381-2Fees-Structure.pdf"
+      "href": "/assets/documents/academics/SKM_C30813010105381-2Fees-Structure.pdf"
     },
     {
       "text": "Institution's Innovation Council",
-      "href": "https://stphilos.ac.in/wp-content/uploads/2024/05/EstablismentCertificate.pdf"
+      "href": "/assets/documents/academics/EstablismentCertificate.pdf"
     },
     {
       "text": "EOA 2025-26",
-      "href": "https://stphilos.ac.in/wp-content/uploads/2025/05/EOA-Report-2025-26.pdf"
+      "href": "/assets/documents/academics/EOA-Report-2025-26.pdf"
     },
     {
       "text": "Undertaking Certificate",
-      "href": "https://stphilos.ac.in/wp-content/uploads/2024/12/undertakingCertificate.pdf"
+      "href": "/assets/documents/academics/undertakingCertificate.pdf"
     },
     {
       "text": "Fee Structure",
-      "href": "https://stphilos.ac.in/wp-content/uploads/2025/01/SKM_C30813010105381-2Fees-Structure.pdf"
+      "href": "/assets/documents/academics/SKM_C30813010105381-2Fees-Structure.pdf"
     },
     {
       "text": "Institution's Innovation Council",
-      "href": "https://stphilos.ac.in/wp-content/uploads/2024/05/EstablismentCertificate.pdf"
+      "href": "/assets/documents/academics/EstablismentCertificate.pdf"
     },
     {
       "text": "EOA 2025-26",
-      "href": "https://stphilos.ac.in/wp-content/uploads/2025/05/EOA-Report-2025-26.pdf"
+      "href": "/assets/documents/academics/EOA-Report-2025-26.pdf"
     },
     {
       "text": "NIRF -2022",
-      "href": "https://stphilos.ac.in/wp-content/uploads/2022/03/St.-Philominas-College-Bannimantap20220218-.pdf"
+      "href": "/documents/academics/St.-Philominas-College-Bannimantap20220218-.pdf"
     },
     {
       "text": "NIRF 2021",
-      "href": "https://stphilos.ac.in/wp-content/uploads/2021/03/St.-Philominas-College-Bannimantap20210305-1.pdf"
+      "href": "/documents/academics/St.-Philominas-College-Bannimantap20210305-1.pdf"
     }
   ],
   "tables": []

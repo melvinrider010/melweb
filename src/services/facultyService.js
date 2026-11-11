@@ -1,4 +1,5 @@
 import api from '../lib/api';
+import hierarchyData from '../data/academicsHierarchyData.json';
 
 /**
  * Faculty Service - Server Authoritative
@@ -42,15 +43,29 @@ export async function getFaculty(filters = {}) {
     photo_url: f.photo_url || f.photoUrl || f.photo,
     photoUrl: f.photo_url || f.photoUrl || f.photo,
     programmes: Array.isArray(f.programmes) ? f.programmes : [],
+      cvData: f.cvData || null,
   }));
 }
 
 export async function getFacultyById(id) {
   if (!id) return null;
+  const localCanonical = (hierarchyData.faculty || []).find(
+    item => item.id === id || item.slug === id || (item.name && item.name.toLowerCase() === id.toLowerCase())
+  );
+
+  let f = null;
   try {
     const response = await api.get(`/faculty/${encodeURIComponent(id)}`);
-    const f = response?.data || response || null;
-    if (!f) return null;
+    const serverData = response?.data || response || null;
+    if (serverData) {
+      f = { ...localCanonical, ...serverData, cvData: localCanonical?.cvData || serverData.cvData };
+    }
+  } catch (err) {
+    if (err.status !== 404) console.warn('Faculty backend fetch error:', err);
+  }
+
+  if (!f) f = localCanonical;
+  if (!f) return null;
 
     const deptName = typeof f.department === 'string'
       ? f.department
@@ -75,11 +90,8 @@ export async function getFacultyById(id) {
       photo_url: f.photo_url || f.photoUrl || f.photo,
       photoUrl: f.photo_url || f.photoUrl || f.photo,
       programmes: Array.isArray(f.programmes) ? f.programmes : [],
+      cvData: f.cvData || null,
     };
-  } catch (err) {
-    if (err.status === 404) return null;
-    throw err;
-  }
 }
 
 export async function createFaculty(facultyData) {

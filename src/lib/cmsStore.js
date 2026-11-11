@@ -13,6 +13,7 @@ import { initialMegaMenuData } from '../data/megaMenuData.js';
 import { SYLLABUS_REGISTRY } from '../data/syllabusData.js';
 import departmentAssetsManifest from '../data/departmentAssetsManifest.json';
 import masterPagesData from '../data/masterPagesData.json';
+import aboutData from '../data/aboutData.json';
 
 const STORAGE_KEY = 'stphilos_cms_store_v11';
 const REVISIONS_KEY = 'stphilos_cms_revisions_v11';
@@ -145,11 +146,15 @@ function getInitialData() {
     const pKey = (p.id || '').toLowerCase();
     const pCodeKey = (p.code || '').toLowerCase();
     const hcMatch = hcMap.get(pKey) || hcMap.get(pCodeKey) || {};
+    const isHc = p.is_featured_honeycomb !== undefined 
+      ? Boolean(p.is_featured_honeycomb) 
+      : (p.isFeaturedHoneycomb !== undefined ? Boolean(p.isFeaturedHoneycomb) : (hcMatch.id !== undefined));
     return {
       ...p,
       displayLines: p.displayLines || hcMatch.displayLines || [p.name || p.title || p.code],
       duration: p.duration || hcMatch.duration || '3 Years / 4 Years (NEP 2020)',
-      isFeaturedHoneycomb: p.isFeaturedHoneycomb !== undefined ? p.isFeaturedHoneycomb : (hcMatch.id !== undefined),
+      is_featured_honeycomb: isHc,
+      isFeaturedHoneycomb: isHc,
       status: p.status || 'published',
       origin: p.origin || 'imported',
       order: p.order || 0
@@ -174,6 +179,7 @@ function getInitialData() {
         duration: hc.duration,
         description: hc.description,
         link: hc.link,
+        is_featured_honeycomb: true,
         isFeaturedHoneycomb: true,
         status: 'published',
         origin: 'imported',
@@ -230,6 +236,26 @@ function getInitialData() {
     };
   });
 
+  const seededLeadership = (aboutData.administration || []).map((l, idx) => ({
+    ...l,
+    order: l.order !== undefined ? l.order : idx + 1,
+    status: l.status || 'published',
+    objectPosition: l.objectPosition || (
+      l.id === 'president-mdes' || l.id === 'bishop-president' || (l.name || '').toLowerCase().includes('francis') ? '50% 12%'
+      : l.id === 'rector' || (l.name || '').toLowerCase().includes('lourdu') ? '50% 18%'
+      : '50% 15%'
+    ),
+    link: l.link || (
+      l.id === 'rector' ? '/leadership/rector'
+      : l.id === 'principal' ? '/leadership/principal'
+      : l.id === 'president-mdes' ? '/leadership/bishop'
+      : l.id === 'finance-officer' ? '/leadership/financial-officer'
+      : l.id === 'pg-coordinator' ? '/leadership/pg-coordinator'
+      : l.id === 'iqac-coord' ? '/leadership/iqac-coordinator'
+      : null
+    )
+  }));
+
   return {
     faculty: seededFaculty,
     departments: seededDepartments,
@@ -237,6 +263,7 @@ function getInitialData() {
     syllabuses: seededSyllabuses,
     departmentDocs: seededDepartmentDocs,
     pages: seededPages,
+    leadership: seededLeadership,
     events: [...eventsData],
     notices: [...noticesData],
     documents: [],
@@ -277,11 +304,15 @@ function loadCache() {
         const initialProgMap = new Map(initial.programmes.map(p => [p.id, p]));
         parsed.programmes = parsed.programmes.map(p => {
           const initP = initialProgMap.get(p.id) || {};
+          const isHc = p.is_featured_honeycomb !== undefined 
+            ? Boolean(p.is_featured_honeycomb) 
+            : (p.isFeaturedHoneycomb !== undefined ? Boolean(p.isFeaturedHoneycomb) : (initP.isFeaturedHoneycomb !== false));
           return {
             ...initP,
             ...p,
             status: p.status !== undefined ? p.status : (initP.status || 'published'),
-            isFeaturedHoneycomb: p.isFeaturedHoneycomb !== undefined ? p.isFeaturedHoneycomb : (initP.isFeaturedHoneycomb !== false)
+            is_featured_honeycomb: isHc,
+            isFeaturedHoneycomb: isHc
           };
         });
       }
@@ -338,6 +369,22 @@ function loadCache() {
         });
         parsed.pages = mergedPages;
       }
+      if (!parsed.leadership || !Array.isArray(parsed.leadership) || parsed.leadership.length === 0) {
+        parsed.leadership = initial.leadership;
+      } else {
+        const cachedLeaderMap = new Map(parsed.leadership.map(l => [l.id, l]));
+        const mergedLeadership = initial.leadership.map(initL => {
+          const cached = cachedLeaderMap.get(initL.id);
+          return cached ? { ...initL, ...cached } : initL;
+        });
+        const initialLeaderIdSet = new Set(initial.leadership.map(l => l.id));
+        parsed.leadership.forEach(l => {
+          if (l.id && !initialLeaderIdSet.has(l.id)) {
+            mergedLeadership.push(l);
+          }
+        });
+        parsed.leadership = mergedLeadership.sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
+      }
       if (!parsed.events || !Array.isArray(parsed.events)) {
         parsed.events = initial.events;
       } else {
@@ -383,7 +430,12 @@ function saveCache(data) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   } catch (e) {
-    console.error('Error saving CMS store to localStorage:', e);
+    // Gracefully handle browser storage quota without unhandled exceptions
+    if (e?.name === 'QuotaExceededError' || e?.code === 22) {
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+      } catch (_) {}
+    }
   }
 }
 
@@ -461,10 +513,63 @@ function emitUpdate(shouldSave = true) {
   }
 }
 
+/**
+ * Background synchronizer with Laravel backend API
+ */
+export async function syncWithBackend() {
+  if (typeof window === 'undefined') return;
+  try {
+    const settings = await api.get('/settings').catch(() => null);
+    if (settings && typeof settings === 'object') {
+      let changed = false;
+      if (settings.headerConfig && typeof settings.headerConfig === 'object') {
+        cache.headerConfig = { ...cache.headerConfig, ...settings.headerConfig };
+        changed = true;
+      }
+      if (settings.footerConfig && typeof settings.footerConfig === 'object') {
+        cache.footerConfig = { ...cache.footerConfig, ...settings.footerConfig };
+        changed = true;
+      }
+      if (Array.isArray(settings.leadership) && settings.leadership.length > 0) {
+        cache.leadership = settings.leadership;
+        changed = true;
+      }
+      if (Array.isArray(settings.pages) && settings.pages.length > 0) {
+        cache.pages = settings.pages;
+        changed = true;
+      }
+      if (settings.menus && typeof settings.menus === 'object') {
+        cache.menus = settings.menus;
+        changed = true;
+      }
+      if (changed) {
+        emitUpdate(true);
+      }
+    }
+
+    const sliders = await api.get('/sliders').catch(() => null);
+    if (Array.isArray(sliders) && sliders.length > 0) {
+      cache.sliders = sliders;
+      emitUpdate(true);
+    }
+  } catch (err) {
+    // Graceful offline fallback
+  }
+}
+
+if (typeof window !== 'undefined') {
+  setTimeout(syncWithBackend, 60);
+}
+
 // 3. Central CMS Store Object
 export const cmsStore = {
   // Sync helper
   getSnapshot: () => ({ ...cache }),
+  syncWithBackend,
+
+  init: () => {
+    syncWithBackend();
+  },
 
   reloadFromStorage: () => {
     cache = loadCache();
@@ -572,7 +677,124 @@ export const cmsStore = {
       emitUpdate();
       cmsStore.logActivity(`Deleted faculty ID: ${id}`, user);
     }
+    // Sync deletion to backend database
+    api.delete(`/admin/faculty/${id}`).catch(() => {});
     return cache.faculty;
+  },
+
+  // ================= LEADERSHIP & ADMINISTRATION MANAGEMENT =================
+  getLeadership: (filters = {}) => {
+    let list = [...(cache.leadership || [])];
+    if (filters.status && filters.status !== 'all') {
+      if (filters.status === 'active' || filters.status === 'published') {
+        list = list.filter(l => l.status !== 'inactive' && l.status !== 'draft');
+      } else if (filters.status === 'inactive' || filters.status === 'draft') {
+        list = list.filter(l => l.status === 'inactive' || l.status === 'draft');
+      } else {
+        list = list.filter(l => l.status === filters.status);
+      }
+    }
+    if (filters.role && filters.role !== 'all') {
+      list = list.filter(l => (l.role || '').toLowerCase() === filters.role.toLowerCase());
+    }
+    if (filters.search) {
+      const q = filters.search.toLowerCase();
+      list = list.filter(l =>
+        (l.name && l.name.toLowerCase().includes(q)) ||
+        (l.designation && l.designation.toLowerCase().includes(q)) ||
+        (l.role && l.role.toLowerCase().includes(q))
+      );
+    }
+    return list.sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
+  },
+
+  getActiveLeadership: () => {
+    return cmsStore.getLeadership({ status: 'active' });
+  },
+
+  getLeaderById: (id) => {
+    if (!id) return null;
+    return (cache.leadership || []).find(l => l.id === id) || null;
+  },
+
+  toggleLeadershipStatus: async (id, user = 'Administrator') => {
+    const list = [...(cache.leadership || [])];
+    const item = list.find(l => l.id === id);
+    if (!item) return null;
+    const isCurrentlyActive = item.status === 'active' || item.status === 'published' || !item.status;
+    const newStatus = isCurrentlyActive ? 'inactive' : 'active';
+    const updated = {
+      ...item,
+      status: newStatus,
+      lastModified: new Date().toISOString()
+    };
+    saveRevision('leadership', id, updated, user);
+    cache.leadership = list.map(l => l.id === id ? updated : l);
+    saveCache(cache);
+    emitUpdate();
+    cmsStore.logActivity(`Turned Leader "${item.name}" ${isCurrentlyActive ? 'OFF (Inactive/Hidden)' : 'ON (Active/Live)'}`, user);
+    api.post('/admin/settings', { leadership: cache.leadership }).catch(() => {});
+    return updated;
+  },
+
+  saveLeadership: async (item, user = 'Administrator') => {
+    const isNew = !item.id;
+    const id = isNew ? `leader-${Date.now()}` : item.id;
+    const currentList = [...(cache.leadership || [])];
+    const record = {
+      ...item,
+      id,
+      order: item.order !== undefined && item.order !== '' ? Number(item.order) : (currentList.length + 1),
+      status: item.status || 'active',
+      role: item.role || 'Administration',
+      assetPath: item.assetPath || item.imageUrl || '/assets/images/campus/intro_heritage_building.jpg',
+      imageUrl: item.assetPath || item.imageUrl || '/assets/images/campus/intro_heritage_building.jpg',
+      objectPosition: item.objectPosition || '50% 15%',
+      lastModified: new Date().toISOString()
+    };
+
+    saveRevision('leadership', id, record, user);
+
+    const existingIndex = currentList.findIndex(l => l.id === id);
+    if (existingIndex >= 0) {
+      currentList[existingIndex] = record;
+    } else {
+      currentList.push(record);
+    }
+    cache.leadership = currentList.sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
+
+    saveCache(cache);
+    emitUpdate();
+    cmsStore.logActivity(`Saved leader: ${record.name} (${record.designation})`, user);
+    api.post('/admin/settings', { leadership: cache.leadership }).catch(() => {});
+    return record;
+  },
+
+  deleteLeadership: async (id, user = 'Administrator') => {
+    const existing = (cache.leadership || []).find(l => l.id === id);
+    if (existing) {
+      saveRevision('leadership', id, { ...existing, status: 'deleted' }, user);
+      cache.leadership = (cache.leadership || []).filter(l => l.id !== id);
+      saveCache(cache);
+      emitUpdate();
+      cmsStore.logActivity(`Deleted leader ID: ${id} (${existing.name})`, user);
+      api.post('/admin/settings', { leadership: cache.leadership }).catch(() => {});
+    }
+    return cache.leadership;
+  },
+
+  reorderLeadership: async (orderedIds, user = 'Administrator') => {
+    const idOrderMap = new Map(orderedIds.map((id, index) => [id, index + 1]));
+    cache.leadership = (cache.leadership || []).map(l => ({
+      ...l,
+      order: idOrderMap.has(l.id) ? idOrderMap.get(l.id) : l.order
+    })).sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
+
+    saveCache(cache);
+    emitUpdate();
+    cmsStore.logActivity(`Reordered leadership roster`, user);
+    api.post('/admin/settings', { leadership: cache.leadership }).catch(() => {});
+    return cache.leadership;
   },
 
   // ================= 2. DEPARTMENT MANAGEMENT =================
@@ -633,6 +855,37 @@ export const cmsStore = {
 
     emitUpdate();
     cmsStore.logActivity(`Saved department: ${record.name}`, user);
+
+    // Sync to backend database
+    try {
+      if (isNew) {
+        await api.post('/admin/departments', {
+          name: record.name,
+          slug: record.slug,
+          category: record.category || record.faculty,
+          head: record.head || record.hodName,
+          short_description: record.short_description || record.tagline,
+          description: record.description,
+          banner_image: record.banner_image || record.bannerUrl,
+          status: record.status || 'published'
+        });
+      } else {
+        await api.put(`/admin/departments/${record.id}`, {
+          name: record.name,
+          slug: record.slug,
+          category: record.category || record.faculty,
+          head: record.head || record.hodName,
+          short_description: record.short_description || record.tagline,
+          description: record.description,
+          banner_image: record.banner_image || record.bannerUrl,
+          status: record.status || 'published'
+        });
+      }
+      await api.post(`/admin/departments/${record.id}/publish`, {});
+    } catch (e) {
+      // Offline fallback: data safely maintained in cache
+    }
+
     return record;
   },
 
@@ -643,6 +896,7 @@ export const cmsStore = {
       cache.departments = (cache.departments || []).filter(d => d.id !== id);
       emitUpdate();
       cmsStore.logActivity(`Deleted department ID: ${id}`, user);
+      api.delete(`/admin/departments/${id}`).catch(() => {});
     }
     return cache.departments;
   },
@@ -661,6 +915,11 @@ export const cmsStore = {
     cache.departments = list.map(d => d.id === id ? updated : d);
     emitUpdate();
     cmsStore.logActivity(`Turned Department "${item.name}" ${isCurrentlyActive ? 'OFF (Draft)' : 'ON (Live)'}`, user);
+    if (updated.status === 'published') {
+      api.post(`/admin/departments/${id}/publish`, {}).catch(() => {});
+    } else {
+      api.post(`/admin/departments/${id}/unpublish`, {}).catch(() => {});
+    }
     return updated;
   },
 
@@ -784,35 +1043,70 @@ export const cmsStore = {
 
   toggleProgrammeStatus: async (id, user = 'Administrator') => {
     const list = cache.programmes || [];
-    const item = list.find(p => p.id === id);
+    const item = list.find(p => p.id === id || p.code === id);
     if (!item) return null;
     const isCurrentlyActive = (item.status || 'published') === 'published';
+    const newStatus = isCurrentlyActive ? 'draft' : 'published';
     const updated = {
       ...item,
-      status: isCurrentlyActive ? 'draft' : 'published',
+      status: newStatus,
       lastModified: new Date().toISOString()
     };
-    saveRevision('programme', id, updated, user);
-    cache.programmes = list.map(p => p.id === id ? updated : p);
+    saveRevision('programme', item.id, updated, user);
+    cache.programmes = list.map(p => (p.id === item.id || p.code === item.code) ? updated : p);
     emitUpdate();
     cmsStore.logActivity(`Turned Course "${item.name || item.title || item.code}" ${isCurrentlyActive ? 'OFF (Draft)' : 'ON (Live)'}`, user);
+
+    // Synchronize with Laravel Backend
+    const code = item.code || item.id || id;
+    try {
+      const res = await api.post(`/admin/programmes/${encodeURIComponent(code)}/toggle-status`);
+      if (res?.programme) {
+        item.status = res.programme.status;
+        cache.programmes = list.map(p => (p.id === item.id || p.code === item.code) ? { ...p, status: res.programme.status } : p);
+        emitUpdate();
+      }
+    } catch (err) {
+      console.warn('Backend toggle-status call failed:', err);
+    }
+
     return updated;
   },
 
   toggleProgrammeHoneycomb: async (id, user = 'Administrator') => {
     const list = cache.programmes || [];
-    const item = list.find(p => p.id === id);
+    const item = list.find(p => p.id === id || p.code === id);
     if (!item) return null;
-    const isCurrentlyFeatured = item.isFeaturedHoneycomb !== false;
+    const isCurrentlyFeatured = item.is_featured_honeycomb !== undefined 
+      ? Boolean(item.is_featured_honeycomb) 
+      : (item.isFeaturedHoneycomb !== false);
+    const newFeatured = !isCurrentlyFeatured;
     const updated = {
       ...item,
-      isFeaturedHoneycomb: !isCurrentlyFeatured,
+      is_featured_honeycomb: newFeatured,
+      isFeaturedHoneycomb: newFeatured,
       lastModified: new Date().toISOString()
     };
-    saveRevision('programme', id, updated, user);
-    cache.programmes = list.map(p => p.id === id ? updated : p);
+    saveRevision('programme', item.id, updated, user);
+    cache.programmes = list.map(p => (p.id === item.id || p.code === item.code) ? updated : p);
     emitUpdate();
-    cmsStore.logActivity(`Toggled Honeycomb Grid for "${item.code || item.name}" to ${!isCurrentlyFeatured ? 'ON (Shown)' : 'OFF (Hidden)'}`, user);
+    cmsStore.logActivity(`Toggled Honeycomb Grid for "${item.code || item.name}" to ${newFeatured ? 'ON (Shown)' : 'OFF (Hidden)'}`, user);
+
+    // Synchronize with Laravel Backend
+    const code = item.code || item.id || id;
+    try {
+      const res = await api.post(`/admin/programmes/${encodeURIComponent(code)}/toggle-honeycomb`);
+      if (res?.programme) {
+        const val = Boolean(res.programme.is_featured_honeycomb);
+        item.is_featured_honeycomb = val;
+        item.isFeaturedHoneycomb = val;
+        cache.programmes = list.map(p => (p.id === item.id || p.code === item.code) ? { ...p, is_featured_honeycomb: val, isFeaturedHoneycomb: val } : p);
+        emitUpdate();
+      }
+    } catch (err) {
+      console.warn('Backend toggle-honeycomb call failed:', err);
+    }
+
     return updated;
   },
 
@@ -821,7 +1115,7 @@ export const cmsStore = {
     cache.programmes = list.map(p => {
       let shouldUpdate = false;
       if (Array.isArray(streamOrIds)) {
-        shouldUpdate = streamOrIds.includes(p.id);
+        shouldUpdate = streamOrIds.includes(p.id) || streamOrIds.includes(p.code);
       } else if (streamOrIds === 'all') {
         shouldUpdate = true;
       } else {
@@ -837,7 +1131,48 @@ export const cmsStore = {
     });
     emitUpdate();
     cmsStore.logActivity(`Bulk set programmes (${streamOrIds}) status to ${newStatus}`, user);
+
+    if (typeof streamOrIds === 'string') {
+      try {
+        await api.post('/admin/programmes/bulk-status', {
+          stream: streamOrIds,
+          status: newStatus
+        });
+      } catch (err) {
+        console.warn('Backend bulk-status call failed:', err);
+      }
+    }
+
     return cache.programmes;
+  },
+
+  syncProgrammesFromServer: async () => {
+    try {
+      const serverProgs = await api.get('/programmes');
+      if (Array.isArray(serverProgs) && serverProgs.length > 0) {
+        const normalizeKey = (k) => String(k || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+        const serverMap = new Map(serverProgs.map(sp => [normalizeKey(sp.code || sp.id), sp]));
+
+        cache.programmes = (cache.programmes || []).map(cp => {
+          const match = serverMap.get(normalizeKey(cp.code || cp.id));
+          if (!match) return cp;
+          const isHoneycomb = match.is_featured_honeycomb !== undefined 
+            ? Boolean(match.is_featured_honeycomb) 
+            : (match.isFeaturedHoneycomb !== undefined ? Boolean(match.isFeaturedHoneycomb) : cp.isFeaturedHoneycomb);
+
+          return {
+            ...cp,
+            status: match.status !== undefined ? match.status : cp.status,
+            is_featured_honeycomb: isHoneycomb,
+            isFeaturedHoneycomb: isHoneycomb
+          };
+        });
+        saveCache(cache);
+        emitUpdate();
+      }
+    } catch (e) {
+      // Retain offline cache
+    }
   },
 
   // ================= 4. GENERAL PAGES MANAGEMENT =================
@@ -886,6 +1221,7 @@ export const cmsStore = {
 
     emitUpdate();
     cmsStore.logActivity(`Saved custom page: ${record.title} (/pages/${record.slug})`, user);
+    api.post('/admin/settings', { pages: cache.pages }).catch(() => {});
     return record;
   },
 
@@ -896,6 +1232,7 @@ export const cmsStore = {
       cache.pages = (cache.pages || []).filter(p => p.id !== id);
       emitUpdate();
       cmsStore.logActivity(`Deleted page ID: ${id}`, user);
+      api.post('/admin/settings', { pages: cache.pages }).catch(() => {});
     }
     return cache.pages;
   },
@@ -919,7 +1256,7 @@ export const cmsStore = {
 
   saveNotice: async (noticeItem, user = 'Administrator') => {
     const isNew = !noticeItem.id;
-    const id = isNew ? `notice-${Date.now()}` : noticeItem.id;
+    const id = isNew ? `not_${Date.now()}` : noticeItem.id;
     const effectiveDate = noticeItem.date || noticeItem.publishDate || new Date().toISOString().split('T')[0];
 
     const record = {
@@ -944,6 +1281,29 @@ export const cmsStore = {
 
     emitUpdate();
     cmsStore.logActivity(`Saved notice: ${record.title}`, user);
+
+    // Synchronize with Laravel Backend
+    try {
+      const payload = {
+        id: record.id,
+        title: record.title,
+        type: record.type,
+        category: record.category,
+        date: record.date,
+        displayDate: record.date,
+        summary: record.summary,
+        refNo: record.refNo || `STP/${(record.category || 'GEN').toUpperCase()}/${new Date().getFullYear()}`,
+        link: record.link
+      };
+      if (isNew) {
+        await api.post('/admin/notices', payload);
+      } else {
+        await api.put(`/admin/notices/${record.id}`, payload);
+      }
+    } catch (err) {
+      console.warn('Backend saveNotice sync failed:', err);
+    }
+
     return record;
   },
 
@@ -975,6 +1335,13 @@ export const cmsStore = {
     cache.notices = (cache.notices || []).filter(n => n.id !== id);
     emitUpdate();
     cmsStore.logActivity(`Deleted notice ID: ${id}`, user);
+
+    try {
+      await api.delete(`/admin/notices/${id}`);
+    } catch (err) {
+      console.warn('Backend deleteNotice sync failed:', err);
+    }
+
     return cache.notices;
   },
 
@@ -983,15 +1350,17 @@ export const cmsStore = {
 
   saveEvent: async (eventItem, user = 'Administrator') => {
     const isNew = !eventItem.id;
-    const id = isNew ? `event-${Date.now()}` : eventItem.id;
+    const id = isNew ? `evt_${Date.now()}` : eventItem.id;
     const slug = eventItem.slug || eventItem.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    const eventDate = eventItem.date || eventItem.event_date || new Date().toISOString().split('T')[0];
 
     const record = {
       ...eventItem,
       id,
       slug,
       status: eventItem.status || 'published',
-      date: eventItem.date || new Date().toISOString().split('T')[0]
+      date: eventDate,
+      event_date: eventDate
     };
 
     if (isNew) {
@@ -1002,23 +1371,44 @@ export const cmsStore = {
 
     emitUpdate();
     cmsStore.logActivity(`Saved event: ${record.title}`, user);
+
+    // Synchronize with Laravel Backend
+    try {
+      const payload = {
+        id: record.id,
+        slug: record.slug,
+        title: record.title,
+        summary: record.summary || record.description || record.title,
+        description: record.description || record.summary || record.title,
+        event_date: eventDate,
+        displayDate: eventDate,
+        category: record.category || 'Event',
+        location: record.location || 'College Campus',
+        status: record.status || 'published'
+      };
+      if (isNew) {
+        await api.post('/admin/events', payload);
+      } else {
+        await api.put(`/admin/events/${record.id}`, payload);
+      }
+    } catch (err) {
+      console.warn('Backend saveEvent sync failed:', err);
+    }
+
     return record;
-  },
-
-  addEvent: (eventItem) => {
-    cache.events = [eventItem, ...(cache.events || [])];
-    emitUpdate();
-  },
-
-  updateEventsList: (list) => {
-    cache.events = list;
-    emitUpdate();
   },
 
   deleteEvent: async (id, user = 'Administrator') => {
     cache.events = (cache.events || []).filter(e => e.id !== id);
     emitUpdate();
     cmsStore.logActivity(`Deleted event ID: ${id}`, user);
+
+    try {
+      await api.delete(`/admin/events/${id}`);
+    } catch (err) {
+      console.warn('Backend deleteEvent sync failed:', err);
+    }
+
     return cache.events;
   },
 
@@ -1106,6 +1496,21 @@ export const cmsStore = {
 
     emitUpdate();
     cmsStore.logActivity(`Saved hero slide: ${record.title}`, user);
+
+    // Sync to backend database
+    api.post('/admin/sliders', {
+      id: record.id,
+      title: record.title,
+      category: record.category || 'Academic',
+      subtitle: record.subtitle,
+      description: record.description,
+      image: record.image || record.imageUrl,
+      ctaText: record.ctaText || record.cta_text,
+      ctaLink: record.ctaLink || record.cta_link,
+      status: record.status || 'published',
+      priority: record.priority || 1
+    }).catch(() => {});
+
     return record;
   },
 
@@ -1113,6 +1518,7 @@ export const cmsStore = {
     cache.sliders = (cache.sliders || []).filter(s => s.id !== id);
     emitUpdate();
     cmsStore.logActivity(`Deleted hero slide ID: ${id}`, user);
+    api.delete(`/admin/sliders/${id}`).catch(() => {});
     return cache.sliders;
   },
 
@@ -1124,6 +1530,7 @@ export const cmsStore = {
     cache.menus = menuData;
     emitUpdate();
     cmsStore.logActivity(`Updated navigation mega-menus`, user);
+    api.post('/admin/settings', { menus: cache.menus }).catch(() => {});
     return cache.menus;
   },
 
@@ -1461,13 +1868,17 @@ export const cmsStore = {
   },
 
   logActivity: (action, user = 'Administrator', extra = {}) => {
-    let module = extra.module || 'System';
+    const actionStr = typeof action === 'string' ? action : (action?.action || action?.title || 'System Update');
+    const actionUser = typeof action === 'object' && action.user ? action.user : user;
+    const actionDetails = typeof action === 'object' && action.details ? action.details : actionStr;
+    
+    let module = (typeof action === 'object' && action.module) ? action.module : (extra.module || 'System');
     let stat = extra.stat || 'Updated';
     let icon = 'layers';
     let color = '#3b82f6';
-    let title = extra.title || action;
+    let title = (typeof action === 'object' && action.title) ? action.title : (extra.title || actionStr);
 
-    const lower = (action || '').toLowerCase();
+    const lower = actionStr.toLowerCase();
     if (lower.includes('syllabus') || lower.includes('programme') || lower.includes('course') || lower.includes('curriculum')) {
       module = 'Academics';
       title = extra.title || 'Academics & Syllabus Matrix';
@@ -1509,9 +1920,9 @@ export const cmsStore = {
     const logItem = {
       id: `log-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`,
       title,
-      action,
-      details: action,
-      user,
+      action: actionStr,
+      details: actionDetails,
+      user: actionUser,
       module,
       stat,
       icon,
@@ -1540,6 +1951,7 @@ export const cmsStore = {
       details: `Phone: ${newSettings.phone || cache.settings.phone || ''}`
     });
     emitUpdate();
+    api.post('/admin/settings', newSettings).catch(() => {});
     return cache.settings;
   },
 
@@ -1548,7 +1960,7 @@ export const cmsStore = {
     return cache.headerConfig || JSON.parse(JSON.stringify(initialHeaderConfig));
   },
 
-  updateHeaderConfig: (newConfig, user = 'Administrator') => {
+  updateHeaderConfig: async (newConfig, user = 'Administrator') => {
     cache.headerConfig = {
       ...(cache.headerConfig || initialHeaderConfig),
       ...newConfig
@@ -1561,6 +1973,11 @@ export const cmsStore = {
       details: `CTA: ${cache.headerConfig.ctaButton?.label || 'Customized'}`
     });
     emitUpdate();
+    try {
+      await api.post('/admin/settings', { headerConfig: cache.headerConfig });
+    } catch (e) {
+      console.warn('Backend sync for headerConfig failed:', e);
+    }
     return cache.headerConfig;
   },
 
@@ -1568,7 +1985,7 @@ export const cmsStore = {
     return cache.footerConfig || JSON.parse(JSON.stringify(initialFooterConfig));
   },
 
-  updateFooterConfig: (newConfig, user = 'Administrator') => {
+  updateFooterConfig: async (newConfig, user = 'Administrator') => {
     cache.footerConfig = {
       ...(cache.footerConfig || initialFooterConfig),
       ...newConfig
@@ -1581,6 +1998,11 @@ export const cmsStore = {
       details: `${cache.footerConfig.columns?.length || 3} Column Sections Configured`
     });
     emitUpdate();
+    try {
+      await api.post('/admin/settings', { footerConfig: cache.footerConfig });
+    } catch (e) {
+      console.warn('Backend sync for footerConfig failed:', e);
+    }
     return cache.footerConfig;
   },
 
@@ -1595,6 +2017,10 @@ export const cmsStore = {
       details: 'Restored original institutional layout defaults'
     });
     emitUpdate();
+    api.post('/admin/settings', { 
+      headerConfig: cache.headerConfig, 
+      footerConfig: cache.footerConfig 
+    }).catch(() => {});
     return { headerConfig: cache.headerConfig, footerConfig: cache.footerConfig };
   },
 
@@ -1605,4 +2031,12 @@ export const cmsStore = {
   }
 };
 
+if (typeof window !== 'undefined') {
+  setTimeout(() => {
+    cmsStore.syncProgrammesFromServer?.().catch(() => {});
+  }, 200);
+}
+
+export { useCms } from './useCms';
 export default cmsStore;
+

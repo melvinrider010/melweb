@@ -76,11 +76,11 @@ export default function HeroSlider() {
           
           {/* LEFT 7 COLS: HERO TITLE & MOTTO (LEFT CORNER, MIDDLE ALIGNED, REFINED & COMPACT) */}
           <div className="lg:col-span-7 flex flex-col justify-center space-y-2 sm:space-y-3 pl-14 sm:pl-20 lg:pl-24 pr-4">
-            <h1 className="font-serif font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl leading-snug text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] tracking-tight">
+            <h1 className="font-heading font-bold text-xl sm:text-2xl md:text-3xl leading-snug text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] tracking-tight">
               {activeSlide.title}
             </h1>
 
-            <p className="text-[#F0D98C] font-serif text-xs sm:text-sm font-medium tracking-wide drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
+            <p className="text-[#F0D98C] font-heading text-sm sm:text-base font-medium tracking-wide drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
               {activeSlide.subtitle}
             </p>
           </div>
@@ -91,7 +91,7 @@ export default function HeroSlider() {
               <div className="bg-white/95 backdrop-blur-md text-[#0B1F4E] p-5 sm:p-7 rounded-2xl shadow-2xl border-l-8 border-[#C9A84C] space-y-3.5 animate-fadeIn w-full relative">
                 
                 <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-                  <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#a88530] block">
+                  <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#a88530] block">
                     Institutional Highlights
                   </span>
                   

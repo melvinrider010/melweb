@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useSearchParams, Link } from 'react-router-dom';
 import { 
   Building2, 
@@ -35,14 +35,29 @@ import {
   getDepartmentRelatedProgrammes 
 } from '../data/academicsHierarchyData';
 import FacultyAvatar from '../components/common/FacultyAvatar';
+import CollegeVideoLoader from '../components/common/CollegeVideoLoader';
 import * as deptService from '../services/departmentsService';
+import staticDepartmentsData from '../data/departments.json';
 
 export default function DepartmentDetailPage() {
   const { deptId } = useParams();
   const [searchParams] = useSearchParams();
   const isPreview = searchParams.get('preview') === '1';
 
-  const [dept, setDept] = useState(null);
+  const [dept, setDept] = useState(() => {
+    const raw = String(deptId || '').toLowerCase().trim();
+    const clean = raw.replace(/^dept[-_]/, '');
+    const withPrefix = `dept-${clean}`;
+    return (staticDepartmentsData || []).find(d => {
+      const dId = (d.id || '').toLowerCase();
+      const dSlug = (d.slug || '').toLowerCase();
+      const dCode = (d.code || '').toLowerCase();
+      return dId === raw || dId === clean || dId === withPrefix ||
+             dSlug === raw || dSlug === clean || dSlug === withPrefix ||
+             dCode === raw || dCode === clean ||
+             (d.name && d.name.toLowerCase().includes(clean));
+    }) || null;
+  });
   const [sections, setSections] = useState([]);
   const [facultyList, setFacultyList] = useState([]);
   const [programmesList, setProgrammesList] = useState([]);
@@ -51,6 +66,17 @@ export default function DepartmentDetailPage() {
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [imageError, setImageError] = useState(false);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    setImageError(false);
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, [deptId, dept?.id]);
 
   useEffect(() => {
     let isMounted = true;
@@ -64,7 +90,10 @@ export default function DepartmentDetailPage() {
         if (isMounted && res?.department) {
           setDept(res.department);
           setSections(res.sections || []);
-          setFacultyList(res.faculty || []);
+          const resolvedFaculty = (res.faculty && res.faculty.length > 0)
+            ? res.faculty
+            : getFacultyByDepartmentId(res.department.id || deptId);
+          setFacultyList(resolvedFaculty || []);
           setProgrammesList(res.programmes || []);
           setNoticesList(res.notices || []);
           setEventsList(res.events || []);
@@ -92,6 +121,7 @@ export default function DepartmentDetailPage() {
           if (found) {
             setDept(found);
             setSections(found.sections || []);
+            setFacultyList(getFacultyByDepartmentId(found.id || deptId) || []);
           } else {
             setError(`The academic department "${deptId}" could not be located.`);
           }
@@ -109,13 +139,9 @@ export default function DepartmentDetailPage() {
     return () => { isMounted = false; };
   }, [deptId, isPreview]);
 
-  if (isLoading) {
+  if (isLoading && !dept) {
     return (
-      <div className="min-h-screen bg-[#FAF9F6] text-[#071A33] py-24 px-4 flex flex-col items-center justify-center space-y-4">
-        <Loader2 className="w-10 h-10 text-[#1C5496] animate-spin mx-auto" />
-        <h2 className="text-xl font-serif font-bold text-slate-800">Loading Department Profile...</h2>
-        <p className="text-xs text-slate-500">Connecting to St. Philomena's academic repository</p>
-      </div>
+      <CollegeVideoLoader label="Loading Department Profile..." isFullScreen={true} />
     );
   }
 
@@ -141,7 +167,10 @@ export default function DepartmentDetailPage() {
   const enabledSections = sections.filter(s => s.is_enabled !== false);
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-[#071A33] py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#FAF9F6] text-[#071A33] py-8 sm:py-12 px-4 sm:px-6 lg:px-8 relative">
+      {isLoading && (
+        <CollegeVideoLoader label="Updating Department Profile..." isFullScreen={true} />
+      )}
       <div className="max-w-[1400px] mx-auto space-y-8">
         
         {/* PREVIEW ALERT BANNER */}
@@ -186,32 +215,79 @@ export default function DepartmentDetailPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            {(dept.banner_image || dept.photoUrl) && (
-              <div className="md:col-span-5 relative rounded-2xl overflow-hidden shadow-sm aspect-video sm:aspect-4/3 max-h-72">
-                <img 
-                  src={dept.banner_image || dept.photoUrl} 
-                  alt={dept.name} 
-                  className="w-full h-full object-cover"
-                  onError={(e) => { e.target.style.display = 'none'; }}
-                />
+          {(() => {
+            const cleanDeptId = (dept.id || deptId || '').replace('_', '-');
+            const normalizedDeptId = cleanDeptId.startsWith('dept-') ? cleanDeptId : `dept-${cleanDeptId}`;
+            const heroImage = dept.banner_image || dept.photoUrl || `/assets/departments/${normalizedDeptId}/images/banner.jpg`;
+
+            return (
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div className="md:col-span-5 relative rounded-2xl overflow-hidden shadow-xs border border-slate-200/90 aspect-video sm:aspect-4/3 max-h-72 bg-gradient-to-br from-[#071A33] via-[#0E2C54] to-[#1C5496] group">
+                  {!imageError ? (
+                    <>
+                      <video 
+                        ref={videoRef}
+                        src="/assets/videos/department-hero-loop.mp4"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        poster={heroImage}
+                        className="w-full h-full object-cover"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        onError={() => setImageError(true)}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white pointer-events-none">
+                        <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-bold tracking-wider bg-slate-900/80 backdrop-blur-xs border border-white/10 uppercase">
+                          {dept.code || 'DEPT'}
+                        </span>
+                        <span className="text-[10px] font-mono font-semibold tracking-wide text-white/90 drop-shadow-xs">
+                          St. Philomena's College
+                        </span>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="w-full h-full p-6 flex flex-col justify-between text-white select-none">
+                      <div className="flex items-center justify-between">
+                        <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-bold tracking-wider bg-white/10 text-[#FFD84A] border border-white/15 uppercase">
+                          {dept.code || 'DEPT'}
+                        </span>
+                        <Building2 className="w-6 h-6 text-[#FFD84A]/70" />
+                      </div>
+                      <div className="space-y-1">
+                        <div className="text-[11px] font-bold text-blue-200 uppercase tracking-widest font-mono">
+                          {dept.faculty_category || dept.category || 'Academic Department'}
+                        </div>
+                        <div className="font-heading font-bold text-lg text-white leading-snug line-clamp-2">
+                          {dept.name}
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between pt-2 border-t border-white/10 text-[11px] text-blue-200/80">
+                        <span>St. Philomena's College (Autonomous)</span>
+                        <span className="font-mono text-[10px] text-amber-300">Est. 1946</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <div className="md:col-span-7 space-y-3">
+                  <h1 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-slate-900 leading-tight tracking-tight">
+                    {dept.name}
+                  </h1>
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans max-w-4xl pt-1">
+                    {dept.short_description || dept.description}
+                  </p>
+                </div>
               </div>
-            )}
-            <div className={`${(dept.banner_image || dept.photoUrl) ? 'md:col-span-7' : 'md:col-span-12'} space-y-3`}>
-              <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 leading-tight">
-                {dept.name}
-              </h1>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-sans max-w-4xl pt-1">
-                {dept.short_description || dept.description}
-              </p>
-            </div>
-          </div>
+            );
+          })()}
 
           {/* Quick Metrics Bar */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-700">
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
               <span className="text-[10px] uppercase font-bold text-slate-400 block">Faculty Members</span>
-              <span className="font-serif font-bold text-sm text-slate-900">{activeFaculty.length} Teaching Scholars</span>
+              <span className="font-heading font-semibold text-sm text-slate-900">{activeFaculty.length} Teaching Scholars</span>
               <span className="text-[11px] text-slate-500 block">Professors, Readers & Lecturers</span>
             </div>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between">
@@ -234,7 +310,7 @@ export default function DepartmentDetailPage() {
             </div>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
               <span className="text-[10px] uppercase font-bold text-slate-400 block">Academic Regulations</span>
-              <span className="text-xs text-slate-800 font-serif font-bold block">Autonomous NEP 2020 / CBCS</span>
+              <span className="text-xs text-slate-800 font-heading font-semibold block">Autonomous NEP 2020 / CBCS</span>
               <span className="text-[11px] text-slate-500 block">Affiliated to University of Mysore</span>
             </div>
           </div>
@@ -260,14 +336,14 @@ export default function DepartmentDetailPage() {
           <div className="space-y-8">
             <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-xs space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-100 pb-4">
-                <h3 className="font-serif font-bold text-xl text-slate-900">About the Department</h3>
+                <h3 className="font-heading font-semibold text-xl text-slate-900">About the Department</h3>
                 {relatedProgramme && (
                   <Link
                     to={relatedProgramme.route}
                     className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-gradient-to-r from-[#0B1F4E] to-[#1C5496] hover:from-[#1C5496] hover:to-[#0B1F4E] text-white rounded-xl shadow-xs hover:shadow-md transition-all group shrink-0 border border-blue-900/30"
                   >
                     <GraduationCap className="w-3.5 h-3.5 text-[#FFD84A]" />
-                    <span className="text-xs font-bold font-serif">{relatedProgramme.buttonText}</span>
+                    <span className="text-xs font-semibold">{relatedProgramme.buttonText}</span>
                     <ArrowRight className="w-3.5 h-3.5 text-[#FFD84A] group-hover:translate-x-1 transition-transform ml-0.5" />
                   </Link>
                 )}
@@ -333,11 +409,11 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-100 pb-4">
             <div className="space-y-1">
               {content.subheading && (
-                <span className="text-[11px] font-mono uppercase tracking-widest text-[#1C5496] font-bold block">
+                <span className="text-xs font-mono uppercase tracking-wider text-[#1C5496] font-semibold block">
                   {content.subheading}
                 </span>
               )}
-              <h2 className="font-serif font-bold text-2xl text-slate-900">
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                 {content.heading || section.title}
               </h2>
             </div>
@@ -355,7 +431,7 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
                   <span className="text-[9px] uppercase font-mono tracking-wider text-blue-200 block font-semibold leading-none">
                     {relatedProg.badge}
                   </span>
-                  <span className="text-xs sm:text-sm font-bold font-serif leading-tight text-white block">
+                  <span className="text-xs sm:text-sm font-semibold font-heading leading-tight text-white block">
                     {relatedProg.buttonText}
                   </span>
                 </div>
@@ -364,7 +440,7 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
             )}
           </div>
 
-          <div className="text-slate-600 text-xs sm:text-sm leading-relaxed font-sans whitespace-pre-line space-y-3 pt-1">
+          <div className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans whitespace-pre-line space-y-3 pt-1 max-w-4xl">
             {content.body}
           </div>
 
@@ -383,7 +459,7 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
                       Academic Continuum
                     </span>
                   </div>
-                  <h4 className="font-serif font-bold text-sm sm:text-base text-slate-900 mt-1">
+                  <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900 mt-1">
                     {relatedProg.fullTitle}
                   </h4>
                   <p className="text-xs text-slate-600 font-sans mt-0.5 max-w-2xl leading-relaxed">
@@ -410,11 +486,11 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
         <section className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs space-y-6">
           <div className="space-y-1 border-b border-slate-100 pb-4">
             {content.subheading && (
-              <span className="text-[11px] font-mono uppercase tracking-widest text-[#1C5496] font-bold block">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#1C5496] font-semibold block">
                 {content.subheading}
               </span>
             )}
-            <h2 className="font-serif font-bold text-2xl text-slate-900">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
               {content.heading || section.title}
             </h2>
           </div>
@@ -426,7 +502,7 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
                     <Sparkles className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="font-serif font-bold text-base text-slate-900">{card.title}</h4>
+                    <h4 className="font-heading font-semibold text-base sm:text-card text-slate-900">{card.title}</h4>
                     {card.subtitle && <p className="text-[11px] text-[#1C5496] font-semibold">{card.subtitle}</p>}
                   </div>
                 </div>
@@ -440,51 +516,63 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
       );
 
     // --- 3. PROGRAMMES ROSTER SECTION ---
-    case 'programs':
+    case 'programs': {
+      const progCodes = content.programCodes || department.programmes || [];
+      const resolvedFromCodes = Array.isArray(progCodes) ? progCodes.map(code => {
+        return programmesList.find(p => (p.code || '').toLowerCase() === String(code).toLowerCase() || (p.id || '').toLowerCase() === String(code).toLowerCase())
+          || getProgrammeById(code);
+      }).filter(Boolean) : [];
+
+      const displayProgs = resolvedFromCodes.length > 0 ? resolvedFromCodes : programmesList;
+
       return (
         <section className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs space-y-6">
           <div className="space-y-1 border-b border-slate-100 pb-4">
             {content.subheading && (
-              <span className="text-[11px] font-mono uppercase tracking-widest text-[#1C5496] font-bold block">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#1C5496] font-semibold block">
                 {content.subheading}
               </span>
             )}
-            <h2 className="font-serif font-bold text-2xl text-slate-900">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
               {content.heading || 'Academic Programmes'}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {(programmesList || []).map((p) => (
-              <Link
-                key={p.code}
-                to={`/academics/${p.code.toLowerCase()}`}
-                className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-500 hover:bg-white transition-all shadow-xs hover:shadow-md group flex flex-col justify-between"
-              >
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-[#0B1F4E] text-[#FFD84A]">
-                      {p.level?.toUpperCase() || 'UG'}
-                    </span>
-                    <span className="text-[11px] font-mono text-slate-500">{p.duration || '3-4 Years'}</span>
+            {(displayProgs || []).map((p) => {
+              const progCode = p.code || p.id || 'PROG';
+              return (
+                <Link
+                  key={progCode}
+                  to={`/academics/${progCode.toLowerCase()}`}
+                  className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-500 hover:bg-white transition-all shadow-xs hover:shadow-md group flex flex-col justify-between"
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-[#0B1F4E] text-[#FFD84A]">
+                        {p.level?.toUpperCase() || p.type?.toUpperCase() || 'UG'}
+                      </span>
+                      <span className="text-[11px] font-mono text-slate-500">{p.duration || '3-4 Years'}</span>
+                    </div>
+                    <h4 className="font-heading font-semibold text-base sm:text-card text-slate-900 group-hover:text-blue-600 transition-colors">
+                      {p.title || p.name || progCode}
+                    </h4>
+                    <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                      {p.overview || p.eligibility || 'Autonomous academic curriculum scheme under NEP 2020.'}
+                    </p>
                   </div>
-                  <h4 className="font-serif font-bold text-base text-slate-900 group-hover:text-blue-600 transition-colors">
-                    {p.title}
-                  </h4>
-                  <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                    {p.overview || p.eligibility || 'Autonomous academic curriculum scheme under NEP 2020.'}
-                  </p>
-                </div>
-                
-                <div className="pt-3 border-t border-slate-200/60 mt-3 flex items-center justify-between text-xs font-bold text-[#1C5496] group-hover:text-blue-700">
-                  <span>Explore Programme</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            ))}
+                  
+                  <div className="pt-3 border-t border-slate-200/60 mt-3 flex items-center justify-between text-xs font-bold text-[#1C5496] group-hover:text-blue-700">
+                    <span>Explore Programme</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </section>
       );
+    }
 
     // --- 4. FACULTY DIRECTORY SECTION ---
     case 'faculty':
@@ -493,11 +581,11 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
           <div className="space-y-1 border-b border-slate-100 pb-4 flex flex-wrap items-center justify-between gap-2">
             <div>
               {content.subheading && (
-                <span className="text-[11px] font-mono uppercase tracking-widest text-[#1C5496] font-bold block">
+                <span className="text-xs font-mono uppercase tracking-wider text-[#1C5496] font-semibold block">
                   {content.subheading}
                 </span>
               )}
-              <h2 className="font-serif font-bold text-2xl text-slate-900">
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                 {content.heading || 'Department Faculty'}
               </h2>
             </div>
@@ -512,14 +600,15 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
                 key={f.id || fIdx}
                 className="bg-slate-50 rounded-2xl border border-slate-200/80 p-5 space-y-3 hover:shadow-sm transition-shadow flex flex-col items-center text-center"
               >
-                <img
-                  src={f.photo_url || f.photoUrl || '/assets/faculty/default-avatar.png'}
+                <FacultyAvatar
+                  src={f.photo_url || f.photoUrl || f.photo || f.image}
+                  name={f.name}
                   alt={f.name}
-                  className="w-20 h-20 rounded-full object-cover border-2 border-white shadow-xs"
-                  onError={(e) => { e.currentTarget.src = '/assets/faculty/default-avatar.png'; }}
+                  className="w-20 h-20 rounded-full border-2 border-white shadow-xs"
+                  fallbackSize="text-xl"
                 />
                 <div className="space-y-1">
-                  <h4 className="font-serif font-bold text-sm text-slate-900 leading-snug">{f.name}</h4>
+                  <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900 leading-snug">{f.name}</h4>
                   <p className="text-xs text-[#1C5496] font-semibold">{f.designation || 'Faculty Member'}</p>
                   <p className="text-[11px] text-slate-500 font-mono">{f.qualification || 'M.Sc., Ph.D.'}</p>
                 </div>
@@ -535,11 +624,11 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
         <section className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs space-y-6">
           <div className="space-y-1 border-b border-slate-100 pb-4">
             {content.subheading && (
-              <span className="text-[11px] font-mono uppercase tracking-widest text-[#1C5496] font-bold block">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#1C5496] font-semibold block">
                 {content.subheading}
               </span>
             )}
-            <h2 className="font-serif font-bold text-2xl text-slate-900">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
               {content.heading || 'Department Facilities & Laboratories'}
             </h2>
           </div>
@@ -550,7 +639,7 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
                 <div className="w-8 h-8 rounded-lg bg-[#1C5496] text-white flex items-center justify-center font-bold">
                   <Building2 className="w-4 h-4" />
                 </div>
-                <h4 className="font-serif font-bold text-sm text-slate-900">{item.title}</h4>
+                <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900">{item.title}</h4>
                 <p className="text-xs text-slate-600 leading-relaxed font-sans">{item.description}</p>
               </div>
             ))}
@@ -564,11 +653,11 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
         <section className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs space-y-6">
           <div className="space-y-1 border-b border-slate-100 pb-4">
             {content.subheading && (
-              <span className="text-[11px] font-mono uppercase tracking-widest text-[#1C5496] font-bold block">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#1C5496] font-semibold block">
                 {content.subheading}
               </span>
             )}
-            <h2 className="font-serif font-bold text-2xl text-slate-900">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
               {content.heading || 'Curriculum & Syllabi'}
             </h2>
           </div>
@@ -584,7 +673,7 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
                     <FileText className="w-5 h-5" />
                   </div>
                   <div>
-                    <h5 className="font-bold text-xs sm:text-sm text-slate-900">{doc.title}</h5>
+                    <h5 className="font-heading font-semibold text-xs sm:text-sm text-slate-900">{doc.title}</h5>
                     <p className="text-[11px] text-slate-500 font-sans">{doc.description || 'Official academic publication'}</p>
                   </div>
                 </div>
@@ -593,7 +682,7 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
                   href={doc.fileUrl || '#'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-white border border-slate-200 hover:border-slate-900 text-slate-900 rounded-lg text-xs font-bold transition-all shadow-2xs"
+                  className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-white border border-slate-200 hover:border-slate-900 text-slate-900 rounded-lg text-xs font-semibold transition-all shadow-2xs"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Download PDF</span>
@@ -609,7 +698,7 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
       return (
         <section className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xs space-y-6">
           <div className="space-y-1 border-b border-slate-100 pb-4 flex items-center justify-between">
-            <h2 className="font-serif font-bold text-2xl text-slate-900 flex items-center gap-2">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900 flex items-center gap-2">
               <Bell className="w-5 h-5 text-amber-500" />
               <span>{content.heading || 'Department Notices & Circulars'}</span>
             </h2>
@@ -622,7 +711,7 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
             {noticesList.map((n) => (
               <div key={n.id} className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
                 <span className="text-[10px] font-mono text-slate-400">{n.display_date || n.date}</span>
-                <h4 className="font-bold text-xs text-slate-900 hover:text-blue-600 transition-colors line-clamp-2">
+                <h4 className="font-heading font-semibold text-xs sm:text-sm text-slate-900 hover:text-blue-600 transition-colors line-clamp-2">
                   {n.title}
                 </h4>
                 <p className="text-[11px] text-slate-500 line-clamp-2">{n.summary}</p>
@@ -637,7 +726,7 @@ function DepartmentSectionRenderer({ section, department, facultyList, programme
       return (
         <section className="bg-[#0B1F4E] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-md space-y-6">
           <div className="space-y-1 border-b border-white/10 pb-4">
-            <h2 className="font-serif font-bold text-2xl text-[#FFD84A]">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-[#FFD84A]">
               {content.heading || 'Contact Department'}
             </h2>
             <p className="text-xs text-slate-300">Direct inquiries for admissions, syllabus, or academic administration.</p>

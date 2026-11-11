@@ -86,8 +86,8 @@ export default function DocumentsPage() {
     <div ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-8 py-12 space-y-8">
       
       <div className="bg-slate-950 text-white rounded-2xl p-8 sm:p-12 border-b-4 border-amber-500 shadow-xl">
-        <span className="text-amber-400 font-bold text-xs uppercase tracking-widest">Institutional Repository</span>
-        <h1 className="font-serif font-extrabold text-3xl sm:text-5xl mt-2 mb-4">Searchable Document Hub</h1>
+        <span className="text-amber-400 font-semibold text-xs uppercase tracking-widest">Institutional Repository</span>
+        <h1 className="font-heading font-bold text-2xl sm:text-3xl mt-2 mb-4">Searchable Document Hub</h1>
         <p className="text-slate-300 max-w-3xl text-sm sm:text-base leading-relaxed">
           Access over {pagination.total > 0 ? `${pagination.total.toLocaleString()}` : '1,280'} downloadable institutional documents including Syllabi, Examination Schedules, NAAC AQAR Disclosures, Regulations, and Forms.
         </p>

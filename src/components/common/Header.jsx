@@ -290,7 +290,7 @@ export default function Header() {
                       onClick={() => handleNavClick(item)}
                       aria-expanded={isMegaOpen}
                       aria-haspopup={item.megaKey ? 'menu' : 'false'}
-                      className={`px-2 xl:px-2.5 2xl:px-3 py-2.5 xl:py-3 text-[11.5px] xl:text-[12px] 2xl:text-[13px] font-bold tracking-wide transition-all flex items-center whitespace-nowrap cursor-pointer relative ${
+                      className={`px-2.5 lg:px-3 xl:px-3.5 2xl:px-4 py-2.5 lg:py-3 text-[13.5px] xl:text-[14px] 2xl:text-[15px] font-semibold tracking-normal transition-all flex items-center whitespace-nowrap cursor-pointer relative ${
                         isMegaOpen
                           ? 'text-[#F0D98C] bg-white/10'
                           : isRouteActive
@@ -301,8 +301,8 @@ export default function Header() {
                       <span>{item.label}</span>
                       {item.megaKey && (
                         <ChevronDown
-                          className={`w-3.5 h-3.5 ml-0.5 xl:ml-1 transition-transform duration-200 shrink-0 ${
-                            isMegaOpen ? 'rotate-180 text-[#F0D98C]' : 'opacity-70 text-slate-300'
+                          className={`w-3.5 h-3.5 ml-1 transition-transform duration-200 shrink-0 ${
+                            isMegaOpen ? 'rotate-180 text-[#F0D98C]' : 'opacity-75 text-slate-300'
                           }`}
                         />
                       )}

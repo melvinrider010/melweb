@@ -47,7 +47,7 @@
     "displayLines": ["Tourism &", "Hospitality Mgmt"],
     "duration": "3 Years / 4 Years (NEP 2020)",
     "description": "Specialized degree in global aviation, hotel management, eco-tourism, travel agency operations, and event management.",
-    "link": "/departments/management"
+    "link": "/departments/bba-th"
   },
   {
     "id": "bsw",
@@ -77,7 +77,7 @@
     "displayLines": ["Bachelor of", "Vocation (Skill Streams)"],
     "duration": "3 Years (NSQF Level 7)",
     "description": "Hands-on vocational degrees in Digital Media & Animation, Healthcare Technology, and Software Development aligned with UGC NSQF standards.",
-    "link": "/departments/bca"
+    "link": "/departments/bvoc"
   },
   {
     "id": "lang",

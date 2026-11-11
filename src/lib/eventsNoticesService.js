@@ -238,8 +238,8 @@ export function createEvent(eventData) {
     updated_at: timestamp
   };
 
-  // 1. Add Event to Events collection
-  cmsStore.addEvent(newEvent);
+  // 1. Add Event to Events collection & sync to backend
+  cmsStore.saveEvent(newEvent);
 
   // 2. Auto-generate corresponding Notice Board Entry
   const autoNoticeId = `notice-evt-${eventId}`;
@@ -367,6 +367,7 @@ export function addSubEvent(parentEventId, subEventData) {
  * Core Action 3: DELETE EVENT -> Cleans up Event & Linked Notices
  */
 export function deleteEvent(eventId) {
+  cmsStore.deleteEvent(eventId);
   const events = cmsStore.getEvents();
   const updatedEvents = events.filter((e) => e.id !== eventId);
   cmsStore.updateEventsList(updatedEvents);

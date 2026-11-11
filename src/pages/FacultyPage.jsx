@@ -75,7 +75,9 @@ export default function FacultyPage() {
   const filteredFaculty = useMemo(() => {
     const searchClean = cleanStr(search);
     return allFaculty.filter(f => {
-      const deptName = f.department || f.departmentName || '';
+      const deptName = typeof f.department === 'object'
+        ? (f.department?.name || f.departmentName || '')
+        : (f.department || f.departmentName || '');
       const progTitles = (f.programmes || []).map(p => `${p.code} ${p.title}`).join(' ');
 
       const matchesSearch = !searchClean || 
@@ -103,7 +105,9 @@ export default function FacultyPage() {
 
     filteredFaculty.forEach(member => {
       const dId = member.department_id || member.departmentId || 'dept-general';
-      const dName = member.department || member.departmentName || 'Academic Department';
+      const dName = typeof member.department === 'object'
+        ? (member.department?.name || member.departmentName || 'Academic Department')
+        : (member.department || member.departmentName || 'Academic Department');
       const dCategory = member.facultyCategory || 'Academics';
 
       if (!deptMap[dId]) {
@@ -169,17 +173,17 @@ export default function FacultyPage() {
         <div className="bg-white p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xs space-y-6">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
-              <span className="text-[#1C5496] font-bold text-xs uppercase tracking-widest block">Academic Directory</span>
-              <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 mt-1">Faculty Directory</h1>
+              <span className="text-[#1C5496] font-semibold text-xs uppercase tracking-widest block">Academic Directory</span>
+              <h1 className="font-heading font-bold text-2xl sm:text-3xl text-slate-900 mt-1">Faculty Directory</h1>
               <p className="text-xs sm:text-sm text-slate-600 max-w-3xl leading-relaxed font-sans mt-2">
                 Explore the distinguished teaching faculty, research guides, and academic heads across St. Philomena's College (Autonomous), organized by department and academic programmes.
               </p>
             </div>
             <div className="shrink-0 bg-blue-50 border border-blue-200/80 rounded-2xl p-4 text-center">
-              <span className="font-mono font-extrabold text-2xl sm:text-3xl text-[#1C5496] block">
+              <span className="font-mono font-bold text-2xl sm:text-3xl text-[#1C5496] block">
                 {filteredFaculty.length}
               </span>
-              <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wide">Active Faculty</span>
+              <span className="text-[11px] font-semibold text-slate-600 uppercase tracking-wide">Active Faculty</span>
             </div>
           </div>
 
@@ -315,13 +319,13 @@ export default function FacultyPage() {
                       {dept.category || 'Academic Department'}
                     </span>
                   </div>
-                  <h2 className="font-serif font-bold text-2xl sm:text-3xl text-slate-900 leading-tight">
+                  <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900 leading-tight">
                     {dept.name}
                   </h2>
                 </div>
                 <Link
                   to={`/departments/${dept.id.replace(/^dept[-_]/, '')}`}
-                  className="text-xs font-bold text-[#1C5496] hover:underline inline-flex items-center gap-1 shrink-0"
+                  className="text-xs font-semibold text-[#1C5496] hover:underline inline-flex items-center gap-1 shrink-0"
                 >
                   <span>Department Overview</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -341,7 +345,7 @@ export default function FacultyPage() {
                       <div className="flex items-center justify-between gap-3 bg-slate-50/80 px-4 py-2.5 rounded-xl border border-slate-200/70">
                         <div className="flex items-center gap-2">
                           <BookOpen className="w-4 h-4 text-[#1C5496]" />
-                          <h3 className="font-bold text-sm text-slate-900">
+                          <h3 className="font-semibold text-sm text-slate-900">
                             {progGroup.title}
                           </h3>
                         </div>
@@ -379,7 +383,7 @@ export default function FacultyPage() {
                                 <div className="p-4 space-y-1.5 text-xs">
                                   <Link
                                     to={`/faculty/${encodeURIComponent(member.id)}`}
-                                    className="font-serif font-bold text-base text-slate-900 group-hover:text-[#1C5496] transition-colors line-clamp-1 block hover:underline"
+                                    className="font-heading font-semibold text-base sm:text-card text-slate-900 group-hover:text-[#1C5496] transition-colors line-clamp-1 block hover:underline"
                                     title={member.name}
                                   >
                                     {member.name}

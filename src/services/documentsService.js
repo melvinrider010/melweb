@@ -8,10 +8,12 @@ function normalizeDocument(doc) {
   const rawUrl = doc.original_url || doc.originalUrl || '';
   const localPath = doc.local_path || doc.localPath || '';
 
-  // Resolve viewable PDF/document URL
-  let resolvedUrl = rawUrl;
-  if (!resolvedUrl && localPath) {
+  // Resolve viewable PDF/document URL - prioritize local file
+  let resolvedUrl = '';
+  if (localPath) {
     resolvedUrl = localPath.startsWith('/') ? localPath : `/${localPath}`;
+  } else {
+    resolvedUrl = rawUrl;
   }
 
   const ext = (doc.extension || 'pdf').toLowerCase();

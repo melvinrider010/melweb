@@ -27,9 +27,9 @@
     "source": "https://stphilos.ac.in/administration/"
   },
   {
-    "title": "Financial Officer",
+    "title": "Finance Officer",
     "name": "Rev. Fr. Roshan",
-    "designation": "Financial Officer",
+    "designation": "Finance Officer",
     "image": "/assets/images/leadership/fr-roshan.jpg",
     "objectPosition": "50% 20%",
     "path": "/about?tab=leadership",
@@ -51,6 +51,15 @@
     "image": "/assets/images/leadership/thomas-gunaseelan.jpg",
     "objectPosition": "50% 20%",
     "path": "/about?tab=leadership",
+    "source": "https://stphilos.ac.in/administration/"
+  },
+  {
+    "title": "PG Coordinator",
+    "name": "Dr. Noor Mubasheer C A",
+    "designation": "PG Coordinator",
+    "image": "/assets/images/leadership/noor-mubasheer.jpg",
+    "objectPosition": "50% 15%",
+    "path": "/leadership/pg-coordinator",
     "source": "https://stphilos.ac.in/administration/"
   }
 ]

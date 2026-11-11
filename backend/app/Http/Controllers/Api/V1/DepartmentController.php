@@ -49,10 +49,12 @@ class DepartmentController extends Controller
 
         $departments->each(function ($d) {
             $d->programmes_count = is_array($d->programmes) ? count($d->programmes) : 0;
-            if (\Illuminate\Support\Facades\Schema::hasTable('department_faculty') && 
-                \Illuminate\Support\Facades\DB::table('department_faculty')->where('department_id', $d->id)->exists()) {
-                $d->faculty_count = $d->faculty()->count();
+            $directCount = Faculty::where('department_id', $d->id)->where('status', 'active')->count();
+            $pivotCount = 0;
+            if (\Illuminate\Support\Facades\Schema::hasTable('department_faculty')) {
+                $pivotCount = $d->faculty()->where('faculty.status', 'active')->count();
             }
+            $d->faculty_count = max($directCount, $pivotCount);
         });
 
         return response()->json($departments);
@@ -69,10 +71,10 @@ class DepartmentController extends Controller
 
         // Support aliases like bba / management -> dept-management, bba-th -> dept-bba-th, commerce -> dept-commerce
         $aliasId = match ($clean) {
-            'bba', 'management' => 'dept-management',
+            'bba', 'management', 'b-ba' => 'dept-management',
             'bba-th', 'bbath', 'bba-thm', 'bbathm' => 'dept-bba-th',
             'bca' => 'dept-bca',
-            'commerce', 'bcom' => 'dept-commerce',
+            'commerce', 'bcom', 'b-com' => 'dept-commerce',
             'english', 'ba-english' => 'dept-english',
             'kannada', 'ba-kannada' => 'dept-kannada',
             'hindi', 'ba-hindi' => 'dept-hindi',
@@ -80,7 +82,10 @@ class DepartmentController extends Controller
             'urdu', 'ba-urdu' => 'dept-urdu',
             'tamil', 'ba-tamil' => 'dept-tamil',
             'french', 'ba-french' => 'dept-french',
-            'physics', 'bsc-physics', 'ug-physics' => 'dept-physics',
+            'lang', 'languages', 'dept-languages' => 'dept-languages',
+            'physics', 'bsc', 'b-sc', 'bsc-physics', 'ug-physics' => 'dept-physics',
+            'history', 'ba', 'b-a', 'ba-history', 'ug-history' => 'dept-history',
+            'social-work', 'bsw', 'b-sw', 'ug-social-work' => 'dept-social-work',
             'chemistry', 'bsc-chemistry', 'ug-chemistry' => 'dept-chemistry',
             'mathematics', 'maths', 'bsc-mathematics', 'ug-mathematics' => 'dept-mathematics',
             'botany', 'bsc-botany', 'ug-botany' => 'dept-botany',
@@ -88,14 +93,12 @@ class DepartmentController extends Controller
             'environmental-science', 'bsc-environmental-science', 'ug-environmental-science' => 'dept-environmental-science',
             'computer-science', 'cs', 'bsc-computer-science', 'ug-computer-science' => 'dept-computer-science',
             'economics', 'ba-economics', 'ug-economics' => 'dept-economics',
-            'history', 'ba-history', 'ug-history' => 'dept-history',
             'sociology', 'ba-sociology', 'ug-sociology' => 'dept-sociology',
             'political-science', 'ba-political-science', 'ug-political-science' => 'dept-political-science',
             'criminology', 'cfs', 'criminology-and-forensic-science', 'bsc-criminology', 'ug-criminology' => 'dept-criminology',
             'journalism', 'mass-communication', 'journalism-and-mass-communication', 'ba-journalism', 'ug-journalism', 'journalism-mass-communication' => 'dept-journalism',
             'psychology', 'ba-psychology', 'bsc-psychology', 'ug-psychology' => 'dept-psychology',
             'christianity', 'ba-christianity', 'ug-christianity' => 'dept-christianity',
-            'social-work', 'bsw', 'ug-social-work' => 'dept-social-work',
             'biotechnology', 'bsc-biotechnology', 'ug-biotechnology' => 'dept-biotechnology',
             'microbiology', 'bsc-microbiology', 'ug-microbiology' => 'dept-microbiology',
             'biochemistry', 'bsc-biochemistry', 'ug-biochemistry' => 'dept-biochemistry',
@@ -158,31 +161,59 @@ class DepartmentController extends Controller
         }
 
         // Active Faculty Members for this Department
-        if (\Illuminate\Support\Facades\Schema::hasTable('department_faculty') && 
-            \Illuminate\Support\Facades\DB::table('department_faculty')->where('department_id', $department->id)->exists()) {
-            $faculty = $department->faculty()
-                ->where('faculty.status', 'active')
-                ->orderBy('name', 'asc')
-                ->get();
-        } else {
-            $faculty = Faculty::where(function ($q) use ($department) {
-                $q->where('department_id', $department->id)
-                  ->orWhere('department', $department->name)
-                  ->orWhere('department', 'like', "%{$department->name}%");
+        $deptIds = [$department->id];
+        if ($department->id === 'dept-languages') {
+            $deptIds = array_merge($deptIds, [
+                'dept-kannada', 'dept-hindi', 'dept-french', 
+                'dept-malayalam', 'dept-urdu', 'dept-tamil'
+            ]);
+        } elseif ($department->id === 'dept-botany-zoology') {
+            $deptIds = array_merge($deptIds, [
+                'dept-botany', 'dept-zoology'
+            ]);
+        } elseif ($department->id === 'dept-management') {
+            $deptIds[] = 'dept_bba';
+        }
+
+        $directFaculty = Faculty::where(function ($q) use ($department, $deptIds) {
+            $q->whereIn('department_id', $deptIds)
+              ->orWhere('department', $department->name)
+              ->orWhere('department', 'like', "%{$department->name}%");
+        })
+        ->where('status', 'active')
+        ->get();
+
+        $pivotFaculty = collect();
+        if (\Illuminate\Support\Facades\Schema::hasTable('department_faculty')) {
+            $pivotFaculty = Faculty::whereHas('departments', function($q) use ($deptIds) {
+                $q->whereIn('departments.id', $deptIds);
             })
-            ->where('status', 'active')
-            ->orderBy('name', 'asc')
+            ->where('faculty.status', 'active')
             ->get();
         }
 
+        $faculty = $directFaculty->concat($pivotFaculty)->unique('id')->sortBy('name')->values();
+
         // Programmes associated with this Department
         $programCodes = is_array($department->programmes) ? $department->programmes : [];
-        $programmes = Programme::whereIn('code', $programCodes)
-            ->orWhere(function ($q) use ($department) {
-                $q->where('departments', 'like', "%{$department->id}%")
-                  ->orWhere('departments', 'like', "%{$department->name}%");
-            })
-            ->get();
+        if (empty($programCodes)) {
+            $progSec = $sections->firstWhere('section_key', 'programs');
+            if ($progSec && is_array($progSec->content) && !empty($progSec->content['programCodes'])) {
+                $programCodes = $progSec->content['programCodes'];
+            }
+        }
+        $upperCodes = array_map('strtoupper', $programCodes);
+        $lowerCodes = array_map('strtolower', $programCodes);
+        $strippedUpper = array_map(fn($c) => strtoupper(preg_replace('/[^a-zA-Z0-9]/', '', $c)), $programCodes);
+        $allCodes = array_values(array_unique(array_merge($programCodes, $upperCodes, $lowerCodes, $strippedUpper)));
+
+        $programmes = Programme::where(function ($q) use ($allCodes, $department) {
+            if (!empty($allCodes)) {
+                $q->whereIn('code', $allCodes);
+            }
+            $q->orWhere('departments', 'like', "%{$department->id}%")
+              ->orWhere('departments', 'like', "%{$department->name}%");
+        })->get();
 
         // Notices for this Department
         $notices = Notice::where('department', $department->name)

@@ -79,7 +79,7 @@ export default function IqacPage() {
             </span>
           </div>
 
-          <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 leading-tight">
+          <h1 className="font-heading font-bold text-2xl sm:text-3xl text-slate-900 leading-tight">
             Internal Quality Assurance Cell (IQAC)
           </h1>
 
@@ -95,7 +95,7 @@ export default function IqacPage() {
           <div className="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xs space-y-4">
             <div className="flex items-center space-x-3">
               <Sparkles className="w-5 h-5 text-[#C9A84C]" />
-              <h3 className="font-serif font-bold text-xl sm:text-2xl text-slate-900">
+              <h3 className="font-heading font-semibold text-lg sm:text-xl text-slate-900">
                 IQAC Vision
               </h3>
             </div>
@@ -114,7 +114,7 @@ export default function IqacPage() {
           <div className="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xs space-y-4">
             <div className="flex items-center space-x-3">
               <Compass className="w-5 h-5 text-[#1C5496]" />
-              <h3 className="font-serif font-bold text-xl sm:text-2xl text-slate-900">
+              <h3 className="font-heading font-semibold text-lg sm:text-xl text-slate-900">
                 IQAC Mission
               </h3>
             </div>
@@ -134,10 +134,10 @@ export default function IqacPage() {
         {/* ================= 3. IQAC LEADERSHIP OFFICERS (EXACT VISUAL PARITY) ================= */}
         <div className="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xs space-y-6">
           <div className="text-center space-y-1 max-w-2xl mx-auto">
-            <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">
+            <span className="text-[#1C5496] font-mono font-semibold text-xs uppercase tracking-widest block">
               Executive Leadership
             </span>
-            <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
               IQAC Core Officers
             </h2>
             <p className="text-xs text-slate-500 font-sans">
@@ -167,7 +167,7 @@ export default function IqacPage() {
                   </div>
 
                   <div className="space-y-1">
-                    <h3 className="font-serif font-bold text-lg text-slate-900 group-hover:text-[#1C5496] transition-colors">
+                    <h3 className="font-heading font-semibold text-card text-slate-900 group-hover:text-[#1C5496] transition-colors">
                       {officer.name}
                     </h3>
                     <p className="text-xs font-bold text-[#1C5496] tracking-wide uppercase font-mono">
@@ -200,10 +200,10 @@ export default function IqacPage() {
         <div className="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xs space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-4">
             <div>
-              <span className="text-[#208b9e] font-mono font-bold text-xs uppercase tracking-widest block">
+              <span className="text-[#208b9e] font-mono font-semibold text-xs uppercase tracking-widest block">
                 Campus Observances & Highlights
               </span>
-              <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                 IQAC Events & Flash News
               </h2>
             </div>
@@ -252,7 +252,7 @@ export default function IqacPage() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-serif font-bold text-xl sm:text-2xl text-white group-hover:text-amber-200 transition-colors leading-snug">
+                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-white group-hover:text-amber-200 transition-colors leading-snug">
                     {event.title}
                   </h3>
 
@@ -274,7 +274,7 @@ export default function IqacPage() {
                 <div className="pt-2">
                   <button
                     onClick={() => setActiveEvent(event)}
-                    className="w-full py-2 px-4 rounded-full border border-white/80 hover:bg-white hover:text-[#208b9e] text-white font-bold text-xs sm:text-sm text-center transition-all cursor-pointer shadow-xs"
+                    className="w-full py-2 px-4 rounded-full border border-white/80 hover:bg-white hover:text-[#208b9e] text-white font-semibold text-xs sm:text-sm text-center transition-all cursor-pointer shadow-xs"
                   >
                     Read More
                   </button>
@@ -291,7 +291,7 @@ export default function IqacPage() {
           {/* ================= LEFT SIDEBAR DIRECTORY (EXACT PARITY WITH SCREENSHOT) ================= */}
           <div className="lg:col-span-4 bg-white p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xs space-y-6 sticky top-24">
             <div className="border-b border-slate-100 pb-3 flex items-center justify-between">
-              <h3 className="font-serif font-bold text-base text-[#1C5496]">
+              <h3 className="font-heading font-semibold text-base text-[#1C5496]">
                 IQAC Directory & Quick Links
               </h3>
               <span className="text-[10px] font-mono bg-blue-50 text-[#1C5496] px-2 py-0.5 rounded font-bold">
@@ -464,7 +464,7 @@ export default function IqacPage() {
                 <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-3 border-t-4 border-[#C9A84C]">
                   <div className="flex items-center space-x-3">
                     <Sparkles className="w-5 h-5 text-[#C9A84C]" />
-                    <h3 className="font-serif font-bold text-lg text-slate-900">IQAC Vision</h3>
+                    <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900">IQAC Vision</h3>
                   </div>
                   <ul className="space-y-2 pt-1">
                     {iqacData.vision.map((v, idx) => (
@@ -480,7 +480,7 @@ export default function IqacPage() {
                 <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-3 border-t-4 border-[#1C5496]">
                   <div className="flex items-center space-x-3">
                     <Compass className="w-5 h-5 text-[#1C5496]" />
-                    <h3 className="font-serif font-bold text-lg text-slate-900">IQAC Mission</h3>
+                    <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900">IQAC Mission</h3>
                   </div>
                   <ul className="space-y-2 pt-1">
                     {iqacData.mission.map((m, idx) => (
@@ -498,7 +498,7 @@ export default function IqacPage() {
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
                 <div className="flex items-center space-x-3 border-b border-slate-100 pb-3">
                   <Target className="w-5 h-5 text-[#1C5496]" />
-                  <h3 className="font-serif font-bold text-lg text-slate-900">Objectives of IQAC</h3>
+                  <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900">Objectives of IQAC</h3>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                   {iqacData.objectives.map((obj, idx) => (
@@ -517,8 +517,8 @@ export default function IqacPage() {
             <div id="sec-naac" className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
               <div className="border-b border-slate-100 pb-3 flex items-center justify-between">
                 <div>
-                  <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">Accreditation Records</span>
-                  <h3 className="font-serif font-bold text-xl text-slate-900">NAAC Certificates</h3>
+                  <span className="text-[#1C5496] font-mono font-semibold text-xs uppercase tracking-widest block">Accreditation Records</span>
+                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-slate-900">NAAC Certificates</h3>
                 </div>
                 <Award className="w-6 h-6 text-[#C9A84C]" />
               </div>
@@ -530,7 +530,7 @@ export default function IqacPage() {
                       <span className="bg-blue-50 text-[#1C5496] font-mono font-bold text-[10px] px-2 py-0.5 rounded border border-blue-100">
                         {cert.year}
                       </span>
-                      <h4 className="font-serif font-bold text-base text-slate-900 pt-1">{cert.label}</h4>
+                      <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900 pt-1">{cert.label}</h4>
                       <p className="text-xs text-slate-600 font-medium">{cert.grade}</p>
                     </div>
 
@@ -552,8 +552,8 @@ export default function IqacPage() {
             <div id="sec-mom" className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
               <div className="border-b border-slate-100 pb-3 flex items-center justify-between">
                 <div>
-                  <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">Governance & Action Taken</span>
-                  <h3 className="font-serif font-bold text-xl text-slate-900">Minutes of Meeting (MoM)</h3>
+                  <span className="text-[#1C5496] font-mono font-semibold text-xs uppercase tracking-widest block">Governance & Action Taken</span>
+                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-slate-900">Minutes of Meeting (MoM)</h3>
                 </div>
                 <FileCheck className="w-6 h-6 text-[#1C5496]" />
               </div>
@@ -583,8 +583,8 @@ export default function IqacPage() {
             <div id="sec-aqar" className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
               <div className="border-b border-slate-100 pb-3 flex items-center justify-between">
                 <div>
-                  <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">Annual Submissions</span>
-                  <h3 className="font-serif font-bold text-xl text-slate-900">Annual Quality Assurance Reports (AQAR)</h3>
+                  <span className="text-[#1C5496] font-mono font-semibold text-xs uppercase tracking-widest block">Annual Submissions</span>
+                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-slate-900">Annual Quality Assurance Reports (AQAR)</h3>
                 </div>
                 <FileText className="w-6 h-6 text-[#C9A84C]" />
               </div>
@@ -614,8 +614,8 @@ export default function IqacPage() {
             <div id="sec-composition" className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
               <div className="border-b border-slate-100 pb-3 flex items-center justify-between">
                 <div>
-                  <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">Committee Roster</span>
-                  <h3 className="font-serif font-bold text-xl text-slate-900">Composition of IQAC (Members)</h3>
+                  <span className="text-[#1C5496] font-mono font-semibold text-xs uppercase tracking-widest block">Committee Roster</span>
+                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-slate-900">Composition of IQAC (Members)</h3>
                 </div>
                 <Users className="w-6 h-6 text-[#1C5496]" />
               </div>
@@ -624,17 +624,17 @@ export default function IqacPage() {
                 <table className="w-full text-left text-xs border-collapse">
                   <thead>
                     <tr className="bg-slate-50 text-slate-700 font-mono uppercase text-[10.5px] border-b border-slate-200">
-                      <th className="py-2.5 px-3 font-bold">Sl.</th>
-                      <th className="py-2.5 px-3 font-bold">Member Name</th>
-                      <th className="py-2.5 px-3 font-bold">Role / Designation</th>
-                      <th className="py-2.5 px-3 font-bold">Department / Affiliation</th>
+                      <th className="py-2.5 px-3 font-semibold">Sl.</th>
+                      <th className="py-2.5 px-3 font-semibold">Member Name</th>
+                      <th className="py-2.5 px-3 font-semibold">Role / Designation</th>
+                      <th className="py-2.5 px-3 font-semibold">Department / Affiliation</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 font-sans">
                     {iqacData.composition.map((m, idx) => (
                       <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
                         <td className="py-2.5 px-3 font-mono text-slate-400 font-bold">{idx + 1}</td>
-                        <td className="py-2.5 px-3 font-bold text-slate-900">{m.name}</td>
+                        <td className="py-2.5 px-3 font-semibold text-slate-900">{m.name}</td>
                         <td className="py-2.5 px-3 text-[#1C5496] font-semibold">{m.designation}</td>
                         <td className="py-2.5 px-3 text-slate-600">{m.department}</td>
                       </tr>
@@ -648,8 +648,8 @@ export default function IqacPage() {
             <div id="sec-criteria" className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
               <div className="border-b border-slate-100 pb-3 flex items-center justify-between">
                 <div>
-                  <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">NAAC Quality Framework</span>
-                  <h3 className="font-serif font-bold text-xl text-slate-900">Criteria Leaders & Sub-Criteria Members</h3>
+                  <span className="text-[#1C5496] font-mono font-semibold text-xs uppercase tracking-widest block">NAAC Quality Framework</span>
+                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-slate-900">Criteria Leaders & Sub-Criteria Members</h3>
                 </div>
                 <Layers className="w-6 h-6 text-[#C9A84C]" />
               </div>
@@ -658,7 +658,7 @@ export default function IqacPage() {
                 {iqacData.criteriaLeaders.map((crit, idx) => (
                   <div key={idx} className="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
                     <span className="font-mono font-bold text-xs text-[#1C5496] block">{crit.criteria}</span>
-                    <h4 className="font-serif font-bold text-sm text-slate-900">{crit.leader}</h4>
+                    <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900">{crit.leader}</h4>
                     <span className="text-[11px] text-slate-500 block font-medium">{crit.department}</span>
                     <p className="text-xs text-slate-600 font-sans pt-1 leading-relaxed">{crit.focus}</p>
                   </div>
@@ -670,8 +670,8 @@ export default function IqacPage() {
             <div id="sec-fdp" className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
               <div className="border-b border-slate-100 pb-3 flex items-center justify-between">
                 <div>
-                  <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">Faculty Development</span>
-                  <h3 className="font-serif font-bold text-xl text-slate-900">College & IQAC Activities / FDPs</h3>
+                  <span className="text-[#1C5496] font-mono font-semibold text-xs uppercase tracking-widest block">Faculty Development</span>
+                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-slate-900">College & IQAC Activities / FDPs</h3>
                 </div>
                 <Calendar className="w-6 h-6 text-[#1C5496]" />
               </div>
@@ -683,7 +683,7 @@ export default function IqacPage() {
                       <span className="bg-amber-50 text-amber-900 border border-amber-200 font-mono text-[10px] font-bold px-2 py-0.5 rounded">
                         {act.date}
                       </span>
-                      <h4 className="font-serif font-bold text-sm text-slate-900 pt-1">{act.title}</h4>
+                      <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900 pt-1">{act.title}</h4>
                       <p className="text-xs text-slate-600 leading-relaxed font-sans">{act.theme}</p>
                     </div>
                     <a
@@ -707,7 +707,7 @@ export default function IqacPage() {
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-3 border-l-4 border-emerald-600">
                 <div className="flex items-center space-x-3">
                   <TreePine className="w-6 h-6 text-emerald-600" />
-                  <h3 className="font-serif font-bold text-lg text-slate-900">{iqacData.auditsAndRoadmaps.greenAudit.title}</h3>
+                  <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900">{iqacData.auditsAndRoadmaps.greenAudit.title}</h3>
                 </div>
                 <p className="text-xs text-slate-600 font-sans leading-relaxed">{iqacData.auditsAndRoadmaps.greenAudit.description}</p>
                 <div className="pt-2">
@@ -725,7 +725,7 @@ export default function IqacPage() {
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-3 border-l-4 border-[#C9A84C]">
                 <div className="flex items-center space-x-3">
                   <HeartHandshake className="w-6 h-6 text-[#C9A84C]" />
-                  <h3 className="font-serif font-bold text-lg text-slate-900">{iqacData.auditsAndRoadmaps.genderAudit.title} ({iqacData.auditsAndRoadmaps.genderAudit.period})</h3>
+                  <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900">{iqacData.auditsAndRoadmaps.genderAudit.title} ({iqacData.auditsAndRoadmaps.genderAudit.period})</h3>
                 </div>
                 <p className="text-xs text-slate-600 font-sans leading-relaxed">{iqacData.auditsAndRoadmaps.genderAudit.description}</p>
                 <div className="pt-2">
@@ -741,7 +741,7 @@ export default function IqacPage() {
 
               {/* Roadmaps */}
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-                <h3 className="font-serif font-bold text-lg text-slate-900">Strategic Roadmaps of IQAC</h3>
+                <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900">Strategic Roadmaps of IQAC</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {iqacData.auditsAndRoadmaps.roadmaps.map((rm, idx) => (
                     <div key={idx} className="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50 flex flex-col justify-between space-y-2">
@@ -767,8 +767,8 @@ export default function IqacPage() {
             <div id="sec-reports" className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
               <div className="border-b border-slate-100 pb-3 flex items-center justify-between">
                 <div>
-                  <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">Comprehensive Documentation</span>
-                  <h3 className="font-serif font-bold text-xl text-slate-900">Activities Reports of the IQAC</h3>
+                  <span className="text-[#1C5496] font-mono font-semibold text-xs uppercase tracking-widest block">Comprehensive Documentation</span>
+                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-slate-900">Activities Reports of the IQAC</h3>
                 </div>
                 <Activity className="w-6 h-6 text-[#1C5496]" />
               </div>
@@ -780,7 +780,7 @@ export default function IqacPage() {
                       <span className="bg-blue-50 text-[#1C5496] font-mono text-[10px] font-bold px-2 py-0.5 rounded border border-blue-100 uppercase">
                         {rep.period}
                       </span>
-                      <h4 className="font-serif font-bold text-sm text-slate-900">{rep.title}</h4>
+                      <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900">{rep.title}</h4>
                       <p className="text-xs text-slate-600 font-sans leading-relaxed">{rep.description}</p>
                     </div>
                     <div className="shrink-0">
@@ -827,7 +827,7 @@ export default function IqacPage() {
                   <span className="bg-blue-50 text-[#1C5496] font-mono text-[10px] font-bold px-2.5 py-0.5 rounded border border-blue-100 uppercase">
                     {activeOfficial.role}
                   </span>
-                  <h3 className="font-serif font-extrabold text-xl sm:text-2xl text-slate-900">
+                  <h3 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                     {activeOfficial.name}
                   </h3>
                   <p className="text-xs font-semibold text-slate-600">
@@ -944,7 +944,7 @@ export default function IqacPage() {
 
             {/* Title & Metadata */}
             <div className="space-y-3 pt-2">
-              <h1 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900 leading-tight">
+              <h1 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900 leading-tight">
                 {activeEvent.title}
               </h1>
 
@@ -1021,7 +1021,7 @@ export default function IqacPage() {
 
             {/* You May Also Like Section (Matching User Screenshot) */}
             <div className="space-y-3 pt-2">
-              <h3 className="font-serif font-bold text-base text-slate-900">
+              <h3 className="font-heading font-semibold text-sm sm:text-base text-slate-900">
                 You may also like
               </h3>
               <div className="grid grid-cols-3 gap-3">
@@ -1045,7 +1045,7 @@ export default function IqacPage() {
                           }}
                         />
                       </div>
-                      <h4 className="font-serif font-bold text-xs text-slate-800 group-hover:text-[#1C5496] line-clamp-2 leading-snug">
+                      <h4 className="font-heading font-semibold text-xs text-slate-800 group-hover:text-[#1C5496] line-clamp-2 leading-snug">
                         {rel.title}
                       </h4>
                       <span className="text-[10px] text-slate-400 font-mono block">

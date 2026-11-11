@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import { Building2, ArrowRight, BookOpen, Users, Mail, GraduationCap, Loader2, AlertTriangle } from 'lucide-react';
 import { getDepartments } from '../services/departmentsService';
 import { FACULTIES, DEPARTMENTS, getFacultyByDepartmentId } from '../data/academicsHierarchyData';
+import CollegeVideoLoader from '../components/common/CollegeVideoLoader';
 
 export default function DepartmentsPage() {
   const [departments, setDepartments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedFaculty, setSelectedFaculty] = useState('all');
+  const [retryCount, setRetryCount] = useState(0);
 
   useEffect(() => {
     let isMounted = true;
@@ -41,7 +43,7 @@ export default function DepartmentsPage() {
     }
     loadDepts();
     return () => { isMounted = false; };
-  }, []);
+  }, [retryCount]);
 
   const filtered = useMemo(() => {
     if (selectedFaculty === 'all') return departments;
@@ -89,15 +91,24 @@ export default function DepartmentsPage() {
 
       {/* Departments Grid */}
       {isLoading ? (
-        <div className="bg-white p-16 rounded-2xl border border-slate-200 text-center space-y-4 shadow-sm">
-          <Loader2 className="w-10 h-10 text-[#1C5496] animate-spin mx-auto" />
-          <p className="font-serif font-bold text-base text-slate-800">Loading academic departments...</p>
-          <p className="text-xs text-slate-500">Retrieving official departmental listings</p>
+        <div className="py-12 bg-transparent text-center">
+          <CollegeVideoLoader label="Loading academic departments..." />
         </div>
       ) : error ? (
-        <div className="bg-red-50 border border-red-200 p-8 rounded-2xl text-center space-y-3">
-          <AlertTriangle className="w-8 h-8 text-red-600 mx-auto" />
-          <p className="font-serif font-bold text-base text-red-900">{error}</p>
+        <div className="bg-red-50 border border-red-200 p-8 rounded-2xl text-center space-y-4 max-w-xl mx-auto shadow-xs">
+          <AlertTriangle className="w-10 h-10 text-red-600 mx-auto" />
+          <div className="space-y-1">
+            <h3 className="font-serif font-bold text-lg text-red-900">Unable to load department directory</h3>
+            <p className="text-xs sm:text-sm text-red-700">
+              The departmental service could not be reached ({error}). Please verify backend connectivity.
+            </p>
+          </div>
+          <button
+            onClick={() => setRetryCount(c => c + 1)}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-[#1C5496] text-white text-xs font-bold rounded-lg hover:bg-[#143d6d] transition-colors cursor-pointer"
+          >
+            Retry Connection
+          </button>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

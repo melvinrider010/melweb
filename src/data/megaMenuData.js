@@ -16,10 +16,10 @@ export const MEGA_MENU_DATA = {
       {
         heading: "History & Identity",
         links: [
-          { label: "Vision and Mission", path: "/about?tab=history" },
-          { label: "Coat of Arms", path: "/about?tab=history" },
-          { label: "Former Bishops", path: "/about?tab=leadership" },
-          { label: "Former Principals", path: "/about?tab=leadership" },
+          { label: "Vision and Mission", path: "/about?tab=vision" },
+          { label: "Coat of Arms", path: "/about?tab=coat-of-arms" },
+          { label: "Former Bishops", path: "/about?tab=bishops" },
+          { label: "Former Principals", path: "/about?tab=principals" },
           { label: "MDES (Mysore Diocesan Educational Society)", path: "/about?tab=mdes" }
         ]
       },
@@ -27,9 +27,9 @@ export const MEGA_MENU_DATA = {
         heading: "Leadership & Governance",
         links: [
           { label: "Organogram", path: "/about?tab=organogram" },
-          { label: "Governing Body", path: "/compliance/statutory-bodies" },
-          { label: "Rector's Message", path: "/about?tab=leadership" },
-          { label: "Principal's Message", path: "/about?tab=leadership" },
+          { label: "Governing Body", path: "/about?tab=governing-body" },
+          { label: "Rector's Message", path: "/leadership/rector" },
+          { label: "Principal's Message", path: "/leadership/principal" },
           { label: "Statutory Committees", path: "/compliance/college-committees" }
         ]
       }
@@ -86,7 +86,7 @@ export const MEGA_MENU_DATA = {
           { label: "Fees Structure", path: "/compliance/fee-structure" },
           { label: "Calendar", path: "/examinations" },
           { label: "Time Table", path: "/examinations" },
-          { label: "Stakeholders Feedback", path: "/iqac" }
+          { label: "Stakeholders Feedback", path: "/compliance/stakeholder-feedback" }
         ]
       },
       {
@@ -124,10 +124,10 @@ export const MEGA_MENU_DATA = {
       {
         heading: "Research & Development",
         links: [
-          { label: "Major Research", path: "/research" },
-          { label: "Patent and Publications", path: "/research" },
-          { label: "MOU and Collaborations", path: "/research" },
-          { label: "Research & Development Cell", path: "/research" }
+          { label: "Major Research", path: "/research?tab=projects" },
+          { label: "Patent and Publications", path: "/research?tab=patents" },
+          { label: "MOU and Collaborations", path: "/research?tab=mou" },
+          { label: "Research & Development Cell", path: "/research?tab=rdc" }
         ]
       }
     ]
@@ -202,8 +202,8 @@ export const MEGA_MENU_DATA = {
           { label: "AICTE MCA/MBA Mandatory Disclosure", path: "/compliance/aicte-mca-mba-disclosure" },
           { label: "MCA/MBA Infrastructure", path: "/compliance/mca-mba-infrastructure" },
           { label: "Code Of Conduct & Ethics", path: "/compliance/code-of-conduct" },
-          { label: "2 (F)", path: "/compliance/ugc-recognition" },
-          { label: "12(B)", path: "/compliance/ugc-recognition" },
+          { label: "2 (F)", path: "/compliance/ugc-2f" },
+          { label: "12(B)", path: "/compliance/ugc-12b" },
           { label: "COPE", path: "/compliance/cope" },
           { label: "COE", path: "/compliance/coe" },
           { label: "UGC Recognition", path: "/compliance/ugc-recognition" }
@@ -217,7 +217,7 @@ export const MEGA_MENU_DATA = {
           { label: "UGC Refund Policy", path: "/compliance/ugc-refund-policy" },
           { label: "Internal Complaints Commitee", path: "/compliance/internal-complaints-committee" },
           { label: "Student Grievances Committee", path: "/compliance/student-grievance-committee" },
-          { label: "Affiliations", path: "/compliance/statutory-bodies" },
+          { label: "Affiliations", path: "/compliance/affiliations" },
           { label: "Undertaking Certificate", path: "/compliance/undertaking-certificate" },
           { label: "Fee Structure", path: "/compliance/fee-structure" }
         ]
@@ -229,9 +229,9 @@ export const MEGA_MENU_DATA = {
           { label: "Institution's Innovation Council", path: "/iic" },
           { label: "Institutional Development Plan", path: "/compliance/institutional-development-plan" },
           { label: "Divyangjan Policy", path: "/compliance/divyangjan-policy" },
-          { label: "LOA 2024", path: "/compliance/autonomy-approval" },
-          { label: "EOA 2024-25", path: "/compliance/eoa-2026-27" },
-          { label: "EOA 2025-26", path: "/compliance/eoa-2026-27" },
+          { label: "LOA 2024", path: "/compliance/loa-2024" },
+          { label: "EOA 2024-25", path: "/compliance/eoa-2024-25" },
+          { label: "EOA 2025-26", path: "/compliance/eoa-2025-26" },
           { label: "EOA 2026-27", path: "/compliance/eoa-2026-27" },
           { label: "More Important Links & Portals →", path: "/important-links", isButton: true }
         ]

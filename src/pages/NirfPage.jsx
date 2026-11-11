@@ -17,20 +17,76 @@ import PDFViewerEmbed from '../components/common/PDFViewerEmbed';
 export default function NirfPage() {
   const nirfReports = [
     {
+      id: "nirf-2025-overall",
+      year: "2025",
+      title: "NIRF Institutional Data Report 2025 - Overall",
+      fileName: "OVERALL-DATA-St.Philomenas-Autonomous-College20250131-.pdf",
+      path: "/assets/documents/historical/2025/OVERALL-DATA-St.Philomenas-Autonomous-College20250131-.pdf",
+      badge: "NIRF 2025 - Overall",
+      desc: "Comprehensive overall institutional submission report submitted under National Institutional Ranking Framework (NIRF 2025), Ministry of Education, Govt. of India."
+    },
+    {
+      id: "nirf-2025-college",
+      year: "2025",
+      title: "NIRF Institutional Data Report 2025 - College Category",
+      fileName: "St.Philomenas-Autonomous-College20250127-.pdf",
+      path: "/assets/documents/historical/2025/St.Philomenas-Autonomous-College20250127-.pdf",
+      badge: "NIRF 2025 - College",
+      desc: "Institutional data submission report for College Category submitted under NIRF 2025 framework."
+    },
+    {
+      id: "nirf-2025-management",
+      year: "2025",
+      title: "NIRF Institutional Data Report 2025 - Management Discipline",
+      fileName: "Management-St.Philomenas-Autonomous-College20250128-.pdf",
+      path: "/assets/documents/historical/2025/Management-St.Philomenas-Autonomous-College20250128-.pdf",
+      badge: "NIRF 2025 - Management",
+      desc: "Postgraduate Management and MBA discipline data submission report under NIRF 2025."
+    },
+    {
+      id: "nirf-2025-sdg",
+      year: "2025",
+      title: "NIRF Institutional Data Report 2025 - Sustainable Development Goals (SDG)",
+      fileName: "SDG-St.Philomenas-Autonomous-College20250131-.pdf",
+      path: "/assets/documents/historical/2025/SDG-St.Philomenas-Autonomous-College20250131-.pdf",
+      badge: "NIRF 2025 - SDG",
+      desc: "Institutional parameters and metrics under the Sustainable Development Goals (SDG) ranking framework."
+    },
+    {
+      id: "nirf-2024",
+      year: "2024",
+      title: "NIRF Institutional Data Report 2024",
+      fileName: "St.Philomenas-Autonomous-College20240307-1-1.pdf",
+      path: "/assets/documents/historical/2024/St.Philomenas-Autonomous-College20240307-1-1.pdf",
+      badge: "NIRF - 2024",
+      desc: "Annual NIRF 2024 data submission encompassing student intake, faculty credentials, capital expenditure, and student graduation outcomes."
+    },
+    {
+      id: "nirf-2022",
       year: "2022",
       title: "NIRF Institutional Data Report 2022",
       fileName: "St.-Philominas-College-Bannimantap20220218-.pdf",
       path: "/assets/documents/nirf/St-Philomenas-College-NIRF-2022.pdf",
       badge: "NIRF - 2022",
-      desc: "Comprehensive institutional submission report submitted under National Institutional Ranking Framework (NIRF), Ministry of Education, Govt. of India."
+      desc: "Comprehensive institutional submission report submitted under National Institutional Ranking Framework (NIRF 2022), Ministry of Education, Govt. of India."
     },
     {
+      id: "nirf-2021",
       year: "2021",
       title: "NIRF Institutional Data Report 2021",
       fileName: "St.-Philominas-College-Bannimantap20210305-1.pdf",
       path: "/assets/documents/nirf/St-Philomenas-College-NIRF-2021.pdf",
       badge: "NIRF - 2021",
-      desc: "Annual NIRF data submission encompassing student intake, faculty credentials, research output, capital expenditure, and student graduation outcomes."
+      desc: "Annual NIRF 2021 data submission encompassing student intake, faculty credentials, research output, capital expenditure, and student graduation outcomes."
+    },
+    {
+      id: "nirf-2019",
+      year: "2019",
+      title: "NIRF Institutional Data Report 2019",
+      fileName: "St.-Philominas-College-Bannimantap20190107-.pdf",
+      path: "/documents/academics/St.-Philominas-College-Bannimantap20190107-.pdf",
+      badge: "NIRF - 2019",
+      desc: "Historical institutional NIRF submission report covering sanctioned intake, student metrics, and financial resources."
     }
   ];
 
@@ -96,21 +152,21 @@ export default function NirfPage() {
 
           <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
             <a
-              href="/assets/documents/nirf/St-Philomenas-College-NIRF-2022.pdf"
-              download="St-Philomenas-College-NIRF-2022.pdf"
+              href="/assets/documents/historical/2025/OVERALL-DATA-St.Philomenas-Autonomous-College20250131-.pdf"
+              download="OVERALL-DATA-St.Philomenas-Autonomous-College20250131-.pdf"
               className="btn-gold px-6 py-3 rounded-xl text-sm font-bold text-center flex items-center justify-center space-x-2 shadow-md cursor-pointer"
             >
               <Download className="w-4 h-4" />
-              <span>Download NIRF 2022 PDF</span>
+              <span>Download NIRF 2025 PDF</span>
             </a>
 
             <a
-              href="/assets/documents/nirf/St-Philomenas-College-NIRF-2021.pdf"
-              download="St-Philomenas-College-NIRF-2021.pdf"
+              href="/assets/documents/historical/2024/St.Philomenas-Autonomous-College20240307-1-1.pdf"
+              download="St.Philomenas-Autonomous-College20240307-1-1.pdf"
               className="px-6 py-3 bg-[#0B1F4E] hover:bg-[#1C5496] text-white rounded-xl text-sm font-bold text-center flex items-center justify-center space-x-2 transition-colors cursor-pointer"
             >
               <FileText className="w-4 h-4 text-[#FFD84A]" />
-              <span>Download NIRF 2021 PDF</span>
+              <span>Download NIRF 2024 PDF</span>
             </a>
           </div>
         </div>
@@ -131,7 +187,7 @@ export default function NirfPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {nirfReports.map((report, idx) => {
-              const isSelected = selectedReport.year === report.year;
+              const isSelected = selectedReport.id === report.id;
               return (
                 <div
                   key={idx}

@@ -85,8 +85,8 @@ export default function AcademicsPage() {
 
         {/* 2. HEADER BANNER & DEGREE LEVEL TOGGLE */}
         <div className="bg-white p-8 sm:p-10 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-          <span className="text-[#1C5496] font-bold text-xs uppercase tracking-widest block">Academic Excellence</span>
-          <h1 className="font-serif font-extrabold text-3xl sm:text-5xl text-slate-900 leading-tight">Academic Structure & Programmes</h1>
+          <span className="text-[#1C5496] font-semibold text-xs uppercase tracking-widest block">Academic Excellence</span>
+          <h1 className="font-heading font-bold text-2xl sm:text-3xl text-slate-900 leading-tight">Academic Structure & Programmes</h1>
           <p className="text-sm sm:text-base text-slate-600 max-w-3xl leading-relaxed font-sans">
             St. Philomena's College (Autonomous), Mysuru offers diverse undergraduate, postgraduate, vocational, and language degree programs aligned with the National Education Policy (NEP 2020) and Outcome Based Education (OBE).
           </p>
@@ -105,7 +105,7 @@ export default function AcademicsPage() {
               <button
                 key={t.id}
                 onClick={() => handleTabChange(t.id)}
-                className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-[13px] font-bold transition-all cursor-pointer ${
+                className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-[13px] font-semibold transition-all cursor-pointer ${
                   tab === t.id
                     ? 'bg-[#1C5496] text-white shadow-md'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
@@ -126,9 +126,9 @@ export default function AcademicsPage() {
               <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
                 <div>
                   <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">Core Bachelor Degrees</span>
-                  <h2 className="font-serif font-bold text-2xl sm:text-3xl text-slate-900">UG PROGRAMS</h2>
+                  <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">UG PROGRAMS</h2>
                 </div>
-                <span className="bg-blue-50 text-[#1C5496] font-bold text-xs px-3 py-1 rounded-full border border-blue-200">
+                <span className="bg-blue-50 text-[#1C5496] font-semibold text-xs px-3 py-1 rounded-full border border-blue-200">
                   {ugDegrees.length} Degree Programmes
                 </span>
               </div>
@@ -154,7 +154,7 @@ export default function AcademicsPage() {
 
                       {/* Card Content */}
                       <div className="p-5 space-y-2.5">
-                        <h3 className="font-serif font-bold text-base text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug line-clamp-2">
+                        <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug line-clamp-2">
                           {prog.title}
                         </h3>
                         <p className="text-xs text-slate-600 leading-relaxed font-sans line-clamp-2">
@@ -194,9 +194,9 @@ export default function AcademicsPage() {
               <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
                 <div>
                   <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">Classical & Modern Literatures</span>
-                  <h2 className="font-serif font-bold text-2xl sm:text-3xl text-slate-900">LANGUAGES</h2>
+                  <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">LANGUAGES</h2>
                 </div>
-                <span className="bg-amber-50 text-amber-800 font-bold text-xs px-3 py-1 rounded-full border border-amber-200">
+                <span className="bg-amber-50 text-amber-800 font-semibold text-xs px-3 py-1 rounded-full border border-amber-200">
                   {languageDegrees.length} Language Disciplines
                 </span>
               </div>
@@ -222,7 +222,7 @@ export default function AcademicsPage() {
 
                       {/* Card Content */}
                       <div className="p-5 space-y-2.5">
-                        <h3 className="font-serif font-bold text-base text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug">
+                        <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug">
                           {prog.title}
                         </h3>
                         <p className="text-xs text-slate-600 leading-relaxed font-sans line-clamp-2">
@@ -241,13 +241,13 @@ export default function AcademicsPage() {
                         href="https://student.stphiloserp.in/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-gold px-3 py-1.5 rounded-lg text-xs font-bold text-center"
+                        className="btn-gold px-3 py-1.5 rounded-lg text-xs font-semibold text-center"
                       >
                         + Apply Now
                       </a>
                       <Link
                         to={prog.explorePath}
-                        className="text-xs font-bold text-[#1C5496] group-hover:underline inline-flex items-center"
+                        className="text-xs font-semibold text-[#1C5496] group-hover:underline inline-flex items-center"
                       >
                         <span>EXPLORE →</span>
                       </Link>
@@ -262,9 +262,9 @@ export default function AcademicsPage() {
               <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
                 <div>
                   <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">Ability & Skill Enhancement</span>
-                  <h2 className="font-serif font-bold text-2xl sm:text-3xl text-slate-900">FOUNDATION COURSES</h2>
+                  <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">FOUNDATION COURSES</h2>
                 </div>
-                <span className="bg-emerald-50 text-emerald-800 font-bold text-xs px-3 py-1 rounded-full border border-emerald-200">
+                <span className="bg-emerald-50 text-emerald-800 font-semibold text-xs px-3 py-1 rounded-full border border-emerald-200">
                   {foundationDegrees.length} Value & Skill Modules
                 </span>
               </div>
@@ -290,7 +290,7 @@ export default function AcademicsPage() {
 
                       {/* Card Content */}
                       <div className="p-5 space-y-2.5">
-                        <h3 className="font-serif font-bold text-base text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug">
+                        <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug">
                           {prog.title}
                         </h3>
                         <p className="text-xs text-slate-600 leading-relaxed font-sans line-clamp-2">
@@ -364,9 +364,9 @@ export default function AcademicsPage() {
               <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
                 <div>
                   <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">IT, Management & Commerce</span>
-                  <h2 className="font-serif font-bold text-2xl text-slate-900">MCA, MBA & M.COM PROGRAMMES</h2>
+                  <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">MCA, MBA & M.COM PROGRAMMES</h2>
                 </div>
-                <span className="bg-blue-50 text-[#1C5496] font-bold text-xs px-3 py-1 rounded-full border border-blue-200">
+                <span className="bg-blue-50 text-[#1C5496] font-semibold text-xs px-3 py-1 rounded-full border border-blue-200">
                   3 Professional Degrees
                 </span>
               </div>
@@ -383,7 +383,7 @@ export default function AcademicsPage() {
                           </span>
                           <span className="text-[11px] font-mono text-slate-500 font-semibold">{prog.duration}</span>
                         </div>
-                        <h3 className="font-serif font-bold text-xl text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug">
+                        <h3 className="font-heading font-semibold text-lg sm:text-xl text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug">
                           {prog.title}
                         </h3>
                         <p className="text-xs text-slate-600 leading-relaxed font-sans line-clamp-3">
@@ -400,11 +400,11 @@ export default function AcademicsPage() {
                           href="https://student.stphiloserp.in/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="btn-gold px-3.5 py-1.5 rounded-lg text-xs font-bold"
+                          className="btn-gold px-3.5 py-1.5 rounded-lg text-xs font-semibold"
                         >
                           + Apply Now
                         </a>
-                        <Link to={`/academics/${slug}`} className="text-xs text-[#1C5496] font-bold hover:underline inline-flex items-center">
+                        <Link to={`/academics/${slug}`} className="text-xs text-[#1C5496] font-semibold hover:underline inline-flex items-center">
                           <span>EXPLORE SYLLABUS →</span>
                         </Link>
                       </div>
@@ -419,9 +419,9 @@ export default function AcademicsPage() {
               <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
                 <div>
                   <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">Pure, Applied & Interdisciplinary Sciences</span>
-                  <h2 className="font-serif font-bold text-2xl text-slate-900">M.SC PROGRAMMES (ALL 8 SPECIALIZATIONS)</h2>
+                  <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">M.SC PROGRAMMES (ALL 8 SPECIALIZATIONS)</h2>
                 </div>
-                <span className="bg-emerald-50 text-emerald-800 font-bold text-xs px-3 py-1 rounded-full border border-emerald-200">
+                <span className="bg-emerald-50 text-emerald-800 font-semibold text-xs px-3 py-1 rounded-full border border-emerald-200">
                   8 M.Sc Combinations
                 </span>
               </div>
@@ -438,7 +438,7 @@ export default function AcademicsPage() {
                           </span>
                           <span className="text-[10px] font-mono text-slate-500 font-semibold">{prog.duration}</span>
                         </div>
-                        <h3 className="font-serif font-bold text-base text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug line-clamp-2">
+                        <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug line-clamp-2">
                           {prog.title}
                         </h3>
                         <p className="text-xs text-slate-600 leading-relaxed font-sans line-clamp-3">
@@ -473,9 +473,9 @@ export default function AcademicsPage() {
               <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
                 <div>
                   <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">Humanities, Media & Social Sciences</span>
-                  <h2 className="font-serif font-bold text-2xl text-slate-900">M.A PROGRAMMES (ALL 3 SPECIALIZATIONS)</h2>
+                  <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">M.A PROGRAMMES (ALL 3 SPECIALIZATIONS)</h2>
                 </div>
-                <span className="bg-amber-50 text-amber-900 font-bold text-xs px-3 py-1 rounded-full border border-amber-200">
+                <span className="bg-amber-50 text-amber-900 font-semibold text-xs px-3 py-1 rounded-full border border-amber-200">
                   3 M.A Combinations
                 </span>
               </div>
@@ -492,7 +492,7 @@ export default function AcademicsPage() {
                           </span>
                           <span className="text-[11px] font-mono text-slate-500 font-semibold">{prog.duration}</span>
                         </div>
-                        <h3 className="font-serif font-bold text-lg text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug">
+                        <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug">
                           {prog.title}
                         </h3>
                         <p className="text-xs text-slate-600 leading-relaxed font-sans line-clamp-3">
@@ -509,11 +509,11 @@ export default function AcademicsPage() {
                           href="https://student.stphiloserp.in/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="btn-gold px-3.5 py-1.5 rounded-lg text-xs font-bold"
+                          className="btn-gold px-3.5 py-1.5 rounded-lg text-xs font-semibold"
                         >
                           + Apply Now
                         </a>
-                        <Link to={`/academics/${slug}`} className="text-xs text-[#1C5496] font-bold hover:underline inline-flex items-center">
+                        <Link to={`/academics/${slug}`} className="text-xs text-[#1C5496] font-semibold hover:underline inline-flex items-center">
                           <span>EXPLORE SYLLABUS →</span>
                         </Link>
                       </div>
@@ -528,9 +528,9 @@ export default function AcademicsPage() {
               <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
                 <div>
                   <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">Social Sciences & Human Development</span>
-                  <h2 className="font-serif font-bold text-2xl text-slate-900">MSW - MASTER OF SOCIAL WORK</h2>
+                  <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">MSW - MASTER OF SOCIAL WORK</h2>
                 </div>
-                <span className="bg-purple-50 text-purple-900 font-bold text-xs px-3 py-1 rounded-full border border-purple-200">
+                <span className="bg-purple-50 text-purple-900 font-semibold text-xs px-3 py-1 rounded-full border border-purple-200">
                   Professional Social Work
                 </span>
               </div>
@@ -548,7 +548,7 @@ export default function AcademicsPage() {
                             </span>
                             <span className="text-xs font-mono text-slate-500 font-semibold">{prog.duration}</span>
                           </div>
-                          <h3 className="font-serif font-bold text-2xl text-slate-900 group-hover:text-[#1C5496] transition-colors">
+                          <h3 className="font-heading font-semibold text-xl text-slate-900 group-hover:text-[#1C5496] transition-colors">
                             {prog.title}
                           </h3>
                           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">

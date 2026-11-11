@@ -45,13 +45,13 @@ export const collegeOfficialData = {
     {
       "id": "finance-officer",
       "name": "Rev. Fr. Roshan",
-      "designation": "Financial Officer",
+      "designation": "Finance Officer",
       "role": "Administration",
       "imageUrl": "/media/gallery/picture-gallery/athletic_day_2026.jpg",
       "localPath": "public/assets/images/leadership/fr-roshan.jpg",
       "assetPath": "/assets/images/leadership/fr-roshan.jpg",
       "source": "https://stphilos.ac.in/administration/",
-      "biography": "Financial Officer overseeing institutional financial planning, budgeting, audits, and asset management."
+      "biography": "Finance Officer overseeing institutional financial planning, budgeting, audits, and asset management."
     },
     {
       "id": "dean-academic",
@@ -74,6 +74,17 @@ export const collegeOfficialData = {
       "assetPath": "/assets/images/leadership/thomas-gunaseelan.jpg",
       "source": "https://stphilos.ac.in/administration/",
       "biography": "Internal Quality Assurance Cell (IQAC) Coordinator leading institutional accreditation, NAAC benchmarks, NIRF, and academic quality audits."
+    },
+    {
+      "id": "pg-coordinator",
+      "name": "Dr. Noor Mubasheer C A",
+      "designation": "PG Coordinator",
+      "role": "Postgraduate Studies",
+      "imageUrl": "/media/management/pg_coordinator_noor_mubasheer.jpg",
+      "localPath": "public/assets/images/leadership/noor-mubasheer.jpg",
+      "assetPath": "/assets/images/leadership/noor-mubasheer.jpg",
+      "source": "https://stphilos.ac.in/administration/",
+      "biography": "Coordinator of Post Graduate Studies & Research Centre overseeing advanced academic research, postgraduate curricula, and interdisciplinary excellence."
     }
   ],
   "formerBishops": [

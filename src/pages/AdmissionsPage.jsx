@@ -184,11 +184,11 @@ export default function AdmissionsPage() {
         <div className="max-w-3xl space-y-3 relative z-10">
           <div className="flex items-center space-x-2">
             <span className="w-2 h-2 rounded-full bg-[#FFD84A]" />
-            <span className="text-[#FFD84A] font-bold text-xs uppercase tracking-widest">
+            <span className="text-[#FFD84A] font-semibold text-xs uppercase tracking-widest">
               Admissions Portal · Academic Year 2026–2027
             </span>
           </div>
-          <h1 className="font-serif font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
+          <h1 className="font-heading font-bold text-2xl sm:text-3xl text-white tracking-tight">
             Apply Online for UG & PG Admissions
           </h1>
           <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
@@ -717,10 +717,10 @@ export default function AdmissionsPage() {
                 </div>
 
                 <div className="space-y-1">
-                  <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest block">
+                  <span className="text-xs font-semibold text-emerald-700 uppercase tracking-widest block">
                     Registration Successful · AY 2026–27
                   </span>
-                  <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+                  <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                     Application Submitted Successfully!
                   </h2>
                   <p className="text-xs text-slate-600">
@@ -733,7 +733,7 @@ export default function AdmissionsPage() {
                   <div className="flex justify-between items-center border-b border-slate-200 pb-3">
                     <div>
                       <span className="text-[10px] text-slate-500 font-bold uppercase">Official Application ID</span>
-                      <p className="font-mono font-extrabold text-lg text-[#0B1F4E]">{submittedApplication.appId}</p>
+                      <p className="font-mono font-bold text-lg text-[#0B1F4E]">{submittedApplication.appId}</p>
                     </div>
                     <span className="bg-amber-100 text-amber-900 font-bold px-3 py-1 rounded-md text-[11px]">
                       {submittedApplication.status}
@@ -764,7 +764,7 @@ export default function AdmissionsPage() {
                 <div className="flex flex-wrap justify-center gap-4 pt-2">
                   <button
                     onClick={() => window.print()}
-                    className="btn-primary-blue px-6 py-2.5 rounded-lg text-xs font-bold inline-flex items-center"
+                    className="btn-primary-blue px-6 py-2.5 rounded-lg text-xs font-semibold inline-flex items-center"
                   >
                     <Printer className="w-4 h-4 mr-2" />
                     <span>Print Acknowledgment Slip</span>
@@ -774,7 +774,7 @@ export default function AdmissionsPage() {
                       setSubmittedApplication(null);
                       setCurrentStep(1);
                     }}
-                    className="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg text-xs font-bold"
+                    className="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg text-xs font-semibold"
                   >
                     Submit Another Application
                   </button>
@@ -790,8 +790,8 @@ export default function AdmissionsPage() {
         {activeTab === 'status' && (
           <div className="space-y-6 animate-fadeIn max-w-3xl mx-auto">
             <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4 text-center">
-              <span className="text-[#0B1F4E] font-bold text-xs uppercase tracking-widest block">Real-time Portal</span>
-              <h2 className="font-serif font-extrabold text-2xl text-slate-900">Track Your Admission Status</h2>
+              <span className="text-[#0B1F4E] font-semibold text-xs uppercase tracking-widest block">Real-time Portal</span>
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">Track Your Admission Status</h2>
               <p className="text-xs text-slate-600 max-w-lg mx-auto leading-relaxed">
                 Enter your Application ID (e.g. <code>SPC-2026-UG-84920</code>) or registered Mobile Number to check scrutiny and merit seat allotment.
               </p>
@@ -867,7 +867,7 @@ export default function AdmissionsPage() {
         {activeTab === 'eligibility' && (
           <div className="space-y-6 animate-fadeIn">
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
-              <h2 className="font-serif font-extrabold text-2xl text-slate-900">Programmes & Minimum Eligibility</h2>
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">Programmes & Minimum Eligibility</h2>
               <p className="text-xs sm:text-sm text-slate-600">
                 Summary of degree courses offered under University of Mysore Autonomous framework.
               </p>
@@ -878,10 +878,10 @@ export default function AdmissionsPage() {
                 <table className="w-full text-left text-xs border-collapse">
                   <thead>
                     <tr className="bg-[#071A33] text-white">
-                      <th className="p-4 font-bold uppercase">Degree Program</th>
-                      <th className="p-4 font-bold uppercase">Duration</th>
-                      <th className="p-4 font-bold uppercase">Minimum Eligibility</th>
-                      <th className="p-4 font-bold uppercase">Annual Fee Approx.</th>
+                      <th className="p-4 font-mono font-semibold text-xs uppercase tracking-wider">Degree Program</th>
+                      <th className="p-4 font-mono font-semibold text-xs uppercase tracking-wider">Duration</th>
+                      <th className="p-4 font-mono font-semibold text-xs uppercase tracking-wider">Minimum Eligibility</th>
+                      <th className="p-4 font-mono font-semibold text-xs uppercase tracking-wider">Annual Fee Approx.</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100">
@@ -926,35 +926,35 @@ export default function AdmissionsPage() {
         {activeTab === 'dates' && (
           <div className="space-y-6 animate-fadeIn">
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
-              <h2 className="font-serif font-extrabold text-2xl text-slate-900">Admissions Schedule 2026–2027</h2>
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">Admissions Schedule 2026–2027</h2>
               <p className="text-xs sm:text-sm text-slate-600">Key institutional milestones for the upcoming academic session.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-xs space-y-1">
                 <span className="text-[10px] font-bold text-[#0B1F4E] uppercase">Stage 1</span>
-                <h4 className="font-serif font-bold text-sm text-slate-900">Online Applications Open</h4>
+                <h4 className="font-heading font-semibold text-sm text-slate-900">Online Applications Open</h4>
                 <p className="font-mono text-xs text-emerald-700 font-bold">April 01, 2026</p>
                 <p className="text-[11px] text-slate-500">Portal open for UG and PG registrations.</p>
               </div>
 
               <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-xs space-y-1">
                 <span className="text-[10px] font-bold text-[#0B1F4E] uppercase">Stage 2</span>
-                <h4 className="font-serif font-bold text-sm text-slate-900">First Merit List</h4>
+                <h4 className="font-heading font-semibold text-sm text-slate-900">First Merit List</h4>
                 <p className="font-mono text-xs text-[#0B1F4E] font-bold">May 20, 2026</p>
                 <p className="text-[11px] text-slate-500">Publication on college portal and notice boards.</p>
               </div>
 
               <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-xs space-y-1">
                 <span className="text-[10px] font-bold text-[#0B1F4E] uppercase">Stage 3</span>
-                <h4 className="font-serif font-bold text-sm text-slate-900">Document Scrutiny</h4>
+                <h4 className="font-heading font-semibold text-sm text-slate-900">Document Scrutiny</h4>
                 <p className="font-mono text-xs text-[#D4AF37] font-bold">May 22 – June 05, 2026</p>
                 <p className="text-[11px] text-slate-500">Original certificates verification at campus desk.</p>
               </div>
 
               <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-xs space-y-1">
                 <span className="text-[10px] font-bold text-[#0B1F4E] uppercase">Stage 4</span>
-                <h4 className="font-serif font-bold text-sm text-slate-900">Orientation & Classes</h4>
+                <h4 className="font-heading font-semibold text-sm text-slate-900">Orientation & Classes</h4>
                 <p className="font-mono text-xs text-blue-800 font-bold">June 15, 2026</p>
                 <p className="text-[11px] text-slate-500">Deeksharambh orientation and regular lectures begin.</p>
               </div>
@@ -966,7 +966,7 @@ export default function AdmissionsPage() {
         {activeTab === 'prospectus' && (
           <div className="space-y-6 animate-fadeIn">
             <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-              <h2 className="font-serif font-extrabold text-2xl text-slate-900">Official Prospectus & Downloads</h2>
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">Official Prospectus & Downloads</h2>
               <p className="text-xs sm:text-sm text-slate-600 max-w-3xl leading-relaxed">
                 Download the official admission prospectus, detailed fee structure breakdown, and academic calendar for the 2026–2027 academic session.
               </p>

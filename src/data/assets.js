@@ -66,6 +66,7 @@ export const ASSETS = {
   documents: {
     examinations: {
       timetable: '/assets/documents/examinations/end-semester-examination-timetable-2026.pdf',
+      gradeReport: '/assets/documents/examinations/provisional-grade-report-2026.pdf',
       revaluationForm: '/assets/documents/examinations/revaluation-application-form-2026.pdf',
       academicCalendar: '/assets/documents/examinations/academic-calendar-2026.pdf'
     },

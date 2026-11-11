@@ -95,6 +95,22 @@ export default function StudentLifePage() {
       }
     }
   }
+
+  // Canonical slug alias normalization
+  const SLUG_ALIASES = {
+    'chapel': 'chapel-hall-3',
+    'chapel-hall': 'chapel-hall-3',
+    'st-philomena-chapel': 'chapel-hall-3',
+    'student-grievance': 'student-grievance-redressal-committee',
+    'student-grievance-committee': 'student-grievance-redressal-committee',
+    'grievance-redressal': 'student-grievance-redressal-committee',
+    'youth-redcross': 'youth-red-cross-yrc',
+    'yrc': 'youth-red-cross-yrc'
+  };
+  if (currentSlug && SLUG_ALIASES[currentSlug]) {
+    currentSlug = SLUG_ALIASES[currentSlug];
+  }
+
   const currentItem = currentSlug ? studentSupportData[currentSlug] : null;
 
   // Flattened list of all items in menu order
@@ -217,7 +233,7 @@ export default function StudentLifePage() {
                       <span className="bg-[#C9A84C] text-[#0B1F4E] font-mono font-bold text-[10px] sm:text-xs px-2.5 py-0.5 rounded uppercase tracking-wider inline-block">
                         {currentItem.category}
                       </span>
-                      <h1 className="font-serif font-extrabold text-2xl sm:text-4xl text-white tracking-tight">
+                      <h1 className="font-heading font-semibold text-2xl sm:text-3xl text-white tracking-tight">
                         {currentItem.name}
                       </h1>
                       {currentItem.tagline && (
@@ -275,7 +291,7 @@ export default function StudentLifePage() {
               {/* HIGHLIGHTS & OBJECTIVES PILLS */}
               {(currentItem.highlights || currentItem.objectives) && (
                 <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-4">
-                  <h3 className="font-serif font-bold text-lg text-slate-900 flex items-center space-x-2 border-b border-slate-100 pb-3">
+                  <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900 flex items-center space-x-2 border-b border-slate-100 pb-3">
                     <Sparkles className="w-5 h-5 text-[#C9A84C]" />
                     <span>{currentItem.highlights ? 'Key Highlights & Amenities' : 'Primary Objectives & Scope'}</span>
                   </h3>
@@ -300,7 +316,7 @@ export default function StudentLifePage() {
 
                     return (
                       <div key={sIdx} className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-4">
-                        <h3 className="font-serif font-bold text-lg sm:text-xl text-[#0B1F4E] border-b border-slate-100 pb-3">
+                        <h3 className="font-heading font-semibold text-lg sm:text-xl text-[#0B1F4E] border-b border-slate-100 pb-3">
                           {heading}
                         </h3>
                         <div className="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
@@ -342,7 +358,7 @@ export default function StudentLifePage() {
               {/* COMMITTEE / OFFICIALS TABLE IF AVAILABLE */}
               {currentItem.tables && currentItem.tables.length > 0 && (
                 <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-4">
-                  <h3 className="font-serif font-bold text-lg text-slate-900 border-b border-slate-100 pb-3 flex items-center space-x-2">
+                  <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900 border-b border-slate-100 pb-3 flex items-center space-x-2">
                     <ShieldCheck className="w-5 h-5 text-[#0B1F4E]" />
                     <span>Committee Members & Designated Roles</span>
                   </h3>
@@ -352,7 +368,7 @@ export default function StudentLifePage() {
                         {currentItem.tables[0][0] && (
                           <tr className="bg-[#0B1F4E] text-[#F0D98C]">
                             {currentItem.tables[0][0].map((th, thIdx) => (
-                              <th key={thIdx} className="py-3 px-4 font-bold border-b border-white/10 uppercase tracking-wider">
+                              <th key={thIdx} className="py-3 px-4 font-semibold border-b border-white/10 uppercase tracking-wider">
                                 {th}
                               </th>
                             ))}
@@ -384,7 +400,7 @@ export default function StudentLifePage() {
               {/* PHOTO GALLERY SHOWCASE */}
               {currentItem.images && currentItem.images.length > 0 && (
                 <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-4">
-                  <h3 className="font-serif font-bold text-lg text-slate-900 border-b border-slate-100 pb-3 flex items-center space-x-2">
+                  <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900 border-b border-slate-100 pb-3 flex items-center space-x-2">
                     <Building2 className="w-5 h-5 text-[#0B1F4E]" />
                     <span>Campus Infrastructure & Activity Gallery</span>
                   </h3>
@@ -412,7 +428,7 @@ export default function StudentLifePage() {
               {/* STATUTORY PDF ATTACHMENTS */}
               {currentItem.pdfs && currentItem.pdfs.length > 0 && (
                 <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-4">
-                  <h3 className="font-serif font-bold text-lg text-slate-900 border-b border-slate-100 pb-3 flex items-center space-x-2">
+                  <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900 border-b border-slate-100 pb-3 flex items-center space-x-2">
                     <FileText className="w-5 h-5 text-[#0B1F4E]" />
                     <span>Official Reports, Forms & Document Downloads</span>
                   </h3>
@@ -518,10 +534,10 @@ export default function StudentLifePage() {
         {/* HEADER HERO BANNER */}
         <div className="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-xs space-y-4 border-l-8 border-[#0B1F4E] relative overflow-hidden">
           <div className="relative z-10 max-w-4xl space-y-3">
-            <span className="text-[#0B1F4E] font-bold text-xs uppercase tracking-widest block font-mono">
+            <span className="text-[#0B1F4E] font-semibold text-xs uppercase tracking-widest block font-mono">
               Campus Facilities & Institutional Support
             </span>
-            <h1 className="font-serif font-extrabold text-3xl sm:text-5xl text-slate-900 tracking-tight">
+            <h1 className="font-heading font-semibold text-2xl sm:text-3xl text-slate-900 tracking-tight">
               Student Support, Amenities & Campus Units
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -538,7 +554,7 @@ export default function StudentLifePage() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                   activeCategory === cat
                     ? 'bg-[#0B1F4E] text-[#F0D98C] shadow-xs'
                     : 'bg-slate-50 text-slate-700 hover:bg-slate-100'
@@ -587,7 +603,7 @@ export default function StudentLifePage() {
                   </div>
 
                   <div className="p-5 space-y-2.5">
-                    <h3 className="font-serif font-bold text-lg text-slate-900 group-hover:text-[#0B1F4E] transition-colors line-clamp-1">
+                    <h3 className="font-heading font-semibold text-card text-slate-900 group-hover:text-[#0B1F4E] transition-colors line-clamp-1">
                       {fac.name}
                     </h3>
                     {fac.tagline && (

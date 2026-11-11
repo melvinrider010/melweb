@@ -38,13 +38,13 @@ export default function MobileNavDrawer({ isOpen, onClose, onOpenSearch }) {
           {activeCategory ? (
             <button
               onClick={() => setActiveCategory(null)}
-              className="flex items-center text-xs font-bold text-[#F0D98C] hover:text-white"
+              className="flex items-center text-xs font-semibold text-[#F0D98C] hover:text-white"
             >
               <ChevronLeft className="w-4 h-4 mr-1" />
               <span>Back to Main Menu</span>
             </button>
           ) : (
-            <span className="font-serif font-bold text-sm text-[#F0D98C]">St. Philomena's Menu</span>
+            <span className="font-heading font-semibold text-sm text-[#F0D98C]">St. Philomena's Menu</span>
           )}
 
           <button
@@ -63,7 +63,7 @@ export default function MobileNavDrawer({ isOpen, onClose, onOpenSearch }) {
           {!activeCategory && (
             <button
               onClick={() => { onClose(); onOpenSearch(); }}
-              className="w-full flex items-center justify-center space-x-2 py-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg text-xs font-bold text-slate-200"
+              className="w-full flex items-center justify-center space-x-2 py-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg text-xs font-semibold text-slate-200"
             >
               <Search className="w-4 h-4 text-[#FFD84A]" />
               <span>Search Portal (Ctrl + K)</span>
@@ -72,7 +72,7 @@ export default function MobileNavDrawer({ isOpen, onClose, onOpenSearch }) {
 
           {/* Level 1: Main Menu List */}
           {!activeCategory && (
-            <div className="space-y-1 text-xs font-bold">
+            <div className="space-y-1 text-sm font-semibold">
               {mainItems.map((item) => (
                 <div key={item.label}>
                   {item.path ? (
@@ -86,7 +86,7 @@ export default function MobileNavDrawer({ isOpen, onClose, onOpenSearch }) {
                   ) : (
                     <button
                       onClick={() => handleItemClick(item)}
-                      className="w-full flex justify-between items-center p-3 rounded-lg hover:bg-white/10 text-slate-100 hover:text-[#FFD84A] transition-colors border-b border-slate-800/50 text-left"
+                      className="w-full flex justify-between items-center p-3 rounded-lg hover:bg-white/10 text-slate-100 hover:text-[#FFD84A] transition-colors border-b border-slate-800/50 text-left cursor-pointer"
                     >
                       <span>{item.label}</span>
                       <ChevronRight className="w-4 h-4 text-[#FFD84A]" />
@@ -101,11 +101,11 @@ export default function MobileNavDrawer({ isOpen, onClose, onOpenSearch }) {
           {activeCategory && (
             <div className="space-y-4 text-xs animate-fadeIn">
               <div className="pb-2 border-b border-slate-800">
-                <h3 className="font-serif font-bold text-base text-[#FFD84A]">{activeCategory.title}</h3>
+                <h3 className="font-heading font-semibold text-base text-[#FFD84A]">{activeCategory.title}</h3>
                 <Link
                   to={activeCategory.path}
                   onClick={onClose}
-                  className="text-[11px] text-blue-300 font-semibold hover:underline block pt-1"
+                  className="text-xs text-blue-300 font-medium hover:underline block pt-1"
                 >
                   Explore All {activeCategory.title} →
                 </Link>

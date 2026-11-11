@@ -58,11 +58,16 @@ export function getDepartmentById(deptIdOrSlug) {
     'bbath': 'dept-bba-th',
     'bba-thm': 'dept-bba-th',
     'bba': 'dept-management',
+    'b-ba': 'dept-management',
     'mba': 'dept-mba',
     'management-studies': 'dept-management',
     'commerce': 'dept-commerce',
     'bcom': 'dept-commerce',
+    'b-com': 'dept-commerce',
     'mcom': 'dept-pg-commerce',
+    'lang': 'dept-languages',
+    'languages': 'dept-languages',
+    'dept-languages': 'dept-languages',
     'english': 'dept-english',
     'ba-english': 'dept-english',
     'kannada': 'dept-kannada',
@@ -78,6 +83,8 @@ export function getDepartmentById(deptIdOrSlug) {
     'french': 'dept-french',
     'ba-french': 'dept-french',
     'physics': 'dept-physics',
+    'bsc': 'dept-physics',
+    'b-sc': 'dept-physics',
     'bsc-physics': 'dept-physics',
     'ug-physics': 'dept-physics',
     'chemistry': 'dept-chemistry',
@@ -115,6 +122,8 @@ export function getDepartmentById(deptIdOrSlug) {
     'ba-economics': 'dept-economics',
     'ug-economics': 'dept-economics',
     'history': 'dept-history',
+    'ba': 'dept-history',
+    'b-a': 'dept-history',
     'ba-history': 'dept-history',
     'ug-history': 'dept-history',
     'sociology': 'dept-sociology',
@@ -132,6 +141,7 @@ export function getDepartmentById(deptIdOrSlug) {
     'ug-christianity': 'dept-christianity',
     'social-work': 'dept-social-work',
     'bsw': 'dept-social-work',
+    'b-sw': 'dept-social-work',
     'ug-social-work': 'dept-social-work',
     'biotechnology': 'dept-biotechnology',
     'bsc-biotechnology': 'dept-biotechnology',
@@ -219,7 +229,7 @@ export function getFacultyByDepartmentId(deptIdOrSlug) {
     return facultyList.filter(f => f.departmentId === 'dept-bca');
   }
 
-  if (targetId === 'dept-management' || clean === 'bba' || clean === 'management') {
+  if (targetId === 'dept-management' || clean === 'bba' || clean === 'b-ba' || clean === 'management') {
     return facultyList.filter(f => f.departmentId === 'dept-management');
   }
 
@@ -227,8 +237,21 @@ export function getFacultyByDepartmentId(deptIdOrSlug) {
     return facultyList.filter(f => f.departmentId === 'dept-bba-th');
   }
 
-  if (targetId === 'dept-commerce' || clean === 'commerce' || clean === 'bcom') {
+  if (targetId === 'dept-commerce' || clean === 'commerce' || clean === 'bcom' || clean === 'b-com') {
     return facultyList.filter(f => f.departmentId === 'dept-commerce');
+  }
+
+  if (targetId === 'dept-languages' || clean === 'languages' || clean === 'lang' || clean === 'dept-languages') {
+    return facultyList.filter(f => 
+      f.departmentId === 'dept-languages' || 
+      f.departmentId === 'dept-kannada' || 
+      f.departmentId === 'dept-hindi' || 
+      f.departmentId === 'dept-french' || 
+      f.departmentId === 'dept-malayalam' || 
+      f.departmentId === 'dept-urdu' || 
+      f.departmentId === 'dept-tamil' ||
+      (f.departmentName && f.departmentName.toLowerCase().includes('language'))
+    );
   }
 
   if (targetId === 'dept-english' || clean === 'english' || clean === 'ba-english') {
@@ -259,7 +282,7 @@ export function getFacultyByDepartmentId(deptIdOrSlug) {
     return facultyList.filter(f => f.departmentId === 'dept-french');
   }
 
-  if (targetId === 'dept-physics' || clean === 'physics' || clean === 'bsc-physics' || clean === 'ug-physics') {
+  if (targetId === 'dept-physics' || clean === 'physics' || clean === 'bsc' || clean === 'b-sc' || clean === 'bsc-physics' || clean === 'ug-physics') {
     return facultyList.filter(f => f.departmentId === 'dept-physics');
   }
 
@@ -269,6 +292,10 @@ export function getFacultyByDepartmentId(deptIdOrSlug) {
 
   if (targetId === 'dept-mathematics' || clean === 'mathematics' || clean === 'maths' || clean === 'bsc-mathematics' || clean === 'ug-mathematics') {
     return facultyList.filter(f => f.departmentId === 'dept-mathematics');
+  }
+
+  if (targetId === 'dept-botany-zoology' || clean === 'botany-zoology' || clean === 'botany-and-zoology' || clean === 'dept-botany-zoology') {
+    return facultyList.filter(f => f.departmentId === 'dept-botany-zoology' || f.departmentId === 'dept-botany' || f.departmentId === 'dept-zoology');
   }
 
   if (targetId === 'dept-botany' || clean === 'botany' || clean === 'bsc-botany' || clean === 'ug-botany') {
@@ -291,7 +318,7 @@ export function getFacultyByDepartmentId(deptIdOrSlug) {
     return facultyList.filter(f => f.departmentId === 'dept-economics');
   }
 
-  if (targetId === 'dept-history' || clean === 'history' || clean === 'ba-history' || clean === 'ug-history') {
+  if (targetId === 'dept-history' || clean === 'history' || clean === 'ba' || clean === 'b-a' || clean === 'ba-history' || clean === 'ug-history') {
     return facultyList.filter(f => f.departmentId === 'dept-history');
   }
 
@@ -319,7 +346,7 @@ export function getFacultyByDepartmentId(deptIdOrSlug) {
     return facultyList.filter(f => f.departmentId === 'dept-christianity');
   }
 
-  if (targetId === 'dept-social-work' || clean === 'social-work' || clean === 'bsw' || clean === 'ug-social-work') {
+  if (targetId === 'dept-social-work' || clean === 'social-work' || clean === 'bsw' || clean === 'b-sw' || clean === 'ug-social-work') {
     return facultyList.filter(f => f.departmentId === 'dept-social-work');
   }
 
@@ -645,6 +672,10 @@ export function getProgrammeById(progIdOrCode) {
     'bcom': 'b-com',
     'mcom': 'm-com',
     'bbathm': 'bba-thm',
+    'bba-th': 'bba-thm',
+    'bbath': 'bba-thm',
+    'bvoc': 'bvoc-healthcare',
+    'b-voc': 'bvoc-healthcare',
     'msc-physics': 'm-sc-physics',
     'msc-chemistry': 'm-sc-chemistry',
     'msc-mathematics': 'm-sc-mathematics',
@@ -1274,6 +1305,30 @@ export function getDepartmentRelatedProgrammes(deptOrId) {
       route: '/departments/dept-food-science',
       deptId: 'dept-food-science',
       description: 'Undergraduate curriculum in Food Microbiology, Nutritional Biochemistry, Food Safety & Diet Therapy.'
+    },
+
+    // 16. VOCATIONAL STUDIES (B.Voc)
+    'bvoc': {
+      type: 'ug',
+      badge: 'Vocational Degree',
+      code: 'B.Voc',
+      title: 'Bachelor of Vocation (B.Voc)',
+      fullTitle: 'Bachelor of Vocation (B.Voc)',
+      buttonText: 'Vocational Streams',
+      route: '/departments/bvoc',
+      deptId: 'dept-bvoc',
+      description: 'UGC-sanctioned skill-based degree pathways in Healthcare Technology and Media & Entertainment.'
+    },
+    'dept-bvoc': {
+      type: 'ug',
+      badge: 'Vocational Degree',
+      code: 'B.Voc',
+      title: 'Bachelor of Vocation (B.Voc)',
+      fullTitle: 'Bachelor of Vocation (B.Voc)',
+      buttonText: 'Vocational Streams',
+      route: '/departments/bvoc',
+      deptId: 'dept-bvoc',
+      description: 'UGC-sanctioned skill-based degree pathways in Healthcare Technology and Media & Entertainment.'
     }
   };
 

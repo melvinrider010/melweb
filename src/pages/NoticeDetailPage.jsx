@@ -23,6 +23,7 @@ import { getEventById } from '../services/eventsService';
 import { getNoticeById, getNotices } from '../services/noticesService';
 import { animatePageIn } from '../animations/pageTransitions';
 import ViewAsBookButton from '../components/common/ViewAsBookButton';
+import PDFViewerEmbed from '../components/common/PDFViewerEmbed';
 
 export default function NoticeDetailPage() {
   const { id, slug } = useParams();
@@ -34,6 +35,7 @@ export default function NoticeDetailPage() {
   const [recentNotices, setRecentNotices] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [imageError, setImageError] = useState(false);
 
   const targetKey = id || slug;
 
@@ -125,7 +127,7 @@ export default function NoticeDetailPage() {
         <div className="relative bg-[#0B1F4E] text-white py-14 sm:py-20 px-4 sm:px-8 border-b-4 border-[#C9A84C]">
           <div className="max-w-[1200px] mx-auto text-center space-y-4">
             <Loader2 className="w-10 h-10 text-[#F0D98C] animate-spin mx-auto" />
-            <h1 className="font-serif font-extrabold text-2xl sm:text-3xl text-white">Loading Official Circular / Event...</h1>
+            <h1 className="font-heading font-semibold text-xl sm:text-2xl text-white">Loading Official Circular / Event...</h1>
             <p className="text-xs text-slate-300">Retrieving official document from St. Philomena's repository</p>
           </div>
         </div>
@@ -139,7 +141,7 @@ export default function NoticeDetailPage() {
         <div className="relative bg-[#0B1F4E] text-white py-14 sm:py-20 px-4 sm:px-8 border-b-4 border-[#C9A84C]">
           <div className="max-w-[1200px] mx-auto text-center space-y-4">
             <AlertTriangle className="w-10 h-10 text-amber-400 mx-auto" />
-            <h1 className="font-serif font-extrabold text-2xl sm:text-3xl text-white">Document Not Found</h1>
+            <h1 className="font-heading font-semibold text-xl sm:text-2xl text-white">Document Not Found</h1>
             <p className="text-xs text-slate-300">{error || "The requested notice or event record could not be found."}</p>
             <div className="pt-2">
               <Link to="/news-events" className="btn-gold px-4 py-2 text-xs font-bold rounded-lg inline-flex items-center space-x-1.5">
@@ -155,7 +157,46 @@ export default function NoticeDetailPage() {
 
   const hasSubEvents = Array.isArray(item.subEvents) && item.subEvents.length > 0;
   const hasAttachments = Array.isArray(item.attachments) && item.attachments.length > 0;
-  const displayDate = item.displayDate || item.event_date || item.date;
+  const displayDate = item.display_date || item.displayDate || (item.event_date ? String(item.event_date).split('T')[0].split(' ')[0] : '') || (item.date ? String(item.date).split('T')[0].split(' ')[0] : '');
+
+  // Primary attached document resolution
+  const primaryDocUrl = (item.link && (item.link.endsWith('.pdf') || item.link.includes('/documents/')))
+    ? item.link
+    : (item.documentPdf || item.pdf_url || item.file_url || (Array.isArray(item.attachments) && item.attachments[0]?.url) || null);
+  const isPdf = primaryDocUrl && primaryDocUrl.toLowerCase().endsWith('.pdf');
+  const rawDocName = primaryDocUrl ? primaryDocUrl.split('/').pop().replace(/\.pdf$/i, '') : '';
+  const cleanDocTitle = rawDocName
+    ? rawDocName.replace(/[-_]/g, ' ').replace(/\(\d+\)/g, '').replace(/\s+/g, ' ').trim()
+    : item.title;
+
+  // Authentic paragraph parsing preserving original content
+  const contentParagraphs = (() => {
+    let list = [];
+    if (Array.isArray(item.content)) list = item.content;
+    else if (typeof item.content === 'string' && item.content.trim()) {
+      try {
+        let parsed = JSON.parse(item.content);
+        if (typeof parsed === 'string') parsed = JSON.parse(parsed);
+        if (Array.isArray(parsed)) list = parsed;
+        else if (parsed) list = [String(parsed)];
+      } catch (e) {
+        list = [item.content];
+      }
+    } else if (item.description || item.summary) {
+      list = [item.description || item.summary];
+    }
+
+    return list.filter(p => {
+      const text = String(p).trim();
+      if (!text) return false;
+      if (primaryDocUrl) {
+        const isDownloadScrape = text.includes('Download') && (text.includes('.pdf') || text.includes('_') || text.includes('Report'));
+        if (isDownloadScrape && text.length < 100) return false;
+        if (rawDocName && text.toLowerCase().includes(rawDocName.toLowerCase()) && text.length < 100) return false;
+      }
+      return true;
+    });
+  })();
   const itemVenue = item.location || item.venue;
   const itemTime = item.time_range || item.time;
 
@@ -190,7 +231,7 @@ export default function NoticeDetailPage() {
               <span>{item.category}</span>
             </div>
             
-            <h1 className="font-serif font-extrabold text-3xl sm:text-5xl text-white tracking-tight uppercase">
+            <h1 className="font-heading font-bold text-2xl sm:text-3xl text-white tracking-tight uppercase">
               {isEvent ? 'CAMPUS EVENT' : 'OFFICIAL CIRCULAR'}
             </h1>
           </div>
@@ -205,7 +246,7 @@ export default function NoticeDetailPage() {
         <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-sm print:hidden">
           <Link
             to="/news-events"
-            className="btn-navy text-xs font-bold px-4 py-2 rounded-lg flex items-center shadow-xs"
+            className="btn-navy text-xs font-semibold px-4 py-2 rounded-lg flex items-center shadow-xs"
           >
             <ArrowLeft className="w-4 h-4 mr-1.5" />
             <span>All Bulletins</span>
@@ -214,7 +255,7 @@ export default function NoticeDetailPage() {
           <div className="flex items-center space-x-2">
             <button
               onClick={handlePrint}
-              className="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold transition-all flex items-center cursor-pointer border border-slate-300"
+              className="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold transition-all flex items-center cursor-pointer border border-slate-300"
             >
               <Printer className="w-3.5 h-3.5 mr-1.5 text-[#0B1F4E]" />
               <span>Print</span>
@@ -222,16 +263,16 @@ export default function NoticeDetailPage() {
 
             <button
               onClick={handleShare}
-              className="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold transition-all flex items-center cursor-pointer border border-slate-300"
+              className="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold transition-all flex items-center cursor-pointer border border-slate-300"
             >
               <Share2 className="w-3.5 h-3.5 mr-1.5 text-[#0B1F4E]" />
               <span>Share</span>
             </button>
 
-            {item.documentPdf && (
+            {(primaryDocUrl || item.documentPdf) && (
               <ViewAsBookButton
-                pdfUrl={item.documentPdf}
-                title={item.title}
+                pdfUrl={primaryDocUrl || item.documentPdf}
+                title={cleanDocTitle || item.title}
                 label="View Document"
                 variant="blue"
               />
@@ -252,9 +293,9 @@ export default function NoticeDetailPage() {
               />
             </div>
 
-            <div className="space-y-0.5 text-[#8B0000] font-serif font-bold text-xs sm:text-sm tracking-wide">
+            <div className="space-y-0.5 text-[#8B0000] font-heading font-semibold text-xs sm:text-sm tracking-wide">
               <p className="uppercase">Mysore Diocesan Educational Society (Regd.)</p>
-              <p className="font-extrabold text-base sm:text-xl text-[#B22222]">
+              <p className="font-heading font-bold text-base sm:text-xl text-[#B22222]">
                 St. Philomena's College (Autonomous)
               </p>
               <p className="text-slate-700 font-sans text-[11px] sm:text-xs font-normal">
@@ -271,7 +312,7 @@ export default function NoticeDetailPage() {
             <div>
               <span className="font-bold text-[#0B1F4E]">Ref No: </span>
               <span className="bg-slate-100 px-2 py-0.5 rounded border border-slate-300 font-bold text-slate-800">
-                {item.refNo || `SPC/ADMIN/2026/${item.id.toUpperCase()}`}
+                {item.ref_no || item.refNo || item.ref || (item.id ? `SPC/ADMIN/2026/${item.id.toUpperCase()}` : "")}
               </span>
             </div>
 
@@ -283,7 +324,7 @@ export default function NoticeDetailPage() {
 
           {/* DOCUMENT TITLE */}
           <div className="text-center py-2 space-y-2">
-            <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-[#0B1F4E] leading-tight">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-[#0B1F4E] leading-tight">
               {item.title}
             </h2>
             <div className="w-24 h-1 bg-[#C9A84C] mx-auto rounded-full" />
@@ -308,11 +349,12 @@ export default function NoticeDetailPage() {
           )}
 
           {/* DOCUMENT SCAN OR PHOTO DISPLAY */}
-          {item.documentImage && (
+          {(item.documentImage || item.document_image) && !imageError && (
             <div className="rounded-xl overflow-hidden border border-slate-300 shadow-md bg-slate-100 max-w-2xl mx-auto">
               <img
-                src={item.documentImage}
+                src={item.documentImage || item.document_image}
                 alt={item.title}
+                onError={() => setImageError(true)}
                 className="w-full h-auto object-contain max-h-[600px] mx-auto"
               />
               <div className="bg-slate-900 text-slate-300 text-[11px] font-mono text-center py-1.5 px-4 border-t border-slate-700">
@@ -323,15 +365,11 @@ export default function NoticeDetailPage() {
 
           {/* DOCUMENT BODY CONTENT */}
           <div className="space-y-4 text-slate-800 text-sm sm:text-base leading-relaxed font-sans max-w-3xl mx-auto">
-            {Array.isArray(item.content) ? (
-              item.content.map((paragraph, pIdx) => (
-                <p key={pIdx} className="leading-relaxed text-justify">
-                  {paragraph}
-                </p>
-              ))
-            ) : (
-              <p className="leading-relaxed text-justify">{item.description || item.summary}</p>
-            )}
+            {contentParagraphs.map((paragraph, pIdx) => (
+              <p key={pIdx} className="leading-relaxed text-justify">
+                {paragraph}
+              </p>
+            ))}
           </div>
 
           {/* SUB-EVENTS / PROGRAM TRACKS ACCORDION BLOCK (IF EVENT HAS SUB-EVENTS) */}
@@ -403,6 +441,64 @@ export default function NoticeDetailPage() {
                   </div>
                 ))}
               </div>
+            </div>
+          )}
+
+          {/* INSTITUTIONAL DOCUMENT ATTACHMENT & VIEWER SECTION */}
+          {primaryDocUrl && (
+            <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-6 sm:p-8 space-y-6 max-w-3xl mx-auto shadow-xs">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+                <div className="flex items-start space-x-3.5">
+                  <div className="p-3 bg-red-50 text-red-700 rounded-xl border border-red-200/60 shadow-xs">
+                    <FileText className="w-6 h-6 shrink-0" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-red-700 bg-red-100/70 px-2 py-0.5 rounded border border-red-200">
+                      OFFICIAL ATTACHMENT · PDF
+                    </span>
+                    <h4 className="font-heading font-bold text-base sm:text-lg text-[#0B1F4E] mt-1">
+                      {cleanDocTitle || item.title}
+                    </h4>
+                    <p className="text-xs text-slate-500 font-mono mt-0.5">
+                      Verified St. Philomena's College Institutional Circular Attachment
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-2 shrink-0">
+                  <a
+                    href={primaryDocUrl}
+                    download
+                    className="btn-gold px-3.5 py-2 text-xs font-bold rounded-lg inline-flex items-center space-x-1.5 shadow-xs cursor-pointer"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span>Download PDF</span>
+                  </a>
+                  <a
+                    href={primaryDocUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-navy px-3.5 py-2 text-xs font-bold rounded-lg inline-flex items-center space-x-1.5 shadow-xs cursor-pointer"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>Open Full Tab</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Embedded Document Preview */}
+              {isPdf && (
+                <div className="pt-2">
+                  <PDFViewerEmbed
+                    src={primaryDocUrl}
+                    title={cleanDocTitle || item.title}
+                    height="750px"
+                    badge="Official College Document"
+                    allowFullscreen={true}
+                    allowDownload={true}
+                  />
+                </div>
+              )}
             </div>
           )}
 

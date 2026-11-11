@@ -141,13 +141,13 @@ export default function CampusBlocksSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
           <div className="space-y-2">
-            <span className="text-[#0B1F4E] font-mono font-bold text-xs uppercase tracking-widest block">
+            <span className="text-[#0B1F4E] font-mono font-semibold text-xs uppercase tracking-wider block">
               Campus & Infrastructure
             </span>
-            <h2 className="font-serif font-extrabold text-2xl sm:text-4xl text-[#071A33] tracking-tight">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-[#071A33] tracking-tight">
               Discover Our 28-Acre Campus
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-xl font-sans">
+            <p className="text-sm text-slate-600 max-w-xl font-sans">
               Explore the perfect blend of historic heritage, modern scientific research suites, comprehensive digital libraries, and premier athletic infrastructure.
             </p>
           </div>
@@ -310,7 +310,7 @@ export default function CampusBlocksSection() {
                     }`}>
                       {space.tag}
                     </span>
-                    <h4 className={`font-serif font-bold text-xs sm:text-sm leading-snug truncate ${
+                    <h4 className={`font-heading font-semibold text-xs sm:text-sm leading-snug truncate ${
                       isActive ? 'text-[#0B1F4E]' : 'text-slate-800 group-hover:text-[#0B1F4E]'
                     }`}>
                       {space.title}

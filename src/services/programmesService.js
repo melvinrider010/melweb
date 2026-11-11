@@ -12,12 +12,19 @@ export async function getProgrammes(filters = {}) {
 
   return list.map((p) => {
     const code = p.code || p.id || 'COURSE';
+    const isHoneycomb = p.is_featured_honeycomb !== undefined 
+      ? Boolean(p.is_featured_honeycomb) 
+      : (p.isFeaturedHoneycomb !== undefined ? Boolean(p.isFeaturedHoneycomb) : true);
+
     return {
       ...p,
       id: p.id || code,
       code,
       type: (p.level || p.type || 'ug').toLowerCase(),
-      description: p.overview || p.description
+      description: p.overview || p.description,
+      status: p.status || 'published',
+      is_featured_honeycomb: isHoneycomb,
+      isFeaturedHoneycomb: isHoneycomb
     };
   });
 }

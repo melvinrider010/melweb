@@ -4,15 +4,27 @@
 
 const API_BASE = '/api/v1';
 
-// In-Memory Token Reference (Avoids localStorage plain-text token persistence)
-let inMemoryAuthToken = '';
+// In-Memory Token Reference with sessionStorage / localStorage fallback
+let inMemoryAuthToken = typeof window !== 'undefined' ? (sessionStorage.getItem('stphilos_auth_token') || localStorage.getItem('stphilos_auth_token') || '') : '';
 
 export function getAuthToken() {
+  if (!inMemoryAuthToken && typeof window !== 'undefined') {
+    inMemoryAuthToken = sessionStorage.getItem('stphilos_auth_token') || localStorage.getItem('stphilos_auth_token') || '';
+  }
   return inMemoryAuthToken;
 }
 
 export function setAuthToken(token) {
   inMemoryAuthToken = token || '';
+  if (typeof window !== 'undefined') {
+    if (token) {
+      sessionStorage.setItem('stphilos_auth_token', token);
+      localStorage.setItem('stphilos_auth_token', token);
+    } else {
+      sessionStorage.removeItem('stphilos_auth_token');
+      localStorage.removeItem('stphilos_auth_token');
+    }
+  }
 }
 
 function getXsrfCookie() {

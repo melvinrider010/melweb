@@ -16,23 +16,57 @@ import {
   BookOpen,
   Calendar,
   Sparkles,
-  ChevronRight
+  ChevronRight,
+  X,
+  Maximize2
 } from 'lucide-react';
 import aboutData from '../data/aboutData.json';
+import cmsStore from '../lib/cmsStore';
+import useCms from '../lib/useCms';
 import { animatePageIn } from '../animations/pageTransitions';
 import OrganogramView from '../components/about/OrganogramView';
 import GoverningBodyView from '../components/about/GoverningBodyView';
+import PersonInfoModal from '../components/about/PersonInfoModal';
 
 export default function AboutPage() {
   const containerRef = useRef(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
 
+  // Dynamic reactive leadership list from CMS (strictly active leaders)
+  const allLeadership = useCms(() => cmsStore.getLeadership());
+  const administrationList = (allLeadership && allLeadership.length > 0)
+    ? allLeadership.filter(l => l.status !== 'inactive' && l.status !== 'draft')
+    : (cmsStore.getActiveLeadership ? cmsStore.getActiveLeadership() : []);
+
+  const showRectorMessage = administrationList.some(p => p.id === 'rector' || (p.name && p.name.toLowerCase().includes('lourdu')));
+  const showPrincipalMessage = administrationList.some(p => p.id === 'principal' || (p.name && p.name.toLowerCase().includes('ravi')));
+
   // Tab IDs: 'history', 'vision', 'coat-of-arms', 'bishops', 'principals', 'mdes', 'organogram', 'governing-body', 'leadership'
   const [activeTab, setActiveTab] = useState('history');
+  const [selectedPerson, setSelectedPerson] = useState(null);
+  const [anchorElement, setAnchorElement] = useState(null);
+
+  const handlePersonClick = (e, person) => {
+    e.stopPropagation();
+    const imgEl = e.currentTarget.querySelector('img') || e.currentTarget;
+    setSelectedPerson(person);
+    setAnchorElement(imgEl);
+  };
 
   useEffect(() => {
     animatePageIn(containerRef);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setSelectedPerson(null);
+        setAnchorElement(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   useEffect(() => {
@@ -93,7 +127,7 @@ export default function AboutPage() {
               Institutional Heritage · Est. 1946
             </span>
           </div>
-          <h1 className="font-serif font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
+          <h1 className="font-heading font-bold text-2xl sm:text-3xl text-white tracking-tight">
             About St. Philomena's College
           </h1>
           <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
@@ -159,10 +193,10 @@ export default function AboutPage() {
             {/* Story Banner */}
             <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-4">
-                <span className="bg-blue-50 text-[#0B1F4E] font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
+                <span className="bg-blue-50 text-[#0B1F4E] font-semibold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
                   Our Founding Story
                 </span>
-                <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900 leading-snug">
+                <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900 leading-snug">
                   A Bishop’s Dream & A Maharaja’s Munificence
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
@@ -195,38 +229,38 @@ export default function AboutPage() {
             {/* Historical Milestones Timeline */}
             <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs space-y-6">
               <div className="border-b border-slate-100 pb-3">
-                <h3 className="font-serif font-bold text-xl text-slate-900">{new Date().getFullYear() - 1946}+ Years of Academic Milestones</h3>
+                <h3 className="font-heading font-semibold text-lg sm:text-xl text-slate-900">{new Date().getFullYear() - 1946}+ Years of Academic Milestones</h3>
                 <p className="text-xs text-slate-500">Key historical epochs shaping the evolution of St. Philomena's College.</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                  <span className="font-serif font-extrabold text-2xl text-[#0B1F4E] block">1946</span>
-                  <h4 className="font-serif font-bold text-sm text-slate-900">Foundation & Inauguration</h4>
+                  <span className="font-heading font-bold text-xl text-[#0B1F4E] block">1946</span>
+                  <h4 className="font-heading font-semibold text-sm text-slate-900">Foundation & Inauguration</h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     Inaugurated by Maharaja Sri Jayachamarajendra Wodeyar and Bishop Rene Feuga as the first private degree science college in Mysore.
                   </p>
                 </div>
 
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                  <span className="font-serif font-extrabold text-2xl text-[#0B1F4E] block">2004</span>
-                  <h4 className="font-serif font-bold text-sm text-slate-900">NAAC A+ Accreditation</h4>
+                  <span className="font-heading font-bold text-xl text-[#0B1F4E] block">2004</span>
+                  <h4 className="font-heading font-semibold text-sm text-slate-900">NAAC A+ Accreditation</h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     Recognized with A+ Grade in Cycle I Accreditation by the National Assessment and Accreditation Council (NAAC).
                   </p>
                 </div>
 
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                  <span className="font-serif font-extrabold text-2xl text-[#0B1F4E] block">2011</span>
-                  <h4 className="font-serif font-bold text-sm text-slate-900">UGC Autonomous Status</h4>
+                  <span className="font-heading font-bold text-xl text-[#0B1F4E] block">2011</span>
+                  <h4 className="font-heading font-semibold text-sm text-slate-900">UGC Autonomous Status</h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     Conferred Autonomous Status by the University Grants Commission, empowering curricular innovation and choice-based credit degrees.
                   </p>
                 </div>
 
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                  <span className="font-serif font-extrabold text-2xl text-[#0B1F4E] block">2026+</span>
-                  <h4 className="font-serif font-bold text-sm text-slate-900">NEP & Research Innovation</h4>
+                  <span className="font-heading font-bold text-xl text-[#0B1F4E] block">2026+</span>
+                  <h4 className="font-heading font-semibold text-sm text-slate-900">NEP & Research Innovation</h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     Over 25 UG and 14 PG programmes, interdisciplinary science laboratories, and MoE Star-Rated Innovation Council.
                   </p>
@@ -265,7 +299,7 @@ export default function AboutPage() {
                     <span className="text-[10px] font-mono font-bold tracking-widest text-[#a88530] uppercase block">
                       Heavenly Patroness
                     </span>
-                    <h3 className="font-serif font-extrabold text-xl text-[#0B1F4E] tracking-tight">
+                    <h3 className="font-heading font-semibold text-xl text-[#0B1F4E] tracking-tight">
                       St. Philomena
                     </h3>
                     <p className="text-xs font-semibold text-slate-500 font-sans">
@@ -281,7 +315,7 @@ export default function AboutPage() {
                   <span>Heavenly Patroness & Inspiration</span>
                 </div>
 
-                <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900 tracking-tight">
+                <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900 tracking-tight">
                   Guided by Faith, Fortitude & Purity
                 </h2>
 
@@ -295,15 +329,15 @@ export default function AboutPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                   <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
-                    <span className="font-serif font-bold text-xs text-[#0B1F4E] block">The Anchor</span>
+                    <span className="font-heading font-semibold text-xs text-[#0B1F4E] block">The Anchor</span>
                     <span className="text-[11px] text-slate-500">Steadfast Faith & Hope</span>
                   </div>
                   <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
-                    <span className="font-serif font-bold text-xs text-[#0B1F4E] block">The Lilies</span>
+                    <span className="font-heading font-semibold text-xs text-[#0B1F4E] block">The Lilies</span>
                     <span className="text-[11px] text-slate-500">Purity & Character</span>
                   </div>
                   <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
-                    <span className="font-serif font-bold text-xs text-[#0B1F4E] block">The Palm</span>
+                    <span className="font-heading font-semibold text-xs text-[#0B1F4E] block">The Palm</span>
                     <span className="text-[11px] text-slate-500">Fortitude & Victory</span>
                   </div>
                 </div>
@@ -321,7 +355,7 @@ export default function AboutPage() {
                 </span>
               </div>
 
-              <h2 className="font-serif font-extrabold text-2xl sm:text-4xl text-[#F0D98C] tracking-tight">
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-[#F0D98C] tracking-tight">
                 Vision
               </h2>
 
@@ -338,7 +372,7 @@ export default function AboutPage() {
                   <Award className="w-5 h-5 text-[#0B1F4E]" />
                   <span className="text-xs font-bold text-[#0B1F4E] uppercase tracking-widest">Core Purpose</span>
                 </div>
-                <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+                <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                   Mission
                 </h2>
               </div>
@@ -390,7 +424,7 @@ export default function AboutPage() {
                 <span className="text-xs font-bold text-[#0B1F4E] uppercase tracking-wider block">
                   Institutional Motto
                 </span>
-                <h3 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+                <h3 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                   Motto
                 </h3>
               </div>
@@ -442,10 +476,10 @@ export default function AboutPage() {
               </div>
 
               <div className="lg:col-span-7 space-y-4">
-                <span className="bg-amber-100 text-amber-900 font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
+                <span className="bg-amber-100 text-amber-900 font-semibold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
                   Heraldic Seal & Maxim
                 </span>
-                <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+                <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                   {aboutData.coatOfArms.motto}
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
@@ -461,7 +495,7 @@ export default function AboutPage() {
             {/* Heraldic Elements Breakdown */}
             <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs space-y-6">
               <div className="border-b border-slate-100 pb-3">
-                <h3 className="font-serif font-bold text-xl text-slate-900">Symbolism of the Crest</h3>
+                <h3 className="font-heading font-semibold text-lg sm:text-xl text-slate-900">Symbolism of the Crest</h3>
                 <p className="text-xs text-slate-500">The profound meaning behind each heraldic icon in our institutional emblem.</p>
               </div>
 
@@ -472,7 +506,7 @@ export default function AboutPage() {
                       0{idx + 1}
                     </span>
                     <div>
-                      <h4 className="font-serif font-bold text-sm text-slate-900">{sym.symbol}</h4>
+                      <h4 className="font-heading font-semibold text-sm text-slate-900">{sym.symbol}</h4>
                       <p className="text-xs text-slate-600 leading-relaxed">{sym.meaning}</p>
                     </div>
                   </div>
@@ -493,7 +527,7 @@ export default function AboutPage() {
                 <Award className="w-5 h-5 text-[#0B1F4E]" />
                 <span className="text-xs font-bold text-[#0B1F4E] uppercase tracking-widest">Official Institutional Records</span>
               </div>
-              <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">Former Bishops of Mysore</h2>
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">Former Bishops of Mysore</h2>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                 St. Philomena’s College, founded under the patronage of the Diocese of Mysore, stands at a defining epoch in its distinguished history. The legacy of the institution has been shaped and strengthened by the unwavering dedication of its Patron Bishops who have guided the College from its inception in 1946 through seven and a half decades of academic excellence.
               </p>
@@ -502,20 +536,36 @@ export default function AboutPage() {
             {/* Grid of Exact 5 Former Bishops from https://stphilos.ac.in/former-bishops/ */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {aboutData.bishops.map((bishop, idx) => (
-                <div key={idx} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+                <div 
+                  key={idx} 
+                  onClick={(e) => handlePersonClick(e, {
+                    name: bishop.name,
+                    designation: bishop.role,
+                    role: bishop.tenure,
+                    image: bishop.image,
+                    biography: bishop.description + (bishop.fullBiography ? "\n\n" + bishop.fullBiography.slice(1).join("\n\n") : ""),
+                    link: null
+                  })}
+                  className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md hover:border-[#0B1F4E]/40 transition-all flex flex-col justify-between cursor-pointer group"
+                >
                   <div className="p-6 space-y-4">
                     <div className="flex items-center space-x-4">
-                      <img
-                        src={bishop.image}
-                        alt={bishop.name}
-                        className="w-20 h-20 rounded-full object-cover border-2 border-[#0B1F4E] shadow-sm shrink-0 bg-slate-100"
-                        onError={(e) => { e.target.src = "/assets/images/campus/intro_heritage_building.jpg"; }}
-                      />
+                      <div className="relative shrink-0">
+                        <img
+                          src={bishop.image}
+                          alt={bishop.name}
+                          className="w-20 h-20 rounded-full object-cover border-2 border-[#0B1F4E] shadow-sm bg-slate-100 group-hover:scale-105 transition-transform"
+                          onError={(e) => { e.target.src = "/assets/images/campus/intro_heritage_building.jpg"; }}
+                        />
+                        <span className="absolute -bottom-1 -right-1 bg-white p-1 rounded-full shadow-xs text-slate-700">
+                          <Maximize2 className="w-3 h-3 text-[#0B1F4E]" />
+                        </span>
+                      </div>
                       <div>
                         <span className="bg-blue-50 text-[#0B1F4E] text-[11px] font-bold px-2.5 py-0.5 rounded font-mono">
                           {bishop.tenure}
                         </span>
-                        <h3 className="font-serif font-bold text-base sm:text-lg text-slate-900 mt-1">{bishop.name}</h3>
+                        <h3 className="font-serif font-bold text-base sm:text-lg text-slate-900 mt-1 group-hover:text-[#0B1F4E] transition-colors">{bishop.name}</h3>
                         <p className="text-xs text-[#D4AF37] font-bold">{bishop.role}</p>
                       </div>
                     </div>
@@ -551,66 +601,84 @@ export default function AboutPage() {
                 <GraduationCap className="w-5 h-5 text-[#0B1F4E]" />
                 <span className="text-xs font-bold text-[#0B1F4E] uppercase tracking-widest">Academic Leadership Roll</span>
               </div>
-              <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">Principal in Office & Former Principals</h2>
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">Principal in Office & Former Principals</h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 The distinguished academicians and visionary leaders who have steered St. Philomena's College from its inaugural year in 1946 to the present day.
               </p>
             </div>
 
             {/* 1. FEATURED SPOTLIGHT: PRESENT PRINCIPAL IN OFFICE */}
-            <div className="bg-gradient-to-br from-[#071A33] to-[#0B2545] text-white rounded-2xl p-6 sm:p-8 border-2 border-[#FFC928]/60 shadow-lg relative overflow-hidden">
-              <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-blue-600/15 to-transparent pointer-events-none" />
-              
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center relative z-10">
-                <div className="md:col-span-4 lg:col-span-3 flex justify-center">
-                  <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border-3 border-[#FFD84A] shadow-md bg-slate-900">
-                    <img
-                      src="/assets/images/principals/ravi-jd-saldanha.jpg"
-                      alt="Dr. Ravi J.D. Saldanha - Principal in Office"
-                      className="w-full h-full object-cover"
-                      onError={(e) => { e.target.src = "/assets/images/leadership/ravi-jd-saldanha.jpg"; }}
-                    />
-                    <div className="absolute bottom-0 inset-x-0 bg-slate-950/85 py-1 text-center">
-                      <span className="text-[10px] font-mono font-bold text-[#FFD84A] uppercase tracking-wider">
-                        In Office · 2022–Present
+            {showPrincipalMessage && (
+              <div className="bg-gradient-to-br from-[#071A33] to-[#0B2545] text-white rounded-2xl p-6 sm:p-8 border-2 border-[#FFC928]/60 shadow-lg relative overflow-hidden">
+                <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-blue-600/15 to-transparent pointer-events-none" />
+                
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center relative z-10">
+                  <div className="md:col-span-4 lg:col-span-3 flex justify-center">
+                    <div 
+                      onClick={(e) => handlePersonClick(e, {
+                        name: "Dr. Ravi J.D. Saldanha",
+                        designation: "Principal, St. Philomena's College (Autonomous), Mysuru",
+                        role: "Principal in Office (2022–Present)",
+                        image: "/assets/images/principals/ravi-jd-saldanha.jpg",
+                        biography: "Leading the institution in its 80th milestone era, Dr. Ravi J.D. Saldanha directs academic governance, research advancements, NEP curriculum implementations, institutional autonomy compliance, and student excellence across all undergraduate and postgraduate faculties.",
+                        link: '/leadership/principal'
+                      })}
+                      className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border-3 border-[#FFD84A] shadow-md bg-slate-900 cursor-pointer group"
+                    >
+                      <img
+                        src="/assets/images/principals/ravi-jd-saldanha.jpg"
+                        alt="Dr. Ravi J.D. Saldanha - Principal in Office"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        onError={(e) => { e.target.src = "/assets/images/leadership/ravi-jd-saldanha.jpg"; }}
+                      />
+                      <div className="absolute inset-0 bg-[#0B1F4E]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                        <span className="px-2.5 py-1 rounded-full bg-white/95 text-[#0B1F4E] font-bold text-[10px] shadow-sm flex items-center space-x-1">
+                          <Maximize2 className="w-3 h-3 text-[#a88530]" />
+                          <span>View Photo</span>
+                        </span>
+                      </div>
+                      <div className="absolute bottom-0 inset-x-0 bg-slate-950/85 py-1 text-center">
+                        <span className="text-[10px] font-mono font-bold text-[#FFD84A] uppercase tracking-wider">
+                          In Office · 2022–Present
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="md:col-span-8 lg:col-span-9 space-y-3">
+                    <div className="inline-flex items-center space-x-2 bg-[#FFD84A]/20 border border-[#FFD84A]/40 px-3 py-1 rounded-full">
+                      <span className="w-2 h-2 rounded-full bg-[#FFD84A] animate-pulse" />
+                      <span className="text-[#FFD84A] text-xs font-mono font-bold uppercase tracking-wider">
+                        Principal in Office
                       </span>
+                    </div>
+
+                    <h3 className="font-heading font-semibold text-xl sm:text-2xl text-white">
+                      Dr. Ravi J.D. Saldanha
+                    </h3>
+                    
+                    <p className="text-xs sm:text-sm text-[#F0D98C] font-semibold">
+                      Principal, St. Philomena's College (Autonomous), Mysuru
+                    </p>
+
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
+                      Leading the institution in its 80th milestone era, Dr. Ravi J.D. Saldanha directs academic governance, research advancements, NEP curriculum implementations, institutional autonomy compliance, and student excellence across all undergraduate and postgraduate faculties.
+                    </p>
+
+                    <div className="pt-2">
+                      <button
+                        onClick={() => handleTabChange('leadership')}
+                        className="inline-flex items-center space-x-2 px-4 py-2 bg-[#0B1F4E] hover:bg-[#2563eb] text-white text-xs font-bold rounded-lg transition-all shadow-sm cursor-pointer"
+                      >
+                        <MessageSquare className="w-3.5 h-3.5" />
+                        <span>Read Principal's Official Message</span>
+                        <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                      </button>
                     </div>
                   </div>
                 </div>
-
-                <div className="md:col-span-8 lg:col-span-9 space-y-3">
-                  <div className="inline-flex items-center space-x-2 bg-[#FFD84A]/20 border border-[#FFD84A]/40 px-3 py-1 rounded-full">
-                    <span className="w-2 h-2 rounded-full bg-[#FFD84A] animate-pulse" />
-                    <span className="text-[#FFD84A] text-xs font-mono font-bold uppercase tracking-wider">
-                      Principal in Office
-                    </span>
-                  </div>
-
-                  <h3 className="font-serif font-extrabold text-2xl sm:text-3xl text-white">
-                    Dr. Ravi J.D. Saldanha
-                  </h3>
-                  
-                  <p className="text-xs sm:text-sm text-[#F0D98C] font-semibold">
-                    Principal, St. Philomena's College (Autonomous), Mysuru
-                  </p>
-
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
-                    Leading the institution in its 80th milestone era, Dr. Ravi J.D. Saldanha directs academic governance, research advancements, NEP curriculum implementations, institutional autonomy compliance, and student excellence across all undergraduate and postgraduate faculties.
-                  </p>
-
-                  <div className="pt-2">
-                    <button
-                      onClick={() => handleTabChange('leadership')}
-                      className="inline-flex items-center space-x-2 px-4 py-2 bg-[#0B1F4E] hover:bg-[#2563eb] text-white text-xs font-bold rounded-lg transition-all shadow-sm cursor-pointer"
-                    >
-                      <MessageSquare className="w-3.5 h-3.5" />
-                      <span>Read Principal's Official Message</span>
-                      <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                    </button>
-                  </div>
-                </div>
               </div>
-            </div>
+            )}
 
             {/* 2. FORMER PRINCIPALS HEADER */}
             <div className="border-b border-slate-200 pb-2 pt-4">
@@ -621,7 +689,18 @@ export default function AboutPage() {
             {/* Grid of Former Principals (Latest First at Top) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
               {[...aboutData.principals.filter(p => !p.isCurrent)].reverse().map((p, idx) => (
-                <div key={idx} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-all group flex flex-col">
+                <div 
+                  key={idx} 
+                  onClick={(e) => handlePersonClick(e, {
+                    name: p.name,
+                    designation: `Principal of St. Philomena's College (${p.tenure})`,
+                    role: `Tenure: ${p.tenure}`,
+                    image: p.image,
+                    biography: p.description,
+                    link: null
+                  })}
+                  className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md hover:border-[#0B1F4E]/40 transition-all group flex flex-col cursor-pointer"
+                >
                   <div className="aspect-[4/3] bg-slate-900 relative overflow-hidden">
                     <img
                       src={p.image}
@@ -631,10 +710,16 @@ export default function AboutPage() {
                     <div className="absolute top-2.5 left-2.5 bg-[#071A33]/90 text-[#FFD84A] text-[10px] font-mono font-bold px-2 py-0.5 rounded border border-[#FFD84A]/30">
                       {p.tenure}
                     </div>
+                    <div className="absolute inset-0 bg-[#0B1F4E]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                      <span className="px-2.5 py-1 rounded-full bg-white/95 text-[#0B1F4E] font-bold text-[10px] shadow-sm flex items-center space-x-1">
+                        <Maximize2 className="w-3 h-3 text-[#a88530]" />
+                        <span>View Photo & Info</span>
+                      </span>
+                    </div>
                   </div>
                   <div className="p-4 space-y-1.5 flex-1 flex flex-col justify-between">
                     <div>
-                      <h4 className="font-serif font-bold text-base text-slate-900 leading-snug">{p.name}</h4>
+                      <h4 className="font-serif font-bold text-base text-slate-900 leading-snug group-hover:text-[#0B1F4E] transition-colors">{p.name}</h4>
                       <p className="text-xs text-[#0B1F4E] font-semibold pt-0.5">Principal · {p.tenure}</p>
                     </div>
                     <p className="text-[11px] text-slate-600 leading-relaxed pt-2 border-t border-slate-100 line-clamp-3">
@@ -695,10 +780,10 @@ export default function AboutPage() {
                 />
               </div>
               <div className="space-y-2 flex-1 min-w-0">
-                <span className="bg-blue-50 text-[#0B1F4E] font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider inline-block">
+                <span className="bg-blue-50 text-[#0B1F4E] font-semibold text-xs px-3 py-1 rounded-md uppercase tracking-wider inline-block">
                   Governing Society
                 </span>
-                <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+                <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                   {aboutData.mdes.title}
                 </h2>
                 <p className="text-xs font-mono text-slate-500 font-semibold">{aboutData.mdes.regNo}</p>
@@ -763,7 +848,7 @@ export default function AboutPage() {
             
             {/* Header */}
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
-              <h2 className="font-serif font-extrabold text-2xl text-slate-900">Current Administration & Academic Heads</h2>
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">Current Administration & Academic Heads</h2>
               <p className="text-xs sm:text-sm text-slate-600">
                 The executive leadership team guiding the day-to-day administration, academic governance, and institutional excellence at St. Philomena's College.
               </p>
@@ -771,38 +856,81 @@ export default function AboutPage() {
 
             {/* Current Administration Full Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {aboutData.administration.map((person, idx) => {
+              {administrationList.map((person, idx) => {
                 // Determine custom object-position to preserve full head and face for portrait photos
+                const pName = (person.name || '').toLowerCase();
                 const objectPosition = 
-                  person.id === 'president-mdes' || person.id === 'bishop-president' || person.name.toLowerCase().includes('francis')
-                    ? '50% 12%'
-                    : person.id === 'rector' || person.name.toLowerCase().includes('lourdu')
-                    ? '50% 18%'
-                    : person.id === 'principal' || person.name.toLowerCase().includes('ravi')
-                    ? '50% 15%'
-                    : person.id === 'finance-officer' || person.name.toLowerCase().includes('roshan')
-                    ? '50% 15%'
-                    : '50% 10%';
+                  person.objectPosition ? person.objectPosition
+                  : person.id === 'president-mdes' || person.id === 'bishop-president' || pName.includes('francis')
+                  ? '50% 12%'
+                  : person.id === 'rector' || pName.includes('lourdu')
+                  ? '50% 18%'
+                  : person.id === 'principal' || pName.includes('ravi')
+                  ? '50% 15%'
+                  : person.id === 'finance-officer' || pName.includes('roshan')
+                  ? '50% 15%'
+                  : person.id === 'dean-academic' || pName.includes('anand')
+                  ? '50% 15%'
+                  : person.id === 'pg-coordinator' || pName.includes('mubasheer')
+                  ? '50% 15%'
+                  : '50% 10%';
+
+                const defaultLeadershipLink = 
+                  person.id === 'rector' ? '/leadership/rector'
+                  : person.id === 'principal' ? '/leadership/principal'
+                  : person.id === 'president-mdes' ? '/leadership/bishop'
+                  : person.id === 'finance-officer' ? '/leadership/financial-officer'
+                  : person.id === 'pg-coordinator' ? '/leadership/pg-coordinator'
+                  : person.id === 'iqac-coord' ? '/leadership/iqac-coordinator'
+                  : null;
+
+                const leadershipLink = person.link || defaultLeadershipLink;
+                const photoSrc = person.assetPath || person.imageUrl || '/assets/images/campus/intro_heritage_building.jpg';
 
                 return (
-                  <div key={idx} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-all group flex flex-col">
+                  <div 
+                    key={person.id || idx} 
+                    onClick={(e) => handlePersonClick(e, {
+                      id: person.id,
+                      name: person.name,
+                      designation: person.designation,
+                      role: person.role,
+                      assetPath: photoSrc,
+                      imageUrl: photoSrc,
+                      biography: person.biography,
+                      link: leadershipLink
+                    })}
+                    className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-[#C9A84C] hover:-translate-y-1 transition-all duration-300 group flex flex-col cursor-pointer"
+                  >
                     <div className="aspect-[4/5] sm:aspect-[3/4] bg-slate-900 relative overflow-hidden">
                       <img
-                        src={person.assetPath}
+                        src={photoSrc}
                         alt={person.name}
                         style={{ objectPosition }}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        onError={(e) => {
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.src = '/assets/images/campus/intro_heritage_building.jpg';
+                        }}
                       />
                       <div className="absolute top-2.5 left-2.5 bg-[#071A33]/90 text-[#FFD84A] text-[10px] font-bold px-2 py-0.5 rounded border border-[#FFD84A]/30 uppercase">
-                        {person.role}
+                        {person.role || 'Administration'}
+                      </div>
+
+                      {/* Hover Overlay Hint */}
+                      <div className="absolute inset-0 bg-[#0B1F4E]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                        <span className="px-3 py-1.5 rounded-full bg-white/95 text-[#0B1F4E] font-bold text-xs shadow-md tracking-wide flex items-center space-x-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                          <Maximize2 className="w-3.5 h-3.5 text-[#a88530]" />
+                          <span>View Info</span>
+                        </span>
                       </div>
                     </div>
                     <div className="p-5 space-y-1.5 flex-1 flex flex-col justify-between">
                       <div>
-                        <h4 className="font-serif font-bold text-base text-slate-900 leading-snug">{person.name}</h4>
-                        <p className="text-xs text-[#0B1F4E] font-bold pt-0.5">{person.designation}</p>
+                        <h4 className="font-serif font-bold text-base text-slate-900 leading-snug group-hover:text-[#0B1F4E] transition-colors">{person.name}</h4>
+                        <p className="text-xs text-[#a88530] font-bold pt-0.5">{person.designation}</p>
                       </div>
-                      <p className="text-[11px] text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
+                      <p className="text-[11px] text-slate-600 leading-relaxed pt-2 border-t border-slate-100 line-clamp-3">
                         {person.biography}
                       </p>
                     </div>
@@ -812,71 +940,121 @@ export default function AboutPage() {
             </div>
 
             {/* Rector's Message */}
-            <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              <div className="lg:col-span-4 flex flex-col items-center text-center p-6 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
-                <img
-                  src={aboutData.leadershipMessages.rector.image}
-                  alt={aboutData.leadershipMessages.rector.name}
-                  className="w-32 h-32 rounded-full object-cover border-4 border-[#0B1F4E] shadow-sm"
-                />
-                <div>
-                  <h3 className="font-serif font-bold text-base text-slate-900">{aboutData.leadershipMessages.rector.name}</h3>
-                  <p className="text-xs text-[#0B1F4E] font-bold">{aboutData.leadershipMessages.rector.title}</p>
+            {showRectorMessage && (
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div 
+                  onClick={(e) => handlePersonClick(e, {
+                    id: 'rector',
+                    name: aboutData.leadershipMessages.rector.name,
+                    designation: aboutData.leadershipMessages.rector.title,
+                    role: "Rector & Manager",
+                    image: aboutData.leadershipMessages.rector.image,
+                    biography: "Most Rev. Msgr. Dr. Lourdu Joseph serves as the Rector and Manager of St. Philomena's Institutions, providing spiritual, moral, and executive leadership to ensure holistic student development.",
+                    link: '/leadership/rector'
+                  })}
+                  className="lg:col-span-4 flex flex-col items-center text-center p-6 bg-slate-50 rounded-2xl border border-slate-200 space-y-3 cursor-pointer group hover:border-[#0B1F4E]/50 hover:shadow-md transition-all"
+                >
+                  <div className="relative">
+                    <img
+                      src={aboutData.leadershipMessages.rector.image}
+                      alt={aboutData.leadershipMessages.rector.name}
+                      className="w-32 h-32 rounded-full object-cover border-4 border-[#0B1F4E] shadow-sm group-hover:scale-105 transition-transform"
+                    />
+                    <span className="absolute bottom-0 right-0 bg-white p-1.5 rounded-full shadow-md text-slate-700">
+                      <Maximize2 className="w-3.5 h-3.5 text-[#0B1F4E]" />
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="font-serif font-bold text-base text-slate-900 group-hover:text-[#0B1F4E] transition-colors">{aboutData.leadershipMessages.rector.name}</h3>
+                    <p className="text-xs text-[#0B1F4E] font-bold">{aboutData.leadershipMessages.rector.title}</p>
+                    <span className="text-[10px] text-slate-500 font-medium inline-block mt-1">Click to view info</span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="lg:col-span-8 space-y-3">
-                <div className="flex items-center justify-between flex-wrap gap-2">
-                  <span className="bg-blue-50 text-[#0B1F4E] font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
-                    Office of the Rector & Manager
-                  </span>
-                </div>
-                <h2 className="font-serif font-extrabold text-2xl text-slate-900">
-                  {aboutData.leadershipMessages.rector.salutation}
-                </h2>
-                <div className="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                  {aboutData.leadershipMessages.rector.text.map((p, idx) => (
-                    <p key={idx}>{p}</p>
-                  ))}
+                <div className="lg:col-span-8 space-y-3">
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    <span className="bg-blue-50 text-[#0B1F4E] font-semibold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
+                      Office of the Rector & Manager
+                    </span>
+                  </div>
+                  <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
+                    {aboutData.leadershipMessages.rector.salutation}
+                  </h2>
+                  <div className="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    {aboutData.leadershipMessages.rector.text.map((p, idx) => (
+                      <p key={idx}>{p}</p>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
             {/* Principal's Message */}
-            <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              <div className="lg:col-span-4 flex flex-col items-center text-center p-6 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
-                <img
-                  src={aboutData.leadershipMessages.principal.image}
-                  alt={aboutData.leadershipMessages.principal.name}
-                  className="w-32 h-32 rounded-full object-cover border-4 border-[#FFC928] shadow-sm"
-                />
-                <div>
-                  <h3 className="font-serif font-bold text-base text-slate-900">{aboutData.leadershipMessages.principal.name}</h3>
-                  <p className="text-xs text-amber-700 font-bold">{aboutData.leadershipMessages.principal.title}</p>
+            {showPrincipalMessage && (
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div 
+                  onClick={(e) => handlePersonClick(e, {
+                    id: 'principal',
+                    name: aboutData.leadershipMessages.principal.name,
+                    designation: aboutData.leadershipMessages.principal.title,
+                    role: "Principal",
+                    image: aboutData.leadershipMessages.principal.image,
+                    biography: "Dr. Ravi J.D. Saldanha directs academic governance, research advancements, NEP curriculum implementations, institutional autonomy compliance, and student excellence across all undergraduate and postgraduate faculties.",
+                    link: '/leadership/principal'
+                  })}
+                  className="lg:col-span-4 flex flex-col items-center text-center p-6 bg-slate-50 rounded-2xl border border-slate-200 space-y-3 cursor-pointer group hover:border-[#C9A84C]/50 hover:shadow-md transition-all"
+                >
+                  <div className="relative">
+                    <img
+                      src={aboutData.leadershipMessages.principal.image}
+                      alt={aboutData.leadershipMessages.principal.name}
+                      className="w-32 h-32 rounded-full object-cover border-4 border-[#FFC928] shadow-sm group-hover:scale-105 transition-transform"
+                    />
+                    <span className="absolute bottom-0 right-0 bg-white p-1.5 rounded-full shadow-md text-slate-700">
+                      <Maximize2 className="w-3.5 h-3.5 text-[#a88530]" />
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-semibold text-base text-slate-900 group-hover:text-[#0B1F4E] transition-colors">{aboutData.leadershipMessages.principal.name}</h3>
+                    <p className="text-xs text-amber-700 font-bold">{aboutData.leadershipMessages.principal.title}</p>
+                    <span className="text-[10px] text-slate-500 font-medium inline-block mt-1">Click to view info</span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="lg:col-span-8 space-y-3">
-                <div className="flex items-center justify-between flex-wrap gap-2">
-                  <span className="bg-amber-50 text-amber-800 font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
-                    Office of the Principal
-                  </span>
-                </div>
-                <h2 className="font-serif font-extrabold text-2xl text-slate-900">
-                  {aboutData.leadershipMessages.principal.salutation}
-                </h2>
-                <div className="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                  {aboutData.leadershipMessages.principal.text.map((p, idx) => (
-                    <p key={idx}>{p}</p>
-                  ))}
+                <div className="lg:col-span-8 space-y-3">
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    <span className="bg-amber-50 text-amber-800 font-semibold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
+                      Office of the Principal
+                    </span>
+                  </div>
+                  <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
+                    {aboutData.leadershipMessages.principal.salutation}
+                  </h2>
+                  <div className="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    {aboutData.leadershipMessages.principal.text.map((p, idx) => (
+                      <p key={idx}>{p}</p>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
           </div>
         )}
 
       </div>
+
+      {/* COMPACT ACCESSIBLE PERSON INFO MODAL */}
+      {selectedPerson && anchorElement && (
+        <PersonInfoModal
+          person={selectedPerson}
+          anchorElement={anchorElement}
+          onClose={() => {
+            setSelectedPerson(null);
+            setAnchorElement(null);
+          }}
+        />
+      )}
 
     </div>
   );

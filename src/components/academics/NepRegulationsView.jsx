@@ -6,10 +6,10 @@ import ViewAsBookButton from '../common/ViewAsBookButton';
 export default function NepRegulationsView() {
   const complianceDocs = [
     { title: 'National Education Policy 2020 Statutes & Regulations', type: 'Primary Regulation PDF', path: '/assets/documents/academics/NEP-Statutes-2-HOURS-Exam-Final-22th-March-2022.pdf' },
-    { title: 'Official Institutional Fee Structure (UG & PG)', type: 'Statutory PDF Document', path: '/assets/documents/academics/SKM_C30813010105381-2Fees-Structure.pdf' },
-    { title: 'Statutory Undertaking Certificate', type: 'Statutory PDF Document', path: '/assets/documents/academics/undertakingCertificate.pdf' },
-    { title: 'AICTE Extension of Approval (EOA) 2025-26', type: 'Approval PDF Document', path: '/assets/documents/academics/EOA-Report-2025-26.pdf' },
-    { title: "Institution's Innovation Council (IIC) Establishment", type: 'Establishment PDF Document', path: '/assets/documents/academics/EstablismentCertificate.pdf' }
+    { title: 'NEP 2020 Academic Regulations & Framework', type: 'Curricular Framework PDF', path: '/assets/documents/academics/nep-2020-academic-regulations.pdf' },
+    { title: 'Autonomous Academic Regulations & Statutes', type: 'Statutory Framework PDF', path: '/assets/documents/academic-regulations.pdf' },
+    { title: 'BSW Revised NEP Regulations (Sem V & VI)', type: 'Departmental Regulation PDF', path: '/assets/documents/academics/BSW-revised-NEP-5-6.pdf' },
+    { title: 'Physics NEP Framework & Curriculum (Sem V & VI)', type: 'Curricular Framework PDF', path: '/assets/documents/academics/Physics-NEP-V-and-VI-Semesters-2024-2025.pdf' }
   ];
 
   const [selectedDoc, setSelectedDoc] = useState(complianceDocs[0]);

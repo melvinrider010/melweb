@@ -333,7 +333,7 @@ export default function NoticesHubSection() {
               <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#a88530] block">
                 WHAT'S HAPPENING
               </span>
-              <h3 className="font-serif font-bold text-2xl text-[#0B1F4E]">
+              <h3 className="font-heading font-semibold text-xl sm:text-2xl text-[#0B1F4E]">
                 Upcoming Events
               </h3>
               <div className="w-12 h-0.5 bg-[#C9A84C]" />
@@ -344,14 +344,14 @@ export default function NoticesHubSection() {
               
               {/* Header Bar */}
               <div className="bg-[#0B1F4E] text-white px-5 py-3 flex items-center justify-between shrink-0">
-                <div className="flex items-center space-x-2 font-serif font-bold text-xs sm:text-sm tracking-wide">
+                <div className="flex items-center space-x-2 font-heading font-semibold text-xs sm:text-sm tracking-wide">
                   <Calendar className="w-4 h-4 text-[#F0D98C]" />
                   <span>Campus Events & Seminars</span>
                 </div>
 
                 <Link
                   to="/news-events"
-                  className="text-xs font-sans font-bold text-slate-200 hover:text-[#F0D98C] inline-flex items-center space-x-1 transition-colors"
+                  className="text-xs font-sans font-semibold text-slate-200 hover:text-[#F0D98C] inline-flex items-center space-x-1 transition-colors"
                 >
                   <span>View All</span>
                   <ArrowRight className="w-3.5 h-3.5 ml-0.5" />
@@ -384,7 +384,7 @@ export default function NoticesHubSection() {
                             <span className="text-[9.5px] font-bold text-[#F0D98C] font-mono tracking-wider leading-tight">
                               {monthStr}
                             </span>
-                            <span className="text-base font-serif font-extrabold text-white leading-none mt-0.5">
+                            <span className="text-base font-heading font-bold text-white leading-none mt-0.5">
                               {dayStr}
                             </span>
                           </div>
@@ -410,7 +410,7 @@ export default function NoticesHubSection() {
 
                             <Link
                               to={`/news-events/${event.id}`}
-                              className="font-serif font-bold text-xs sm:text-sm text-[#0B1F4E] group-hover:text-[#a88530] transition-colors leading-snug line-clamp-2 block"
+                              className="font-heading font-semibold text-xs sm:text-sm text-[#0B1F4E] group-hover:text-[#a88530] transition-colors leading-snug line-clamp-2 block"
                             >
                               {event.title}
                             </Link>
@@ -527,7 +527,7 @@ export default function NoticesHubSection() {
               <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#a88530] block">
                 IMPORTANT UPDATES
               </span>
-              <h3 className="font-serif font-bold text-2xl text-[#0B1F4E]">
+              <h3 className="font-heading font-semibold text-xl sm:text-2xl text-[#0B1F4E]">
                 Latest Notices
               </h3>
               <div className="w-12 h-0.5 bg-[#C9A84C]" />
@@ -538,7 +538,7 @@ export default function NoticesHubSection() {
               
               {/* Header Bar with Live 3-Tabs */}
               <div className="bg-[#0B1F4E] text-white px-3 sm:px-5 py-2.5 flex flex-wrap items-center justify-between gap-2 shrink-0 border-b border-white/10">
-                <div className="flex items-center space-x-2 font-serif font-bold text-xs sm:text-sm tracking-wide">
+                <div className="flex items-center space-x-2 font-heading font-semibold text-xs sm:text-sm tracking-wide">
                   <span className="w-1.5 h-4.5 bg-[#C9A84C] rounded-full inline-block"></span>
                   <span>NOTICE BOARD</span>
                 </div>
@@ -553,7 +553,7 @@ export default function NoticesHubSection() {
                     <button
                       key={tab.id}
                       onClick={() => setActiveNoticeTab(tab.id)}
-                      className={`px-2 sm:px-3 py-1 text-[10.5px] sm:text-[11px] font-bold tracking-wider rounded transition-all cursor-pointer ${
+                      className={`px-2 sm:px-3 py-1 text-[10.5px] sm:text-[11px] font-semibold tracking-wider rounded transition-all cursor-pointer ${
                         activeNoticeTab === tab.id
                           ? 'bg-[#0B1F4E] text-[#F0D98C] border-b-2 border-[#C9A84C] shadow-xs'
                           : 'text-slate-300 hover:text-white hover:bg-white/10'
@@ -612,7 +612,7 @@ export default function NoticesHubSection() {
                       >
                         {/* Left Date Square Badge */}
                         <div className="shrink-0 w-11 h-12 rounded-lg bg-[#0B1F4E] border border-[#C9A84C]/40 text-center flex flex-col items-center justify-center text-white shadow-2xs group-hover:border-[#C9A84C]">
-                          <span className="text-sm font-serif font-extrabold text-white leading-none">
+                          <span className="text-sm font-heading font-bold text-white leading-none">
                             {dayStr}
                           </span>
                           <span className="text-[9px] font-bold text-[#F0D98C] font-mono tracking-wider leading-tight mt-0.5">
@@ -648,7 +648,7 @@ export default function NoticesHubSection() {
                             )}
                           </div>
 
-                          <h4 className="font-sans font-bold text-xs sm:text-[13px] text-slate-900 group-hover:text-[#0B1F4E] transition-colors leading-snug line-clamp-2">
+                          <h4 className="font-heading font-semibold text-xs sm:text-[13.5px] text-slate-900 group-hover:text-[#0B1F4E] transition-colors leading-snug line-clamp-2">
                             {notice.title}
                           </h4>
                         </div>

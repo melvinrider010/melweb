@@ -9,24 +9,38 @@
 
 :root {
   /* 1. Global Font Families */
-  --font-heading: 'Playfair Display', Georgia, Cambria, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Source Sans 3', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Source Sans 3', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-classical: 'Playfair Display', Georgia, Cambria, serif;
 
-  /* 2. Standard Harmonized Font Sizes */
+  /* 2. Institutional Color System Foundation */
+  --color-primary-navy: #0B1F4E;
+  --color-navy-dark: #071536;
+  --color-navy-deep: #040B1E;
+  --color-navy-light: #153784;
+  --color-royal-blue: #1C5496;
+  --color-gold: #C9A84C;
+  --color-gold-light: #F0D98C;
+  --color-gold-bright: #FFC928;
+
+  /* 3. Standard Harmonized Font Sizes (Academic Desktop Scale) */
   --font-size-2xs: 0.75rem;    /* 12px - Badges, tiny tags */
-  --font-size-xs: 0.8125rem;   /* 13px - Meta text, dates, secondary labels */
-  --font-size-sm: 0.875rem;    /* 14px - Navigation links, buttons, dense tables */
-  --font-size-base: 0.9375rem; /* 15px - Standard body text */
-  --font-size-lg: 1.125rem;    /* 18px - Lead paragraphs, H4 card titles */
-  --font-size-xl: 1.375rem;    /* 22px - H3 sub-section headers */
-  --font-size-2xl: 1.75rem;    /* 28px - H2 section headers */
-  --font-size-3xl: 2.25rem;    /* 36px - H1 page titles */
-  --font-size-4xl: 3rem;       /* 48px - Major hero titles */
+  --font-size-xs: 0.8125rem;   /* 13px - Meta text, dates, breadcrumbs */
+  --font-size-sm: 0.875rem;    /* 14px - Table data, dense lists */
+  --font-size-nav: 0.9375rem;  /* 15px - Navigation links, interactive controls */
+  --font-size-base: 1rem;      /* 16px - Standard institutional body text */
+  --font-size-card: 1.0625rem; /* 17px - Card titles, item lead */
+  --font-size-lg: 1.125rem;    /* 18px - Smaller section heading (H4), lead text */
+  --font-size-xl: 1.3125rem;   /* 21px - Subsection heading (H3) */
+  --font-size-2xl: 1.625rem;   /* 26px - Section heading (H2) */
+  --font-size-3xl: 2rem;       /* 32px - Main page title (H1) */
+  --font-size-4xl: 2.25rem;    /* 36px - Major page headers */
+  --font-size-5xl: 2.75rem;    /* 44px - Hero display headlines */
 
-  /* 3. Global Line Heights */
-  --lh-tight: 1.2;
-  --lh-snug: 1.375;
+  /* 4. Global Line Heights */
+  --lh-tight: 1.25;
+  --lh-snug: 1.35;
   --lh-normal: 1.5;
   --lh-relaxed: 1.65;
 }
@@ -65,61 +79,78 @@
   }
 
   /* Universal Headings Hierarchy - Strictly Harmonized */
-  h1, .h1, .head-universal, .page-title, .section-title {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: clamp(1.75rem, 1.45rem + 1vw, 2.25rem);
-    line-height: var(--lh-tight);
-    letter-spacing: -0.015em;
-  }
-
-  h2, .h2 {
+  h1, .h1, .head-universal, .page-title {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: clamp(1.45rem, 1.25rem + 0.75vw, 1.85rem);
+    font-size: clamp(1.625rem, 1.4rem + 1vw, 2rem); /* 26px to 32px */
     line-height: var(--lh-tight);
     letter-spacing: -0.01em;
+    text-wrap: balance;
   }
 
-  h3, .h3, .subhead-universal, .section-subtitle, .card-title {
+  h2, .h2, .section-title {
     font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.35rem);
+    font-weight: 600;
+    font-size: clamp(1.35rem, 1.2rem + 0.6vw, 1.625rem); /* 22px to 26px */
+    line-height: var(--lh-tight);
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+  }
+
+  h3, .h3, .subhead-universal, .section-subtitle {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: clamp(1.15rem, 1.05rem + 0.3vw, 1.3125rem); /* 18px to 21px */
+    line-height: var(--lh-snug);
+    text-wrap: balance;
+  }
+
+  h4, .h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.125rem; /* 18px */
     line-height: var(--lh-snug);
   }
 
-  h4, .h4, .card-heading {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 1rem;
+  .card-title, .card-heading {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.0625rem; /* 17px */
     line-height: var(--lh-snug);
   }
 
   h5, h6 {
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 0.875rem;
+    font-size: 0.875rem; /* 14px */
     line-height: var(--lh-snug);
   }
 
-  /* Universal Body Text - 15px with relaxed readability line height */
+  /* Restrain excessive heavy 800/900 weights on headings to dignified institutional weights */
+  h1.font-extrabold, h2.font-extrabold, h3.font-extrabold, h4.font-extrabold {
+    font-weight: 700;
+  }
+
+  /* Universal Body Text - 16px with relaxed readability line height */
   p, .body-universal, .body-text, article p {
     font-family: var(--font-body);
-    font-size: 0.9375rem;
+    font-size: 1rem;
     line-height: 1.65;
     font-weight: 400;
+    text-wrap: pretty;
+    overflow-wrap: break-word;
   }
 
   /* Universal Badges & Meta Tags */
   .badge-universal, .meta-badge {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
   }
 
-  /* Universal Small Captions */
+  /* Universal Small Captions & Metadata */
   small, .caption-universal {
     font-size: 0.8125rem;
     line-height: 1.4;
@@ -136,15 +167,15 @@
    ========================================================================== */
 
 .section-heading {
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .section-heading .sub-label {
   display: block;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #a88530;
   margin-bottom: 0.35rem;
@@ -152,14 +183,14 @@
 
 .section-heading h2 {
   font-family: var(--font-heading);
-  font-weight: 800;
+  font-weight: 600;
   color: #0B1F4E;
-  font-size: clamp(1.65rem, 1.4rem + 1vw, 2.25rem);
-  line-height: 1.2;
+  font-size: clamp(1.35rem, 1.2rem + 0.6vw, 1.625rem);
+  line-height: 1.25;
 }
 
 .heading-line {
-  width: 56px;
+  width: 48px;
   height: 3px;
   background-color: #C9A84C;
   border-radius: 2px;
@@ -172,7 +203,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 16px;
+  width: 14px;
   height: 3px;
   background-color: #F0D98C;
   border-radius: 2px;
@@ -182,15 +213,19 @@
   margin: 8px 0 0;
 }
 
-/* Button System */
+/* Unified Institutional Button System */
 .btn-gold {
   background: linear-gradient(135deg, #C9A84C 0%, #a88530 100%);
-  color: #164E8C;
-  font-weight: 700;
+  color: #071536;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border-radius: 0.5rem;
   transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .btn-gold:hover {
@@ -199,22 +234,28 @@
   box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3);
 }
 
-.btn-navy {
-  background: #0B1F4E;
-  color: #ffffff;
-  font-weight: 700;
+.btn-navy,
+.btn-primary-blue {
+  background: linear-gradient(135deg, #0B1F4E 0%, #061332 100%);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #0B1F4E;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  box-shadow: 0 2px 6px rgba(11, 31, 78, 0.2);
   transition: all 0.2s ease;
 }
 
-.btn-navy:hover {
-  background: #164E8C;
+.btn-navy:hover,
+.btn-primary-blue:hover {
+  background: linear-gradient(135deg, #153784 0%, #0B1F4E 100%);
   border-color: #C9A84C;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(11, 31, 78, 0.25);
+  box-shadow: 0 4px 12px rgba(11, 31, 78, 0.35);
 }
 
 /* Badge System */
@@ -284,12 +325,6 @@
 /* ==========================================================================
    UNIVERSAL INSTITUTIONAL NAVY #0B1F4E & PROFESSIONAL GRADIENT SYSTEM
    ========================================================================== */
-:root {
-  --color-primary-navy: #0B1F4E;
-  --color-navy-dark: #071536;
-  --color-navy-deep: #040B1E;
-  --color-navy-light: #153784;
-}
 
 .bg-institutional-navy,
 .bg-institutional-blue {
@@ -317,42 +352,7 @@
   background: linear-gradient(180deg, #040b1e 0%, #071536 45%, #0B1F4E 100%) !important;
 }
 
-/* RESTRAINED ACADEMIC GOLD PALETTE */
-.btn-gold {
-  background-color: #FFC928 !important;
-  color: #071A33 !important;
-  font-family: var(--font-body);
-  font-size: var(--text-sm) !important;
-  font-weight: 700 !important;
-  border-radius: 0.5rem !important;
-  transition: all 0.2s ease-in-out !important;
-}
-
-.btn-gold:hover {
-  background-color: #FFD84A !important;
-  box-shadow: 0 4px 12px rgba(255, 201, 40, 0.3) !important;
-}
-
-.btn-navy,
-.btn-primary-blue {
-  background: linear-gradient(135deg, #0B1F4E 0%, #061332 100%) !important;
-  color: #FFFFFF !important;
-  font-family: var(--font-body);
-  font-size: var(--text-sm) !important;
-  font-weight: 700 !important;
-  border-radius: 0.5rem !important;
-  border: 1px solid rgba(201, 168, 76, 0.3) !important;
-  box-shadow: 0 2px 8px rgba(11, 31, 78, 0.3);
-  transition: all 0.2s ease-in-out !important;
-}
-
-.btn-navy:hover,
-.btn-primary-blue:hover {
-  background: linear-gradient(135deg, #153784 0%, #0B1F4E 100%) !important;
-  box-shadow: 0 4px 14px rgba(11, 31, 78, 0.45) !important;
-  transform: translateY(-1px);
-}
-
+/* RESTRAINED ACADEMIC GOLD PALETTE TOKENS */
 .text-gold {
   color: #D4AF37 !important;
 }
@@ -520,20 +520,8 @@
 }
 
 html, body {
-  max-width: 100vw !important;
-  overflow-x: hidden !important;
-}
-
-/* ACCESSIBILITY: PREFERS-REDUCED-MOTION (WCAG 2.1 AAA COMPLIANCE) */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* NO SCROLLBAR UTILITY (CROSS-BROWSER COMPATIBLE) */
@@ -549,8 +537,8 @@ html, body {
 
 /* CUSTOM SLEEK SCROLLBAR */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
   background: rgba(241, 245, 249, 0.6);
@@ -565,6 +553,7 @@ html, body {
 }
 .custom-scrollbar {
   scrollbar-width: thin;
+  scrollbar-color: rgba(201, 168, 76, 0.4) rgba(241, 245, 249, 0.6);
 }
 
 /* 3D DEARFLIP REALISTIC SMOOTH PAGE FLIP ANIMATIONS */
@@ -606,18 +595,43 @@ html, body {
   animation: flipPrev 0.55s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-.custom-scrollbar {
-  scrollbar-color: rgba(201, 168, 76, 0.4) rgba(241, 245, 249, 0.6);
+/* ==========================================================================
+   INSTITUTIONAL VIDEO LOADER ANIMATION
+   Smooth circular rotation at 1.3s per revolution
+   ========================================================================== */
+@keyframes collegeLoaderSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
+.animate-college-loader-spin {
+  animation: collegeLoaderSpin 1.3s linear infinite;
+  will-change: transform;
+}
+
+/* ACCESSIBILITY: PREFERS-REDUCED-MOTION (WCAG 2.1 AAA COMPLIANCE) */
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
   .mega-menu-panel,
   .mega-menu-content-transition,
   .mega-menu-image-transition,
   .animate-fadeIn,
   .animate-bounce,
   .animate-pulse,
-  .animate-spin {
+  .animate-spin,
+  .animate-college-loader-spin {
     animation: none !important;
     transition: none !important;
     transform: none !important;

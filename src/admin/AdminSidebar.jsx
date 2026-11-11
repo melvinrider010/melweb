@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   LayoutDashboard, BookOpen, Calendar, FileText, Users, Building2, 
   Image as ImageIcon, FolderGit2, Settings, ShieldCheck, LogOut, 
-  ExternalLink, ChevronDown, Sparkles, X, ChevronRight, Layers, Bell, PanelTop
+  ExternalLink, ChevronDown, Sparkles, X, ChevronRight, Layers, Bell, PanelTop, Crown, Network
 } from 'lucide-react';
 import { useAuth } from '../lib/authContext';
 
@@ -21,6 +21,8 @@ export default function AdminSidebar({ mobileOpen, setMobileOpen }) {
   const navItems = [
     { label: "Dashboard", path: "/admin", icon: LayoutDashboard, match: (p) => p === '/admin' },
     { label: "Pages & Menu", path: "/admin/pages", icon: Layers, match: (p) => p.startsWith('/admin/pages') || p.startsWith('/admin/menus') },
+    { label: "Leadership & Council", path: "/admin/leadership", icon: Crown, match: (p) => p.startsWith('/admin/leadership') || p.startsWith('/admin/administration') },
+    { label: "Organogram Editor", path: "/admin/organogram", icon: Network, match: (p) => p.startsWith('/admin/organogram') },
     { label: "Header & Footer", path: "/admin/header-footer", icon: PanelTop, match: (p) => p.startsWith('/admin/header-footer') || p.startsWith('/admin/layout') },
     { label: "Events & Notices", path: "/admin/events", icon: Calendar, match: (p) => p.startsWith('/admin/events') || p.startsWith('/admin/notices') },
     { label: "Academics", path: "/admin/programmes", icon: BookOpen, match: (p) => p.startsWith('/admin/programmes') || p.startsWith('/admin/faculty') },
@@ -32,6 +34,8 @@ export default function AdminSidebar({ mobileOpen, setMobileOpen }) {
   ];
 
   const quickShortcuts = [
+    { label: "Leadership & Heads", path: "/admin/leadership" },
+    { label: "Organogram Editor", path: "/admin/organogram" },
     { label: "Header & Footer", path: "/admin/header-footer" },
     { label: "Hero Sliders", path: "/admin/sliders" },
     { label: "Menu Editor", path: "/admin/menus" },

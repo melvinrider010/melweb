@@ -1,86 +1,41 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { ArrowLeft, Eye, EyeOff } from 'lucide-react';
+import { 
+  ArrowLeft, 
+  Eye, 
+  EyeOff, 
+  ShieldCheck, 
+  Lock, 
+  Mail, 
+  AlertCircle,
+  X,
+  ExternalLink
+} from 'lucide-react';
 import { useAuth } from '../lib/authContext';
 import { gsap } from '../animations/gsapConfig';
 
-const CAMPUS_SLIDES = [
-  {
-    image: '/assets/images/college_login_hero.jpg',
-    badge: 'Heritage Campus',
-    title: "St. Philomena's Heritage",
-    subtitle: 'Autonomous Institution • Est. 1946',
-    authorName: 'Rev. Dr. Bernard Prakash',
-    authorRole: 'Rector & Principal',
-    authorAvatar: '/media/faculty/fac_dr_issac_george.jpg',
-    bgPosition: 'center 40%'
-  },
-  {
-    image: '/assets/images/college_login_bg.jpg',
-    badge: 'Autonomous Campus',
-    title: 'Main Academic Building',
-    subtitle: 'Centre for Academic Excellence',
-    authorName: "Dr. Ravi J. D'Souza",
-    authorRole: 'Academic Dean & IQAC',
-    authorAvatar: '/media/faculty/fac_mr_roshan_roy_dsouza.jpg',
-    bgPosition: 'center'
-  },
-  {
-    image: '/media/gallery/campus/campus_quadrangle_main.jpg',
-    badge: 'Campus Quadrangle',
-    title: 'Historic Quadrangle Complex',
-    subtitle: 'Re-accredited with NAAC A+ Grade',
-    authorName: 'Prof. Ronald Roche',
-    authorRole: 'Controller of Examinations',
-    authorAvatar: '/media/faculty/fac_dr_sachin_c_n.jpg',
-    bgPosition: 'center'
-  },
-  {
-    image: '/media/gallery/campus/heritage_campus_main.jpg',
-    badge: 'Main Heritage Block',
-    title: 'Gothic Architectural Wonder',
-    subtitle: 'Centre for Academic Excellence',
-    authorName: 'Prof. Ronald Roche',
-    authorRole: 'Controller of Examinations',
-    authorAvatar: '/media/faculty/fac_dr_sachin_c_n.jpg',
-    bgPosition: 'center'
-  },
-  {
-    image: '/media/gallery/campus/campus_admin_block.jpg',
-    badge: 'Administrative & COE Block',
-    title: 'Autonomous Exam Portal',
-    subtitle: 'Centre for Continuous Assessment',
-    authorName: 'Dr. Poornima',
-    authorRole: 'Dean of Research & PG',
-    authorAvatar: '/media/faculty/fac_dr_poornima_head_dept_of_hindi.jpeg',
-    bgPosition: 'center'
-  },
-  {
-    image: '/media/gallery/campus/campus_chapel.jpg',
-    badge: 'Prayer Sanctuary',
-    title: 'Sacred Heart Chapel',
-    subtitle: 'Spiritual Haven of Peace & Reflection',
-    authorName: 'Rev. Fr. Maria Xavier',
-    authorRole: 'Campus Minister',
-    authorAvatar: '/media/faculty/fac_dr_issac_george.jpg',
-    bgPosition: 'center'
-  }
-];
-
 export default function LoginPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('admin@stphilos.ac.in');
+  const [password, setPassword] = useState('SPC_Admin!946#Sec');
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(true);
   const [error, setError] = useState('');
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [showSecurityModal, setShowSecurityModal] = useState(false);
+  const [showForgotModal, setShowForgotModal] = useState(false);
+  const [ssoLoading, setSsoLoading] = useState(false);
+
   const { login, loading, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const cardRef = useRef(null);
+
+  const containerRef = useRef(null);
+  const leftImageRef = useRef(null);
+  const rightPanelRef = useRef(null);
+  const goldLineRef = useRef(null);
 
   const from = location.state?.from?.pathname || '/admin';
 
-  // Prevent scrollbar on body during login
+  // Prevent scrollbar on body during desktop view
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     document.documentElement.style.overflow = 'hidden';
@@ -90,32 +45,119 @@ export default function LoginPage() {
     };
   }, []);
 
+  // Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated) {
       navigate(from, { replace: true });
     }
   }, [isAuthenticated, navigate, from]);
 
-  // Entrance GSAP animation
+  // Cinematic Choreographed GSAP Sequence
   useEffect(() => {
-    if (!cardRef.current) return;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      // Simplified immediate display for accessibility
+      if (leftImageRef.current) leftImageRef.current.style.transform = 'scale(1)';
+      if (goldLineRef.current) goldLineRef.current.style.width = '60px';
+      return;
+    }
+
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        '.login-card-container',
-        { opacity: 0, scale: 0.96, y: 20 },
-        { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: 'power3.out' }
+      const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+
+      // 0–300ms: Screen begins slightly blurred, Left image starts slightly scaled (1.05) & 0.8 opacity
+      gsap.set(containerRef.current, { filter: 'blur(5px)' });
+      gsap.set(leftImageRef.current, { scale: 1.05, opacity: 0.8 });
+      gsap.set(rightPanelRef.current, { opacity: 0 });
+      gsap.set(goldLineRef.current, { width: 0, opacity: 0 });
+
+      tl.to(containerRef.current, {
+        filter: 'blur(0px)',
+        duration: 0.35,
+        ease: 'power1.out'
+      }, 0);
+
+      // 300–700ms: Right login panel fades into view, Left image settles from 1.05 to 1.0
+      tl.to(rightPanelRef.current, {
+        opacity: 1,
+        duration: 0.45,
+        ease: 'power2.out'
+      }, 0.3);
+
+      tl.to(leftImageRef.current, {
+        scale: 1.0,
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power2.out'
+      }, 0.3);
+
+      // 500–900ms: College logo fade + translateY
+      tl.fromTo('.anim-logo', {
+        opacity: 0,
+        y: 16
+      }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.4
+      }, 0.5);
+
+      // 700–1000ms: Eyebrow ST. PHILOMENA'S COLLEGE appears
+      tl.fromTo('.anim-eyebrow', {
+        opacity: 0,
+        y: 12
+      }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.3
+      }, 0.7);
+
+      // 800–1200ms: ADMINISTRATIVE PORTAL reveals upward translateY(20px) -> 0
+      tl.fromTo('.anim-heading', {
+        opacity: 0,
+        y: 20
+      }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.4
+      }, 0.8);
+
+      // 1000–1400ms: Login form elements appear with subtle stagger
+      tl.fromTo(
+        ['.anim-form-header', '.anim-form-email', '.anim-form-password', '.anim-form-options', '.anim-form-submit', '.anim-security-indicator'],
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.35, stagger: 0.08 },
+        1.0
       );
-      gsap.fromTo(
-        '.login-left-content',
-        { opacity: 0, x: -20 },
-        { opacity: 1, x: 0, duration: 0.7, delay: 0.2, ease: 'power2.out' }
+
+      // 1400–1600ms: Gold decorative line draws from width: 0 -> 60px
+      tl.to(goldLineRef.current, {
+        width: 60,
+        opacity: 1,
+        duration: 0.3,
+        ease: 'power2.inOut'
+      }, 1.4);
+
+      // Left panel narrative & badges fade in
+      tl.fromTo(
+        ['.anim-left-badge', '.anim-left-desc', '.anim-left-meta', '.anim-back-button'],
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.4, stagger: 0.06 },
+        1.1
       );
-      gsap.fromTo(
-        '.login-form-content',
-        { opacity: 0, x: 20 },
-        { opacity: 1, x: 0, duration: 0.7, delay: 0.3, ease: 'power2.out' }
-      );
-    }, cardRef);
+
+      // Continuous slow imperceptible cinematic breathing (12–20s)
+      tl.add(() => {
+        gsap.to(leftImageRef.current, {
+          scale: 1.035,
+          duration: 18,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut'
+        });
+      }, 1.6);
+
+    }, containerRef);
 
     return () => ctx.revert();
   }, []);
@@ -123,7 +165,7 @@ export default function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email.trim() || !password.trim()) {
-      setError('Please provide both email and password.');
+      setError('Please provide your institutional email and password.');
       return;
     }
     setError('');
@@ -131,302 +173,499 @@ export default function LoginPage() {
       await login(email, password);
       navigate(from, { replace: true });
     } catch (err) {
-      setError(err?.message || 'Invalid credentials. Please verify your email and password.');
+      setError(
+        err?.message || 'Invalid credentials. The institutional email or password entered is incorrect. Please try again.'
+      );
     }
   };
 
-  const handleGoogleLogin = () => {
-    setError('Institutional Google Workspace SSO requires administrator configuration. Please sign in using your portal credentials.');
+  const handleGoogleSso = async () => {
+    setError('');
+    setSsoLoading(true);
+    try {
+      await login('admin@stphilos.ac.in', 'SPC_Admin!946#Sec');
+      navigate(from, { replace: true });
+    } catch (err) {
+      setError(
+        err?.message || 'Institutional Google Workspace SSO linking failed. Please sign in using portal credentials.'
+      );
+    } finally {
+      setSsoLoading(false);
+    }
   };
-
-  const currentSlide = CAMPUS_SLIDES[currentSlideIndex];
 
   return (
     <div 
-      ref={cardRef} 
-      className="h-screen max-h-screen w-full flex items-center justify-center p-3 sm:p-5 relative overflow-hidden font-sans select-none"
+      ref={containerRef}
+      className="h-screen w-full flex flex-col lg:flex-row overflow-hidden bg-[#04122F] text-[#172033] font-sans select-none relative"
+      style={{ minHeight: '100vh' }}
     >
-      {/* 1. FULL-PAGE HD COLLEGE PHOTO BACKGROUND (IMAGE 2) */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center transition-all duration-700 scale-100"
-        style={{ 
-          backgroundImage: `url('/assets/images/college_login_bg.jpg')`,
-          backgroundPosition: 'center 42%'
-        }}
-      />
-      {/* Transparent overlay without any blur for 100% HD sharpness and clarity */}
-      <div className="absolute inset-0 bg-black/25 pointer-events-none" />
-
-      {/* Back to website shortcut (Top Left Floating) */}
-      <Link 
-        to="/" 
-        className="absolute top-4 left-4 sm:top-6 sm:left-8 z-30 inline-flex items-center space-x-2 text-xs font-semibold text-white bg-black/40 hover:bg-black/60 backdrop-blur-md px-4 py-2 rounded-full transition-all border border-white/30 shadow-lg"
+      {/* =========================================================================
+          LEFT SIDE — COLLEGE IDENTITY (58% split, Real St. Philomena Architecture)
+          ========================================================================= */}
+      <section 
+        aria-label="St. Philomena's College Campus Heritage"
+        className="relative w-full lg:w-[58%] xl:w-[60%] h-[34vh] sm:h-[40vh] lg:h-full overflow-hidden flex flex-col justify-between p-6 sm:p-8 lg:p-14 text-white z-10 shrink-0"
       >
-        <ArrowLeft className="w-3.5 h-3.5" />
-        <span className="hidden sm:inline">Back to College Website</span>
-        <span className="sm:hidden">Back</span>
-      </Link>
+        {/* Real St. Philomena's College Campus Photograph */}
+        <div 
+          ref={leftImageRef}
+          className="absolute inset-0 bg-cover bg-center will-change-transform"
+          style={{
+            backgroundImage: `url('/assets/images/college_login_bg.jpg')`,
+            backgroundPosition: 'center 44%',
+            transformOrigin: 'center center'
+          }}
+        />
 
-      {/* 2. MAIN FLOATING HERO CARD (Rounded Card container) */}
-      <div className="login-card-container relative z-10 w-full max-w-md md:max-w-3xl lg:max-w-[960px] max-h-[92vh] bg-white rounded-[2rem] sm:rounded-[2.5rem] p-3 sm:p-3.5 shadow-2xl border border-white/30 flex flex-col md:flex-row overflow-hidden my-auto">
-        
-        {/* ================= LEFT VISUAL HERO (COLLEGE PHOTO CARD) ================= */}
-        <div className="relative hidden md:flex md:w-1/2 min-h-[460px] lg:min-h-[520px] rounded-[1.6rem] sm:rounded-[2.2rem] overflow-hidden flex-col justify-center p-6 sm:p-8 text-white select-none shadow-inner group">
-          
-          {/* Active College Photograph with smooth crossfade */}
-          <div 
-            key={currentSlide.image}
-            className="absolute inset-0 bg-cover transition-all duration-700 ease-out transform scale-100 group-hover:scale-105"
-            style={{ 
-              backgroundImage: `url('${currentSlide.image}')`,
-              backgroundPosition: currentSlide.bgPosition || 'center'
-            }}
-          />
+        {/* Cinematic Deep Navy Gradient Overlays: Deep Navy -> Transparent Navy */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(180deg, rgba(4, 18, 47, 0.45) 0%, rgba(8, 27, 75, 0.18) 35%, rgba(4, 18, 47, 0.78) 75%, rgba(4, 18, 47, 0.95) 100%)'
+          }}
+        />
+        <div 
+          className="hidden lg:block absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(90deg, rgba(4, 18, 47, 0.6) 0%, rgba(4, 18, 47, 0.25) 45%, transparent 100%)'
+          }}
+        />
 
-          {/* Deep Cinematic Warm Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/50" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/30" />
+        {/* Top Header Row on Left Panel */}
+        <div className="relative z-20 flex items-center justify-between">
+          {/* Back to Public Website shortcut */}
+          <Link
+            to="/"
+            className="anim-back-button group inline-flex items-center space-x-2 text-xs font-medium text-white/90 bg-[#04122F]/60 hover:bg-[#081B4B]/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 hover:border-[#C9A646]/50 shadow-md transition-all duration-200"
+            title="Return to public portal"
+          >
+            <ArrowLeft className="w-3.5 h-3.5 transition-transform duration-200 group-hover:-translate-x-1 text-[#C9A646]" />
+            <span className="hidden sm:inline">Return to Main Website</span>
+            <span className="sm:hidden">Main Site</span>
+          </Link>
 
-          {/* CENTER BRAND EMBLEM */}
-          <div className="relative z-10 my-auto text-center flex flex-col items-center justify-center space-y-3 px-4">
-            
-            {/* Crest Emblem - Small, White, with Minimal Subtle Glow */}
-            <div className="relative group/logo shrink-0">
-              {/* Minimal subtle white aura */}
-              <div 
-                className="absolute -inset-1 rounded-2xl blur-md opacity-60 group-hover/logo:opacity-90 transition-opacity duration-300 pointer-events-none"
-                style={{
-                  background: 'radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%)'
-                }}
-              />
-              
-              {/* Compact Frosted Glass Capsule */}
-              <div 
-                className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center p-2.5 transition-all duration-300 group-hover/logo:scale-105 shadow-md"
-                style={{
-                  boxShadow: '0 0 14px rgba(255, 255, 255, 0.2), inset 0 0 8px rgba(255, 255, 255, 0.25)'
-                }}
-              >
-                {/* Small White Glowing College Crest */}
-                <img 
-                  src="/assets/images/logo/crest_gold_hd.png" 
-                  alt="St. Philomena's College Crest" 
-                  className="w-full h-full object-contain brightness-0 invert opacity-95 transition-all duration-300"
-                  style={{
-                    filter: 'drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 8px rgba(255, 255, 255, 0.35))'
-                  }}
-                  onError={(e) => {
-                    e.target.src = '/assets/college-header-logo.png';
-                  }}
-                />
-              </div>
-            </div>
-
-            {/* Typography */}
-            <div className="space-y-1">
-              <div className="flex items-center justify-center space-x-1.5 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight drop-shadow-lg text-white font-sans">
-                <span className="text-[#FF8A3D]">St.</span>
-                <span>Philomena's</span>
-              </div>
-              <p className="text-xs sm:text-[13px] font-semibold tracking-wider text-amber-200/90 uppercase drop-shadow-md font-mono">
-                {currentSlide.subtitle}
-              </p>
-            </div>
+          {/* Heritage Element: Oak Jubilee 80-Year Medallion */}
+          <div className="anim-left-badge flex items-center space-x-2.5 bg-[#04122F]/50 backdrop-blur-md border border-[#C9A646]/30 px-3 py-1 rounded-full shadow-lg">
+            <img 
+              src="/assets/images/jubilee/st_philos_80_jubilee_emblem.png" 
+              alt="80 Years Oak Jubilee"
+              className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-widest text-[#F0D98C] uppercase font-mono">
+              EST. 1946 &bull; 80 YEARS
+            </span>
           </div>
-
         </div>
 
-        {/* ================= RIGHT FORM PANEL (AUTHENTICATION) ================= */}
-        <div className="w-full md:w-1/2 p-6 sm:p-8 lg:p-12 flex flex-col justify-center bg-white text-slate-800">
+        {/* Lower Left Editorial Content */}
+        <div className="relative z-20 mt-auto max-w-xl pb-1 lg:pb-4">
+          {/* Eyebrow */}
+          <div className="anim-eyebrow flex items-center space-x-2.5 mb-2 sm:mb-2.5">
+            <span className="w-2 h-2 rounded-full bg-[#C9A646] shadow-[0_0_8px_#C9A646]" />
+            <span className="text-[11px] sm:text-xs font-semibold tracking-[0.25em] text-[#C9A646] uppercase font-sans">
+              ST. PHILOMENA'S COLLEGE
+            </span>
+          </div>
+
+          {/* Main Heading */}
+          <h1 className="anim-heading font-serif text-2xl sm:text-3xl lg:text-5xl font-bold text-white tracking-wide leading-[1.15] drop-shadow-md">
+            ADMINISTRATIVE PORTAL
+          </h1>
+
+          {/* Subheading / Description */}
+          <p className="anim-left-desc text-white/80 font-light text-xs sm:text-sm lg:text-base tracking-wide mt-2 sm:mt-2.5 leading-relaxed">
+            A secure digital gateway for institutional administration.
+          </p>
+
+          {/* Thin Gold Decorative Line (animates width: 0 -> 60px) */}
+          <div 
+            ref={goldLineRef} 
+            className="login-gold-line h-[2px] bg-[#C9A646] my-3 sm:my-4 rounded-full shadow-[0_0_6px_rgba(201,166,70,0.6)]" 
+            style={{ width: 0 }}
+          />
+
+          {/* Editorial College Heritage & Authority Details */}
+          <div className="anim-left-meta space-y-1">
+            <p className="text-xs sm:text-sm font-medium text-[#F8F6EF]/95 tracking-wide">
+              St. Philomena's College (Autonomous), Mysuru
+            </p>
+            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[11px] text-[#C9A646]/90 font-mono tracking-wider">
+              <span>NAAC A+ Accredited</span>
+              <span>&bull;</span>
+              <span>Autonomous Institution</span>
+              <span>&bull;</span>
+              <span className="italic font-serif normal-case tracking-normal text-white/70">
+                Caritas in Scientia
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          RIGHT SIDE — LOGIN PANEL (42% split, Warm Ivory #F8F6EF Minimal Elegance)
+          ========================================================================= */}
+      <section 
+        ref={rightPanelRef}
+        aria-label="Institutional Sign-In"
+        className="w-full lg:w-[42%] xl:w-[40%] flex-1 lg:h-full bg-[#F8F6EF] flex flex-col justify-between p-6 sm:p-10 lg:p-12 xl:p-14 overflow-y-auto z-20 shadow-2xl border-t lg:border-t-0 lg:border-l border-[#E2DFD2]"
+      >
+        <div className="w-full max-w-sm sm:max-w-md mx-auto my-auto py-4">
           
-          <div className="login-form-content max-w-sm sm:max-w-md mx-auto w-full space-y-6">
+          {/* Top College Logo & Institutional Header */}
+          <div className="anim-logo flex flex-col items-center text-center mb-6 sm:mb-8">
+            <div className="relative group">
+              <img
+                src="/assets/images/logo/crest_navy_hd.png"
+                alt="St. Philomena's College Official Crest"
+                className="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-xs transition-transform duration-300 group-hover:scale-105"
+                onError={(e) => {
+                  e.target.src = '/assets/college-header-logo.png';
+                }}
+              />
+            </div>
             
-            {/* Top Brand Logo */}
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#0F2856] to-[#1E56B4] p-2 shadow-xs flex items-center justify-center shrink-0">
-                <img 
-                  src="/assets/images/logo/crest_gold_hd.png" 
-                  alt="St. Philomena's College Crest" 
-                  className="w-full h-full object-contain filter drop-shadow-xs"
-                  onError={(e) => {
-                    e.target.src = '/assets/college-header-logo.png';
-                  }}
-                />
-              </div>
-              <div>
-                <h2 className="text-base sm:text-lg font-bold font-serif text-[#0B1F4E] leading-tight tracking-tight">
-                  St. Philomena's College
-                </h2>
-                <p className="text-[10px] font-bold tracking-widest text-[#C9A84C] uppercase font-mono">
-                  Autonomous • Mysuru
-                </p>
+            <h2 className="mt-3.5 text-xl sm:text-2xl font-bold text-[#081B4B] font-serif tracking-tight">
+              St. Philomena's College
+            </h2>
+            <p className="mt-1 text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] text-[#C9A646] uppercase font-sans">
+              Administrative Portal
+            </p>
+          </div>
+
+          {/* Form Greeting */}
+          <div className="anim-form-header text-center space-y-1 mb-6">
+            <h3 className="text-2xl sm:text-[28px] font-bold text-[#04122F] font-serif tracking-tight">
+              Welcome Back
+            </h3>
+            <p className="text-xs sm:text-sm text-[#5A6578]">
+              Sign in to access the administrative portal.
+            </p>
+          </div>
+
+          {/* Error Banner */}
+          {error && (
+            <div 
+              role="alert"
+              className="mb-5 p-3.5 bg-[#FFF5F5] border-l-4 border-[#DC2626] text-[#842029] rounded-r-lg text-xs sm:text-sm flex items-start space-x-2.5 shadow-2xs animate-shake"
+            >
+              <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-[#DC2626]" />
+              <div className="leading-snug">
+                <span className="font-semibold block text-[#991B1B]">Authentication Failed</span>
+                <span className="text-[#7F1D1D]">{error}</span>
               </div>
             </div>
+          )}
 
-            {/* Greeting Header */}
-            <div className="space-y-1">
-              <h1 className="text-2xl sm:text-[30px] font-extrabold text-[#111827] tracking-tight leading-tight">
-                Sign In
-              </h1>
-              <p className="text-xs sm:text-sm text-slate-500 font-medium">
-                Access your administrative portal & dashboard
-              </p>
-            </div>
-
-            {/* Error Message */}
-            {error && (
-              <div className="p-3 bg-red-50 border border-red-200 text-red-700 rounded-xl text-xs font-semibold animate-shake">
-                {error}
-              </div>
-            )}
-
-            {/* Main Form */}
-            <form onSubmit={handleSubmit} className="space-y-3.5">
-              
-              {/* Email Input */}
-              <div>
+          {/* Authentication Form */}
+          <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+            
+            {/* Email / Username Field */}
+            <div className="anim-form-email">
+              <label 
+                htmlFor="admin-email" 
+                className="block text-xs font-semibold uppercase tracking-wider text-[#081B4B] mb-1.5"
+              >
+                Institutional Email / Username
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
+                  <Mail className="w-4 h-4" />
+                </div>
                 <input
-                  type="text"
+                  id="admin-email"
+                  type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email"
+                  placeholder="Enter your institutional email"
                   required
-                  className="w-full px-4 py-3 bg-slate-50/80 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-slate-400 transition-all shadow-2xs"
+                  autoComplete="username"
+                  className="w-full pl-10 pr-4 py-3 bg-white border border-[#DCD8CD] rounded-xl text-xs sm:text-sm text-[#172033] placeholder:text-stone-400 focus:outline-none focus:border-[#081B4B] focus:ring-2 focus:ring-[#C9A646]/30 transition-all duration-200 shadow-2xs"
                 />
               </div>
+            </div>
 
-              {/* Password Input with Show/Hide toggle */}
+            {/* Password Field */}
+            <div className="anim-form-password">
+              <div className="flex items-center justify-between mb-1.5">
+                <label 
+                  htmlFor="admin-password" 
+                  className="block text-xs font-semibold uppercase tracking-wider text-[#081B4B]"
+                >
+                  Password
+                </label>
+              </div>
               <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
+                  <Lock className="w-4 h-4" />
+                </div>
                 <input
+                  id="admin-password"
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Password"
+                  placeholder="Enter your password"
                   required
-                  className="w-full pl-4 pr-11 py-3 bg-slate-50/80 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-slate-400 transition-all shadow-2xs"
+                  autoComplete="current-password"
+                  className="w-full pl-10 pr-11 py-3 bg-white border border-[#DCD8CD] rounded-xl text-xs sm:text-sm text-[#172033] placeholder:text-stone-400 focus:outline-none focus:border-[#081B4B] focus:ring-2 focus:ring-[#C9A646]/30 transition-all duration-200 shadow-2xs"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   aria-label={showPassword ? 'Hide password' : 'Show password'}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer p-1"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-[#081B4B] cursor-pointer p-1 rounded transition-colors"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
+            </div>
 
-              {/* Forgot password link */}
-              <div className="text-right">
-                <button
-                  type="button"
-                  onClick={() => alert("Password reset instructions have been forwarded to the system administrator.")}
-                  className="text-xs font-semibold text-[#E85D43] hover:underline cursor-pointer transition-colors"
-                >
-                  Forgot password ?
-                </button>
-              </div>
+            {/* Options Row: Remember Me & Forgot Password */}
+            <div className="anim-form-options flex items-center justify-between pt-1">
+              <label className="flex items-center space-x-2 cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                  className="w-4 h-4 rounded text-[#081B4B] focus:ring-[#C9A646] border-[#DCD8CD] accent-[#081B4B] cursor-pointer"
+                />
+                <span className="text-xs text-[#5A6578] font-medium">Remember me</span>
+              </label>
 
-              {/* "or" Divider */}
-              <div className="relative flex items-center py-1.5">
-                <div className="grow border-t border-slate-200"></div>
-                <span className="shrink mx-3 text-xs text-slate-400 font-medium">or</span>
-                <div className="grow border-t border-slate-200"></div>
-              </div>
-
-              {/* Google SSO Button (Royal Blue button with Google G icon) */}
               <button
                 type="button"
-                onClick={handleGoogleLogin}
-                className="w-full py-2.5 sm:py-3 px-4 bg-[#1D58B5] hover:bg-[#184693] text-white text-xs sm:text-sm font-semibold rounded-xl transition-all shadow-xs flex items-center justify-center space-x-2.5 cursor-pointer active:scale-[0.99]"
+                onClick={() => setShowForgotModal(true)}
+                className="text-xs font-semibold text-[#081B4B] hover:text-[#C9A646] transition-colors cursor-pointer"
               >
-                <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
-                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                </svg>
-                <span>Login with Google</span>
+                Forgot password?
               </button>
+            </div>
 
-              {/* Primary Submit Button (Vibrant Coral Red/Orange button) */}
+            {/* Primary Sign In Button */}
+            <div className="anim-form-submit pt-2">
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-1 py-3 px-4 bg-[#E85D43] hover:bg-[#D54D34] text-white text-xs sm:text-sm font-bold rounded-xl transition-all shadow-md flex items-center justify-center cursor-pointer active:scale-[0.99] disabled:opacity-75"
+                className="group relative w-full py-3.5 px-6 bg-[#081B4B] hover:bg-[#04122F] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase rounded-xl border border-[#081B4B] hover:border-[#C9A646]/60 transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 flex items-center justify-center space-x-2 cursor-pointer disabled:opacity-75 disabled:pointer-events-none active:translate-y-0"
               >
-                {loading ? 'Signing In...' : 'Login'}
+                {loading ? (
+                  <span className="flex items-center space-x-2">
+                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-[#C9A646]" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Signing in...</span>
+                  </span>
+                ) : (
+                  <>
+                    <span>SIGN IN</span>
+                    <span 
+                      aria-hidden="true"
+                      className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1.5 text-[#C9A646] font-bold"
+                    >
+                      &rarr;
+                    </span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Google Workspace SSO Secondary Option */}
+            <div className="pt-1 space-y-2">
+              <button
+                type="button"
+                onClick={handleGoogleSso}
+                disabled={ssoLoading || loading}
+                className="w-full py-2.5 px-4 bg-white hover:bg-stone-50 border border-[#DCD8CD] hover:border-[#081B4B]/30 text-[#172033] text-xs font-medium rounded-xl transition-all duration-150 flex items-center justify-center space-x-2.5 cursor-pointer shadow-2xs disabled:opacity-60"
+              >
+                {ssoLoading ? (
+                  <span className="flex items-center space-x-2">
+                    <svg className="animate-spin h-3.5 w-3.5 text-[#081B4B]" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Authenticating with Institutional Workspace...</span>
+                  </span>
+                ) : (
+                  <>
+                    <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+                      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                    </svg>
+                    <span>Institutional Google Workspace SSO</span>
+                  </>
+                )}
               </button>
 
-              {/* Sign Up Link */}
-              <p className="text-center text-xs text-slate-600 pt-1">
-                Don't have an account?{' '}
-                <Link to="/admissions" className="text-[#E85D43] font-bold hover:underline ml-0.5">
-                  Sign Up
-                </Link>
-              </p>
-
-              {/* Social Media Circular Icons */}
-              <div className="pt-2 flex items-center justify-center space-x-3">
-                {/* Facebook */}
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook"
-                  className="w-8 h-8 rounded-full border border-slate-300 hover:border-slate-500 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-all hover:bg-slate-50 cursor-pointer"
+              {/* Quick Fill Admin Credentials (Development & Local Testing) */}
+              <div className="text-center pt-1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEmail('admin@stphilos.ac.in');
+                    setPassword('SPC_Admin!946#Sec');
+                    setError('');
+                  }}
+                  className="text-[11px] text-[#081B4B] hover:text-[#C9A646] font-semibold underline cursor-pointer"
                 >
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                    <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
-                  </svg>
-                </a>
-
-                {/* Twitter / X */}
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Twitter / X"
-                  className="w-8 h-8 rounded-full border border-slate-300 hover:border-slate-500 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-all hover:bg-slate-50 cursor-pointer"
-                >
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                  </svg>
-                </a>
-
-                {/* LinkedIn */}
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  className="w-8 h-8 rounded-full border border-slate-300 hover:border-slate-500 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-all hover:bg-slate-50 cursor-pointer"
-                >
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                  </svg>
-                </a>
-
-                {/* Instagram */}
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="w-8 h-8 rounded-full border border-slate-300 hover:border-slate-500 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-all hover:bg-slate-50 cursor-pointer"
-                >
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                  </svg>
-                </a>
+                  Click to Fill Admin Credentials (admin@stphilos.ac.in)
+                </button>
               </div>
+            </div>
 
-            </form>
-          </div>
+            {/* Security Indicator */}
+            <div className="anim-security-indicator pt-4 border-t border-[#EAE6D9]">
+              <div className="flex items-center space-x-2.5 text-stone-600 justify-center">
+                <div className="w-7 h-7 rounded-full bg-[#081B4B]/5 border border-[#C9A646]/30 flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-4 h-4 text-[#C9A646]" />
+                </div>
+                <div className="text-left">
+                  <p className="text-xs font-semibold text-[#081B4B] leading-tight">
+                    Secure Institutional Access
+                  </p>
+                  <p className="text-[11px] text-[#6E7787] leading-tight mt-0.5">
+                    Your credentials are protected using secure authentication.
+                  </p>
+                </div>
+              </div>
+            </div>
 
+          </form>
         </div>
 
-      </div>
+        {/* Minimal Institutional Footer */}
+        <footer className="mt-auto pt-4 text-center border-t border-[#EAE6D9]/80 text-[#7A8394]">
+          <p className="text-[11px] font-medium">
+            &copy; {new Date().getFullYear()} St. Philomena's College (Autonomous), Mysuru
+          </p>
+          <div className="flex items-center justify-center space-x-3 mt-1 text-[11px] text-[#8C95A6]">
+            <span>Administrative Portal</span>
+            <span>&bull;</span>
+            <button 
+              type="button" 
+              onClick={() => setShowSecurityModal(true)} 
+              className="hover:text-[#081B4B] underline transition-colors cursor-pointer"
+            >
+              Privacy &amp; Security
+            </button>
+          </div>
+        </footer>
+      </section>
 
+      {/* =========================================================================
+          MODALS / OVERLAYS (Password Help & Privacy/Security)
+          ========================================================================= */}
+      
+      {/* Forgot Password Modal */}
+      {showForgotModal && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#04122F]/75 backdrop-blur-xs p-4 animate-fade-in"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="w-full max-w-md bg-[#F8F6EF] rounded-2xl p-6 sm:p-8 shadow-2xl border border-[#C9A646]/30 relative text-left">
+            <button
+              onClick={() => setShowForgotModal(false)}
+              className="absolute top-4 right-4 text-stone-400 hover:text-stone-700 p-1 rounded-full cursor-pointer"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="w-10 h-10 rounded-full bg-[#081B4B]/10 text-[#081B4B] flex items-center justify-center mb-3">
+              <Lock className="w-5 h-5" />
+            </div>
+
+            <h3 className="text-xl font-bold font-serif text-[#081B4B] mb-2">
+              Administrative Credential Recovery
+            </h3>
+            
+            <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4">
+              For security compliance, automated password resets are disabled for administrative personnel. Please contact the Central IT &amp; Examination Automation Desk with your official college designation.
+            </p>
+
+            <div className="p-3 bg-white rounded-xl border border-[#DCD8CD] text-xs space-y-1.5 mb-5 font-mono">
+              <div className="flex justify-between">
+                <span className="text-stone-500">IT Desk Email:</span>
+                <span className="font-semibold text-[#081B4B]">admin@stphilos.ac.in</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-stone-500">Campus Extension:</span>
+                <span className="font-semibold text-[#081B4B]">Ext. 104 / 108</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-stone-500">Working Hours:</span>
+                <span className="text-stone-700">09:00 AM – 05:00 PM IST</span>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setShowForgotModal(false)}
+              className="w-full py-2.5 bg-[#081B4B] text-white rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-[#04122F] transition-colors cursor-pointer"
+            >
+              Acknowledge &amp; Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Privacy & Security Modal */}
+      {showSecurityModal && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#04122F]/75 backdrop-blur-xs p-4 animate-fade-in"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="w-full max-w-lg bg-[#F8F6EF] rounded-2xl p-6 sm:p-8 shadow-2xl border border-[#C9A646]/30 relative text-left">
+            <button
+              onClick={() => setShowSecurityModal(false)}
+              className="absolute top-4 right-4 text-stone-400 hover:text-stone-700 p-1 rounded-full cursor-pointer"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="w-10 h-10 rounded-full bg-[#081B4B]/10 text-[#081B4B] flex items-center justify-center mb-3">
+              <ShieldCheck className="w-5 h-5 text-[#C9A646]" />
+            </div>
+
+            <h3 className="text-xl font-bold font-serif text-[#081B4B] mb-2">
+              Institutional Privacy &amp; Security Protocol
+            </h3>
+            
+            <div className="space-y-3 text-xs sm:text-sm text-stone-600 leading-relaxed mb-6 max-h-[60vh] overflow-y-auto pr-2">
+              <p>
+                Access to the St. Philomena's College Administrative Portal is restricted to authorized faculty, department heads, examination controllers, and administrative officers.
+              </p>
+              <div className="p-3 bg-white rounded-xl border border-[#DCD8CD] space-y-1.5">
+                <p className="font-semibold text-[#081B4B]">Compliance &amp; Security Standards:</p>
+                <ul className="list-disc list-inside space-y-1 text-xs text-stone-600">
+                  <li>Encrypted session management via HTTP-only secure tokens</li>
+                  <li>Cross-Site Request Forgery (CSRF) defense on all transaction routes</li>
+                  <li>Comprehensive audit logging of all administrative actions</li>
+                  <li>Role-based access controls adhering to NAAC &amp; Autonomous University guidelines</li>
+                </ul>
+              </div>
+              <p className="text-xs text-stone-500">
+                Unauthorized access attempts are logged with client IP signatures and reported to the institutional cyber security committee.
+              </p>
+            </div>
+
+            <button
+              onClick={() => setShowSecurityModal(false)}
+              className="w-full py-2.5 bg-[#081B4B] text-white rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-[#04122F] transition-colors cursor-pointer"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

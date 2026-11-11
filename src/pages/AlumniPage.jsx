@@ -146,10 +146,10 @@ export default function AlumniPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#071A33] via-[#071A33]/40 to-transparent" />
             
             <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-8 right-4 text-white">
-              <span className="bg-[#FFD84A] text-[#071A33] font-mono text-[10px] sm:text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+              <span className="bg-[#FFD84A] text-[#071A33] font-mono text-[10px] sm:text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
                 SPCAA Official Institutional Network
               </span>
-              <h1 className="font-serif font-extrabold text-2xl sm:text-4xl text-white mt-1.5 drop-shadow-sm">
+              <h1 className="font-heading font-semibold text-2xl sm:text-3xl text-white mt-1.5 tracking-tight">
                 St. Philomena's College Alumni Association
               </h1>
             </div>
@@ -159,7 +159,7 @@ export default function AlumniPage() {
           <div className="p-4 sm:p-6 bg-white border-t border-slate-100 grid grid-cols-2 md:grid-cols-4 gap-4">
             {alumniData.association.stats.map((stat, idx) => (
               <div key={idx} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 text-center space-y-0.5">
-                <span className="font-mono text-xl sm:text-2xl font-black text-[#1C5496]">{stat.value}</span>
+                <span className="font-mono text-xl sm:text-2xl font-bold text-[#1C5496]">{stat.value}</span>
                 <p className="text-[11px] font-semibold text-slate-600">{stat.label}</p>
               </div>
             ))}
@@ -231,9 +231,9 @@ export default function AlumniPage() {
               <div className="space-y-1.5 border-b border-slate-100 pb-5">
                 <div className="flex items-center space-x-2">
                   <GraduationCap className="w-5 h-5 text-[#1C5496]" />
-                  <span className="text-xs font-bold text-[#1C5496] uppercase tracking-widest font-mono">Official Membership Enrollment</span>
+                  <span className="text-xs font-semibold text-[#1C5496] uppercase tracking-widest font-mono">Official Membership Enrollment</span>
                 </div>
-                <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+                <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                   Alumni Registration Form
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-3xl">
@@ -291,7 +291,7 @@ export default function AlumniPage() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-2 border-b border-slate-200 pb-2">
                     <span className="w-6 h-6 rounded-full bg-[#1C5496] text-white flex items-center justify-center font-mono text-xs font-bold">1</span>
-                    <h3 className="font-serif font-bold text-lg text-slate-900">Academic History</h3>
+                    <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900">Academic History</h3>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 text-xs">
@@ -379,7 +379,7 @@ export default function AlumniPage() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-2 border-b border-slate-200 pb-2">
                     <span className="w-6 h-6 rounded-full bg-[#1C5496] text-white flex items-center justify-center font-mono text-xs font-bold">2</span>
-                    <h3 className="font-serif font-bold text-lg text-slate-900">Contact & Personal Information</h3>
+                    <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900">Contact & Personal Information</h3>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 text-xs">
@@ -508,7 +508,7 @@ export default function AlumniPage() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-2 border-b border-slate-200 pb-2">
                     <span className="w-6 h-6 rounded-full bg-[#1C5496] text-white flex items-center justify-center font-mono text-xs font-bold">3</span>
-                    <h3 className="font-serif font-bold text-lg text-slate-900">Career & Professional Details</h3>
+                    <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900">Career & Professional Details</h3>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 text-xs">
@@ -577,7 +577,7 @@ export default function AlumniPage() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-2 border-b border-slate-200 pb-2">
                     <span className="w-6 h-6 rounded-full bg-[#1C5496] text-white flex items-center justify-center font-mono text-xs font-bold">4</span>
-                    <h3 className="font-serif font-bold text-lg text-slate-900">Alumni Engagement & Mentorship</h3>
+                    <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900">Alumni Engagement & Mentorship</h3>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
@@ -678,9 +678,9 @@ export default function AlumniPage() {
             <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-2">
               <div className="flex items-center space-x-2">
                 <Award className="w-5 h-5 text-[#C9A84C]" />
-                <span className="text-xs font-bold text-[#1C5496] uppercase tracking-widest font-mono">Roll of Honor</span>
+                <span className="text-xs font-semibold text-[#1C5496] uppercase tracking-widest font-mono">Roll of Honor</span>
               </div>
-              <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                 Distinguished Philominites
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-3xl">
@@ -701,7 +701,7 @@ export default function AlumniPage() {
                       </span>
                     </div>
 
-                    <h3 className="font-serif font-bold text-xl text-slate-900">
+                    <h3 className="font-heading font-semibold text-card text-slate-900">
                       {alum.name}
                     </h3>
 
@@ -728,7 +728,7 @@ export default function AlumniPage() {
               
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="space-y-1">
-                  <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+                  <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                     Alumni Mentorship Network
                   </h2>
                   <p className="text-xs text-slate-500">
@@ -738,7 +738,7 @@ export default function AlumniPage() {
 
                 <button
                   onClick={() => setActiveTab('register')}
-                  className="px-4 py-2 bg-[#1C5496] text-white text-xs font-bold rounded-xl hover:bg-[#2563eb] transition-colors inline-flex items-center space-x-1.5 shrink-0 cursor-pointer"
+                  className="px-4 py-2 bg-[#1C5496] text-white text-xs font-semibold rounded-xl hover:bg-[#2563eb] transition-colors inline-flex items-center space-x-1.5 shrink-0 cursor-pointer"
                 >
                   <span>+ Join Directory</span>
                 </button>
@@ -791,7 +791,7 @@ export default function AlumniPage() {
                       
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center space-x-1.5">
-                          <h4 className="font-serif font-bold text-sm sm:text-base text-slate-900 truncate">
+                          <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900 truncate">
                             {alum.fullName}
                           </h4>
                           {alum.willingToMentor === 'Yes' && (
@@ -838,7 +838,7 @@ export default function AlumniPage() {
                         href={alum.linkedinUrl} 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="text-[#0A66C2] hover:underline font-bold inline-flex items-center space-x-1"
+                        className="text-[#0A66C2] hover:underline font-semibold inline-flex items-center space-x-1"
                       >
                         <Linkedin className="w-3.5 h-3.5" />
                         <span>Connect</span>
@@ -859,8 +859,8 @@ export default function AlumniPage() {
             
             <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-6">
               <div className="space-y-2">
-                <span className="text-xs font-bold text-[#1C5496] uppercase tracking-widest font-mono">Institutional Legacy</span>
-                <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+                <span className="text-xs font-semibold text-[#1C5496] uppercase tracking-widest font-mono">Institutional Legacy</span>
+                <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                   About St. Philomena's College Alumni Association
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-4xl">
@@ -870,7 +870,7 @@ export default function AlumniPage() {
 
               {/* Objectives Grid */}
               <div className="space-y-3 pt-4 border-t border-slate-100">
-                <h3 className="font-serif font-bold text-lg text-slate-900">Key Objectives & Missions</h3>
+                <h3 className="font-heading font-semibold text-base sm:text-card text-slate-900">Key Objectives & Missions</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {alumniData.association.objectives.map((obj, idx) => (
                     <div key={idx} className="p-4 bg-slate-50 border border-slate-100 rounded-2xl flex items-start space-x-3">
@@ -884,14 +884,14 @@ export default function AlumniPage() {
               {/* Downloads & Contact */}
               <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
                 <div className="space-y-1">
-                  <h4 className="font-serif font-bold text-base text-slate-900">Download Official Association Documents</h4>
+                  <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900">Download Official Association Documents</h4>
                   <p className="text-xs text-slate-600">Access the SPCAA constitution, chapter bylaws, and membership guidelines.</p>
                 </div>
 
                 <a
                   href="/assets/images/alumni/alumni_banner.jpg"
                   download="spcaa-constitution.pdf"
-                  className="px-5 py-2.5 bg-[#1C5496] hover:bg-[#2563eb] text-white text-xs font-bold rounded-xl transition-all shadow-sm inline-flex items-center space-x-2 shrink-0 cursor-pointer"
+                  className="px-5 py-2.5 bg-[#1C5496] hover:bg-[#2563eb] text-white text-xs font-semibold rounded-xl transition-all shadow-sm inline-flex items-center space-x-2 shrink-0 cursor-pointer"
                 >
                   <Download className="w-4 h-4" />
                   <span>Download Constitution & Bylaws PDF</span>

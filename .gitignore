@@ -31,6 +31,18 @@ dist-ssr/
 .env.test.local
 .env.production.local
 
+# Test & QA Artifacts
+qa-*.html
+qa-*.json
+qa/
+test-results/
+tests_output/
+audit_evidence/
+scripts/__pycache__/
+scripts/*.png
+scripts/*.jpg
+test_site_loader_frame.png
+
 # Audit / Scratch / Scraper Raw Data
 website-audit/
 scratch/

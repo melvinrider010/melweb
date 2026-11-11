@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   GraduationCap, 
   Plus, 
@@ -23,6 +23,10 @@ import useCms from '../../lib/useCms';
 export default function AdminProgrammeManagerPage() {
   const programmes = useCms(() => cmsStore.getProgrammes());
   const departments = useCms(() => cmsStore.getDepartments());
+
+  useEffect(() => {
+    cmsStore.syncProgrammesFromServer?.();
+  }, []);
 
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedLevelFilter, setSelectedLevelFilter] = useState('all');
@@ -290,7 +294,9 @@ export default function AdminProgrammeManagerPage() {
             <tbody className="divide-y divide-slate-100 font-sans">
               {filteredProgs.map((p, idx) => {
                 const isLive = (p.status || 'published') === 'published';
-                const isHoneycomb = p.isFeaturedHoneycomb !== false;
+                const isHoneycomb = p.is_featured_honeycomb !== undefined 
+                  ? Boolean(p.is_featured_honeycomb) 
+                  : (p.isFeaturedHoneycomb !== false);
 
                 return (
                   <tr key={p.id || idx} className={`hover:bg-slate-50/70 transition-colors group ${!isLive ? 'opacity-60 bg-slate-50/50' : ''}`}>
@@ -319,7 +325,7 @@ export default function AdminProgrammeManagerPage() {
                     {/* Honeycomb Showcase Switch */}
                     <td className="py-3.5 px-4 text-center">
                       <button
-                        onClick={() => handleToggleHoneycomb(p.id)}
+                        onClick={() => handleToggleHoneycomb(p.id || p.code)}
                         className={`inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold font-mono transition-all cursor-pointer ${
                           isHoneycomb
                             ? 'bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100'
@@ -335,7 +341,7 @@ export default function AdminProgrammeManagerPage() {
                     {/* Main Active Status Switch */}
                     <td className="py-3.5 px-4 text-center">
                       <button
-                        onClick={() => handleToggleStatus(p.id)}
+                        onClick={() => handleToggleStatus(p.id || p.code)}
                         className={`inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-[11px] font-bold font-mono transition-all cursor-pointer ${
                           isLive
                             ? 'bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100'

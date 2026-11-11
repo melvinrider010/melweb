@@ -10,6 +10,17 @@ export const COMPLIANCE_SECTIONS = [
     description: 'Mandatory statutory reports and infrastructural disclosures prescribed under statutory council regulations.',
     items: [
       {
+        id: 'mandatory-disclosure-2025',
+        slug: 'mandatory-disclosure-2025',
+        aliases: ['mandatory-disclosure', 'mandatory-disclosure-2025', 'statutory-mandatory-disclosure'],
+        title: 'Mandatory Disclosure 2025',
+        subtitle: 'Comprehensive Institutional Statutory Disclosure Document',
+        dept: 'Autonomous Administration',
+        pdfUrl: '/assets/documents/historical/2026/Mandatory-Disclosure-2025-16.04.2026-1.pdf',
+        date: '2025 Edition',
+        details: 'Official mandatory disclosure document published in compliance with statutory requirements, detailing institution governance, academic programs, faculty roster, fee structure, and physical infrastructure.'
+      },
+      {
         id: 'aicte-mca-mba-disclosure',
         slug: 'aicte-mca-mba-disclosure',
         aliases: ['aicte-mca-mba-disclosure', 'aicte-approval', 'aicte-disclosure', 'aicte-mca-mba'],
@@ -106,6 +117,17 @@ export const COMPLIANCE_SECTIONS = [
     badge: 'University Grants Commission',
     description: 'Mandatory institutional governance bodies, grievance mechanisms, refund guidelines, and fee structures.',
     items: [
+      {
+        id: 'ugc-compliance-report',
+        slug: 'ugc-compliance-report',
+        aliases: ['ugc-compliance-report', 'peer-team-report', 'ugc-peer-team'],
+        title: 'UGC Compliance Report',
+        subtitle: 'UGC Peer Team Comprehensive Autonomy & Compliance Report',
+        dept: 'UGC Statutory',
+        pdfUrl: '/assets/documents/historical/2026/Peer-Team-Report.pdf',
+        date: 'UGC Peer Team',
+        details: 'Official UGC Peer Team comprehensive institutional evaluation report for extension of autonomous status, curriculum standards, faculty competencies, and infrastructure.'
+      },
       {
         id: 'college-committees',
         slug: 'college-committees',

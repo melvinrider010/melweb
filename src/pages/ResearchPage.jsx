@@ -80,7 +80,7 @@ export default function ResearchPage() {
               Scholarly Exploration & Innovation
             </span>
           </div>
-          <h1 className="font-serif font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
+          <h1 className="font-heading font-bold text-2xl sm:text-3xl text-white tracking-tight">
             Research & Innovation Portal
           </h1>
           <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
@@ -99,7 +99,7 @@ export default function ResearchPage() {
               <button
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id)}
-                className={`px-3.5 py-2 rounded-lg text-xs font-bold whitespace-nowrap flex items-center space-x-2 transition-all shrink-0 ${
+                className={`px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap flex items-center space-x-2 transition-all shrink-0 ${
                   isActive
                     ? 'bg-[#1C5496] text-white shadow-sm'
                     : 'text-slate-700 hover:bg-slate-100 hover:text-[#1C5496]'
@@ -121,10 +121,10 @@ export default function ResearchPage() {
           <div className="space-y-8 animate-fadeIn">
             <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4">
-                <span className="bg-blue-50 text-[#1C5496] font-bold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
+                <span className="bg-blue-50 text-[#1C5496] font-semibold text-xs px-3 py-1 rounded-md uppercase tracking-wider">
                   Governance & Advisory
                 </span>
-                <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+                <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                   Research & Development Cell (RDC)
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
@@ -149,7 +149,7 @@ export default function ResearchPage() {
               </div>
 
               <div className="lg:col-span-4 bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
-                <h3 className="font-serif font-bold text-sm text-slate-900 uppercase tracking-wider border-b border-slate-200 pb-2">
+                <h3 className="font-heading font-semibold text-sm text-slate-900 uppercase tracking-wider border-b border-slate-200 pb-2">
                   RDC Focus Areas
                 </h3>
                 <ul className="space-y-2 text-xs text-slate-700">
@@ -179,7 +179,7 @@ export default function ResearchPage() {
         {activeTab === 'projects' && (
           <div className="space-y-6 animate-fadeIn">
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
-              <h2 className="font-serif font-extrabold text-2xl text-slate-900">Major & Minor Research Projects</h2>
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">Major & Minor Research Projects</h2>
               <p className="text-xs sm:text-sm text-slate-600">
                 High-impact scientific and socioeconomic investigations sponsored by national funding bodies.
               </p>
@@ -188,7 +188,7 @@ export default function ResearchPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
                 <span className="bg-amber-100 text-amber-900 font-bold text-[10px] px-2.5 py-0.5 rounded">UGC Funded Major Project</span>
-                <h3 className="font-serif font-bold text-base text-slate-900">Nanomaterials for Solar Energy Conversion</h3>
+                <h3 className="font-heading font-semibold text-card text-slate-900">Nanomaterials for Solar Energy Conversion</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">Synthesis of hybrid nano-photocatalysts for renewable green energy capture and water purification.</p>
                 <div className="text-[11px] font-semibold text-[#1C5496] pt-2 border-t border-slate-100">
                   Principal Investigator: Dept. of Physics & Chemistry
@@ -197,7 +197,7 @@ export default function ResearchPage() {
 
               <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
                 <span className="bg-blue-100 text-[#1C5496] font-bold text-[10px] px-2.5 py-0.5 rounded">DST-SERB Project</span>
-                <h3 className="font-serif font-bold text-base text-slate-900">Bioactive Plant Metabolite Screening</h3>
+                <h3 className="font-heading font-semibold text-card text-slate-900">Bioactive Plant Metabolite Screening</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">Pharmacological profiling of endemic Western Ghats flora for anti-inflammatory and microbial therapies.</p>
                 <div className="text-[11px] font-semibold text-[#1C5496] pt-2 border-t border-slate-100">
                   Principal Investigator: Dept. of Biotechnology
@@ -206,7 +206,7 @@ export default function ResearchPage() {
 
               <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
                 <span className="bg-green-100 text-green-900 font-bold text-[10px] px-2.5 py-0.5 rounded">ICSSR Grant</span>
-                <h3 className="font-serif font-bold text-base text-slate-900">Tribal Livelihood in Mysuru District</h3>
+                <h3 className="font-heading font-semibold text-card text-slate-900">Tribal Livelihood in Mysuru District</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">Socioeconomic impact assessment of government welfare schemes among indigenous communities.</p>
                 <div className="text-[11px] font-semibold text-[#1C5496] pt-2 border-t border-slate-100">
                   Principal Investigator: Dept. of Social Work (MSW)
@@ -220,7 +220,7 @@ export default function ResearchPage() {
         {activeTab === 'patents' && (
           <div className="space-y-6 animate-fadeIn">
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
-              <h2 className="font-serif font-extrabold text-2xl text-slate-900">Patents & Indexed Publications</h2>
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">Patents & Indexed Publications</h2>
               <p className="text-xs sm:text-sm text-slate-600">
                 Intellectual property portfolio and peer-reviewed articles published in Scopus, Web of Science, and UGC CARE listed journals.
               </p>
@@ -230,7 +230,7 @@ export default function ResearchPage() {
               <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
                 <div className="flex items-center space-x-2">
                   <Award className="w-5 h-5 text-[#FFC928]" />
-                  <h3 className="font-serif font-bold text-base text-slate-900">Published Patents</h3>
+                  <h3 className="font-heading font-semibold text-card text-slate-900">Published Patents</h3>
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   Faculty and student innovators hold multiple patents in smart environmental sensors, automated food safety analysis, and chemical extraction techniques.
@@ -244,13 +244,13 @@ export default function ResearchPage() {
               <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
                 <div className="flex items-center space-x-2">
                   <BookOpen className="w-5 h-5 text-[#1C5496]" />
-                  <h3 className="font-serif font-bold text-base text-slate-900">Journal Publications</h3>
+                  <h3 className="font-heading font-semibold text-card text-slate-900">Journal Publications</h3>
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   Over 150+ research papers published in indexed international journals with average impact factors exceeding 3.5 across disciplines.
                 </p>
                 <div className="pt-2 border-t border-slate-100 flex gap-2">
-                  <Link to="/resources" className="text-xs font-bold text-[#1C5496] hover:underline flex items-center">
+                  <Link to="/resources" className="text-xs font-semibold text-[#1C5496] hover:underline flex items-center">
                     <span>Access Digital Library Databases →</span>
                   </Link>
                 </div>
@@ -267,16 +267,16 @@ export default function ResearchPage() {
                 <span className="bg-amber-100 text-amber-900 font-bold text-xs px-3 py-1 rounded-md uppercase">
                   MoE Innovation Cell (MIC)
                 </span>
-                <span className="text-xs font-bold text-[#1C5496]">Star Rating Accredited</span>
+                <span className="text-xs font-semibold text-[#1C5496]">Star Rating Accredited</span>
               </div>
-              <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                 Institution's Innovation Council (IIC)
               </h2>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                 St. Philomena's IIC was established under the mandate of Ministry of Education (MoE), Government of India, to systematically foster the culture of Innovation and startup entrepreneurship among collegiate youth.
               </p>
               <div className="pt-2 flex gap-3">
-                <Link to="/iic" className="btn-primary-blue px-4 py-2 text-xs font-bold rounded-lg inline-block">
+                <Link to="/iic" className="btn-primary-blue px-4 py-2 text-xs font-semibold rounded-lg inline-block">
                   Visit Dedicated IIC Page →
                 </Link>
               </div>
@@ -288,7 +288,7 @@ export default function ResearchPage() {
         {activeTab === 'mou' && (
           <div className="space-y-6 animate-fadeIn">
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
-              <h2 className="font-serif font-extrabold text-2xl text-slate-900">Academic & Industry MOUs</h2>
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">Academic & Industry MOUs</h2>
               <p className="text-xs sm:text-sm text-slate-600">
                 Strategic institutional linkages for collaborative research, faculty exchange, student internships, and curriculum benchmarking.
               </p>
@@ -296,13 +296,13 @@ export default function ResearchPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="p-5 bg-white rounded-xl border border-slate-200 space-y-1">
-                <span className="text-[10px] font-bold text-[#1C5496] uppercase">Research Institute Partner</span>
-                <h4 className="font-serif font-bold text-sm text-slate-900">CSIR-CFTRI, Mysuru</h4>
+                <span className="text-[10px] font-semibold text-[#1C5496] uppercase">Research Institute Partner</span>
+                <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900">CSIR-CFTRI, Mysuru</h4>
                 <p className="text-xs text-slate-600">Joint project mentorship, food chemistry research internships, and analytical instrument usage.</p>
               </div>
               <div className="p-5 bg-white rounded-xl border border-slate-200 space-y-1">
-                <span className="text-[10px] font-bold text-[#1C5496] uppercase">Industry Linkage</span>
-                <h4 className="font-serif font-bold text-sm text-slate-900">Infosys BPM & L&T Technology</h4>
+                <span className="text-[10px] font-semibold text-[#1C5496] uppercase">Industry Linkage</span>
+                <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900">Infosys BPM & L&T Technology</h4>
                 <p className="text-xs text-slate-600">Corporate skill enablement, data analytics internships, and campus placement drives.</p>
               </div>
             </div>
@@ -313,7 +313,7 @@ export default function ResearchPage() {
         {activeTab === 'facilities' && (
           <div className="space-y-6 animate-fadeIn">
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-2">
-              <h2 className="font-serif font-extrabold text-2xl text-slate-900">Central Instrumentation & Labs</h2>
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">Central Instrumentation & Labs</h2>
               <p className="text-xs sm:text-sm text-slate-600">
                 Cutting-edge analytical instruments and research cubicles available to student scholars and doctoral researchers.
               </p>
@@ -325,7 +325,7 @@ export default function ResearchPage() {
                   <img src="/assets/images/facilities/academics_science_lab.jpg" alt="Spectroscopy Lab" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 space-y-1">
-                  <h4 className="font-serif font-bold text-sm text-slate-900">UV-Vis Spectrophotometer Lab</h4>
+                  <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900">UV-Vis Spectrophotometer Lab</h4>
                   <p className="text-xs text-slate-600">High-precision optical density and chemical absorption profiling.</p>
                 </div>
               </div>
@@ -335,7 +335,7 @@ export default function ResearchPage() {
                   <img src="/assets/images/facilities/academic_lab.jpg" alt="Biotech Lab" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 space-y-1">
-                  <h4 className="font-serif font-bold text-sm text-slate-900">Plant Tissue Culture Facility</h4>
+                  <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900">Plant Tissue Culture Facility</h4>
                   <p className="text-xs text-slate-600">Laminar airflow benches and controlled climate micropropagation chambers.</p>
                 </div>
               </div>
@@ -345,7 +345,7 @@ export default function ResearchPage() {
                   <img src="/assets/images/facilities/research_conference_hall.jpg" alt="Computing Lab" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 space-y-1">
-                  <h4 className="font-serif font-bold text-sm text-slate-900">High Performance Computing (HPC)</h4>
+                  <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900">High Performance Computing (HPC)</h4>
                   <p className="text-xs text-slate-600">Dedicated compute workstations for simulation and machine learning modeling.</p>
                 </div>
               </div>

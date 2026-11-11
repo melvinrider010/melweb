@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
-import api, { setAuthToken } from './api';
+import api, { setAuthToken, getAuthToken } from './api';
+import CollegeVideoLoader from '../components/common/CollegeVideoLoader';
 
 const AuthContext = createContext(null);
 
@@ -12,16 +13,14 @@ export function AuthProvider({ children }) {
 
   // Validate active session with backend on initial load
   useEffect(() => {
-    // Purge any legacy unencrypted tokens from browser localStorage
-    try {
-      localStorage.removeItem('stphilos_auth_token');
-      localStorage.removeItem('stphilos_auth_user');
-    } catch (e) {
-      // Ignore storage restrictions
-    }
-
     const checkSession = async () => {
       try {
+        const token = getAuthToken();
+        if (!token) {
+          setUser(null);
+          setInitialCheckDone(true);
+          return;
+        }
         await api.initCsrf();
         const res = await api.get('/auth/me');
         const userData = res?.user || res;
@@ -32,7 +31,9 @@ export function AuthProvider({ children }) {
         }
       } catch (err) {
         setUser(null);
-        setAuthToken(null);
+        if (err?.status === 401 || err?.status === 403) {
+          setAuthToken(null);
+        }
       } finally {
         setInitialCheckDone(true);
       }
@@ -130,12 +131,10 @@ export function ProtectedRoute({ children, allowedRoles = [] }) {
 
   if (!initialCheckDone) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-900 text-white font-sans text-sm">
-        <div className="flex items-center space-x-3">
-          <div className="w-4 h-4 border-2 border-[#FFD84A] border-t-transparent rounded-full animate-spin"></div>
-          <span>Verifying departmental credentials...</span>
-        </div>
-      </div>
+      <CollegeVideoLoader 
+        label="Verifying departmental credentials..." 
+        isFullScreen={true} 
+      />
     );
   }
 

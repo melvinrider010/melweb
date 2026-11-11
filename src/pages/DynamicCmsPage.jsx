@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link, useNavigate, Navigate, useLocation } from 'react-router-dom';
 import { 
   FileText, 
   ArrowLeft, 
@@ -15,12 +15,52 @@ import {
 import cmsStore from '../lib/cmsStore';
 import useCms from '../lib/useCms';
 
-export default function DynamicCmsPage() {
+export default function DynamicCmsPage({ defaultSlug } = {}) {
   const { slug } = useParams();
+  const location = useLocation();
   const navigate = useNavigate();
   const pages = useCms(() => cmsStore.getPages());
 
-  const cleanSlug = (slug || '').toLowerCase().trim().replace(/^\//, '');
+  const effectiveSlug = slug || defaultSlug || location.pathname.replace(/^\//, '');
+  const cleanSlug = (effectiveSlug || '').toLowerCase().trim().replace(/^\//, '');
+
+  // Core institutional routes: redirect to their canonical, fully-designed public pages
+  const canonicalRouteMap = {
+    'vision-mission': '/about?tab=vision',
+    'vision': '/about?tab=vision',
+    'mission': '/about?tab=vision',
+    'history': '/about?tab=history',
+    'about': '/about',
+    'coat-of-arms': '/about?tab=coat-of-arms',
+    'former-bishops': '/about?tab=bishops',
+    'former-principals': '/about?tab=principals',
+    'mdes': '/about?tab=mdes',
+    'organogram': '/about?tab=organogram',
+    'governing-body': '/about?tab=governing-body',
+    'statutory-bodies': '/about?tab=statutory-bodies',
+    'leadership': '/about?tab=leadership',
+    'rectors-message': '/rectors-message',
+    'principals-message': '/principals-message',
+    'academics': '/academics',
+    'admissions': '/admissions',
+    'examinations': '/examinations',
+    'research': '/research',
+    'student-life': '/student-life',
+    'student-support': '/student-life',
+    'iqac': '/iqac',
+    'naac': '/naac',
+    'nirf': '/nirf',
+    'alumni': '/alumni',
+    'contact': '/contact',
+    'gallery': '/gallery',
+    'library': '/library',
+    'magazine': '/magazine'
+  };
+
+  if (canonicalRouteMap[cleanSlug]) {
+    return <Navigate to={canonicalRouteMap[cleanSlug]} replace />;
+  }
+
   const page = pages.find(p => (p.slug || '').toLowerCase() === cleanSlug) || cmsStore.getPageBySlug(cleanSlug);
 
   useEffect(() => {

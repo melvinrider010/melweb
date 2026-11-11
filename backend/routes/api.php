@@ -13,6 +13,9 @@ use App\Http\Controllers\Api\V1\Admin\NoticeController as AdminNoticeController;
 use App\Http\Controllers\Api\V1\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Api\V1\Admin\ContentController as AdminContentController;
 use App\Http\Controllers\Api\V1\Admin\MediaUploadController as AdminMediaUploadController;
+use App\Http\Controllers\Api\V1\Admin\ProgrammeController as AdminProgrammeController;
+use App\Http\Controllers\Api\V1\OrganogramController;
+use App\Http\Controllers\Api\V1\Admin\OrganogramController as AdminOrganogramController;
 
 Route::prefix('v1')->group(function () {
     
@@ -38,6 +41,7 @@ Route::prefix('v1')->group(function () {
     Route::get('/departments/{slugOrId}', [DepartmentController::class, 'show']);
     Route::get('/programmes', [ContentController::class, 'programmes']);
     Route::get('/settings', [ContentController::class, 'settings']);
+    Route::get('/organogram/published', [OrganogramController::class, 'published']);
 
     // --- Protected Admin Endpoints (Sanctum Token Required) ---
     Route::middleware('auth:sanctum')->group(function () {
@@ -85,5 +89,21 @@ Route::prefix('v1')->group(function () {
         Route::post('/admin/departments/{id}/draft', [AdminDepartmentController::class, 'saveDraft']);
         Route::post('/admin/departments/{id}/publish', [AdminDepartmentController::class, 'publish']);
         Route::post('/admin/departments/{id}/unpublish', [AdminDepartmentController::class, 'unpublish']);
+
+        // Admin Programmes Management
+        Route::get('/admin/programmes', [AdminProgrammeController::class, 'index']);
+        Route::post('/admin/programmes', [AdminProgrammeController::class, 'store']);
+        Route::put('/admin/programmes/{code}', [AdminProgrammeController::class, 'update']);
+        Route::delete('/admin/programmes/{code}', [AdminProgrammeController::class, 'destroy']);
+        Route::post('/admin/programmes/{code}/toggle-status', [AdminProgrammeController::class, 'toggleStatus']);
+        Route::post('/admin/programmes/{code}/toggle-honeycomb', [AdminProgrammeController::class, 'toggleHoneycomb']);
+        Route::post('/admin/programmes/bulk-status', [AdminProgrammeController::class, 'bulkStatus']);
+
+        // Admin Organogram Management (Canva-style Editor)
+        Route::get('/admin/organogram', [AdminOrganogramController::class, 'getEditorData']);
+        Route::post('/admin/organogram/draft', [AdminOrganogramController::class, 'saveDraft']);
+        Route::post('/admin/organogram/publish', [AdminOrganogramController::class, 'publish']);
+        Route::get('/admin/organogram/versions', [AdminOrganogramController::class, 'getVersions']);
+        Route::post('/admin/organogram/versions/{id}/restore', [AdminOrganogramController::class, 'restoreVersion']);
     });
 });

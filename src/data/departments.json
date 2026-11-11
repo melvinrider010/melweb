@@ -7,7 +7,7 @@
     "slug": "bca",
     "description": "The Department of Computer Applications (BCA) delivers comprehensive, industry-aligned technical education in full-stack web software, cloud systems, and application frameworks, offering direct progression to the AICTE-approved MCA degree.",
     "officialUrl": "https://stphilos.ac.in/bca/",
-    "photoUrl": "/media/departments/dept-computer-science.jpg",
+    "photoUrl": "/assets/departments/dept-bca/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "bca"
@@ -23,7 +23,8 @@
         "title": "BCA → MCA (Master of Computer Applications)",
         "description": "Seamless academic progression from undergraduate application development to postgraduate enterprise systems, cloud architectures, and AI engineering."
       }
-    ]
+    ],
+    "banner_image": "/assets/departments/dept-bca/images/banner.jpg"
   },
   {
     "id": "dept-computer-science",
@@ -33,7 +34,7 @@
     "slug": "computer-science",
     "description": "The Department of Computer Science offers foundational and research-oriented computing education through B.Sc Computer Science and M.Sc Computer Science degrees.",
     "officialUrl": "https://stphilos.ac.in/department-of-computer-science/",
-    "photoUrl": "/media/departments/dept-computer-science.jpg",
+    "photoUrl": "/assets/departments/dept-computer-science/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "bsc-cs"
@@ -49,7 +50,8 @@
         "title": "B.Sc Computer Science → M.Sc Computer Science",
         "description": "Theoretical computing and algorithmic research pathway leading to core systems programming, scientific computing, and data science."
       }
-    ]
+    ],
+    "banner_image": "/assets/departments/dept-computer-science/images/banner.jpg"
   },
   {
     "id": "dept-physics",
@@ -59,7 +61,7 @@
     "slug": "physics",
     "description": "One of the founding departments of St. Philomena’s College, established in 1946. Equipped with advanced optics, solid state, and computational physics laboratories.",
     "officialUrl": "https://stphilos.ac.in/physics/",
-    "photoUrl": "/media/departments/dept-physics.jpg",
+    "photoUrl": "/assets/departments/dept-physics/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "bsc-physics"
@@ -75,7 +77,8 @@
         "title": "B.Sc Physics → M.Sc Physics",
         "description": "Progress from classical mechanics and electromagnetism to quantum physics, astrophysics, condensed matter, and nuclear physics research."
       }
-    ]
+    ],
+    "banner_image": "/assets/departments/dept-physics/images/banner.jpg"
   },
   {
     "id": "dept-chemistry",
@@ -85,7 +88,7 @@
     "slug": "chemistry",
     "description": "Recognized research department with state-of-the-art instrumentation including spectroscopy, chromatography, and organic synthesis suites.",
     "officialUrl": "https://stphilos.ac.in/chemistry/",
-    "photoUrl": "/media/departments/dept-chemistry.jpg",
+    "photoUrl": "/assets/departments/dept-chemistry/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "bsc-chemistry"
@@ -101,7 +104,8 @@
         "title": "B.Sc Chemistry → M.Sc Chemistry",
         "description": "Specialization in Organic, Inorganic, Physical, and Analytical Chemistry preparing students for pharmaceutical and chemical industries."
       }
-    ]
+    ],
+    "banner_image": "/assets/departments/dept-chemistry/images/banner.jpg"
   },
   {
     "id": "dept-mathematics",
@@ -111,7 +115,7 @@
     "slug": "mathematics",
     "description": "Fostering abstract analytical thinking, mathematical modeling, discrete mathematics, and applied operations research.",
     "officialUrl": "https://stphilos.ac.in/mathematics/",
-    "photoUrl": "/media/departments/dept-mathematics.jpg",
+    "photoUrl": "/assets/departments/dept-mathematics/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "bsc-mathematics"
@@ -127,7 +131,8 @@
         "title": "B.Sc Mathematics → M.Sc Mathematics",
         "description": "Advanced pure and applied mathematics pathway leading to data analytics, cryptography, academia, and actuarial sciences."
       }
-    ]
+    ],
+    "banner_image": "/assets/departments/dept-mathematics/images/banner.jpg"
   },
   {
     "id": "dept-biochemistry",
@@ -137,7 +142,7 @@
     "slug": "biochemistry",
     "description": "Dedicated to molecular biology, clinical diagnostics, enzymology, proteomics, and biomedical research.",
     "officialUrl": "https://stphilos.ac.in/biochemistry/",
-    "photoUrl": "/media/departments/dept-biochemistry.jpg",
+    "photoUrl": "/assets/departments/dept-biochemistry/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "bsc-biochemistry"
@@ -160,7 +165,8 @@
     "display_order": 6,
     "programmes": [
       "bsc"
-    ]
+    ],
+    "banner_image": "/assets/departments/dept-biochemistry/images/banner.jpg"
   },
   {
     "id": "dept-biotechnology",
@@ -170,7 +176,7 @@
     "slug": "biotechnology",
     "description": "Cutting-edge genetic engineering, tissue culture, bioprocess engineering, and bioinformatics research center.",
     "officialUrl": "https://stphilos.ac.in/biotechnology/",
-    "photoUrl": "/media/departments/dept-biotechnology.jpg",
+    "photoUrl": "/assets/departments/dept-biotechnology/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "bsc-biotechnology"
@@ -193,7 +199,8 @@
     "display_order": 7,
     "programmes": [
       "bsc"
-    ]
+    ],
+    "banner_image": "/assets/departments/dept-biotechnology/images/banner.jpg"
   },
   {
     "id": "dept-microbiology",
@@ -203,7 +210,7 @@
     "slug": "microbiology",
     "description": "Comprehensive study of microbial genetics, medical virology, bacteriology, and environmental microbiology.",
     "officialUrl": "https://stphilos.ac.in/microbiology/",
-    "photoUrl": null,
+    "photoUrl": "/assets/departments/dept-microbiology/images/banner.jpg",
     "photoVerified": false,
     "ugProgrammes": [
       "bsc-microbiology"
@@ -224,7 +231,8 @@
     "display_order": 8,
     "programmes": [
       "bsc"
-    ]
+    ],
+    "banner_image": "/assets/departments/dept-microbiology/images/banner.jpg"
   },
   {
     "id": "dept-botany-zoology",
@@ -234,14 +242,15 @@
     "slug": "botany-zoology",
     "description": "Promoting biodiversity conservation, plant physiology, animal taxonomy, and ecological sciences with botanical gardens and museum.",
     "officialUrl": "https://stphilos.ac.in/botany/",
-    "photoUrl": null,
+    "photoUrl": "/assets/departments/dept-botany-zoology/images/banner.jpg",
     "photoVerified": false,
     "ugProgrammes": [
       "bsc-botany",
       "bsc-zoology"
     ],
     "pgProgrammes": [],
-    "pathways": []
+    "pathways": [],
+    "banner_image": "/assets/departments/dept-botany-zoology/images/banner.jpg"
   },
   {
     "id": "dept-food-science",
@@ -251,7 +260,7 @@
     "slug": "food-science",
     "description": "Pioneering nutrition research, dietetics, clinical nutrition, food microbiology, and food processing laboratory.",
     "officialUrl": "https://stphilos.ac.in/post-graduation-department-of-food-science-and-nutrition/",
-    "photoUrl": "/media/departments/dept-food-science.jpg",
+    "photoUrl": "/assets/departments/dept-food-science/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "bsc-food-science"
@@ -274,7 +283,8 @@
     "display_order": 10,
     "programmes": [
       "bsc"
-    ]
+    ],
+    "banner_image": "/assets/departments/dept-food-science/images/banner.jpg"
   },
   {
     "id": "dept-psychology",
@@ -284,7 +294,7 @@
     "slug": "psychology",
     "description": "Psychological testing laboratory, counseling clinic, and clinical psychotherapy research suites.",
     "officialUrl": "https://stphilos.ac.in/dept-of-m-sc-psychology/",
-    "photoUrl": "/media/departments/dept-psychology.jpg",
+    "photoUrl": "/assets/departments/dept-psychology/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "ba-psychology",
@@ -316,7 +326,7 @@
       "ba",
       "bsc"
     ],
-    "banner_image": "/assets/banner-college.jpg"
+    "banner_image": "/assets/departments/dept-psychology/images/banner.jpg"
   },
   {
     "id": "dept-environmental-science",
@@ -326,13 +336,14 @@
     "slug": "environmental-science",
     "description": "Environmental impact assessment, air and water quality monitoring, renewable energy studies, and sustainability analysis.",
     "officialUrl": "https://stphilos.ac.in/department-of-environmental-science/",
-    "photoUrl": null,
+    "photoUrl": "/assets/departments/dept-environmental-science/images/banner.jpg",
     "photoVerified": false,
     "ugProgrammes": [
       "bsc-environmental-science"
     ],
     "pgProgrammes": [],
-    "pathways": []
+    "pathways": [],
+    "banner_image": "/assets/departments/dept-environmental-science/images/banner.jpg"
   },
   {
     "id": "dept-criminology",
@@ -342,14 +353,15 @@
     "slug": "criminology-and-forensic-science",
     "description": "Fingerprinting laboratory, ballistics, crime scene investigation suites, cyber forensics, and police administration training.",
     "officialUrl": "https://stphilos.ac.in/department-of-criminology-and-forensic-science/",
-    "photoUrl": null,
+    "photoUrl": "/assets/departments/dept-criminology/images/banner.jpg",
     "photoVerified": false,
     "ugProgrammes": [
       "ba-criminology",
       "bsc-forensic-science"
     ],
     "pgProgrammes": [],
-    "pathways": []
+    "pathways": [],
+    "banner_image": "/assets/departments/dept-criminology/images/banner.jpg"
   },
   {
     "id": "dept-management",
@@ -359,7 +371,7 @@
     "slug": "management",
     "description": "AICTE-approved business education center cultivating executive leadership, marketing strategy, human capital management, and financial analytics.",
     "officialUrl": "https://stphilos.ac.in/bba/",
-    "photoUrl": "/media/departments/dept-management.jpg",
+    "photoUrl": "/assets/departments/dept-management/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "bba",
@@ -383,7 +395,8 @@
         "title": "BBA-THM (Tourism & Hospitality) → MBA",
         "description": "Specialized business administration pathway leading to executive hospitality, global tourism, and airline management."
       }
-    ]
+    ],
+    "banner_image": "/assets/departments/dept-management/images/banner.jpg"
   },
   {
     "id": "dept-commerce",
@@ -393,7 +406,7 @@
     "slug": "commerce",
     "description": "Premier commerce faculty offering professional certifications in ACCA, CMA, GST taxation, corporate accounting, and investment banking.",
     "officialUrl": "https://stphilos.ac.in/bcom/",
-    "photoUrl": "/media/departments/dept-commerce.jpg",
+    "photoUrl": "/assets/departments/dept-commerce/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "bcom",
@@ -418,7 +431,8 @@
         "title": "B.Com → MBA (Master of Business Administration)",
         "description": "Corporate executive route focusing on financial management, venture capital, and corporate leadership."
       }
-    ]
+    ],
+    "banner_image": "/assets/departments/dept-commerce/images/banner.jpg"
   },
   {
     "id": "dept-social-work",
@@ -428,7 +442,7 @@
     "slug": "social-work",
     "description": "Eminent department of social work dedicated to community development, medical and psychiatric social work, and human resource management.",
     "officialUrl": "https://stphilos.ac.in/bsw/",
-    "photoUrl": "/media/departments/dept-social-work.jpg",
+    "photoUrl": "/assets/departments/dept-social-work/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "bsw"
@@ -452,7 +466,7 @@
     "programmes": [
       "bsw"
     ],
-    "banner_image": "/assets/banner-college.jpg"
+    "banner_image": "/assets/departments/dept-social-work/images/banner.jpg"
   },
   {
     "id": "dept-economics",
@@ -462,7 +476,7 @@
     "slug": "economics",
     "description": "Excellence in econometrics, public finance, monetary economics, rural development, and policy analysis.",
     "officialUrl": "https://stphilos.ac.in/department-of-economics/",
-    "photoUrl": "/media/departments/dept-economics.jpg",
+    "photoUrl": "/assets/departments/dept-economics/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "ba-economics"
@@ -478,7 +492,8 @@
         "title": "B.A Economics → M.A Economics",
         "description": "Quantitative economic modeling, central banking policy, development economics, and financial consulting."
       }
-    ]
+    ],
+    "banner_image": "/assets/departments/dept-economics/images/banner.jpg"
   },
   {
     "id": "dept-english",
@@ -488,7 +503,7 @@
     "slug": "english",
     "description": "Literature, critical theory, linguistic analysis, creative writing, and communicative competence in English.",
     "officialUrl": "https://stphilos.ac.in/english/",
-    "photoUrl": "/media/departments/dept-english.jpg",
+    "photoUrl": "/assets/departments/dept-english/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "ba-english",
@@ -505,7 +520,8 @@
         "title": "B.A English → M.A English",
         "description": "Postcolonial literature, modern critical theory, cultural studies, and comparative literary research."
       }
-    ]
+    ],
+    "banner_image": "/assets/departments/dept-english/images/banner.jpg"
   },
   {
     "id": "dept-journalism",
@@ -515,7 +531,7 @@
     "slug": "journalism-and-mass-communication",
     "description": "Equipped with professional multi-camera broadcasting studio, digital audio recording suite, and print journalism newsroom.",
     "officialUrl": "https://stphilos.ac.in/m-a-mass-communication-journalism/",
-    "photoUrl": "/media/departments/dept-journalism.jpg",
+    "photoUrl": "/assets/departments/dept-journalism/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "ba-journalism"
@@ -538,7 +554,7 @@
     "programmes": [
       "ba"
     ],
-    "banner_image": "/assets/banner-college.jpg"
+    "banner_image": "/assets/departments/dept-journalism/images/banner.jpg"
   },
   {
     "id": "dept-sociology",
@@ -548,7 +564,7 @@
     "slug": "sociology",
     "description": "Understanding social dynamics, institutional structures, gender studies, urban sociology, and social research methods.",
     "officialUrl": "https://stphilos.ac.in/department-of-sociology/",
-    "photoUrl": null,
+    "photoUrl": "/assets/departments/dept-sociology/images/banner.jpg",
     "photoVerified": false,
     "ugProgrammes": [
       "ba-sociology"
@@ -562,7 +578,8 @@
         "title": "B.A Sociology → MSW (Master of Social Work)",
         "description": "Interdisciplinary pathway connecting social theoretical foundations with clinical community practice."
       }
-    ]
+    ],
+    "banner_image": "/assets/departments/dept-sociology/images/banner.jpg"
   },
   {
     "id": "dept-history",
@@ -572,13 +589,14 @@
     "slug": "history",
     "description": "Historiography, archaeology, heritage studies, Karnataka regional history, and Indian national movement analysis.",
     "officialUrl": "https://stphilos.ac.in/department-of-history/",
-    "photoUrl": null,
+    "photoUrl": "/assets/departments/dept-history/images/banner.jpg",
     "photoVerified": false,
     "ugProgrammes": [
       "ba-history"
     ],
     "pgProgrammes": [],
-    "pathways": []
+    "pathways": [],
+    "banner_image": "/assets/departments/dept-history/images/banner.jpg"
   },
   {
     "id": "dept-political-science",
@@ -588,13 +606,14 @@
     "slug": "political-science",
     "description": "Constitutional governance, political philosophy, international relations, public administration, and human rights.",
     "officialUrl": "https://stphilos.ac.in/department-of-political-science/",
-    "photoUrl": null,
+    "photoUrl": "/assets/departments/dept-political-science/images/banner.jpg",
     "photoVerified": false,
     "ugProgrammes": [
       "ba-political-science"
     ],
     "pgProgrammes": [],
-    "pathways": []
+    "pathways": [],
+    "banner_image": "/assets/departments/dept-political-science/images/banner.jpg"
   },
   {
     "id": "dept-languages",
@@ -604,7 +623,7 @@
     "slug": "languages",
     "description": "Celebrating multilingual heritage with specialized faculties in Kannada, Hindi, French, Malayalam, Tamil, and Urdu.",
     "officialUrl": "https://stphilos.ac.in/kannada/",
-    "photoUrl": null,
+    "photoUrl": "/assets/departments/dept-languages/images/banner.jpg",
     "photoVerified": false,
     "ugProgrammes": [
       "ba-kannada",
@@ -613,7 +632,8 @@
     "pgProgrammes": [
       "ma-holistic-spirituality"
     ],
-    "pathways": []
+    "pathways": [],
+    "banner_image": "/assets/departments/dept-languages/images/banner.jpg"
   },
   {
     "id": "dept-vocational-studies",
@@ -668,7 +688,8 @@
     "programmes": [
       "bba-thm"
     ],
-    "banner_image": "/assets/banner-college.jpg"
+    "banner_image": "/assets/departments/dept-bba-th/images/banner.jpg",
+    "photoUrl": "/assets/departments/dept-bba-th/images/banner.jpg"
   },
   {
     "id": "dept-kannada",
@@ -681,7 +702,8 @@
     "programmes": [
       "ba-kannada"
     ],
-    "banner_image": "/assets/banner-college.jpg"
+    "banner_image": "/assets/departments/dept-kannada/images/banner.jpg",
+    "photoUrl": "/assets/departments/dept-kannada/images/banner.jpg"
   },
   {
     "id": "dept-hindi",
@@ -694,7 +716,8 @@
     "programmes": [
       "ba-hindi"
     ],
-    "banner_image": "/assets/banner-college.jpg"
+    "banner_image": "/assets/departments/dept-hindi/images/banner.jpg",
+    "photoUrl": "/assets/departments/dept-hindi/images/banner.jpg"
   },
   {
     "id": "dept-malayalam",
@@ -707,7 +730,8 @@
     "programmes": [
       "ba-malayalam"
     ],
-    "banner_image": "/assets/banner-college.jpg"
+    "banner_image": "/assets/departments/dept-malayalam/images/banner.jpg",
+    "photoUrl": "/assets/departments/dept-malayalam/images/banner.jpg"
   },
   {
     "id": "dept-urdu",
@@ -720,7 +744,8 @@
     "programmes": [
       "ba-urdu"
     ],
-    "banner_image": "/assets/banner-college.jpg"
+    "banner_image": "/assets/departments/dept-urdu/images/banner.jpg",
+    "photoUrl": "/assets/departments/dept-urdu/images/banner.jpg"
   },
   {
     "id": "dept-tamil",
@@ -733,7 +758,8 @@
     "programmes": [
       "ba-tamil"
     ],
-    "banner_image": "/assets/banner-college.jpg"
+    "banner_image": "/assets/departments/dept-tamil/images/banner.jpg",
+    "photoUrl": "/assets/departments/dept-tamil/images/banner.jpg"
   },
   {
     "id": "dept-french",
@@ -746,7 +772,8 @@
     "programmes": [
       "ba-french"
     ],
-    "banner_image": "/assets/banner-college.jpg"
+    "banner_image": "/assets/departments/dept-french/images/banner.jpg",
+    "photoUrl": "/assets/departments/dept-french/images/banner.jpg"
   },
   {
     "id": "dept-botany",
@@ -759,7 +786,8 @@
     "programmes": [
       "bsc-botany"
     ],
-    "banner_image": "/assets/banner-college.jpg"
+    "banner_image": "/assets/departments/dept-botany/images/banner.jpg",
+    "photoUrl": "/assets/departments/dept-botany/images/banner.jpg"
   },
   {
     "id": "dept-zoology",
@@ -772,7 +800,8 @@
     "programmes": [
       "bsc-zoology"
     ],
-    "banner_image": "/assets/banner-college.jpg"
+    "banner_image": "/assets/departments/dept-zoology/images/banner.jpg",
+    "photoUrl": "/assets/departments/dept-zoology/images/banner.jpg"
   },
   {
     "id": "dept-christianity",
@@ -785,7 +814,8 @@
     "programmes": [
       "ba-christianity"
     ],
-    "banner_image": "/assets/banner-college.jpg"
+    "banner_image": "/assets/departments/dept-christianity/images/banner.jpg",
+    "photoUrl": "/assets/departments/dept-christianity/images/banner.jpg"
   },
   {
     "id": "dept-bvoc",
@@ -799,7 +829,8 @@
       "bvoc-healthcare",
       "bvoc-media-entertainment"
     ],
-    "banner_image": "/assets/banner-college.jpg"
+    "banner_image": "/assets/departments/dept-bvoc/images/banner.jpg",
+    "photoUrl": "/assets/departments/dept-bvoc/images/banner.jpg"
   },
   {
     "id": "dept-environmental-studies",
@@ -809,13 +840,14 @@
     "slug": "environmental-studies",
     "description": "The Department of Environmental Studies provides interdisciplinary education in environmental awareness, sustainability, and ecological conservation.",
     "officialUrl": "https://stphilos.ac.in/",
-    "photoUrl": "/media/departments/dept-environmental-science.jpg",
+    "photoUrl": "/assets/departments/dept-environmental-studies/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "evs"
     ],
     "pgProgrammes": [],
-    "pathways": []
+    "pathways": [],
+    "banner_image": "/assets/departments/dept-environmental-studies/images/banner.jpg"
   },
   {
     "id": "dept-life-skills",
@@ -825,13 +857,14 @@
     "slug": "life-skills",
     "description": "The Department of Life Skills provides core personal development, leadership, ethics, and psycho-social competency training for undergraduate students.",
     "officialUrl": "https://stphilos.ac.in/",
-    "photoUrl": "/media/departments/dept-psychology.jpg",
+    "photoUrl": "/assets/departments/dept-life-skills/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "life-skills"
     ],
     "pgProgrammes": [],
-    "pathways": []
+    "pathways": [],
+    "banner_image": "/assets/departments/dept-life-skills/images/banner.jpg"
   },
   {
     "id": "dept-iks",
@@ -841,13 +874,14 @@
     "slug": "iks",
     "description": "The Department of Indian Knowledge System (IKS) provides foundational instruction in Indian scientific, philosophical, and cultural traditions in alignment with NEP/SEP.",
     "officialUrl": "https://stphilos.ac.in/",
-    "photoUrl": "/media/departments/dept-history.jpg",
+    "photoUrl": "/assets/departments/dept-iks/images/banner.jpg",
     "photoVerified": true,
     "ugProgrammes": [
       "iks"
     ],
     "pgProgrammes": [],
-    "pathways": []
+    "pathways": [],
+    "banner_image": "/assets/departments/dept-iks/images/banner.jpg"
   },
   {
     "id": "dept-pg-biochemistry",
@@ -859,7 +893,9 @@
     "facultyCategory": "science",
     "status": "published",
     "display_order": 36,
-    "short_description": "Postgraduate Department of Biochemistry offering M.Sc Biochemistry."
+    "short_description": "Postgraduate Department of Biochemistry offering M.Sc Biochemistry.",
+    "photoUrl": "/assets/departments/dept-pg-biochemistry/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-pg-biochemistry/images/banner.jpg"
   },
   {
     "id": "dept-pg-chemistry",
@@ -871,7 +907,9 @@
     "facultyCategory": "science",
     "status": "published",
     "display_order": 37,
-    "short_description": "Postgraduate Department of Chemistry offering M.Sc Chemistry."
+    "short_description": "Postgraduate Department of Chemistry offering M.Sc Chemistry.",
+    "photoUrl": "/assets/departments/dept-pg-chemistry/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-pg-chemistry/images/banner.jpg"
   },
   {
     "id": "dept-pg-commerce",
@@ -883,7 +921,9 @@
     "facultyCategory": "commerce",
     "status": "published",
     "display_order": 38,
-    "short_description": "Postgraduate Department of Commerce offering M.Com."
+    "short_description": "Postgraduate Department of Commerce offering M.Com.",
+    "photoUrl": "/assets/departments/dept-pg-commerce/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-pg-commerce/images/banner.jpg"
   },
   {
     "id": "dept-pg-computer-science",
@@ -895,7 +935,9 @@
     "facultyCategory": "science",
     "status": "published",
     "display_order": 39,
-    "short_description": "Postgraduate Department of Computer Science offering M.Sc Computer Science."
+    "short_description": "Postgraduate Department of Computer Science offering M.Sc Computer Science.",
+    "photoUrl": "/assets/departments/dept-pg-computer-science/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-pg-computer-science/images/banner.jpg"
   },
   {
     "id": "dept-pg-cfs",
@@ -907,7 +949,9 @@
     "facultyCategory": "science",
     "status": "published",
     "display_order": 40,
-    "short_description": "Postgraduate Department of Criminology & Forensic Science offering M.Sc CFS."
+    "short_description": "Postgraduate Department of Criminology & Forensic Science offering M.Sc CFS.",
+    "photoUrl": "/assets/departments/dept-pg-cfs/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-pg-cfs/images/banner.jpg"
   },
   {
     "id": "dept-pg-english",
@@ -919,7 +963,9 @@
     "facultyCategory": "humanities",
     "status": "published",
     "display_order": 41,
-    "short_description": "Postgraduate Department of English offering M.A English."
+    "short_description": "Postgraduate Department of English offering M.A English.",
+    "photoUrl": "/assets/departments/dept-pg-english/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-pg-english/images/banner.jpg"
   },
   {
     "id": "dept-pg-journalism",
@@ -931,7 +977,9 @@
     "facultyCategory": "humanities",
     "status": "published",
     "display_order": 42,
-    "short_description": "Postgraduate Department of Journalism & Mass Communication offering M.A Journalism."
+    "short_description": "Postgraduate Department of Journalism & Mass Communication offering M.A Journalism.",
+    "photoUrl": "/assets/departments/dept-pg-journalism/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-pg-journalism/images/banner.jpg"
   },
   {
     "id": "dept-pg-mathematics",
@@ -943,7 +991,9 @@
     "facultyCategory": "science",
     "status": "published",
     "display_order": 43,
-    "short_description": "Postgraduate Department of Mathematics offering M.Sc Mathematics."
+    "short_description": "Postgraduate Department of Mathematics offering M.Sc Mathematics.",
+    "photoUrl": "/assets/departments/dept-pg-mathematics/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-pg-mathematics/images/banner.jpg"
   },
   {
     "id": "dept-pg-physics",
@@ -955,7 +1005,9 @@
     "facultyCategory": "science",
     "status": "published",
     "display_order": 44,
-    "short_description": "Postgraduate Department of Physics offering M.Sc Physics."
+    "short_description": "Postgraduate Department of Physics offering M.Sc Physics.",
+    "photoUrl": "/assets/departments/dept-pg-physics/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-pg-physics/images/banner.jpg"
   },
   {
     "id": "dept-pg-psychology",
@@ -967,7 +1019,9 @@
     "facultyCategory": "humanities",
     "status": "published",
     "display_order": 45,
-    "short_description": "Postgraduate Department of Psychology offering M.Sc Psychology."
+    "short_description": "Postgraduate Department of Psychology offering M.Sc Psychology.",
+    "photoUrl": "/assets/departments/dept-pg-psychology/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-pg-psychology/images/banner.jpg"
   },
   {
     "id": "dept-pg-social-work",
@@ -979,7 +1033,9 @@
     "facultyCategory": "humanities",
     "status": "published",
     "display_order": 46,
-    "short_description": "Postgraduate Department of Social Work offering MSW."
+    "short_description": "Postgraduate Department of Social Work offering MSW.",
+    "photoUrl": "/assets/departments/dept-pg-social-work/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-pg-social-work/images/banner.jpg"
   },
   {
     "id": "dept-pg-economics",
@@ -991,7 +1047,9 @@
     "facultyCategory": "humanities",
     "status": "published",
     "display_order": 47,
-    "short_description": "Postgraduate Department of Economics offering M.A Economics."
+    "short_description": "Postgraduate Department of Economics offering M.A Economics.",
+    "photoUrl": "/assets/departments/dept-pg-economics/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-pg-economics/images/banner.jpg"
   },
   {
     "id": "dept-pg-food-science",
@@ -1003,7 +1061,9 @@
     "facultyCategory": "science",
     "status": "published",
     "display_order": 48,
-    "short_description": "Postgraduate Department of Food Science & Nutrition offering M.Sc Food Science & Nutrition."
+    "short_description": "Postgraduate Department of Food Science & Nutrition offering M.Sc Food Science & Nutrition.",
+    "photoUrl": "/assets/departments/dept-pg-food-science/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-pg-food-science/images/banner.jpg"
   },
   {
     "id": "dept-mca",
@@ -1015,7 +1075,9 @@
     "facultyCategory": "science",
     "status": "published",
     "display_order": 49,
-    "short_description": "Department of Computer Applications offering MCA."
+    "short_description": "Department of Computer Applications offering MCA.",
+    "photoUrl": "/assets/departments/dept-mca/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-mca/images/banner.jpg"
   },
   {
     "id": "dept-mba",
@@ -1027,7 +1089,9 @@
     "facultyCategory": "management",
     "status": "published",
     "display_order": 50,
-    "short_description": "Department of Business Administration offering MBA."
+    "short_description": "Department of Business Administration offering MBA.",
+    "photoUrl": "/assets/departments/dept-mba/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-mba/images/banner.jpg"
   },
   {
     "id": "dept-pg-library",
@@ -1039,6 +1103,8 @@
     "facultyCategory": "general",
     "status": "published",
     "display_order": 51,
-    "short_description": "Post Graduate Library supporting PG research and study."
+    "short_description": "Post Graduate Library supporting PG research and study.",
+    "photoUrl": "/assets/departments/dept-pg-library/images/banner.jpg",
+    "banner_image": "/assets/departments/dept-pg-library/images/banner.jpg"
   }
 ]

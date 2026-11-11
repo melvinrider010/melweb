@@ -102,7 +102,7 @@ export const LEADERSHIP_MESSAGES = {
     slug: 'financial-officer',
     name: 'Rev. Fr. Roshan',
     postNominal: 'M.Com.',
-    designation: 'Financial Officer',
+    designation: 'Finance Officer',
     office: "Office of Financial Affairs & Stewardship",
     institution: "St. Philomena's College (Autonomous)",
     theme: 'Prudent Stewardship, Transparency, and Institutional Vitality',
@@ -112,12 +112,12 @@ export const LEADERSHIP_MESSAGES = {
     quote: 'Responsible stewardship ensures our mission flourishes and our students access world-class resources.',
     paragraphs: [
       "At St. Philomena's College, we believe that prudent financial governance and ethical stewardship are the cornerstones of enduring academic excellence and institutional vitality.",
-      "The Office of the Financial Officer is dedicated to ensuring transparency, accountability, and the strategic allocation of resources. Every rupee invested in modern laboratory infrastructure, digital learning ecosystems, campus amenities, and need-based student scholarships directly advances our students' educational experience.",
+      "The Office of the Finance Officer is dedicated to ensuring transparency, accountability, and the strategic allocation of resources. Every rupee invested in modern laboratory infrastructure, digital learning ecosystems, campus amenities, and need-based student scholarships directly advances our students' educational experience.",
       "We remain committed to supporting all academic departments, faculty research initiatives, and student welfare programs to sustain an environment of uninterrupted progress and growth."
     ],
     signature: {
       name: 'REV. FR. ROSHAN',
-      title: 'FINANCIAL OFFICER',
+      title: 'FINANCE OFFICER',
       institution: "St. Philomena's College (Autonomous), Mysuru"
     },
     highlights: [
@@ -125,10 +125,73 @@ export const LEADERSHIP_MESSAGES = {
       { label: 'Student Support', value: 'Scholarships & Welfare' },
       { label: 'Campus Capital', value: 'Laboratories & Digital Facilities' }
     ]
+  },
+
+  'iqac-coordinator': {
+    id: 'iqac-coordinator',
+    slug: 'iqac-coordinator',
+    name: 'Mr. A Thomas Gunaseelan',
+    postNominal: 'M.Sc., M.Phil.',
+    designation: 'IQAC Coordinator',
+    office: "Internal Quality Assurance Cell (IQAC)",
+    institution: "St. Philomena's College (Autonomous)",
+    theme: 'Sustaining Academic Benchmarks, Institutional Quality, and Innovation',
+    image: '/assets/images/leadership/thomas-gunaseelan.jpg',
+    objectPosition: '50% 20%',
+    tenure: 'In Office',
+    quote: 'Continuous quality enhancement is the cornerstone of institutional distinction and educational excellence.',
+    paragraphs: [
+      "The Internal Quality Assurance Cell (IQAC) at St. Philomena’s College (Autonomous) is dedicated to institutionalizing quality enhancement mechanisms across all facets of teaching, learning, research, and governance.",
+      "By establishing progressive academic benchmarks, facilitating NAAC accreditation cycles, aligning with NIRF parameters, and encouraging research innovation, the IQAC works collaboratively with all academic departments to elevate the standard of higher education.",
+      "We remain committed to nurturing an inclusive, learner-centric campus environment where quality is not an isolated milestone, but an enduring culture of continuous improvement."
+    ],
+    signature: {
+      name: 'MR. A THOMAS GUNASEELAN',
+      title: 'IQAC COORDINATOR',
+      institution: "St. Philomena's College (Autonomous), Mysuru"
+    },
+    highlights: [
+      { label: 'Quality Framework', value: 'NAAC A+ & NIRF Quality Benchmarks' },
+      { label: 'Academic Governance', value: 'Curricular Audits & Institutional Quality' },
+      { label: 'Innovation Cell', value: 'Continuous Pedagogy & Faculty Development' }
+    ]
+  },
+
+  'pg-coordinator': {
+    id: 'pg-coordinator',
+    slug: 'pg-coordinator',
+    name: 'Dr. Noor Mubasheer C A',
+    postNominal: 'MSW, PGDHRM, Ph.D.',
+    designation: 'PG Coordinator',
+    office: "Postgraduate Studies & Research Centre",
+    institution: "St. Philomena's College (Autonomous)",
+    theme: 'Advancing Postgraduate Excellence, Interdisciplinary Research, and Intellectual Inquiry',
+    image: '/media/management/pg_coordinator_noor_mubasheer.jpg',
+    objectPosition: '50% 15%',
+    tenure: 'In Office',
+    quote: 'Postgraduate education at Philo’s is a crucible for rigorous intellectual inquiry, cutting-edge research, and transformative societal leadership.',
+    paragraphs: [
+      "The Post Graduate Studies & Research Centre at St. Philomena’s College (Autonomous) serves as an intellectual epicenter dedicated to advanced scholarly inquiry, professional specialization, and high-impact research across sciences, commerce, humanities, and management.",
+      "As PG Coordinator, it is our collective mission to provide an academic environment that combines deep disciplinary knowledge with interdisciplinary research competencies. Supported by modern laboratory infrastructure, recognized university research centers, and dedicated faculty mentors, our postgraduate programmes empower students to engage with real-world complexities.",
+      "We encourage our postgraduate scholars to pursue academic rigor, develop analytical acumen, and emerge as socially responsible leaders equipped to make enduring contributions to academia, industry, and the wider community. We warmly welcome aspiring postgraduate scholars to our vibrant research community."
+    ],
+    signature: {
+      name: 'DR. NOOR MUBASHEER C A',
+      title: 'PG COORDINATOR',
+      institution: "St. Philomena's College (Autonomous), Mysuru"
+    },
+    highlights: [
+      { label: 'Academic Hub', value: 'Postgraduate Studies & Research Centre' },
+      { label: 'Scholarly Scope', value: '14+ PG Disciplines & Research Guidance' },
+      { label: 'Research Culture', value: 'Interdisciplinary & University Recognized' }
+    ]
   }
 };
 
 export const LEADERSHIP_ROSTER_LIST = [
   LEADERSHIP_MESSAGES['rector'],
-  LEADERSHIP_MESSAGES['principal']
+  LEADERSHIP_MESSAGES['principal'],
+  LEADERSHIP_MESSAGES['financial-officer'],
+  LEADERSHIP_MESSAGES['iqac-coordinator'],
+  LEADERSHIP_MESSAGES['pg-coordinator']
 ];

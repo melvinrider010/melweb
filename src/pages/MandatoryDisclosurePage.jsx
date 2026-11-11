@@ -41,7 +41,7 @@ export default function MandatoryDisclosurePage() {
             </span>
           </div>
 
-          <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 leading-tight">
+          <h1 className="font-heading font-bold text-2xl sm:text-3xl text-slate-900 leading-tight">
             Mandatory Disclosures & Statutory Compliance
           </h1>
 
@@ -101,7 +101,7 @@ export default function MandatoryDisclosurePage() {
                     <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest block">
                       {sec.badge}
                     </span>
-                    <h2 className="font-serif font-bold text-xl sm:text-2xl text-slate-900">
+                    <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
                       {sec.category}
                     </h2>
                   </div>
@@ -136,7 +136,7 @@ export default function MandatoryDisclosurePage() {
                             )}
                           </div>
 
-                          <h3 className="font-serif font-bold text-sm sm:text-base text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug">
+                          <h3 className="font-heading font-semibold text-sm sm:text-base text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug">
                             {item.title}
                           </h3>
 

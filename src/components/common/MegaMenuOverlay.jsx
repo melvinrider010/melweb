@@ -50,7 +50,7 @@ export default function MegaMenuOverlay({ menuData, isOpen, onClose }) {
                     
                     {/* Column Heading */}
                     {col.heading && (
-                      <h3 className="font-serif font-bold text-base sm:text-lg text-[#1C5496] border-b-2 border-[#1C5496]/20 pb-2 mb-2.5 flex items-center justify-between">
+                      <h3 className="font-heading font-semibold text-base sm:text-lg text-[#1C5496] border-b-2 border-[#1C5496]/20 pb-2 mb-2.5 flex items-center justify-between">
                         <span>{col.heading}</span>
                       </h3>
                     )}
@@ -66,7 +66,7 @@ export default function MegaMenuOverlay({ menuData, isOpen, onClose }) {
                               <Link
                                 to={link.path}
                                 onClick={onClose}
-                                className="block w-full py-2 px-3.5 rounded-lg bg-[#0B1F4E] hover:bg-[#1C5496] text-[#F0D98C] hover:text-white font-bold text-xs text-center border border-[#C9A84C]/40 shadow-xs hover:shadow-md transition-all cursor-pointer"
+                                className="block w-full py-2 px-3.5 rounded-lg bg-[#0B1F4E] hover:bg-[#1C5496] text-[#F0D98C] hover:text-white font-semibold text-xs text-center border border-[#C9A84C]/40 shadow-xs hover:shadow-md transition-all cursor-pointer"
                               >
                                 <span>{link.label}</span>
                               </Link>
@@ -75,7 +75,7 @@ export default function MegaMenuOverlay({ menuData, isOpen, onClose }) {
                         }
 
                         const linkContent = (
-                          <div className="py-2 px-2 hover:bg-slate-50 text-[13px] sm:text-[13.5px] text-slate-800 hover:text-[#1C5496] font-medium transition-all flex items-center justify-between group cursor-pointer rounded-sm">
+                          <div className="py-2 px-2.5 hover:bg-slate-50 text-sm text-slate-700 hover:text-[#1C5496] font-medium transition-all flex items-center justify-between group cursor-pointer rounded-md">
                             <span className="group-hover:translate-x-1 transition-transform">{link.label}</span>
                             {isExternal ? (
                               <ExternalLink className="w-3.5 h-3.5 text-slate-400 opacity-70 ml-1.5 shrink-0" />
@@ -140,7 +140,7 @@ export default function MegaMenuOverlay({ menuData, isOpen, onClose }) {
                   {/* Top Tag */}
                   {menuData.featuredCard.tag && (
                     <div className="absolute top-3 left-3 z-10">
-                      <span className="bg-[#0B1F4E]/90 text-[#F0D98C] font-mono text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider backdrop-blur-xs border border-[#C9A84C]/40 shadow-xs">
+                      <span className="bg-[#0B1F4E]/90 text-[#F0D98C] font-mono text-[10px] font-semibold px-2 py-0.5 rounded-md uppercase tracking-wider backdrop-blur-xs border border-[#C9A84C]/40 shadow-xs">
                         {menuData.featuredCard.tag}
                       </span>
                     </div>
@@ -148,15 +148,15 @@ export default function MegaMenuOverlay({ menuData, isOpen, onClose }) {
 
                   {/* Bottom Text and CTA */}
                   <div className="relative z-10 space-y-1">
-                    <h4 className="font-serif font-bold text-base sm:text-lg text-white group-hover:text-[#F0D98C] transition-colors leading-tight">
+                    <h4 className="font-heading font-semibold text-base text-white group-hover:text-[#F0D98C] transition-colors leading-snug">
                       {menuData.featuredCard.title}
                     </h4>
                     {menuData.featuredCard.subtitle && (
-                      <p className="text-[11px] text-slate-200 leading-snug line-clamp-2">
+                      <p className="text-xs text-slate-200 leading-relaxed line-clamp-2">
                         {menuData.featuredCard.subtitle}
                       </p>
                     )}
-                    <div className="pt-1 flex items-center text-[11px] font-bold text-[#F0D98C] group-hover:translate-x-1 transition-transform space-x-1">
+                    <div className="pt-1 flex items-center text-xs font-semibold text-[#F0D98C] group-hover:translate-x-1 transition-transform space-x-1">
                       <span>Explore</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>

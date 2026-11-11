@@ -188,11 +188,11 @@ export default function FacultyDetailPage() {
                 )}
               </div>
 
-              <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-slate-900 leading-tight">
+              <h1 className="font-heading font-bold text-2xl sm:text-3xl text-slate-900 leading-tight">
                 {faculty.name}
               </h1>
 
-              <p className="text-base sm:text-lg font-bold text-[#1C5496]">
+              <p className="text-base sm:text-lg font-semibold text-[#1C5496]">
                 {faculty.designation}
               </p>
 
@@ -230,7 +230,7 @@ export default function FacultyDetailPage() {
             {/* Profile Statement */}
             {(faculty.profile || faculty.bio) && (
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-                <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
+                <h2 className="font-heading font-semibold text-lg sm:text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
                   <Sparkles className="w-5 h-5 mr-2 text-[#1C5496]" />
                   <span>Biography & Academic Background</span>
                 </h2>
@@ -243,7 +243,7 @@ export default function FacultyDetailPage() {
             {/* Areas of Specialization */}
             {faculty.specialization && (
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-                <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
+                <h2 className="font-heading font-semibold text-lg sm:text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
                   <Award className="w-5 h-5 mr-2 text-[#1C5496]" />
                   <span>Areas of Specialization</span>
                 </h2>
@@ -256,7 +256,7 @@ export default function FacultyDetailPage() {
             {/* Academic Qualifications Table */}
             {faculty.cvData?.qualifications && faculty.cvData.qualifications.length > 0 && (
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-                <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
+                <h2 className="font-heading font-semibold text-lg sm:text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
                   <GraduationCap className="w-5 h-5 mr-2 text-[#1C5496]" />
                   <span>Academic Qualifications</span>
                 </h2>
@@ -274,7 +274,7 @@ export default function FacultyDetailPage() {
             {/* Conference & Seminar Papers Presented */}
             {faculty.cvData?.conferencePresentations && faculty.cvData.conferencePresentations.length > 0 && (
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-                <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                <h2 className="font-heading font-semibold text-lg sm:text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
                   <span className="flex items-center">
                     <FileText className="w-5 h-5 mr-2 text-[#1C5496]" />
                     <span>Research Papers & Conference Presentations</span>
@@ -305,7 +305,7 @@ export default function FacultyDetailPage() {
             {/* Seminars, Conferences & Workshops Attended */}
             {faculty.cvData?.seminarsAttended && faculty.cvData.seminarsAttended.length > 0 && (
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-                <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                <h2 className="font-heading font-semibold text-lg sm:text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
                   <span className="flex items-center">
                     <BookOpen className="w-5 h-5 mr-2 text-[#1C5496]" />
                     <span>Conferences, Seminars & Workshops Attended</span>
@@ -332,7 +332,7 @@ export default function FacultyDetailPage() {
             {/* Acted as Resource Person */}
             {faculty.cvData?.resourcePerson && faculty.cvData.resourcePerson.length > 0 && (
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-                <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
+                <h2 className="font-heading font-semibold text-lg sm:text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
                   <Layers className="w-5 h-5 mr-2 text-[#1C5496]" />
                   <span>Invited Lectures & Resource Person Details</span>
                 </h2>
@@ -351,7 +351,7 @@ export default function FacultyDetailPage() {
             {/* Awards & Recognitions */}
             {faculty.cvData?.awards && faculty.cvData.awards.length > 0 && (
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-                <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
+                <h2 className="font-heading font-semibold text-lg sm:text-xl text-slate-900 border-b border-slate-100 pb-3 flex items-center">
                   <Award className="w-5 h-5 mr-2 text-[#C9A84C]" />
                   <span>Awards & Honors</span>
                 </h2>
@@ -374,13 +374,13 @@ export default function FacultyDetailPage() {
             {/* Department Box */}
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
               <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block">Department Affiliation</span>
-              <h3 className="font-serif font-bold text-lg text-slate-900">{faculty.department}</h3>
+              <h3 className="font-heading font-semibold text-base sm:text-lg text-slate-900">{faculty.department}</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 St. Philomena's College (Autonomous), Bannimantap, Mysuru.
               </p>
               <Link
                 to={`/faculty`}
-                className="w-full btn-primary-blue py-2.5 rounded-xl text-xs font-bold text-center block"
+                className="w-full btn-primary-blue py-2.5 rounded-xl text-xs font-semibold text-center block"
               >
                 Explore Full Directory →
               </Link>
@@ -389,7 +389,7 @@ export default function FacultyDetailPage() {
             {/* Department Colleagues */}
             {colleagues.length > 0 && (
               <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-                <h4 className="font-serif font-bold text-base text-slate-900 border-b border-slate-100 pb-2">
+                <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900 border-b border-slate-100 pb-2">
                   Department Colleagues
                 </h4>
                 <div className="space-y-3">
@@ -401,7 +401,7 @@ export default function FacultyDetailPage() {
                     >
                       <FacultyAvatar src={col.image || col.photoUrl} name={col.name} className="w-10 h-10 rounded-full object-cover shrink-0 border border-slate-300" fallbackSize="text-xs" />
                       <div className="min-w-0">
-                        <span className="font-serif font-bold text-xs text-slate-900 group-hover:text-[#1C5496] block truncate">
+                        <span className="font-heading font-semibold text-xs text-slate-900 group-hover:text-[#1C5496] block truncate">
                           {col.name}
                         </span>
                         <span className="text-[10px] text-slate-500 block truncate">

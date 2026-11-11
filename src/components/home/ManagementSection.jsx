@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, ArrowRight } from 'lucide-react';
+import { Shield, ArrowRight, Maximize2 } from 'lucide-react';
+import PersonInfoModal from '../about/PersonInfoModal';
+import cmsStore from '../../lib/cmsStore';
+import useCms from '../../lib/useCms';
 
 const LEADERSHIP_ROSTER = [
   {
@@ -9,7 +12,9 @@ const LEADERSHIP_ROSTER = [
     designation: 'Bishop of Mysore Diocese & President, MDES',
     image: '/assets/images/leadership/bishop_francis_serrao.jpg',
     objectPosition: '50% 12%',
-    link: '/about?tab=mdes',
+    link: '/leadership/bishop',
+    role: 'Bishop & President',
+    biography: 'Most Rev. Dr. Francis Serrao, S.J., serves as the Bishop of Mysore and President of the Mysore Diocesan Educational Society (MDES), providing spiritual guardianship and visionary governance across 130 institutions.',
     hasMessage: false,
     actionText: 'View Institutional Society'
   },
@@ -20,6 +25,8 @@ const LEADERSHIP_ROSTER = [
     image: '/media/management/rector_lourdu_prasad.jpg',
     objectPosition: '50% 18%',
     link: '/leadership/rector',
+    role: 'Rector & Manager',
+    biography: "Rector and Manager of St. Philomena's Educational Institutions, guiding the academic, spiritual, and infrastructural growth to ensure holistic student development.",
     hasMessage: true,
     actionText: 'Read Rector’s Message'
   },
@@ -30,22 +37,64 @@ const LEADERSHIP_ROSTER = [
     image: '/media/management/principal_ravi_saldanha.jpg',
     objectPosition: '50% 15%',
     link: '/leadership/principal',
+    role: 'Principal',
+    biography: "Principal of St. Philomena's College (Autonomous), leading academic governance, research advancements, NEP curriculum implementations, and student excellence across faculties.",
     hasMessage: true,
     actionText: 'Read Principal’s Message'
   },
   {
     id: 'financial',
     name: 'Rev. Fr. Roshan',
-    designation: 'Financial Officer',
+    designation: 'Finance Officer',
     image: '/media/management/finance_officer_roshan.jpg',
     objectPosition: '50% 20%',
-    link: '/about?tab=leadership',
+    link: '/leadership/financial-officer',
+    role: 'Finance Officer',
+    biography: "Finance Officer of St. Philomena's College, overseeing institutional financial administration, budgetary stewardship, and fiscal governance.",
     hasMessage: false,
     actionText: 'View Administration'
   }
 ];
 
 export default function ManagementSection() {
+  const [selectedLeader, setSelectedLeader] = useState(null);
+  const [anchorElement, setAnchorElement] = useState(null);
+
+  const liveLeadership = useCms(() => cmsStore.getLeadership());
+  const activeRoster = LEADERSHIP_ROSTER.filter(staticL => {
+    if (!liveLeadership || liveLeadership.length === 0) {
+      const activeList = cmsStore.getActiveLeadership ? cmsStore.getActiveLeadership() : [];
+      if (activeList.length === 0) return true;
+      return activeList.some(l => 
+        l.id === staticL.id || 
+        (l.id === 'president-mdes' && staticL.id === 'bishop-president') ||
+        (l.id === 'finance-officer' && staticL.id === 'financial')
+      );
+    }
+    const match = liveLeadership.find(l => 
+      l.id === staticL.id || 
+      (l.id === 'president-mdes' && staticL.id === 'bishop-president') ||
+      (l.id === 'finance-officer' && staticL.id === 'financial') ||
+      (staticL.id === 'rector' && (l.id === 'rector' || (l.name || '').toLowerCase().includes('lourdu'))) ||
+      (staticL.id === 'principal' && (l.id === 'principal' || (l.name || '').toLowerCase().includes('ravi'))) ||
+      (staticL.id === 'bishop-president' && (l.id === 'president-mdes' || (l.name || '').toLowerCase().includes('francis'))) ||
+      (staticL.id === 'financial' && (l.id === 'finance-officer' || (l.name || '').toLowerCase().includes('roshan')))
+    );
+    if (match) {
+      return match.status !== 'inactive' && match.status !== 'draft';
+    }
+    return false;
+  });
+
+  const handleLeaderClick = (e, leader) => {
+    e.preventDefault();
+    e.stopPropagation();
+    // Anchor directly to the specific image element within the clicked card
+    const imgEl = e.currentTarget.querySelector('img') || e.currentTarget;
+    setSelectedLeader(leader);
+    setAnchorElement(imgEl);
+  };
+
   return (
     <section className="bg-slate-50 text-[#0B1F4E] py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-y border-slate-200/80 relative overflow-hidden">
       
@@ -64,12 +113,12 @@ export default function ManagementSection() {
           </p>
         </div>
 
-        {/* CLEAN, SYMMETRICAL 4-COLUMN LEADERSHIP GRID (CLICKABLE TO OPEN RESPECTIVE MESSAGE PAGES) */}
+        {/* CLEAN, SYMMETRICAL 4-COLUMN LEADERSHIP GRID (CLICKABLE TO OPEN POPUP ANCHORED DIRECTLY TO THE IMAGE) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          {LEADERSHIP_ROSTER.map((leader) => (
-            <Link
+          {activeRoster.map((leader) => (
+            <div
               key={leader.id}
-              to={leader.link}
+              onClick={(e) => handleLeaderClick(e, leader)}
               className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#C9A84C] hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden group cursor-pointer"
             >
               {/* Portrait Image Container */}
@@ -87,8 +136,8 @@ export default function ManagementSection() {
                 {/* Hover overlay hint */}
                 <div className="absolute inset-0 bg-[#0B1F4E]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                   <span className="px-3.5 py-1.5 rounded-full bg-white/95 text-[#0B1F4E] font-bold text-xs shadow-md tracking-wide flex items-center space-x-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                    <span>{leader.hasMessage ? 'Read Message' : 'View Profile'}</span>
-                    <ArrowRight className="w-3 h-3 text-[#a88530]" />
+                    <Maximize2 className="w-3.5 h-3.5 text-[#a88530]" />
+                    <span>View Info</span>
                   </span>
                 </div>
               </div>
@@ -96,22 +145,40 @@ export default function ManagementSection() {
               {/* Full Name & Designation Block (Zero Truncation) */}
               <div className="p-5 flex flex-col justify-between flex-1 text-center bg-white border-t border-slate-100 space-y-3">
                 <div className="space-y-1.5">
-                  <h3 className="font-serif font-bold text-base sm:text-lg text-[#0B1F4E] leading-snug break-words group-hover:text-[#a88530] transition-colors">
+                  <h3 className="font-heading font-semibold text-base sm:text-card text-[#0B1F4E] leading-snug break-words group-hover:text-[#a88530] transition-colors">
                     {leader.name}
                   </h3>
-                  <p className="text-xs font-semibold text-[#a88530] font-sans leading-relaxed break-words">
+                  <p className="text-xs font-medium text-[#a88530] font-sans leading-relaxed break-words">
                     {leader.designation}
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-slate-100/80 flex items-center justify-center space-x-1 text-[11px] font-bold text-[#0B1F4E] group-hover:text-[#a88530] transition-colors">
-                  <span>{leader.actionText}</span>
-                  <ArrowRight className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
+                <div className="pt-2 border-t border-slate-100/80 flex items-center justify-center space-x-1 text-[11px] font-semibold text-[#0B1F4E] group-hover:text-[#a88530] transition-colors">
+                  <Link
+                    to={leader.link}
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex items-center space-x-1 hover:underline"
+                  >
+                    <span>{leader.actionText}</span>
+                    <ArrowRight className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
+
+        {/* Physical Card-Anchored Popup */}
+        {selectedLeader && anchorElement && (
+          <PersonInfoModal
+            person={selectedLeader}
+            anchorElement={anchorElement}
+            onClose={() => {
+              setSelectedLeader(null);
+              setAnchorElement(null);
+            }}
+          />
+        )}
 
         {/* FOOTNOTE SUB-BAR */}
         <div className="pt-4 border-t border-slate-200 flex justify-end text-xs text-slate-500 font-sans">

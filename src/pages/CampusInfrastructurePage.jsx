@@ -207,10 +207,10 @@ export default function CampusInfrastructurePage() {
           <div className="absolute -right-16 -bottom-16 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="space-y-4 max-w-2xl relative z-10">
-            <span className="text-[#FFD84A] font-bold text-xs uppercase tracking-widest block font-mono">
+            <span className="text-[#FFD84A] font-semibold text-xs uppercase tracking-widest block font-mono">
               World-Class Infrastructure
             </span>
-            <h1 className="font-serif font-extrabold text-3xl sm:text-5xl text-white leading-tight">
+            <h1 className="font-heading font-semibold text-2xl sm:text-3xl text-white leading-tight tracking-tight">
               Campus & Physical Infrastructure
             </h1>
             <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-sans">
@@ -262,10 +262,10 @@ export default function CampusInfrastructurePage() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b border-slate-200 pb-4">
           <div>
-            <span className="text-[#1C5496] font-bold text-xs uppercase tracking-widest block font-mono">
+            <span className="text-[#1C5496] font-semibold text-xs uppercase tracking-widest block font-mono">
               Comprehensive Facilities Index
             </span>
-            <h2 className="font-serif font-extrabold text-2xl sm:text-4xl text-slate-900 mt-1">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900 mt-1">
               Explore Campus Wings & Facilities
             </h2>
           </div>
@@ -329,7 +329,7 @@ export default function CampusInfrastructurePage() {
               {/* Body Content */}
               <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
                 <div className="space-y-2.5">
-                  <h3 className="font-serif font-bold text-lg text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug">
+                  <h3 className="font-heading font-semibold text-card text-slate-900 group-hover:text-[#1C5496] transition-colors leading-snug">
                     {fac.title}
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed font-sans">
@@ -363,10 +363,10 @@ export default function CampusInfrastructurePage() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8">
         <div className="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-sm space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-[#1C5496] font-mono font-bold text-xs uppercase tracking-widest">
+            <span className="text-[#1C5496] font-mono font-semibold text-xs uppercase tracking-widest">
               Eco-Friendly & Smart Campus
             </span>
-            <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-900">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900">
               Campus Safety, Green Energy & Facilities
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 font-sans">
@@ -379,7 +379,7 @@ export default function CampusInfrastructurePage() {
               <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
                 <Sun className="w-5 h-5" />
               </div>
-              <h4 className="font-serif font-bold text-base text-slate-900">Solar Energy Grid</h4>
+              <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900">Solar Energy Grid</h4>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Rooftop solar photovoltaic panels generating clean renewable electricity and powering solar water heaters across student hostels.
               </p>
@@ -389,7 +389,7 @@ export default function CampusInfrastructurePage() {
               <div className="w-10 h-10 rounded-xl bg-blue-100 text-[#1C5496] flex items-center justify-center">
                 <Droplet className="w-5 h-5" />
               </div>
-              <h4 className="font-serif font-bold text-base text-slate-900">Rainwater Harvesting</h4>
+              <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900">Rainwater Harvesting</h4>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Integrated rainwater harvesting wells and filtration sumps across all major academic blocks to recharge groundwater levels.
               </p>
@@ -399,7 +399,7 @@ export default function CampusInfrastructurePage() {
               <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h4 className="font-serif font-bold text-base text-slate-900">24/7 Security & CCTV</h4>
+              <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900">24/7 Security & CCTV</h4>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Over 120+ high-definition CCTV security cameras and trained security personnel monitoring all gates, hostels, and corridors.
               </p>
@@ -409,7 +409,7 @@ export default function CampusInfrastructurePage() {
               <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center">
                 <Activity className="w-5 h-5" />
               </div>
-              <h4 className="font-serif font-bold text-base text-slate-900">Health & First Aid Care</h4>
+              <h4 className="font-heading font-semibold text-sm sm:text-base text-slate-900">Health & First Aid Care</h4>
               <p className="text-xs text-slate-600 leading-relaxed">
                 On-campus medical first aid room, registered health counselor, and tie-up with nearby multi-specialty hospitals for emergency care.
               </p>

@@ -7,15 +7,15 @@ export default function CompliancePage() {
     <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-10 space-y-10 text-[#071A33]">
       
       <div className="bg-[#071A33] text-white rounded-2xl p-8 sm:p-12 border-l-8 border-[#FFC928] shadow-md space-y-4">
-        <span className="text-[#FFD84A] font-bold text-xs uppercase tracking-widest block">Quality Assurance</span>
-        <h1 className="font-serif font-extrabold text-3xl sm:text-5xl text-white">IQAC, NAAC & Statutory Disclosures</h1>
+        <span className="text-[#FFD84A] font-semibold text-xs uppercase tracking-widest block">Quality Assurance</span>
+        <h1 className="font-heading font-bold text-2xl sm:text-3xl text-white">IQAC, NAAC & Statutory Disclosures</h1>
         <p className="text-slate-300 max-w-3xl text-xs sm:text-sm leading-relaxed">
           Internal Quality Assurance Cell (IQAC), NAAC Accreditation (Cycle III B++ Grade), AQAR reports, NIRF rankings, and mandatory UGC public disclosures.
         </p>
       </div>
 
       <div className="bg-white border border-slate-200 rounded-xl p-8 shadow-xs space-y-6">
-        <h2 className="font-serif font-bold text-xl text-slate-900 border-b border-slate-100 pb-3">Mandatory Public Disclosures</h2>
+        <h2 className="font-heading font-semibold text-xl sm:text-2xl text-slate-900 border-b border-slate-100 pb-3">Mandatory Public Disclosures</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <a

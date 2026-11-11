@@ -66,11 +66,24 @@ class ContentController extends Controller
             'name' => 'required|string',
             'designation' => 'nullable|string',
             'department' => 'nullable|string',
+            'department_id' => 'nullable|string',
+            'status' => 'nullable|string|in:active,inactive',
             'qualification' => 'nullable|string',
             'profile' => 'nullable|string',
             'photoUrl' => 'nullable|string',
             'source_url' => 'nullable|string',
         ]);
+
+        $deptId = $validated['department_id'] ?? null;
+        if (!$deptId && !empty($validated['department'])) {
+            $matchedDept = Department::where('id', $validated['department'])
+                ->orWhere('name', $validated['department'])
+                ->orWhere('slug', $validated['department'])
+                ->first();
+            if ($matchedDept) {
+                $deptId = $matchedDept->id;
+            }
+        }
 
         $id = $request->input('id');
         if ($id && ($existing = Faculty::find($id))) {
@@ -79,6 +92,8 @@ class ContentController extends Controller
                 'name' => $validated['name'],
                 'designation' => $validated['designation'] ?? $existing->designation,
                 'department' => $validated['department'] ?? $existing->department,
+                'department_id' => $deptId ?? $existing->department_id,
+                'status' => $validated['status'] ?? $existing->status,
                 'qualification' => $validated['qualification'] ?? $existing->qualification,
                 'profile' => $validated['profile'] ?? $existing->profile,
                 'photo_url' => $validated['photoUrl'] ?? $existing->photo_url,
@@ -104,6 +119,8 @@ class ContentController extends Controller
             'name' => $validated['name'],
             'designation' => $validated['designation'] ?? null,
             'department' => $validated['department'] ?? null,
+            'department_id' => $deptId,
+            'status' => $validated['status'] ?? 'active',
             'qualification' => $validated['qualification'] ?? null,
             'profile' => $validated['profile'] ?? null,
             'photo_url' => $validated['photoUrl'] ?? null,
@@ -128,24 +145,40 @@ class ContentController extends Controller
         Gate::authorize('update', $faculty);
 
         $validated = $request->validate([
-            'name' => 'required|string',
+            'name' => 'sometimes|required|string',
             'designation' => 'nullable|string',
             'department' => 'nullable|string',
+            'department_id' => 'nullable|string',
+            'status' => 'nullable|string|in:active,inactive',
             'qualification' => 'nullable|string',
             'profile' => 'nullable|string',
             'photoUrl' => 'nullable|string',
             'source_url' => 'nullable|string',
         ]);
 
-        $faculty->update([
-            'name' => $validated['name'],
-            'designation' => $validated['designation'] ?? $faculty->designation,
-            'department' => $validated['department'] ?? $faculty->department,
-            'qualification' => $validated['qualification'] ?? $faculty->qualification,
-            'profile' => $validated['profile'] ?? $faculty->profile,
-            'photo_url' => $validated['photoUrl'] ?? $faculty->photo_url,
-            'source_url' => $validated['source_url'] ?? $faculty->source_url,
-        ]);
+        $deptId = $validated['department_id'] ?? null;
+        if (!$deptId && !empty($validated['department'])) {
+            $matchedDept = Department::where('id', $validated['department'])
+                ->orWhere('name', $validated['department'])
+                ->orWhere('slug', $validated['department'])
+                ->first();
+            if ($matchedDept) {
+                $deptId = $matchedDept->id;
+            }
+        }
+
+        $updateData = [];
+        if (isset($validated['name'])) $updateData['name'] = $validated['name'];
+        if (array_key_exists('designation', $validated)) $updateData['designation'] = $validated['designation'];
+        if (array_key_exists('department', $validated)) $updateData['department'] = $validated['department'];
+        if ($deptId !== null) $updateData['department_id'] = $deptId;
+        if (isset($validated['status'])) $updateData['status'] = $validated['status'];
+        if (array_key_exists('qualification', $validated)) $updateData['qualification'] = $validated['qualification'];
+        if (array_key_exists('profile', $validated)) $updateData['profile'] = $validated['profile'];
+        if (array_key_exists('photoUrl', $validated)) $updateData['photo_url'] = $validated['photoUrl'];
+        if (array_key_exists('source_url', $validated)) $updateData['source_url'] = $validated['source_url'];
+
+        $faculty->update($updateData);
 
         ActivityLog::create([
             'id' => 'log_' . Str::random(10),

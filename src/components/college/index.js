@@ -1,0 +1,10 @@
+export { default as CollegeBreadcrumb } from './CollegeBreadcrumb';
+export { default as CollegePageHeader } from './CollegePageHeader';
+export { default as CollegeSection } from './CollegeSection';
+export { default as CollegeCard } from './CollegeCard';
+export { default as CollegeFacultyCard } from './CollegeFacultyCard';
+export { default as CollegeDepartmentCard } from './CollegeDepartmentCard';
+export { default as CollegeDocumentCard } from './CollegeDocumentCard';
+export { default as CollegeDataTable } from './CollegeDataTable';
+export { default as CollegeTabs } from './CollegeTabs';
+export * from './collegeTokens';

@@ -126,7 +126,7 @@ export default function NewsEventsPage() {
             <span>OFFICIAL INSTITUTIONAL REPOSITORY</span>
           </div>
 
-          <h1 className="font-serif font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+          <h1 className="font-heading font-bold text-2xl sm:text-3xl text-white tracking-tight leading-tight">
             News, Circulars & Campus Events
           </h1>
 
@@ -245,7 +245,7 @@ export default function NewsEventsPage() {
           {filteredItems.length > 0 ? (
             filteredItems.map((item) => {
               const hasSub = Array.isArray(item.subEvents) && item.subEvents.length > 0;
-              const itemDate = item.event_date || item.date || item.publishDate;
+              const itemDate = item.display_date || item.displayDate || (item.event_date ? String(item.event_date).split('T')[0].split(' ')[0] : '') || (item.date ? String(item.date).split('T')[0].split(' ')[0] : '') || item.publishDate;
               const isPinned = !!item.isPinned;
 
               return (
@@ -294,7 +294,7 @@ export default function NewsEventsPage() {
                       {item.category}
                     </span>
 
-                    <h2 className="font-serif font-bold text-base sm:text-lg text-[#0B1F4E] group-hover:text-[#a88530] transition-colors leading-snug">
+                    <h2 className="font-heading font-semibold text-base sm:text-card text-[#0B1F4E] group-hover:text-[#a88530] transition-colors leading-snug">
                       {item.title}
                     </h2>
 
@@ -319,7 +319,7 @@ export default function NewsEventsPage() {
 
                   <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                     <span className="text-[11px] text-slate-400 font-mono">
-                      {item.refNo || item.id}
+                      {item.ref_no || item.refNo || item.id}
                     </span>
 
                     <Link

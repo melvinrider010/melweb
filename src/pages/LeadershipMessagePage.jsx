@@ -15,10 +15,15 @@ import {
 } from 'lucide-react';
 import { LEADERSHIP_MESSAGES, LEADERSHIP_ROSTER_LIST } from '../data/leadershipMessages';
 import { animatePageIn } from '../animations/pageTransitions';
+import cmsStore from '../lib/cmsStore';
+import useCms from '../lib/useCms';
 
 export default function LeadershipMessagePage({ defaultSlug }) {
   const { slug } = useParams();
   const pageRef = useRef(null);
+
+  // Dynamic reactive leadership list from CMS
+  const allLeadership = useCms(() => cmsStore.getLeadership());
 
   // Determine active key
   let currentKey = slug || defaultSlug || 'rector';
@@ -28,6 +33,8 @@ export default function LeadershipMessagePage({ defaultSlug }) {
   else if (currentKey.includes('principal')) currentKey = 'principal';
   else if (currentKey.includes('bishop') || currentKey.includes('mdes')) currentKey = 'bishop';
   else if (currentKey.includes('financ') || currentKey.includes('roshan')) currentKey = 'financial-officer';
+  else if (currentKey.includes('iqac') || currentKey.includes('thomas') || currentKey.includes('gunaseelan')) currentKey = 'iqac-coordinator';
+  else if (currentKey.includes('pg') || currentKey.includes('noor') || currentKey.includes('mubasheer')) currentKey = 'pg-coordinator';
 
   const leader = LEADERSHIP_MESSAGES[currentKey];
 
@@ -36,11 +43,46 @@ export default function LeadershipMessagePage({ defaultSlug }) {
     animatePageIn(pageRef);
   }, [currentKey]);
 
-  if (!leader) {
-    return <Navigate to="/leadership/rector" replace />;
+  // If leader doesn't exist or is toggled inactive/hidden in CMS, redirect to main leadership directory
+  const isCurrentLeaderActive = (() => {
+    if (!allLeadership || allLeadership.length === 0) return true;
+    const match = allLeadership.find(l => {
+      const lid = (l.id || '').toLowerCase();
+      const lname = (l.name || '').toLowerCase();
+      if (currentKey === 'rector') return lid === 'rector' || lname.includes('lourdu');
+      if (currentKey === 'principal') return lid === 'principal' || lname.includes('ravi');
+      if (currentKey === 'bishop') return lid === 'president-mdes' || lid === 'bishop-president' || lname.includes('francis');
+      if (currentKey === 'financial-officer') return lid === 'finance-officer' || lid === 'financial' || lname.includes('roshan');
+      if (currentKey === 'iqac-coordinator') return lid === 'iqac-coord' || lname.includes('gunaseelan') || lname.includes('thomas');
+      if (currentKey === 'pg-coordinator') return lid === 'pg-coordinator' || lname.includes('mubasheer') || lname.includes('noor');
+      return lid === currentKey;
+    });
+    if (!match) return true;
+    return match.status !== 'inactive' && match.status !== 'draft';
+  })();
+
+  if (!leader || !isCurrentLeaderActive) {
+    return <Navigate to="/about?tab=leadership" replace />;
   }
 
-  const otherLeaders = LEADERSHIP_ROSTER_LIST.filter(l => l.slug !== leader.slug);
+  // Filter other leaders to exclude any who are marked inactive
+  const inactiveKeys = new Set(
+    (allLeadership || [])
+      .filter(l => l.status === 'inactive' || l.status === 'draft')
+      .map(l => {
+        const lid = (l.id || '').toLowerCase();
+        const lname = (l.name || '').toLowerCase();
+        if (lid === 'rector' || lname.includes('lourdu')) return 'rector';
+        if (lid === 'principal' || lname.includes('ravi')) return 'principal';
+        if (lid === 'president-mdes' || lname.includes('francis')) return 'bishop';
+        if (lid === 'finance-officer' || lname.includes('roshan')) return 'financial-officer';
+        if (lid === 'iqac-coord' || lname.includes('gunaseelan')) return 'iqac-coordinator';
+        if (lid === 'pg-coordinator' || lname.includes('mubasheer')) return 'pg-coordinator';
+        return lid;
+      })
+  );
+
+  const otherLeaders = LEADERSHIP_ROSTER_LIST.filter(l => l.slug !== leader.slug && !inactiveKeys.has(l.slug));
 
   return (
     <div ref={pageRef} className="min-h-screen bg-slate-50 text-[#0B1F4E] pt-24 pb-20">
